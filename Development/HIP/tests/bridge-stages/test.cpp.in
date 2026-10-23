@@ -1,0 +1,75 @@
+#include <windows.h>
+#define DLSS5_BENCH_BRIDGE_ISOLATE 1
+#include "hip_d3d12_bridge.h"
+#include "native_game_submission.h"
+#include <iostream>
+using namespace hip_reference;
+static void ck(HRESULT h){if(FAILED(h))throw std::runtime_error("D3D "+std::to_string(unsigned(h)));}
+static ID3D12Resource*buffer(ID3D12Device*d,size_t bytes,D3D12_HEAP_TYPE type){D3D12_HEAP_PROPERTIES hp{};hp.Type=type;D3D12_RESOURCE_DESC rd{};rd.Dimension=D3D12_RESOURCE_DIMENSION_BUFFER;rd.Width=bytes;rd.Height=1;rd.DepthOrArraySize=rd.MipLevels=1;rd.SampleDesc.Count=1;rd.Layout=D3D12_TEXTURE_LAYOUT_ROW_MAJOR;ID3D12Resource*r{};ck(d->CreateCommittedResource(&hp,D3D12_HEAP_FLAG_NONE,&rd,type==D3D12_HEAP_TYPE_UPLOAD?D3D12_RESOURCE_STATE_GENERIC_READ:D3D12_RESOURCE_STATE_COPY_DEST,nullptr,IID_PPV_ARGS(&r)));return r;}
+static void barrier(ID3D12GraphicsCommandList*c,ID3D12Resource*r,D3D12_RESOURCE_STATES a,D3D12_RESOURCE_STATES b){D3D12_RESOURCE_BARRIER x{};x.Type=D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;x.Transition={r,D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES,a,b};c->ResourceBarrier(1,&x);}
+static std::vector<float>read(const char*p){auto b=ReadBytes(p);if(b.size()%4)throw std::runtime_error("float file");std::vector<float>v(b.size()/4);std::memcpy(v.data(),b.data(),b.size());return v;}
+template<class F>void rejects(const char*name,F f,const char*reason=nullptr){try{f();}catch(const std::exception&e){if(reason&&std::string(e.what()).find(reason)==std::string::npos)throw std::runtime_error(std::string("unexpected rejection: ")+name+": "+e.what());printf("REJECT %s %s\n",name,e.what());return;}throw std::runtime_error(std::string("accepted invalid call: ")+name);}
+int main(int argc,char**argv){try{
+ if(argc!=9)throw std::runtime_error("assets modules flags input expected W H graph");unsigned W=std::stoul(argv[6]),H=std::stoul(argv[7]);bool graph=std::stoi(argv[8])!=0;
+ std::ifstream flags(argv[3]);std::string line;while(std::getline(flags,line)){if(!line.empty()&&line.back()=='\r')line.pop_back();auto eq=line.find('=');if(line.rfind("DLSS5_",0)==0&&eq!=std::string::npos)_putenv_s(line.substr(0,eq).c_str(),line.substr(eq+1).c_str());}
+ /* OPTIONS */
+ o.modules=argv[2];o.graph=graph;auto input=read(argv[4]),expected=read(argv[5]);if(input.size()!=size_t(W)*H*4||expected.size()!=size_t(W)*H*3)throw std::runtime_error("shape");
+ IDXGIFactory4*f{};ck(CreateDXGIFactory1(IID_PPV_ARGS(&f)));ID3D12Device*d{};
+ for(UINT i=0;;i++){IDXGIAdapter1*a{};if(f->EnumAdapters1(i,&a)==DXGI_ERROR_NOT_FOUND)break;DXGI_ADAPTER_DESC1 desc{};a->GetDesc1(&desc);if(desc.VendorId==0x1002)ck(D3D12CreateDevice(a,D3D_FEATURE_LEVEL_12_0,IID_PPV_ARGS(&d)));a->Release();if(d)break;}f->Release();if(!d)throw std::runtime_error("AMD missing");
+ ID3D12CommandQueue*q{},*other{};D3D12_COMMAND_QUEUE_DESC qd{};ck(d->CreateCommandQueue(&qd,IID_PPV_ARGS(&q)));ck(d->CreateCommandQueue(&qd,IID_PPV_ARGS(&other)));
+ NativeGameSubmission submit;submit.Create(q,true,nullptr,true);size_t inbytes=input.size()*4,outbytes=expected.size()*4;
+ auto*up=buffer(d,inbytes,D3D12_HEAP_TYPE_UPLOAD),*rgb=buffer(d,inbytes,D3D12_HEAP_TYPE_DEFAULT);ID3D12Resource*rb[3];for(auto&b:rb)b=buffer(d,outbytes,D3D12_HEAP_TYPE_READBACK);
+ void*m{};D3D12_RANGE none{};ck(up->Map(0,&none,&m));std::memcpy(m,input.data(),inbytes);up->Unmap(0,&none);
+ submit.Submit([&](ID3D12GraphicsCommandList*c){c->CopyBufferRegion(rgb,0,up,0,inbytes);barrier(c,rgb,D3D12_RESOURCE_STATE_COPY_DEST,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);});submit.Flush();
+ {
+ D3D12Bridge bridge;bridge.Create(q,o,{});printf("DEVICE arch=%s match=%s modules=%s runtime=%d noise_bytes=0 graph=%u\n",bridge.architecture.c_str(),bridge.device_match.c_str(),bridge.module_directory.c_str(),bridge.runtime_version,unsigned(graph));
+ auto record_readback=[&](ID3D12GraphicsCommandList*c,unsigned slot){auto*r=bridge.Output();barrier(c,r,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE,D3D12_RESOURCE_STATE_COPY_SOURCE);c->CopyBufferRegion(rb[slot],0,r,0,outbytes);barrier(c,r,D3D12_RESOURCE_STATE_COPY_SOURCE,D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE);};
+ auto get=[&](unsigned slot){std::vector<float>v(expected.size());D3D12_RANGE range{0,outbytes};ck(rb[slot]->Map(0,&range,&m));std::memcpy(v.data(),m,outbytes);rb[slot]->Unmap(0,&none);return v;};
+ auto compare=[&](const std::vector<float>&v,const std::vector<float>&ref,const char*tag){size_t diff=0;for(size_t i=0;i<v.size();i++)diff+=std::memcmp(&v[i],&ref[i],4)!=0;printf("CHECK %s bitdiff=%zu\n",tag,diff);if(diff)throw std::runtime_error("output mismatch");};
+ rejects("uninitialized order",[&]{bridge.EnqueueAfterProducer(q,0);});
+ if(graph)submit.Submit([&](ID3D12GraphicsCommandList*c){rejects("staged graph",[&]{bridge.RecordInputCopy(c,rgb);},"graph off");});
+ for(bool temporal:{false,true})for(U seed:{0u,7u}){
+  bridge.Run(submit,rgb,temporal?rgb:nullptr,seed);submit.Submit([&](ID3D12GraphicsCommandList*c){record_readback(c,0);});submit.Flush();auto reference=get(0);
+  if(!temporal&&!seed)compare(reference,expected,"legacy golden");
+  if(graph){bridge.Run(submit,rgb,temporal?rgb:nullptr,seed);submit.Submit([&](ID3D12GraphicsCommandList*c){record_readback(c,0);});submit.Flush();compare(get(0),reference,"legacy graph repeat");continue;}
+  std::vector<float>references[3];references[0]=reference;
+  for(unsigned slot=1;slot<3;slot++){bridge.Run(submit,rgb,temporal?rgb:nullptr,seed+slot);submit.Submit([&](ID3D12GraphicsCommandList*c){record_readback(c,slot);});submit.Flush();references[slot]=get(slot);}
+  bool distinct=std::memcmp(references[0].data(),references[1].data(),outbytes)!=0;printf("DISTINCT_SEEDS %u\n",unsigned(distinct));if(!distinct)throw std::runtime_error("seed fixture does not distinguish stale frames");
+  for(unsigned slot=0;slot<3;slot++){
+   submit.Submit([&](ID3D12GraphicsCommandList*c){bridge.RecordInputCopy(c,rgb,temporal?rgb:nullptr);});
+   if(bridge.WaitForSubmittedWork())throw std::runtime_error("retired before staged submission completed");
+   rejects("wrong producer queue",[&]{bridge.EnqueueAfterProducer(other,seed+slot,temporal);});
+   rejects("wrong history flag",[&]{bridge.EnqueueAfterProducer(q,seed+slot,!temporal);});
+   bridge.EnqueueAfterProducer(q,seed+slot,temporal);
+   rejects("duplicate enqueue",[&]{bridge.EnqueueAfterProducer(q,seed+slot,temporal);});
+   submit.Submit([&](ID3D12GraphicsCommandList*c){bridge.RecordOutputReadable(c);record_readback(c,slot);rejects("reuse before acknowledgement",[&]{bridge.RecordInputCopy(c,rgb);},"stage order");});
+   rejects("wrong consumer queue",[&]{bridge.NotifyOutputSubmitted(other);});
+   bridge.NotifyOutputSubmitted(q);
+  }
+  // All three frames were queued before this wait: shared-buffer reuse must follow queue dependencies.
+  submit.Flush();if(!bridge.WaitForSubmittedWork())throw std::runtime_error("completed stages did not retire");for(unsigned slot=0;slot<3;slot++)compare(get(slot),references[slot],"staged queued output");
+ }
+ if(!graph){
+  ID3D12CommandAllocator*a[2]{};ID3D12GraphicsCommandList*c[2]{};
+  for(unsigned i=0;i<2;i++){ck(d->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT,IID_PPV_ARGS(&a[i])));ck(d->CreateCommandList(0,D3D12_COMMAND_LIST_TYPE_DIRECT,a[i],nullptr,IID_PPV_ARGS(&c[i])));}
+  bridge.RecordInputCopy(c[0],rgb);ck(c[0]->Close());
+  bridge.RecordOutputReadable(c[1]);record_readback(c[1],0);ck(c[1]->Close());
+  rejects("ack before enqueue",[&]{bridge.NotifyOutputSubmitted(q);},"stage order");
+  ID3D12CommandList*producer[]={c[0]},*consumer[]={c[1]};q->ExecuteCommandLists(1,producer);
+  bridge.EnqueueAfterProducer(q,0);q->ExecuteCommandLists(1,consumer);bridge.NotifyOutputSubmitted(q);
+  if(!bridge.WaitForSubmittedWork())throw std::runtime_error("pre-recorded output retirement");compare(get(0),expected,"pre-recorded consumer golden");
+  for(unsigned i=0;i<2;i++){c[i]->Release();a[i]->Release();}
+ }
+ rejects("duplicate acknowledgement",[&]{bridge.NotifyOutputSubmitted(q);});
+ if(!graph){
+  submit.Submit([&](ID3D12GraphicsCommandList*c){bridge.RecordInputCopy(c,rgb);});
+  auto&api=bridge.DiagnosticNetwork().Runtime();auto saved=api.hipModuleLaunchKernel;
+  api.hipModuleLaunchKernel=+[](Handle,unsigned,unsigned,unsigned,unsigned,unsigned,unsigned,unsigned,Handle,void**,void**)->int{return 1;};
+  rejects("injected enqueue error",[&]{bridge.EnqueueAfterProducer(q,0);});api.hipModuleLaunchKernel=saved;
+  rejects("poisoned staged reuse",[&]{bridge.RecordInputCopy(nullptr,rgb);},"bridge unavailable");
+  rejects("poisoned legacy reuse",[&]{bridge.Run(submit,rgb,nullptr,0);},"bridge unavailable");
+ }
+
+ }
+ submit.Flush();up->Release();rgb->Release();for(auto*b:rb)b->Release();other->Release();q->Release();d->Release();puts("PASS staged bridge");return 0;
+}catch(const std::exception&e){fprintf(stderr,"FAIL %s\n",e.what());return 1;}}

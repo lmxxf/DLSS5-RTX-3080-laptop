@@ -1,0 +1,7 @@
+# Append these settings to a complete HIP flags file; this is not a standalone config.
+# Validated with hip-backend/mh-ex-production-modules (includes *_fb_diag entries).
+# Local-only profile; the corrected full MH stream is in full-byte-flags.txt.
+DLSS5_HIP_MH_FEATURE_BYTE=1
+DLSS5_HIP_MH_PROJ_DIAG_FB=1
+DLSS5_HIP_MH_BYTE_STREAM=0
+DLSS5_HIP_VIT_BYTE_STREAM=0

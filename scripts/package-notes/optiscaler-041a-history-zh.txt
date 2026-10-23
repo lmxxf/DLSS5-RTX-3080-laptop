@@ -1,0 +1,38 @@
+0.41-a：房顶闪烁的临时时序实验包
+
+这是完整的普通 OptiScaler 包，保留 0.41 发布后三项优化。正式 0.41 的 ZIP 不变。
+本包默认关闭实验。尚未证明修好了房顶闪烁；请在能复现的原场景对照。
+仅支持普通包的 FFX 前处理、1x；不支持 RE9 专用包、Magpie、3x 或未知运动矢量来源。
+
+测试方法
+1. 先退出游戏。在游戏文件夹完整解压本包，保留自己原来的配置备份。
+2. 在该文件夹打开 PowerShell，运行：
+   powershell -ExecutionPolicy Bypass -File .\temporal-history-test.ps1 -Mode off
+3. 重启游戏，到同一房顶位置，记录亮度闪烁、角色运动与帧率；退出游戏。
+4. 运行：
+   powershell -ExecutionPolicy Bypass -File .\temporal-history-test.ps1 -Mode on
+5. 再重启游戏，在同一位置重复。两次测试使用相同的 1x、关闭自适应等设置，只有实验开关不同。
+
+不要只用 F9 切到 1x：从 3x 启动的会话没有建立实验历史，需要关游戏后重新启动。
+脚本先保存最初的 custom/native 配置与旧 temporal-history.txt 标记，再同步测试键。
+两档都会移走旧标记，避免旧近似时序干扰：OFF 是受控 pureSpatial 基线，不是正式0.41
+所有 legacy 配置的逐字重现。其余配置值、BOM 和换行保留；环境优先覆盖会明确拒绝。
+off→on→off 不覆盖最初备份。测试结束退出游戏后，运行同一脚本 -Mode restore，
+一次恢复原配置和旧标记；原来没有的测试配置会删除。原文件/备份SHA或存在性改变时拒绝覆盖。
+最初备份路径每次都会打印，位于 DLSS5-AMD/history-test-backups。
+
+确认开关真的生效
+查看 DLSS5-AMD/logs/temporal-history-experiment.txt、native-game-oneshot.txt 与 native-hip.txt。
+requested=1 只表示申请了实验；还要看 active=1。首帧/reset 帧 history=0 是正常的；
+后续连续帧应出现 history=1。active=0 或 eligible=0 时看 reason，不能当作“开了也没效果”。
+请把日志和 off/on 同位置的视频一起发来，注明游戏名、分辨率和显卡。
+
+实验范围与限制
+开启模板显式设置 DLSS5_TEMPORAL_MV_UNJITTERED=1，这是“运动矢量不含相机抖动”的
+实验假设，不是程序检测或我们对该游戏的证明；关闭模板也保留同一声明，便于单因素对照。
+程序按 FFX 声明的运动矢量尺度换算，使用当前像素指向上一帧的位置；不额外猜测 jitter 加减。
+FFX preExposure 值、分辨率、运动尺度变化、reset、缺少运动输入或帧间断会清空历史。
+曝光纹理的数值未读取；仅据 FFX preExposure 元数据判断是否需要清空历史。
+这次加入的是网络自己的历史门控，不等同于 OUTPUT_SMOOTH。
+没有深度遮挡判定；运动、遮挡、反光变化可能出现拖影或变糊，请一起观察，不能只看房顶是否不闪。
+默认开关仍为 0；这不是正式修复版，也不宣称与原 NVIDIA 游戏时序完全一致。

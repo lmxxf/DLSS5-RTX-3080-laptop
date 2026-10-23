@@ -1,0 +1,3 @@
+#include "packed_weights.h"
+#include <cstdio>
+int main(){for(unsigned c:{64u,128u,256u}){std::vector<float>v(size_t(8)*c*c,-0.f);for(unsigned row=0;row<c;row++)v[size_t(4)*c*c+size_t(row)*4*c+(row/32)*128+row%128]=1.f;hip_reference::ValidateGroupedMhContract(v,c);v[size_t(4)*c*c+128]=.5f;bool rejected=false;try{hip_reference::ValidateGroupedMhContract(v,c);}catch(const std::runtime_error&){rejected=true;}if(!rejected)return 1;v.resize(size_t(8)*c*c-1);rejected=false;try{hip_reference::ValidateGroupedMhContract(v,c);}catch(const std::runtime_error&){rejected=true;}if(!rejected)return 2;}puts("PASS valid groups, signed zero, nonzero rejection, truncated weights");}

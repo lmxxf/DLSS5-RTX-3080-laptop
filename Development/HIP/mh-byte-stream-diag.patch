@@ -1,0 +1,26 @@
+--- a/Development/HIP/hip_reference_network.h
++++ b/Development/HIP/hip_reference_network.h
+@@ -257,7 +257,7 @@
+   if(!ready_norm){if(opt.fused_qkv_norm){if(opt.qkv_norm_wave_c512&&c==512){if(n%16)throw std::runtime_error("C512 wave QKV token count");Run("mh_fast","mh_qkv_normalize_wave_c512",size_t(n)*3*c,P(input),weights,P(norm),n);}else Run("mh_fast","mh_qkv_normalize_fused",size_t(n)*3*c,P(input),weights,P(norm),n,c);}else{
+   Run("mh_fast","mh_qkv_fast",size_t(n)*3*c,P(input),weights,P(qkv),n,c);
+   Run("mh_fast",opt.fp8_normalized?"mh_qkv_normalize_fast_wave_fp8":opt.mh_wave?"mh_qkv_normalize_fast_wave":"mh_qkv_normalize_fast",size_t(n)*heads,P(qkv),weights,P(norm),n,c);qkv.reset();}}
+-  if((c==64||c==128||c==256)&&opt.packed_weights&&opt.fused_mh&&opt.fp8_av&&opt.fp8_normalized){if(out_byte&&(raw||!feature_byte))throw std::runtime_error("byte attention output needs lattice output and byte feature");auto out=New((cropw?size_t(cropw)*croph:size_t(n))*c/(out_byte?4:1));std::string project=c==64?"c64_attention_project":c==128?"c128_attention_project":"c256_attention_project";if(feature_byte)project+="_fb";if(out_byte)project+="_bout";if(opt.mh_attn_w16&&c==64&&!feature_byte&&!out_byte)project+="_w16";if(opt.mh_proj_diag&&!feature_byte&&!out_byte){project+="_diag";weights=PackedMhWeightDiag(aw,c);}else if(opt.mh_proj_diag_fb&&feature_byte&&!out_byte){project+="_diag";weights=PackedMhWeightDiag(aw,c);}Run("mh_fused",project.c_str(),windows,P(norm),weights,P(input),P(out),w,h,U(raw?3:rounded_output?0:4),cropw,croph,sx,sy);return out;}
++  if((c==64||c==128||c==256)&&opt.packed_weights&&opt.fused_mh&&opt.fp8_av&&opt.fp8_normalized){if(out_byte&&(raw||!feature_byte))throw std::runtime_error("byte attention output needs lattice output and byte feature");auto out=New((cropw?size_t(cropw)*croph:size_t(n))*c/(out_byte?4:1));std::string project=c==64?"c64_attention_project":c==128?"c128_attention_project":"c256_attention_project";if(feature_byte)project+="_fb";if(out_byte)project+="_bout";if(opt.mh_attn_w16&&c==64&&!feature_byte&&!out_byte)project+="_w16";if(opt.mh_proj_diag&&!feature_byte&&!out_byte){project+="_diag";weights=PackedMhWeightDiag(aw,c);}else if(opt.mh_proj_diag_fb&&feature_byte){project+="_diag";weights=PackedMhWeightDiag(aw,c);}Run("mh_fused",project.c_str(),windows,P(norm),weights,P(input),P(out),w,h,U(raw?3:rounded_output?0:4),cropw,croph,sx,sy);return out;}
+   if(feature_byte||out_byte)throw std::runtime_error("byte feature/output requires the fused attention-project path");
+   auto av=New(size_t(n)*c/(opt.fp8_av?4:1)),out=New((cropw?size_t(cropw)*croph:size_t(n))*c);if(opt.fused_mh){Run("mh_fused",opt.fp8_av?"mh_attention_fused_fp8_out":opt.fp8_normalized?"mh_attention_fused_fp8":"mh_attention_fused",size_t(windows)*heads,P(norm),weights,P(av),w,h,c);norm.reset();}else{
+   auto ex=New(size_t(windows)*heads*4096),prob=New(size_t(windows)*heads*4096);
+--- a/hip/multihead_fused_attention.hip
++++ b/hip/multihead_fused_attention.hip
+@@ -453,3 +453,12 @@
+ void c256_attention_project_fb_diag(const unsigned char*normalized,const float*w,const unsigned char*feature,float*out,uint width,uint height,uint post,uint cropw,uint croph,uint sx,uint sy){c256_attention_project_body<true,false,true>(normalized,w,feature,out,width,height,post,cropw,croph,sx,sy);}
+ KERNEL __attribute__((amdgpu_flat_work_group_size(512,512)))
+ void c256_attention_project_fb_bout(const unsigned char*normalized,const float*w,const unsigned char*feature,unsigned char*out,uint width,uint height,uint post,uint cropw,uint croph,uint sx,uint sy){c256_attention_project_body<true,true>(normalized,w,feature,out,width,height,post,cropw,croph,sx,sy);}
++
++KERNEL __attribute__((amdgpu_flat_work_group_size(256,256)))
++void c64_attention_project_fb_bout_diag(const unsigned char*normalized,const float*w,const unsigned char*feature,unsigned char*out,uint width,uint height,uint post,uint cropw,uint croph,uint sx,uint sy){c64_attention_project_body<true,true,true>(normalized,w,feature,out,width,height,post,cropw,croph,sx,sy);}
++
++KERNEL __attribute__((amdgpu_flat_work_group_size(512,512)))
++void c128_attention_project_fb_bout_diag(const unsigned char*normalized,const float*w,const unsigned char*feature,unsigned char*out,uint width,uint height,uint post,uint cropw,uint croph,uint sx,uint sy){c128_attention_project_body<true,true,true>(normalized,w,feature,out,width,height,post,cropw,croph,sx,sy);}
++
++KERNEL __attribute__((amdgpu_flat_work_group_size(512,512)))
++void c256_attention_project_fb_bout_diag(const unsigned char*normalized,const float*w,const unsigned char*feature,unsigned char*out,uint width,uint height,uint post,uint cropw,uint croph,uint sx,uint sy){c256_attention_project_body<true,true,true>(normalized,w,feature,out,width,height,post,cropw,croph,sx,sy);}

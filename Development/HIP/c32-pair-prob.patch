@@ -1,0 +1,30 @@
+--- a/hip/c32_fused_ffn_attention.hip
++++ b/hip/c32_fused_ffn_attention.hip
+@@ -30,6 +30,9 @@
+ #endif
+ #ifndef HIP_C32_STAGE_PREFETCH
+ #define HIP_C32_STAGE_PREFETCH 1 /* 2026-09-17: -0.68ms together with BRANCHLESS_F, bit-exact. lane staging issues all 16 token loads before any conversion (ISA showed load -> s_wait_loadcnt 0 -> branchy F per token, 16 serialized latencies per wave) */
++#endif
++#ifndef HIP_C32_PAIR_PROB
++#define HIP_C32_PAIR_PROB 0
+ #endif
+ #ifndef HIP_C32_ABLATE
+ #define HIP_C32_ABLATE 0 /* timing-only ablation, never production: 1 skip FFN expand+contract, 2 skip scores/softmax/AV, 3 skip projection+output */
+@@ -385,7 +388,17 @@
+   ATTN_SYNC(); // every lane of this wave has read its ex values before the rows are reused for probabilities
+   for(uint key=0;key<64;key+=16)for(uint e=0;e<8;e++){uint row=gr()*8+e,k=key+rc();prob[row*68+k]=static_cast<unsigned char>(fp8(pv[key/16][e]));}
+ #else
++#if HIP_C32_PAIR_PROB
++  for(uint key=0;key<64;key+=32)for(uint e=0;e<8;e++){
++   uint row=first+gr()*8+e,k=key+rc();float inv=1.f/sum[e];
++   float a=float(scratch.ex[row*66+k])*inv,b=float(scratch.ex[row*66+k+16])*inv;
++   a=__builtin_fminf(__builtin_fmaxf(a,-448.f),448.f);b=__builtin_fminf(__builtin_fmaxf(b,-448.f),448.f);
++   uint pair=uint(__builtin_amdgcn_cvt_pk_fp8_f32(a,b,0,false));
++   prob[row*68+k]=static_cast<unsigned char>(pair);prob[row*68+k+16]=static_cast<unsigned char>(pair>>8);
++  }
++#else
+   for(uint key=0;key<64;key+=16)for(uint e=0;e<8;e++){uint row=first+gr()*8+e,k=key+rc();float v=float(scratch.ex[row*66+k])*(1.f/sum[e]);prob[row*68+k]=static_cast<unsigned char>(fp8(v));}
++#endif
+ #endif
+  }
+  ATTN_SYNC();

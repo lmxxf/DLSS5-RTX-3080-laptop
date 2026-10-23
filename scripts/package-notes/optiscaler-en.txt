@@ -1,0 +1,114 @@
+OptiScaler-DLSS5-AMD @VERSION@ — standard full game package
+
+0.44 F9 hotfix: safe output ownership across model changes, resident dual-model weights and pre-wait cold preparation; F9 changes memory immediately even if configuration is read-only. Fully exit the game before upgrading.
+
+
+0.44 defaults to the 31-block Small model from 310.9.16 (0.5x), with 1080/900/720/free geometry, Small adaptive ViT reuse and MODE1 history. F9 cycles 0.5 -> 1 -> 2 -> 3; missing Small assets log a fallback to 1x.
+
+RX9070XT full-frame replay: 1080 tier 5.554 ms/frame (-39.35%); 900 tier 4.377 ms/frame (same-batch 1x 6.559, -33.26%). This is a different trained model and changes default output. Original 71-block 1x remains available. Small vs RTX5090 internal Post: 47.40/47.70 dB at 900/720; not NVIDIA bit-exact.
+
+Small and Original weights coexist; all 80 modules are reused. F8 toggles AE/EXACT. MODE1 suspends for 2x/3x and resumes for 0.5x/1x. Personal overrides are preserved; remove an older MULTI_PASS=1 override or change it to 0.5 for the new default.
+
+--- Historical notes ---
+
+0.43 improves weight access, intermediate data movement and up/downsampling over0.42. Tested900/1080 fixed Frame configurations remain bit-identical to control; no block skipping or reduced numerical precision is introduced for these optimizations.
+
+- Updated C512/C32/ViT weight reads and byte-stream edges reduce repeated conversion and memory traffic.
+- Modes2/3 reuse bounded descriptor/constant rings, reducing per-frame allocation and synchronization. Temporal processing remains off by default.
+- Defaults remain MODE0 /1x /SKIN0. PRED1 applies only at3x; explicit PRED0 retains three real passes. Optional temporal modes and configuration priority are preserved.
+- Tested on RX9070XT. gfx1200 is compile/ELF-target/checksum verified only, not hardware performance validated. Unresolved specular flicker is not claimed fixed.
+- Keep personal custom-config.txt/native-game-flags.txt when upgrading. See sources/configuration/CONFIGURATION.md.
+
+Historical usage notes follow. The first line and DLSS5-AMD-VERSION.txt identify the current version.
+
+--- Historical0.41 notes ---
+0.41
+Default remains 1x. Selecting 3x defaults to two real passes plus a predicted third (lossy); DLSS5_MULTI_PASS_PREDICT=0 restores real three passes. Prediction leaves 1x/2x unchanged; skin defaults off. Adds first-frame preallocation, HIP device binding, RE9 strength configuration and bit-exact kernel improvements. Extended FAST_NUMERIC itself changes 1x/2x arithmetic. Existing custom/native overrides remain. See sources/configuration/CONFIGURATION.md.
+
+The following 0.40 notes are historical, not a new-package FPS/timing promise.
+0.40
+1. Default output changed: all 71 blocks + fast numerics (DLSS5_SKIP_BLOCKS= empty, DLSS5_FAST_NUMERIC=1). Against NVIDIA 44.26 -> 47.55 dB, no overall colour shift; about 0.12/0.19 ms (900/1080) slower per frame than 0.39. For the 0.39 output write DLSS5_SKIP_BLOCKS=42,43,46 and DLSS5_FAST_NUMERIC=0 in custom-config.txt.
+2. Multi pass DLSS5_MULTI_PASS=1/2/3 (default 1): the network runs again on its own output, stronger style, about N times the cost. In game F9 cycles 1 -> 2 -> 3 from the next frame and saves the choice in custom-config.txt (also rewrites the line in native-game-flags.txt if that file sets it; no effect if a system environment variable of the same name is set). Other key: DLSS5_MULTI_PASS_HOTKEY (F1-F24 or a key code, 0 = off). Stellar Blade 2K, in game: 57/37/27 fps for 1/2/3 passes; 3 passes pair well with frame generation.
+3. Three config files, see "Config files" below. Behaviour change: a system environment variable now wins over the files (before, the file won).
+4. Bit-exact speed-ups: C32/C64 window kernels built with LLVM 23, a dedicated C32 build for the 1080 tier and more; offline about -0.1 ms (900) / -0.2 ms (1080) per frame.
+
+Config files (three layers from 0.40; a later layer overrides the same key of an earlier one)
+1. DLSS5-AMD/default-config.txt: the package defaults (repository template). Overwritten by every upgrade; do not edit it.
+2. DLSS5-AMD/custom-config.txt: your own settings. Not shipped: copy custom-config.template.txt to custom-config.txt the first time and write only the lines you change (e.g. DLSS5_MULTI_PASS=2). Install and upgrade never touch it.
+3. DLSS5-AMD/native-game-flags.txt: the old single file. An existing one keeps working and wins over custom-config.txt; packages no longer ship it, so unpacking an upgrade over an old install leaves it alone.
+A DLSS5_* system environment variable wins over all three files. Same key twice in one file: the last line wins; an empty value (KEY=) means the built-in default.
+
+Lossy options (all optional; put them in custom-config.txt)
+- On by default: DLSS5_FAST_NUMERIC=1 (fast numerics; worst frame about 51.8 dB against the bit-exact output, essentially unchanged against NVIDIA; 0 = bit-exact, 0.07-0.13 ms slower per frame).
+- DLSS5_SKIP_BLOCKS=42,43,46: skip three blocks, 0.20/0.32 ms faster (900/1080), about -3.3 dB against NVIDIA with an overall colour shift. Together with DLSS5_FAST_NUMERIC=0 this is the 0.39 output.
+- DLSS5_NETWORK_1080_ROWS=1088: 1080 tier about 0.45 ms faster, about 54-56 dB against 1152 rows.
+- DLSS5_NETWORK_HEIGHT=900: inputs that would use the 1080 tier run at 900, about 2.7 ms faster; quality cost not measured.
+- DLSS5_MULTI_PASS_SKIP_BLOCKS: skip blocks in multi-pass passes 2..N only. Saves little; longer lists change the style. Not recommended.
+
+0.39
+Default output bit-identical to 0.38 (same output, byte for byte). Faster bit-exact kernels (C512 FFN done in registers by one wave, ViT QKV/attention, hoisted weight loads in C32/C64, wider decode, ...). Offline network: 900 tier about 7.27 -> 6.8 ms, 1080 tier about 10.05 -> 9.5 ms; Stellar Blade at 2K about +1.5-2 fps.
+New switch: DLSS5_STYLE=1 (NVIDIA NGX Style control, 0/1/2). 1 = the style the original runtime used in Stellar Blade and the value every earlier package had built in (default, bit-identical); 0 = NVIDIA's default, closest to its reference output; 2 = the third style. Needs a game restart.
+Reproducible add-on build: the same source gives the same file wherever it is built.
+
+0.38
+Default output bit-identical to 0.37 (same output, byte for byte). Faster kernels:
+1. 900 tier: C512 shift-pack launches removed (16-token padded allocation; falls back automatically if the buffer is too small).
+2. C32: block-4 skip/downsample, prefix down and block-69 main stored as E4M3 bytes; all-zero diagonal residual halves skipped; prefix/finish byte tails written 8 bytes at a time.
+3. Leaner quantisation (proved over all 2^32 inputs): FP8 rounding via a bit mask at the C64/C256 and C512 exits; C512 QKV-attention drops a redundant clamp and uses a bounded reciprocal; C256 FFN reads weights in 16-byte fragments; C512 byte copies via LDS transpose with wide stores; small occupancy caps (C512 mix, ViT contract).
+Kernel launches per frame: 900 tier 179 -> 162, 1080 tier 162 -> 158. Network offline (full-frame replay): 900 tier about 8.0 -> 7.6 ms, 1080 tier about 10.8 -> 10.4 ms.
+New switches: DLSS5_FORMAT_FALLBACK=1 (colour formats outside the original table, e.g. R10G10B10A2, B8G8R8X8, R9G9B9E5, R32G32B32(A32), are converted to RGBA16F on the pre-upscale route; formats accepted before are unchanged; 0 = off). DLSS5_HOT_RELOAD=1 (editing DLSS5_STRENGTH / DLSS5_NOTICE / DLSS5_SHOW_FPS in this file applies within a second, no restart; other keys still need a restart).
+Optional, LOSSY, off by default: DLSS5_NETWORK_1080_ROWS=1088 runs the 1080 tier on 1088 rows instead of NVIDIA's 1152 (about -0.47 ms, output differs over the whole frame, about 56 dB vs 1152). Leave it at 1152 for NVIDIA's geometry.
+
+0.37
+All steps bit-identical to 0.36 (same output, byte for byte). Faster kernels only:
+1. C512 compact point-wise layout: the FFN/conv run on the effective tiles only; padding is applied when attention reads (about -2% on both tiers).
+2. C512 head pooling + projection fused into one launch; ViT attention score layout transposed.
+3. C256 persistent stage (DLSS5_HIP_SWIN_RUN=1, new, on in this template): the six inner layers of C256 encoder/decoder run from a device ready queue; a ~100 ms timeout replays the stage on the GPU and disables it for the session. 0 restores the previous launches.
+4. New ViT attention kernel (640 tokens about 71 -> 38 us) and ViT QKV with five waves sharing weights through LDS (about 49 -> 37 us).
+Kernel launches per frame: 900 tier 198 -> 179, 1080 tier 182 -> 162. Network offline 900 tier about 8.5 -> 8.0 ms. Stellar Blade 2560x1440 native AA, EXACT: 54 -> 55-56.
+
+0.36
+1. Leaner arithmetic (bit-identical to the previous build at each step): the C32 activation drops a redundant NaN canonicalization; the C64-C256 softmax uses a bounded reciprocal (same summation order and rounding fix-up).
+2. Float FMA activation (C32, C64-C256, ViT/C512): multiply-add contracted into one float FMA with a single rounding (NVIDIA's original also uses a single-rounding half FMA here). This changes the output slightly: 0.36 is NOT bit-identical to 0.35 (error against NVIDIA's reference is essentially unchanged); 0.36 is the new bit-exact baseline.
+3. Fused blocks: C256 whole-block kernel with FFN weights shared across token groups (1080 tier); C512 QKV + attention fused; C64/C128 FFN weight reuse; C32/C64/C128 upsample fused into the first block. Kernel launches per frame at 1080: 214 -> 182.
+4. Direct input (DLSS5_DIRECT_IO=1, default): the input pass writes straight into the HIP shared buffer (one 35 MB copy less). Value 3 also hands the decoded output straight to FSR in pre-upscale mode (not a default); 0 restores the old path.
+5. Frame-time log DLSS5_FRAME_STATS=<seconds> (default 0): one line per window to DLSS5-AMD\logs\frame-stats.txt.
+Network offline vs 0.35: 900 tier about -0.79 ms (-8.5%), 1080 tier about -1.13 ms (-8.9%). Stellar Blade 1080p native AA, EXACT: about 57 -> 59-60 (now at the 60 Hz window cap); 2560x1440 native AA, EXACT: 54 (new reference point).
+
+0.35
+1. Three bit-exact C32 rounds: duplicate FP8 round trips removed, RTZ and LDS stores vectorized, per-segment saturation mode in the packing sections, full-window fast paths in prefix/finish.
+2. ViT byte stream (DLSS5_HIP_VIT_STREAM=3, new vit-stream module): the attention AV result goes to the projection as bytes and the contract step uses the half interface; compatible with adaptive reuse. 1080 tier about -1.3%.
+Network offline 900 tier about 9.3 ms, 1080 tier about 12.75 ms (0.34: 9.6 / 13.4). Stellar Blade 1080p native AA, EXACT common scenes 54 -> about 56.7.
+0.34 -> 0.35 kernel output is bit-identical.
+
+0.34
+1. Fewer plain ALU instructions (bit-identical): clamps before FP8 conversion as a single med3/fmed3 without the compiler's canonicalize; the C64-C256 packing sections switch saturation mode per segment and fold the product and the -0 -> +0 into one fma. Network offline 900 tier 9.80 -> about 9.6 ms, 1080 tier 13.64 -> about 13.4 ms; Stellar Blade 1080p native AA, EXACT: main menu 50-51, common scenes 54.
+2. The PDL tile-flag counter could wrap after a long session and release a consumer early; fixed. PDL buffers are freed on exit.
+0.33 -> 0.34 kernel output is bit-identical.
+
+0.33
+1. FP8 packing: the C32 and C64-C256 kernels convert two values per instruction straight into the matrix fragment instead of assembling bytes (bit-identical). Network offline 900 tier 10.74 -> 9.80 ms, 1080 tier 15.01 -> 13.64 ms (about -9%); Stellar Blade 1080p native AA, EXACT: main menu 47-48 -> 49-50, common scenes 51-52 -> 53-54.
+2. The status line ends with AE/EXACT (visible when F8 toggles; it used to sit on the hidden FPS line); F7 hides/shows the on-screen text.
+0.32 -> 0.33 kernel output is bit-identical.
+
+0.32
+1. Switching resolution or DLSS preset no longer leaks VRAM: the AMD HIP driver never returns imported shared buffers, so each switch used to lose 70-90 MB (several GB after dozens of switches); buffers are now reused per network tier, capped around 200 MB.
+2. C32 input reads as whole-line vector loads (bit-identical, about -0.9%).
+0.31 -> 0.32 kernel output is bit-identical.
+
+1. Tier choice: an input at most 10% beyond a tier on both axes is fitted DOWN into it instead of UP into the next. 2K quality (1707x961) used to be upscaled into the 1080 tier (35% more interpolated pixels); it now takes a 6% downscale into 900. Stellar Blade 2K quality main menu about 47 -> 57 fps.
+2. One-head-per-wave kernels: C32/C64/C128 blocks and C256 attention keep a whole head's window in one wave's registers (DLSS5_HIP_WAVE_OWNED=1). Bit-identical, about -6% whole network.
+3. C512 QKV/mix at 32 tokens per wave (DLSS5_HIP_C512_M32=1, about -1.3%); ViT projection 64 columns per wave (DLSS5_HIP_VIT_PROJ_N64=1, about -1.8% at 1080). Bit-identical.
+Set any of the three flags to 0 to return to the 0.30 path. 0.30 -> 0.31 kernel output is bit-identical (the tier rule changes the fit, not the network arithmetic).
+4. Adaptive ViT reuse on by default (DLSS5_VIT_ADAPTIVE=1): while the picture is still, ViT results are reused across frames (+3 fps on Stellar Blade's static main menu); any motion falls back to full computation at no extra cost. F8 toggles reuse/full. Lossy; set 0 to disable.
+Measured (RX 9070 XT, over Splashtop, Stellar Blade main menu): 2K quality 57 fps (simple scene hits a 60 cap), 2K Native AA 43-44.
+The regular OptiScaler framework retains the 0.27 baseline; this is not the RE9 host.
+
+Exit the game, back up existing mod files, and extract ALL files beside the actual game executable (often Binaries/Win64). Select DLSS input in the game; OptiScaler routes it to FSR. Supported integration is low-resolution rendering → DLSS5 → FSR → display. Neural input is no longer size-limited: tiers are 720/900/1080 and an input at most 10% beyond a tier is fitted down into it; above 1080p it is fitted onto the 1080 tier and restored (DLSS5_FIT_LARGE=1). F6 toggles NR; F7 hides/shows the on-screen text; F8 toggles reuse/full compute; Insert opens OptiScaler; Home opens ReShade.
+
+DLSS5-AMD/default-config.txt is the repository standard template, NETWORK_HEIGHT=auto. Default is all 71 blocks + fast numerics (see "Lossy options"); adaptive reuse is on (F8 switches reuse/full; set DLSS5_VIT_ADAPTIVE=0 to disable). DLSS5_SHOW_FPS and DLSS5_NOTICE control the corresponding information.
+
+Use this route for existing supported games such as Stellar Blade, Lies of P and Cyberpunk 2077 (2.31, no configuration). RE9 uses the separate REFramework package; do not mix the two hosts/runtimes. Avoid simultaneously processing the same game through Magpie.
+
+Full model and gfx1200/gfx1201 modules included. Requires AMD driver HIP7 (amdhip64_7.dll); RX9070XT tested, gfx1200 hardware feedback still needed. Verify files with SHA256SUMS.txt. Framework and third-party licenses remain included.
+https://github.com/lmxxf/dlss5-on-amd-9070xt-porting

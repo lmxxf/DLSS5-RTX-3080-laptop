@@ -1,0 +1,9 @@
+# Append to a complete HIP configuration. Requires native-c256-fragment.addon64
+# and a matched module set (latest: c256-frag-production-modules), including
+# the decoder tail fix and *_fb_bout_diag entries.
+DLSS5_HIP_MH_FEATURE_BYTE=1
+DLSS5_HIP_MH_PROJ_DIAG_FB=1
+DLSS5_HIP_MH_BYTE_STREAM=1
+DLSS5_HIP_VIT_BYTE_STREAM=0
+DLSS5_HIP_DECODER_BYTE=1
+DLSS5_HIP_MH_FFN_FRAG256=1

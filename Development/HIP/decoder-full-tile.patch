@@ -1,0 +1,28 @@
+--- a/hip/deep_fast.hip
++++ b/hip/deep_fast.hip
+@@ -203,13 +203,20 @@
+ WAVE void decoder_project2x(const float*in,const float*w,const float*skip,float*out,uint iw,uint ih,uint ow,uint oh,uint inputs,uint outputs){uint first=bid()/(outputs/16)*16,row=bid()%(outputs/16)*16;if(first>=iw*ih)return;uint parts=inputs==1024?4:1;f8 total{};for(uint p=0;p<parts;p++){f8 a{};for(uint k=p*(inputs/parts);k<(p+1)*(inputs/parts);k+=16){h8 x{},y{};for(uint e=0;e<8;e++){uint j=k+gr()*8+e;x[e]=first+rc()<iw*ih?(_Float16)in[(first+rc())*inputs+j]:(_Float16)0;y[e]=(_Float16)w[(row+rc())*inputs+j];}a=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,y,a);}for(uint e=0;e<8;e++)total[e]=p?total[e]+a[e]:a[e];}for(uint e=0;e<8;e++){uint token=first+gr()*8+e;if(token>=iw*ih)continue;float t=H(total[e]);for(uint dy=0;dy<2;dy++)for(uint dx=0;dx<2;dx++){uint x=(token%iw)*2+dx,y=(token/iw)*2+dy;if(x>=ow||y>=oh)continue;uint i=(y*ow+x)*outputs+row+rc();float merged=H(t+F(skip[i])*w[inputs*outputs+row+rc()]);out[i]=outputs==32?merged:F(merged);}}}
+ // Prepacked-half twin of decoder_project2x (host option decoder_h16w): the [outputs][inputs] matrix arrives as RNE halves
+ // (same values the (_Float16) cast produces), one 16-byte load per B fragment; the skip scale stays f32 at its offset.
+-WAVE void decoder_project2x_h16w(const float*in,const float*w,const float*skip,float*out,uint iw,uint ih,uint ow,uint oh,uint inputs,uint outputs){uint first=bid()/(outputs/16)*16,row=bid()%(outputs/16)*16;if(first>=iw*ih)return;uint parts=inputs==1024?4:1;f8 total{};const _Float16*w16=reinterpret_cast<const _Float16*>(w);for(uint p=0;p<parts;p++){f8 a{};for(uint k=p*(inputs/parts);k<(p+1)*(inputs/parts);k+=16){h8 x{},y;for(uint e=0;e<8;e++){uint j=k+gr()*8+e;x[e]=first+rc()<iw*ih?(_Float16)in[(first+rc())*inputs+j]:(_Float16)0;}__builtin_memcpy(&y,w16+(row+rc())*inputs+k+gr()*8,16);a=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,y,a);}for(uint e=0;e<8;e++)total[e]=p?total[e]+a[e]:a[e];}
++template<bool FullTile>
++DEV void decoder_project2x_h16w_body(const float*in,const float*w,const float*skip,float*out,uint iw,uint ih,uint ow,uint oh,uint inputs,uint outputs){uint first=bid()/(outputs/16)*16,row=bid()%(outputs/16)*16;if(first>=iw*ih)return;uint parts=inputs==1024?4:1;f8 total{};const _Float16*w16=reinterpret_cast<const _Float16*>(w);for(uint p=0;p<parts;p++){f8 a{};for(uint k=p*(inputs/parts);k<(p+1)*(inputs/parts);k+=16){h8 x{},y;for(uint e=0;e<8;e++){uint j=k+gr()*8+e;x[e]=(FullTile||first+rc()<iw*ih)?(_Float16)in[(first+rc())*inputs+j]:(_Float16)0;}__builtin_memcpy(&y,w16+(row+rc())*inputs+k+gr()*8,16);a=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,y,a);}for(uint e=0;e<8;e++)total[e]=p?total[e]+a[e]:a[e];}
+ #if HIP_DEC_HOIST_SCALE
+  const float ss=w[inputs*outputs+row+rc()]; // skip scale once per lane (was re-read per output element behind the out[] stores)
+- for(uint e=0;e<8;e++){uint token=first+gr()*8+e;if(token>=iw*ih)continue;float t=H(total[e]);for(uint dy=0;dy<2;dy++)for(uint dx=0;dx<2;dx++){uint x=(token%iw)*2+dx,y=(token/iw)*2+dy;if(x>=ow||y>=oh)continue;uint i=(y*ow+x)*outputs+row+rc();float merged=H(t+F(skip[i])*ss);out[i]=outputs==32?merged:F(merged);}}}
+-#else
+- for(uint e=0;e<8;e++){uint token=first+gr()*8+e;if(token>=iw*ih)continue;float t=H(total[e]);for(uint dy=0;dy<2;dy++)for(uint dx=0;dx<2;dx++){uint x=(token%iw)*2+dx,y=(token/iw)*2+dy;if(x>=ow||y>=oh)continue;uint i=(y*ow+x)*outputs+row+rc();float merged=H(t+F(skip[i])*w[inputs*outputs+row+rc()]);out[i]=outputs==32?merged:F(merged);}}}
+-#endif
++ for(uint e=0;e<8;e++){uint token=first+gr()*8+e;if(!FullTile&&token>=iw*ih)continue;float t=H(total[e]);for(uint dy=0;dy<2;dy++)for(uint dx=0;dx<2;dx++){uint x=(token%iw)*2+dx,y=(token/iw)*2+dy;if(x>=ow||y>=oh)continue;uint i=(y*ow+x)*outputs+row+rc();float merged=H(t+F(skip[i])*ss);out[i]=outputs==32?merged:F(merged);}}}
++#else
++ for(uint e=0;e<8;e++){uint token=first+gr()*8+e;if(!FullTile&&token>=iw*ih)continue;float t=H(total[e]);for(uint dy=0;dy<2;dy++)for(uint dx=0;dx<2;dx++){uint x=(token%iw)*2+dx,y=(token/iw)*2+dy;if(x>=ow||y>=oh)continue;uint i=(y*ow+x)*outputs+row+rc();float merged=H(t+F(skip[i])*w[inputs*outputs+row+rc()]);out[i]=outputs==32?merged:F(merged);}}}
++#endif
++WAVE void decoder_project2x_h16w(const float*in,const float*w,const float*skip,float*out,uint iw,uint ih,uint ow,uint oh,uint inputs,uint outputs){
++ uint first=bid()/(outputs/16)*16,n=iw*ih;
++ if(first<n&&n-first>=16)decoder_project2x_h16w_body<true>(in,w,skip,out,iw,ih,ow,oh,inputs,outputs);
++ else decoder_project2x_h16w_body<false>(in,w,skip,out,iw,ih,ow,oh,inputs,outputs);
++}
++
+ template<bool ByteInput=false>
+ DEV f8 dot16(const float*in,const float*w,uint first,uint row,uint instride,uint kcols,uint inoff,uint woff,f8 a){for(uint k=0;k<kcols;k+=16){h8 x{},y{};for(uint e=0;e<8;e++){uint j=k+gr()*8+e;if constexpr(ByteInput)x[e]=(_Float16)__builtin_amdgcn_cvt_f32_fp8(int(reinterpret_cast<const unsigned char*>(in)[(first+rc())*instride+inoff+j]),0);else x[e]=(_Float16)in[(first+rc())*instride+inoff+j];y[e]=(_Float16)w[woff+(row+rc())*kcols+j];}a=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,y,a);}return a;}
+ WAVE void split_mix(const float*in,const float*w,float*out,uint tokens){uint first=bid()/32*16,row=bid()%32*16;if(first>=tokens)return;f8 a{};a=dot16(in,w,first,row,512,512,0,0,a);for(uint e=0;e<8;e++)out[(first+gr()*8+e)*512+row+rc()]=F(Hrtz(a[e]));}

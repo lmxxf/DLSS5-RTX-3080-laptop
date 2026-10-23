@@ -1,0 +1,25 @@
+#define main unused_c32_validation_main
+#include "c32_validate.cpp"
+#undef main
+// ASSETS REF_MODULE WMMA_MODULE TILED_MODULE OUTPUT_PREFIX [timing_repeats=20]
+int main(int argc,char**argv){try{
+ if(argc<6||argc>7){puts("usage: c32_tiled_validate.exe assets ref.hsaco wmma.hsaco tiled.hsaco prefix [repeats]");return 2;}clear_flags();const auto dir=wide(argv[1]);auto fw=read(dir+L"\\block1-ffn.f32",8736),aw=read(dir+L"\\block1-attention.f32",8225);std::string prefix=argv[5];unsigned repeats=argc==7?unsigned(std::stoul(argv[6])):20;if(!repeats||repeats>1000)throw std::runtime_error("repeat range");
+ hip_probe::Api hip;hip.Check(hip.hipInit(0),"init");hip.Check(hip.hipSetDevice(0),"device");Handle modules[3]{};for(unsigned i=0;i<3;i++)hip.Check(hip.hipModuleLoad(&modules[i],argv[2+i]),"module");
+ using CreateEvent=int(*)(Handle*,unsigned);using RecordEvent=int(*)(Handle,Handle);using SyncEvent=int(*)(Handle);using ElapsedEvent=int(*)(float*,Handle,Handle);CreateEvent ec{};RecordEvent er{};SyncEvent es{},ed{};ElapsedEvent ee{};hip.Load(ec,"hipEventCreateWithFlags");hip.Load(er,"hipEventRecord");hip.Load(es,"hipEventSynchronize");hip.Load(ed,"hipEventDestroy");hip.Load(ee,"hipEventElapsedTime");Handle start{},stop{};hip.Check(ec(&start,0),"event");hip.Check(ec(&stop,0),"event");
+ std::ofstream report(prefix+"-report.txt");size_t bad=0,invalid=0;
+ for(unsigned T:{64u,80u,256u,4096u}){
+  std::vector<void*>owned;auto alloc=[&](size_t n){void*p=nullptr;hip.Check(hip.hipMalloc(&p,n*4),"malloc");owned.push_back(p);return p;};auto up=[&](const std::vector<float>&v){void*p=alloc(v.size());hip.Check(hip.hipMemcpy(p,v.data(),v.size()*4,1),"upload");return p;};
+  std::vector<float>input(T*32),av(T*32);for(unsigned i=0;i<input.size();i++){input[i]=float(int((i*73+T)%2048)-1024)/512.f;av[i]=fp8(((i*37+11)%96)|((i%3==0)?128:0));}void*di=up(input),*da=up(av),*df=up(fw),*dw=up(aw);void*hidden[3],*ffn[3],*qkv[3],*raw[3];for(unsigned s=0;s<3;s++){hidden[s]=alloc(T*128);ffn[s]=alloc(T*32);qkv[s]=alloc(T*96);raw[s]=alloc(T*32);}unsigned raw_output=1;
+  const char*base[]={"c32_ffn_expand","c32_ffn_contract","c32_attn_qkv","c32_attn_project"};const char*suffix[]={"","_wmma","_tiled"};Handle functions[3][4]{};for(unsigned s=0;s<3;s++)for(unsigned j=0;j<4;j++)hip.Check(hip.hipModuleGetFunction(&functions[s][j],modules[s],(std::string(base[j])+suffix[s]).c_str()),"function");
+  auto launch=[&](unsigned s,unsigned j){unsigned work=T*(j==0?128:j==2?96:32),grid=(work+255)/256,block=s==0?256:32;
+   if(s==2){grid=(T+63)/64*(j==0?2:j==2?3:1);block=j==0?512:256;}
+   void**args=nullptr;void*a0[]={&di,&df,&hidden[s],&T};void*a1[]={&di,&hidden[s],&df,&ffn[s],&T,&raw_output};void*a2[]={&di,&dw,&qkv[s],&T};void*a3[]={&di,&da,&dw,&raw[s],&T,&raw_output};args=j==0?a0:j==1?a1:j==2?a2:a3;
+   hip.Check(hip.hipModuleLaunchKernel(functions[s][j],grid,1,1,block,1,1,0,nullptr,args,nullptr),base[j]);};
+  // Old wave-per-tile QKV assumes full 64-token windows. Tail test compares tiled directly to scalar only.
+  unsigned modes=T%64?1:3;for(unsigned s=0;s<3;s++){if(T%64&&s==1)continue;for(auto pair:{std::pair<void*,size_t>{hidden[s],T*128},{ffn[s],T*32},{qkv[s],T*96},{raw[s],T*32}})hip.Check(hip.hipMemsetAsync(pair.first,0xff,pair.second*4,nullptr),"sentinel");for(unsigned j=0;j<4;j++)launch(s,j);}hip.Check(hip.hipDeviceSynchronize(),"validation completion");
+  for(unsigned j=0;j<4;j++){size_t count=T*(j==0?128:j==2?96:32);void*ptrs[]={j==0?hidden[0]:j==1?ffn[0]:j==2?qkv[0]:raw[0],j==0?hidden[2]:j==1?ffn[2]:j==2?qkv[2]:raw[2]};std::vector<float>ref(count),actual(count);hip.Check(hip.hipMemcpy(ref.data(),ptrs[0],count*4,2),"ref read");hip.Check(hip.hipMemcpy(actual.data(),ptrs[1],count*4,2),"tiled read");auto r=compare(ref,actual);bad+=r.bits;invalid+=r.invalid;std::string tag=prefix+"-t"+std::to_string(T)+"-"+base[j];save(tag+"-reference.f32",ref);save(tag+"-tiled.f32",actual);printf("tokens=%u stage=%s bitdiff=%zu invalid=%zu maxabs=%.9g\n",T,base[j],r.bits,r.invalid,r.maxabs);report<<"tokens="<<T<<" stage="<<base[j]<<" bitdiff="<<r.bits<<" invalid="<<r.invalid<<" maxabs="<<r.maxabs<<"\n";}
+  if(T==4096){for(unsigned s=1;s<3;s++)for(unsigned j=0;j<4;j++){for(unsigned warm=0;warm<3;warm++)launch(s,j);hip.Check(er(start,nullptr),"start event");for(unsigned n=0;n<repeats;n++)launch(s,j);hip.Check(er(stop,nullptr),"stop event");hip.Check(es(stop),"event wait");float ms=0;hip.Check(ee(&ms,start,stop),"elapsed");printf("TIME mode=%s stage=%s tokens=%u repeats=%u mean_ms=%.6f\n",suffix[s],base[j],T,repeats,ms/repeats);report<<"TIME mode="<<suffix[s]<<" stage="<<base[j]<<" tokens="<<T<<" repeats="<<repeats<<" mean_ms="<<ms/repeats<<"\n";}}
+  hip.Check(hip.hipDeviceSynchronize(),"finish");for(auto*p:owned)hip.Check(hip.hipFree(p),"free");fflush(stdout);
+ }
+ hip.Check(ed(start),"event destroy");hip.Check(ed(stop),"event destroy");for(auto m:modules)hip.Check(hip.hipModuleUnload(m),"unload");printf("RESULT bitdiff=%zu invalid=%zu\n",bad,invalid);return invalid?1:bad?3:0;
+ }catch(const std::exception&e){fprintf(stderr,"FAIL %s\n",e.what());return 1;}}

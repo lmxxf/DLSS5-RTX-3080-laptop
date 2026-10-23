@@ -1,0 +1,26 @@
+--- a/hip/c32_fused_ffn_attention.hip
++++ b/hip/c32_fused_ffn_attention.hip
+@@ -371,11 +371,12 @@
+  unsigned char*prob=packed;
+ #define ATTN_SYNC() sync_window()
+ #endif
++ h8 saved_ex[4];
+  f8 av[2];av[0]=f8{};av[1]=f8{};
+ #if HIP_C32_ABLATE!=2
+- C32_LOOP for(uint key=0;key<64;key+=16){f8 acc{};
++ _Pragma("unroll 4") for(uint key=0;key<64;key+=16){f8 acc{};
+   for(uint kt=0;kt<2;kt++){i2 a{},b{};uint k=kt*16+gr()*8;a=load8(packed+(first+rc())*36+k);b=load8(packed+(64+key+rc())*36+k);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
+-  for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);scratch.ex[q*66+k]=__builtin_bit_cast(_Float16,hb);}
++  _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);scratch.ex[q*66+k]=__builtin_bit_cast(_Float16,hb);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
+  }
+  ATTN_SYNC();
+  // Scores no longer consume Q/K; their 4608 bytes become 64 probability rows of 68 bytes.
+@@ -385,7 +386,7 @@
+   ATTN_SYNC(); // every lane of this wave has read its ex values before the rows are reused for probabilities
+   for(uint key=0;key<64;key+=16)for(uint e=0;e<8;e++){uint row=gr()*8+e,k=key+rc();prob[row*68+k]=static_cast<unsigned char>(fp8(pv[key/16][e]));}
+ #else
+-  for(uint key=0;key<64;key+=16)for(uint e=0;e<8;e++){uint row=first+gr()*8+e,k=key+rc();float v=float(scratch.ex[row*66+k])*(1.f/sum[e]);prob[row*68+k]=static_cast<unsigned char>(fp8(v));}
++  _Pragma("unroll 4") for(uint key=0;key<64;key+=16) _Pragma("unroll 8") for(uint e=0;e<8;e++){uint row=first+gr()*8+e,k=key+rc();float v=float(saved_ex[key/16][e])*(1.f/sum[e]);prob[row*68+k]=static_cast<unsigned char>(fp8(v));}
+ #endif
+  }
+  ATTN_SYNC();

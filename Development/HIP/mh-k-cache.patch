@@ -1,0 +1,88 @@
+--- a/hip/multihead_fused_attention.hip
++++ b/hip/multihead_fused_attention.hip
+@@ -192,7 +192,10 @@
+  __attribute__((shared)) unsigned char all_packed[2*64*36];
+  _Float16*ex=all_ex+head*64*66;unsigned char*packed=all_packed+head*64*36;
+  unsigned char*avbytes=reinterpret_cast<unsigned char*>(all_ex);
+- for(uint i=tid;i<64*8;i+=128){uint tok=i/8,c=(i%8)*4,p=raster(win,tok,width),word;__builtin_memcpy(&word,normalized+(p*3+2)*channels+head*32+c,4);
++ for(uint i=tid;i<64*8;i+=128){uint tok=i/8,c=(i%8)*4,p=raster(win,tok,width),word;unsigned kword;unsigned char*qk=reinterpret_cast<unsigned char*>(ex);
++  __builtin_memcpy(&kword,normalized+(p*3+1)*channels+head*32+c,4);
++  __builtin_memcpy(qk+tok*36+c,&kword,4);
++  __builtin_memcpy(&word,normalized+(p*3+2)*channels+head*32+c,4);
+ #if HIP_MH_VT
+   for(uint q=0;q<4;q++)packed[(c+q)*68+tok]=static_cast<unsigned char>((word>>(8*q))&255u);
+ #else
+@@ -204,10 +207,13 @@
+  for(uint key=0;key<64;key+=16)for(uint e=0;e<8;e++){ex[(first+gr()*8+e)*66+key+rc()]=(_Float16)1.f;saved_ex[key/16][e]=(_Float16)1.f;}
+ #else
+  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){f8 acc{};
+-  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint qp=raster(win,first+rc(),width),kp=raster(win,key+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,normalized+(kp*3+1)*channels+head*32+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
+-  _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);ex[q*66+k]=__builtin_bit_cast(_Float16,hb);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
+- }
+-#endif
++  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint off=kt*16+gr()*8,qp=raster(win,first+rc(),width);const unsigned char*qk=reinterpret_cast<const unsigned char*>(ex);__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,qk+(key+rc())*36+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
++  _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
++ }
++#endif
++ // Every wave must finish reading Q/K before the aliased storage becomes ex.
++ sync_window();
++ _Pragma("unroll 4") for(uint key=0;key<64;key+=16) _Pragma("unroll 8") for(uint e=0;e<8;e++)ex[(first+gr()*8+e)*66+key+rc()]=saved_ex[key/16][e];
+  sync_window();
+  // MH production partial0 sums keys0..15,32..47; partial1 sums16..31,48..63.
+  // Keep this distinct from C32 FAST4's sequential64-key accumulator.
+@@ -325,7 +331,10 @@
+  __attribute__((shared)) unsigned char all_packed[4*64*36];
+  _Float16*ex=all_ex+head*64*66;unsigned char*packed=all_packed+head*64*36;
+  unsigned char*avbytes=reinterpret_cast<unsigned char*>(all_ex);
+- for(uint i=tid;i<64*8;i+=128){uint tok=i/8,c=(i%8)*4,p=raster(win,tok,width),word;__builtin_memcpy(&word,normalized+(p*3+2)*channels+head*32+c,4);
++ for(uint i=tid;i<64*8;i+=128){uint tok=i/8,c=(i%8)*4,p=raster(win,tok,width),word;unsigned kword;unsigned char*qk=reinterpret_cast<unsigned char*>(ex);
++  __builtin_memcpy(&kword,normalized+(p*3+1)*channels+head*32+c,4);
++  __builtin_memcpy(qk+tok*36+c,&kword,4);
++  __builtin_memcpy(&word,normalized+(p*3+2)*channels+head*32+c,4);
+ #if HIP_MH_VT
+   for(uint q=0;q<4;q++)packed[(c+q)*68+tok]=static_cast<unsigned char>((word>>(8*q))&255u);
+ #else
+@@ -334,9 +343,12 @@
+  }
+  sync_window();
+  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){f8 acc{};
+-  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint qp=raster(win,first+rc(),width),kp=raster(win,key+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,normalized+(kp*3+1)*channels+head*32+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
+-  _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);ex[q*66+k]=__builtin_bit_cast(_Float16,hb);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
+- }
++  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint off=kt*16+gr()*8,qp=raster(win,first+rc(),width);const unsigned char*qk=reinterpret_cast<const unsigned char*>(ex);__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,qk+(key+rc())*36+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
++  _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
++ }
++ // Every wave must finish reading Q/K before the aliased storage becomes ex.
++ sync_window();
++ _Pragma("unroll 4") for(uint key=0;key<64;key+=16) _Pragma("unroll 8") for(uint e=0;e<8;e++)ex[(first+gr()*8+e)*66+key+rc()]=saved_ex[key/16][e];
+  sync_window();
+  // MH production partial0 sums keys0..15,32..47; partial1 sums16..31,48..63.
+  // Keep this distinct from C32 FAST4's sequential64-key accumulator.
+@@ -394,7 +406,10 @@
+  _Float16*ex=all_ex+localhead*64*66;unsigned char*packed=all_packed+localhead*64*36;
+  __attribute__((shared)) unsigned char avbytes[64*260];
+  for(uint batch=0;batch<2;batch++){uint head=localhead+batch*4;
+- for(uint i=tid;i<64*8;i+=128){uint tok=i/8,c=(i%8)*4,p=raster(win,tok,width),word;__builtin_memcpy(&word,normalized+(p*3+2)*channels+head*32+c,4);
++ for(uint i=tid;i<64*8;i+=128){uint tok=i/8,c=(i%8)*4,p=raster(win,tok,width),word;unsigned kword;unsigned char*qk=reinterpret_cast<unsigned char*>(ex);
++  __builtin_memcpy(&kword,normalized+(p*3+1)*channels+head*32+c,4);
++  __builtin_memcpy(qk+tok*36+c,&kword,4);
++  __builtin_memcpy(&word,normalized+(p*3+2)*channels+head*32+c,4);
+ #if HIP_MH_VT
+   for(uint q=0;q<4;q++)packed[(c+q)*68+tok]=static_cast<unsigned char>((word>>(8*q))&255u);
+ #else
+@@ -403,9 +418,12 @@
+  }
+  sync_window();
+  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){f8 acc{};
+-  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint qp=raster(win,first+rc(),width),kp=raster(win,key+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,normalized+(kp*3+1)*channels+head*32+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
+-  _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);ex[q*66+k]=__builtin_bit_cast(_Float16,hb);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
+- }
++  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint off=kt*16+gr()*8,qp=raster(win,first+rc(),width);const unsigned char*qk=reinterpret_cast<const unsigned char*>(ex);__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,qk+(key+rc())*36+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
++  _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
++ }
++ // Every wave must finish reading Q/K before the aliased storage becomes ex.
++ sync_window();
++ _Pragma("unroll 4") for(uint key=0;key<64;key+=16) _Pragma("unroll 8") for(uint e=0;e<8;e++)ex[(first+gr()*8+e)*66+key+rc()]=saved_ex[key/16][e];
+  sync_window();
+  // MH production partial0 sums keys0..15,32..47; partial1 sums16..31,48..63.
+  // Keep this distinct from C32 FAST4's sequential64-key accumulator.

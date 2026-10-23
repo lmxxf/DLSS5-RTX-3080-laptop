@@ -1,0 +1,47 @@
+--- a/hip/multihead_fused_attention.hip
++++ b/hip/multihead_fused_attention.hip
+@@ -203,8 +203,13 @@
+ #if HIP_MH_ABLATE==1
+  for(uint key=0;key<64;key+=16)for(uint e=0;e<8;e++){ex[(first+gr()*8+e)*66+key+rc()]=(_Float16)1.f;saved_ex[key/16][e]=(_Float16)1.f;}
+ #else
++ i2 qreg[2],kreg[4][2];
++ _Pragma("unroll 2") for(uint kt=0;kt<2;kt++){
++  uint qp=raster(win,first+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&qreg[kt],normalized+qp*3*channels+head*32+off,8);
++  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){uint kp=raster(win,key+rc(),width);__builtin_memcpy(&kreg[key/16][kt],normalized+(kp*3+1)*channels+head*32+off,8);}
++ }
+  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){f8 acc{};
+-  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint qp=raster(win,first+rc(),width),kp=raster(win,key+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,normalized+(kp*3+1)*channels+head*32+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
++  _Pragma("unroll 2") for(uint kt=0;kt<2;kt++){acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(qreg[kt],kreg[key/16][kt],acc);}
+   _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);ex[q*66+k]=__builtin_bit_cast(_Float16,hb);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
+  }
+ #endif
+@@ -333,8 +338,13 @@
+ #endif
+  }
+  sync_window();
++ i2 qreg[2],kreg[4][2];
++ _Pragma("unroll 2") for(uint kt=0;kt<2;kt++){
++  uint qp=raster(win,first+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&qreg[kt],normalized+qp*3*channels+head*32+off,8);
++  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){uint kp=raster(win,key+rc(),width);__builtin_memcpy(&kreg[key/16][kt],normalized+(kp*3+1)*channels+head*32+off,8);}
++ }
+  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){f8 acc{};
+-  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint qp=raster(win,first+rc(),width),kp=raster(win,key+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,normalized+(kp*3+1)*channels+head*32+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
++  _Pragma("unroll 2") for(uint kt=0;kt<2;kt++){acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(qreg[kt],kreg[key/16][kt],acc);}
+   _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);ex[q*66+k]=__builtin_bit_cast(_Float16,hb);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
+  }
+  sync_window();
+@@ -402,8 +412,13 @@
+ #endif
+  }
+  sync_window();
++ i2 qreg[2],kreg[4][2];
++ _Pragma("unroll 2") for(uint kt=0;kt<2;kt++){
++  uint qp=raster(win,first+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&qreg[kt],normalized+qp*3*channels+head*32+off,8);
++  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){uint kp=raster(win,key+rc(),width);__builtin_memcpy(&kreg[key/16][kt],normalized+(kp*3+1)*channels+head*32+off,8);}
++ }
+  _Pragma("unroll 4") for(uint key=0;key<64;key+=16){f8 acc{};
+-  for(uint kt=0;kt<2;kt++){i2 a{},b{};uint qp=raster(win,first+rc(),width),kp=raster(win,key+rc(),width),off=kt*16+gr()*8;__builtin_memcpy(&a,normalized+qp*3*channels+head*32+off,8);__builtin_memcpy(&b,normalized+(kp*3+1)*channels+head*32+off,8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,acc);}
++  _Pragma("unroll 2") for(uint kt=0;kt<2;kt++){acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(qreg[kt],kreg[key/16][kt],acc);}
+   _Pragma("unroll 8") for(uint e=0;e<8;e++){uint q=first+gr()*8+e,k=key+rc();float score=acc[e]+w[4*channels*channels+head*4096+q*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);ex[q*66+k]=__builtin_bit_cast(_Float16,hb);saved_ex[key/16][e]=__builtin_bit_cast(_Float16,hb);}
+  }
+  sync_window();

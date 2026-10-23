@@ -1,0 +1,126 @@
+OptiScaler-REFramework-DLSS5-AMD @VERSION@ — RE9特殊前置完整包
+
+0.44 F9热修：修复剑星切模型输出指针失效与延迟提交死锁，保留双模型权重；只读配置下F9在内存立即生效。安装更新前完全退出游戏。
+
+
+0.44 默认改为 310.9.16 的31块 Small（0.5x）；1080/900/720/free几何、Small自适应ViT复用与MODE1时序已接通。F9按0.5→1→2→3循环，缺少Small权重会记录日志并回退1x。
+
+RX9070XT整帧回放：1080档5.554 ms/frame（−39.35%）；900档4.377 ms/frame（同批1x 6.559，−33.26%）。这是不同训练模型，默认输出会改变；旧71块1x仍保留。Small对5090内部Post的900/720对账为47.40/47.70dB，非NV逐位一致。
+
+Small权重与旧权重共存；80个双架构模块复用。F8切AE/EXACT；2x/3x暂挂MODE1，回到0.5x/1x恢复。升级保留个人custom/native覆盖；要启用新默认请删除旧MULTI_PASS=1覆盖或改为0.5。
+
+--- Historical notes ---
+
+0.43 在 0.42 基础上优化权重访问、中间结果搬运及上下采样，已测 900/1080 固定配置逐帧输出与对照完全一致；不通过跳块或降低精度换速度。
+
+- 更新 C512、C32、ViT 的权重读取与字节直连，减少重复格式转换和显存往返。
+- 模式2/3复用有界的描述符与常量环，减少逐帧创建及同步；时序仍默认关闭。
+- 默认 MODE0 / 1x / SKIN0；PRED1 只在选择3x时生效，显式 PRED0 保留真三遍。原有可选时序模式和配置优先级保留。
+- RX9070XT 已测；gfx1200 完成编译、实际ELF目标与校验和核验，不作为该型号真机性能结论。未解决的高光闪烁不宣称已修复。
+- 升级请保留自己的 custom-config.txt 和 native-game-flags.txt。配置说明见 sources/configuration/CONFIGURATION.zh-CN.md。
+
+下方保留历史使用说明；当前版本号以本文件首行及 DLSS5-AMD-VERSION.txt 为准。
+
+--- Historical0.41 notes ---
+0.41
+默认仍为1x。选择3x时默认两遍真实网络加预测第三遍（有损）；DLSS5_MULTI_PASS_PREDICT=0恢复真三遍，1x/2x不受预测影响，肤色保护默认关闭。新增首帧预分配、HIP设备重绑、RE9强度文件控制和逐位算子优化；FAST_NUMERIC加深本身会改变1x/2x数值。已有custom/native覆盖保留。配置说明见sources/configuration/CONFIGURATION.zh-CN.md。
+
+以下是历史0.40说明，FPS/耗时不是本次整包性能承诺。
+0.40 更新
+1. 与常规包同一套核和默认配置：全 71 块 + 快速数值（对 NVIDIA 44.26 → 47.55 dB，每帧慢约 0.12/0.19ms）；想要 0.39 的输出，custom-config.txt 里写 DLSS5_SKIP_BLOCKS=42,43,46 和 DLSS5_FAST_NUMERIC=0。
+2. 叠层 DLSS5_MULTI_PASS=1/2/3（默认 1，风格更浓，耗时约 N 倍）。RE9 runtime 没有热键，改配置后重启游戏。
+3. runtime 读三层配置文件（见下面“配置文件”），并新增从文件读 DLSS5_STYLE、DLSS5_FRAME_STATS、DLSS5_FAST_NUMERIC、DLSS5_MULTI_PASS、DLSS5_MULTI_PASS_SKIP_BLOCKS、DLSS5_NETWORK_FREE_RES（0.39 写在模板里的 DLSS5_STYLE 现在生效）。行为变化：同一文件里同一项写两次，现在取最后一行（以前取第一行）。
+4. 输入直写，少一次 35MB 拷贝；给集成方的 GetTimings。宿主 dxgi.dll 不变。
+
+配置文件（0.40 起三层，同一项后面的覆盖前面的）
+1. DLSS5-AMD/default-config.txt：包里的默认配置（来自仓库模板），每次升级会被覆盖，不要改它。
+2. DLSS5-AMD/custom-config.txt：你自己的设置。包里不带这个文件，第一次用时把 custom-config.template.txt 复制一份改名为 custom-config.txt，只写想改的那几行（例如 DLSS5_MULTI_PASS=2）。安装和升级都不会碰它。
+3. DLSS5-AMD/native-game-flags.txt：旧版的单文件。老用户已有的照常生效，而且优先于 custom-config.txt；包里也不再带它，所以解压覆盖升级不会冲掉。
+系统环境变量里的 DLSS5_* 比三个文件都优先。同一文件里同一项写两次以最后一行为准；值留空（KEY=）表示用程序内置默认。
+
+有损项（都是可选的，写进 custom-config.txt）
+- 默认就开着的：DLSS5_FAST_NUMERIC=1（快速数值，对逐位输出最差帧约 51.8 dB，对 NVIDIA 基本不变；写 0 = 逐位，每帧慢 0.07～0.13ms）。
+- DLSS5_SKIP_BLOCKS=42,43,46：跳三块，每帧快 0.20/0.32ms（900/1080），对 NVIDIA 约掉 3.3 dB，有整体偏色。和 DLSS5_FAST_NUMERIC=0 一起写就是 0.39 的输出。
+- DLSS5_NETWORK_1080_ROWS=1088：1080 档快约 0.45ms，对 1152 行约 54～56 dB。
+- DLSS5_NETWORK_HEIGHT=900：本该走 1080 档的输入也压到 900 档，快约 2.7ms，画质代价未量化。
+- DLSS5_MULTI_PASS_SKIP_BLOCKS：只在叠层第 2 遍起跳块。省得少，跳多了会变成另一种风格，不推荐。
+
+0.39 更新
+与常规包同一套新核（默认与 0.38 逐位相同；离线 900 档约 7.27 → 6.8ms，1080 档约 10.05 → 9.5ms）。风格仍为以前的 Style 1（逐位不变）。注意：RE9 runtime 目前不从 flags 文件读取 DLSS5_STYLE（模板里那行只是与常规包一致，改了不生效）；要试 Style 0/2 需设系统环境变量 DLSS5_STYLE 后重启游戏。runtime 可复现构建。宿主不变。
+
+0.38 更新
+与常规包同一套新核（默认与 0.37 逐位相同；离线 900 档约 8.0 → 7.6ms，1080 档约 10.8 → 10.4ms）。runtime 支持 DLSS5_FORMAT_FALLBACK（模板为 1：R10G10B10A2、B8G8R8X8、R32G32B32(A32) 等颜色格式不再被拒；设 0 关闭）和可选有损的 DLSS5_NETWORK_1080_ROWS=1088（模板 1152 = NVIDIA 原版几何）。DLSS5_HOT_RELOAD 不适用（强度/细节在 OptiScaler 菜单里本来就是实时的）。宿主不变。
+
+0.37 更新
+与常规包同一套新核（与 0.36 逐位相同；C512 紧凑布局、head 融合、C256 持久化、ViT attention/QKV 新核；离线 900 档约 8.5 → 8.0ms）。runtime 支持新开关 DLSS5_HIP_SWIN_RUN（模板为 1，设 0 回到原派发）。宿主不变。
+
+0.36 更新
+与常规包同一套新核（float FMA 激活——与 0.35 不逐位，为新基准；C256/C512/C64/C128/C32 块融合；离线相对 0.35：900 档约 −0.79ms、1080 档约 −1.13ms）。runtime 支持 DLSS5_FRAME_STATS（默认 0）；DLSS5_DIRECT_IO 不适用于 RE9 路线。宿主不变。
+
+0.35 更新
+与常规包同一套新核（C32 三轮 + ViT 字节流，见常规包说明）；runtime 支持 DLSS5_HIP_VIT_STREAM（模板默认 3，缺模块自动回退）。宿主不变。
+
+0.34 更新
+1. 宿主跟随游戏实际执行切分命令列表的队列（重建交换链后换队列不再让神经处理停到重启），任务连续8次未退役即放弃重来。《鬼武者：剑之道》（Xbox版）实测可用：中画质2K质量约60帧（进入游戏后可见，标题/主菜单背景不经过超分）。
+2. runtime：修切分辨率/档位的残余显存增长（每次约35MB→0），尺寸或档位变化时在OptiScaler日志打印几何与内核开关状态。
+3. 与常规包同一套新核（见常规包说明）。RE9中画质：2K高质量54→58，2K原生AA 38→41。
+
+0.33 更新
+1. FP8打包提速：C32与C64～C256核把两个值用一条转换指令直接写进矩阵片段，省掉逐字节拼装（逐位相同）。离线整网900档10.74→9.80ms、1080档15.01→13.64ms（约−9%）；《剑星》1080P原生AA、EXACT：主菜单47～48→49～50，常见场景51～52→53～54。
+（runtime与宿主沿用0.32，只换新核模块。）
+
+0.32 更新（可配置）
+runtime 现在从 DLSS5-AMD\native-game-flags.txt 读取以下键（其余键仍只属于常规包，对本 runtime 无效）：
+- DLSS5_HIP_*：内核开关，与常规包同名同含义。新核默认开：DLSS5_HIP_WAVE_OWNED=1（一头一 wave）、DLSS5_HIP_C512_M32=1、DLSS5_HIP_VIT_PROJ_N64=1、DLSS5_HIP_PDL=1；设 0 回到 0.30 的核。所需模块缺失时自动关掉该组，不影响 NR 运行。
+- DLSS5_SKIP_BLOCKS（默认 42,43,46）、DLSS5_FIT_LARGE（默认 1）、DLSS5_NETWORK_HEIGHT（默认 auto：输入超出某档 10% 以内往下缩进该档）。
+环境变量里已设置的同名键优先。生效状态见 OptiScaler 的 lmxxf 状态行（wave_owned=请求/兼容 … 以及 flags 文件路径与应用的键数）。
+9070 XT 实测（独立 runtime 程序，含 D3D 前后处理）：1920×1080 输入 16.88→14.93ms（−11.5%），1707×961 输入 16.90→10.77ms（改走 900 档 + 新核），输出与 0.31 runtime 逐位一致。切分辨率的显存增长约为原来的五分之一。
+
+0.32 更新
+1. 可以配置了：runtime现在从DLSS5-AMD\native-game-flags.txt读取DLSS5_HIP_*、DLSS5_SKIP_BLOCKS、DLSS5_FIT_LARGE、DLSS5_NETWORK_HEIGHT（其余键仍不生效），键名与常规包相同。OptiScaler菜单/日志的lmxxf状态行显示每组开关“请求/生效”。
+2. 0.31的新核默认启用（DLSS5_HIP_WAVE_OWNED、DLSS5_HIP_C512_M32、DLSS5_HIP_VIT_PROJ_N64，设0退回旧路径），并采用新分档规则（2K高质量约1707×960→900档）。实测中画质：2K DLSS高质量51～52→54，2K原生AA 36→38。
+3. 切档不再漏显存（共享缓冲区复用）；合并TheAutomatic的PR #9（队列回退、RGB9E5/曝光输入、资源释放）。宿主dxgi.dll不变；runtime兼容该宿主。
+
+0.31 更新
+共享HIP核随常规包更新（新增5个模块，gfx1200/gfx1201各29个）；本runtime不读取新开关，新核随包但不启用。宿主dxgi.dll与runtime LmxxfNrRuntime.dll与0.30相同。
+
+0.30 更新
+共享HIP核更新到与常规包相同的一组（含FFN全行写，逐位无损约−0.6%；任意序孪生核随包但本runtime不启用，无影响）。宿主dxgi.dll与runtime LmxxfNrRuntime.dll与0.29相同，只换DLSS5-AMD\native-game-tiled-assets\HIP下的核。
+
+0.29 更新
+超过1920×1080的渲染输入不再退回原始超分：缩到1080档跑网络，再按原版codec方式还原到原分辨率交给FSR（DLSS5-AMD\native-game-flags.txt 里 DLSS5_FIT_LARGE=1，默认开）。RE9 Native AA实测正常。共享HIP核自0.28以来六项逐位无损优化（约−7%）。宿主dxgi.dll与0.28.1相同，runtime更新，需一起替换根目录与_storage_两处。
+
+0.28.1 修复
+真实神经输入超过1920×1080时，在任何HIP初始化/档位变更前拒绝并保留原始超分流程。初始化中途失败会回滚半成品；同一session改回有效尺寸可以恢复，已录制但未退休的帧不会被新请求覆盖。10组/12帧真实提交与读回回归通过，本机用户切分辨率初步复测正常。
+超限看的是“渲染输入”，不是显示输出：2560×1080原生输入超限；相同显示分辨率配合较低渲染尺寸的超分可用。此修复不代表所有PSO/驱动错误均已定位。请整体更新宿主和runtime。
+
+
+这是专门针对《生化危机9 / Resident Evil Requiem》特殊命令提交方式的版本，不是通用OptiScaler版。宿主基于TheAutomatic的release/1.9.0，并接入本项目HIP runtime。感谢TheAutomatic的前置设计和PR贡献。
+
+本版变化
+旧0.27为FSR之后的后处理、固定900P、最高1080P SDR输出。本版改为：游戏低分辨率渲染→HIP DLSS5→FSR超分→最终显示，已验证2K无边框输出。神经输入仍要求宽≤1920、高≤1080，网络按输入自动选择720/900/1080。
+接通同帧游戏曝光：编码时归一化，解码后还原场景亮度，修复原先曝光遗漏导致的大面积泛白/褪色；Detail/Colour strength均默认1。加入录制前HIP权重/核准备。共享核包含常规版六项无损优化。
+
+安装
+1. 完全退出游戏。备份已有MOD文件，将本包完整解压到re9.exe旁。
+2. 升级旧版必须移走根目录和_storage_里的旧dlss5-amd.addon64、re9-present.addon64及旧观察器addon，防止重复处理。
+3. 如果_storage_中已有dxgi.dll或LmxxfNrRuntime.dll，用本包同名文件同步替换；有该目录的OptiScaler.ini也应同步。dxgi.dll和LmxxfNrRuntime.dll必须配套，不要与普通版混装。
+4. 本包保留REFramework dinput8.dll。已经有其他dinput8模组时先处理冲突。
+5. 游戏选择DLSS超分，建议先2K输出、平衡档、关闭帧生成测试。确认画面稳定后再按需测试帧生成。本包不附个人游戏设置或存档。
+
+控制与配置
+F6开关神经处理；Insert打开OptiScaler/REFramework菜单（两者默认键可能重叠）。Detail strength、Colour strength可在神经渲染菜单调节；保持0～1。调低颜色强度也会削弱彩色纹理/材质效果，不只是改变饱和度。
+配置在OptiScaler.ini的[DlssNr]，默认NrBackend=lmxxf、Enabled=true、RunBeforeSR=true、LmxxfDiagnostic=off。显示由OptiScaler菜单管理；旧addon的F7和DLSS5_SHOW_FPS/NOTICE不控制此版。
+此runtime从DLSS5-AMD下的三层配置文件读取DLSS5_HIP_*、DLSS5_SKIP_BLOCKS、DLSS5_FIT_LARGE、DLSS5_NETWORK_HEIGHT及0.40更新里列出的键，其余键不生效；不提供普通addon的F8/F9热键；默认全71块+快速数值、关闭跨帧自适应复用。不要用旧0.27配置说明调整新runtime。
+
+验证范围
+9070 XT数值回归、曝光倍率对照、主菜单连续运行和重启验证通过；完整游戏画质、切场景和帧生成仍需进一步实玩反馈。旧0.27曾在Xbox《鬼武者》验证，但不能据此认为本版新前置宿主也已验证该游戏。其他RE游戏/9060硬件未实测；HDR显示输出未完成验证。
+
+目录与源码
+- dxgi.dll：特殊OptiScaler宿主；LmxxfNrRuntime.dll：HIP runtime；dinput8.dll：REFramework。
+- DLSS5-AMD/native-game-tiled-assets：完整模型、shader及gfx1200/gfx1201双架构核。
+- sources/：本版修改后宿主/runtime对应源码归档和构建说明；无需解压源码才能玩。
+- SHA256SUMS.txt：全包校验；THIRD-PARTY与LICENSE文件：组件许可和来源。
+项目：https://github.com/lmxxf/dlss5-on-amd-9070xt-porting
+上游：https://github.com/TheAutomatic/dlss-5-amd-project/tree/release/1.9.0
+这是完整包，不是补丁包。

@@ -1,0 +1,14 @@
+# custom-config.txt：你自己的设置。安装和升级都不会覆盖这个文件。
+# 读取顺序：default-config.txt（随包，升级覆盖）→ custom-config.txt（本文件）→ native-game-flags.txt（旧版单文件，存在就照常生效）。
+# 后面的文件覆盖前面的同名项，没写的项沿用前面的值；系统环境变量最优先。同一文件里同一项写两次，以最后一行为准。
+# 写法：一行一个 DLSS5_名字=值，可从 default-config.txt 复制那一行过来改值。值留空（例如 DLSS5_SKIP_BLOCKS=）表示用程序内置默认。
+#
+# custom-config.txt: your own settings. Install and upgrade never overwrite this file.
+# Read order: default-config.txt (shipped, overwritten on upgrade) -> custom-config.txt (this file) -> native-game-flags.txt (old
+# single file, still honoured when present). A later file overrides the same key of an earlier one; keys it does not mention keep the
+# earlier value; system environment variables win over all files. Same key twice in one file: the last line wins.
+# Format: one DLSS5_NAME=value per line; copy a line from default-config.txt and change the value. An empty value
+# (e.g. DLSS5_SKIP_BLOCKS=) means the program's built-in default.
+#
+# 例 / Example (remove the leading "# " to use):
+# DLSS5_MULTI_PASS=2

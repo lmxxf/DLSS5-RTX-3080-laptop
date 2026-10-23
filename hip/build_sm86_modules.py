@@ -132,7 +132,7 @@ def transform_hip_to_sm86_cu(text, compat_header_path):
         'for(uint e=0;e<8;e++)acc[e]=channels==32?Hrtz(acc[e]+sum[e]):H(acc[e]+sum[e]);\n }',
         'sum=__sm86_c_to_ampere(sum);_Pragma("unroll") for(uint e=0;e<8;e++)acc[e]=channels==32?Hrtz(acc[e]+sum[e]):H(acc[e]+sum[e]);\n }\n acc=__sm86_d_to_rdna4(acc);'
     )
-    # 4. Conjugate 4-partition accumulation in vit_contract_blocked_body and vit_stream_project_tiles so `acc`/`a` stays in Ampere layout across `part=0..3`!
+    # 4. Conjugate 4-partition accumulation in vit_contract_blocked_body, vit_stream_project_tiles, and decoder_project2x_h16w_wide_body so `acc`/`a` stays in Ampere layout across `part=0..3`!
     text = text.replace(
         '_Pragma("unroll") for(uint n=0;n<4;n++)for(uint e=0;e<8;e++){if constexpr(Partial)out[(part*tokens+first+gr()*8+e)*1024+col+n*16+rc()]=acc[n][e];else total[n][e]+=acc[n][e];}\n  }',
         '_Pragma("unroll") for(uint n=0;n<4;n++){if constexpr(Partial){for(uint e=0;e<8;e++)out[(part*tokens+first+gr()*8+e)*1024+col+n*16+rc()]=acc[n][e];}else{if(part==part0)total[n]=__sm86_c_to_ampere(total[n]);acc[n]=__sm86_c_to_ampere(acc[n]);_Pragma("unroll") for(uint e=0;e<8;e++)total[n][e]+=acc[n][e];}}\n  }\n  if constexpr(!Partial){_Pragma("unroll") for(uint n=0;n<4;n++)total[n]=__sm86_d_to_rdna4(total[n]);}'
@@ -140,6 +140,10 @@ def transform_hip_to_sm86_cu(text, compat_header_path):
     text = text.replace(
         '#pragma unroll\n   for(uint t=0;t<TM;t++)\n#pragma unroll\n   for(uint j=0;j<TN;j++)for(uint e=0;e<8;e++)total[t][j][e]+=a[t][j][e];}',
         '#pragma unroll\n   for(uint t=0;t<TM;t++)\n#pragma unroll\n   for(uint j=0;j<TN;j++){if(p==0)total[t][j]=__sm86_c_to_ampere(total[t][j]);a[t][j]=__sm86_c_to_ampere(a[t][j]);_Pragma("unroll") for(uint e=0;e<8;e++)total[t][j][e]+=a[t][j][e];}}\n#pragma unroll\n  for(uint t=0;t<TM;t++)\n#pragma unroll\n  for(uint j=0;j<TN;j++)total[t][j]=__sm86_d_to_rdna4(total[t][j]);'
+    )
+    text = text.replace(
+        '    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x0,i2{bw[0],bw[1]},a);\n    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x1,i2{bw[2],bw[3]},a);\n   }for(uint e=0;e<8;e++)total[e]=p?total[e]+a[e]:a[e];\n  }',
+        '    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x0,i2{bw[0],bw[1]},a);\n    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x1,i2{bw[2],bw[3]},a);\n   }a=__sm86_c_to_ampere(a);_Pragma("unroll") for(uint e=0;e<8;e++)total[e]=p?total[e]+a[e]:a[e];\n  }\n  total=__sm86_d_to_rdna4(total);'
     )
     # 5. Automatically unroll small inner loops (<=16 steps or template tile bounds, excluding outer tile loops qt/ht/h2/qb) so SROA promotes f8/h8/i2 arrays to SSA registers (eliminating LMem!)
     unroll_pat = re.compile(
@@ -151,7 +155,177 @@ def transform_hip_to_sm86_cu(text, compat_header_path):
             return m.group(0)
         return '_Pragma("unroll") ' + m.group(2)
     text = unroll_pat.sub(_unroll_repl, text)
-    # 5. Pre-shuffle Q/K/V/prob `i2` fragments in wave_owned_mh.inc before storing to shared memory / registers!
+    # Pre-shuffle input[0..1], act[0..1], feature[ci], Q, K, V, prob, and av[ci] in wave_owned_c32.inc!
+    text = text.replace(
+        "  if constexpr(Chain){",
+        "  input[0]=sm86_preshuffle_fp8(input[0]);input[1]=sm86_preshuffle_fp8(input[1]);\n  if constexpr(Chain){"
+    )
+    text = text.replace(
+        "ffn[0]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,input[0],ffn[0]);\n     ffn[1]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,input[1],ffn[1]);",
+        "ffn[0]=sm86_wmma_fp8_preshuffled_b(bp.lo,input[0],ffn[0]);\n     ffn[1]=sm86_wmma_fp8_preshuffled_b(bp.hi,input[1],ffn[1]);"
+    )
+    text = text.replace(
+        "ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,input[kt],ffn[ci]);",
+        "ffn[ci]=sm86_wmma_fp8_preshuffled_b(b,input[kt],ffn[ci]);"
+    )
+    text = text.replace(
+        "f8 expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,input[0],f8{});\n     expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,input[1],expanded);",
+        "f8 expanded=sm86_wmma_fp8_preshuffled_b(bp.lo,input[0],f8{});\n     expanded=sm86_wmma_fp8_preshuffled_b(bp.hi,input[1],expanded);"
+    )
+    text = text.replace(
+        "act[hp]=a;",
+        "act[hp]=sm86_preshuffle_fp8(a);"
+    )
+    text = text.replace(
+        "ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cp.lo,act[0],ffn[ci]);\n     ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cp.hi,act[1],ffn[ci]);",
+        "ffn[ci]=sm86_wmma_fp8_preshuffled_b(cp.lo,act[0],ffn[ci]);\n     ffn[ci]=sm86_wmma_fp8_preshuffled_b(cp.hi,act[1],ffn[ci]);"
+    )
+    text = text.replace(
+        "expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,input[0],expanded);\n     expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,input[1],expanded);\n    }else _Pragma(\"unroll\") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,input[kt],expanded);}",
+        "expanded=sm86_wmma_fp8_preshuffled_b(bp.lo,input[0],expanded);\n     expanded=sm86_wmma_fp8_preshuffled_b(bp.hi,input[1],expanded);\n    }else _Pragma(\"unroll\") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_preshuffled_b(b,input[kt],expanded);}"
+    )
+    text = text.replace(
+        "if constexpr(W16==2){\n     _Pragma(\"unroll\") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*4+(ht>>1))*512+(((ht&1u)*2+g)*16+r)*8);ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,ffn[ci]);}\n    }else _Pragma(\"unroll\") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,ffn[ci]);}",
+        "a=sm86_preshuffle_fp8(a);if constexpr(W16==2){\n     _Pragma(\"unroll\") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*4+(ht>>1))*512+(((ht&1u)*2+g)*16+r)*8);ffn[ci]=sm86_wmma_fp8_preshuffled_b(b,a,ffn[ci]);}\n    }else _Pragma(\"unroll\") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_preshuffled_b(b,a,ffn[ci]);}"
+    )
+    text = text.replace(
+        "CW_Q8_END_SITE(a,2);feature[ci]=a;}",
+        "CW_Q8_END_SITE(a,2);feature[ci]=sm86_preshuffle_fp8(a);}"
+    )
+    text = text.replace(
+        "q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,feature[0],q[ci]);\n      q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,feature[1],q[ci]);",
+        "q[ci]=sm86_wmma_fp8_preshuffled_b(bp.lo,feature[0],q[ci]);\n      q[ci]=sm86_wmma_fp8_preshuffled_b(bp.hi,feature[1],q[ci]);"
+    )
+    text = text.replace(
+        "q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(feature[0],bp.lo,q[ci]);\n      q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(feature[1],bp.hi,q[ci]);",
+        "q[ci]=sm86_wmma_fp8_preshuffled_a(feature[0],bp.lo,q[ci]);\n      q[ci]=sm86_wmma_fp8_preshuffled_a(feature[1],bp.hi,q[ci]);"
+    )
+    text = text.replace(
+        "q[ci]=part<2?__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,feature[kt],q[ci]):__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(feature[kt],b,q[ci]);",
+        "q[ci]=part<2?sm86_wmma_fp8_preshuffled_b(b,feature[kt],q[ci]):sm86_wmma_fp8_preshuffled_a(feature[kt],b,q[ci]);"
+    )
+    text = text.replace(
+        "CW_Q8_END_SITE(a,5);av[ci]=a;}",
+        "CW_Q8_END_SITE(a,5);av[ci]=sm86_preshuffle_fp8(a);}"
+    )
+    text = text.replace(
+        "acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,av[0],acc);\n    acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,av[1],acc);",
+        "acc=sm86_wmma_fp8_preshuffled_b(bp.lo,av[0],acc);\n    acc=sm86_wmma_fp8_preshuffled_b(bp.hi,av[1],acc);"
+    )
+    text = text.replace(
+        "acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,av[kt],acc);",
+        "acc=sm86_wmma_fp8_preshuffled_b(b,av[kt],acc);"
+    )
+    # Pre-shuffle Q, K, V, prob in wave_owned_c32.inc (cw_qkv_smem[3][8][32] layout)
+    text = text.replace(
+        "cw_qkv_smem[part][qt*2+ci][qlane]=a;",
+        "cw_qkv_smem[part][qt*2+ci][qlane]=sm86_preshuffle_fp8(a);"
+    )
+    text = text.replace(
+        "acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cw_qkv_smem[1][kt*2+ci][lane],q[ci],acc);",
+        "acc=sm86_wmma_fp8_preshuffled_ab(cw_qkv_smem[1][kt*2+ci][lane],q[ci],acc);"
+    )
+    text = text.replace(
+        "CW_Q8_END_SITE(a,4);prob[kt]=a;",
+        "CW_Q8_END_SITE(a,4);prob[kt]=sm86_preshuffle_fp8(a);"
+    )
+    text = text.replace(
+        "acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cw_qkv_smem[2][kt*2+ci][lane],prob[kt],acc);",
+        "acc=sm86_wmma_fp8_preshuffled_ab(cw_qkv_smem[2][kt*2+ci][lane],prob[kt],acc);"
+    )
+    # 6. Pre-shuffle ALL activation fragments (in0/in1/inputs, hidden, plane1, plane0, Q/K/V, prob, AV) in wave_owned_mh.inc!
+    text = text.replace(
+        '{in0[qi]=w2_load<C>(plane0,qb+qi,kt);in1[qi]=w2_load<C>(plane0,qb+qi,kt+1);}',
+        '{in0[qi]=sm86_preshuffle_fp8(w2_load<C>(plane0,qb+qi,kt));in1[qi]=sm86_preshuffle_fp8(w2_load<C>(plane0,qb+qi,kt+1));}'
+    )
+    text = text.replace(
+        'expanded[qi][tile]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b0,in0[qi],expanded[qi][tile]);\n      _Pragma("unroll") for(uint qi=0;qi<B;qi++)expanded[qi][tile]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b1,in1[qi],expanded[qi][tile]);',
+        'expanded[qi][tile]=sm86_wmma_fp8_preshuffled_b(b0,in0[qi],expanded[qi][tile]);\n      _Pragma("unroll") for(uint qi=0;qi<B;qi++)expanded[qi][tile]=sm86_wmma_fp8_preshuffled_b(b1,in1[qi],expanded[qi][tile]);'
+    )
+    text = text.replace(
+        'inputs[qi]=w2_load<C>(plane0,qb+qi,kt);',
+        'inputs[qi]=sm86_preshuffle_fp8(w2_load<C>(plane0,qb+qi,kt));'
+    )
+    text = text.replace(
+        'expanded[qi][tile]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,inputs[qi],expanded[qi][tile]);',
+        'expanded[qi][tile]=sm86_wmma_fp8_preshuffled_b(b,inputs[qi],expanded[qi][tile]);'
+    )
+    text = text.replace(
+        'W2_Q8_END(packed);hidden[t2][qi]=packed;',
+        'W2_Q8_END(packed);hidden[t2][qi]=sm86_preshuffle_fp8(packed);'
+    )
+    text = text.replace(
+        'contract[qi][ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b0,hidden[0][qi],contract[qi][ci]);\n      _Pragma("unroll") for(uint qi=0;qi<B;qi++)contract[qi][ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b1,hidden[1][qi],contract[qi][ci]);',
+        'contract[qi][ci]=sm86_wmma_fp8_preshuffled_b(b0,hidden[0][qi],contract[qi][ci]);\n      _Pragma("unroll") for(uint qi=0;qi<B;qi++)contract[qi][ci]=sm86_wmma_fp8_preshuffled_b(b1,hidden[1][qi],contract[qi][ci]);'
+    )
+    text = text.replace(
+        'W2_Q8_END(packed);hidden[qi]=packed;',
+        'W2_Q8_END(packed);hidden[qi]=sm86_preshuffle_fp8(packed);'
+    )
+    text = text.replace(
+        'contract[qi][ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,hidden[qi],contract[qi][ci]);',
+        'contract[qi][ci]=sm86_wmma_fp8_preshuffled_b(b,hidden[qi],contract[qi][ci]);'
+    )
+    text = text.replace(
+        'i2 a=w2_load<C>(plane0,qt,kt);\n    _Pragma("unroll") for(uint tile=0;tile<W2_HIDDEN_TILES;tile++){\n     i2 b=w2_weight(fw,head*128+(ht+tile)*16+rc,C,kt*16);\n     expanded[tile]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,expanded[tile]);',
+        'i2 a=sm86_preshuffle_fp8(w2_load<C>(plane0,qt,kt));\n    _Pragma("unroll") for(uint tile=0;tile<W2_HIDDEN_TILES;tile++){\n     i2 b=w2_weight(fw,head*128+(ht+tile)*16+rc,C,kt*16);\n     expanded[tile]=sm86_wmma_fp8_preshuffled_b(b,a,expanded[tile]);'
+    )
+    text = text.replace(
+        'W2_Q8_END(hidden);',
+        'W2_Q8_END(hidden);hidden=sm86_preshuffle_fp8(hidden);'
+    )
+    text = text.replace(
+        'contract[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,hidden,contract[ci]);',
+        'contract[ci]=sm86_wmma_fp8_preshuffled_b(b,hidden,contract[ci]);'
+    )
+    text = text.replace(
+        'w2_store<C>(plane1,qb+qi,head*2+ci,a);',
+        'w2_store<C>(plane1,qb+qi,head*2+ci,sm86_preshuffle_fp8(a));'
+    )
+    text = text.replace(
+        'W2_Q8_END(a);w2_store<C>(plane1,qt,head*2+ci,a);',
+        'W2_Q8_END(a);w2_store<C>(plane1,qt,head*2+ci,sm86_preshuffle_fp8(a));'
+    )
+    text = text.replace(
+        'result[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b0,a0,result[ci]);\n    result[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b1,a1,result[ci]);',
+        'result[ci]=sm86_wmma_fp8_preshuffled_b(b0,a0,result[ci]);\n    result[ci]=sm86_wmma_fp8_preshuffled_b(b1,a1,result[ci]);'
+    )
+    text = text.replace(
+        'i2 a=w2_load<C>(plane1,qt,kt),b=w2_weight(fw+8*C*C,head*32+ci*16+rc,C,kt*16);\n   result[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,result[ci]);',
+        'i2 a=w2_load<C>(plane1,qt,kt),b=w2_weight(fw+8*C*C,head*32+ci*16+rc,C,kt*16);\n   result[ci]=sm86_wmma_fp8_preshuffled_b(b,a,result[ci]);'
+    )
+    text = text.replace(
+        'W2_Q8_END(a);w2_store<C>(plane0,qt,head*2+ci,a);',
+        'W2_Q8_END(a);w2_store<C>(plane0,qt,head*2+ci,sm86_preshuffle_fp8(a));'
+    )
+    text = text.replace(
+        '__builtin_memcpy(&f,feature+p*C+col,8);w2_store<C>(plane0,qt,head*2+ci,f);',
+        '__builtin_memcpy(&f,feature+p*C+col,8);w2_store<C>(plane0,qt,head*2+ci,sm86_preshuffle_fp8(f));'
+    )
+    text = text.replace(
+        'if(part<2)q[part][ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,q[part][ci]);\n     else q[part][ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,q[part][ci]);',
+        'if(part<2)q[part][ci]=sm86_wmma_fp8_preshuffled_b(b,a,q[part][ci]);\n     else q[part][ci]=sm86_wmma_fp8_preshuffled_a(a,b,q[part][ci]);'
+    )
+    text = text.replace(
+        'if(part<2)q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,q[ci]);\n    else q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,q[ci]);',
+        'if(part<2)q[ci]=sm86_wmma_fp8_preshuffled_b(b,a,q[ci]);\n    else q[ci]=sm86_wmma_fp8_preshuffled_a(a,b,q[ci]);'
+    )
+    text = text.replace(
+        'i2 a=w2_load<C>(plane0,qt,kt,qlane),b=w2_weight(aw,head*32+ci*16+qrc,C,kt*16,qgr);\n   query[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,query[ci]);',
+        'i2 a=w2_load<C>(plane0,qt,kt,qlane),b=w2_weight(aw,head*32+ci*16+qrc,C,kt*16,qgr);\n   query[ci]=sm86_wmma_fp8_preshuffled_b(b,a,query[ci]);'
+    )
+    text = text.replace(
+        '__builtin_memcpy(&a,feature+w2_pixel(win,qt*16+rc,workw)*C+ct*16+gr*8,8);',
+        '__builtin_memcpy(&a,feature+w2_pixel(win,qt*16+rc,workw)*C+ct*16+gr*8,8);a=sm86_preshuffle_fp8(a);'
+    )
+    text = text.replace(
+        '{i2 b;__builtin_memcpy(&b,diag+(part*(C/16)+ct)*512+(gr*16+rc)*8,8);result[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,result[ci]);}',
+        '{i2 b;__builtin_memcpy(&b,diag+(part*(C/16)+ct)*512+(gr*16+rc)*8,8);result[ci]=sm86_wmma_fp8_preshuffled_b(b,a,result[ci]);}'
+    )
+    text = text.replace(
+        'i2 a=w2_load<C>(plane1,qt,kt),b=w2_weight(aw+3*C*C,head*32+ci*16+rc,C,kt*16);\n   result[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,result[ci]);',
+        'i2 a=w2_load<C>(plane1,qt,kt),b=w2_weight(aw+3*C*C,head*32+ci*16+rc,C,kt*16);\n   result[ci]=sm86_wmma_fp8_preshuffled_b(b,a,result[ci]);'
+    )
     text = text.replace(
         'if(part==0)w2_store<C>(plane1,qt,head*2+ci,a);else if(part==1)w2_store<C>(plane_k,qt,head*2+ci,a);else vals[qt][ci]=a;',
         'a=sm86_preshuffle_fp8(a);if(part==0)w2_store<C>(plane1,qt,head*2+ci,a);else if(part==1)w2_store<C>(plane_k,qt,head*2+ci,a);else vals[qt][ci]=a;'
@@ -176,22 +350,22 @@ def transform_hip_to_sm86_cu(text, compat_header_path):
         'av=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(vals[key][ci],prob[key],av);',
         'av=sm86_wmma_fp8_preshuffled_ab(vals[key][ci],prob[key],av);'
     )
-    # 6. Pre-shuffle Q/K/V/prob `i2` fragments in wave_owned_c32.inc before storing to cw_qkv_smem / prob!
+    # 7. Pre-shuffle q[0..1] and xb in vit_attention_transposed_score_body (deep_fast.hip)!
     text = text.replace(
-        'cw_qkv_smem[part][qt*2+ci][qlane]=a;',
-        'cw_qkv_smem[part][qt*2+ci][qlane]=sm86_preshuffle_fp8(a);'
+        'h8 ones{};_Pragma("unroll") for(uint e=0;e<8;e++)ones[e]=(_Float16)1.f;\n f8 sum{},acc[2]{};\n for(uint key=0,tile=0;key<tokens;key+=16,tile^=1u)',
+        'q[0]=sm86_preshuffle_fp8(q[0]);q[1]=sm86_preshuffle_fp8(q[1]);\n h8 ones{};_Pragma("unroll") for(uint e=0;e<8;e++)ones[e]=(_Float16)1.f;\n f8 sum{},acc[2]{};\n for(uint key=0,tile=0;key<tokens;key+=16,tile^=1u)'
     )
     text = text.replace(
-        'acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cw_qkv_smem[1][kt*2+ci][lane],q[ci],acc);',
-        'acc=sm86_wmma_fp8_preshuffled_ab(cw_qkv_smem[1][kt*2+ci][lane],q[ci],acc);'
+        'a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(y,q[k/16],a);}',
+        'a=sm86_wmma_fp8_preshuffled_b(y,q[k/16],a);}'
     )
     text = text.replace(
-        'CW_Q8_END_SITE(a,4);prob[kt]=a;',
-        'CW_Q8_END_SITE(a,4);prob[kt]=sm86_preshuffle_fp8(a);'
+        'acc[c]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(y,xb,acc[c]);\n#else\n  acc[c]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(xb,y,acc[c]);',
+        'acc[c]=sm86_wmma_fp8_preshuffled_b(y,xb,acc[c]);\n#else\n  acc[c]=sm86_wmma_fp8_preshuffled_a(xb,y,acc[c]);'
     )
     text = text.replace(
-        'acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cw_qkv_smem[2][kt*2+ci][lane],prob[kt],acc);',
-        'acc=sm86_wmma_fp8_preshuffled_ab(cw_qkv_smem[2][kt*2+ci][lane],prob[kt],acc);'
+        '_Pragma("unroll") for(uint c=0;c<2;c++){i2 y{};',
+        'xb=sm86_preshuffle_fp8(xb);_Pragma("unroll") for(uint c=0;c<2;c++){i2 y{};'
     )
     return f'#include "{compat_header_path}"\n' + text
 
@@ -218,7 +392,7 @@ def assemble_module_source(mod, source_dir, compat_header_path):
             text += open(os.path.join(source_dir, part), "r", encoding="utf-8").read() + "\n"
     return transform_hip_to_sm86_cu(text, compat_header_path)
 
-prep_call_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@(__sm86_prep_(?:fp8|f16)|sm86_unpack_e4m3x8)\((<2 x i32>|<8 x half>)(?:\s+noundef)?\s+(%\S+|zeroinitializer|<[^>]+>)\)(.*)$')
+prep_call_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@(__sm86_prep_(?:fp8|f16))\((<2 x i32>|<8 x half>)(?:\s+noundef)?\s+(%\S+|zeroinitializer|<[^>]+>)\)(.*)$')
 
 def cse_and_hoist_prep_calls(body: str, split_basic_blocks) -> str:
     blocks = split_basic_blocks(body)
@@ -236,6 +410,12 @@ def cse_and_hoist_prep_calls(body: str, split_basic_blocks) -> str:
             mp = prep_call_pat.match(ln)
             if mp:
                 indent, res_v, fn_name, arg_ty, arg_v, tail = mp.groups()
+                if arg_v == "zeroinitializer":
+                    new_lns.append(f"{indent}{res_v} = add <4 x i32> zeroinitializer, zeroinitializer")
+                    continue
+                if "0xH3C00" in arg_v and arg_v.count("0xH3C00") == 8:
+                    new_lns.append(f"{indent}{res_v} = add <4 x i32> <i32 1006648320, i32 1006648320, i32 1006648320, i32 1006648320>, zeroinitializer")
+                    continue
                 if arg_v.startswith("%"):
                     key = (fn_name, arg_ty, arg_v)
                     if key in seen:
@@ -512,7 +692,7 @@ def cancel_wmma_shuffles_ir(ir: str) -> str:
     for m in re.finditer(r'(define\s+[^\n]+\{\n)(.*?)(\n\}\n)', ir, flags=re.DOTALL):
         out_chunks.append(ir[pos:m.start()])
         header, body, footer = m.group(1), m.group(2), m.group(3)
-        if '@__sm86_prep_' in body or '@sm86_unpack_e4m3x8' in body:
+        if '@__sm86_prep_' in body:
             body = cse_and_hoist_prep_calls(body, split_basic_blocks)
         if '@__sm86_c_to_ampere' in body or '@__sm86_d_to_rdna4' in body:
             body = optimize_function_body(optimize_function_body(body))

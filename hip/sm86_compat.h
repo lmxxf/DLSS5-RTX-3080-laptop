@@ -256,18 +256,14 @@ SM86_DEV float __builtin_amdgcn_cvt_f32_fp8(int src, int byte_sel) {
 
 // Vectorized branchless unpacking of 8 E4M3 bytes (sm86_i2) -> 8 FP16 values (sm86_u4)
 // Uses 4 prmt.b32 + 4 mul.rn.f16x2 (0x5c005c00), zero branches!
-extern "C" __attribute__((device, noinline))
-sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) __asm__("sm86_unpack_e4m3x8");
-
-extern "C" __attribute__((device, noinline))
-sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) {
+SM86_DEV sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) {
     sm86_u32 a0 = (sm86_u32)a[0], a1 = (sm86_u32)a[1];
     sm86_u32 u0, u1, u2, u3;
     asm("prmt.b32 %0, %4, 0, 0x1404;\n\t"
         "prmt.b32 %1, %4, 0, 0x3424;\n\t"
         "prmt.b32 %2, %5, 0, 0x1404;\n\t"
         "prmt.b32 %3, %5, 0, 0x3424;"
-        : "=r"(u0), "=r"(u1), "=r"(u2), "=r"(u3) : "r"(a0), "r"(a1));
+        : "=&r"(u0), "=&r"(u1), "=&r"(u2), "=r"(u3) : "r"(a0), "r"(a1));
     u0 = (u0 & 0x80008000u) | ((u0 & 0x7f007f00u) >> 1);
     u1 = (u1 & 0x80008000u) | ((u1 & 0x7f007f00u) >> 1);
     u2 = (u2 & 0x80008000u) | ((u2 & 0x7f007f00u) >> 1);
@@ -458,7 +454,7 @@ sm86_u4 __sm86_prep_fp8(sm86_i2 a) {
         "prmt.b32 %1, %5, 0, %8;\n\t"
         "prmt.b32 %2, %6, 0, %8;\n\t"
         "prmt.b32 %3, %7, 0, %8;"
-        : "=r"(r0), "=r"(r1), "=r"(r2), "=r"(r3)
+        : "=&r"(r0), "=&r"(r1), "=&r"(r2), "=r"(r3)
         : "r"(b0), "r"(b1), "r"(b2), "r"(b3), "r"(sel));
     r0 = (r0 & 0x80008000u) | ((r0 & 0x7f007f00u) >> 1);
     r1 = (r1 & 0x80008000u) | ((r1 & 0x7f007f00u) >> 1);
@@ -497,7 +493,7 @@ SM86_DEV sm86_i2 sm86_preshuffle_fp8(sm86_i2 a) {
     sm86_u32 o0, o1;
     asm("prmt.b32 %0, %2, %3, %6;\n\t"
         "prmt.b32 %1, %4, %5, %6;"
-        : "=r"(o0), "=r"(o1)
+        : "=&r"(o0), "=r"(o1)
         : "r"(b0), "r"(b1), "r"(b2), "r"(b3), "r"(sel));
     return sm86_i2{(int)o0, (int)o1};
 }

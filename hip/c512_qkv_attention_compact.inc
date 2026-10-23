@@ -133,31 +133,28 @@ DEV void c5c_body(const unsigned char*in8,const float*w,unsigned char*out,uint v
   // offset (immediate). Out-of-window A rows load from p=0 (a valid tile) and are zeroed by select, so no branch splits
   // the loop; the select sits at the consuming step so it does not force an early wait. Same fragments, same WMMA order per accumulator -> bit-identical.
   if constexpr(W16){
-   constexpr uint D=C512_COMPACT_QKV_DEEP;
    typedef int w16_i4 __attribute__((ext_vector_type(4)));
    const unsigned char*bp[6];
    _Pragma("unroll") for(uint j=0;j<6;j++){uint n0=(j/2)*C+head*32+(j%2)*16+row;bp[j]=wb+(n0/16)*16*512+(half*16+n0%16)*16;}
-   i2 a[D][QT];w16_i4 b[2][6];
-   auto lda=[&](uint s){const uint gs=s/2,h=s%2,k=s%D;
-    _Pragma("unroll") for(uint t=0;t<QT;t++)__builtin_memcpy(&a[k][t],ap[t]+gs*512+h*16,8);};
-   auto ldb_half=[&](uint gs,uint hi){const uint kb=gs&1u;
-    _Pragma("unroll") for(uint j=0;j<3;j++)__builtin_memcpy(&b[kb][hi*3+j],bp[hi*3+j]+gs*512,16);};
-   _Pragma("unroll") for(uint s=0;s<D;s++)lda(s);
-   ldb_half(0,0);ldb_half(0,1);ldb_half(1,0);
-   _Pragma("unroll") for(uint s=0;s<32;s++){
-    const uint gs=s/2,h=s%2,k=s%D,kb=gs&1u;i2 ca[QT],cb[6];
-    _Pragma("unroll") for(uint t=0;t<QT;t++)ca[t]=av[t]?a[k][t]:i2{};
-    _Pragma("unroll") for(uint j=0;j<6;j++)cb[j]=h?i2{b[kb][j][2],b[kb][j][3]}:i2{b[kb][j][0],b[kb][j][1]};
-    if(s+D<32)lda(s+D);
-    if(!h){if(gs+1<16)ldb_half(gs+1,1);}
-    else{if(gs+2<16)ldb_half(gs+2,0);}
-#if C512_COMPACT_QKV_SCHED
-    __builtin_amdgcn_sched_barrier(0);
-#endif
-    _Pragma("unroll") for(uint j=0;j<6;j++)_Pragma("unroll") for(uint t=0;t<QT;t++)accq[t][j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cb[j],ca[t],accq[t][j]);
-#if C512_COMPACT_QKV_SCHED
-    __builtin_amdgcn_sched_barrier(0);
-#endif
+   _Pragma("clang loop unroll(disable)") for(uint gs=0;gs<16;gs++){
+    i2 ca0[QT],ca1[QT];
+    _Pragma("unroll") for(uint t=0;t<QT;t++){
+     i2 a0,a1;
+     __builtin_memcpy(&a0,ap[t]+gs*512,8);
+     __builtin_memcpy(&a1,ap[t]+gs*512+16,8);
+     ca0[t]=av[t]?a0:i2{};
+     ca1[t]=av[t]?a1:i2{};
+    }
+    w16_i4 b_vec[6];
+    _Pragma("unroll") for(uint j=0;j<6;j++)__builtin_memcpy(&b_vec[j],bp[j]+gs*512,16);
+    _Pragma("unroll") for(uint j=0;j<6;j++){
+     i2 cb0{b_vec[j][0],b_vec[j][1]};
+     _Pragma("unroll") for(uint t=0;t<QT;t++)accq[t][j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cb0,ca0[t],accq[t][j]);
+    }
+    _Pragma("unroll") for(uint j=0;j<6;j++){
+     i2 cb1{b_vec[j][2],b_vec[j][3]};
+     _Pragma("unroll") for(uint t=0;t<QT;t++)accq[t][j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cb1,ca1[t],accq[t][j]);
+    }
    }
   }else{
    constexpr uint D=C512_COMPACT_QKV_DEEP;

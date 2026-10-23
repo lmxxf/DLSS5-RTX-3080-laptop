@@ -247,8 +247,8 @@ SM86_DEV sm86_h2 __builtin_amdgcn_cvt_pkrtz(float a, float b) {
 // --- OCP E4M3 (FP8, bias 7, max 448) <-> FP16 / FP32 ---
 SM86_DEV float __builtin_amdgcn_cvt_f32_fp8(int src, int byte_sel) {
     sm86_u32 b = (((sm86_u32)src) >> (8 * (byte_sel & 3))) & 0xffu;
-    sm86_u32 raw = ((b & 0x80u) << 8) | ((b & 0x7fu) << 7);
-    if ((b & 0x7fu) == 0x7fu) raw = ((b & 0x80u) << 8) | 0x7e00u;
+    sm86_u32 a = b & 0x7fu;
+    sm86_u32 raw = ((b & 0x80u) << 8) | ((a == 0x7fu) ? 0x7e00u : (a << 7));
     sm86_u32 sc = 0x5c005c00u;
     asm("mul.rn.f16x2 %0, %0, %1;" : "+r"(raw) : "r"(sc));
     return sm86_v_cvt_f32_f16(raw);
@@ -256,7 +256,11 @@ SM86_DEV float __builtin_amdgcn_cvt_f32_fp8(int src, int byte_sel) {
 
 // Vectorized branchless unpacking of 8 E4M3 bytes (sm86_i2) -> 8 FP16 values (sm86_u4)
 // Uses 4 prmt.b32 + 4 mul.rn.f16x2 (0x5c005c00), zero branches!
-SM86_DEV sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) {
+extern "C" __attribute__((device, noinline))
+sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) __asm__("sm86_unpack_e4m3x8");
+
+extern "C" __attribute__((device, noinline))
+sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) {
     sm86_u32 a0 = (sm86_u32)a[0], a1 = (sm86_u32)a[1];
     sm86_u32 u0, u1, u2, u3;
     asm("prmt.b32 %0, %4, 0, 0x1404;\n\t"
@@ -281,19 +285,13 @@ SM86_DEV sm86_u32 sm86_f32_to_e4m3_byte(float x) {
     sm86_u32 b = __builtin_bit_cast(sm86_u32, x);
     sm86_u32 s = (b >> 24) & 0x80u;
     sm86_u32 a = b & 0x7fffffffu;
-    if (a >= 0x7f800000u) {
-        return s | 0x7fu;
-    }
-    if (a < 0x3c800000u) {
-        float magic;
-        asm("add.rn.f32 %0, %1, 0f46800000;" : "=f"(magic) : "f"(__builtin_bit_cast(float, a)));
-        return s | (__builtin_bit_cast(sm86_u32, magic) & 0xffu);
-    }
+    float magic;
+    asm("add.rn.f32 %0, %1, 0f46800000;" : "=f"(magic) : "f"(__builtin_bit_cast(float, a)));
+    sm86_u32 sub = __builtin_bit_cast(sm86_u32, magic) & 0xffu;
     sm86_u32 r = a + 0x7ffffu + ((a >> 20) & 1u);
-    if (r >= 0x43e00000u) {
-        return s | 0x7eu;
-    }
-    return s | ((r >> 20) - 0x3c0u);
+    sm86_u32 norm = (r >= 0x43e00000u) ? 0x7eu : ((r >> 20) - 0x3c0u);
+    sm86_u32 mag = (a < 0x3c800000u) ? sub : ((a >= 0x7f800000u) ? 0x7fu : norm);
+    return s | mag;
 }
 
 SM86_DEV int __builtin_amdgcn_cvt_pk_fp8_f32(float a, float b, int old, bool word_sel) {
@@ -335,13 +333,13 @@ SM86_DEV void sm86_frag_benes4(sm86_u4 u, sm86_u32 &r0, sm86_u32 &r1, sm86_u32 &
 // 8-shfl XOR-Benes Network for C (RDNA4 -> Ampere) and D (Ampere -> RDNA4)
 // Marked `noinline, const` during initial Clang IR emission so SSA pass cancels
 // back-to-back C/D shuffles across K-loops; converted to `alwaysinline` before opt -O3!
-extern "C" __attribute__((device, noinline, const))
+extern "C" __attribute__((device, noinline))
 sm86_f8 __sm86_c_to_ampere(sm86_f8 c) __asm__("__sm86_c_to_ampere");
 
-extern "C" __attribute__((device, noinline, const))
+extern "C" __attribute__((device, noinline))
 sm86_f8 __sm86_d_to_rdna4(sm86_f8 d) __asm__("__sm86_d_to_rdna4");
 
-extern "C" __attribute__((device, noinline, const))
+extern "C" __attribute__((device, noinline))
 sm86_f8 __sm86_c_to_ampere(sm86_f8 c) {
     sm86_u32 lane = sm86_lane_id();
     float v0 = c[0], v1 = c[1], v2 = c[2], v3 = c[3], v4 = c[4], v5 = c[5], v6 = c[6], v7 = c[7];
@@ -378,7 +376,7 @@ sm86_f8 __sm86_c_to_ampere(sm86_f8 c) {
     };
 }
 
-extern "C" __attribute__((device, noinline, const))
+extern "C" __attribute__((device, noinline))
 sm86_f8 __sm86_d_to_rdna4(sm86_f8 d) {
     sm86_u32 lane = sm86_lane_id();
     float d0 = d[0], d1 = d[1], d2 = d[2], d3 = d[3], d4 = d[4], d5 = d[5], d6 = d[6], d7 = d[7];
@@ -418,13 +416,13 @@ sm86_f8 __sm86_d_to_rdna4(sm86_f8 d) {
 // Pure operand preparation functions marked `noinline, const` during initial Clang IR
 // emission so LLVM GVN / EarlyCSE / LICM automatically deduplicates shared A or B
 // fragments across multi-tile WMMAs and hoists loop-invariant fragments out of loops!
-extern "C" __attribute__((device, noinline, const))
+extern "C" __attribute__((device, noinline))
 sm86_u4 __sm86_prep_f16(sm86_h8 x) __asm__("__sm86_prep_f16");
 
-extern "C" __attribute__((device, noinline, const))
+extern "C" __attribute__((device, noinline))
 sm86_u4 __sm86_prep_fp8(sm86_i2 x) __asm__("__sm86_prep_fp8");
 
-extern "C" __attribute__((device, noinline, const))
+extern "C" __attribute__((device, noinline))
 sm86_u4 __sm86_prep_f16(sm86_h8 x) {
     sm86_u32 lane = sm86_lane_id();
     sm86_u4 ux = __builtin_bit_cast(sm86_u4, x);
@@ -433,13 +431,75 @@ sm86_u4 __sm86_prep_f16(sm86_h8 x) {
     return sm86_u4{r0, r1, r2, r3};
 }
 
-extern "C" __attribute__((device, noinline, const))
-sm86_u4 __sm86_prep_fp8(sm86_i2 x) {
+// Shuffle-Before-Unpack: shuffles two 32-bit words first (only 6 selp instead of 16!), then unpacks 4 E4M3 pairs to F16x2
+extern "C" __attribute__((device, noinline))
+sm86_u4 __sm86_prep_fp8(sm86_i2 a) {
     sm86_u32 lane = sm86_lane_id();
-    sm86_u4 ux = sm86_unpack_e4m3x8(x);
+    sm86_u32 u0 = (sm86_u32)a[0], u1 = (sm86_u32)a[1];
+    bool p1 = (lane & 16u) != 0;
+    sm86_u32 w0 = p1 ? u1 : u0;
+    sm86_u32 w1 = p1 ? u0 : u1;
+
+    sm86_u32 base = (lane >> 2) ^ ((lane & 2u) << 3);
+    sm86_u32 v0 = sm86_shfl_idx_u32(w0, base);
+    sm86_u32 v1 = sm86_shfl_idx_u32(w0, base ^ 8u);
+    sm86_u32 v2 = sm86_shfl_idx_u32(w1, base ^ 16u);
+    sm86_u32 v3 = sm86_shfl_idx_u32(w1, base ^ 24u);
+
+    bool q1 = (lane & 2u) != 0;
+    sm86_u32 b0 = q1 ? v2 : v0;
+    sm86_u32 b1 = q1 ? v3 : v1;
+    sm86_u32 b2 = q1 ? v0 : v2;
+    sm86_u32 b3 = q1 ? v1 : v3;
+
+    sm86_u32 sel = (lane & 1u) ? 0x3424u : 0x1404u;
     sm86_u32 r0, r1, r2, r3;
-    sm86_frag_benes4(ux, r0, r1, r2, r3, lane);
+    asm("prmt.b32 %0, %4, 0, %8;\n\t"
+        "prmt.b32 %1, %5, 0, %8;\n\t"
+        "prmt.b32 %2, %6, 0, %8;\n\t"
+        "prmt.b32 %3, %7, 0, %8;"
+        : "=r"(r0), "=r"(r1), "=r"(r2), "=r"(r3)
+        : "r"(b0), "r"(b1), "r"(b2), "r"(b3), "r"(sel));
+    r0 = (r0 & 0x80008000u) | ((r0 & 0x7f007f00u) >> 1);
+    r1 = (r1 & 0x80008000u) | ((r1 & 0x7f007f00u) >> 1);
+    r2 = (r2 & 0x80008000u) | ((r2 & 0x7f007f00u) >> 1);
+    r3 = (r3 & 0x80008000u) | ((r3 & 0x7f007f00u) >> 1);
+    sm86_u32 scale = 0x5c005c00u;
+    asm("mul.rn.f16x2 %0, %0, %4;\n\t"
+        "mul.rn.f16x2 %1, %1, %4;\n\t"
+        "mul.rn.f16x2 %2, %2, %4;\n\t"
+        "mul.rn.f16x2 %3, %3, %4;"
+        : "+r"(r0), "+r"(r1), "+r"(r2), "+r"(r3) : "r"(scale));
     return sm86_u4{r0, r1, r2, r3};
+}
+
+// Pre-shuffle 8-byte `i2` from RDNA4 layout into 8-byte Ampere layout for Q/K/V/prob staging
+SM86_DEV sm86_i2 sm86_preshuffle_fp8(sm86_i2 a) {
+    sm86_u32 lane = sm86_lane_id();
+    sm86_u32 u0 = (sm86_u32)a[0], u1 = (sm86_u32)a[1];
+    bool p1 = (lane & 16u) != 0;
+    sm86_u32 w0 = p1 ? u1 : u0;
+    sm86_u32 w1 = p1 ? u0 : u1;
+
+    sm86_u32 base = (lane >> 2) ^ ((lane & 2u) << 3);
+    sm86_u32 v0 = sm86_shfl_idx_u32(w0, base);
+    sm86_u32 v1 = sm86_shfl_idx_u32(w0, base ^ 8u);
+    sm86_u32 v2 = sm86_shfl_idx_u32(w1, base ^ 16u);
+    sm86_u32 v3 = sm86_shfl_idx_u32(w1, base ^ 24u);
+
+    bool q1 = (lane & 2u) != 0;
+    sm86_u32 b0 = q1 ? v2 : v0;
+    sm86_u32 b1 = q1 ? v3 : v1;
+    sm86_u32 b2 = q1 ? v0 : v2;
+    sm86_u32 b3 = q1 ? v1 : v3;
+
+    sm86_u32 sel = (lane & 1u) ? 0x7632u : 0x5410u;
+    sm86_u32 o0, o1;
+    asm("prmt.b32 %0, %2, %3, %6;\n\t"
+        "prmt.b32 %1, %4, %5, %6;"
+        : "=r"(o0), "=r"(o1)
+        : "r"(b0), "r"(b1), "r"(b2), "r"(b3), "r"(sel));
+    return sm86_i2{(int)o0, (int)o1};
 }
 
 SM86_DEV sm86_f8 sm86_mma_prepared_core(sm86_u4 ra, sm86_u4 rb, sm86_f8 ac) {
@@ -472,5 +532,30 @@ SM86_DEV sm86_f8 __builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(sm86_h8 a, sm8
 SM86_DEV sm86_f8 __builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(sm86_i2 a, sm86_i2 b, sm86_f8 c) {
     sm86_f8 ac = __sm86_c_to_ampere(c);
     sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), __sm86_prep_fp8(b), ac);
+    return __sm86_d_to_rdna4(ad);
+}
+
+// Zero-shuffle WMMA for pre-shuffled Q/K/V/prob `i2` fragments!
+SM86_DEV sm86_f8 sm86_wmma_fp8_preshuffled_ab(sm86_i2 pa, sm86_i2 pb, sm86_f8 c) {
+    sm86_f8 ac = __sm86_c_to_ampere(c);
+    sm86_f8 ad = sm86_mma_prepared_core(sm86_unpack_e4m3x8(pa), sm86_unpack_e4m3x8(pb), ac);
+    return __sm86_d_to_rdna4(ad);
+}
+
+SM86_DEV sm86_f8 sm86_wmma_fp8_prepped_b(sm86_i2 a, sm86_u4 rb, sm86_f8 c) {
+    sm86_f8 ac = __sm86_c_to_ampere(c);
+    sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), rb, ac);
+    return __sm86_d_to_rdna4(ad);
+}
+
+SM86_DEV sm86_f8 sm86_wmma_fp8_preshuffled_b(sm86_i2 a, sm86_i2 pb, sm86_f8 c) {
+    sm86_f8 ac = __sm86_c_to_ampere(c);
+    sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), sm86_unpack_e4m3x8(pb), ac);
+    return __sm86_d_to_rdna4(ad);
+}
+
+SM86_DEV sm86_f8 sm86_wmma_fp8_preshuffled_a(sm86_i2 pa, sm86_i2 b, sm86_f8 c) {
+    sm86_f8 ac = __sm86_c_to_ampere(c);
+    sm86_f8 ad = sm86_mma_prepared_core(sm86_unpack_e4m3x8(pa), __sm86_prep_fp8(b), ac);
     return __sm86_d_to_rdna4(ad);
 }

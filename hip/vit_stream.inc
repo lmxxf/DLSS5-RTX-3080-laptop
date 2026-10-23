@@ -221,16 +221,16 @@ WAVE void vit_stream_contract_frag_bout(const float*in,const float*w,const float
 WAVE void vit_stream_project_n64_bb(const float*in,const float*w,const float*skip,float*out,uint tokens,uint inputs,uint outputs,const uint*reuse_gate){vit_stream_project_tiles<1,4,true,false,true>(in,w,skip,out,tokens,reuse_gate);}
 KERNEL __attribute__((amdgpu_flat_work_group_size(160,160))) void vit_stream_qkv_frag_bin_w5f8(const float*in,const float*w,unsigned char*out,uint tokens,const uint*reuse_gate){if(reuse_gate&&reuse_gate[0])return;
  constexpr uint CH=8;
- __attribute__((shared)) _Float16 lds[2*2*CH*256];/* bytes: 2 buffers x 2 column tiles x CH x 256B = 8KB used for staging; 16KB kept for the norm tiles */
- unsigned char*l8=reinterpret_cast<unsigned char*>(lds);
+ __attribute__((shared)) _Float16 lds[2*2*CH*256];/* 16KB: holds 2 buffers x 2 column tiles x CH x 32 lanes of pre-unpacked/shuffled sm86_u4 B fragments, then 10560B for norm tiles */
+ sm86_u4*lu4=reinterpret_cast<sm86_u4*>(lds);
  const uint t=__builtin_amdgcn_workitem_id_x(),wv=t>>5,lane=t&31,groups=(tokens/16+4)/5,perpart=groups*32,part=bid()/perpart,local=bid()%perpart,first=(local/32*5+wv)*16,row=local%32*32;if(part>=3)return;
  const bool live=first<tokens;
  const unsigned char*hb=reinterpret_cast<const unsigned char*>(w)+part*1048576+(row/16)*64*256;
- int __attribute__((ext_vector_type(4))) s0{},s1{};/* t<128 moves pieces p=t+i*128: column tile p>>7, 16B at (p&127)*16 of the chunk */
-#define F8_SRC(i) (hb+((t+(i)*128)>>7)*16384+kc*CH*256+(t&127)*16)
-#define F8_DST(i) (l8+sb*(2*CH*256)+((t+(i)*128)>>7)*(CH*256)+(t&127)*16)
-#define F8_FETCH {if(t<128){__builtin_memcpy(&s0,F8_SRC(0),16);__builtin_memcpy(&s1,F8_SRC(1),16);}}
-#define F8_STASH {if(t<128){__builtin_memcpy(F8_DST(0),&s0,16);__builtin_memcpy(F8_DST(1),&s1,16);}}
+ i2 s00{},s01{},s10{},s11{};
+#define F8_SRC(j,kk) (hb+(j)*16384+(kc*CH+(kk))*256+lane*8)
+#define F8_DST(j,kk) (lu4+sb*(2*CH*32)+(j)*(CH*32)+(kk)*32+lane)
+#define F8_FETCH {if(t<128){__builtin_memcpy(&s00,F8_SRC(0,wv),8);__builtin_memcpy(&s01,F8_SRC(0,wv+4),8);__builtin_memcpy(&s10,F8_SRC(1,wv),8);__builtin_memcpy(&s11,F8_SRC(1,wv+4),8);}}
+#define F8_STASH {if(t<128){*F8_DST(0,wv)=__sm86_prep_fp8(s00);*F8_DST(0,wv+4)=__sm86_prep_fp8(s01);*F8_DST(1,wv)=__sm86_prep_fp8(s10);*F8_DST(1,wv+4)=__sm86_prep_fp8(s11);}}
  f8 acc0{},acc1{};
  {const uint kc=0;F8_FETCH}
 #pragma unroll 1
@@ -238,9 +238,9 @@ KERNEL __attribute__((amdgpu_flat_work_group_size(160,160))) void vit_stream_qkv
   if(live)
 #pragma unroll
   for(uint kk=0;kk<CH;kk++){uint k=(kc*CH+kk)*16;i2 a8;__builtin_memcpy(&a8,reinterpret_cast<const unsigned char*>(in)+(first+rc())*1024+k+gr()*8,8);
-   i2 b0,b1;__builtin_memcpy(&b0,l8+(kc&1)*(2*CH*256)+kk*256+lane*8,8);__builtin_memcpy(&b1,l8+(kc&1)*(2*CH*256)+(CH*256)+kk*256+lane*8,8);
-   acc0=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a8,b0,acc0);
-   acc1=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a8,b1,acc1);}}
+   sm86_u4 b0=lu4[(kc&1)*(2*CH*32)+kk*32+lane],b1=lu4[(kc&1)*(2*CH*32)+(CH*32)+kk*32+lane];
+   acc0=sm86_wmma_fp8_prepped_b(a8,b0,acc0);
+   acc1=sm86_wmma_fp8_prepped_b(a8,b1,acc1);}}
 #undef F8_SRC
 #undef F8_DST
 #undef F8_FETCH

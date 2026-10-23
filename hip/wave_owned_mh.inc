@@ -718,7 +718,7 @@ W2_REP_BEGIN(16)
    for(uint ci=0;ci<2;ci++){
     if constexpr(ByteOut){W2_Q8_DECL(a);for(uint e=0;e<8;e++){float v=result[ci][e];W2_Q8_SET(a,e,post==0?(W2_Q8_MASK?w2_hmask(v):Hrtz(v)):v);}W2_Q8_END(a);__builtin_memcpy(reinterpret_cast<unsigned char*>(out_any)+dest+ci*16,&a,8);}
     else if constexpr(W2HalfTail){for(uint e=0;e<8;e++){float v=result[ci][e];static_cast<_Float16*>(out_any)[dest+ci*16+e]=(_Float16)Hrtz(v);}if constexpr(W2SkipB8){i2 sb{};for(uint e=0;e<8;e++)w2_bits(sb,e,w2_skip_byte(Hrtz(result[ci][e])));__builtin_memcpy(static_cast<unsigned char*>(w2_sb)+dest+ci*16,&sb,8);}}
-    else for(uint e=0;e<8;e++){float v=result[ci][e],h=Hrtz(v),hi=post==0?h:v,hc=__builtin_amdgcn_fmed3f(hi+0.f,-448.f,448.f),f=__builtin_amdgcn_cvt_f32_fp8(__builtin_amdgcn_cvt_pk_fp8_f32(hc,0.f,0,false),0);static_cast<float*>(out_any)[dest+ci*16+e]=post==3?h:f;}
+    else{float out_v[8];_Pragma("clang loop unroll(full)") for(uint e=0;e<8;e++){float v=result[ci][e],h=Hrtz(v),hi=post==0?h:v,hc=__builtin_amdgcn_fmed3f(hi+0.f,-448.f,448.f),f=__builtin_amdgcn_cvt_f32_fp8(__builtin_amdgcn_cvt_pk_fp8_f32(hc,0.f,0,false),0);out_v[e]=post==3?h:f;}__builtin_memcpy(static_cast<float*>(out_any)+dest+ci*16,out_v,32);}
    }
   }
  }
@@ -751,7 +751,7 @@ W2_REP_BEGIN(16)
    for(uint ci=0;ci<2;ci++){
     if constexpr(ByteOut){W2_Q8_DECL(a);for(uint e=0;e<8;e++){float v=result[ci][e];W2_Q8_SET(a,e,post==0?(W2_Q8_MASK?w2_hmask(v):Hrtz(v)):v);}W2_Q8_END(a);__builtin_memcpy(reinterpret_cast<unsigned char*>(out_any)+dest+ci*16,&a,8);}
     else if constexpr(W2HalfTail){for(uint e=0;e<8;e++){float v=result[ci][e];static_cast<_Float16*>(out_any)[dest+ci*16+e]=(_Float16)Hrtz(v);}if constexpr(W2SkipB8){i2 sb{};for(uint e=0;e<8;e++)w2_bits(sb,e,w2_skip_byte(Hrtz(result[ci][e])));__builtin_memcpy(static_cast<unsigned char*>(w2_sb)+dest+ci*16,&sb,8);}}
-    else for(uint e=0;e<8;e++){float v=result[ci][e],h=Hrtz(v),hi=post==0?h:v,hc=__builtin_amdgcn_fmed3f(hi+0.f,-448.f,448.f),f=__builtin_amdgcn_cvt_f32_fp8(__builtin_amdgcn_cvt_pk_fp8_f32(hc,0.f,0,false),0);static_cast<float*>(out_any)[dest+ci*16+e]=post==3?h:f;}
+    else{float out_v[8];_Pragma("clang loop unroll(full)") for(uint e=0;e<8;e++){float v=result[ci][e],h=Hrtz(v),hi=post==0?h:v,hc=__builtin_amdgcn_fmed3f(hi+0.f,-448.f,448.f),f=__builtin_amdgcn_cvt_f32_fp8(__builtin_amdgcn_cvt_pk_fp8_f32(hc,0.f,0,false),0);out_v[e]=post==3?h:f;}__builtin_memcpy(static_cast<float*>(out_any)+dest+ci*16,out_v,32);}
    }
   }
  }

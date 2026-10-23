@@ -151,6 +151,48 @@ def transform_hip_to_sm86_cu(text, compat_header_path):
             return m.group(0)
         return '_Pragma("unroll") ' + m.group(2)
     text = unroll_pat.sub(_unroll_repl, text)
+    # 5. Pre-shuffle Q/K/V/prob `i2` fragments in wave_owned_mh.inc before storing to shared memory / registers!
+    text = text.replace(
+        'if(part==0)w2_store<C>(plane1,qt,head*2+ci,a);else if(part==1)w2_store<C>(plane_k,qt,head*2+ci,a);else vals[qt][ci]=a;',
+        'a=sm86_preshuffle_fp8(a);if(part==0)w2_store<C>(plane1,qt,head*2+ci,a);else if(part==1)w2_store<C>(plane_k,qt,head*2+ci,a);else vals[qt][ci]=a;'
+    )
+    text = text.replace(
+        'w2_store<C>(plane1,qt,head*2+ci,q);w2_store<C>(plane_k,qt,head*2+ci,k);vals[qt][ci]=v;',
+        'w2_store<C>(plane1,qt,head*2+ci,sm86_preshuffle_fp8(q));w2_store<C>(plane_k,qt,head*2+ci,sm86_preshuffle_fp8(k));vals[qt][ci]=sm86_preshuffle_fp8(v);'
+    )
+    text = text.replace(
+        'W2_Q8_END(a);query_frag[ci]=a;',
+        'W2_Q8_END(a);query_frag[ci]=sm86_preshuffle_fp8(a);'
+    )
+    text = text.replace(
+        'scores=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(w2_load<C>(plane_k,key,head*2+ci),',
+        'scores=sm86_wmma_fp8_preshuffled_ab(w2_load<C>(plane_k,key,head*2+ci),'
+    )
+    text = text.replace(
+        'W2_Q8_END(a);prob[key]=a;',
+        'W2_Q8_END(a);prob[key]=sm86_preshuffle_fp8(a);'
+    )
+    text = text.replace(
+        'av=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(vals[key][ci],prob[key],av);',
+        'av=sm86_wmma_fp8_preshuffled_ab(vals[key][ci],prob[key],av);'
+    )
+    # 6. Pre-shuffle Q/K/V/prob `i2` fragments in wave_owned_c32.inc before storing to cw_qkv_smem / prob!
+    text = text.replace(
+        'cw_qkv_smem[part][qt*2+ci][qlane]=a;',
+        'cw_qkv_smem[part][qt*2+ci][qlane]=sm86_preshuffle_fp8(a);'
+    )
+    text = text.replace(
+        'acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cw_qkv_smem[1][kt*2+ci][lane],q[ci],acc);',
+        'acc=sm86_wmma_fp8_preshuffled_ab(cw_qkv_smem[1][kt*2+ci][lane],q[ci],acc);'
+    )
+    text = text.replace(
+        'CW_Q8_END_SITE(a,4);prob[kt]=a;',
+        'CW_Q8_END_SITE(a,4);prob[kt]=sm86_preshuffle_fp8(a);'
+    )
+    text = text.replace(
+        'acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cw_qkv_smem[2][kt*2+ci][lane],prob[kt],acc);',
+        'acc=sm86_wmma_fp8_preshuffled_ab(cw_qkv_smem[2][kt*2+ci][lane],prob[kt],acc);'
+    )
     return f'#include "{compat_header_path}"\n' + text
 
 def assemble_module_source(mod, source_dir, compat_header_path):
@@ -176,84 +218,32 @@ def assemble_module_source(mod, source_dir, compat_header_path):
             text += open(os.path.join(source_dir, part), "r", encoding="utf-8").read() + "\n"
     return transform_hip_to_sm86_cu(text, compat_header_path)
 
-prep_call_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@(__sm86_prep_(?:fp8|f16))\((<2 x i32>|<8 x half>)(?:\s+noundef)?\s+(%\S+|zeroinitializer|<[^>]+>)\)(.*)$')
+prep_call_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@(__sm86_prep_(?:fp8|f16)|sm86_unpack_e4m3x8)\((<2 x i32>|<8 x half>)(?:\s+noundef)?\s+(%\S+|zeroinitializer|<[^>]+>)\)(.*)$')
 
 def cse_and_hoist_prep_calls(body: str, split_basic_blocks) -> str:
     blocks = split_basic_blocks(body)
     bb_map = {lbl: lns for lbl, lns in blocks}
     bb_order = [lbl for lbl, _ in blocks]
 
-    var_def = {}
-    for lbl, lns in blocks:
-        for idx, ln in enumerate(lns):
-            m_def = re.match(r'^\s*(%[a-zA-Z0-9_.]+)\s*=\s*(.+)$', ln)
-            if m_def:
-                v, rhs = m_def.group(1), m_def.group(2)
-                var_def[v] = (lbl, idx, rhs.lstrip().startswith("phi "))
-
-    prep_groups = {}
-    for lbl, lns in blocks:
-        for idx, ln in enumerate(lns):
+    # Per-Basic-Block CSE of @__sm86_prep_fp8 and @__sm86_prep_f16:
+    # Deduplicates all repeated prep calls on the same SSA variable within each basic block
+    # without hoisting <4 x i32> across basic blocks (preventing cross-loop register pressure bloat!).
+    for lbl in bb_order:
+        lns = bb_map[lbl]
+        seen = {}
+        new_lns = []
+        for ln in lns:
             mp = prep_call_pat.match(ln)
             if mp:
                 indent, res_v, fn_name, arg_ty, arg_v, tail = mp.groups()
-                key = (fn_name, arg_ty, arg_v)
-                prep_groups.setdefault(key, []).append((lbl, idx, res_v, ln))
-
-    if not prep_groups:
-        return body
-
-    inserts_after_phis = {}
-    inserts_after_line = {}
-    replace_call_with_id = {}
-
-    for (fn_name, arg_ty, arg_v), calls in prep_groups.items():
-        call_bbs = {c[0] for c in calls}
-        def_info = var_def.get(arg_v, None)
-        def_lbl = def_info[0] if def_info else bb_order[0]
-
-        if len(call_bbs) == 1 and list(call_bbs)[0] == def_lbl:
-            # All calls are in the same block where arg_v is defined:
-            # Keep the first call `calls[0]` in-place (minimal register live range!) and CSE `calls[1:]`!
-            if len(calls) <= 1:
-                continue
-            canon_v = calls[0][2]
-            for lbl, idx, res_v, _ in calls[1:]:
-                replace_call_with_id[res_v] = canon_v
-        else:
-            # Either called across multiple blocks, or `arg_v` is defined in an outer block (LICM!):
-            # Wait: only hoist to `def_lbl` if `len(calls) > 1` OR `calls[0][0]` is a loop block!
-            canon_v = f"%prep_{calls[0][2][1:]}"
-            call_line = f"  {canon_v} = tail call <4 x i32> @{fn_name}({arg_ty} noundef {arg_v})"
-            if def_info is None or def_info[2]:
-                inserts_after_phis.setdefault(def_lbl, []).append(call_line)
-            else:
-                inserts_after_line.setdefault((def_lbl, def_info[1]), []).append(call_line)
-            for lbl, idx, res_v, _ in calls:
-                replace_call_with_id[res_v] = canon_v
-
-    if not replace_call_with_id:
-        return body
-
-    for lbl in bb_order:
-        lns = bb_map[lbl]
-        new_lns = []
-        for idx, ln in enumerate(lns):
-            mp = prep_call_pat.match(ln)
-            if mp and mp.group(2) in replace_call_with_id:
-                indent, res_v, _, _, _, _ = mp.groups()
-                canon_v = replace_call_with_id[res_v]
-                new_lns.append(f"{indent}{res_v} = add <4 x i32> {canon_v}, zeroinitializer")
-            else:
-                new_lns.append(ln)
-            if (lbl, idx) in inserts_after_line:
-                new_lns.extend(inserts_after_line[(lbl, idx)])
-
-        if lbl in inserts_after_phis:
-            insert_pos = 1 if re.match(r'^[a-zA-Z0-9_.]+:', new_lns[0]) else 0
-            while insert_pos < len(new_lns) and ('= phi ' in new_lns[insert_pos]):
-                insert_pos += 1
-            new_lns = new_lns[:insert_pos] + inserts_after_phis[lbl] + new_lns[insert_pos:]
+                if arg_v.startswith("%"):
+                    key = (fn_name, arg_ty, arg_v)
+                    if key in seen:
+                        canon_v = seen[key]
+                        new_lns.append(f"{indent}{res_v} = add <4 x i32> {canon_v}, zeroinitializer")
+                        continue
+                    seen[key] = res_v
+            new_lns.append(ln)
         bb_map[lbl] = new_lns
 
     return "\n".join("\n".join(bb_map[lbl]) for lbl in bb_order)
@@ -522,7 +512,7 @@ def cancel_wmma_shuffles_ir(ir: str) -> str:
     for m in re.finditer(r'(define\s+[^\n]+\{\n)(.*?)(\n\}\n)', ir, flags=re.DOTALL):
         out_chunks.append(ir[pos:m.start()])
         header, body, footer = m.group(1), m.group(2), m.group(3)
-        if '@__sm86_prep_' in body:
+        if '@__sm86_prep_' in body or '@sm86_unpack_e4m3x8' in body:
             body = cse_and_hoist_prep_calls(body, split_basic_blocks)
         if '@__sm86_c_to_ampere' in body or '@__sm86_d_to_rdna4' in body:
             body = optimize_function_body(optimize_function_body(body))
@@ -576,7 +566,7 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     if res.returncode != 0:
         return (name, False, f"opt-14 -O3 failed:\n{res.stderr}", [], "")
 
-    res = subprocess.run(["llc-14", "-march=nvptx64", "-mcpu=sm_86", "-O3", final_ll, "-o", ptx_path], capture_output=True, text=True)
+    res = subprocess.run(["llc-14", "-march=nvptx64", "-mcpu=sm_86", "--fp-contract=fast", "-O3", final_ll, "-o", ptx_path], capture_output=True, text=True)
     if res.returncode != 0:
         return (name, False, f"llc-14 failed:\n{res.stderr}", [], "")
 

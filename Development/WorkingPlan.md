@@ -58,11 +58,12 @@
 
 ---
 
-## 3. 后续优化路线图
+## 3. 已完成与后续优化路线图
 
-1. **WMMA 累加器跨 K 步保持 Ampere 布局**：
-   - 目前每次 `wmma_f32_16x16x16` 调用内部执行 `sm86_rdna4_c_to_ampere`（20 条 `shfl.sync`）与 `sm86_ampere_d_to_rdna4`（20 条 `shfl.sync`）。在 `c32_wave1`、`c64_wave2`、`c512_m32`、`vit_stream` 的内层 K 循环中，若将累加器在 K 循环期间保持为 Ampere 原生布局、仅在 K 循环结束后做一次 `sm86_ampere_d_to_rdna4`，可消去 80% 以上的跨 lane 洗牌指令。
-2. **权重量化预重排（Host-side Ampere Fragment Packing）**：
-   - 在宿主侧上传权重时直接按 `mma.sync.m16n8k16` 的 Lane 布局预打包 `FragmentPackedMatrixW16`，即可省去内核中的 `sm86_frag_butterfly`（每次 WMMA 再省 16 条 `shfl.sync`）以及实时 `FP8 -> FP16` 解包，将 `sm_86` Tensor Core 吞吐推至硬件极限。
+1. **已完成：WMMA 累加器跨 K 步保持 Ampere 布局 + Q/K/V/prob 8 字节预洗牌 (`sm86_preshuffle_fp8`) + 32/32 核零 `LMem` 溢出**：
+   - 通过 `build_sm86_modules.py` 的 LCSSA 代数抵消 Pass 消去所有 K 循环内部（含 Diamond-PHI 与 4-partition 分段归并循环）的 `c_to_ampere` / `d_to_rdna4` 洗牌；
+   - 通过 Shuffle-Before-Unpack `__sm86_prep_fp8`、8 字节预洗牌 `sm86_preshuffle_fp8` + `sm86_wmma_fp8_preshuffled_ab`、`vit_stream_qkv` LDS 预解包与 32/32 核 `LMem = 0 B` 优化，将端到端推理提速 **`4.52× ~ 4.84×`**（`0.5x Small 900p` 达 **`43.1 ms` / `23.2 FPS`**，`0.5x Small 1080p` 达 **`57.1 ms` / `17.5 FPS`**），并在 Windows 11 实机通过 `frame.exe` D3D12 编解码 + CUDA 共享显存/Fence 互操作全链路验证。
+2. **下一步：宿主侧权重量化预重排（Host-side Ampere Fragment Pre-Shuffling）**：
+   - 在宿主侧上传权重时直接按 `sm86_preshuffle_fp8` 的 8 字节 Ampere Lane 布局预重排 `FragmentPackedMatrixW16`，即可省去内核中的全部权重 `shfl.sync`，直接通过 `sm86_unpack_e4m3x8` 送入 `mma.sync.m16n8k16`，将 `sm_86` Tensor Core 吞吐推至硬件极限。
 3. **《鬼武者》(Onimusha) / RE9 实机集成验证**：
    - 使用已交叉编译的 `LmxxfNrRuntime.dll` 与 `dlss5-amd.addon64` 配合 40 个 `sm_86` 模块在 Windows 实机游戏中验证端到端帧率与画质。

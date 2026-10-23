@@ -130,7 +130,7 @@ DEV float cw_z(float x){return clampf(x,-448.f,448.f);}
 extern "C" __attribute__((device)) uint cw_pack_census[6*7*5]={};
 template<uint Site,uint Kind> DEV void cw_census(const float*t){
  uint lane=__builtin_amdgcn_workitem_id_x(),flags=0,mx=0;
- for(uint e=0;e<8;e++){uint ab=bits(t[e])&0x7fffffffu;flags|=(ab>=0x7f800000u?1u:0u)|(ab>0x43e00000u?2u:0u)|(ab>0x3f800000u?4u:0u);if(ab<0x7f800000u&&ab>mx)mx=ab;}
+ _Pragma("unroll") for(uint e=0;e<8;e++){uint ab=bits(t[e])&0x7fffffffu;flags|=(ab>=0x7f800000u?1u:0u)|(ab>0x43e00000u?2u:0u)|(ab>0x3f800000u?4u:0u);if(ab<0x7f800000u&&ab>mx)mx=ab;}
  for(uint sh=16;sh;sh>>=1){uint other=uint(__builtin_amdgcn_ds_bpermute((lane^sh)*4,int(mx)));if(other>mx)mx=other;flags|=uint(__builtin_amdgcn_ds_bpermute((lane^sh)*4,int(flags)));}
  if(lane==0){uint*p=cw_pack_census+(Kind*7+Site)*5;__hip_atomic_fetch_add(p,1u,__ATOMIC_RELAXED,__HIP_MEMORY_SCOPE_AGENT);
   if(flags&1)__hip_atomic_fetch_add(p+1,1u,__ATOMIC_RELAXED,__HIP_MEMORY_SCOPE_AGENT);
@@ -214,7 +214,7 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
  constexpr uint cw_kind=Prefix?5:Post?4:Finish?(DownCrop?3:2):Chain?0:1;
  uint win=bid();if(win>=windows)return;
  __attribute__((shared)) _Float16 residual[4*2*32*8];
- cw_i16 keys{},values{},queries{};
+ __attribute__((shared)) i2 cw_qkv_smem[3][8][32];
  f8 up_totals[2]{};
  if constexpr(Up){
   uint lane=__builtin_amdgcn_workitem_id_x(),r=lane&15u,g=lane>>4;
@@ -222,11 +222,11 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
   int lx=(int((win%(ww/8))*8)-int(sx))/2+int(r%4),ly=(int((win/(ww/8))*8)-int(sy))/2+int(r/4);
   for(uint k=0;k<64;k+=16){h8 a{},b{};
 #if CW_HOIST_UP&1
-   {const bool ok=lx>=0&&ly>=0&&lx<int(iw)&&ly<int(ih);const uint base=ok?(uint(ly)*iw+uint(lx))*64:0u;for(uint e=0;e<8;e++){float v;if constexpr(UpLowByte)v=__builtin_amdgcn_cvt_f32_fp8(int(in[base+k+g*8+e]),0);else v=reinterpret_cast<const float*>(in)[base+k+g*8+e];a[e]=ok?(_Float16)v:(_Float16)0.f;}}
+   {const bool ok=lx>=0&&ly>=0&&lx<int(iw)&&ly<int(ih);const uint base=ok?(uint(ly)*iw+uint(lx))*64:0u;_Pragma("unroll") for(uint e=0;e<8;e++){float v;if constexpr(UpLowByte)v=__builtin_amdgcn_cvt_f32_fp8(int(in[base+k+g*8+e]),0);else v=reinterpret_cast<const float*>(in)[base+k+g*8+e];a[e]=ok?(_Float16)v:(_Float16)0.f;}}
 #else
-   if(lx>=0&&ly>=0&&lx<int(iw)&&ly<int(ih))for(uint e=0;e<8;e++){const uint i=(uint(ly)*iw+uint(lx))*64+k+g*8+e;if constexpr(UpLowByte)a[e]=(_Float16)__builtin_amdgcn_cvt_f32_fp8(int(in[i]),0);else a[e]=(_Float16)reinterpret_cast<const float*>(in)[i];}
+   if(lx>=0&&ly>=0&&lx<int(iw)&&ly<int(ih))_Pragma("unroll") for(uint e=0;e<8;e++){const uint i=(uint(ly)*iw+uint(lx))*64+k+g*8+e;if constexpr(UpLowByte)a[e]=(_Float16)__builtin_amdgcn_cvt_f32_fp8(int(in[i]),0);else a[e]=(_Float16)reinterpret_cast<const float*>(in)[i];}
 #endif
-   for(uint ci=0;ci<2;ci++){
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){
     __builtin_memcpy(&b,reinterpret_cast<const _Float16*>(upw)+(ci*16+r)*64+k+g*8,16);
     up_totals[ci]=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(b,a,up_totals[ci]);
    }
@@ -244,7 +244,7 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
 #endif
   uint r=lane&15u,g=lane>>4;
   i2 input[2];f8 ffn[2]{};
-  if constexpr(Chain){for(uint ci=0;ci<2;ci++)input[ci]=cw_input(in,win,qt,ci,width,height,sx,sy,prevw,px,py,r,g);}
+  if constexpr(Chain){_Pragma("unroll") for(uint ci=0;ci<2;ci++)input[ci]=cw_input(in,win,qt,ci,width,height,sx,sy,prevw,px,py,r,g);}
   else if constexpr(Prefix){
 #if CW_PREFIX_SPLIT
    // B1 prefix split: fused_prefix_values ran on the g==0 half only (16 lanes idle) and then shipped values 8..15 with eight
@@ -262,16 +262,16 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
     cw_pv_t hr=red,hg=green,hb=blue;
     if(temporal){uint q=(y*width+x)*4;hr=cw_prefix_rtz(Hrtz(Hrtz(history[q])-.5f)*.125f);hg=cw_prefix_rtz(Hrtz(Hrtz(history[q+1])-.5f)*.125f);hb=cw_prefix_rtz(Hrtz(Hrtz(history[q+2])-.5f)*.125f);}
     const cw_pv_t lo[8]={gc,gs,hg,hb,g0,1,(cw_pv_t)dlss5_style_feature,1},hi[8]={red,green,1,1,blue,hr,1,0};
-    for(uint e=0;e<8;e++)a[e]=(_Float16)(g?hi[e]:lo[e]);}
+    _Pragma("unroll") for(uint e=0;e<8;e++)a[e]=(_Float16)(g?hi[e]:lo[e]);}
 #else
    float pv[16]{};if(g==0)fused_prefix_values(reinterpret_cast<const float*>(in),history,win*64+qt*16+r,width,seed,temporal,pv);
-   h8 a{};for(uint e=0;e<8;e++){float hi=__builtin_bit_cast(float,__builtin_amdgcn_ds_bpermute(r*4,__builtin_bit_cast(int,pv[8+e])));a[e]=(_Float16)(g?hi:pv[e]);}
+   h8 a{};_Pragma("unroll") for(uint e=0;e<8;e++){float hi=__builtin_bit_cast(float,__builtin_amdgcn_ds_bpermute(r*4,__builtin_bit_cast(int,pv[8+e])));a[e]=(_Float16)(g?hi:pv[e]);}
 #endif
-   for(uint ci=0;ci<2;ci++){
-    h8 b{};for(uint e=0;e<8;e++)b[e]=(_Float16)fw[(ci*16+r)*16+g*8+e];
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){
+    h8 b{};_Pragma("unroll") for(uint e=0;e<8;e++)b[e]=(_Float16)fw[(ci*16+r)*16+g*8+e];
     f8 pre=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(b,a,f8{});h8 zero{};
     pre=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(zero,zero,pre);
-    CW_Q8_DECL(packed);for(uint e=0;e<8;e++){float v=Hrtz(pre[e]);CW_Q8_SET(packed,e,v);ffn[ci][e]=cw_clampf(v,-448.f,448.f)*fw[8704+ci*16+g*8+e];}CW_Q8_END(packed);input[ci]=packed;
+    CW_Q8_DECL(packed);_Pragma("unroll") for(uint e=0;e<8;e++){float v=Hrtz(pre[e]);CW_Q8_SET(packed,e,v);ffn[ci][e]=cw_clampf(v,-448.f,448.f)*fw[8704+ci*16+g*8+e];}CW_Q8_END(packed);input[ci]=packed;
    }
   }
   else if constexpr(Up){
@@ -280,11 +280,11 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
    bool valid=x>=0&&y>=0&&x<int(width)&&y<int(height);
 #if CW_HOIST_UP&2
    if constexpr(Byte){
-   for(uint ci=0;ci<2;ci++){
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){
     const uint c0=ci*16+g*8;unsigned long long sk;float uw[8],fv[8];
     __builtin_memcpy(&sk,__builtin_assume_aligned(skip+(valid?(uint(y)*width+uint(x))*32:0u)+c0,8),8);sk=valid?sk:0ull;
     __builtin_memcpy(uw,upw+2048+c0,32);__builtin_memcpy(fv,fw+8704+c0,32);
-    CW_Q8_DECL(a);for(uint e=0;e<8;e++){
+    CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){
      float t=H(cw_up_shuffle(up_totals[ci][e],lo+g*16));
      float m=H(t+__builtin_amdgcn_cvt_f32_fp8(int((sk>>(8*e))&255u),0)*uw[e]);float v=valid?m:0.f;
      CW_Q8_SET(a,e,v);ffn[ci][e]=cw_clampf((CW_INPUT_HALF&4u)?v:float((_Float16)v),-448.f,448.f)*fv[e];
@@ -292,9 +292,9 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
    }
    }else
 #endif
-   for(uint ci=0;ci<2;ci++){
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){
     unsigned long long sk=0;if constexpr(Byte){if(valid)__builtin_memcpy(&sk,__builtin_assume_aligned(skip+(uint(y)*width+uint(x))*32+ci*16+g*8,8),8);}
-    CW_Q8_DECL(a);for(uint e=0;e<8;e++){
+    CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){
      uint c=ci*16+g*8+e;float v=0.f,t=H(cw_up_shuffle(up_totals[ci][e],lo+g*16));
      if constexpr(Byte){if(valid)v=H(t+__builtin_amdgcn_cvt_f32_fp8(int((sk>>(8*e))&255u),0)*upw[2048+c]);}
      else if(valid)v=H(t+cw_up_F(reinterpret_cast<const float*>(skip)[(uint(y)*width+uint(x))*32+c])*upw[2048+c]);
@@ -310,22 +310,22 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
    // The lane's 8 channels c=ci*16+g*8..+7 are contiguous in every source (f32 features, FP8 skip bytes, scales, FFN residual
    // scale), 32-byte aligned (hipMalloc bases, channel offsets multiple of 8). Read them as whole rows (2x b128 / 1x b64)
    // instead of 8 per-element loads each; the per-element arithmetic and its order are unchanged.
-   for(uint ci=0;ci<2;ci++){uint c0=ci*16+g*8;float src[8]{};
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){uint c0=ci*16+g*8;float src[8]{};
     if(valid){
      if constexpr(Post){uint p=uint(y)*width+uint(x),low=(uint(y)/2)*(width/2)+uint(x)/2;
       float lo[8],s0[8],s1[8];unsigned long long sk;
-      if constexpr(InByte){unsigned long long lb;__builtin_memcpy(&lb,__builtin_assume_aligned(in+low*32+c0,8),8);for(uint e=0;e<8;e++)lo[e]=__builtin_amdgcn_cvt_f32_fp8(int((lb>>(8*e))&255u),0);}
+      if constexpr(InByte){unsigned long long lb;__builtin_memcpy(&lb,__builtin_assume_aligned(in+low*32+c0,8),8);_Pragma("unroll") for(uint e=0;e<8;e++)lo[e]=__builtin_amdgcn_cvt_f32_fp8(int((lb>>(8*e))&255u),0);}
       else __builtin_memcpy(lo,__builtin_assume_aligned(reinterpret_cast<const float*>(in)+low*32+c0,32),32);
       __builtin_memcpy(s0,__builtin_assume_aligned(scales+c0,32),32);__builtin_memcpy(s1,__builtin_assume_aligned(scales+32+c0,32),32);
       __builtin_memcpy(&sk,__builtin_assume_aligned(skip+p*32+c0,8),8);
-      for(uint e=0;e<8;e++){float high=__builtin_amdgcn_cvt_f32_fp8(int((sk>>(8*e))&255u),0);src[e]=Hrtz(Hrtz(lo[e]*s0[e])+high*s1[e]);}
-     }else if constexpr(InByte){unsigned long long ib;__builtin_memcpy(&ib,__builtin_assume_aligned(in+(uint(y)*width+uint(x))*32+c0,8),8);for(uint e=0;e<8;e++)src[e]=__builtin_amdgcn_cvt_f32_fp8(int((ib>>(8*e))&255u),0);}
+      _Pragma("unroll") for(uint e=0;e<8;e++){float high=__builtin_amdgcn_cvt_f32_fp8(int((sk>>(8*e))&255u),0);src[e]=Hrtz(Hrtz(lo[e]*s0[e])+high*s1[e]);}
+     }else if constexpr(InByte){unsigned long long ib;__builtin_memcpy(&ib,__builtin_assume_aligned(in+(uint(y)*width+uint(x))*32+c0,8),8);_Pragma("unroll") for(uint e=0;e<8;e++)src[e]=__builtin_amdgcn_cvt_f32_fp8(int((ib>>(8*e))&255u),0);}
      else __builtin_memcpy(src,__builtin_assume_aligned(reinterpret_cast<const float*>(in)+(uint(y)*width+uint(x))*32+c0,32),32);
     }
     float res[8];__builtin_memcpy(res,__builtin_assume_aligned(fw+8704+c0,32),32);
-    CW_Q8_DECL(a);for(uint e=0;e<8;e++){float v=src[e];CW_Q8_SET(a,e,v);ffn[ci][e]=cw_clampf((CW_INPUT_HALF&(Post?1u:2u))?v:float((_Float16)v),-448.f,448.f)*res[e];}CW_Q8_END(a);input[ci]=a;}
+    CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){float v=src[e];CW_Q8_SET(a,e,v);ffn[ci][e]=cw_clampf((CW_INPUT_HALF&(Post?1u:2u))?v:float((_Float16)v),-448.f,448.f)*res[e];}CW_Q8_END(a);input[ci]=a;}
 #else
-   for(uint ci=0;ci<2;ci++){CW_Q8_DECL(a);for(uint e=0;e<8;e++){uint c=ci*16+g*8+e;float v=0.f;if(valid){if constexpr(Post){uint p=uint(y)*width+uint(x),low=(uint(y)/2)*(width/2)+uint(x)/2;float high=__builtin_amdgcn_cvt_f32_fp8(int(skip[p*32+c]),0);v=Hrtz(Hrtz(reinterpret_cast<const float*>(in)[low*32+c]*scales[c])+high*scales[32+c]);}else v=reinterpret_cast<const float*>(in)[(uint(y)*width+uint(x))*32+c];}CW_Q8_SET(a,e,v);ffn[ci][e]=cw_clampf(float((_Float16)v),-448.f,448.f)*fw[8704+c];}CW_Q8_END(a);input[ci]=a;}
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){uint c=ci*16+g*8+e;float v=0.f;if(valid){if constexpr(Post){uint p=uint(y)*width+uint(x),low=(uint(y)/2)*(width/2)+uint(x)/2;float high=__builtin_amdgcn_cvt_f32_fp8(int(skip[p*32+c]),0);v=Hrtz(Hrtz(reinterpret_cast<const float*>(in)[low*32+c]*scales[c])+high*scales[32+c]);}else v=reinterpret_cast<const float*>(in)[(uint(y)*width+uint(x))*32+c];}CW_Q8_SET(a,e,v);ffn[ci][e]=cw_clampf(float((_Float16)v),-448.f,448.f)*fw[8704+c];}CW_Q8_END(a);input[ci]=a;}
 #endif
   }
   if constexpr(Chain){
@@ -335,7 +335,7 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
      ffn[0]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,input[0],ffn[0]);
      ffn[1]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,input[1],ffn[1]);
     }
-   }else for(uint part=0;part<3;part++)for(uint ci=0;ci<2;ci++)for(uint kt=0;kt<2;kt++){
+   }else for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
 #if CW_DIAG_ONLY
    if(kt!=ci)continue; /* the three residual matrices are diagonal: the off-diagonal K16 half-block is all zero */
 #endif
@@ -354,16 +354,16 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
      f8 expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,input[0],f8{});
      expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,input[1],expanded);
 #if CW_FAST_NUM&4
-     CW_Q8_DECL(a);for(uint e=0;e<8;e+=2){using hh=_Float16 __attribute__((ext_vector_type(2)));hh v={(_Float16)expanded[e],(_Float16)expanded[e+1]};
+     CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e+=2){using hh=_Float16 __attribute__((ext_vector_type(2)));hh v={(_Float16)expanded[e],(_Float16)expanded[e+1]};
       hh g=__builtin_elementwise_min(__builtin_elementwise_max(v,hh{-4,-4}),hh{4,4});hh ag=__builtin_elementwise_abs(g);
       hh q=ag*hh{(_Float16)-.055908203125f,(_Float16)-.055908203125f}+hh{(_Float16).447265625f,(_Float16).447265625f};hh p=g*q+hh{(_Float16).89453125f,(_Float16).89453125f};hh o=v*p;
       CW_Q8_SET(a,e,float(o[0]));CW_Q8_SET(a,e+1,float(o[1]));}CW_Q8_END_SITE(a,1);
 #else
-     CW_Q8_DECL(a);for(uint e=0;e<8;e++){float v=expanded[e],g=cw_act_gate(v),q=__builtin_fmaf(absf(g),-.055908203125f,.447265625f),p=__builtin_fmaf(g,q,.89453125f);CW_Q8_SET(a,e,v*p);}CW_Q8_END_SITE(a,1);
+     CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){float v=expanded[e],g=cw_act_gate(v),q=__builtin_fmaf(absf(g),-.055908203125f,.447265625f),p=__builtin_fmaf(g,q,.89453125f);CW_Q8_SET(a,e,v*p);}CW_Q8_END_SITE(a,1);
 #endif
      act[hp]=a;
     }
-    for(uint ci=0;ci<2;ci++){
+    _Pragma("unroll") for(uint ci=0;ci<2;ci++){
      cw_i2_pair cp=cw_matrix16(fw+4608,(ci*4+h2)*512+(g*16+r)*16);
      ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cp.lo,act[0],ffn[ci]);
      ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cp.hi,act[1],ffn[ci]);
@@ -379,27 +379,27 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
      cw_i2_pair bp=cw_matrix16(fw+512,ht*512+(g*16+r)*16);
      expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,input[0],expanded);
      expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,input[1],expanded);
-    }else for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,input[kt],expanded);}
+    }else _Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,input[kt],expanded);}
 #if CW_FAST_NUM&4
     /* FAST TIER (lossy): activation in packed half pairs (v_pk_max/min/fma/mul_f16), widened back to f32 for the fp8 pack */
-    CW_Q8_DECL(a);for(uint e=0;e<8;e+=2){using hh=_Float16 __attribute__((ext_vector_type(2)));hh v={(_Float16)expanded[e],(_Float16)expanded[e+1]};
+    CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e+=2){using hh=_Float16 __attribute__((ext_vector_type(2)));hh v={(_Float16)expanded[e],(_Float16)expanded[e+1]};
      hh g=__builtin_elementwise_min(__builtin_elementwise_max(v,hh{-4,-4}),hh{4,4});hh ag=__builtin_elementwise_abs(g);
      hh q=ag*hh{(_Float16)-.055908203125f,(_Float16)-.055908203125f}+hh{(_Float16).447265625f,(_Float16).447265625f};hh p=g*q+hh{(_Float16).89453125f,(_Float16).89453125f};hh o=v*p;
      CW_Q8_SET(a,e,float(o[0]));CW_Q8_SET(a,e+1,float(o[1]));}CW_Q8_END_SITE(a,1);
 #else
-    CW_Q8_DECL(a);for(uint e=0;e<8;e++){float v=expanded[e],g=cw_act_gate(v),q=__builtin_fmaf(absf(g),-.055908203125f,.447265625f),p=__builtin_fmaf(g,q,.89453125f);CW_Q8_SET(a,e,v*p);}CW_Q8_END_SITE(a,1);
+    CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){float v=expanded[e],g=cw_act_gate(v),q=__builtin_fmaf(absf(g),-.055908203125f,.447265625f),p=__builtin_fmaf(g,q,.89453125f);CW_Q8_SET(a,e,v*p);}CW_Q8_END_SITE(a,1);
 #endif
     if constexpr(W16==2){
-     for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*4+(ht>>1))*512+(((ht&1u)*2+g)*16+r)*8);ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,ffn[ci]);}
-    }else for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,ffn[ci]);}
+     _Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*4+(ht>>1))*512+(((ht&1u)*2+g)*16+r)*8);ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,ffn[ci]);}
+    }else _Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,ffn[ci]);}
    }
   }
-  i2 feature[2];for(uint ci=0;ci<2;ci++){CW_Q8_DECL(a);
+  i2 feature[2];_Pragma("unroll") for(uint ci=0;ci<2;ci++){CW_Q8_DECL(a);
 #if CW_RTZ_PAIR
    h8 rounded=cw_rtz_half8(ffn[ci]);__builtin_memcpy(residual+((qt*2+ci)*32+(g*16+r))*8,&rounded,16);
-   for(uint e=0;e<8;e++)CW_Q8_SET(a,e,float(rounded[e]));
+   _Pragma("unroll") for(uint e=0;e<8;e++)CW_Q8_SET(a,e,float(rounded[e]));
 #else
-   for(uint e=0;e<8;e++){float v=Hrtz(ffn[ci][e]);residual[((qt*2+ci)*32+(g*16+r))*8+e]=(_Float16)v;CW_Q8_SET(a,e,v);}
+   _Pragma("unroll") for(uint e=0;e<8;e++){float v=Hrtz(ffn[ci][e]);residual[((qt*2+ci)*32+(g*16+r))*8+e]=(_Float16)v;CW_Q8_SET(a,e,v);}
 #endif
    CW_Q8_END_SITE(a,2);feature[ci]=a;}
   for(uint part=0;part<3;part++){
@@ -410,7 +410,7 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
    uint qr=qlane&15u,qg=qlane>>4;
    f8 q[2]{};
    if constexpr(W16>0){
-    for(uint ci=0;ci<2;ci++){
+    _Pragma("unroll") for(uint ci=0;ci<2;ci++){
      cw_i2_pair bp=cw_matrix16(w,(part*2+ci)*512+(qg*16+qr)*16);
      if(part<2){
       q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,feature[0],q[ci]);
@@ -420,16 +420,16 @@ DEV void cw_body(const unsigned char*in,const float*fw,const float*w,unsigned ch
       q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(feature[1],bp.hi,q[ci]);
      }
     }
-   }else for(uint ci=0;ci<2;ci++)for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,feature[kt],q[ci]):__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(feature[kt],b,q[ci]);}
-   f8 sum{};if(part<2)for(uint ci=0;ci<2;ci++){h8 squares{},ones{};for(uint e=0;e<8;e++){squares[e]=(_Float16)(q[ci][e]*q[ci][e]);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(ones,squares,sum);}
+   }else _Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,feature[kt],q[ci]):__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(feature[kt],b,q[ci]);}
+   f8 sum{};if(part<2)_Pragma("unroll") for(uint ci=0;ci<2;ci++){h8 squares{},ones{};_Pragma("unroll") for(uint e=0;e<8;e++){squares[e]=(_Float16)(q[ci][e]*q[ci][e]);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(ones,squares,sum);}
 #if CW_NORM_HOIST
    float lane_rsq=part<2?__builtin_amdgcn_rsqf(maxf(sum[0],6.198883056640625e-5f)):0.f;
-   for(uint ci=0;ci<2;ci++){CW_Q8_DECL(a);for(uint e=0;e<8;e++){float v=q[ci][e];if(part<2)v*=lane_rsq*(part==0?w[8192]:1.f);
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){float v=q[ci][e];if(part<2)v*=lane_rsq*(part==0?w[8192]:1.f);
 #else
-   for(uint ci=0;ci<2;ci++){CW_Q8_DECL(a);for(uint e=0;e<8;e++){float v=q[ci][e];if(part<2)v*=__builtin_amdgcn_rsqf(maxf(sum[e],6.198883056640625e-5f))*(part==0?w[8192]:1.f);
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){float v=q[ci][e];if(part<2)v*=__builtin_amdgcn_rsqf(maxf(sum[e],6.198883056640625e-5f))*(part==0?w[8192]:1.f);
 #endif
 CW_Q8_SET(a,e,v);}CW_Q8_END_SITE(a,3);
-    if(part==0){queries[qt*4+ci*2]=a[0];queries[qt*4+ci*2+1]=a[1];}else if(part==1){keys[qt*4+ci*2]=a[0];keys[qt*4+ci*2+1]=a[1];}else{values[qt*4+ci*2]=a[0];values[qt*4+ci*2+1]=a[1];}
+    cw_qkv_smem[part][qt*2+ci][qlane]=a;
    }
 #if CW_QKV_FENCE
    __builtin_amdgcn_sched_barrier(0);
@@ -443,31 +443,31 @@ CW_Q8_SET(a,e,v);}CW_Q8_END_SITE(a,3);
   __asm__ volatile("" : "+v"(lane));lane&=31u;
 #endif
   uint r=lane&15u,g=lane>>4;
-  i2 q[2];for(uint ci=0;ci<2;ci++)q[ci]=i2{queries[qt*4+ci*2],queries[qt*4+ci*2+1]};
+  i2 q[2]={cw_qkv_smem[0][qt*2][lane],cw_qkv_smem[0][qt*2+1][lane]};
   h8 ex[4];
   _Pragma("unroll 4") for(uint kt=0;kt<4;kt++){
-   f8 acc{};for(uint ci=0;ci<2;ci++)acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12((i2{keys[kt*4+ci*2],keys[kt*4+ci*2+1]}),q[ci],acc);
-   h8 a{};for(uint e=0;e<8;e++){uint row=qt*16+r,k=kt*16+g*8+e;float score=acc[e]+w[4096+row*64+k],affine=cw_clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);a[e]=__builtin_bit_cast(_Float16,hb);}ex[kt]=a;
+   f8 acc{};_Pragma("unroll") for(uint ci=0;ci<2;ci++)acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cw_qkv_smem[1][kt*2+ci][lane],q[ci],acc);
+   h8 a{};_Pragma("unroll") for(uint e=0;e<8;e++){uint row=qt*16+r,k=kt*16+g*8+e;float score=acc[e]+w[4096+row*64+k],affine=cw_clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);uint ah=(bits(affine)>>13)-0x1c000u;ushort hb=static_cast<ushort>(((ah<<5)+0x8000u)&65535u);a[e]=__builtin_bit_cast(_Float16,hb);}ex[kt]=a;
   }
-  f8 sums{};h8 ones{};for(uint e=0;e<8;e++)ones[e]=(_Float16)1.f;
+  f8 sums{};h8 ones{};_Pragma("unroll") for(uint e=0;e<8;e++)ones[e]=(_Float16)1.f;
   _Pragma("unroll 4") for(uint kt=0;kt<4;kt++)sums=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(ones,ex[kt],sums);
-  i2 prob[4];_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){CW_Q8_DECL(a);for(uint e=0;e<8;e++)CW_Q8_SET(a,e,float(ex[kt][e])*norm_inverse(sums[e]));CW_Q8_END_SITE(a,4);prob[kt]=a;}
-  i2 av[2];for(uint ci=0;ci<2;ci++){f8 acc{};_Pragma("unroll 4") for(uint kt=0;kt<4;kt++)acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12((i2{values[kt*4+ci*2],values[kt*4+ci*2+1]}),prob[kt],acc);CW_Q8_DECL(a);for(uint e=0;e<8;e++)CW_Q8_SET(a,e,acc[e]);CW_Q8_END_SITE(a,5);av[ci]=a;}
-  for(uint ci=0;ci<2;ci++){
+  i2 prob[4];_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++)CW_Q8_SET(a,e,float(ex[kt][e])*norm_inverse(sums[e]));CW_Q8_END_SITE(a,4);prob[kt]=a;}
+  i2 av[2];_Pragma("unroll") for(uint ci=0;ci<2;ci++){f8 acc{};_Pragma("unroll 4") for(uint kt=0;kt<4;kt++)acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(cw_qkv_smem[2][kt*2+ci][lane],prob[kt],acc);CW_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++)CW_Q8_SET(a,e,acc[e]);CW_Q8_END_SITE(a,5);av[ci]=a;}
+  _Pragma("unroll") for(uint ci=0;ci<2;ci++){
    f8 acc{};
    if constexpr(W16>0){
     cw_i2_pair bp=cw_matrix16(w,3072+ci*512+(g*16+r)*16);
     acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.lo,av[0],acc);
     acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(bp.hi,av[1],acc);
-   }else for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,av[kt],acc);}
+   }else _Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,av[kt],acc);}
    CW_Q8_DECL(a);
 #if CW_RTZ_PAIR
-   f8 summed;for(uint e=0;e<8;e++){float res=float(residual[((qt*2+ci)*32+(g*16+r))*8+e]),prod=res*w[8193+ci*16+g*8+e];summed[e]=acc[e]+prod;}
+   f8 summed;_Pragma("unroll") for(uint e=0;e<8;e++){float res=float(residual[((qt*2+ci)*32+(g*16+r))*8+e]),prod=res*w[8193+ci*16+g*8+e];summed[e]=acc[e]+prod;}
    h8 rounded=cw_rtz_half8(summed);
    if constexpr(Finish||Post)__builtin_memcpy(residual+((qt*2+ci)*32+(g*16+r))*8,&rounded,16);
-   else for(uint e=0;e<8;e++)CW_Q8_SET(a,e,cw_output_value(float(rounded[e])));
+   else _Pragma("unroll") for(uint e=0;e<8;e++)CW_Q8_SET(a,e,cw_output_value(float(rounded[e])));
 #else
-   for(uint e=0;e<8;e++){float res=float(residual[((qt*2+ci)*32+(g*16+r))*8+e]),prod=res*w[8193+ci*16+g*8+e],v=Hrtz(acc[e]+prod);if constexpr(Finish||Post)residual[((qt*2+ci)*32+(g*16+r))*8+e]=(_Float16)v;else CW_Q8_SET(a,e,cw_output_value(v));}
+   _Pragma("unroll") for(uint e=0;e<8;e++){float res=float(residual[((qt*2+ci)*32+(g*16+r))*8+e]),prod=res*w[8193+ci*16+g*8+e],v=Hrtz(acc[e]+prod);if constexpr(Finish||Post)residual[((qt*2+ci)*32+(g*16+r))*8+e]=(_Float16)v;else CW_Q8_SET(a,e,cw_output_value(v));}
 #endif
    if constexpr(!Finish&&!Post)CW_Q8_END_SITE(a,6);
    if constexpr(!Finish&&!Post)__builtin_memcpy(out+(win*64+qt*16+r)*32+ci*16+g*8,&a,8);
@@ -487,7 +487,7 @@ CW_Q8_SET(a,e,v);}CW_Q8_END_SITE(a,3);
    for(uint cg=0;cg<4;cg++){h8 fs;float hr[8],hg[8],hb[8];uint c=cg*8;
     __builtin_memcpy(&fs,residual+((t/16*2+c/16)*32+(c%16/8*16+t%16))*8,16);
     __builtin_memcpy(hr,headw+c,32);__builtin_memcpy(hg,headw+32+c,32);__builtin_memcpy(hb,headw+64+c,32);
-    for(uint e=0;e<8;e++){float f=float(fs[e]);sums[0]+=f*hr[e];sums[1]+=f*hg[e];sums[2]+=f*hb[e];}}
+    _Pragma("unroll") for(uint e=0;e<8;e++){float f=float(fs[e]);sums[0]+=f*hr[e];sums[1]+=f*hg[e];sums[2]+=f*hb[e];}}
 #else
    for(uint c=0;c<32;c++){float f=float(residual[((t/16*2+c/16)*32+(c%16/8*16+t%16))*8+c%8]);sums[0]+=f*headw[c];sums[1]+=f*headw[32+c];sums[2]+=f*headw[64+c];}
 #endif
@@ -605,10 +605,10 @@ CW_Q8_SET(a,e,v);}CW_Q8_END_SITE(a,3);
   if constexpr(Prefix&&DownByte&&CW_PREFIX_FULL_TILE){
    uint cg=c&3u,sl=c>>2;
    auto row=[&](uint t)->h8{h8 v;__builtin_memcpy(&v,__builtin_assume_aligned(residual+((t/16*2+cg/2)*32+((cg&1u)*16+t%16))*8,16),16);return v;};
-   if(main)for(uint i=0;i<8;i++){uint t=i*8+sl;h8 hv=row(t);float q[8];for(uint e=0;e<8;e++)q[e]=float(hv[e])+0.f;
+   if(main)for(uint i=0;i<8;i++){uint t=i*8+sl;h8 hv=row(t);float q[8];_Pragma("unroll") for(uint e=0;e<8;e++)q[e]=float(hv[e])+0.f;
     i2 b=cw_pack8<0,cw_kind>(q);__builtin_memcpy(__builtin_assume_aligned(reinterpret_cast<unsigned char*>(main)+((ty+t/8)*width+tx+t%8)*32+cg*8,8),&b,8);}
    if(down)for(uint j=0;j<2;j++){uint k=j*8+sl,t=(k/4)*16+(k%4)*2;h8 a0=row(t),a1=row(t+1),b0=row(t+8),b1=row(t+9);float q[8];
-    for(uint e=0;e<8;e++){float top=Hrtz(float(a0[e])+float(a1[e])),bottom=Hrtz(float(b0[e])+float(b1[e]));q[e]=Hrtz(Hrtz(top+bottom)*.25f)+0.f;}
+    _Pragma("unroll") for(uint e=0;e<8;e++){float top=Hrtz(float(a0[e])+float(a1[e])),bottom=Hrtz(float(b0[e])+float(b1[e]));q[e]=Hrtz(Hrtz(top+bottom)*.25f)+0.f;}
     uint x=tx+t%8,y=ty+t/8;i2 b=cw_pack8<0,cw_kind>(q);__builtin_memcpy(__builtin_assume_aligned(reinterpret_cast<unsigned char*>(down)+((y/2)*(ww/2)+x/2)*32+cg*8,8),&b,8);}
    return;
   }
@@ -694,5 +694,7 @@ CW_EXPORT_UP(SFX,W)
 
 CW_EXPORT_ALL(,0)
 CW_EXPORT_ALL(_w16,1)
+#if defined(CW_BUILD_W16H) && CW_BUILD_W16H
 CW_EXPORT_ALL(_w16h,2)
+#endif
 

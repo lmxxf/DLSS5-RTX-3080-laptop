@@ -1,163 +1,68 @@
-# 当前工作计划（WorkingPlan）
+# DLSS 5 -> NVIDIA RTX 3080 Laptop (`sm_86` Ampere) 移植工程工作计划与架构说明
 
-更新：2026-10-18（0.44 F9最终热修4764e4f1：剑星/鬼武者已重装并经Zero实玩确认F9切换正常；严格空闲回归、三包校验与公开镜像 [夸克](https://pan.quark.cn/s/ea87c0ffd257) / [Gofile](https://gofile.io/d/YCNT57JP) 全部闭环）。
-
----
-
-## 1. 当前基线与本机状态
-
-### 1.1 当前发行与安装（0.44，2026-10-18，公开三包已交付）
-
-- 正式三包在 `D:\給網友打包`，附SHA256；每包44shader/80模块/93Small资产/ZIP全文件读回，RE9 smoke通过。[发行回执](releases/0.44/README.md)。
-- **0.44 公开镜像**：[夸克](https://pan.quark.cn/s/ea87c0ffd257) · [Gofile](https://gofile.io/d/YCNT57JP)（0.43 旧镜像 [夸克](https://pan.quark.cn/s/3b19c0403e3f) / [Gofile](https://gofile.io/d/hz5cDOPF) 保留）。
-- 双游戏已装F9最终4764e4f1载荷，三层MP0.5，F9循环；《剑星》MODE0、《鬼武者》MODE1保留，Zero 实玩确认《剑星》与《鬼武者》内按 F9 切换均正常生效。备份 `D:\DLSSNR-Lab\game-install-20261018-f9fix-r3\backup-20261018-102323` 与rollback齐备，安装smoke exit0。[安装回执](results/game-install-20261018-f9fix-r3/receipt.json)。
-- 当前Small单帧：1080 **5.554ms** / 900 **4.377ms**；原71块仍可F9选择1x/2x/3x。
-
-### 1.1a 历史发行包基线（0.43，2026-10-17，公开三包已交付）
-- 载荷源码 `10982cf4`；复用已验宿主/双架构80模块，不重跑模块编译或ABBA。
-- `D:\給網友打包`：Magpie `345,297,302 B`（SHA `b3450315…`），通用OptiScaler `375,495,322 B`（SHA `e507a6b4…`），OptiScaler-REFramework `430,517,634 B`（SHA `0ac552c4…`），每个ZIP附 `.zip.sha256`。
-- 每包44项shader、RE9包内smoke、ZIP逐文件回读及独立默认/80模块/宿主检查通过；回执见 [releases/0.43](releases/0.43/README.md)。
-- **0.43 公开镜像**：[夸克](https://pan.quark.cn/s/3b19c0403e3f) · [Gofile](https://gofile.io/d/hz5cDOPF)（0.42 旧镜像 [夸克](https://pan.quark.cn/s/316704620069) / [Gofile](https://gofile.io/d/HNE20Ocp) 及旧ZIP保留）。
-- **版本单帧耗时（`frame.exe` 稳态均值，RX 9070 XT）**：**1080 档（1920×1152）`9.121 ms`**（最佳单槽 `8.960 ms` mean / `8.945 ms` median；0.42 为 `~9.65 ms`），**900 档（1600×960）`6.535 ms`**。**Zero 2026-10-18 定规**：因游戏内 1x 帧率已顶满 60 FPS 上限看不出差距，以后直接记录每个版本的单帧耗时（`ms/frame`）。
-- 继承0.42资源优化：已验范围内216MiB持有权重容量与显式无history会话33.75MiB共享buffer容量节省，非驻留峰值。
-
-### 1.2 开发主线（10-14 七场战役 + 10-17 收下候选1/3）
-在 0.42 之上完成 2026-10-14 全网 W16 权重分块、ISA 去分支与跨核 1B E4M3 字节流直连（1920×1152 Gold 首尾帧 SHA256 全程逐位锁定 `0900E489A397302B93074A878C694B9C3E7C3400CFE2DFDD3CC727ABE1050F4A`，`0 bit-diff`，`extra_vram_bytes=0`）：
-1. **ReplayAuto 162 节点强 DAG 结题（STOP）**：修妥 ROCm 7.0.2 CLR `hipEventRecord` 流捕获缺陷并过 12 帧 Gold，但 3 轮 ABBA pooled `Δmean = -17.25 µs`、`Δp99 = +4.00 µs`（R3 双退步），hipGraph 全家桶在 RX 9070 XT 上彻底封板，生产保持 `EagerAuto`（`DLSS5_SUBMIT_PULSE=2, opt.graph=0`）。
-2. **C512 三核 W16（`HIP_C512_W16=2`）**：`split_projection_frag_w16`、`c512_qkv_attention_compact_w16`、`mh_attention_project_frag_c512_w16_u4` 改 16B `global_load_b128`，3 轮 ABBA `-16.7 µs` mean。
-3. **C512 Split-FFN W16（`HIP_C512_FFN_W16=1`）**：`split_ffn_one_w2f8_w16` 消除 256 条跨步 `global_load_b64` 为 128 条 100% 合并 `global_load_b128`，3 轮 ABBA **`-131.2 µs` mean / `-134.5 µs` median**。
-4. **C32 Wave1 W16（`HIP_C32_W16=1`）**：`c32_wave1_*_w16` 将 88 条 `global_load_b64` 合为 30 条合并 `global_load_b128`，3 轮 ABBA **`-24.0 µs` mean / `-32.8 µs` median**。
-5. **ViT 核心三算子 W16 + 外层分片禁展开（`HIP_VIT_W16=7`）**：Contract VGPR `211 → 115`（Occupancy `6 → 8`）、Projection VGPR `190 → 114`（Occupancy `6 → 10`），3 轮 ABBA **`-56.6 µs` mean / `-66.5 µs` median**。
-6. **全网 ISA Epilogue 清理 + 二轮病灶审计**：消除 `mh_pool_project_group` 与 `mh_attention_project_frag_c512` 的 `v_movrels_b32` 及百余条 `s_cbranch`，统一无分支 `fmed3f(x+0.f, -448.f, 448.f)`，向量化 `c32_wave1_finish/post` LDS/全局写，两轮合计 **`-151.8 µs` mean / `-153.0 µs` median**。
-7. **ViT + C512 + Downsample 1B E4M3 字节流直连（`HIP_VIT_INTER_BYTE=15`）**：消除全网全部 8 次 `vit_pack_input` 发射（每帧总发射数 **`161 → 153`**），每帧砍掉 **`681.45 MB`** 冗余 `float32 <-> uint8` 流量，池显存 `277.1 → 276.0 MiB`（`-1.1 MiB`），两轮合计 **`-217.6 µs` mean / `-213.6 µs` median**。
-   - **1080p（`1920×1152`）整网 `frame.exe` 稳态耗时**：由 `9.6070 ms` 降至 **`9.0549 ms` pooled mean / `9.0485 ms` pooled median**（最佳单槽 **`8.9601 ms` mean / `8.9445 ms` median**，累计净降 **`-0.5812 ms` mean / `-0.6004 ms` median**）。
-8. **`NativeLowFrequencyTemporal`（MODE 2/3）64-Slot Ring 化**：消除 MODE 2/3 每帧 `CreateDescriptorHeap` 与 2 次 `r.submit.Flush()`，异步提交下 `-0.070 ms/frame`。
-
-**2026-10-17 本轮结题**：五项按序完成，收1/3，停2/4/5。干净默认构建的1080/900 Gold逐帧一致；每档3轮ABBA的均值全部改善，pooled mean分别−20.846/−34.487µs（**1080 档 `9.1422 → 9.1213 ms`，900 档 `6.5699 → 6.5354 ms`**），pooled p99−25.690/−32.351µs。1080 R2 p99+10.599µs原样留档，不称每轮尾都好。最终80模块逐SHA/实际ELF目标核验通过（旧RTC错误gfx1200标签已用当前源码工具修正，实测gfx1201字节未变）；gfx1200仅编译核验。addon/runtime构建与runtime API smoke通过，产物在 `D:\DLSSNR-Lab\five-final-20261017` 和本地 `/home/lmxxf/work/dlss5-five-build/final-payload/`。
-
-**当前状态**：0.43 正式三包与网盘镜像已全部交付完毕。详 `releases/0.43/README.md`。
-
-### 1.3 本机游戏现装（2026-10-17，鳩部署10982cf4）
-- **《剑星》**：addon SHA `2cefc60d50906d9a5dcf542f1c890819fcaa01b2d712047423d303b8f0475e5b`，80模块；配置MODE0/MP1/PRED1/SKIN0，个人配置文件字节未改。用户实玩确认帧率已贴满上限看不出差异，以后直接记录各版本单帧耗时（`0.43`：1080 档 `9.121 ms` / 900 档 `6.535 ms`）。
-- **《鬼武者》**：runtime根目录与_storage_均为 SHA `bc7b77049f828e1500bfe447d9f09c963b38b2c5584c104f65650e5127f8decd`，80模块；MODE1/MP1/PRED0/SKIN0，个人配置字节未改，API smoke exit0。
-- **备份/回滚**：`D:\DLSSNR-Lab\game-install-20261017\backup-20261017-233600`；详 [安装回执](results/game-install-20261017/README.md)。
+**项目仓库**：`https://github.com/lmxxf/DLSS5-RTX-3080-laptop`  
+**目标硬件**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86` Ampere 架构，48 SMs，16 GB GDDR6，101,376 B Shared Memory/SM，65,536 Registers/SM）  
+**基线版本**：基于 `DLSS5-AMD 0.44`（含 71-block `1x Original` 模型与 31-block `0.5x Small` 模型）
 
 ---
 
-## 2. 新主线：0.5x Small（全档几何 / AE / MODE1已闭环，0.44交付）
+## 1. 核心架构与三层移植设计
 
-Zero 2026-10-18 定名：310.9.16 的31块新网络叫 **0.5x**，`DLSS5_MULTI_PASS=0.5` 为新的源码/三模板默认；`1` / `2` / `3` 分别为旧71块单遍/叠层，第三遍预测选项保留。add-on F9按 **0.5 → 1 → 2 → 3 → 0.5** 切换（addon和runtime均支持；2x/3x暂挂MODE1，回到0.5x/1x自动恢复）。缺少Small资产时带requested/effective日志回退1x。
+本项目将原本针对 AMD RDNA4 (`gfx1201`) Wave32 + WMMA 构建的完整 DLSS 5 神经渲染管线（OptiScaler / REFramework 插件 + D3D12 编解码 + 71-block / 31-block Swin-ViT 混合神经网络）完整移植到 NVIDIA Ampere (`sm_86`) 架构：
 
-### 前阶段记录（1080阶段；后续进展见§6）
+### 1.1 设备端算子与指令集兼容层（`hip/sm86_compat.h`）
+- **编译管线**：使用 `clang++ -x cuda --cuda-device-only --cuda-gpu-arch=sm_86 -Xclang -fnative-half-type -Xclang -fallow-half-arguments-and-returns -nocudainc -nocudalib -std=c++20 -O3` 直接将无 SDK 依赖的 `.hip` / `.inc` 源码编译为 PTX，再由 `hip/ptx2cubin`（基于 NVIDIA Driver JIT Linker API `cuLinkCreate_v2` / `cuLinkAddData_v2`）编译为原生 `sm_86` ELF `.cubin`（以 `.hsaco` 文件名原位部署，宿主零改动）。
+- **Wave32 16x16x16 WMMA -> Ampere `mma.sync.aligned.m16n8k16` 精确映射**：
+  - RDNA4 的 `__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12` 与 `__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12` 每条 Lane 持有 8 个输入/累加元素；
+  - `sm86_compat.h` 通过无分支 `prmt.b32` 硬件字节查表将 OCP E4M3 (FP8) 精确无损转换为 IEEE FP16，经 `sm86_frag_butterfly` 寄存器洗牌对齐到 Ampere `m16n8k16` 矩阵片段布局，发射两条 `mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32` Tensor Core 指令完成 16x16x16 矩阵乘累加，并在累加器初值为零 (`__builtin_constant_p`) 时编译期短路跳过 `c_to_ampere` 的 20 条 `shfl.sync` 指令。
+- **AMDGPU 硬件指令精确对偶**：
+  - `v_med3_f32` (`__builtin_amdgcn_fmed3f`)：精确复现 NaN 输入向 `min(lo, hi)`（如 `-448.f` / `-4.f`）坍缩的硬件语义；
+  - `v_sin_f32` / `v_cos_f32`：保留 AMDGPU 以圈数（$2\pi$ 弧度为 1 周期）为单位的输入约定；
+  - `v_log_f32`：`lg2.approx.ftz.f32`；
+  - `__builtin_amdgcn_ds_bpermute` / `readlane` / `readfirstlane`：映射到 `shfl.sync.idx.b32`；
+  - `s_barrier` / `wave_barrier` / `__hip_atomic_*`：映射到 `bar.sync 0`、`bar.warp.sync 0xffffffff` 与 PTX `.cg`/`.wb` 全局原子操作（支撑 `swin-persistent` 跨 WG 任务队列）。
 
-- [逆向报告](results/dlssnr-310-9-16-analysis-20261018/README.md)之后，实际提取转换与GPU回执见 **[small-model-20261018](results/small-model-20261018/README.md)**；该回执取代旧报告P1“保Original默认”的产品建议。
-- 310.9.16 DLL SHA `2bc19bc0…`；5090通过原NGX分别跑Preset1/2及默认0。新Preset1=旧310.8，默认0=Preset2；合成及真实8678/8680重复稳定。只读内部Post捕获前后API输出SHA不变，输入捕获与上传值一致。
-- 同一转换器重解HT的184个主图资产与现有HIP资产逐float bit一致。Small已导出93文件（92主图+64B history头），241214392B，独立`small/`目录及manifest，保留旧权重共存。blend `0x3A23` / 0.76708984375 与新history行6也已提取；**该阶段时序未接通，第三阶段已接通**。
-- 31块执行图采用独立模型身份、legacy kernel-role资产映射与0/3→1/2 shift。1080固定1920×1152/640 token；不引入失败的C32 FP8 Up，不重编既有80个双架构算子模块。Small禁用旧图专用SP/Pulse/PDL提交；该阶段AE关闭，第三阶段已接通；切换drain并清理权重、SP计划引用和自适应状态。
-- 原网络Gold仍为`0900E489…0F4A`，Small新Gold为`65D71486…8FCB8`；Gold和3轮ABBA全部首尾有限/同模型逐位一致。模式0.5→1→2→3→0.5真GPU往返Small bit-diff=0；Windows CPU热键写回/优先级/reload通过；缺Small实际回退与显式1x逐位一致。
-- NVIDIA对账域是**内部Post FP16 surface展开的RGB**，不是API额外合成后的最终输出。真实8678：Small FAST0 **48.021703dB**、默认FAST1 **47.755055dB**；近似HIP算术不宣称NV 0 bit-diff，完整逐值指标在回执。
-- **完整frame.exe 1080稳态单帧耗时：0.5x `5.553510 ms`，同批1x `9.156154 ms`，减耗时 `39.347%`，速度比1.649×**。3轮4-slot ABBA每槽240帧/丢前80，NET0/edges_only1；每轮正收益。Small median5.535300ms/p99 5.820500ms。历史0.43 1x9.121ms继续保留，比较结论优先用同批数据。
-- add-on/runtime/frame宿主编译通过。正式0.43包与已装双游戏未动；这不是新的全分辨率发行包，也未做游戏实玩验收。
+### 1.2 NVPTX Local Memory (`__local_depot`) 零溢出优化（`wave_owned_c32.inc`, `wave_owned_mh.inc`）
+- **根因诊断**：在 AMDGPU 上，LLVM 可对 `ext_vector_type(16)` (`cw_i16`, `w2_i16`) 使用 VGPR 相对寻址或跨循环保持寄存器；但在 NVPTX 后端中，任何被未展开外层循环变量 `qt` 动态索引的向量/数组都会被降级到 `.local` DRAM 栈帧（`__local_depot`），导致每个线程产生 `1,872 ~ 2,032 B` 的 Local Memory 溢出与数千条 `st.local`/`ld.local` 指令。
+- **根治方案**：
+  - 在 `wave_owned_c32.inc` 中，将跨 `qt` 阶段存活的 `queries`、`keys`、`values` 移入 `10 KB` L1 Shared Memory (`__attribute__((shared)) i2 cw_qkv_smem[3][8][32]`)，并对内层 `ci<2`、`e<8`、`kt<2` 循环强制 `_Pragma("unroll")`：使 `c32_wave1` 全系内核的 `lmem` 从 **`1,872 ~ 2,032 B` 降至 `0 B`**，寄存器占用从 `250` 降至 `210 ~ 216`，`c32_wave1` 耗时直接减半（`-70.4 ms/frame`）。
+  - 在 `wave_owned_mh.inc` 中，使用无分支常量下标选择器 `w2_set_pair` / `w2_get_pair` (`selp.b32`) 替代 `query_words[qt*4+ci*2]` 动态下标，并将 `qkv[part][qt][ci]` 按常量 `part=0/1/2` 分支展开，使 `c256_wave2_bi_bo_w16` 的 `lmem` 从 **`1,616 B` 降至 `0 B`**。
 
-### 第三阶段任务状态
-
-1. **已完成900/720/free**：逐节点ceil-half/round4、尾部填充与stride；模型/尺寸切换重建缓冲，runtime四尺寸回环通过。
-2. **已完成Oracle/AE/MODE1/runtime F9**：900/720对账47.40/47.70dB，Small8个ViT gain，独立history gate和0x3A23；addon/runtime全模式回环通过。
-3. **发行与部署**：0.44正式三包与双游戏备份部署按本轮明确授权执行；最终精确回执见§6和releases/0.44。
-
-实验资产：Linux `/home/lmxxf/work/dlss5-small-build/small/`，9070 `D:\DLSSNR-Lab\small-model-20261018\assets\small\`；5090 Oracle在 `C:\DLSSNR-Small-20261018`。权重/原DLL/大原始输出留实验目录，不入Git。
-
----
-
-## 3. 2026-10-17 候选与实测结论（已全部结题：收1/3，停2/4/5）
-
-以下保留基于 `be506729` 的原始五项审计提案；是否成立以各节实测状态为准，不能把提案中的逐位/收益假设当成验收结果。汇总见 `results/five-final-20261017/`。
-
-### 候选 1：Block 47 → `Up(48)`（`512 → 256`）1B E4M3 字节边接通 + `Up(39)`/`Up(48)` W16 FP8 WMMA（`HIP_DEC_F8_W16`）
-
-**2026-10-17 已验收合入**：Gold 0 bit-diff；3轮ABBA均值全改善、p99全改善，pooled mean −17.398µs / p99 −23.962µs。默认 `DecoderF8W16Mode=3`；详 `results/decoder-f8-w16-20261017/`。下方原审计说明保留，下一项候选2。
-
-1. **Block 47 → `Up(48)` 1B E4M3 字节边（零核改动或仅宿主接通）**：
-   - **现状病灶**：`hip_reference_network.h:1025` 在 C512 解码段 `for (U b=40; b<=47; b++)` 仅对 `b < 47` 开启 `byte_out`，导致 Block 47（`post=0`，输出原本就是精确 E4M3 格点值 `F(Hrtz(acc))`）仍写出 `4.42 MB` 的 4B FP32；紧接着 `Up(48)`（`512 → 256`，`60×36 → 120×72`）在 16 个输出列分片上把这 `4.42 MB` FP32 重复读取 16 遍（**`70.78 MB/帧`**，每 wave 发出 `256` 条标量 `global_load_b32` 并转 `_Float16`）。
-   - **现成基础**：`hip/deep_fast.hip:541` 的 `decoder_project2x_h16w_byteout_w_bin` **已经编译进了 `if (inputs==512 && outputs==256)` 分支**，仅因 `hip_reference_network.h:903` 的 `byte_in` 检查写死 `ic==1024&&oc==512` 且 `line 1025/1035` 未传 `byte_out/byte_in` 而未生效。
-   - **物理收益**：接通后每帧直接消除 **`56.40 MB`** 全局显存流量（Block 47 少写 `3.32 MB` + `Up(48)` 少读 `53.08 MB`），`Up(48)` 输入加载由 `256` 条 `global_load_b32` 缩减为 `32` 条合并 `global_load_b64`，**0 字节额外显存、100% 逐位一致**。
-2. **`Up(39)`（`1024 → 512`）与 `Up(48)`（`512 → 256`）W16 FP8 WMMA + 字节输入直喂**：
-   - **现状病灶**：`decoder_project2x_h16w_wide_body`（`hip/deep_fast.hip:518`）即使在 `ByteInput=true` 时，仍先把 1B E4M3 输入逐字节解包（`v_bfe_u32` + `v_cvt_f32_fp8` + `v_cvt_f16_f32`，`Up(39)` 每 wave 白跑 **1,536 条 VALU 转换**，`Up(48)` **768 条**），再去读**未分块 row-major `_Float16` 权重 `w16+(row+rc())*inputs+k+gr()*8`**——相邻 lane `rc=0..15` 跨步达 **`2,048 B`（`Up(39)`）/ `1,024 B`（`Up(48)`）**，每条 `global_load_b128` 打散到 **16 条不同 cache line**！此前 `2026-10-01 §11` 测试 `HIP_DEC_F8W` 时既无 `ByteInput`（还在用 `dec_pack8` 现场把 FP16 转回 FP8），权重也是未分块 row-major。
-   - **改造方案**：`decoder39-weights.f32` 与 `block48-weights.f32` 矩阵区已于 `2026-10-01 §9` 实测 100% 落在 E4M3 格点且 `wmma_fp8_fp8` 与 `wmma_f16` 19 组逐位一致。原地复用 `@decoder-f16r` 键将矩阵区打包为 `FragmentPackedMatrixW16` E4M3，核内直接用 1B E4M3 `ByteInput`（`i2 a0, a1`）与 16B 合并权重（`w16_i4 bw`）执行 `wmma_f32_16x16x16_fp8_fp8_w32_gfx12`：
-     - 消除 `Up(39)`/`Up(48)` 全部 **1,536 / 768 条输入转换指令**；
-     - 权重加载指令数减半（`128 → 64` / `64 → 32`）且从 16 路跨行散读变为 **100% 合并的 512B 全 wave 连续加载**。
-
-### 候选 2：在写入端消除全网最后 2 次 `vit_gather_b8` 发射（发射数 `153 → 151`，释放 `5.0 MiB` `gather_maps` 显存）
-
-**2026-10-17 已结题 STOP**：Gold 0 bit-diff；三轮ABBA均值全非改善，pooled +5.691µs，保留生产两次gather。详 `results/vit-write-gather-20261017/`。
-- **现状病灶**：全网在 `Down(30)` 后与 `Block 38` 后各调 1 次 `vit_gather_b8`（共 2 次 launch），每次每个线程还要从显存读取 16B 的 `uint32_t indices[655,360]` 查找表（常驻占 **`5.0 MiB` VRAM**，每帧额外读 **`5.0 MiB`** 索引表 + **`1.31 MB`** 字节搬运）。
-- **为什么 2026-09-30 的 `HIP_VIT_GATHER_FOLD_HOST` 在 900p 变慢**：当时把逆重排塞进了**读取端 `Up(39)`（`decoder_project2x_h16w_gin`）**——不仅丢掉了 `_w` 宽尾优化，而且 `Up(39)` 对每个输入 token 要跨 32 个输出列分片**重复读取 32 遍**，在读取端做 `vg_cinv` 通道重排把 32 遍连续向量读全打碎成了标量散读。
-- **正确姿势（双写入端重排）**：
-  1. **入口写入端 `Down(30)`**：`mh_pool_project_group_body`（`hip/multihead_fast_padded.hip:424`）**本来就有 `Gout=true` 分支**（`pg_tinv(q)*N + pg_cinv(c)`，仅 6 条位运算指令）！只需在 `c512_head_group.inc` 导出 `mh_pool_project_group_c512_gout_out8`（`Gout=true, ByteOut=true`），即可在 `Down(30)` 写出 `640 KB` 1B E4M3 时直接按 ViT 顺序落盘，省掉入口 `vit_gather_b8`。
-  2. **出口写入端 `Block 38`**：在 `vit_stream_project_tiles`（`hip/vit_stream.inc:66`）新增 `Gout=true` 导出 `vit_stream_project_n64_bb_bout_gout_compactw_w16`，仅在 `block == 38` 写出 `640 KB` 1B E4M3 时按 `raster(t)*1024 + ch(c)` 落盘（每个字节只写 **1 次**，L2 内完成）。下游 `Up(39)` 原封不动继续走 `decoder_project2x_h16w_byteout_w_bin` 的连续 8B/16B 合并读取！
-- **物理收益**：全网每帧 kernel 发射数 **`153 → 151`**，释放 **`5.0 MiB`** `gather_maps` 显存（`gather_maps_MiB: 5.0 → 0.0`），每帧再省 **`6.4 MiB`** 显存流量，100% 逐位无损。
-
-### 候选 3：`Down(8)`、`Down(14)`、`Down(22)`、`Down(30)`（`mh_pool_project_group_c{64,128,256,512}`）W16 FP8 WMMA + 池化去分支
-
-**2026-10-17 已验收合入**：Gold 0 bit-diff；三轮均值/p99全改善，pooled mean −20.704µs / p99 −27.539µs。池化有效性/顺序保留，采纳FP8字节LDS与W16矩阵路径。详 `results/down-f8-w16-20261017/`。
-- **历史误判纠正**：`2026-10-01 §9` 普查曾验证 `block{8,14,22}-ds.f32` 与 `head-matrix.f32` 权重 **100% 在 E4M3 格点上**，但误以为激活输入是 `raw`（`Hrtz`）而标为“不在格点”。实查 `mh_pool_project_group_body`（`hip/multihead_fast_padded.hip:415`）：
-  `v = F(H(H(top + bottom) * .25f)); pooled[k*S + c] = (_Float16)v;`
-  2×2 池化均值在写入 LDS `pooled` 之前 **已经过 `F()` 量化到了精确 E4M3 格点（且 `-0.0f` 已转 `+0.0f`）**！
-- **改造方案**：
-  1. `pooled` 直接存 1B E4M3（LDS 占用减半：`c512` `16.6 KB → 8.4 KB`，`c256` `8.4 KB → 4.3 KB`），`@ds-frag` 原地改为 `FragmentPackedMatrixW16` E4M3 权重；
-  2. 每个 K32 `chunk` 内用 1 条 `ds_load_b128` + 4 条合并 `global_load_b128` 喂入 `wmma_f32_16x16x16_fp8_fp8_w32_gfx12`，保留每 K32 步末尾的 `acc[j][e] = H(acc[j][e] + sum[j][e])` 舍入边界，**100% 逐位等价**；
-  3. 顶部 `for (uint k=0; k<16; k++)` 池化循环对内部完整 tile（`first + 15 < M && !valid_width`）走无分支快路，消除现存的 16 个循环分支。
-
-### 候选 4：`Down(4)`（`mh_pool_project_c32_b8_out8`，`480×288`）4 列分片合波（`34,560 → 8,640` waves）+ W16 权重
-
-**2026-10-17 已结题 STOP**：Gold 0 bit-diff；三轮均值全部退步，pooled +5.546µs，保留生产旧四wave。详 `results/pool32-wave-w16-20261017/`。
-- **现状病灶**：`mh_pool_project_c32_b8_out8`（`hip/multihead_fast_padded.hip:374`）每 wave 只算 16 列（`nt=4`），导致 `138,240` 个 token 发射多达 **`34,560` 个 wave**，每个 16-token 输入块被 4 个独立 wave 重复读取 4 遍，且权重 `(col+rc)*32 + half*16 + g*8` 是未分块 row-major（相邻 lane 跨 32B）；尾段还多做了一次无意义的 `acc[e] = Hrtz(0.f + sum[e])` 和双重 `q8(F(acc[e]))`（两次 `cvt_pk_fp8_f32`）。
-- **改造方案**：对齐 `mh_pool_project_group`，改为每 wave 负责 16 tokens × 64 全列（`nt=1`，总 wave 数砍至 **`8,640`**），输入 `pooled` 每 wave 只读 1 次，`@ds-cast` 原地用 `FragmentPackedMatrixW16` 打包为 100% 合并 `global_load_b128`，尾段直接 `fmed3f(Hrtz(sum[e]) + 0.f, -448.f, 448.f)` + 单次 `cvt_pk_fp8_f32` 写出。
-
-### 候选 5：融合上采样块 `UpBody`（Block 56 `C128`、Block 62 `C64`、Block 66 `C32`）上采样投影段 W16 FP8 化
-
-**2026-10-17 已结题 STOP**：56/62 Gold同但pooled mean +3.555µs/p99 +20.987µs；独立派发发现66原路径缺字节low导出，补通65→66后完整Gold失败（2,768,436 half值差），未进入完整组合ABBA。生产保原路径，详 `results/upbody-f8-w16-20261017/`。
-- **现状病灶**：`swin_wave2_body<Up=true>`（`hip/wave_owned_mh.inc:328`）与 `cw_body<Up=true>`（`hip/wave_owned_c32.inc:223`）在 `LowByte=true` 时，仍用 8 条标量字节加载 + `cvt_f32_fp8` + `cvt_f16_f32` 构造 `h8 a`，并从**未分块 row-major `_Float16` `upw`**（跨 16 条 cache line）加载 `b` 跑 `wmma_f16`。
-- **改造方案**：`block{56,62,66}-weights.f32` 矩阵区同样 100% 在 E4M3 格点上。将 `in` 改为单条 8B `i2` 加载（零转换指令），`upw` 矩阵区原地按 `FragmentPackedMatrixW16` E4M3 排列并改用 `wmma_fp8_fp8`（尾部 `upw[IC*C + ...]` skip 缩放保持 f32 不变），消除标量拆字节与跨行散读。
+### 1.3 宿主运行时与 D3D12-CUDA 桥接层（`Development/HIP/hip_api.h`, `hip_d3d12_bridge.h`）
+- **零改动 ABI 兼容**：`hip_api.h` 保持 `hip_probe::Api` 的全部方法名与函数指针签名，底层动态加载 Windows `nvcuda.dll` 或 Linux/WSL `libcuda.so.1`。
+- **Primary Context 与多线程自动绑定**：
+  - `hipInit` / `hipSetDevice` 通过 `cuDeviceGet` + `cuDevicePrimaryCtxRetain` + `cuCtxSetCurrent` 绑定主上下文；
+  - 内置 `thread_local` 快速上下文守卫 `EnsureCurrentContext()`，确保后台线程（如 `D3D12Bridge::PollWatch`）首次调用 CUDA Driver API 时自动绑定当前设备的 `CUcontext`。
+- **D3D12 共享资源与 Fence 同步**：
+  - 通过 `cuDeviceGetLuid` 获取 8 字节 LUID 与 `ID3D12Device::GetAdapterLuid()` 精确匹配；
+  - 通过 `cuImportExternalMemory` (`type=5`, `CU_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE`)、`cuExternalMemoryGetMappedBuffer`、`cuImportExternalSemaphore` (`type=4`, `CU_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE`)、`cuWaitExternalSemaphoresAsync`、`cuSignalExternalSemaphoresAsync` 实现 D3D12 <-> CUDA 零拷贝显存共享与 GPU 侧 Fence 同步。
+- **>48 KB Shared Memory 自动 Opt-in**：在 `WrapHipModuleGetFunction` 与 `WrapHipModuleLaunchKernel` 中自动检测并设置 `CU_FUNC_ATTRIBUTE_MAX_DYNAMIC_SHARED_SIZE_BYTES` 与 `CU_FUNC_ATTRIBUTE_PREFERRED_SHARED_MEMORY_CARVEOUT = 100`。
 
 ---
 
-## 4. 已封板边界（禁止换名重开）
+## 2. 目录结构与外部资产约定
 
-- **hipGraph 全线封板**：旧 `opt.graph=1`、外层同工 `graph0`（`ReplayOff` 161 节点）与 2026-10-14 结题的 `ReplayAuto`（162 节点强 DAG，含 `EventRecord`）在 RX 9070 XT 上均无净收益或尾延迟退步，生产维持 `EagerAuto`（`DLSS5_SUBMIT_PULSE=2, opt.graph=0`）。
-- **C256 `SpStage(16,6)` / `SpStage(49,6)` 边界不动**：首尾层（`15, 22, 48, 55`）因 `Block 22` `post=3` FP32 合同、1080p `W2_FAST_NUM=3 vs 0` 数值合同差异及 `c64-wave2-fast`（LLVM23 + `W2_QKV_FUSE=3` + `W2_FFN_QT_BATCH=4`）单层核快于 COMGR 持久核，不并入 `SpStage`；`sp_init_pair` 会禁用 `submit_pulse=auto`，不启用。
-- **C256 Attention W16 / C64 & C128 FFN W16**：已实测在 4/8-wave WG 屏障下打平（`+0.8 µs` / `-1~-7 µs` 噪声），不合入。
-- **Uniform-SGPR `m0` `v_movrel` 转三元选择树**：已于 `isa-audit2-20261014` 实测证伪（打断 VOPD 并生成 56 条 `v_cndmask_b32_e64`，退步 `+0.14 ms`），严禁替换 uniform SGPR 相对寻址。
-- **C512 块内转置 WMMA FB8（`HIP_VIT_INTER_BYTE` bit 4 = `16`）**：已实现验证逐位一致且 3/3 全胜（`-37.6 µs`），但因转置 WMMA 下 `av8` 跨 512B 访问略弱于非转置 `mode=15`（`-47.2 µs`），保留为可选诊断位，默认维持 `HIP_VIT_INTER_BYTE=15`。
-- **其余 370+ 历史负账**：动手前先检索 [failed-experiments.md](failed-experiments.md)。
+- **代码仓库**：`/home/lmxxf/work/DLSS5-RTX-3080-laptop`（保持轻量纯源码，大二进制权重与 `.hsaco`/`.cubin` 均在 `.gitignore` 中忽略）
+  - `hip/sm86_compat.h`：RDNA4 -> Ampere `sm_86` 设备端兼容头
+  - `hip/ptx2cubin.cpp`：调用 `libcuda.so.1` JIT Linker 的 PTX -> cubin 编译与符号校验工具
+  - `hip/build_sm86_modules.py`：并行编译全部 40 个模块（1,970 个内核入口）的构建脚本
+  - `Development/HIP/hip_api.h`：NVIDIA CUDA Driver API (`nvcuda.dll` / `libcuda.so.1`) 适配层
+  - `Development/HIP/hip_d3d12_bridge.h`：D3D12 <-> CUDA 互操作桥接层
+  - `Development/HIP/hip_reference_network.h`：支持 31-block `0.5x Small` 与 71-block `1x Original` 的宿主执行图
+  - `Development/HIP/test_cuda_bridge.cpp`：Linux/Windows 双端 CUDA Driver API 与 D3D12 互操作自检程序
+  - `Development/HIP/benchmark_cuda_nn.cpp`：Linux 原生纯神经网络全档位（1080p/900p × 0.5x/1x）精度与性能基准工具
+- **外部权重与编译产物目录**：`/home/lmxxf/work/dlss5-assets/native-game-tiled-assets`
+  - 根目录：71-block `1x Original` 权重资产
+  - `small/`：31-block `0.5x Small` 权重资产（93 个文件）
+  - `HIP/`（含 `gfx1201/`, `gfx1200/`, `sm_86/`）：40 个 `sm_86` 编译模块（`.hsaco` ELF cubin）
 
 ---
 
-## 5. 固定工程纪律
+## 3. 后续优化路线图
 
-- **GPU 锁与护栏**：所有 GPU/远程 RTC 操作必须先做 `game-check`、进程检查、确认实验盘余量 `≥100 GB`、获取原子锁 `D:\DLSSNR-Lab\gpu.lock`，并挂 15 秒游戏看门狗；游戏运行期间严禁抢占 GPU、严禁替换 DLL/HSACO。
-- **数值与验收门**：Original结构/布局/ISA优化必须对 `0900E489A397302B93074A878C694B9C3E7C3400CFE2DFDD3CC727ABE1050F4A` 逐位一致（`0 bit-diff`）；Small必须与310.9.16 Preset2另立gold，不拿训练差异强求旧0900，性能只认单进程同批交错 3 轮 4-slot ABBA（`edges_only=1, NET0`）。
-- **版本与仓库卫生**：commit 不加 `Co-Authored-By`；共享分支禁止 `amend`；未经用户显式指令不改动已安装游戏文件或已发布 ZIP。
-
-## 6. 2026-10-18 第三阶段验收
-
-- Small：900档1600×1024 → C512 52×32 → ViT28×16；720档1344×768 → ViT24×12；free逐节点ceil-half/round4，跨模式/尺寸重建缓冲。
-- Oracle：900 **47.4026 dB**，720 **47.7028 dB**；720抓取补UAV屏障，API输出hash未变。对内部Post层比较，不称NV逐位一致。
-- 9070三轮4-slot ABBA：900 Original **6.558681** → Small **4.376946 ms/frame**（−33.2648%）；各960稳态样本，逐轮正收益。1080沿用前阶段 **5.553510 ms/frame**。
-- Small AE从8个ViT块11..18的权重计算gain；F8保留。MODE1使用Small独立history-head和0x3A23=0.76708984375；时序重置及F9模式回环通过。
-- 最终1080 Original Gold仍0900E489…，Small仍65D71486…；80模块逐SHA复用。详[第三阶段回执](results/small-complete-20261018/README.md)。
-- **交付完成**：0.44正式三包与双游戏安装均通过；逐文件备份、回读、smoke、SHA和rollback回执见releases/0.44与results/game-install-20261018。下一步只待Zero实玩观感/是否上传公开镜像。
-
-## 7. 2026-10-18 F9紧急修复（最终4764e4f1全部交付）
-
-Zero实玩暴露剑星direct输出UAF、同尺寸重建与producer wait之后懒上传死锁，鬼武者WindowsApps只读配置导致F9被旧磁盘值覆盖。已修调用后重新取输出、保留SuppressFps/同尺寸资源、两模型权重分表常驻和wait前冷预热，F9内存立即切换/写盘best effort，鬼武者优先XboxGames镜像。CPU编译与只读配置测试通过。等待鬼武者PID27916退出后，严格空闲重跑GPU门，再重装/更新0.44三包。首次GPU测试包装器混入stdout误判busy已纠正并披露，初次回执不作正式空闲验收，详results/f9-hotfix-20261018。
-
-### F9最终载荷4764e4f1
-
-- 空闲-idle-r3的cold/warm/AE deferred、1080/900 direct输出与SuppressFps、Gold、runtime切换与XboxGames路径均通过；只读配置CPU即时/跨tick回归通过。
-- 追加同尺寸MODE1的两模型history head缓存交换、blend更新和reset；GPU读回32系数逐项与相应模型一致，history输出与冷启动对照逐位一致。
-- 已重装4764e4f1，安装smoke0，备份D:\DLSSNR-Lab\game-install-20261018-f9fix-r3\backup-20261018-102323。最终0.44三包压缩/回读进行中，旧ZIP已移history保留。
-
-### F9交付完成
-
-最终4764e4f1已补齐同尺寸MODE1 head/blend/reset并重跑-idle-r3全部回归；双游戏最终重装smoke0，Zero 实玩确认《剑星》与《鬼武者》内按 F9 切换均正常生效。正式三包更新完成（Magpie cf812fe7… / Opti40b4021a… / REFramework0f10b06a…），44shader/80模块/93Small权重/ZIP全文件回读与独立复验通过。备份game-install-20261018-f9fix-r3/backup-20261018-102323；旧正式包与6794中间包均留history。公开镜像已上传：[夸克](https://pan.quark.cn/s/ea87c0ffd257) · [Gofile](https://gofile.io/d/YCNT57JP)。详releases/0.44/README.md。
+1. **WMMA 累加器跨 K 步保持 Ampere 布局**：
+   - 目前每次 `wmma_f32_16x16x16` 调用内部执行 `sm86_rdna4_c_to_ampere`（20 条 `shfl.sync`）与 `sm86_ampere_d_to_rdna4`（20 条 `shfl.sync`）。在 `c32_wave1`、`c64_wave2`、`c512_m32`、`vit_stream` 的内层 K 循环中，若将累加器在 K 循环期间保持为 Ampere 原生布局、仅在 K 循环结束后做一次 `sm86_ampere_d_to_rdna4`，可消去 80% 以上的跨 lane 洗牌指令。
+2. **权重量化预重排（Host-side Ampere Fragment Packing）**：
+   - 在宿主侧上传权重时直接按 `mma.sync.m16n8k16` 的 Lane 布局预打包 `FragmentPackedMatrixW16`，即可省去内核中的 `sm86_frag_butterfly`（每次 WMMA 再省 16 条 `shfl.sync`）以及实时 `FP8 -> FP16` 解包，将 `sm_86` Tensor Core 吞吐推至硬件极限。
+3. **《鬼武者》(Onimusha) / RE9 实机集成验证**：
+   - 使用已交叉编译的 `LmxxfNrRuntime.dll` 与 `dlss5-amd.addon64` 配合 40 个 `sm_86` 模块在 Windows 实机游戏中验证端到端帧率与画质。

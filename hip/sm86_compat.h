@@ -125,25 +125,25 @@ SM86_DEV sm86_u32 sm86_hip_atomic_fetch_add(sm86_u32* p, sm86_u32 val, int /*ord
 // --- Warp Shuffle & Lane Intrinsics ---
 SM86_DEV sm86_u32 sm86_shfl_idx_u32(sm86_u32 val, sm86_u32 src_lane) {
     sm86_u32 r;
-    asm volatile("shfl.sync.idx.b32 %0, %1, %2, 0x1f, 0xffffffff;" : "=r"(r) : "r"(val), "r"(src_lane));
+    asm("shfl.sync.idx.b32 %0, %1, %2, 0x1f, 0xffffffff;" : "=r"(r) : "r"(val), "r"(src_lane));
     return r;
 }
 
 SM86_DEV sm86_u32 sm86_shfl_xor_u32(sm86_u32 val, sm86_u32 mask) {
     sm86_u32 r;
-    asm volatile("shfl.sync.bfly.b32 %0, %1, %2, 0x1f, 0xffffffff;" : "=r"(r) : "r"(val), "r"(mask));
+    asm("shfl.sync.bfly.b32 %0, %1, %2, 0x1f, 0xffffffff;" : "=r"(r) : "r"(val), "r"(mask));
     return r;
 }
 
 SM86_DEV float sm86_shfl_idx_f32(float val, sm86_u32 src_lane) {
     float r;
-    asm volatile("shfl.sync.idx.b32 %0, %1, %2, 0x1f, 0xffffffff;" : "=f"(r) : "f"(val), "r"(src_lane));
+    asm("shfl.sync.idx.b32 %0, %1, %2, 0x1f, 0xffffffff;" : "=f"(r) : "f"(val), "r"(src_lane));
     return r;
 }
 
 SM86_DEV float sm86_shfl_xor_f32(float val, sm86_u32 mask) {
     float r;
-    asm volatile("shfl.sync.bfly.b32 %0, %1, %2, 0x1f, 0xffffffff;" : "=f"(r) : "f"(val), "r"(mask));
+    asm("shfl.sync.bfly.b32 %0, %1, %2, 0x1f, 0xffffffff;" : "=f"(r) : "f"(val), "r"(mask));
     return r;
 }
 
@@ -244,19 +244,14 @@ SM86_DEV sm86_h2 __builtin_amdgcn_cvt_pkrtz(float a, float b) {
 }
 
 // --- OCP E4M3 (FP8, bias 7, max 448) <-> FP16 / FP32 ---
-// Branchless exact conversion of any E4M3 byte (0..255) to IEEE FP16 bit pattern
+// Branchless single-cycle PRMT exact conversion of any E4M3 byte (0..255) to IEEE FP16 bit pattern
 SM86_DEV sm86_u16 sm86_e4m3_to_f16_bits(sm86_u32 b) {
-    b &= 0xffu;
     sm86_u32 s = (b & 0x80u) << 8;
     sm86_u32 a = b & 0x7fu;
-    sm86_u32 mag;
-    if (a < 8u) {
-        mag = ((sm86_u32)(0x232221201e1c1800ULL >> (a * 8u)) & 0xffu) << 8;
-    } else if (a == 0x7fu) {
-        mag = 0x7e00u;
-    } else {
-        mag = (a << 7) + 0x2000u;
-    }
+    sm86_u32 sub;
+    asm("prmt.b32 %0, 0x1e1c1800, 0x23222120, %1;" : "=r"(sub) : "r"(a));
+    sm86_u32 norm = (a == 0x7fu) ? 0x7e00u : ((a << 7) + 0x2000u);
+    sm86_u32 mag = (a < 8u) ? ((sub & 0xffu) << 8) : norm;
     return (sm86_u16)(s | mag);
 }
 
@@ -418,7 +413,17 @@ SM86_DEV sm86_f8 __builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(sm86_h8 a, sm8
     sm86_frag_butterfly(ub, rb0, rb1, rb2, rb3, lane);
 
     float ac0, ac1, ac2, ac3, ac4, ac5, ac6, ac7;
-    sm86_rdna4_c_to_ampere(c, ac0, ac1, ac2, ac3, ac4, ac5, ac6, ac7, lane);
+    if (__builtin_constant_p(c[0]) && __builtin_constant_p(c[1]) &&
+        __builtin_constant_p(c[2]) && __builtin_constant_p(c[3]) &&
+        __builtin_constant_p(c[4]) && __builtin_constant_p(c[5]) &&
+        __builtin_constant_p(c[6]) && __builtin_constant_p(c[7]) &&
+        c[0] == 0.f && c[1] == 0.f && c[2] == 0.f && c[3] == 0.f &&
+        c[4] == 0.f && c[5] == 0.f && c[6] == 0.f && c[7] == 0.f) {
+        ac0 = 0.f; ac1 = 0.f; ac2 = 0.f; ac3 = 0.f;
+        ac4 = 0.f; ac5 = 0.f; ac6 = 0.f; ac7 = 0.f;
+    } else {
+        sm86_rdna4_c_to_ampere(c, ac0, ac1, ac2, ac3, ac4, ac5, ac6, ac7, lane);
+    }
 
     float ad0, ad1, ad2, ad3, ad4, ad5, ad6, ad7;
     asm volatile(

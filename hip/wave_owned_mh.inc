@@ -268,7 +268,7 @@ DEV void swin_wave2_body(const float*in,const float*fw,const float*aw,void*out_a
 #endif
  const uint rc=w2_rc(),gr=w2_gr();
  if(win>=(workw/8)*(workh/8))return;
- __attribute__((shared)) unsigned char plane0[64*C],plane1[64*C];
+ __attribute__((shared)) unsigned char plane0[64*C],plane1[64*C],plane_k[64*C];
  auto input=[&](uint tok,uint col)->float{
   if constexpr(Up){
    uint ci=(col%32)/16,e=col%8,qt=tok/16;
@@ -555,10 +555,7 @@ W2_REP_END
  w2_sync();
  // Q/K use A-fragment orientation. V is computed in the opposite orientation,
  // directly becoming the B fragments consumed by P*V; no V transpose/staging needed.
- i2 qkv[3][4][2];
-#if W2_ROLL_QUERY && !W2_DEFER_Q
- w2_i16 query_words{};
-#endif
+ i2 vals[4][2];
 W2_REP_BEGIN(4)
  /* W2_QKV_FUSE (2026-10-01, c128-phase; bitmask 1=C64 2=C128 4=C256): Q/K/V in one kt loop per token tile, the A fragment
     read from LDS once for all three (mochizuki fswin / our C512_COMPACT_FUSEQKV organization). Every accumulator sees the
@@ -590,11 +587,8 @@ W2_REP_BEGIN(4)
    _Pragma("unroll") for(uint part=ps;part<3;part++){
     float inv=1.f;
     if(part<2){float ss=w2_serial_norm(q[part][0],q[part][1]);inv=__builtin_amdgcn_rsqf(maxf(ss,6.198883056640625e-5f))*(part==0?aw[4*C*C+(C/32)*4096+head]:1.f);}
-    for(uint ci=0;ci<2;ci++){W2_Q8_DECL(a);for(uint e=0;e<8;e++)W2_Q8_SETF(a,e,q[part][ci][e],inv);W2_Q8_END(a);
-#if W2_ROLL_QUERY && !W2_DEFER_Q
-     if(part==0){query_words[qt*4+ci*2]=a[0];query_words[qt*4+ci*2+1]=a[1];}else
-#endif
-     qkv[part][qt][ci]=a;
+    _Pragma("unroll") for(uint ci=0;ci<2;ci++){W2_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++)W2_Q8_SETF(a,e,q[part][ci][e],inv);W2_Q8_END(a);
+     if(part==0)w2_store<C>(plane1,qt,head*2+ci,a);else if(part==1)w2_store<C>(plane_k,qt,head*2+ci,a);else vals[qt][ci]=a;
     }
    }
    w2_schedule();
@@ -610,18 +604,15 @@ W2_REP_BEGIN(4)
 #endif
    uint qrc=qlane&15u,qgr=qlane>>4;
    f8 q[2]{};
-   for(uint kt=0;kt<C/16;kt++)for(uint ci=0;ci<2;ci++){
+   for(uint kt=0;kt<C/16;kt++)_Pragma("unroll") for(uint ci=0;ci<2;ci++){
     i2 a=w2_load<C>(plane0,qt,kt,qlane),b=w2_weight(aw,part*C+head*32+ci*16+qrc,C,kt*16,qgr);
     if(part<2)q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,q[ci]);
     else q[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,q[ci]);
    }
    float inv=1.f;
    if(part<2){float ss=w2_serial_norm(q[0],q[1]);inv=__builtin_amdgcn_rsqf(maxf(ss,6.198883056640625e-5f))*(part==0?aw[4*C*C+(C/32)*4096+head]:1.f);}
-   for(uint ci=0;ci<2;ci++){W2_Q8_DECL(a);for(uint e=0;e<8;e++)W2_Q8_SETF(a,e,q[ci][e],inv);W2_Q8_END(a);
-#if W2_ROLL_QUERY && !W2_DEFER_Q
-    if(part==0){query_words[qt*4+ci*2]=a[0];query_words[qt*4+ci*2+1]=a[1];}else
-#endif
-    qkv[part][qt][ci]=a;
+   _Pragma("unroll") for(uint ci=0;ci<2;ci++){W2_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++)W2_Q8_SETF(a,e,q[ci][e],inv);W2_Q8_END(a);
+    if(part==0)w2_store<C>(plane1,qt,head*2+ci,a);else if(part==1)w2_store<C>(plane_k,qt,head*2+ci,a);else vals[qt][ci]=a;
    }
    w2_schedule();
   }
@@ -646,7 +637,7 @@ W2_REP_BEGIN(8)
 #endif
  for(uint qt=0;qt<4;qt++){
 #if W2_ROLL_QUERY && !W2_DEFER_Q
-  i2 query_frag[2];_Pragma("unroll 2") for(uint ci=0;ci<2;ci++)query_frag[ci]=i2{query_words[qt*4+ci*2],query_words[qt*4+ci*2+1]};
+  i2 query_frag[2]={w2_load<C>(plane1,qt,head*2),w2_load<C>(plane1,qt,head*2+1)};
 #endif
 #if W2_DEFER_Q
   uint qlane=w2_lane();
@@ -655,43 +646,43 @@ W2_REP_BEGIN(8)
 #endif
   uint qrc=qlane&15u,qgr=qlane>>4;
   f8 query[2]{};
-  for(uint kt=0;kt<C/16;kt++)for(uint ci=0;ci<2;ci++){
+  for(uint kt=0;kt<C/16;kt++)_Pragma("unroll") for(uint ci=0;ci<2;ci++){
    i2 a=w2_load<C>(plane0,qt,kt,qlane),b=w2_weight(aw,head*32+ci*16+qrc,C,kt*16,qgr);
    query[ci]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,a,query[ci]);
   }
   float qs=w2_serial_norm(query[0],query[1]);
   float qinv=__builtin_amdgcn_rsqf(maxf(qs,6.198883056640625e-5f))*aw[4*C*C+(C/32)*4096+head];
-  i2 query_frag[2];for(uint ci=0;ci<2;ci++){W2_Q8_DECL(a);for(uint e=0;e<8;e++)W2_Q8_SETF(a,e,query[ci][e],qinv);W2_Q8_END(a);query_frag[ci]=a;}
+  i2 query_frag[2];_Pragma("unroll") for(uint ci=0;ci<2;ci++){W2_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++)W2_Q8_SETF(a,e,query[ci][e],qinv);W2_Q8_END(a);query_frag[ci]=a;}
 #endif
   h8 exponent[4];
   _Pragma("unroll 4") for(uint key=0;key<4;key++){
    f8 scores{};
-   _Pragma("unroll 2") for(uint ci=0;ci<2;ci++)scores=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(qkv[1][key][ci],
+   _Pragma("unroll 2") for(uint ci=0;ci<2;ci++)scores=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(w2_load<C>(plane_k,key,head*2+ci),
 #if W2_DEFER_Q || W2_ROLL_QUERY
     query_frag[ci],
 #else
-    qkv[0][qt][ci],
+    w2_load<C>(plane1,qt,head*2+ci),
 #endif
     scores);
    h8 ex{};
-   for(uint e=0;e<8;e++){
+   _Pragma("unroll") for(uint e=0;e<8;e++){
     uint row=qt*16+rc,k=key*16+gr*8+e;
     float score=scores[e]+aw[4*C*C+head*4096+row*64+k],affine=clampf(score*.044921875f+1.30078125f,1.03125f,1.5693359375f);
     uint ah=(bits(affine)>>13)-0x1c000u;unsigned short hb=static_cast<unsigned short>(((ah<<5)+0x8000u)&65535u);ex[e]=__builtin_bit_cast(_Float16,hb);
    }
    exponent[key]=ex;
   }
-  h8 ones{};for(uint e=0;e<8;e++)ones[e]=(_Float16)1.f;
+  h8 ones{};_Pragma("unroll") for(uint e=0;e<8;e++)ones[e]=(_Float16)1.f;
   f8 sums[2]{};
   _Pragma("unroll 2") for(uint side=0;side<2;side++){
    _Pragma("unroll 2") for(uint half=0;half<2;half++)sums[side]=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(ones,exponent[side+2*half],sums[side]);
   }
   i2 prob[4];
-  _Pragma("unroll 4") for(uint key=0;key<4;key++){W2_Q8_DECL(a);for(uint e=0;e<8;e++){float inv=w2_inverse(sums[0][e]+sums[1][e]);W2_Q8_SETF(a,e,float(exponent[key][e]),inv);}W2_Q8_END(a);prob[key]=a;}
-  for(uint ci=0;ci<2;ci++){
+  _Pragma("unroll 4") for(uint key=0;key<4;key++){W2_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++){float inv=w2_inverse(sums[0][e]+sums[1][e]);W2_Q8_SETF(a,e,float(exponent[key][e]),inv);}W2_Q8_END(a);prob[key]=a;}
+  _Pragma("unroll") for(uint ci=0;ci<2;ci++){
    f8 av{};
-   _Pragma("unroll 4") for(uint key=0;key<4;key++)av=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(qkv[2][key][ci],prob[key],av);
-   W2_Q8_DECL(a);for(uint e=0;e<8;e++)W2_Q8_SET(a,e,av[e]);W2_Q8_END(a);w2_store<C>(plane1,qt,head*2+ci,a);
+   _Pragma("unroll 4") for(uint key=0;key<4;key++)av=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(vals[key][ci],prob[key],av);
+   W2_Q8_DECL(a);_Pragma("unroll") for(uint e=0;e<8;e++)W2_Q8_SET(a,e,av[e]);W2_Q8_END(a);w2_store<C>(plane1,qt,head*2+ci,a);
   }
   w2_schedule();
  }

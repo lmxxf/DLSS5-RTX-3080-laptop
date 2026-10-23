@@ -89,9 +89,9 @@ WAVE void vit_stream_qkv_frag_hin(const float*in,const float*w,unsigned char*out
  __attribute__((shared)) float raw[16*33];
  f8 sum{};
  if(part<2){
-  for(uint j=0;j<2;j++)for(uint e=0;e<8;e++)raw[(gr()*8+e)*33+j*16+rc()]=acc[j][e];
+  _Pragma("unroll") for(uint j=0;j<2;j++)_Pragma("unroll") for(uint e=0;e<8;e++)raw[(gr()*8+e)*33+j*16+rc()]=acc[j][e];
   __builtin_amdgcn_s_barrier();
-  for(uint k=0;k<32;k+=16){h8 x{},ones{};for(uint e=0;e<8;e++){float v=raw[rc()*33+k+gr()*8+e];x[e]=(_Float16)(v*v);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,ones,sum);}
+  _Pragma("unroll") for(uint k=0;k<32;k+=16){h8 x{},ones{};_Pragma("unroll") for(uint e=0;e<8;e++){float v=raw[rc()*33+k+gr()*8+e];x[e]=(_Float16)(v*v);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,ones,sum);}
  }
 #if HIP_VIT_HOIST_SCALE || HIP_VIT_STREAM_QKV_HOIST
  // The per-row scale read once (uniform); inside the loop it was re-read after every out[] store (aliasing), 16 global_load + wait pairs.
@@ -144,9 +144,9 @@ KERNEL __attribute__((amdgpu_flat_work_group_size(160,160))) void vit_stream_qkv
  float*raw=reinterpret_cast<float*>(lds)+wv*(16*33);
  f8 sum{};
  if(part<2){
-  for(uint j=0;j<2;j++)for(uint e=0;e<8;e++)raw[(gr()*8+e)*33+j*16+rc()]=acc[j][e];
+  _Pragma("unroll") for(uint j=0;j<2;j++)_Pragma("unroll") for(uint e=0;e<8;e++)raw[(gr()*8+e)*33+j*16+rc()]=acc[j][e];
   __builtin_amdgcn_s_barrier();
-  for(uint k=0;k<32;k+=16){h8 x{},ones{};for(uint e=0;e<8;e++){float v=raw[rc()*33+k+gr()*8+e];x[e]=(_Float16)(v*v);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,ones,sum);}
+  _Pragma("unroll") for(uint k=0;k<32;k+=16){h8 x{},ones{};_Pragma("unroll") for(uint e=0;e<8;e++){float v=raw[rc()*33+k+gr()*8+e];x[e]=(_Float16)(v*v);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,ones,sum);}
  }
  if(!live)return;
  const float scale=part==0?5.65625f*w[1572864+row/32]:1.f;
@@ -198,9 +198,9 @@ KERNEL __attribute__((amdgpu_flat_work_group_size(160,160))) void vit_stream_qkv
  float*raw=reinterpret_cast<float*>(lds)+wv*(16*33);
  f8 sum{};
  if(part<2){
-  for(uint j=0;j<2;j++)for(uint e=0;e<8;e++)raw[(gr()*8+e)*33+j*16+rc()]=acc[j][e];
+  _Pragma("unroll") for(uint j=0;j<2;j++)_Pragma("unroll") for(uint e=0;e<8;e++)raw[(gr()*8+e)*33+j*16+rc()]=acc[j][e];
   __builtin_amdgcn_s_barrier();
-  for(uint k=0;k<32;k+=16){h8 x{},ones{};for(uint e=0;e<8;e++){float v=raw[rc()*33+k+gr()*8+e];x[e]=(_Float16)(v*v);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,ones,sum);}
+  _Pragma("unroll") for(uint k=0;k<32;k+=16){h8 x{},ones{};_Pragma("unroll") for(uint e=0;e<8;e++){float v=raw[rc()*33+k+gr()*8+e];x[e]=(_Float16)(v*v);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,ones,sum);}
  }
  if(!live)return;
  if(part<2){
@@ -231,15 +231,16 @@ KERNEL __attribute__((amdgpu_flat_work_group_size(160,160))) void vit_stream_qkv
 #define F8_DST(i) (l8+sb*(2*CH*256)+((t+(i)*128)>>7)*(CH*256)+(t&127)*16)
 #define F8_FETCH {if(t<128){__builtin_memcpy(&s0,F8_SRC(0),16);__builtin_memcpy(&s1,F8_SRC(1),16);}}
 #define F8_STASH {if(t<128){__builtin_memcpy(F8_DST(0),&s0,16);__builtin_memcpy(F8_DST(1),&s1,16);}}
- f8 acc[2]{};
+ f8 acc0{},acc1{};
  {const uint kc=0;F8_FETCH}
 #pragma unroll 1
  for(uint kc=0;kc<1024/(16*CH);kc++){{const uint sb=kc&1;F8_STASH}__builtin_amdgcn_s_barrier();if(kc+1<1024/(16*CH)){const uint kc1=kc+1;{const uint kc=kc1;F8_FETCH}}
   if(live)
 #pragma unroll
   for(uint kk=0;kk<CH;kk++){uint k=(kc*CH+kk)*16;i2 a8;__builtin_memcpy(&a8,reinterpret_cast<const unsigned char*>(in)+(first+rc())*1024+k+gr()*8,8);
-#pragma unroll
-   for(uint j=0;j<2;j++){i2 b;__builtin_memcpy(&b,l8+(kc&1)*(2*CH*256)+j*(CH*256)+kk*256+lane*8,8);acc[j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a8,b,acc[j]);}}}
+   i2 b0,b1;__builtin_memcpy(&b0,l8+(kc&1)*(2*CH*256)+kk*256+lane*8,8);__builtin_memcpy(&b1,l8+(kc&1)*(2*CH*256)+(CH*256)+kk*256+lane*8,8);
+   acc0=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a8,b0,acc0);
+   acc1=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a8,b1,acc1);}}
 #undef F8_SRC
 #undef F8_DST
 #undef F8_FETCH
@@ -248,18 +249,18 @@ KERNEL __attribute__((amdgpu_flat_work_group_size(160,160))) void vit_stream_qkv
  float*raw=reinterpret_cast<float*>(lds)+wv*(16*33);
  f8 sum{};
  if(part<2){
-  for(uint j=0;j<2;j++)for(uint e=0;e<8;e++)raw[(gr()*8+e)*33+j*16+rc()]=acc[j][e];
+  _Pragma("unroll") for(uint e=0;e<8;e++){raw[(gr()*8+e)*33+rc()]=acc0[e];raw[(gr()*8+e)*33+16+rc()]=acc1[e];}
   __builtin_amdgcn_s_barrier();
-  for(uint k=0;k<32;k+=16){h8 x{},ones{};for(uint e=0;e<8;e++){float v=raw[rc()*33+k+gr()*8+e];x[e]=(_Float16)(v*v);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,ones,sum);}
+  _Pragma("unroll") for(uint k=0;k<32;k+=16){h8 x{},ones{};_Pragma("unroll") for(uint e=0;e<8;e++){float v=raw[rc()*33+k+gr()*8+e];x[e]=(_Float16)(v*v);ones[e]=(_Float16)1.f;}sum=__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(x,ones,sum);}
  }
  if(!live)return;
  if(part<2){
   const float scale=part==0?5.65625f*w[786432+row/32]:1.f;
   #pragma unroll
-  for(uint e=0;e<8;e++){float inv=__builtin_amdgcn_rsqf(__builtin_fmaxf(sum[e],6.198883056640625e-5f))*scale;acc[0][e]*=inv;acc[1][e]*=inv;}
+  for(uint e=0;e<8;e++){float inv=__builtin_amdgcn_rsqf(__builtin_fmaxf(sum[e],6.198883056640625e-5f))*scale;acc0[e]*=inv;acc1[e]*=inv;}
  }
  #pragma unroll
- for(uint j=0;j<2;j++)for(uint e=0;e<8;e++)out[(part*tokens+first+gr()*8+e)*1024+row+j*16+rc()]=byte_F(acc[j][e]);
+ for(uint e=0;e<8;e++){out[(part*tokens+first+gr()*8+e)*1024+row+rc()]=byte_F(acc0[e]);out[(part*tokens+first+gr()*8+e)*1024+row+16+rc()]=byte_F(acc1[e]);}
 }
 #endif
 #endif

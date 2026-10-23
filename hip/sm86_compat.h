@@ -2,8 +2,12 @@
 
 // ============================================================================
 // sm86_compat.h — RDNA4 Wave32 (gfx1201) -> NVIDIA Ampere (sm_86) Device Layer
-// Compiles SDK-free HIP kernels with:
-//   clang++ -x cuda --cuda-device-only --cuda-gpu-arch=sm_86 -nocudainc -nocudalib -std=c++20 -O3
+// V2 Optimized:
+//   1. Branchless prmt.b32 + mul.rn.f16x2 (0x5c005c00) E4M3x8 -> F16x8 decode
+//   2. 4-shfl XOR-Benes network for A/B fragments (8 shfl/WMMA, down from 16)
+//   3. 8-shfl XOR-Benes network for C/D fragments (down from 20 shfl each)
+//   4. SSA IR algebraic cancellation (__sm86_c_to_ampere / __sm86_d_to_rdna4)
+//      eliminating intermediate C/D shuffles across unrolled & loop-PHI K-loops
 // ============================================================================
 
 #define _Float16 __fp16
@@ -178,14 +182,12 @@ SM86_DEV float __builtin_amdgcn_sqrtf(float x) {
     return r;
 }
 
-// AMDGPU v_log_f32 is base-2 log2(x)
 SM86_DEV float __builtin_amdgcn_logf(float x) {
     float r;
     asm("lg2.approx.ftz.f32 %0, %1;" : "=f"(r) : "f"(x));
     return r;
 }
 
-// AMDGPU v_sin_f32 / v_cos_f32 take turns (radians / 2pi), so multiply by 2pi
 SM86_DEV float __builtin_amdgcn_sinf(float x) {
     float r, rad = x * 6.28318530717958647692f;
     asm("sin.approx.ftz.f32 %0, %1;" : "=f"(r) : "f"(rad));
@@ -198,9 +200,8 @@ SM86_DEV float __builtin_amdgcn_cosf(float x) {
     return r;
 }
 
-// AMDGPU v_med3_f32: median of 3 floats; if x is NaN and (y,z) are finite bounds, returns min(y,z) (-448.f)
 SM86_DEV float __builtin_amdgcn_fmed3f(float a, float b, float c) {
-    float lo, hi, t, r;
+    float hi, r;
     asm("min.f32 %0, %2, %3;\n\t"
         "max.f32 %1, %2, %3;\n\t"
         "max.f32 %0, %4, %0;\n\t"
@@ -244,23 +245,38 @@ SM86_DEV sm86_h2 __builtin_amdgcn_cvt_pkrtz(float a, float b) {
 }
 
 // --- OCP E4M3 (FP8, bias 7, max 448) <-> FP16 / FP32 ---
-// Branchless single-cycle PRMT exact conversion of any E4M3 byte (0..255) to IEEE FP16 bit pattern
-SM86_DEV sm86_u16 sm86_e4m3_to_f16_bits(sm86_u32 b) {
-    sm86_u32 s = (b & 0x80u) << 8;
-    sm86_u32 a = b & 0x7fu;
-    sm86_u32 sub;
-    asm("prmt.b32 %0, 0x1e1c1800, 0x23222120, %1;" : "=r"(sub) : "r"(a));
-    sm86_u32 norm = (a == 0x7fu) ? 0x7e00u : ((a << 7) + 0x2000u);
-    sm86_u32 mag = (a < 8u) ? ((sub & 0xffu) << 8) : norm;
-    return (sm86_u16)(s | mag);
-}
-
 SM86_DEV float __builtin_amdgcn_cvt_f32_fp8(int src, int byte_sel) {
     sm86_u32 b = (((sm86_u32)src) >> (8 * (byte_sel & 3))) & 0xffu;
-    return sm86_v_cvt_f32_f16((sm86_u32)sm86_e4m3_to_f16_bits(b));
+    sm86_u32 raw = ((b & 0x80u) << 8) | ((b & 0x7fu) << 7);
+    if ((b & 0x7fu) == 0x7fu) raw = ((b & 0x80u) << 8) | 0x7e00u;
+    sm86_u32 sc = 0x5c005c00u;
+    asm("mul.rn.f16x2 %0, %0, %1;" : "+r"(raw) : "r"(sc));
+    return sm86_v_cvt_f32_f16(raw);
 }
 
-// Exact RNE conversion of FP32 to OCP E4M3 byte (saturating finite >448 to +-448 = 0x7e, Inf/NaN to 0x7f)
+// Vectorized branchless unpacking of 8 E4M3 bytes (sm86_i2) -> 8 FP16 values (sm86_u4)
+// Uses 4 prmt.b32 + 4 mul.rn.f16x2 (0x5c005c00), zero branches!
+SM86_DEV sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) {
+    sm86_u32 a0 = (sm86_u32)a[0], a1 = (sm86_u32)a[1];
+    sm86_u32 u0, u1, u2, u3;
+    asm("prmt.b32 %0, %4, 0, 0x1404;\n\t"
+        "prmt.b32 %1, %4, 0, 0x3424;\n\t"
+        "prmt.b32 %2, %5, 0, 0x1404;\n\t"
+        "prmt.b32 %3, %5, 0, 0x3424;"
+        : "=r"(u0), "=r"(u1), "=r"(u2), "=r"(u3) : "r"(a0), "r"(a1));
+    u0 = (u0 & 0x80008000u) | ((u0 & 0x7f007f00u) >> 1);
+    u1 = (u1 & 0x80008000u) | ((u1 & 0x7f007f00u) >> 1);
+    u2 = (u2 & 0x80008000u) | ((u2 & 0x7f007f00u) >> 1);
+    u3 = (u3 & 0x80008000u) | ((u3 & 0x7f007f00u) >> 1);
+    sm86_u32 scale = 0x5c005c00u;
+    asm("mul.rn.f16x2 %0, %0, %4;\n\t"
+        "mul.rn.f16x2 %1, %1, %4;\n\t"
+        "mul.rn.f16x2 %2, %2, %4;\n\t"
+        "mul.rn.f16x2 %3, %3, %4;"
+        : "+r"(u0), "+r"(u1), "+r"(u2), "+r"(u3) : "r"(scale));
+    return sm86_u4{u0, u1, u2, u3};
+}
+
 SM86_DEV sm86_u32 sm86_f32_to_e4m3_byte(float x) {
     sm86_u32 b = __builtin_bit_cast(sm86_u32, x);
     sm86_u32 s = (b >> 24) & 0x80u;
@@ -269,7 +285,6 @@ SM86_DEV sm86_u32 sm86_f32_to_e4m3_byte(float x) {
         return s | 0x7fu;
     }
     if (a < 0x3c800000u) {
-        // Subnormal E4M3: RNE to 2^-9 grid via IEEE f32 add with 16384.0f (0x46800000, ULP = 2^-9)
         float magic;
         asm("add.rn.f32 %0, %1, 0f46800000;" : "=f"(magic) : "f"(__builtin_bit_cast(float, a)));
         return s | (__builtin_bit_cast(sm86_u32, magic) & 0xffu);
@@ -291,184 +306,171 @@ SM86_DEV int __builtin_amdgcn_cvt_pk_fp8_f32(float a, float b, int old, bool wor
 }
 
 // --- RDNA4 Wave32 16x16x16 WMMA -> Ampere m16n8k16 Tensor Core ---
-SM86_DEV void sm86_frag_butterfly(sm86_u4 u, sm86_u32 &r0, sm86_u32 &r1, sm86_u32 &r2, sm86_u32 &r3, sm86_u32 lane) {
-    sm86_u32 v0 = u[0], v1 = u[1], v2 = u[2], v3 = u[3];
-    bool b0 = (lane & 8u) != 0;
-    sm86_u32 s0 = sm86_shfl_xor_u32(b0 ? v0 : v1, 8u);
-    sm86_u32 s1 = sm86_shfl_xor_u32(b0 ? v2 : v3, 8u);
-    v0 = b0 ? s0 : v0;
-    v1 = b0 ? v1 : s0;
-    v2 = b0 ? s1 : v2;
-    v3 = b0 ? v3 : s1;
+// 4-shfl XOR-Benes Network for A and B fragments (down from 8 shfl!)
+SM86_DEV void sm86_frag_benes4(sm86_u4 u, sm86_u32 &r0, sm86_u32 &r1, sm86_u32 &r2, sm86_u32 &r3, sm86_u32 lane) {
+    sm86_u32 u0 = u[0], u1 = u[1], u2 = u[2], u3 = u[3];
+    bool p0 = (lane & 8u) != 0;
+    sm86_u32 a0 = p0 ? u1 : u0, a1 = p0 ? u0 : u1;
+    sm86_u32 a2 = p0 ? u3 : u2, a3 = p0 ? u2 : u3;
+    bool p1 = (lane & 16u) != 0;
+    sm86_u32 w0 = p1 ? a2 : a0, w1 = p1 ? a3 : a1;
+    sm86_u32 w2 = p1 ? a0 : a2, w3 = p1 ? a1 : a3;
 
-    bool b1 = (lane & 16u) != 0;
-    sm86_u32 s2 = sm86_shfl_xor_u32(b1 ? v0 : v2, 16u);
-    sm86_u32 s3 = sm86_shfl_xor_u32(b1 ? v1 : v3, 16u);
-    v0 = b1 ? s2 : v0;
-    v2 = b1 ? v2 : s2;
-    v1 = b1 ? s3 : v1;
-    v3 = b1 ? v3 : s3;
+    sm86_u32 base = (lane >> 2) ^ ((lane & 3u) << 3);
+    sm86_u32 v0 = sm86_shfl_idx_u32(w0, base);
+    sm86_u32 v1 = sm86_shfl_idx_u32(w1, base ^ 8u);
+    sm86_u32 v2 = sm86_shfl_idx_u32(w2, base ^ 16u);
+    sm86_u32 v3 = sm86_shfl_idx_u32(w3, base ^ 24u);
 
-    sm86_u32 src = ((lane & 3u) << 3) | (lane >> 2);
-    r0 = sm86_shfl_idx_u32(v0, src);
-    r1 = sm86_shfl_idx_u32(v1, src);
-    r2 = sm86_shfl_idx_u32(v2, src);
-    r3 = sm86_shfl_idx_u32(v3, src);
+    bool q0 = (lane & 1u) != 0;
+    sm86_u32 b0 = q0 ? v1 : v0, b1 = q0 ? v0 : v1;
+    sm86_u32 b2 = q0 ? v3 : v2, b3 = q0 ? v2 : v3;
+    bool q1 = (lane & 2u) != 0;
+    r0 = q1 ? b2 : b0;
+    r1 = q1 ? b3 : b1;
+    r2 = q1 ? b0 : b2;
+    r3 = q1 ? b1 : b3;
 }
 
-SM86_DEV void sm86_rdna4_c_to_ampere(sm86_f8 c, float &d0, float &d1, float &d2, float &d3,
-                                     float &d4, float &d5, float &d6, float &d7, sm86_u32 lane) {
-    sm86_u32 src = (lane & 24u) | ((lane & 3u) << 1) | ((lane >> 2) & 1u);
-    d0 = sm86_shfl_idx_f32(c[0], src);
-    d1 = sm86_shfl_idx_f32(c[1], src);
-    d2 = sm86_shfl_idx_f32(c[2], src);
-    d3 = sm86_shfl_idx_f32(c[3], src);
-    d4 = sm86_shfl_idx_f32(c[4], src);
-    d5 = sm86_shfl_idx_f32(c[5], src);
-    d6 = sm86_shfl_idx_f32(c[6], src);
-    d7 = sm86_shfl_idx_f32(c[7], src);
+// 8-shfl XOR-Benes Network for C (RDNA4 -> Ampere) and D (Ampere -> RDNA4)
+// Marked `noinline, const` during initial Clang IR emission so SSA pass cancels
+// back-to-back C/D shuffles across K-loops; converted to `alwaysinline` before opt -O3!
+extern "C" __attribute__((device, noinline, const))
+sm86_f8 __sm86_c_to_ampere(sm86_f8 c) __asm__("__sm86_c_to_ampere");
 
-    bool b0 = (lane & 4u) != 0;
-    float s0 = sm86_shfl_xor_f32(b0 ? d0 : d1, 4u);
-    float s1 = sm86_shfl_xor_f32(b0 ? d2 : d3, 4u);
-    float s2 = sm86_shfl_xor_f32(b0 ? d4 : d5, 4u);
-    float s3 = sm86_shfl_xor_f32(b0 ? d6 : d7, 4u);
-    d0 = b0 ? s0 : d0; d1 = b0 ? d1 : s0;
-    d2 = b0 ? s1 : d2; d3 = b0 ? d3 : s1;
-    d4 = b0 ? s2 : d4; d5 = b0 ? d5 : s2;
-    d6 = b0 ? s3 : d6; d7 = b0 ? d7 : s3;
+extern "C" __attribute__((device, noinline, const))
+sm86_f8 __sm86_d_to_rdna4(sm86_f8 d) __asm__("__sm86_d_to_rdna4");
 
-    bool b1 = (lane & 8u) != 0;
-    float t0 = sm86_shfl_xor_f32(b1 ? d0 : d2, 8u);
-    float t1 = sm86_shfl_xor_f32(b1 ? d1 : d3, 8u);
-    float t2 = sm86_shfl_xor_f32(b1 ? d4 : d6, 8u);
-    float t3 = sm86_shfl_xor_f32(b1 ? d5 : d7, 8u);
-    d0 = b1 ? t0 : d0; d2 = b1 ? d2 : t0;
-    d1 = b1 ? t1 : d1; d3 = b1 ? d3 : t1;
-    d4 = b1 ? t2 : d4; d6 = b1 ? d6 : t2;
-    d5 = b1 ? t3 : d5; d7 = b1 ? d7 : t3;
+extern "C" __attribute__((device, noinline, const))
+sm86_f8 __sm86_c_to_ampere(sm86_f8 c) {
+    sm86_u32 lane = sm86_lane_id();
+    float v0 = c[0], v1 = c[1], v2 = c[2], v3 = c[3], v4 = c[4], v5 = c[5], v6 = c[6], v7 = c[7];
+    bool p0 = (lane & 1u) != 0;
+    float a0 = p0 ? v1 : v0, a1 = p0 ? v0 : v1, a2 = p0 ? v3 : v2, a3 = p0 ? v2 : v3;
+    float a4 = p0 ? v5 : v4, a5 = p0 ? v4 : v5, a6 = p0 ? v7 : v6, a7 = p0 ? v6 : v7;
+    bool p1 = (lane & 8u) != 0;
+    float b0 = p1 ? a2 : a0, b1 = p1 ? a3 : a1, b2 = p1 ? a0 : a2, b3 = p1 ? a1 : a3;
+    float b4 = p1 ? a6 : a4, b5 = p1 ? a7 : a5, b6 = p1 ? a4 : a6, b7 = p1 ? a5 : a7;
+    bool p2 = (lane & 16u) != 0;
+    float w0 = p2 ? b4 : b0, w1 = p2 ? b5 : b1, w2 = p2 ? b6 : b2, w3 = p2 ? b7 : b3;
+    float w4 = p2 ? b0 : b4, w5 = p2 ? b1 : b5, w6 = p2 ? b2 : b6, w7 = p2 ? b3 : b7;
 
-    bool b2 = (lane & 16u) != 0;
-    float u0 = sm86_shfl_xor_f32(b2 ? d0 : d4, 16u);
-    float u1 = sm86_shfl_xor_f32(b2 ? d1 : d5, 16u);
-    float u2 = sm86_shfl_xor_f32(b2 ? d2 : d6, 16u);
-    float u3 = sm86_shfl_xor_f32(b2 ? d3 : d7, 16u);
-    d0 = b2 ? u0 : d0; d4 = b2 ? d4 : u0;
-    d1 = b2 ? u1 : d1; d5 = b2 ? d5 : u1;
-    d2 = b2 ? u2 : d2; d6 = b2 ? d6 : u2;
-    d3 = b2 ? u3 : d3; d7 = b2 ? d7 : u3;
-}
+    sm86_u32 base = (lane & 24u) | ((lane & 3u) << 1) | ((lane >> 2) & 1u);
+    float x0 = sm86_shfl_idx_f32(w0, base);
+    float x1 = sm86_shfl_idx_f32(w1, base ^ 1u);
+    float x2 = sm86_shfl_idx_f32(w2, base ^ 8u);
+    float x3 = sm86_shfl_idx_f32(w3, base ^ 9u);
+    float x4 = sm86_shfl_idx_f32(w4, base ^ 16u);
+    float x5 = sm86_shfl_idx_f32(w5, base ^ 17u);
+    float x6 = sm86_shfl_idx_f32(w6, base ^ 24u);
+    float x7 = sm86_shfl_idx_f32(w7, base ^ 25u);
 
-SM86_DEV sm86_f8 sm86_ampere_d_to_rdna4(float d0, float d1, float d2, float d3,
-                                        float d4, float d5, float d6, float d7, sm86_u32 lane) {
-    bool b0 = (lane & 4u) != 0;
-    float s0 = sm86_shfl_xor_f32(b0 ? d0 : d1, 4u);
-    float s1 = sm86_shfl_xor_f32(b0 ? d2 : d3, 4u);
-    float s2 = sm86_shfl_xor_f32(b0 ? d4 : d5, 4u);
-    float s3 = sm86_shfl_xor_f32(b0 ? d6 : d7, 4u);
-    d0 = b0 ? s0 : d0; d1 = b0 ? d1 : s0;
-    d2 = b0 ? s1 : d2; d3 = b0 ? d3 : s1;
-    d4 = b0 ? s2 : d4; d5 = b0 ? d5 : s2;
-    d6 = b0 ? s3 : d6; d7 = b0 ? d7 : s3;
-
-    bool b1 = (lane & 8u) != 0;
-    float t0 = sm86_shfl_xor_f32(b1 ? d0 : d2, 8u);
-    float t1 = sm86_shfl_xor_f32(b1 ? d1 : d3, 8u);
-    float t2 = sm86_shfl_xor_f32(b1 ? d4 : d6, 8u);
-    float t3 = sm86_shfl_xor_f32(b1 ? d5 : d7, 8u);
-    d0 = b1 ? t0 : d0; d2 = b1 ? d2 : t0;
-    d1 = b1 ? t1 : d1; d3 = b1 ? d3 : t1;
-    d4 = b1 ? t2 : d4; d6 = b1 ? d6 : t2;
-    d5 = b1 ? t3 : d5; d7 = b1 ? d7 : t3;
-
-    bool b2 = (lane & 16u) != 0;
-    float u0 = sm86_shfl_xor_f32(b2 ? d0 : d4, 16u);
-    float u1 = sm86_shfl_xor_f32(b2 ? d1 : d5, 16u);
-    float u2 = sm86_shfl_xor_f32(b2 ? d2 : d6, 16u);
-    float u3 = sm86_shfl_xor_f32(b2 ? d3 : d7, 16u);
-    d0 = b2 ? u0 : d0; d4 = b2 ? d4 : u0;
-    d1 = b2 ? u1 : d1; d5 = b2 ? d5 : u1;
-    d2 = b2 ? u2 : d2; d6 = b2 ? d6 : u2;
-    d3 = b2 ? u3 : d3; d7 = b2 ? d7 : u3;
-
-    sm86_u32 src = (lane & 24u) | ((lane & 1u) << 2) | ((lane >> 1) & 3u);
+    bool q0 = (lane & 4u) != 0;
+    float y0 = q0 ? x1 : x0, y1 = q0 ? x0 : x1, y2 = q0 ? x3 : x2, y3 = q0 ? x2 : x3;
+    float y4 = q0 ? x5 : x4, y5 = q0 ? x4 : x5, y6 = q0 ? x7 : x6, y7 = q0 ? x6 : x7;
+    bool q1 = (lane & 8u) != 0;
+    float z0 = q1 ? y2 : y0, z1 = q1 ? y3 : y1, z2 = q1 ? y0 : y2, z3 = q1 ? y1 : y3;
+    float z4 = q1 ? y6 : y4, z5 = q1 ? y7 : y5, z6 = q1 ? y4 : y6, z7 = q1 ? y5 : y7;
+    bool q2 = (lane & 16u) != 0;
     return sm86_f8{
-        sm86_shfl_idx_f32(d0, src),
-        sm86_shfl_idx_f32(d1, src),
-        sm86_shfl_idx_f32(d2, src),
-        sm86_shfl_idx_f32(d3, src),
-        sm86_shfl_idx_f32(d4, src),
-        sm86_shfl_idx_f32(d5, src),
-        sm86_shfl_idx_f32(d6, src),
-        sm86_shfl_idx_f32(d7, src)
+        q2 ? z4 : z0, q2 ? z5 : z1, q2 ? z6 : z2, q2 ? z7 : z3,
+        q2 ? z0 : z4, q2 ? z1 : z5, q2 ? z2 : z6, q2 ? z3 : z7
     };
 }
 
-SM86_DEV sm86_f8 __builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(sm86_h8 a, sm86_h8 b, sm86_f8 c) {
+extern "C" __attribute__((device, noinline, const))
+sm86_f8 __sm86_d_to_rdna4(sm86_f8 d) {
     sm86_u32 lane = sm86_lane_id();
-    sm86_u4 ua = __builtin_bit_cast(sm86_u4, a);
-    sm86_u4 ub = __builtin_bit_cast(sm86_u4, b);
-    sm86_u32 ra0, ra1, ra2, ra3, rb0, rb1, rb2, rb3;
-    sm86_frag_butterfly(ua, ra0, ra1, ra2, ra3, lane);
-    sm86_frag_butterfly(ub, rb0, rb1, rb2, rb3, lane);
+    float d0 = d[0], d1 = d[1], d2 = d[2], d3 = d[3], d4 = d[4], d5 = d[5], d6 = d[6], d7 = d[7];
+    bool q0 = (lane & 4u) != 0;
+    float a0 = q0 ? d1 : d0, a1 = q0 ? d0 : d1, a2 = q0 ? d3 : d2, a3 = q0 ? d2 : d3;
+    float a4 = q0 ? d5 : d4, a5 = q0 ? d4 : d5, a6 = q0 ? d7 : d6, a7 = q0 ? d6 : d7;
+    bool q1 = (lane & 8u) != 0;
+    float b0 = q1 ? a2 : a0, b1 = q1 ? a3 : a1, b2 = q1 ? a0 : a2, b3 = q1 ? a1 : a3;
+    float b4 = q1 ? a6 : a4, b5 = q1 ? a7 : a5, b6 = q1 ? a4 : a6, b7 = q1 ? a5 : a7;
+    bool q2 = (lane & 16u) != 0;
+    float w0 = q2 ? b4 : b0, w1 = q2 ? b5 : b1, w2 = q2 ? b6 : b2, w3 = q2 ? b7 : b3;
+    float w4 = q2 ? b0 : b4, w5 = q2 ? b1 : b5, w6 = q2 ? b2 : b6, w7 = q2 ? b3 : b7;
 
-    float ac0, ac1, ac2, ac3, ac4, ac5, ac6, ac7;
-    if (__builtin_constant_p(c[0]) && __builtin_constant_p(c[1]) &&
-        __builtin_constant_p(c[2]) && __builtin_constant_p(c[3]) &&
-        __builtin_constant_p(c[4]) && __builtin_constant_p(c[5]) &&
-        __builtin_constant_p(c[6]) && __builtin_constant_p(c[7]) &&
-        c[0] == 0.f && c[1] == 0.f && c[2] == 0.f && c[3] == 0.f &&
-        c[4] == 0.f && c[5] == 0.f && c[6] == 0.f && c[7] == 0.f) {
-        ac0 = 0.f; ac1 = 0.f; ac2 = 0.f; ac3 = 0.f;
-        ac4 = 0.f; ac5 = 0.f; ac6 = 0.f; ac7 = 0.f;
-    } else {
-        sm86_rdna4_c_to_ampere(c, ac0, ac1, ac2, ac3, ac4, ac5, ac6, ac7, lane);
-    }
+    sm86_u32 base = (lane & 24u) | ((lane & 1u) << 2) | ((lane >> 1) & 3u);
+    float x0 = sm86_shfl_idx_f32(w0, base);
+    float x1 = sm86_shfl_idx_f32(w1, base ^ 4u);
+    float x2 = sm86_shfl_idx_f32(w2, base ^ 8u);
+    float x3 = sm86_shfl_idx_f32(w3, base ^ 12u);
+    float x4 = sm86_shfl_idx_f32(w4, base ^ 16u);
+    float x5 = sm86_shfl_idx_f32(w5, base ^ 20u);
+    float x6 = sm86_shfl_idx_f32(w6, base ^ 24u);
+    float x7 = sm86_shfl_idx_f32(w7, base ^ 28u);
 
+    bool p0 = (lane & 1u) != 0;
+    float y0 = p0 ? x1 : x0, y1 = p0 ? x0 : x1, y2 = p0 ? x3 : x2, y3 = p0 ? x2 : x3;
+    float y4 = p0 ? x5 : x4, y5 = p0 ? x4 : x5, y6 = p0 ? x7 : x6, y7 = p0 ? x6 : x7;
+    bool p1 = (lane & 8u) != 0;
+    float z0 = p1 ? y2 : y0, z1 = p1 ? y3 : y1, z2 = p1 ? y0 : y2, z3 = p1 ? y1 : y3;
+    float z4 = p1 ? y6 : y4, z5 = p1 ? y7 : y5, z6 = p1 ? y4 : y6, z7 = p1 ? y5 : y7;
+    bool p2 = (lane & 16u) != 0;
+    return sm86_f8{
+        p2 ? z4 : z0, p2 ? z5 : z1, p2 ? z6 : z2, p2 ? z7 : z3,
+        p2 ? z0 : z4, p2 ? z1 : z5, p2 ? z2 : z6, p2 ? z3 : z7
+    };
+}
+
+// Pure operand preparation functions marked `noinline, const` during initial Clang IR
+// emission so LLVM GVN / EarlyCSE / LICM automatically deduplicates shared A or B
+// fragments across multi-tile WMMAs and hoists loop-invariant fragments out of loops!
+extern "C" __attribute__((device, noinline, const))
+sm86_u4 __sm86_prep_f16(sm86_h8 x) __asm__("__sm86_prep_f16");
+
+extern "C" __attribute__((device, noinline, const))
+sm86_u4 __sm86_prep_fp8(sm86_i2 x) __asm__("__sm86_prep_fp8");
+
+extern "C" __attribute__((device, noinline, const))
+sm86_u4 __sm86_prep_f16(sm86_h8 x) {
+    sm86_u32 lane = sm86_lane_id();
+    sm86_u4 ux = __builtin_bit_cast(sm86_u4, x);
+    sm86_u32 r0, r1, r2, r3;
+    sm86_frag_benes4(ux, r0, r1, r2, r3, lane);
+    return sm86_u4{r0, r1, r2, r3};
+}
+
+extern "C" __attribute__((device, noinline, const))
+sm86_u4 __sm86_prep_fp8(sm86_i2 x) {
+    sm86_u32 lane = sm86_lane_id();
+    sm86_u4 ux = sm86_unpack_e4m3x8(x);
+    sm86_u32 r0, r1, r2, r3;
+    sm86_frag_benes4(ux, r0, r1, r2, r3, lane);
+    return sm86_u4{r0, r1, r2, r3};
+}
+
+SM86_DEV sm86_f8 sm86_mma_prepared_core(sm86_u4 ra, sm86_u4 rb, sm86_f8 ac) {
     float ad0, ad1, ad2, ad3, ad4, ad5, ad6, ad7;
     asm volatile(
         "mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 "
         "{%0, %1, %2, %3}, {%4, %5, %6, %7}, {%8, %9}, {%10, %11, %12, %13};"
         : "=f"(ad0), "=f"(ad1), "=f"(ad4), "=f"(ad5)
-        : "r"(ra0), "r"(ra1), "r"(ra2), "r"(ra3),
-          "r"(rb0), "r"(rb2),
-          "f"(ac0), "f"(ac1), "f"(ac4), "f"(ac5)
+        : "r"(ra[0]), "r"(ra[1]), "r"(ra[2]), "r"(ra[3]),
+          "r"(rb[0]), "r"(rb[2]),
+          "f"(ac[0]), "f"(ac[1]), "f"(ac[4]), "f"(ac[5])
     );
     asm volatile(
         "mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 "
         "{%0, %1, %2, %3}, {%4, %5, %6, %7}, {%8, %9}, {%10, %11, %12, %13};"
         : "=f"(ad2), "=f"(ad3), "=f"(ad6), "=f"(ad7)
-        : "r"(ra0), "r"(ra1), "r"(ra2), "r"(ra3),
-          "r"(rb1), "r"(rb3),
-          "f"(ac2), "f"(ac3), "f"(ac6), "f"(ac7)
+        : "r"(ra[0]), "r"(ra[1]), "r"(ra[2]), "r"(ra[3]),
+          "r"(rb[1]), "r"(rb[3]),
+          "f"(ac[2]), "f"(ac[3]), "f"(ac[6]), "f"(ac[7])
     );
-
-    return sm86_ampere_d_to_rdna4(ad0, ad1, ad2, ad3, ad4, ad5, ad6, ad7, lane);
+    return sm86_f8{ad0, ad1, ad2, ad3, ad4, ad5, ad6, ad7};
 }
 
-SM86_DEV sm86_u32 sm86_e4m3x2_to_f16x2(sm86_u32 pair_bytes) {
-    sm86_u32 lo = (sm86_u32)sm86_e4m3_to_f16_bits(pair_bytes & 0xffu);
-    sm86_u32 hi = (sm86_u32)sm86_e4m3_to_f16_bits((pair_bytes >> 8) & 0xffu);
-    return lo | (hi << 16);
+SM86_DEV sm86_f8 __builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(sm86_h8 a, sm86_h8 b, sm86_f8 c) {
+    sm86_f8 ac = __sm86_c_to_ampere(c);
+    sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_f16(a), __sm86_prep_f16(b), ac);
+    return __sm86_d_to_rdna4(ad);
 }
 
 SM86_DEV sm86_f8 __builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(sm86_i2 a, sm86_i2 b, sm86_f8 c) {
-    sm86_u32 a0 = (sm86_u32)a[0], a1 = (sm86_u32)a[1];
-    sm86_u32 b0 = (sm86_u32)b[0], b1 = (sm86_u32)b[1];
-    sm86_u4 ua = {
-        sm86_e4m3x2_to_f16x2(a0),
-        sm86_e4m3x2_to_f16x2(a0 >> 16),
-        sm86_e4m3x2_to_f16x2(a1),
-        sm86_e4m3x2_to_f16x2(a1 >> 16)
-    };
-    sm86_u4 ub = {
-        sm86_e4m3x2_to_f16x2(b0),
-        sm86_e4m3x2_to_f16x2(b0 >> 16),
-        sm86_e4m3x2_to_f16x2(b1),
-        sm86_e4m3x2_to_f16x2(b1 >> 16)
-    };
-    return __builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(
-        __builtin_bit_cast(sm86_h8, ua),
-        __builtin_bit_cast(sm86_h8, ub),
-        c);
+    sm86_f8 ac = __sm86_c_to_ampere(c);
+    sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), __sm86_prep_fp8(b), ac);
+    return __sm86_d_to_rdna4(ad);
 }

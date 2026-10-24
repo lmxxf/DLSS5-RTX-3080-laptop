@@ -197,10 +197,14 @@ sp_init                                              2     0.009       4.6     1
   - **2K 帧率优先档（Performance，内部渲染 `1280×720`）**：DLSS 5 模型耗时 **`16.7 ~ 17.7 ms`**，整机实测 **`30 FPS`**。
 
 ### 5. 待办（今晚回家后继续）
-- 本地已保存好的构建产物坐标（位于 `/mnt/c/DLSS5-5090-dll/`）：
+- **仓库目录物理隔离与 README 主次重构（第一优先）**：
+  - 将两条路线的程序代码拆分为两个清晰的独立目录（不混放）：
+    1. **主推路线目录（如 `ptx-patcher/`）**：直接改写原版 `310.9.16.0` `nvngx_dlssnr.dll` 内置 PTX 的满血 `O4` 方案（当前最快：`900p 23.97ms` / `1080p 29.97ms`，《鬼武者》实机 `480p 8.2ms` / `720p 17.1ms`），作为工程 `README.md` / `README.zh-CN.md` 的核心主推方案；
+    2. **附加路线目录（如 `hip-port/`）**：`RDNA4 -> Ampere` 独立 HIP/CUDA 引擎移植方案（`hip/`、`src/`、`include/`、`shaders/` 等全部归入该子目录），在 README 中作为附加/实验路线介绍（后续若将 HIP 路线改造成 FP16 累加 + Ampere 原生座位并反超 PTX 路线，再随时切换回主工程）。
+- **本地已保存好的构建产物坐标（位于 `/mnt/c/DLSS5-5090-dll/`）**：
   - 原版未改 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll`
   - 满血 `O4` 极速修补版 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll`
   - 对照 `O1` 版 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_stock.dll`
   - 独立 CUDA 引擎二进制：`/mnt/c/DLSS5-5090-dll/LmxxfNrRuntime.dll`、`/mnt/c/DLSS5-5090-dll/dlss5-amd.addon64`（及 `/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/` 下的 40 个 `sm_86` 模块）
   - 0.44 打包底包：`/mnt/c/DLSS5-5090-dll/amd的dlss5-0.44的打包/`（含 `Magpie`、`OptiScaler`、`OptiScaler-REFramework` 三个 ZIP）
-- 回家后直接打包首个正式发布版本并更新 `README.md` / `README.zh-CN.md`。
+- **打包首个正式发布版本并更新 `README.md` / `README.zh-CN.md`**。

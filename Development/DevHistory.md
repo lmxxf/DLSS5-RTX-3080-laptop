@@ -141,3 +141,54 @@ vit_gather_b8                                        2     0.024      12.2    64
 sp_recover256_w16                                    2     0.020      10.2      1   256  255    736  49152     8
 sp_init                                              2     0.009       4.6     11   256   10      0      0   128
 ```
+
+
+---
+
+## 2026-10-24 (Phase 7: 原版 `310.9.16.0` `nvngx_dlssnr.dll` 满血 `O4` PTX 修补、同机对决与《鬼武者：剑之道》实机验证)
+
+### 1. 范围收敛：RTX 30 系仅保留 31 层轻量新模型 (`0.5x Small` / `Preset 2`)
+- 确定工程与发布方针：在 RTX 3080 Laptop (`sm_86`) 等 Ampere 移动/桌面显卡上，舍弃沉重的 71 层旧模型（`310.8.0.0`），全线仅保留并维护 `310.9.16.0` 的 **31 块 `0.5x Small` 新模型（`Preset 2`）**。
+
+### 2. 原版 `310.9.16.0` (`nvngx_dlssnr.dll`) 的 `sm_86` 满血 `O4` PTX 修补 (`tools/dlssnr-sm86-patcher/`)
+- **上游 `dev-camo/dlssnr-patcher` 在 `310.9.16.0` 上的两大缺陷**：
+  1. `310.9.16.0` 的 Fatbin 5 新增了 `sm_90+` 专属指令 `fence.acquire.gpu;`，上游脚本未处理导致 `nvptxcompile` 在 `sm_86` 上直接报错退出；
+  2. 上游脚本将每条 `cvt.rn.f16x2.e4m3x2` / `cvt.rn.satfinite.e4m3x2.f16x2` 展开为 45~48 行纯整数位运算 PTX，导致生成的 `.cubin` 体积暴涨 3.5 倍（`6.7 ~ 8.5 MB`），远超 PE 原始 Fatbin 槽位容量，被迫在全部主力网络核（Fatbin 00~06）上回退到 `--opt-level=1`（`O1`，禁用指令调度、循环展开与窥孔优化），导致推理性能腰斩。
+- **我们的解决方案（`tools/dlssnr-sm86-patcher/build_sm86_dlls.py --variant fast`）**：
+  1. 将 `fence.acquire.gpu;` 自动降级为 Ampere `sm_86` 原生支持的 `fence.acq_rel.gpu;`；
+  2. 提出并实现两条 **IEEE 754 `f16x2` 硬件指令恒等式（`0 bit-diff`）**：
+     - **`E4M3x2 -> FP16x2`（仅 4 条 SASS 指令）**：利用 IEEE FP16 指数为 0 的非正规数 $(-1)^s \cdot 2^{-14} \cdot (m/8)$ 乘以 $2^8 = 256.0_{\text{f16}}$ (`0x5c00`) 后由硬件 FPU 自动归一化并使正规数指数 $e - 15 + 8 = e - 7$ 的代数恒等式，用 `prmt.b32` + 位移掩码 + `mul.rn.f16x2 %d, %t, 0x5c005c00;` 替代 48 行位运算，覆盖全部 254/254 有限值 0 误差；
+     - **`FP16x2 -> E4M3x2`（硬件 RNE 非正规数舍入）**：利用 FP16 中 `2.0h` (`0x4000`) 的最低有效位 $\text{ULP}(2.0_{\text{f16}}) = 2^1 \times 2^{-10} = 2^{-9}$ 恰好等于 E4M3 非正规数最低有效位 $2^{-9}$ 的性质，用单条 `add.rn.f16x2 sub2, sub_in, 0x40004000;` 同时完成两个通道的非正规数向偶舍入（65,536 个 FP16 输入值 100% 精确匹配）。
+  3. 凭借紧凑的指令体积（`.cubin` 缩小至 `2.1 ~ 2.8 MB`），`310.9.16.0` 中的 **15/15 个 Fatbin 全部在 `--opt-level=4`（满血 `O4`）下一次编译通过并原位塞回 PE 槽位**。
+
+### 3. 三套方案在 RTX 3080 Laptop (`sm_86`, 132W) 上的同口径实测对决（全为 31 层新模型）
+通过 `tools/dlssnr-sm86-patcher/bench_nvngx.dll.cpp`（调用名 `nvngx.dll_runner` 满足 NGX 调用者校验，使用 D3D12 硬件 Timestamp Query 测量 `NVSDK_NGX_D3D12_EvaluateFeature(Feature 18, Preset 2)`）：
+
+| 方案（同一 31 块 `0.5x Small` 模型） | 编译器优化 | `1600×900` (900p) 单帧耗时 | `1920×1080` (1080p) 单帧耗时 | 画面准确度 (`PSNR`) | 相对 `stock` 提速 |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **① 网上 `dlssnr-patcher` 原版位运算改法 (`stock`)** | 被迫降级 `O1` | `49.89 ms` min (`50.10 ms` med / `20.0 FPS`) | `67.69 ms` min (`68.54 ms` med / `14.8 FPS`) | 基准 | `1.00×` |
+| **② 独立 CUDA 引擎 (`LmxxfNrRuntime.dll` V5/V6)** | `Clang O3 + PTX O4` | `43.10 ms` min (`43.26 ms` med / `23.2 FPS`) | `57.13 ms` min (`57.45 ms` med / `17.5 FPS`) | 独立引擎黄金哈希 `0 bit-diff` | `1.18×` |
+| **③ 硬件指令 PTX 补丁 (`nvngx_dlssnr_sm86_fast.dll`)** | **15/15 满血 `O4`** | **`23.97 ms` min** (`24.32 ms` med / **`41.7 FPS`**) | **`29.97 ms` min** (`31.51 ms` med / **`33.3 FPS`**) | **`PSNR = ∞ dB` (`100.00%` 逐位一致，`0 bit-diff`)** | **`2.08× ～ 2.25×`** |
+
+- **根因总结（为何原版 PTX 补丁 `fast` 比 RDNA4 移植的独立引擎快 `1.8×`）**：
+  1. **GeForce 30 系硬件砍半限制**：在消费级 GA102/GA104 上，`mma.sync.aligned.m16n8k16.row.col.f16.f16.f16.f16`（FP16 累加，原版 PTX 所用）为 Full Rate（512 FLOPs/clock/SM），而 `.f32.f16.f16.f32`（FP32 累加，RDNA4 移植版所用）被硬件限制为 Half Rate（256 FLOPs/clock/SM，吞吐量减半且累加器占 8 个寄存器 vs 2 个寄存器）；
+  2. **原生线程座位**：原版 PTX 天然按 Ampere Warp32 `mma.sync` 座位排布（0 次跨线程 `shfl.sync`），而 RDNA4 移植版需在 RDNA4 Wave32 与 Ampere Warp32 座位之间执行洗牌。
+
+### 4. 《鬼武者：剑之道》（Xbox 版）实机安装与验证
+- 安装路径：`/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/`
+- 安装文件：`dinput8.dll`（REFramework）、`dxgi.dll`（OptiScaler）、`OptiScaler.ini`、`nvngx.dll_dlssnr.dll`（转发桥）、`nvngx_dlssnr.dll`（即 `nvngx_dlssnr_sm86_fast.dll`，SHA256 `f94656391b63dc744c0275b8f2cc5c1254ac104d11dbc44222981fa31e64237d`）。
+- 关键配置校准（`OptiScaler.ini` `[DlssNr]`）：
+  - 必须保持 **`WhitePointSource=1`**（读取游戏原生曝光纹理，`paper white ≈ 512x`），因为 RE Engine 的线性 HDR 缓冲区数值在 `0 ~ 512` 之间；若设为 `WhitePointSource=0, WhitePointScale=1.0`，未归一化的高值会触发 `dlssnr.hlsl` 中 `ToOkLab` 的溢出偏绿（`the green tint`）并淹没细节分支；
+  - 设置 **`Preset=2, Style=1`**（启用 31 层新模型的 Natural 神经重打光风格）。
+- 实机性能表现（2560×1440 2K 显示分辨率）：
+  - **2K 极高帧率档（Ultra Performance，内部渲染 `854×480`）**：DLSS 5 模型耗时 **`7.3 ~ 9.1 ms`**，整机实测 **`46 FPS`**；
+  - **2K 帧率优先档（Performance，内部渲染 `1280×720`）**：DLSS 5 模型耗时 **`16.7 ~ 17.7 ms`**，整机实测 **`30 FPS`**。
+
+### 5. 待办（今晚回家后继续）
+- 本地已保存好的构建产物坐标（位于 `/mnt/c/DLSS5-5090-dll/`）：
+  - 原版未改 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll`
+  - 满血 `O4` 极速修补版 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll`
+  - 对照 `O1` 版 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_stock.dll`
+  - 独立 CUDA 引擎二进制：`/mnt/c/DLSS5-5090-dll/LmxxfNrRuntime.dll`、`/mnt/c/DLSS5-5090-dll/dlss5-amd.addon64`（及 `/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/` 下的 40 个 `sm_86` 模块）
+  - 0.44 打包底包：`/mnt/c/DLSS5-5090-dll/amd的dlss5-0.44的打包/`（含 `Magpie`、`OptiScaler`、`OptiScaler-REFramework` 三个 ZIP）
+- 回家后直接打包首个正式发布版本并更新 `README.md` / `README.zh-CN.md`。

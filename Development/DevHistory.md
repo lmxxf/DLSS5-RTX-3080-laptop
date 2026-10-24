@@ -6,14 +6,25 @@
 
 ---
 
-## 0. 双技术路线总览：`RDNA4 -> Ampere` 独立引擎移植 vs `改写原版 PTX`
+## 0. 双技术路线总览与 `v0.1.0` 最终定版状态速查
 
-本项目在 RTX 3080 Laptop (`sm_86`) 上完整跑通并同机对决了 **两条技术路线**（均跑同一 31 块 `0.5x Small` 新模型）：
+本项目在 RTX 3080 Laptop (`sm_86`) 上完整跑通并同机对决了 **两条技术路线**（均跑同一 31 块 `0.5x Small` 新模型），最终发布的 **`v0.1.0` 三个完整包（`OptiScaler`、`OptiScaler-REFramework`、`Magpie`）全部统一采用速度最快的路线 B（`ptx-patcher`）**：
 
-| 路线 | 核心路径与代码位置 | `1600×900` (900p) | `1920×1080` (1080p) | 优劣势与定位 |
-| :--- | :--- | :---: | :---: | :--- |
-| **路线 A：`RDNA4 -> Ampere` 独立引擎移植** | 将 AMD RDNA4 (`gfx1201`) 的 HIP C++ 独立推理引擎（`LmxxfNrRuntime.dll` / `dlss5-amd.addon64` + 40 个内核模块）通过 `hip/sm86_compat.h` 与 `hip/build_sm86_modules.py` 移植到 CUDA Driver API 与 `sm_86` Tensor Core | `43.10 ms` (`23.2 FPS`) | `57.13 ms` (`17.5 FPS`) | 证明跨架构全栈可移植且 `0 bit-diff`；但受限于 GeForce 30 系硬件对 **FP32 累加 Tensor Core (`.f32.f16.f16.f32`) 砍半（Half Rate）** 及 Wave32↔Warp32 座位洗牌开销，速度慢于路线 B。可用于无 NGX 的纯 ReShade / Magpie 场景 |
-| **路线 B：直接改写原版 `nvngx_dlssnr.dll` 内置 PTX（满血 `O4`）** | 提取老黄 `310.9.16.0` `nvngx_dlssnr.dll` 内置的 15 个 Fatbin PTX，修复 `fence.acquire.gpu;`，并用独创的 **两条 IEEE 754 `f16x2` 硬件指令恒等式** 替换 `e4m3x2 <-> f16x2` 转换（`tools/dlssnr-sm86-patcher/`），使 15/15 个 Fatbin 全部以满血 **`O4`** 编译塞回原 DLL（对比网上 `dlssnr-patcher` 因代码膨胀被迫降级 `O1` 的 `49.89 ms` / `67.69 ms` 快 **`2.08×~2.25×`**，且 `PSNR = ∞ dB` `0 bit-diff`） | **`23.97 ms` (`41.7 FPS`)** | **`29.97 ms` (`33.3 FPS`)** | **主力游戏发布路线**：原生使用 Full Rate **FP16 累加 Tensor Core (`.f16.f16.f16.f16`)** 且 0 跨线程洗牌；在《鬼武者：剑之道》实机 2K 下 `480p` 仅 **`8.2 ms`（46 FPS）**、`720p` **`17.1 ms`（30 FPS）** |
+| 路线 | 核心路径与代码位置 | `1280×720` (720p) | `1600×900` (900p) | `1920×1080` (1080p) | 优劣势与定位 |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+| **路线 B（主推 / `v0.1.0` 全系采用）：直接改写原版 `nvngx_dlssnr.dll` 内置 PTX（15/15 满血 `O4`）** | `Development/ptx-patcher/`：提取 `310.9.16.0` `nvngx_dlssnr.dll` 内置的 15 个 Fatbin PTX，降级 `fence.acquire.gpu;`，用独创的 **两条 IEEE 754 `f16x2` 硬件指令恒等式** 替换 `e4m3x2 <-> f16x2` 转换，并通过全函数定义扫描剔除 `%r1352` 等向量加载多定义 `mapped` 误判（消除上游 `dlssnr-patcher` 的 106 条天空红绿横带），使 15/15 个 Fatbin 全部以满血 **`O4`** 原槽位编译（比上游 `O1` 的 `37.13 / 49.89 / 67.69 ms` 快 **`2.08×~2.35×`**） | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`v0.1.0` 三个发布包统一路线**：原生使用 Full Rate **FP16 累加 Tensor Core (`.f16.f16.f16.f16`)** 且 0 跨线程洗牌；《鬼武者》实机 `480p` **`8.2 ms`（46 FPS）**、`720p` **`17.1 ms`（30 FPS）**；《剑星》4K `720p` **`18.4 ms`**；Magpie《光环》720p→4K 模型耗时 **`15.95 ms`** |
+| **路线 A（附加 / 实验归档）：`RDNA4 -> Ampere` 独立引擎移植** | `Development/hip-port/`：将 AMD RDNA4 (`gfx1201`) 的 HIP C++ 独立推理引擎（`LmxxfNrRuntime.dll` / `dlss5-amd.addon64` + 40 个内核模块）通过 `hip/sm86_compat.h` 与 `hip/build_sm86_modules.py`（V6 8B 全激活预洗牌 + 32/32 零 `LMem` 栈溢出）移植到 CUDA Driver API 与 `sm_86` Tensor Core | `~31.0 ms` | `43.10 ms` (`23.2 FPS`) | `57.13 ms` (`17.5 FPS`) | 证明跨架构全栈可移植且与 Exact 黄金基准 `0 bit-diff`；但受限于 GeForce 30 系硬件对 **FP32 累加 Tensor Core (`.f32.f16.f16.f32`) 砍半（Half Rate）** 及 Wave32↔Warp32 洗牌开销，速度慢于路线 B，归档作为研究与备用路线 |
+
+### `v0.1.0` 最终定版产物与坐标速查（2026-10-24）
+- **正式发布包下载（Gofile）**：`https://gofile.io/d/s9cpHYH9`（本地位于 `C:\DLSS5-5090-dll\发布打包\`）：
+  1. `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`（`376,272,150 B`，SHA256 `8e28417d2420f11dd3e90044fadad78f3d1c53fbec1ebeb791acb62703285f67`）——《鬼武者：剑之道》《生化 9》等 RE Engine 游戏（路线 B）
+  2. `OptiScaler-DLSS5-RTX30-0.1.0.zip`（`319,200,566 B`，SHA256 `e6067bf09cf5e13ed010d5c90deff695302bbe39b631d7b7fe743ad7b502caac`）——《剑星》等常规 DX12 游戏（路线 B）
+  3. `Magpie-DLSS5-RTX30-0.1.0.zip`（`324,124,886 B`，SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`）—— 通用窗口缩放，启用 `Magpie.exe` 原生 `DLSSNR` `Preset 2` 补丁 + 路线 B
+- **核心二进制 SHA256**：
+  - 最终生产版 `nvngx_dlssnr.dll`（15/15 `O4` + 多定义 `mapped` 修复）：`3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a`（本地备份于 `C:\DLSS5-5090-dll\nvngx_dlssnr_sm86_fast.dll`）
+  - 原版未改 `nvngx_dlssnr.dll`（`310.9.16.0` 输入源）：`2bc19bc09a7b89dd44f73e2ac0108fcc586e2154bdd0830f242f4f040e28789f`（位于 `C:\DLSS5-5090-dll\nvngx_dlssnr.dll`）
+  - `Preset 2` 补丁版 `Magpie.exe`：`b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea`
+- **公众号与用户使用说明固定入口**：[`Development/doc/使用说明.md`](doc/使用说明.md)
 
 ---
 
@@ -162,25 +173,25 @@ sp_init                                              2     0.009       4.6     1
 ### 1. 范围收敛：RTX 30 系仅保留 31 层轻量新模型 (`0.5x Small` / `Preset 2`)
 - 确定工程与发布方针：在 RTX 3080 Laptop (`sm_86`) 等 Ampere 移动/桌面显卡上，舍弃沉重的 71 层旧模型（`310.8.0.0`），全线仅保留并维护 `310.9.16.0` 的 **31 块 `0.5x Small` 新模型（`Preset 2`）**。
 
-### 2. 原版 `310.9.16.0` (`nvngx_dlssnr.dll`) 的 `sm_86` 满血 `O4` PTX 修补 (`tools/dlssnr-sm86-patcher/`)
+### 2. 原版 `310.9.16.0` (`nvngx_dlssnr.dll`) 的 `sm_86` 满血 `O4` PTX 修补 (`Development/ptx-patcher/`)
 - **上游 `dev-camo/dlssnr-patcher` 在 `310.9.16.0` 上的两大缺陷**：
   1. `310.9.16.0` 的 Fatbin 5 新增了 `sm_90+` 专属指令 `fence.acquire.gpu;`，上游脚本未处理导致 `nvptxcompile` 在 `sm_86` 上直接报错退出；
   2. 上游脚本将每条 `cvt.rn.f16x2.e4m3x2` / `cvt.rn.satfinite.e4m3x2.f16x2` 展开为 45~48 行纯整数位运算 PTX，导致生成的 `.cubin` 体积暴涨 3.5 倍（`6.7 ~ 8.5 MB`），远超 PE 原始 Fatbin 槽位容量，被迫在全部主力网络核（Fatbin 00~06）上回退到 `--opt-level=1`（`O1`，禁用指令调度、循环展开与窥孔优化），导致推理性能腰斩。
-- **我们的解决方案（`tools/dlssnr-sm86-patcher/build_sm86_dlls.py --variant fast`）**：
+- **我们的解决方案（`Development/ptx-patcher/build_sm86_dlls.py`）**：
   1. 将 `fence.acquire.gpu;` 自动降级为 Ampere `sm_86` 原生支持的 `fence.acq_rel.gpu;`；
-  2. 提出并实现两条 **IEEE 754 `f16x2` 硬件指令恒等式（`0 bit-diff`）**：
+  2. 提出并实现两条 **IEEE 754 `f16x2` 硬件指令恒等式（有限值域 `0 bit-diff`）**：
      - **`E4M3x2 -> FP16x2`（仅 4 条 SASS 指令）**：利用 IEEE FP16 指数为 0 的非正规数 $(-1)^s \cdot 2^{-14} \cdot (m/8)$ 乘以 $2^8 = 256.0_{\text{f16}}$ (`0x5c00`) 后由硬件 FPU 自动归一化并使正规数指数 $e - 15 + 8 = e - 7$ 的代数恒等式，用 `prmt.b32` + 位移掩码 + `mul.rn.f16x2 %d, %t, 0x5c005c00;` 替代 48 行位运算，覆盖全部 254/254 有限值 0 误差；
-     - **`FP16x2 -> E4M3x2`（硬件 RNE 非正规数舍入）**：利用 FP16 中 `2.0h` (`0x4000`) 的最低有效位 $\text{ULP}(2.0_{\text{f16}}) = 2^1 \times 2^{-10} = 2^{-9}$ 恰好等于 E4M3 非正规数最低有效位 $2^{-9}$ 的性质，用单条 `add.rn.f16x2 sub2, sub_in, 0x40004000;` 同时完成两个通道的非正规数向偶舍入（65,536 个 FP16 输入值 100% 精确匹配）。
+     - **`FP16x2 -> E4M3x2`（硬件 RNE 非正规数舍入）**：利用 FP16 中 `2.0h` (`0x4000`) 的最低有效位 $\text{ULP}(2.0_{\text{f16}}) = 2^1 \times 2^{-10} = 2^{-9}$ 恰好等于 E4M3 非正规数最低有效位 $2^{-9}$ 的性质，用单条 `add.rn.f16x2 sub2, sub_in, 0x40004000;` 同时完成两个通道的非正规数向偶舍入（63,488 个有限 FP16 输入值 100% 精确匹配）。
   3. 凭借紧凑的指令体积（`.cubin` 缩小至 `2.1 ~ 2.8 MB`），`310.9.16.0` 中的 **15/15 个 Fatbin 全部在 `--opt-level=4`（满血 `O4`）下一次编译通过并原位塞回 PE 槽位**。
 
 ### 3. 三套方案在 RTX 3080 Laptop (`sm_86`, 132W) 上的同口径实测对决（全为 31 层新模型）
-通过 `tools/dlssnr-sm86-patcher/bench_nvngx.dll.cpp`（调用名 `nvngx.dll_runner` 满足 NGX 调用者校验，使用 D3D12 硬件 Timestamp Query 测量 `NVSDK_NGX_D3D12_EvaluateFeature(Feature 18, Preset 2)`）：
+通过 `Development/ptx-patcher/bench_nvngx.dll.cpp`（调用名 `nvngx.dll_runner` 满足 NGX 调用者校验，使用 D3D12 硬件 Timestamp Query 测量 `NVSDK_NGX_D3D12_EvaluateFeature(Feature 18, Preset 2)`）：
 
 | 方案（同一 31 块 `0.5x Small` 模型） | 编译器优化 | `1600×900` (900p) 单帧耗时 | `1920×1080` (1080p) 单帧耗时 | 画面准确度 (`PSNR`) | 相对 `stock` 提速 |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **① 网上 `dlssnr-patcher` 原版位运算改法 (`stock`)** | 被迫降级 `O1` | `49.89 ms` min (`50.10 ms` med / `20.0 FPS`) | `67.69 ms` min (`68.54 ms` med / `14.8 FPS`) | 基准 | `1.00×` |
+| **① 网上 `dlssnr-patcher` 原版位运算改法 (`stock`)** | 被迫降级 `O1` | `49.89 ms` min (`50.10 ms` med / `20.0 FPS`) | `67.69 ms` min (`68.54 ms` med / `14.8 FPS`) | 基准（含上游 `mapped` 色带 Bug） | `1.00×` |
 | **② 独立 CUDA 引擎 (`LmxxfNrRuntime.dll` V5/V6)** | `Clang O3 + PTX O4` | `43.10 ms` min (`43.26 ms` med / `23.2 FPS`) | `57.13 ms` min (`57.45 ms` med / `17.5 FPS`) | 独立引擎黄金哈希 `0 bit-diff` | `1.18×` |
-| **③ 硬件指令 PTX 补丁 (`nvngx_dlssnr_sm86_fast.dll`)** | **15/15 满血 `O4`** | **`23.97 ms` min** (`24.32 ms` med / **`41.7 FPS`**) | **`29.97 ms` min** (`31.51 ms` med / **`33.3 FPS`**) | **`PSNR = ∞ dB` (`100.00%` 逐位一致，`0 bit-diff`)** | **`2.08× ～ 2.25×`** |
+| **③ 硬件指令 PTX 补丁 (`nvngx_dlssnr_sm86_fast.dll`)** | **15/15 满血 `O4`** | **`23.97 ms` min** (`24.32 ms` med / **`41.7 FPS`**) | **`29.97 ms` min** (`31.51 ms` med / **`33.3 FPS`**) | 与 `stock` `100.00%` 逐位一致（注：晚间修复上游 `mapped` 色带 Bug 后最终生产版 SHA256 为 `3f934a0a...`，见下方章节） | **`2.08× ～ 2.25×`** |
 
 - **根因总结（为何原版 PTX 补丁 `fast` 比 RDNA4 移植的独立引擎快 `1.8×`）**：
   1. **GeForce 30 系硬件砍半限制**：在消费级 GA102/GA104 上，`mma.sync.aligned.m16n8k16.row.col.f16.f16.f16.f16`（FP16 累加，原版 PTX 所用）为 Full Rate（512 FLOPs/clock/SM），而 `.f32.f16.f16.f32`（FP32 累加，RDNA4 移植版所用）被硬件限制为 Half Rate（256 FLOPs/clock/SM，吞吐量减半且累加器占 8 个寄存器 vs 2 个寄存器）；
@@ -188,7 +199,7 @@ sp_init                                              2     0.009       4.6     1
 
 ### 4. 《鬼武者：剑之道》（Xbox 版）实机安装与验证
 - 安装路径：`/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/`
-- 安装文件：`dinput8.dll`（REFramework）、`dxgi.dll`（OptiScaler）、`OptiScaler.ini`、`nvngx.dll_dlssnr.dll`（转发桥）、`nvngx_dlssnr.dll`（即 `nvngx_dlssnr_sm86_fast.dll`，SHA256 `f94656391b63dc744c0275b8f2cc5c1254ac104d11dbc44222981fa31e64237d`）。
+- 安装文件：`dinput8.dll`（REFramework）、`dxgi.dll`（OptiScaler）、`OptiScaler.ini`、`nvngx.dll_dlssnr.dll`（转发桥）、`nvngx_dlssnr.dll`（初版 `f9465639...`，晚间修复天空色带后已更新为最终生产版 `3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a`）。
 - 关键配置校准（`OptiScaler.ini` `[DlssNr]`）：
   - 必须保持 **`WhitePointSource=1`**（读取游戏原生曝光纹理，`paper white ≈ 512x`），因为 RE Engine 的线性 HDR 缓冲区数值在 `0 ~ 512` 之间；若设为 `WhitePointSource=0, WhitePointScale=1.0`，未归一化的高值会触发 `dlssnr.hlsl` 中 `ToOkLab` 的溢出偏绿（`the green tint`）并淹没细节分支；
   - 设置 **`Preset=2, Style=1`**（启用 31 层新模型的 Natural 神经重打光风格）。
@@ -196,18 +207,17 @@ sp_init                                              2     0.009       4.6     1
   - **2K 极高帧率档（Ultra Performance，内部渲染 `854×480`）**：DLSS 5 模型耗时 **`7.3 ~ 9.1 ms`**，整机实测 **`46 FPS`**；
   - **2K 帧率优先档（Performance，内部渲染 `1280×720`）**：DLSS 5 模型耗时 **`16.7 ~ 17.7 ms`**，整机实测 **`30 FPS`**。
 
-### 5. 待办（今晚回家后继续）
-- **仓库目录物理隔离与 README 主次重构（第一优先）**：
-  - 将两条路线的程序代码拆分为两个清晰的独立目录（不混放）：
-    1. **主推路线目录（如 `ptx-patcher/`）**：直接改写原版 `310.9.16.0` `nvngx_dlssnr.dll` 内置 PTX 的满血 `O4` 方案（当前最快：`900p 23.97ms` / `1080p 29.97ms`，《鬼武者》实机 `480p 8.2ms` / `720p 17.1ms`），作为工程 `README.md` / `README.zh-CN.md` 的核心主推方案；
-    2. **附加路线目录（如 `hip-port/`）**：`RDNA4 -> Ampere` 独立 HIP/CUDA 引擎移植方案（`hip/`、`src/`、`include/`、`shaders/` 等全部归入该子目录），在 README 中作为附加/实验路线介绍（后续若将 HIP 路线改造成 FP16 累加 + Ampere 原生座位并反超 PTX 路线，再随时切换回主工程）。
-- **本地已保存好的构建产物坐标（位于 `/mnt/c/DLSS5-5090-dll/`）**：
-  - 原版未改 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll`
-  - 满血 `O4` 极速修补版 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll`
-  - 对照 `O1` 版 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_stock.dll`
+### 5. 目录隔离与本地构建产物坐标（已完成）
+- **仓库目录结构（已收拢完成）**：
+  - `Development/ptx-patcher/`：主推路线（原版 `310.9.16.0` `nvngx_dlssnr.dll` 内置 PTX 的满血 `O4` 转换器及 `sky-audit/`、`release-rtx30/`、`magpie-native/`、`magpie-fix/` 子目录）；
+  - `Development/hip-port/`：附加路线（`RDNA4 -> Ampere` 独立 HIP/CUDA 引擎移植方案）。
+- **本地构建产物与底包坐标（位于 `/mnt/c/DLSS5-5090-dll/`）**：
+  - 原版未改 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll`（SHA256 `2bc19bc0...`）
+  - 满血 `O4` 最终生产版 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll`（SHA256 `3f934a0a...`）
+  - 对照 `O1` 版 DLL：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_stock.dll`（SHA256 `fca63d10...`）
   - 独立 CUDA 引擎二进制：`/mnt/c/DLSS5-5090-dll/LmxxfNrRuntime.dll`、`/mnt/c/DLSS5-5090-dll/dlss5-amd.addon64`（及 `/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/` 下的 40 个 `sm_86` 模块）
-  - 0.44 打包底包：`/mnt/c/DLSS5-5090-dll/amd的dlss5-0.44的打包/`（含 `Magpie`、`OptiScaler`、`OptiScaler-REFramework` 三个 ZIP）
-- **打包首个正式发布版本并更新 `README.md` / `README.zh-CN.md`**。
+  - 0.44 上游打包底包：`/mnt/c/DLSS5-5090-dll/amd的dlss5-0.44的打包/`
+  - `v0.1.0` 正式发布包目录：`/mnt/c/DLSS5-5090-dll/发布打包/`（已上传至 `https://gofile.io/d/s9cpHYH9`）
 
 ## 2026-10-24 晚：天空红绿横带根因修复（safe mapped，15/15 O4）
 
@@ -228,57 +238,33 @@ sp_init                                              2     0.009       4.6     1
 - 当前生产默认拒绝entry内pack目标、FP8中间值、FP16来源多定义的mapped，允许单定义跨块；通过检查后恢复原shfl/shfl/selp，不附加量化。保留严格过滤及量化诊断开关。生产PTX与通过实测的控制版FB0..6逐字节相同；8项回归通过。
 - 已替换主fast与游戏DLL，SHA256 `3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a`。上一版量化safe已另存恢复，不覆盖更早备份。详见 `sky-audit/去量化控制变量回执.md`。
 
-## 2026-10-24 RTX30 三包发布与《剑星》完整部署
+## 2026-10-24 RTX30 三包首次组装与《剑星》完整部署
 
-- `C:\DLSS5-5090-dll\发布打包` 三个0.1.0 ZIP（基于上游AMD 0.44）及逐包.sha256、总SHA256SUMS已完成，CRC及内部清单核验通过。包A CUDA独立引擎；包B/C主推15/15 O4 PTX。
-- 包A删除根目录185个71块旧模型权重，保留small93个权重和公共资源。两架构兼容目录各40个模块均EM_CUDA，重建HIP两级校验。Windows SDR frame smoke在裁剪目录实际31块初始化/推理成功，无NaN/Inf、输出非黑且3帧一致。F9旧模型切换及历史路径默认关闭。
-- 包B/C去除AMD独立引擎目录/runtime；保留完整辅助DLL。显式FFX输入、固定DLSS输出；私有Windows API smoke实测FFX->NGX->NR的ready/composition和有限输出。额外SR库由剑星原生插件提供，不作为包内替换文件。程序级检查不等同于游戏观感验收。
-- 剑星常规包默认单遍detail1.5/colour1.1，另附1/1平衡配置；保持游戏曝光，不照搬鬼武者520x。旧add-on与新宿主的RGB/亮度肩部、OkLab及护栏不同，不能只由白点推断视觉差异。
-- 《剑星》同步37文件，替换2、新增32、同hash3；原始6.6MB FFX DLL及INI先备份到 `C:\DLSS5-5090-dll\backups\20261024-StellarBlade-full`，有哈希门控恢复脚本。未启动游戏。
-- 具体包哈希、实验边界及恢复说明：`release-rtx30/发布回执.txt`；发布目录的`验证记录`也保留日志、CSV及smoke输入输出。
+- `C:\DLSS5-5090-dll\发布打包` 三个 `0.1.0` ZIP（基于上游 AMD `0.44` 底包）及逐包 `.sha256`、总 `SHA256SUMS.txt` 完成首次组装：初版包 A（Magpie）先按 CUDA 独立引擎（路线 A）打包验证，包 B（REFramework）与包 C（常规 OptiScaler）采用 15/15 `O4` PTX 路线（路线 B）。（注：随后在下方章节中，包 A Magpie 亦升级切换为原生 Feature 18 PTX 路线 B，故最终发布的三个包全员统一为路线 B）。
+- 包 B/C 去除 AMD 独立引擎目录/runtime，保留完整辅助 DLL（26 KB `amd_fidelityfx_dx12.dll` loader + 28 MB `amd_fidelityfx_upscaler_dx12.dll` + XeSS/NvAPI 辅助库）；显式开启 FFX 输入、固定 DLSS 输出，Windows API smoke 实测 `FFX -> NGX -> NR` 的 `ready/composition` 和有限输出通过。
+- 《剑星》常规包默认单遍 `TransferStrength=1.5 / ColourStrength=1.1`，另附 `1.0 / 1.0` 平衡配置（`OptiScaler-原始平衡.ini`）；保持游戏原生曝光（配对白点 `~1.0x`），不照搬《鬼武者》的 `520x`。
+- 《剑星》目录（`/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/`）同步 37 个文件，原始 6.6 MB `amd_fidelityfx_dx12.dll` 及 INI 备份至 `C:\DLSS5-5090-dll\backups\20261024-StellarBlade-full`，Zero 实玩验证通过。
 
-## 2026-10-24 工程首个正式版本：0.1.0
+## 2026-10-24 Magpie 路线 A 过渡排查与切换至原生 Feature 18 / PTX 路线 B
 
-- Zero确定本工程版本从0.1.0重新计数；上游AMD底包继续标为0.44，不能混为本工程版本。
-- `Magpie-DLSS5-RTX30-0.1.0.zip`：SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`，324124886字节。
-- `OptiScaler-DLSS5-RTX30-0.1.0.zip`：SHA256 `e6067bf09cf5e13ed010d5c90deff695302bbe39b631d7b7fe743ad7b502caac`，319200566字节。
-- `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`：SHA256 `8e28417d2420f11dd3e90044fadad78f3d1c53fbec1ebeb791acb62703285f67`，376272150字节。
-- 包内release.json、现有版本标识、README中英文及SHA256SUMS已更新；对应.sha256和总清单已重建。旧-0.44发布ZIP及其.sha256已清理。
-- 剑星只同步版本说明/清单，不改二进制、模型或INI；完整部署清单与恢复脚本的哈希记录同步更新。
-- ZIP CRC、元数据和未更改条目的CRC/尺寸及关键DLL/INI SHA256核验通过；不重复跑模型测试。
+- **阶段 1（路线 A 过渡排查，`ptx-patcher/magpie-fix/`）**：
+  - 排查初期 Magpie 选 `DLSS_SR` 报 `0xbad0000b` 原因为目录缺少 `nvngx_dlss.dll`；补入《剑星》自带 `nvngx_dlss.dll`（SHA256 `83de996b...`）并将预设改为 `FSR3 1x -> DLSS_SR`、修复 `dlss5-amd.addon64` 的 Present 等待与 FFX 双导出 Hook 后，《光环》720p→4K 跑通，但因路线 A 受限于 GeForce 30 系 FP32 累加 Tensor Core 砍半，单帧回调耗时中位数为 **`49.8 ms`（约 `20.08 FPS`）**。
+- **阶段 2（发现并打通 Magpie 原生 `DLSSNR` Feature 18 / PTX 路线 B，`ptx-patcher/magpie-native/`）**：
+  - 检查 `Magpie.exe`（定制 `0.6.6`）符号表发现其原生内置 `DLSSNR\DLSSNR_AI_Filter`（`DLSSNRFilter.cpp`），可直接加载 `nvngx_dlssnr.dll` 调用 Feature 18 并自带 caller IAT 绕过。
+  - 原生 `DLSSNRFilter.cpp` 将 `DLSSNR.Hint.Render.Preset` 硬编码为 `0`（71 层老模型）；通过 [`ptx-patcher/magpie-native/patch_preset2.py`](ptx-patcher/magpie-native/patch_preset2.py) 对 `Magpie.exe`（原 SHA256 `ec0a90fc...`）施最小代码洞补丁，将 `Preset` 调用固定改为 **`2`（31 块 Small 模型）**，产出补丁版 `Magpie.exe`（SHA256 `b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea`）。
+  - 正式覆盖部署至 `C:\DLSS5-5090-dll\发布打包\Magpie-DLSS5-RTX30-0.1.0\`，移除旧 ReShade `dxgi.dll`、`dlss5-amd.addon64` 与 `DLSS5-AMD/` 外置权重，默认预设设为 **`DLSS5-RTX30-PTX`（`原生 DLSSNR [Preset 2, Style 1] -> DLSS_SR`）**。
+- **阶段 3（《光环》720p→4K 实机分段计时与 60Hz 电视 VSync 台阶机制分析）**：
+  - 23:06 Zero 实测《光环》720p 窗口 → 4K 电视全屏（连续 480 帧 `magpie.log` 硬件计时）：
+    - `slotWait = 0.002 ms`、`inputPrepare = 0.003 ms`、`evaluateCPU = 0.478 ms`；
+    - **`evaluateGPU`（DLSS 5 31 块模型纯 GPU 耗时）= `15.95 ms`**（相比路线 A 的 `49.8 ms` 提速 **3.1 倍**）；
+    - **`publication fence`（含 `15.95 ms` DLSS 5 + `~5.25 ms` 后级 4K `DLSS_SR` 与同步的总 GPU 耗时）= `21.20 ms`**（纯 GPU 吞吐对应 `47.2 FPS`，无锁频动画窗口实测约 `36 FPS`）；
+    - **60Hz 电视同步捕获台阶**：在 60Hz 电视（周期 `16.67 ms`）上，由于 Magpie 的 `WGC 捕获 -> CPU 等待 publication fence (21.20 ms) -> Present` 为同步串行循环，单帧 `21.20 ms` 跨过了第一个 `16.67 ms` VBlank，需等待 `11.6 ms` 到第 2 个 VBlank（`33.33 ms`）采样下一帧，故稳态帧间隔落在 **`32.81 ms`（`30.48 FPS`）**。若需在 60Hz 电视上跑满 60 FPS，可在配置末尾勾选 `XeSSFG 2x` 帧生成或将窗口调至 `960×540` 使总耗时压入 `16.67 ms` 内。
 
-## 2026-10-24 Magpie 0.1.0 同版修复与真实窗口验收
+## 2026-10-24 PTX 主线目录收拢与 `v0.1.0` 正式发布定版
 
-- 原默认FSR4/XeSSFG链在本机首次尝试未完成正常呈现；不再作为RTX30默认。第二次DLSS_SR初始化bad0000b在同一D3D11 probe上“无nvngx_dlss.dll”复现，加剑星原生SR库后创建返回1；真实Magpie也记录DLSS SR initialized 1280x720 -> 3840x2160。
-- 默认链改为FSR3 1x -> DLSS_SR，不启用FG或AMD/NVIDIA光流附加成本；第一级仍是独立CUDA NR入口，只用31块Small。
-- ReShade确实会收到D3D11主呈现事件，日志记录Present1与30。Magpie bootstrap改成第一帧/最多2秒的有限等待；其它进程保留30帧策略。自动创建插件logs目录；同时Hook FFX provider与loader导出，利用thread-local depth去重；安装loader hook后重置此前可能在provider层捕获的context pin。
-- 移除temporal-history.txt旧实验标记。加入几何选择与实际模型日志。实际Magpie窗口测试使用DPI-aware 1280x720动画源，NR日志model=0.5 blocks=31、render_complete pixels_changed、every_frame连续600帧，正常停止、无设备移除。私有测试中DPI不匹配的1918x1079窗口失败记录另存，不计入720p通过。
-- 最终插件 SHA256 `88cd04c572af79aa8a51938b42cc86d325ee23e5a8d826cc81665368b3f3ae1f`；SR库 SHA256 `83de996b1589957d6bfb3df77e2f2ba7821f1014c73cfc5f8315241a0e4d3253`。
-- 已同步实际运行目录与中心add-on/SR库，重打Magpie-DLSS5-RTX30-0.1.0.zip，SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`；其它两个包未改。逐文件清单、ZIP CRC、.sha256和总清单均更新。
-- 备份和回退脚本在C:\DLSS5-5090-dll\backups\20261024-Magpie-0.1.0-fix。详情见magpie-fix/修复回执.txt；未提交git。
-
-## 2026-10-24 Magpie 原生 Feature18 / PTX 路线成功验证
-
-- 修正此前“Magpie无NGX入口所以只能独立引擎”的判断：本包使用的定制0.6.6确实内置DLSSNRFilter、signed-snippet与caller IAT兼容，可以直接加载修复后的3f934a NR DLL。
-- 光环实际路线A：PID31924，31块Small、处理面1344x768，每100帧回调样本48.6~54.5ms、中位49.8ms，约20.08FPS；并非纯GPU模型计时。
-- 隔离副本 `C:\DLSS5-5090-dll\magpie-native-test` 去除ReShade/add-on和外置权重，改原生NR -> DLSS_SR；原生EXE写死Preset0，使用哈希门控的最小代码洞补丁把唯一Preset Set调用改为2，并将日志fixed0同步为fixed2。Style1由原生参数配置。
-- 实际720p动画窗口捕获到4K，Feature18连续960次成功、0失败；120帧GPU窗口均值15.868~16.199ms，NR约16ms。后级SR/同步publication fence约21.1~21.5ms，实际窗口评估节奏约36FPS，不能宣称光环40+FPS已验收。
-- 原EXE SHA256 ec0a90fcf36430e5204f0df5e2b955d21fe60443250c51e8670143cf20ad880e；Preset2实验EXE b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea。正式目录与ZIP本轮不替换，仅保留可运行B路线试验副本。
-- 详见 `magpie-native/测试回执.txt`、补丁脚本/JSON及原始日志；正常停止，Core Shutdown1完成。未提交git。
-
-## 2026-10-24 Magpie 正式目录与ZIP切换到原生PTX路线B
-
-- Zero要求直接覆盖原启动位置，不再使用隔离目录。确认无Magpie进程后，发布目录 `C:\DLSS5-5090-dll\发布打包\Magpie-DLSS5-RTX30-0.1.0` 已部署已验收的原生NR Preset2/Style1 -> DLSS_SR。
-- EXE b6f883...（Preset2补丁版），NR DLL 3f934a...（15/15 O4），SR DLL 83de996...。沿用原生窗口960次成功、0失败、NR GPU约15.9ms的验证，不把它当光环整机40+FPS承诺。
-- 移除ReShade dxgi.dll、dlss5-amd.addon64、DLSS5-AMD外置权重和无用旧shaders；默认预设DLSS5-RTX30-PTX，保留用户其它预设/窗口设置。自动更新关闭以免覆盖Preset2 EXE。
-- Magpie-DLSS5-RTX30-0.1.0.zip现为原生路线B，大小324124886字节，SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`。逐包.sha256、总SHA256SUMS与两处发布回执均更新。其它两个ZIP不变。
-- 已删除 `C:\DLSS5-5090-dll\magpie-native-test` 和 `magpie-fix-test`；测试源码/日志在工程中保留。备份旧包/配置、哈希门控回退脚本在 `backups/20261024-Magpie-native-release`。
-- 打包脚本默认Magpie路线也切为native-ptx，中心Preset2 EXE保存在C:\DLSS5-5090-dll\Magpie-RTX30-native.exe用于重建。未提交git。
-
-## 2026-10-24 PTX 主线目录收拢与 v0.1.0 仓库说明重写
-
-- Development 顶层严格保留 DevHistory.md、WorkingPlan.md、ptx-patcher/、hip-port/。sky-audit、release-rtx30、magpie-native、magpie-fix全部收为ptx-patcher子目录，修正脚本定位父目录及文档路径。
-- 中英文根README和WorkingPlan改为PTX主线，详细列出三个原生/OptiScaler PTX包、转换与多定义修复、安装条件、输入/输出哈希和实测边界；hip-port仅在末尾作为实验路线介绍。
-- 保留2.08~2.25倍的历史O1/O4最低耗时对比，同时明确当时共享错误mapped；有限值转换0 bit-diff不扩大为全模型等价。Magpie15.9ms记为NR GPU时间，未改写成光环40+FPS验收。
-- 新增可独立使用的Magpie Preset2哈希门控补丁入口，修正发行构建不再依赖已删除的实验目录。实际原始EXE重建输出匹配b6f883...；8项mapped回归通过，PTX子树Python语法与顶层结构/文档链接检查通过。
-- 大二进制、浮点/PPM转储、生成PNG及大体积底层trace不入Git；原始本机证据保留。未重编模型或替换已发布的游戏文件。
+- **目录结构收拢**：`Development/` 顶层严格只保留 `DevHistory.md`、`WorkingPlan.md`、`ptx-patcher/`、`hip-port/`（及公众号说明 `doc/使用说明.md`）；`sky-audit`、`release-rtx30`、`magpie-native`、`magpie-fix` 全部收归 `Development/ptx-patcher/` 子目录。
+- **三个 `v0.1.0` 正式发布包最终校验值（已上传至 `https://gofile.io/d/s9cpHYH9`）**：
+  - `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`：`376,272,150 B`，SHA256 `8e28417d2420f11dd3e90044fadad78f3d1c53fbec1ebeb791acb62703285f67`
+  - `OptiScaler-DLSS5-RTX30-0.1.0.zip`：`319,200,566 B`，SHA256 `e6067bf09cf5e13ed010d5c90deff695302bbe39b631d7b7fe743ad7b502caac`
+  - `Magpie-DLSS5-RTX30-0.1.0.zip`：`324,124,886 B`，SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`
+- **文档体系**：根目录 `README.zh-CN.md`、`README.md`、`CHANGELOG.zh-CN.md`、`CHANGELOG.md` 与公众号文章 [`Development/doc/使用说明.md`](doc/使用说明.md) 全部对齐 `v0.1.0` PTX 主线并推送至 `origin/main`。

@@ -1,0 +1,7 @@
+0 ELF O1 (cubin=6336096 B -> fatbin=449040 / 841720 B) in 277.22s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=7540, fp8_to_fp16=584
+1 ELF O1 (cubin=3758752 B -> fatbin=275912 / 557032 B) in 158.08s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=4456, fp8_to_fp16=832
+2 ELF O1 (cubin=3466528 B -> fatbin=216608 / 506464 B) in 111.01s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=3976, fp8_to_fp16=832
+3 ELF O4 (cubin=3403808 B -> fatbin=528488 / 586832 B) in 65.10s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=3976, fp8_to_fp16=832
+4 ELF O1 (cubin=3607584 B -> fatbin=307032 / 433184 B) in 41.00s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=2000, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46
+5 ELF O4 (cubin=3907744 B -> fatbin=494784 / 542960 B) in 16.69s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2496, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1
+6 ELF O4 (cubin= 456416 B -> fatbin= 65952 /  70336 B) in 0.39s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16

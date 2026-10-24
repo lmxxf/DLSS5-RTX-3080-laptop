@@ -1,0 +1,50 @@
+2026-10-24 RTX30 0.1.0 三包发布回执
+
+发布目录：C:\DLSS5-5090-dll\发布打包
+
+Magpie-DLSS5-RTX30-0.1.0.zip
+SHA256 db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb
+大小324124886字节。
+CUDA sm_86 add-on + gfx1200/gfx1201兼容目录各40个EM_CUDA模块，small全部93个权重；根目录185个旧权重删除，noise.f32等公共文件保留。
+默认0.5x、F9模型切换关闭、历史关闭。Windows frame.exe读取最终裁剪目录运行3帧，small-ready、blocks31、invalid_total0、首末一致；SDR渐变输入输出非黑。
+
+OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip
+SHA256 8e28417d2420f11dd3e90044fadad78f3d1c53fbec1ebeb791acb62703285f67
+大小376272150字节。PTX路线，含dinput8.dll；detail/colour默认1/1。
+
+OptiScaler-DLSS5-RTX30-0.1.0.zip
+SHA256 e6067bf09cf5e13ed010d5c90deff695302bbe39b631d7b7fe743ad7b502caac
+大小319200566字节。PTX路线，不含dinput8/ReShade/add-on。剑星默认detail1.5/colour1.1，另附1/1平衡配置。
+
+两个PTX包：dxgi.dll 26213888字节，NR DLL为3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a。
+移除DLSS5-AMD资产、LmxxfNrRuntime，固定Preset2/Style1/单遍。底包辅助DLL全部保留。
+EnableFfxInputs=true，UseFfxInputs=true，FSR2/3输入开启；Dx12Upscaler=dlss，EnableHotSwapping=false。
+完整FFX loader/upscaler在Windows运行：Query Quality/Balanced/Performance/UltraPerformance，4K分别2560x1440/2258x1270/1920x1080/1280x720。
+实际FFX CreateContext/Dispatch成功，OptiScaler日志含FFX input、primary feature ready、composition；默认增强参数也分发成功且nonfinite0。
+该私有smoke使用剑星自带的nvngx_dlss.dll模拟游戏原生SR库，并用正常1280x720 swapchain推进Present；不把64x64 overlay swapchain导致epoch0、不实际执行NR的早期尝试记成成功。早期日志也保留。
+未启动剑星实际游戏验收，游戏内FSR/DLSS观感仍由Zero试。
+
+效果浅的调查：配对白点约1x正常，不应照搬鬼武者约520x。旧native_codec_encode按RGB通道做0.75肩部，系数5.770780；新宿主按亮度做SoftKnee、保色相并限峰值，系数4；OkLab近灰阈值、色域压缩及2x护栏也不同。
+因此同Style1不等于同视觉管线；无同场景游戏截图A/B，不宣称某一项就是主因。常规包选择单遍增强默认，只改合成strength，不伪造曝光、不启用71块模型。
+
+剑星同步：37个文件全部与包内哈希匹配，替换2个、增加32个、原样保留3个。
+原版amd_fidelityfx_dx12.dll 6609624字节，SHA256 9c2ba6727683804242980bcddc5c1ee4e16357b4bd17c8a93ce94614ed149780。
+先备份后替换为26376字节loader。备份：C:\DLSS5-5090-dll\backups\20261024-StellarBlade-full\original\amd_fidelityfx_dx12.dll。
+恢复：退出游戏，在WSL运行 python3 /mnt/c/DLSS5-5090-dll/backups/20261024-StellarBlade-full/restore.py
+
+全部ZIP CRC检查、包内逐文件SHA256、两级HIP SHA256SUMS、模块ELF架构、模型裁剪和游戏部署哈希均通过。未提交git。
+
+工程版本从0.1.0重新起算；上游底包版本仍为AMD 0.44。此次仅改发布元数据，二进制、模型权重与INI配置未改。
+剑星release.json、版本标识、README及SHA256SUMS已同步；完整部署清单38项哈希全部匹配，原恢复脚本清单已更新。
+
+Magpie同版修复更新：默认FSR3 1x -> DLSS_SR，无FSR4/XeSSFG默认链；补齐nvngx_dlss.dll。
+无SR DLL复现bad0000b，有SR DLL返回00000001。最终发布插件SHA256 88cd04c572af79aa8a51938b42cc86d325ee23e5a8d826cc81665368b3f3ae1f。
+真实Magpie程序的1280x720动画窗口捕获、3840x2160 DLSS_SR输出、CUDA model=0.5 blocks=31 连续600帧处理成功，loader/provider Hook返回0，Present计数递增，正常停止无设备移除。此为程序窗口验收，不冒充光环游戏视觉验收。
+插件修复自动日志目录、Magpie有限启动等待和loader/provider切换的context pin；移除旧temporal-history实验标记。
+回退说明：C:\DLSS5-5090-dll\backups\20261024-Magpie-0.1.0-fix\恢复说明.txt。
+
+Magpie现已正式改为路线B：原生DLSSNR Preset2/Style1 -> DLSS_SR。已覆盖原发布运行目录和同名0.1.0 ZIP。
+已移除ReShade dxgi.dll、dlss5-amd.addon64、DLSS5-AMD权重及旧shaders目录；默认不再走独立CUDA引擎。
+EXE为已验证Preset2补丁版b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea；NR DLL仍为3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a。
+两个实验目录magpie-native-test/magpie-fix-test已按要求删除；此前原始测试回执及日志保存在工程Development/ptx-patcher/magpie-native和Development/ptx-patcher/magpie-fix。
+上一版目录文件/ZIP备份与恢复：C:\DLSS5-5090-dll\backups\20261024-Magpie-native-release\恢复说明.txt。

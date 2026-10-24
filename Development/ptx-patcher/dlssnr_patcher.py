@@ -829,26 +829,25 @@ def half_conversion_declarations() -> list[str]:
     ]
 
 
-def fp8_pack_sources(text: str) -> dict[str, tuple[str, str, int]]:
-    down_sources: dict[str, list[str]] = {}
-    for match in FP8_DOWN_PATTERN.finditer(text):
-        down_sources.setdefault(match.group("destination"), []).append(
-            match.group("source")
-        )
+def fp8_pack_sources(text: str, local_only: bool = True) -> dict[str, tuple[str, str, int]]:
+    from ptx_mapped import safe_sources
+    return safe_sources(text, FP8_DOWN_PATTERN, FP8_PACK_PATTERN, local_only=local_only)
 
-    packed_sources: dict[str, list[tuple[str, str, int]]] = {}
-    for match in FP8_PACK_PATTERN.finditer(text):
-        low_sources = down_sources.get(match.group("low"), [])
-        high_sources = down_sources.get(match.group("high"), [])
-        if len(low_sources) == len(high_sources) == 1:
-            packed_sources.setdefault(match.group("destination"), []).append(
-                (low_sources[0], high_sources[0], match.start())
-            )
-    return {
-        register: sources[0]
-        for register, sources in packed_sources.items()
-        if len(sources) == 1
-    }
+
+def mapped_fp16_sources(mapped, operands):
+    # Keep the original FP8 RNE/saturation semantics when forwarding FP16 sources.
+    sources = sorted({s for r in operands if r in mapped for s in mapped[r][:2]})
+    if not sources:
+        return [], {}
+    names = {s: f"dlssnr_quant_{i}" for i, s in enumerate(sources)}
+    lines = [".reg .b16 dlssnr_quant_encoded;", ".reg .b32 dlssnr_quant_encoded32;"]
+    lines += [".reg .b32 " + ", ".join(names.values()) + ";"]
+    lines += half_conversion_declarations() + fp8_conversion_declarations()
+    for source, name in names.items():
+        lines += half_pair_to_fp8_lines(source, "dlssnr_quant_encoded")
+        lines += ["cvt.u32.u16 dlssnr_quant_encoded32, dlssnr_quant_encoded;"]
+        lines += fp8_pair_to_half_lines("dlssnr_quant_encoded32", name)
+    return lines, names
 
 
 def render_fp8_mma_run(
@@ -865,11 +864,9 @@ def render_fp8_mma_run(
         register: (f"dlssnr_fp16_{index}_0", f"dlssnr_fp16_{index}_1")
         for index, register in enumerate(operands)
     }
-    mapped = {
-        register: sources
-        for register, sources in packed_sources.items()
-        if sources[2] < matches[0].start()
-    }
+    from ptx_mapped import mapped_at
+    mapped = mapped_at(packed_sources, matches[0].start())
+    quant_lines, quant_names = mapped_fp16_sources(mapped, operands)
     # FP8 k32 and FP16 k16 distribute each fragment differently across a
     # four-lane group. Each source register becomes two shuffled FP16 pairs;
     # two k16 operations then cover the original k32 accumulation.
@@ -903,10 +900,12 @@ def render_fp8_mma_run(
         ]
     )
 
+    lines.extend(quant_lines)
     for register in operands:
         first, second = names[register]
         if register in mapped:
             low, high, _position = mapped[register]
+            low, high = quant_names[low], quant_names[high]
             for source_index, destination in (
                 ("dlssnr_source0", first),
                 ("dlssnr_source1", second),

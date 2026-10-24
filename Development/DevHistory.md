@@ -208,3 +208,77 @@ sp_init                                              2     0.009       4.6     1
   - 独立 CUDA 引擎二进制：`/mnt/c/DLSS5-5090-dll/LmxxfNrRuntime.dll`、`/mnt/c/DLSS5-5090-dll/dlss5-amd.addon64`（及 `/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/` 下的 40 个 `sm_86` 模块）
   - 0.44 打包底包：`/mnt/c/DLSS5-5090-dll/amd的dlss5-0.44的打包/`（含 `Magpie`、`OptiScaler`、`OptiScaler-REFramework` 三个 ZIP）
 - **打包首个正式发布版本并更新 `README.md` / `README.zh-CN.md`**。
+
+## 2026-10-24 晚：天空红绿横带根因修复（safe mapped，15/15 O4）
+
+- 反证更新：fast与stock逐位一致仅说明共享补丁一致，不能证明画面正确。关闭mapped消除天空横带；仅补回量化仍有104次红绿变号，不能将问题仅归为“少了量化”。
+- Zero指出FB5 `cc_vit_attention_fp8` 的 `%r1352` 有真实向量load与越界fallback pack两种定义。旧`fp8_pack_sources`只统计特定pack/cvt形态，错误地将真实显存数据替换为fallback值。新增按指令解析的定义表与基本块边界检查，剔除多定义、跨块、受谓词控制及无法局部证明的替换；合法mapped保留，同时精确量化。
+- 全量15个Fatbin全部O4；FB0/1/2/4超过旧槽位，通过新增`.dlssptx` PE节并重定位唯一宿主引用容纳，NGX实际加载及全部基准通过。
+- 天空1280×720，preset2/style1：红绿色差变号0次，高频RMS=0.00010052723；同轮旧fast为106次、0.027630752。全部nonfinite=0。
+- 5帧预热、20帧测量：safe GPU median 720p天空23.751ms、900p原bench场景33.034ms、1080p原bench场景43.418ms；同轮旧fast15.972/24.563/31.957ms。**正确性与全O4已恢复，旧速度尚未恢复。**
+- 两通道各63,488个有限FP16编码GPU穷举零差异；6项mapped规则回归通过。源码构建入口已移除/tmp依赖并加入原DLL哈希门控。
+- 新DLL SHA256 `7c8631871811c8bb3d98f87778917e9fc92f010d3db304f8f9bef0f822f16bf7`；旧版 `f94656391b63dc744c0275b8f2cc5c1254ac104d11dbc44222981fa31e64237d`。
+- 细节、部署回执及恢复位置见 `sky-audit/安全mapped最终回执.md`。真实游戏画面观感仍需Zero进游戏验收；本轮未启动游戏。
+
+## 2026-10-24 后续控制变量：仅拒绝多定义、不加量化，性能恢复并部署
+
+- Zero要求把严格过滤和额外量化拆开。strict_nq与multidef_nq均15/15 O4原槽位装入，无需新增PE节；天空红绿变号均0次。
+- strict_nq GPU median（720p天空/900p原bench/1080p原bench）17.886/31.756/37.113ms。
+- multidef_nq对应15.829/24.474/32.036ms，高频色差RMS=.000102701，nonfinite=0；已恢复旧fast速度范围。
+- 当前生产默认拒绝entry内pack目标、FP8中间值、FP16来源多定义的mapped，允许单定义跨块；通过检查后恢复原shfl/shfl/selp，不附加量化。保留严格过滤及量化诊断开关。生产PTX与通过实测的控制版FB0..6逐字节相同；8项回归通过。
+- 已替换主fast与游戏DLL，SHA256 `3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a`。上一版量化safe已另存恢复，不覆盖更早备份。详见 `sky-audit/去量化控制变量回执.md`。
+
+## 2026-10-24 RTX30 三包发布与《剑星》完整部署
+
+- `C:\DLSS5-5090-dll\发布打包` 三个0.1.0 ZIP（基于上游AMD 0.44）及逐包.sha256、总SHA256SUMS已完成，CRC及内部清单核验通过。包A CUDA独立引擎；包B/C主推15/15 O4 PTX。
+- 包A删除根目录185个71块旧模型权重，保留small93个权重和公共资源。两架构兼容目录各40个模块均EM_CUDA，重建HIP两级校验。Windows SDR frame smoke在裁剪目录实际31块初始化/推理成功，无NaN/Inf、输出非黑且3帧一致。F9旧模型切换及历史路径默认关闭。
+- 包B/C去除AMD独立引擎目录/runtime；保留完整辅助DLL。显式FFX输入、固定DLSS输出；私有Windows API smoke实测FFX->NGX->NR的ready/composition和有限输出。额外SR库由剑星原生插件提供，不作为包内替换文件。程序级检查不等同于游戏观感验收。
+- 剑星常规包默认单遍detail1.5/colour1.1，另附1/1平衡配置；保持游戏曝光，不照搬鬼武者520x。旧add-on与新宿主的RGB/亮度肩部、OkLab及护栏不同，不能只由白点推断视觉差异。
+- 《剑星》同步37文件，替换2、新增32、同hash3；原始6.6MB FFX DLL及INI先备份到 `C:\DLSS5-5090-dll\backups\20261024-StellarBlade-full`，有哈希门控恢复脚本。未启动游戏。
+- 具体包哈希、实验边界及恢复说明：`release-rtx30/发布回执.txt`；发布目录的`验证记录`也保留日志、CSV及smoke输入输出。
+
+## 2026-10-24 工程首个正式版本：0.1.0
+
+- Zero确定本工程版本从0.1.0重新计数；上游AMD底包继续标为0.44，不能混为本工程版本。
+- `Magpie-DLSS5-RTX30-0.1.0.zip`：SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`，324124886字节。
+- `OptiScaler-DLSS5-RTX30-0.1.0.zip`：SHA256 `e6067bf09cf5e13ed010d5c90deff695302bbe39b631d7b7fe743ad7b502caac`，319200566字节。
+- `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`：SHA256 `8e28417d2420f11dd3e90044fadad78f3d1c53fbec1ebeb791acb62703285f67`，376272150字节。
+- 包内release.json、现有版本标识、README中英文及SHA256SUMS已更新；对应.sha256和总清单已重建。旧-0.44发布ZIP及其.sha256已清理。
+- 剑星只同步版本说明/清单，不改二进制、模型或INI；完整部署清单与恢复脚本的哈希记录同步更新。
+- ZIP CRC、元数据和未更改条目的CRC/尺寸及关键DLL/INI SHA256核验通过；不重复跑模型测试。
+
+## 2026-10-24 Magpie 0.1.0 同版修复与真实窗口验收
+
+- 原默认FSR4/XeSSFG链在本机首次尝试未完成正常呈现；不再作为RTX30默认。第二次DLSS_SR初始化bad0000b在同一D3D11 probe上“无nvngx_dlss.dll”复现，加剑星原生SR库后创建返回1；真实Magpie也记录DLSS SR initialized 1280x720 -> 3840x2160。
+- 默认链改为FSR3 1x -> DLSS_SR，不启用FG或AMD/NVIDIA光流附加成本；第一级仍是独立CUDA NR入口，只用31块Small。
+- ReShade确实会收到D3D11主呈现事件，日志记录Present1与30。Magpie bootstrap改成第一帧/最多2秒的有限等待；其它进程保留30帧策略。自动创建插件logs目录；同时Hook FFX provider与loader导出，利用thread-local depth去重；安装loader hook后重置此前可能在provider层捕获的context pin。
+- 移除temporal-history.txt旧实验标记。加入几何选择与实际模型日志。实际Magpie窗口测试使用DPI-aware 1280x720动画源，NR日志model=0.5 blocks=31、render_complete pixels_changed、every_frame连续600帧，正常停止、无设备移除。私有测试中DPI不匹配的1918x1079窗口失败记录另存，不计入720p通过。
+- 最终插件 SHA256 `88cd04c572af79aa8a51938b42cc86d325ee23e5a8d826cc81665368b3f3ae1f`；SR库 SHA256 `83de996b1589957d6bfb3df77e2f2ba7821f1014c73cfc5f8315241a0e4d3253`。
+- 已同步实际运行目录与中心add-on/SR库，重打Magpie-DLSS5-RTX30-0.1.0.zip，SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`；其它两个包未改。逐文件清单、ZIP CRC、.sha256和总清单均更新。
+- 备份和回退脚本在C:\DLSS5-5090-dll\backups\20261024-Magpie-0.1.0-fix。详情见magpie-fix/修复回执.txt；未提交git。
+
+## 2026-10-24 Magpie 原生 Feature18 / PTX 路线成功验证
+
+- 修正此前“Magpie无NGX入口所以只能独立引擎”的判断：本包使用的定制0.6.6确实内置DLSSNRFilter、signed-snippet与caller IAT兼容，可以直接加载修复后的3f934a NR DLL。
+- 光环实际路线A：PID31924，31块Small、处理面1344x768，每100帧回调样本48.6~54.5ms、中位49.8ms，约20.08FPS；并非纯GPU模型计时。
+- 隔离副本 `C:\DLSS5-5090-dll\magpie-native-test` 去除ReShade/add-on和外置权重，改原生NR -> DLSS_SR；原生EXE写死Preset0，使用哈希门控的最小代码洞补丁把唯一Preset Set调用改为2，并将日志fixed0同步为fixed2。Style1由原生参数配置。
+- 实际720p动画窗口捕获到4K，Feature18连续960次成功、0失败；120帧GPU窗口均值15.868~16.199ms，NR约16ms。后级SR/同步publication fence约21.1~21.5ms，实际窗口评估节奏约36FPS，不能宣称光环40+FPS已验收。
+- 原EXE SHA256 ec0a90fcf36430e5204f0df5e2b955d21fe60443250c51e8670143cf20ad880e；Preset2实验EXE b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea。正式目录与ZIP本轮不替换，仅保留可运行B路线试验副本。
+- 详见 `magpie-native/测试回执.txt`、补丁脚本/JSON及原始日志；正常停止，Core Shutdown1完成。未提交git。
+
+## 2026-10-24 Magpie 正式目录与ZIP切换到原生PTX路线B
+
+- Zero要求直接覆盖原启动位置，不再使用隔离目录。确认无Magpie进程后，发布目录 `C:\DLSS5-5090-dll\发布打包\Magpie-DLSS5-RTX30-0.1.0` 已部署已验收的原生NR Preset2/Style1 -> DLSS_SR。
+- EXE b6f883...（Preset2补丁版），NR DLL 3f934a...（15/15 O4），SR DLL 83de996...。沿用原生窗口960次成功、0失败、NR GPU约15.9ms的验证，不把它当光环整机40+FPS承诺。
+- 移除ReShade dxgi.dll、dlss5-amd.addon64、DLSS5-AMD外置权重和无用旧shaders；默认预设DLSS5-RTX30-PTX，保留用户其它预设/窗口设置。自动更新关闭以免覆盖Preset2 EXE。
+- Magpie-DLSS5-RTX30-0.1.0.zip现为原生路线B，大小324124886字节，SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`。逐包.sha256、总SHA256SUMS与两处发布回执均更新。其它两个ZIP不变。
+- 已删除 `C:\DLSS5-5090-dll\magpie-native-test` 和 `magpie-fix-test`；测试源码/日志在工程中保留。备份旧包/配置、哈希门控回退脚本在 `backups/20261024-Magpie-native-release`。
+- 打包脚本默认Magpie路线也切为native-ptx，中心Preset2 EXE保存在C:\DLSS5-5090-dll\Magpie-RTX30-native.exe用于重建。未提交git。
+
+## 2026-10-24 PTX 主线目录收拢与 v0.1.0 仓库说明重写
+
+- Development 顶层严格保留 DevHistory.md、WorkingPlan.md、ptx-patcher/、hip-port/。sky-audit、release-rtx30、magpie-native、magpie-fix全部收为ptx-patcher子目录，修正脚本定位父目录及文档路径。
+- 中英文根README和WorkingPlan改为PTX主线，详细列出三个原生/OptiScaler PTX包、转换与多定义修复、安装条件、输入/输出哈希和实测边界；hip-port仅在末尾作为实验路线介绍。
+- 保留2.08~2.25倍的历史O1/O4最低耗时对比，同时明确当时共享错误mapped；有限值转换0 bit-diff不扩大为全模型等价。Magpie15.9ms记为NR GPU时间，未改写成光环40+FPS验收。
+- 新增可独立使用的Magpie Preset2哈希门控补丁入口，修正发行构建不再依赖已删除的实验目录。实际原始EXE重建输出匹配b6f883...；8项mapped回归通过，PTX子树Python语法与顶层结构/文档链接检查通过。
+- 大二进制、浮点/PPM转储、生成PNG及大体积底层trace不入Git；原始本机证据保留。未重编模型或替换已发布的游戏文件。

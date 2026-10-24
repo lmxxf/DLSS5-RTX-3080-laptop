@@ -1,0 +1,31 @@
+2026-10-24 Magpie 原生 PTX 路线验证
+
+一、Zero刚才的光环路线A
+PID31924，1280x720捕获，网络处理面1344x768，model=0.5 blocks=31。
+11个每100帧的回调间隔样本：48.6~54.5ms，中位49.8ms，约20.08FPS。
+Magpie publication fence约34.1~34.9ms。回调间隔/fence不是独立的纯模型GPU计时，不混成同一指标。
+
+二、原生路线B
+隔离目录：C:\DLSS5-5090-dll\magpie-native-test
+无dxgi.dll、无dlss5-amd.addon64、无DLSS5-AMD外置模型资产，直接原生Feature18 -> DLSS_SR。
+NR DLL SHA256：3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a。
+Style1、Preset2、720p原尺寸、残差控制1、光流质量0、AutoMask1，后级原生DLSS_SR输出3840x2160。
+本轮使用1280x720动画窗口，实际Magpie捕获/呈现，不是只调CreateFeature的离线bench。
+
+原生后端写死Preset0，JSON不能改变。已对已知SHA的EXE做最小补丁：
+原EXE ec0a90fcf36430e5204f0df5e2b955d21fe60443250c51e8670143cf20ad880e
+新EXE b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea
+在Preset字符串唯一LEA后，将参数Set(int)调用通过代码洞改为2；原函数其余指令保持，状态文字同步fixed2，PE checksum更新。
+原字节/地址/代码洞stub保存在preset2-patch.json，脚本有原SHA和指令前缀守卫。改变的是Preset值，不是另行修改模型计算。
+
+三、结果
+STATUS明确Feature18、signed-snippet、preset=fixed-2、style1、input1280x720。
+连续960次evaluate成功，failures0；停止后NR consumer release与Core Shutdown1正常。
+120帧GPU窗口均值：15.937、15.908、15.955、16.013、15.868、15.971、16.199ms。
+稳态NR约16ms。CPU evaluate约.31~.33ms、submit约.09ms。
+含后级SR/同步的publication fence约21.1~21.5ms；按STATUS实际时间推进约36FPS。
+因此“NR本身由独立引擎约数十ms降到约16ms”成立；不宣称光环已达到40+FPS，不把1/16ms当整机实际FPS。
+光环路线A和本次动画窗口不是同帧同负载A/B；用户在隔离副本上的游戏实测仍有价值。
+
+正式Magpie运行目录和发布ZIP没有在这次实验中替换。隔离副本可以直接运行，原add-on F6开关不适用于这条原生路线，应使用Magpie自带比较/效果工具。
+原始日志：evidence/magpie.log；结构化数值：results.json。

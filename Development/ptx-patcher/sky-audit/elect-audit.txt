@@ -1,0 +1,15 @@
+0 elect_blocks 0 instructions {}
+1 elect_blocks 0 instructions {}
+2 elect_blocks 0 instructions {}
+3 elect_blocks 0 instructions {}
+4 elect_blocks 104 instructions {'cvta.to.global.u64': 96, 'shl.b64': 24, 'add.s64': 24, 'mov.b32': 190, 'cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes': 104, 'mbarrier.expect_tx.relaxed.cta.shared::cta.b64': 104, 'add.s32': 133, 'mov.u32': 9, 'shl.b32': 34, 'and.b32': 27, 'or.b32': 18, 'shr.u32': 4, 'setp.ne.b32': 2, 'selp.b32': 4, 'not.b32': 2, 'setp.eq.b32': 2}
+5 elect_blocks 208 instructions {'cvta.to.global.u64': 164, 'shl.b64': 60, 'add.s64': 80, 'mov.b32': 336, 'cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes': 208, 'mbarrier.expect_tx.relaxed.cta.shared::cta.b64': 208, 'add.s32': 148, 'cvta.to.shared.u64': 32, 'cvt.u32.u64': 32, 'shl.b32': 14, 'mul.wide.s32': 20}
+6 elect_blocks 4 instructions {'cvta.to.global.u64': 2, 'shl.b64': 4, 'add.s64': 4, 'mov.b32': 6, 'cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes': 4, 'mbarrier.expect_tx.relaxed.cta.shared::cta.b64': 4, 'add.s32': 2}
+7 elect_blocks 0 instructions {}
+8 elect_blocks 0 instructions {}
+9 elect_blocks 0 instructions {}
+10 elect_blocks 0 instructions {}
+11 elect_blocks 0 instructions {}
+12 elect_blocks 0 instructions {}
+13 elect_blocks 0 instructions {}
+14 elect_blocks 0 instructions {}

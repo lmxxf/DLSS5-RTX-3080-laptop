@@ -453,7 +453,10 @@ static void execute(reshade::api::command_queue*q,reshade::api::command_list*c){
    export, and doing that while the title is still loading dlls (Black Myth: Wukong loads libxess.dll at start-up and keeps loading EOS/Steam
    right after) deadlocked the loader on most launches -- the game then sat black for its 60 s watchdog and closed cleanly. */
 static std::atomic<unsigned>presents{};
-static void on_present(reshade::api::command_queue*,reshade::api::swapchain*,const reshade::api::rect*,const reshade::api::rect*,uint32_t,const reshade::api::rect*){++presents;}
+static void on_present(reshade::api::command_queue*,reshade::api::swapchain*,const reshade::api::rect*,const reshade::api::rect*,uint32_t,const reshade::api::rect*){
+ const unsigned n=++presents;
+ if(n==1||n==30)if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-submission-order.txt").c_str(),L"ab")){fprintf(f,"pid=%lu bootstrap_present=%u\n",GetCurrentProcessId(),n);fclose(f);}
+}
 static void pre_upscale_work(reshade::api::command_list*c){
 #ifdef NATIVE_ORDER_NEURAL
  if(NativePreUpscale::HasPendingJobs())NativePreUpscale::ObserveWork(reinterpret_cast<ID3D12GraphicsCommandList*>(c->get_native()));
@@ -472,6 +475,11 @@ static void barrier(reshade::api::command_list*c,uint32_t count,const reshade::a
  }
 }
 static DWORD WINAPI worker(void*){
+ CreateDirectoryW(NativeLabPath(L"logs").c_str(),nullptr);
+ wchar_t host[MAX_PATH]{};GetModuleFileNameW(nullptr,host,MAX_PATH);const wchar_t*base=wcsrchr(host,L'\\');base=base?base+1:host;
+ const bool magpie=_wcsicmp(base,L"Magpie.exe")==0;
+ if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-submission-order.txt").c_str(),L"ab")){fprintf(f,"pid=%lu bootstrap_start host=%ls magpie=%u\n",GetCurrentProcessId(),base,unsigned(magpie));fclose(f);}
+
 #ifdef NATIVE_ORDER_NEURAL
  NativePreUpscale::InstallExceptionTrace();
 #endif
@@ -494,7 +502,13 @@ static DWORD WINAPI worker(void*){
     forwards into the same export, so one hook covers both routes without double dispatch. */
  HMODULE module=nullptr,xess=nullptr;for(unsigned i=0;!module&&!xess;i++){if(!only_xess){module=GetModuleHandleW(L"amd_fidelityfx_upscaler_dx12.dll");if(!module)module=GetModuleHandleW(L"amd_fidelityfx_dx12.dll");if(!module)module=GetModuleHandleW(L"amd_fidelityfx_loader_dx12.dll");}if(!wait_ffx)xess=GetModuleHandleW(L"libxess.dll");if(!module&&!xess)Sleep(100);}if(!module&&!xess)return 1;
  auto target=module?GetProcAddress(module,"ffxDispatch"):GetProcAddress(xess,"xessD3D12Execute");if(!target)return 2;
- while(presents.load()<30)Sleep(100); /* past start-up dll loading: see on_present */
+ const ULONGLONG gate_start=GetTickCount64();
+ while(presents.load()<(magpie?1u:30u)){
+  if(magpie&&GetTickCount64()-gate_start>=2000)break; // FFX can run before Magpie's first swapchain Present.
+  Sleep(20);
+ }
+ if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-submission-order.txt").c_str(),L"ab")){fprintf(f,"pid=%lu bootstrap_gate presents=%u required=%u waited_ms=%llu module_ready=1\n",GetCurrentProcessId(),presents.load(),magpie?1u:30u,GetTickCount64()-gate_start);fclose(f);}
+
  auto s=MH_Initialize();if(s!=MH_OK&&s!=MH_ERROR_ALREADY_INITIALIZED)return 3;
  if(module&&fit_small_input()){
   /* Magpie unloads the FFX loader when scaling stops. Hook trampolines must remain executable across restarts. */
@@ -506,7 +520,7 @@ static DWORD WINAPI worker(void*){
   if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-submission-order.txt").c_str(),L"ab")){fprintf(f,"pid=%lu fit_context_destroy_hook=%u\n",GetCurrentProcessId(),unsigned(ds));fclose(f);}
   if(ds!=MH_OK)return 5;
   /* the shim's own ffxDestroyContext (Stellar Blade's host destroys through it; the pinned handle is the shim-level one) */
-  {HMODULE shim=GetModuleHandleW(L"amd_fidelityfx_dx12.dll");void*sd=shim&&shim!=module?reinterpret_cast<void*>(GetProcAddress(shim,"ffxDestroyContext")):nullptr;
+  {HMODULE shim=GetModuleHandleW(L"amd_fidelityfx_dx12.dll");if(!shim)shim=GetModuleHandleW(L"amd_fidelityfx_loader_dx12.dll");void*sd=shim&&shim!=module?reinterpret_cast<void*>(GetProcAddress(shim,"ffxDestroyContext")):nullptr;
    if(sd&&sd!=reinterpret_cast<void*>(destroy)){HMODULE pinned3=nullptr;GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS|GET_MODULE_HANDLE_EX_FLAG_PIN,reinterpret_cast<LPCWSTR>(sd),&pinned3);
     auto s3=MH_CreateHook(sd,reinterpret_cast<void*>(&destroy_context_shim),reinterpret_cast<void**>(&original_destroy_shim));if(s3==MH_OK)s3=MH_EnableHook(sd);
     if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-submission-order.txt").c_str(),L"ab")){fprintf(f,"pid=%lu shim_destroy_hook_status=%u target=%p\n",GetCurrentProcessId(),unsigned(s3),sd);fclose(f);}}}
@@ -518,17 +532,20 @@ static DWORD WINAPI worker(void*){
   s=MH_CreateHook(reinterpret_cast<void*>(target),reinterpret_cast<void*>(&dispatch_sr),reinterpret_cast<void**>(&original_sr));if(s==MH_OK)s=MH_EnableHook(reinterpret_cast<void*>(target));
   original=original_sr;
   /* the shim, when it is a different module with its own export: hook it too (Stellar Blade's host calls this one) */
-  HMODULE shim=GetModuleHandleW(L"amd_fidelityfx_dx12.dll");void*shim_target=shim&&shim!=module?reinterpret_cast<void*>(GetProcAddress(shim,"ffxDispatch")):nullptr;
+  HMODULE shim=GetModuleHandleW(L"amd_fidelityfx_dx12.dll");if(!shim)shim=GetModuleHandleW(L"amd_fidelityfx_loader_dx12.dll");void*shim_target=shim&&shim!=module?reinterpret_cast<void*>(GetProcAddress(shim,"ffxDispatch")):nullptr;
   if(s==MH_OK&&shim_target&&shim_target!=reinterpret_cast<void*>(target)){
    HMODULE pinned2=nullptr;GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS|GET_MODULE_HANDLE_EX_FLAG_PIN,reinterpret_cast<LPCWSTR>(shim_target),&pinned2);
    auto s2=MH_CreateHook(shim_target,reinterpret_cast<void*>(&dispatch_shim),reinterpret_cast<void**>(&original_shim));if(s2==MH_OK)s2=MH_EnableHook(shim_target);
    if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-submission-order.txt").c_str(),L"ab")){fprintf(f,"pid=%lu shim_hook_status=%u target=%p\n",GetCurrentProcessId(),unsigned(s2),shim_target);fclose(f);}
   }
  }else{s=MH_CreateHook(reinterpret_cast<void*>(target),reinterpret_cast<void*>(&dispatch_sr),reinterpret_cast<void**>(&original_sr));if(s==MH_OK)s=MH_EnableHook(reinterpret_cast<void*>(target));original=original_sr;}
+ // Installing the loader hook changes the observed context pointer from the provider's
+ // inner handle to the loader's outer handle. Do not keep a pin captured in that window.
+ fit_context.store(nullptr);foreign_dispatches.store(0);
  // Do not retry an existing-hook conflict or modify another addon's hook.
  if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-submission-order.txt").c_str(),L"ab")){wchar_t name[MAX_PATH]{};GetModuleFileNameW(module?module:xess,name,MAX_PATH);const wchar_t*base=wcsrchr(name,L'\\');fprintf(f,"pid=%lu hook_status=%u upscaler=%s module=%ls target=%p\n",GetCurrentProcessId(),unsigned(s),module?"ffx":"xess",base?base+1:name,target);
   /* diagnostic: where the other FFX dlls' ffxDispatch exports live (shim vs upscaler vs driver provider) */
-  for(const wchar_t*other:{L"amd_fidelityfx_dx12.dll",L"amd_fidelityfx_upscaler_dx12.dll",L"amdxcffx64.dll"}){HMODULE m=GetModuleHandleW(other);void*fn=m?reinterpret_cast<void*>(GetProcAddress(m,"ffxDispatch")):nullptr;unsigned char head[8]{};if(fn)memcpy(head,fn,8);fprintf(f,"pid=%lu kind=ffx_export dll=%ls module=%p ffxDispatch=%p head=%02x%02x%02x%02x%02x%02x%02x%02x\n",GetCurrentProcessId(),other,m,fn,head[0],head[1],head[2],head[3],head[4],head[5],head[6],head[7]);}
+  for(const wchar_t*other:{L"amd_fidelityfx_dx12.dll",L"amd_fidelityfx_loader_dx12.dll",L"amd_fidelityfx_upscaler_dx12.dll",L"amdxcffx64.dll"}){HMODULE m=GetModuleHandleW(other);void*fn=m?reinterpret_cast<void*>(GetProcAddress(m,"ffxDispatch")):nullptr;unsigned char head[8]{};if(fn)memcpy(head,fn,8);fprintf(f,"pid=%lu kind=ffx_export dll=%ls module=%p ffxDispatch=%p head=%02x%02x%02x%02x%02x%02x%02x%02x\n",GetCurrentProcessId(),other,m,fn,head[0],head[1],head[2],head[3],head[4],head[5],head[6],head[7]);}
   fclose(f);}return s==MH_OK?0:4;
 }
 // Before the game creates its D3D12 device: select the private Agility 721 runtime shipped in

@@ -1,0 +1,18 @@
+seed=0 pattern=0
+input format=RGBA16_FLOAT W=1296 H=720 invalid=0 min=0.150024414 max=0.799804688 luma=0.455315042 roi_luma=0.473220152
+adapter=NVIDIA GeForce RTX 3080 Laptop GPU
+frame=0 reset=1 wall_ms=1231.728 invalid=0 luma=0.4604207 roi=0.4827903 dark=0 roi_dark=0 changed_first=0 maxabs_first=0
+frame=1 reset=1 wall_ms=33.766 invalid=0 luma=0.4604207 roi=0.4827903 dark=0 roi_dark=0 changed_first=0 maxabs_first=0
+frame=2 reset=1 wall_ms=31.803 invalid=0 luma=0.4604207 roi=0.4827903 dark=0 roi_dark=0 changed_first=0 maxabs_first=0
+SP_STATS runs=0 fallback=0 rollover=0 jobs=0 disabled=0 errors=0
+RESULT frames=3 temporal=0 mean_wall_ms=432.432 invalid_total=0 restored_capture_every_frame=1 HDR_preserved=1
+model requested=0.5x effective=0.5x blocks=31 assets=C:\DLSS5-5090-dll\发布打包\.stage\Magpie-DLSS5-RTX30-0.44\DLSS5-AMD\native-game-tiled-assets/small reason=small-ready
+multi_pass=1 multi_pass_predict=1 actual_network_passes=1
+vit_contract_byte_edge=1
+c32_norm900 scope=0 loaded=0 selected=c32-wave1-fast.hsaco processing=1344x768 fast_numeric=1 mp=1 graph=0 experimental=0
+DLSS5_FAST_NUMERIC=1: multihead-fast-padded-wave-packed-fast.hsaco missing, using multihead-fast-padded-wave-packed.hsaco
+pool64_byte_edge=1
+submit_pulse device_scope arch=gfx1201 runtime=13040 driver_query=00000000 driver=002000000010069c validated=0
+model_prepared mode=0.5 profile=32 uploads=102 active_weights=100 retained_weights=0 before_producer_wait=1
+submit_pulse resources create=0 create_ok=0 record=0 record_ok=0 destroy=0 destroy_ok=0 drain=0 site_visits=0 accepted=0 reject_mask=0 lifetime_pdl_calls=0
+C512_W16_SUMMARY mode=2 w16_blocks=16 stock_blocks=0 ffn_mode=1 ffn_w16_blocks=16 ffn_stock_blocks=0 c32_mode=1 c32_w16_calls=24 c32_stock_calls=0 vit_mode=7 vit_w16_calls=32 vit_stock_calls=0 vit_contract_w16=0 vit_proj_w16=0 vit_inter_byte=15 vit_inter_byte_calls=8 weights_count=100 weights_bytes=290068216

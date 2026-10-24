@@ -115,7 +115,7 @@ static float half_to_float(uint16_t h) {
 int wmain(int argc, wchar_t** argv) {
     setvbuf(stdout, nullptr, _IONBF, 0);
     if (argc < 6) {
-        printf("Usage: %ls <_nvngx.dll> <dlssnr.dll> <width> <height> <preset> [warmup=5] [iters=20] [out.rgb32]\n", argv[0]);
+        printf("Usage: %ls <_nvngx.dll> <dlssnr.dll> <width> <height> <preset> [warmup=5] [iters=20] [out.rgb32] [sky]\n", argv[0]);
         return 2;
     }
     const wchar_t* core_path = argv[1];
@@ -342,12 +342,17 @@ int wmain(int argc, wchar_t** argv) {
             float r = 0.15f + 0.6f * fx + 0.1f * std::sin(fx * 25.0f) * std::cos(fy * 25.0f);
             float g = 0.20f + 0.5f * fy + 0.1f * std::cos(fx * 19.0f + fy * 17.0f);
             float b = 0.25f + 0.4f * (1.0f - fx) + 0.08f * std::sin(fy * 31.0f);
+            if (argc > 9 && std::wcscmp(argv[9], L"sky") == 0) {
+                // Smooth near-neutral bright sky, spanning the host soft-knee region.
+                float v = 0.65f + 0.34f * fy;
+                r = v * 0.995f; g = v; b = v * 1.005f;
+            }
             size_t idx = (size_t(y) * W + x) * 4;
             color_data[idx + 0] = float_to_half(r);
             color_data[idx + 1] = float_to_half(g);
             color_data[idx + 2] = float_to_half(b);
             color_data[idx + 3] = float_to_half(1.0f);
-            depth_data[size_t(y) * W + x] = 0.1f + 0.8f * fy;
+            depth_data[size_t(y) * W + x] = (argc > 9 && std::wcscmp(argv[9], L"sky") == 0) ? 1.0f : 0.1f + 0.8f * fy;
         }
     }
     upload_tex(color, color_data.data(), 8);

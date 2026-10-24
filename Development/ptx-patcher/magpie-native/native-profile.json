@@ -1,0 +1,38 @@
+{
+  "name": "DLSS5-RTX30-PTX",
+  "effects": [
+    {
+      "name": "DLSSNR\\DLSSNR_AI_Filter",
+      "parameters": {
+        "residualSaturation": 1.0,
+        "intensity": 1.0,
+        "skinStructureStrength": -1.0,
+        "style": 1.0,
+        "residualLightness": 1.0,
+        "shadowStructureMultiplier": 1.0,
+        "useAutoMask": 1.0,
+        "enableInputResolutionScaling": 0.0,
+        "localToneStrength": 1.0,
+        "uiCorrection": 0.0,
+        "residualMultiplier": 1.0,
+        "inputResolutionPercent": 100.0,
+        "localStructureStrength": 1.0,
+        "motionVectorQuality": 0.0,
+        "reflectionGlowMultiplier": 1.0
+      }
+    },
+    {
+      "name": "DLSS\\DLSS_SR",
+      "scalingType": 1,
+      "scale": {
+        "x": 1.0,
+        "y": 1.0
+      },
+      "parameters": {
+        "nvidiaOpticalFlowQuality": 2.0,
+        "opticalFlowMethod": 0.0,
+        "amdOpticalFlowMode": 1.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+strict_nq W=1280 H=720 preset=2 gpu_median_ms=17.886 gpu_mean_ms=18.035 gpu_min_ms=17.579 wall_median_ms=18.472 wall_mean_ms=18.522 wall_min_ms=12.018 nonfinite=0 mean_rgb=0.742048 range=[0.5864, 0.9126]
+strict_nq SKY {'sign_changes': 0, 'hf_rms': 0.00010903867951128632, 'nonfinite': 0}
+strict_nq W=1600 H=900 preset=2 gpu_median_ms=31.756 gpu_mean_ms=31.504 gpu_min_ms=27.974 wall_median_ms=31.495 wall_mean_ms=31.615 wall_min_ms=24.472 nonfinite=0 mean_rgb=0.431223 range=[0.1085, 0.7324]
+strict_nq W=1920 H=1080 preset=2 gpu_median_ms=37.113 gpu_mean_ms=37.198 gpu_min_ms=35.466 wall_median_ms=38.011 wall_mean_ms=37.867 wall_min_ms=31.692 nonfinite=0 mean_rgb=0.430923 range=[0.1060, 0.7383]
+multidef_nq W=1280 H=720 preset=2 gpu_median_ms=15.829 gpu_mean_ms=15.903 gpu_min_ms=15.340 wall_median_ms=16.717 wall_mean_ms=16.498 wall_min_ms=10.432 nonfinite=0 mean_rgb=0.742294 range=[0.5864, 0.9126]
+multidef_nq SKY {'sign_changes': 0, 'hf_rms': 0.00010270136408507824, 'nonfinite': 0}
+multidef_nq W=1600 H=900 preset=2 gpu_median_ms=24.474 gpu_mean_ms=24.400 gpu_min_ms=22.094 wall_median_ms=25.282 wall_mean_ms=25.100 wall_min_ms=19.444 nonfinite=0 mean_rgb=0.431039 range=[0.1086, 0.7324]
+multidef_nq W=1920 H=1080 preset=2 gpu_median_ms=32.036 gpu_mean_ms=31.831 gpu_min_ms=28.552 wall_median_ms=32.511 wall_mean_ms=33.037 wall_min_ms=28.198 nonfinite=0 mean_rgb=0.430566 range=[0.1053, 0.7393]

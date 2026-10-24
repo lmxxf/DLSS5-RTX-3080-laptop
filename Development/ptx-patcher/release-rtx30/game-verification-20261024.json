@@ -1,0 +1,42 @@
+{
+  "source": "Local game log excerpts read during documentation update; timings are examples, not whole-game FPS",
+  "StellarBlade": {
+    "display": "3840x2160",
+    "last_render": "1279x720",
+    "detail": 1.5,
+    "colour": 1.1,
+    "paper_white": 1.0,
+    "samples": [
+      {
+        "time": "20:40:33.472369",
+        "total_nr_ms": 18.86,
+        "model_ms": 18.62,
+        "host_ms": 0.24
+      },
+      {
+        "time": "20:40:56.501537",
+        "total_nr_ms": 18.42,
+        "model_ms": 18.18,
+        "host_ms": 0.24
+      }
+    ]
+  },
+  "Onimusha": {
+    "display": "3840x2160",
+    "render": "1280x720",
+    "samples": [
+      {
+        "time": "19:18:33.635523",
+        "total_nr_ms": 17.68,
+        "model_ms": 17.24,
+        "host_ms": 0.44
+      },
+      {
+        "time": "19:18:59.796952",
+        "total_nr_ms": 17.51,
+        "model_ms": 17.35,
+        "host_ms": 0.16
+      }
+    ]
+  }
+}

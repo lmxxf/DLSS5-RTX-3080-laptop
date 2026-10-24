@@ -1,0 +1,30 @@
+Magpie RTX30 0.1.0 修复回执（2026-10-24）
+
+实际运行目录：C:\DLSS5-5090-dll\发布打包\Magpie-DLSS5-RTX30-0.1.0
+
+1. DLSS_SR缺库确认
+同一D3D11设备、相同Balanced/preset J、1280x720 ->3840x2160创建参数，无本地nvngx_dlss.dll时返回bad0000b，放入剑星原版SR DLL后返回00000001。
+NVIDIA官方定义：bad0000b=UnableToInitializeFeature，常见原因是找不到该功能库；不等同FeatureNotFound(4)。
+出处：https://github.com/NVIDIA/DLSS/blob/main/include/nvsdk_ngx_defs.h
+直接日志：sr-without-dll.log、sr-with-dll.log。
+
+2. 默认链与插件修复
+默认FSR3 1x -> DLSS_SR，关闭FSR4/XeSSFG默认链，光流请求为zero/none。
+添加原生nvngx_dlss.dll；SR库不是71块旧NR模型，不改变NR仅31块的范围。
+worker自动建日志目录，记录bootstrap/Present/hook/模型；Magpie第一帧或2秒后开始安装，避免等30次Present的循环依赖。其它宿主保留30帧策略。
+loader与provider两层hook都成功；thread-local depth防止重复dispatch；切换hook入口后清除旧context指针，避免先捕获provider内部handle后错过loader层handle，连续120次跳过。
+移除旧temporal-history标记，保留MP0.5、F9禁用和时序实验关闭。
+
+3. 实测
+D3D11 swapchain + D3D12 FFX测试已验证Present1递增、loader/provider hook status0、31块CUDA模型初始化和100帧持续处理，输出非NaN/Inf且像素改变。
+真实Magpie程序以DPI-aware动画窗口作为1280x720捕获源，日志确认FSR3 1280x720->1280x720和DLSS_SR 1280x720->3840x2160初始化成功。
+最终发布二进制PID21292：model0.5 blocks31，render_complete pixels_changed，每帧连续600帧处理，约40~44ms/整体神经回调帧；正常停止、无设备移除。日志在final-evidence/。
+这不是替用户做过光环视觉验收；用户仍可在实际游戏用F6对比。
+早期私有测试使用DPI未正确声明的1918x1079窗口，不计入720p验收。另保留早期未完成接管的日志，不把registered/ready当作执行成功。
+
+4. 已部署
+运行目录、中心dlss5-amd.addon64和nvngx_dlss.dll已更新。
+Magpie ZIP及SHA256SUMS均更新；其它两个PTX ZIP未改。
+备份目录：C:\DLSS5-5090-dll\backups\20261024-Magpie-0.1.0-fix
+退出Magpie后回退：python3 /mnt/c/DLSS5-5090-dll/backups/20261024-Magpie-0.1.0-fix/restore.py
+具体二进制/ZIP哈希和大小见deployment.json及发布目录.sha256。

@@ -1,0 +1,234 @@
+[20:13:12.465660] [W] OptiScaler v10.0.0-dev (8f71f73_lmxxf_staged) (20260922_RE9_PreSR) loaded
+[20:13:12.465717] [W] ---------------------------------
+[20:13:12.465727] [W] OptiScaler is freely downloadable from
+[20:13:12.465733] [W] GitHub : https://github.com/optiscaler/OptiScaler/releases
+[20:13:12.465737] [W] Nexus  : https://www.nexusmods.com/site/mods/986
+[20:13:12.465742] [W] If you paid for these files, you've been scammed!
+[20:13:12.465750] [W] DO NOT USE IN MULTIPLAYER GAMES
+[20:13:12.465756] [I]
+[20:13:12.465765] [I] LogLevel: 2
+[20:13:12.465770] [I]
+[20:13:12.465786] [I] Windows version: Windows 11 (10.0.26300)
+[20:13:12.465791] [I]
+[20:13:12.465796] [I] Config parameters:
+[20:13:12.465802] [I] Upscalers.Dx12Upscaler: dlss
+[20:13:12.465807] [I] FrameGen.FGInput: nofg
+[20:13:12.465812] [I] FrameGen.FGOutput: nofg
+[20:13:12.465816] [I] DlssNr.Enabled: true
+[20:13:12.465821] [I] DlssNr.RunBeforeSR: true
+[20:13:12.465826] [I] DlssNr.ToggleKey: 117
+[20:13:12.465830] [I] DlssNr.TransferStrength: 1.0
+[20:13:12.465835] [I] DlssNr.ColourStrength: 1.0
+[20:13:12.465839] [I] DlssNr.MaxRatio: 2.0
+[20:13:12.465844] [I] DlssNr.WorkingScale: 1.0
+[20:13:12.465848] [I] DlssNr.WhitePointSource: 1
+[20:13:12.465853] [I] DlssNr.Passes: 1
+[20:13:12.465858] [I] DlssNr.WhitePointTrim: 1.0
+[20:13:12.465862] [I] DlssNr.Preset: 2
+[20:13:12.465867] [I] DlssNr.Intensity: 1.0
+[20:13:12.465871] [I] DlssNr.Style: 1
+[20:13:12.465876] [I] DlssNr.LocalStructure: 1.0
+[20:13:12.465881] [I] DlssNr.LocalTone: 1.0
+[20:13:12.465885] [I] DlssNr.NrBackend: nvidia
+[20:13:12.465890] [I] Log.LogToFile: true
+[20:13:12.465894] [I] Log.LogLevel: 2
+[20:13:12.465899] [I] Menu.ShowFps: true
+[20:13:12.465903] [I] Spoofing.Dxgi: false
+[20:13:12.465908] [I] Inputs.EnableDlssInputs: true
+[20:13:12.465913] [I] Inputs.EnableFsr2Inputs: true
+[20:13:12.465917] [I] Inputs.UseFsr2Inputs: true
+[20:13:12.465922] [I] Inputs.EnableFsr3Inputs: true
+[20:13:12.465926] [I] Inputs.UseFsr3Inputs: true
+[20:13:12.465932] [I] Inputs.EnableFfxInputs: true
+[20:13:12.465936] [I] Inputs.UseFfxInputs: true
+[20:13:12.465941] [I] Inputs.EnableHotSwapping: false
+[20:13:12.465946] [I] Plugins.LoadReShade: false
+[20:13:12.465952] [I]
+[20:13:12.465958] [I] Setting DllPath to C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44
+[20:13:12.465962] [I]
+[20:13:12.465995] [I]
+[20:13:12.466011] [W] IsRunningOnWine Wine not detected
+[20:13:12.474572] [I]
+[20:13:12.474595] [I] Check for DLSS files
+[20:13:12.474702] [I] Util::FindFilePath nvngx_dlss.dll found at C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44
+[20:13:12.476001] [I] Enabling DLSS
+[20:13:12.476015] [I]
+[20:13:12.476083] [I] CheckQuirks Game's Exe: ffx_nr_smoke.exe
+[20:13:12.476092] [I] CheckQuirks Game Name:
+[20:13:12.476098] [I] CheckQuirks Game Version:
+[20:13:12.476104] [I] CheckQuirks Game Engine: Other
+[20:13:12.476211] [I]
+[20:13:12.479461] [I] CheckWorkingMode OptiScaler working as dxgi.dll, system dll loaded
+[20:13:12.479565] [W] Config::CheckUpscalerFiles nvngx.dll not found!
+[20:13:12.479641] [I] Util::FindFilePath nvngx_dlss.dll found at C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44
+[20:13:12.479679] [I] Config::CheckUpscalerFiles libxess.dll found in game folder
+[20:13:12.485330] [I]
+[20:13:12.487292] [W] Util::LoadProxyLibrary Can't find amd_fidelityfx_loader_dx12.dll, returning nullptr!
+[20:13:12.487735] [I] Util::LoadProxyLibrary amd_fidelityfx_dx12.dll loaded from Opti dll path: C:\DLSS5-5090-dll\发布打包\.stage\OptiScaler-DLSS5-RTX30-0.44\amd_fidelityfx_dx12.dll
+[20:13:12.487750] [I] FfxApiProxy::InitFfxDx12 Loaded from C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44\amd_fidelityfx_dx12.dll
+[20:13:12.487862] [I]
+[20:13:12.488438] [I] Util::LoadProxyLibrary amd_fidelityfx_upscaler_dx12.dll loaded from Opti dll path: C:\DLSS5-5090-dll\发布打包\.stage\OptiScaler-DLSS5-RTX30-0.44\amd_fidelityfx_upscaler_dx12.dll
+[20:13:12.490610] [I] FfxApiProxy::InitFfxDx12_SR Loaded from C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44\amd_fidelityfx_upscaler_dx12.dll
+[20:13:12.490710] [I] FfxApiProxy::InitFfxDx12_SR LoadResult: true
+[20:13:12.490725] [I]
+[20:13:12.491631] [I] Util::LoadProxyLibrary amd_fidelityfx_framegeneration_dx12.dll loaded from Opti dll path: C:\DLSS5-5090-dll\发布打包\.stage\OptiScaler-DLSS5-RTX30-0.44\amd_fidelityfx_framegeneration_dx12.dll
+[20:13:12.491649] [I] FfxApiProxy::InitFfxDx12_FG Loaded from C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44\amd_fidelityfx_framegeneration_dx12.dll
+[20:13:12.491712] [I] FfxApiProxy::InitFfxDx12_FG LoadResult: true
+[20:13:12.491718] [I]
+[20:13:12.493819] [W] Util::LoadProxyLibrary Can't find amd_fidelityfx_denoiser_dx12.dll, returning nullptr!
+[20:13:12.493835] [I] FfxApiProxy::InitFfxDx12_Denoiser LoadResult: false
+[20:13:12.493841] [I]
+[20:13:12.495685] [W] Util::LoadProxyLibrary Can't find amd_fidelityfx_radiancecache_dx12.dll, returning nullptr!
+[20:13:12.495702] [I] FfxApiProxy::InitFfxDx12_Radiance LoadResult: false
+[20:13:12.495709] [I] FfxApiProxy::InitFfxDx12 LoadResult: true
+[20:13:12.495715] [I]
+[20:13:12.497501] [W] Util::LoadProxyLibrary Can't find amd_fidelityfx_denoiser_dx12.dll, returning nullptr!
+[20:13:12.497513] [I] FfxApiProxy::InitFfxDx12_Denoiser LoadResult: false
+[20:13:12.497519] [I]
+[20:13:12.499368] [W] Util::LoadProxyLibrary Can't find amd_fidelityfx_radiancecache_dx12.dll, returning nullptr!
+[20:13:12.499381] [I] FfxApiProxy::InitFfxDx12_Radiance LoadResult: false
+[20:13:12.503929] [I] Util::LoadProxyLibrary libxess.dll loaded from Opti dll path: C:\DLSS5-5090-dll\发布打包\.stage\OptiScaler-DLSS5-RTX30-0.44\libxess.dll
+[20:13:12.503949] [I] XeSSProxy::InitXeSS Loaded from C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44\libxess.dll
+[20:13:12.504274] [I] XeSSProxy::InitXeSS LoadResult: true
+[20:13:12.504762] [I] Util::LoadProxyLibrary libxess_dx11.dll loaded from Opti dll path: C:\DLSS5-5090-dll\发布打包\.stage\OptiScaler-DLSS5-RTX30-0.44\libxess_dx11.dll
+[20:13:12.504776] [I] XeSSProxy::InitXeSSDx11 Loaded from C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44\libxess_dx11.dll
+[20:13:12.504955] [I] XeSSProxy::InitXeSSDx11 LoadResult: true
+[20:13:12.506407] [I] Util::LoadProxyLibrary libxess_fg.dll loaded from Opti dll path: C:\DLSS5-5090-dll\发布打包\.stage\OptiScaler-DLSS5-RTX30-0.44\libxess_fg.dll
+[20:13:12.506426] [I] XeFGProxy::InitXeFG Loaded from C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44\libxess_fg.dll
+[20:13:12.506431] [I]
+[20:13:12.506444] [I] XeFGProxy::HookXeFG LoadResult: true
+[20:13:12.506952] [I] Util::LoadProxyLibrary libxell.dll loaded from Opti dll path: C:\DLSS5-5090-dll\发布打包\.stage\OptiScaler-DLSS5-RTX30-0.44\libxell.dll
+[20:13:12.506966] [I] XeLLProxy::InitXeLLProper Loaded from C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44\libxell.dll
+[20:13:12.506972] [I]
+[20:13:12.506983] [I] XeLLProxy::HookXeLL LoadResult: true
+[20:13:12.507064] [I] NVNGXProxy::InitNVNGX
+[20:13:12.509202] [W] Util::LoadProxyLibrary Can't find _nvngx.dll, returning nullptr!
+[20:13:12.511157] [W] Util::LoadProxyLibrary Can't find nvngx.dll, returning nullptr!
+[20:13:12.511169] [I] Util::NvngxPath trying to load nvngx from registry path!
+[20:13:12.511200] [I] Util::NvngxPath nvngx registry path: C:\WINDOWS\System32\DriverStore\FileRepository\nvtfi.inf_amd64_039ce3d14607c6bc
+[20:13:12.512452] [I] Util::LoadProxyLibrary _nvngx.dll loaded from override path: C:\WINDOWS\System32\DriverStore\FileRepository\nvtfi.inf_amd64_039ce3d14607c6bc\_nvngx.dll
+[20:13:12.512469] [I] NVNGXProxy::InitNVNGX Loaded from C:\WINDOWS\System32\DriverStore\FileRepository\nvtfi.inf_amd64_039ce3d14607c6bc\_nvngx.dll
+[20:13:12.512474] [I] NVNGXProxy::InitNVNGX Getting nvngx method addresses
+[20:13:12.512484] [I] HookNgxApi NVSDK_NGX_XXXXXX_GetFeatureRequirements found, hooking!
+[20:13:12.512546] [I]
+[20:13:12.512568] [I] HookFSR2ExeInputs Trying to hook FSR2 methods
+[20:13:12.512643] [I] HookFSR3ExeInputs Trying to hook FSR3 methods
+[20:13:12.512708] [I]
+[20:13:12.512715] [I] Init done
+[20:13:12.512720] [I] ---------------------------------------------
+[20:13:12.512725] [I]
+[20:13:12.526586] [W] DxgiSpoofing::AttachToAdapter DxgiSpoofing and DxgiVRAM is disabled, skipping hooking
+[20:13:12.550341] [I] Detected GPUs:
+                      NVIDIA GeForce RTX 3080 Laptop GPU
+                          vendorId: 10DE, deviceId: 249C, VRAM: 16175MB
+                          dxvk: false, vkd3d-proton: false
+                          Upscaler support - fsr4: false, dlss: true
+                      Microsoft Basic Render Driver
+                          vendorId: 1414, deviceId: 8C, VRAM: 0MB
+                          dxvk: false, vkd3d-proton: false
+                          Upscaler support - fsr4: false, dlss: false
+
+[20:13:12.551322] [I] hkD3D12CreateDevice Adapter Desc: NVIDIA GeForce RTX 3080 Laptop GPU
+[20:13:12.789216] [I] HookToCommandList AMD graphics tracker hooks attached (RS/IA/OM/pred/Reset/Create/query/indirect/draw, renderPass=true)
+[20:13:12.836836] [W] FGHooks::CreateSwapChainForHwnd Can't init FG Feature or invalid FGOutput setting!
+[20:13:12.846011] [I] WrappedIDXGISwapChain4::WrappedIDXGISwapChain4 1 created, real: 266F50F7C00, refCount: 1
+[20:13:12.846988] [I] NVSDK_NGX_D3D12_Init_with_ProjectID InProjectId: 0F71CA1E-5CA1-E42A-AC1E-5CA1E0A11E55
+[20:13:12.847006] [I] NVSDK_NGX_D3D12_Init_with_ProjectID InEngineType: 0
+[20:13:12.847013] [I] NVSDK_NGX_D3D12_Init_with_ProjectID InEngineVersion: 10.0.0
+[20:13:12.847661] [I] NVSDK_NGX_D3D12_Init_Ext calling NVNGXProxy::D3D12_Init_Ext
+[20:13:12.853742] [I] LibraryLoadHooks::LoadLibraryCheckW nvapi64.dll call!
+[20:13:12.854822] [I] NvApiHooks::Hook NvAPI_QueryInterface found, hooking!
+[20:13:13.594622] [I] LibraryLoadHooks::LoadLibraryCheckW nvapi64.dll call!
+[20:13:13.749050] [I] `anonymous-namespace'::RunVersionCheck OptiScaler is up to date (current 10.0.0)
+[20:13:13.859385] [I] LibraryLoadHooks::LoadLibraryCheckW dxgi.dll call, returning this dll!
+[20:13:13.862288] [I] LibraryLoadHooks::LoadLibraryCheckW dxgi.dll call, returning this dll!
+[20:13:13.881054] [I] LibraryLoadHooks::LoadLibraryCheckW nvapi64.dll call!
+[20:13:14.030912] [I] NVSDK_NGX_D3D12_Init_Ext calling NVNGXProxy::D3D12_Init_Ext result: 1
+[20:13:14.030947] [I] NVSDK_NGX_D3D12_Init_Ext AppId: 4919
+[20:13:14.030954] [I] NVSDK_NGX_D3D12_Init_Ext SDK: 15
+[20:13:14.030962] [I] NVSDK_NGX_D3D12_Init_Ext InApplicationDataPath C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44\
+[20:13:14.030978] [I] ffxCreateContext_Dx12 Custom context index:7912
+[20:13:14.030985] [I] NVSDK_NGX_D3D12_GetCapabilityParameters Calling NVNGXProxy::D3D12_GetCapabilityParameters
+[20:13:14.031064] [I] NVSDK_NGX_D3D12_GetCapabilityParameters Calling NVNGXProxy::D3D12_GetCapabilityParameters result: 1, ptr: 26740477170
+[20:13:14.031086] [I] ffxCreateContext_Dx12 context created: 1EE8
+[20:13:14.031888] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #1: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:14.032644] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #2: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:14.033095] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #3: UAV dim 3 1280x720x1 fmt 41 (filter rejected)
+[20:13:14.033507] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #4: UAV dim 3 1280x720x1 fmt 34 (filter rejected)
+[20:13:14.180300] [I] CreateDLSSContext renderWidth: 1280, maxWidth: 1280, ratio: 1
+[20:13:14.180348] [I] TryCreateOptiFeature Creating OptiScaler feature, HandleId: 1000000
+[20:13:14.180359] [I] TryCreateOptiFeature Creating DLSS upscaler feature
+[20:13:14.180374] [I] IFeature::SetHandle Handle: 1000000
+[20:13:14.180385] [I] IFeature::SetInitParameters Init Flag AutoExposure: false
+[20:13:14.180392] [I] IFeature::SetInitParameters Init Flag DepthInverted: false
+[20:13:14.180400] [I] IFeature::SetInitParameters Init Flag IsHdr: true
+[20:13:14.180407] [I] IFeature::SetInitParameters Init Flag JitteredMV: false
+[20:13:14.180416] [I] IFeature::SetInitParameters Init Flag LowResMV: true
+[20:13:14.180424] [I] IFeature::SetInitParameters Init Flag SharpenEnabled: false
+[20:13:14.180436] [I] IFeature::SetInitParameters Render Resolution: 1280x720, Display Resolution 1280x720, Quality: 5
+[20:13:14.180448] [I] HookNgxApi NVSDK_NGX_XXXXXX_GetFeatureRequirements found, hooking!
+[20:13:14.180507] [I] DLSSFeatureDx12::DLSSFeatureDx12 binding complete!
+[20:13:14.693823] [I] DLSSFeatureDx12::InitDLSS Creating DLSS feature
+[20:13:14.695694] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #5: UAV dim 3 2560x1440x1 fmt 54 (filter rejected)
+[20:13:14.696338] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #6: UAV dim 3 2560x1440x1 fmt 54 (filter rejected)
+[20:13:14.696958] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #7: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:14.697534] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #8: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:14.697922] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #9: UAV dim 3 320x256x1 fmt 10 (filter rejected)
+[20:13:14.698219] [I] DlssNr::ExposureScan::Adopt DLSS-NR exposure scan: candidate 1 -- 1x1 R16_FLOAT
+[20:13:14.698535] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #10: UAV dim 1 1024x1x1 fmt 0 (filter rejected)
+[20:13:14.701052] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #11: UAV dim 1 524288x1x1 fmt 0 (filter rejected)
+[20:13:14.702369] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #12: UAV dim 1 6553600x1x1 fmt 0 (filter rejected)
+[20:13:14.738753] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #13: UAV dim 1 3545824x1x1 fmt 0 (filter rejected)
+[20:13:14.744388] [I] DLSSFeatureDx12::InitDLSS _CreateFeature result: NVSDK_NGX_Result_Success
+[20:13:14.748873] [I] DLSSFeature::ReadVersion DLSS v310.9.16 loaded.
+[20:13:14.761356] [I] CreateDLSSContext context created: 1EE8
+[20:13:14.761523] [I] DlssNr::EvaluateInternal DLSS-NR reached through the game's DLSS input
+[20:13:14.761555] [I] DlssNr::EvaluateInternal DLSS-NR exposure from the game: DLSS.Pre.Exposure 1.000000, ExposureTexture not supplied, auto-exposure flag clear
+[20:13:14.780699] [I] DlssNr_Dx12::Dispatch DLSS-NR: the game asked for a history reset (1 so far)
+[20:13:14.780741] [I] DlssNr_Dx12::Dispatch DLSS-NR guides: depth not inverted, motion vector scale 1 x 1, guides 1280x720 for a 1280x720 frame
+[20:13:14.780889] [I] Util::FindFilePath nvngx.dll_dlssnr.dll found at C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44
+[20:13:14.781568] [I] `anonymous-namespace'::EnsureForwarder DLSS-NR forwarder loaded from C:\DLSS5-5090-dll\发布打包\.stage\OptiScaler-DLSS5-RTX30-0.44\nvngx.dll_dlssnr.dll
+[20:13:14.781660] [I] `anonymous-namespace'::DiscoverFloatSlot DLSS-NR float parameters go through vtable slot 6
+[20:13:14.781735] [I] Util::FindFilePath nvngx_dlssnr.dll found at C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44
+[20:13:14.786010] [I] `anonymous-namespace'::ReportScalingRatios DLSS-NR the model's own scaling ratios: MaxPerf=refused Balanced=refused MaxQuality=1.0000 UltraPerformance=refused UltraQuality=0.8500 DLAA=1.0000
+[20:13:14.786738] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #14: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:14.787314] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #15: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:14.787922] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #16: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:14.788190] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #17: UAV dim 3 64x64x1 fmt 41 (filter rejected)
+[20:13:14.788758] [I] DlssNr_Dx12::Dispatch DLSS-NR: white point meter up, 64x64 tiles
+[20:13:14.788856] [I] Util::FindFilePath nvngx_dlssnr.dll found at C:\DLSS5-5090-dll\鍙戝竷鎵撳寘\.stage\OptiScaler-DLSS5-RTX30-0.44
+[20:13:14.795065] [I] LibraryLoadHooks::LoadLibraryCheckW nvapi64.dll call!
+[20:13:14.952225] [I] LibraryLoadHooks::LoadLibraryCheckW dxgi.dll call, returning this dll!
+[20:13:15.056867] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #18: UAV dim 1 113907200x1x1 fmt 0 (filter rejected)
+[20:13:15.082733] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #19: UAV dim 1 69488640x1x1 fmt 0 (filter rejected)
+[20:13:15.137336] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #20: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:15.137399] [I] DlssNr_Dx12::Dispatch DLSS-NR running before SR: target 1280x720, model 1280x720, guides 1280x720 (preset 2, intensity 1, style 1, build epoch 0)
+[20:13:15.200612] [I] OptiInput::Initialize Initialize requested target:0x190e4e input:0x0 isUwp:0 useSubclass:1 currentPid:1564
+[20:13:15.200656] [I] OptiInput::SetTargetWindow target window set hwnd:0x190e4e root:0x190e4e pid:1564 tid:30088 currentPid:1564 external:0 isUwp:0 useSubclass:1
+[20:13:15.200666] [I] OptiInput::SetInputWindow input window set hwnd:0x190e4e root:0x190e4e pid:1564 tid:30088 explicitInput:0 useSubclass:1
+[20:13:15.200701] [I] OptiInput::InstallWindowSubclass subclass installed hwnd:0x190e4e previousWndProc:140728827910976 optiWndProc:140724082766640
+[20:13:15.200710] [I] OptiInput::InstallHooks installing Win32 input hooks currentPid:1564 targetPid:1564 inputPid:1564
+[20:13:15.200793] [I] OptiInput::InstallHooks Win32 message hooks installed
+[20:13:15.200887] [I] OptiInput::InstallHooks Win32 key state hooks installed
+[20:13:15.200920] [I] OptiInput::InstallHooks Win32 GetMessagePos hooks installed
+[20:13:15.200954] [I] OptiInput::InstallHooks Win32 clip cursor hooks installed
+[20:13:15.201044] [I] OptiInput::InstallHooks Win32 message hooks installed
+[20:13:15.201116] [I] OptiInput::InstallHooks Win32 HID hooks installed
+[20:13:15.201174] [I] OptiInput::InstallHooks Win32 raw input hooks installed
+[20:13:15.201224] [I] OptiInput::InstallHooks Win32 windows input hooks installed
+[20:13:15.201279] [I] OptiInput::InstallHooks Win32 position input hooks installed
+[20:13:15.201288] [I] OptiInput::Initialize Initialize completed hooksInstalled:1 target:0x190e4e targetPid:1564 input:0x190e4e inputPid:1564 externalTarget:0 subclassed:1
+[20:13:15.201358] [I] OptiInput::UpdateXInputIntegrationLocked XInput hooks installed module:0x7ffdd5dc0000 getState:1 getStateEx:1 getKeystroke:1 setState:1
+[20:13:15.204082] [I] DlssNr::EvaluateInternal DLSS-NR reached through the game's FFX input
+[20:13:15.204131] [I] DlssNr_Dx12::Dispatch DLSS-NR: primary feature ready after submitted epoch 0
+[20:13:15.204140] [I] DlssNr_Dx12::Dispatch DLSS-NR before SR: the game's DLSS colour space is linear HDR so the colour transform is on
+[20:13:15.205113] [I] DlssNr_Dx12::Dispatch DLSS-NR exposure: option switched on, held reading discarded
+[20:13:15.205355] [I] DlssNr_Dx12::Dispatch DLSS-NR model passes: configured 1, effective 1
+[20:13:15.206454] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #21: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:15.207452] [I] DlssNr::ExposureScan::NoteResource DLSS-NR scan near-miss #22: UAV dim 3 1280x720x1 fmt 10 (filter rejected)
+[20:13:15.207807] [I] DlssNr_Dx12::Dispatch DLSS-NR composition: paper white 1.00x, detail 1.00, colour 1.00, guard 2.0x, colour transform on (linear HDR), transfer matched residual, model 1280x720, passes 1, debug view 0, compare 0
+[20:13:15.296299] [I] CreateRenderTargetDx12 done!
+[20:13:15.581213] [I] NVSDK_NGX_D3D12_ReleaseFeature releasing feature with id 1000000
+[20:13:15.635954] [I]
+[20:13:15.635980] [I] DLL_PROCESS_DETACH
+[20:13:15.635986] [I] Unloading OptiScaler

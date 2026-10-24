@@ -1,69 +1,74 @@
-# DLSS 5 -> NVIDIA RTX 3080 Laptop (`sm_86` Ampere) 移植工程工作计划与架构说明
+# v0.1.0 工作计划：PTX 主线与发布结构
 
-**项目仓库**：`https://github.com/lmxxf/DLSS5-RTX-3080-laptop`  
-**目标硬件**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86` Ampere 架构，48 SMs，16 GB GDDR6，101,376 B Shared Memory/SM，65,536 Registers/SM）  
-**基线版本**：基于 `DLSS5-AMD 0.44`（含 71-block `1x Original` 模型与 31-block `0.5x Small` 模型）
+当前产品是 `Development/ptx-patcher/`，以原版 **310.9.16.0 `nvngx_dlssnr.dll`** 为输入，目标为 RTX 3080 Laptop / Ampere `sm_86` 的 **31 块 Small 模型**。工程首版为 **0.1.0**；上游 AMD 包的 **0.44** 仅表示输入来源。
 
----
+## 目录约定
 
-## 1. 核心架构与三层移植设计
+`Development/` 严格只放：
 
-本项目将原本针对 AMD RDNA4 (`gfx1201`) Wave32 + WMMA 构建的完整 DLSS 5 神经渲染管线（OptiScaler / REFramework 插件 + D3D12 编解码 + 71-block / 31-block Swin-ViT 混合神经网络）完整移植到 NVIDIA Ampere (`sm_86`) 架构：
+- `DevHistory.md`：按时间记录工程工作、实验、反证与部署回执。
+- `WorkingPlan.md`：当前架构、入口和后续工作。
+- `ptx-patcher/`：当前产品代码、发布工具及所有相关工作材料。
+- `hip-port/`：平行保留的附加/实验路线。
 
-### 1.1 设备端算子与指令集兼容层（`hip/sm86_compat.h`）
-- **编译管线**：使用 `clang++ -x cuda --cuda-device-only --cuda-gpu-arch=sm_86 -Xclang -fnative-half-type -Xclang -fallow-half-arguments-and-returns -nocudainc -nocudalib -std=c++20 -O3` 直接将无 SDK 依赖的 `.hip` / `.inc` 源码编译为 PTX，再由 `hip/ptx2cubin`（基于 NVIDIA Driver JIT Linker API `cuLinkCreate_v2` / `cuLinkAddData_v2`）编译为原生 `sm_86` ELF `.cubin`（以 `.hsaco` 文件名原位部署，宿主零改动）。
-- **Wave32 16x16x16 WMMA -> Ampere `mma.sync.aligned.m16n8k16` 精确映射**：
-  - RDNA4 的 `__builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12` 与 `__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12` 每条 Lane 持有 8 个输入/累加元素；
-  - `sm86_compat.h` 通过无分支 `prmt.b32` 硬件字节查表将 OCP E4M3 (FP8) 精确无损转换为 IEEE FP16，经 `sm86_frag_butterfly` 寄存器洗牌对齐到 Ampere `m16n8k16` 矩阵片段布局，发射两条 `mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32` Tensor Core 指令完成 16x16x16 矩阵乘累加，并在累加器初值为零 (`__builtin_constant_p`) 时编译期短路跳过 `c_to_ampere` 的 20 条 `shfl.sync` 指令。
-- **AMDGPU 硬件指令精确对偶**：
-  - `v_med3_f32` (`__builtin_amdgcn_fmed3f`)：精确复现 NaN 输入向 `min(lo, hi)`（如 `-448.f` / `-4.f`）坍缩的硬件语义；
-  - `v_sin_f32` / `v_cos_f32`：保留 AMDGPU 以圈数（$2\pi$ 弧度为 1 周期）为单位的输入约定；
-  - `v_log_f32`：`lg2.approx.ftz.f32`；
-  - `__builtin_amdgcn_ds_bpermute` / `readlane` / `readfirstlane`：映射到 `shfl.sync.idx.b32`；
-  - `s_barrier` / `wave_barrier` / `__hip_atomic_*`：映射到 `bar.sync 0`、`bar.warp.sync 0xffffffff` 与 PTX `.cg`/`.wb` 全局原子操作（支撑 `swin-persistent` 跨 WG 任务队列）。
+`ptx-patcher/` 内：
 
-### 1.2 NVPTX Local Memory (`__local_depot`) 零溢出优化（`wave_owned_c32.inc`, `wave_owned_mh.inc`）
-- **根因诊断**：在 AMDGPU 上，LLVM 可对 `ext_vector_type(16)` (`cw_i16`, `w2_i16`) 使用 VGPR 相对寻址或跨循环保持寄存器；但在 NVPTX 后端中，任何被未展开外层循环变量 `qt` 动态索引的向量/数组都会被降级到 `.local` DRAM 栈帧（`__local_depot`），导致每个线程产生 `1,872 ~ 2,032 B` 的 Local Memory 溢出与数千条 `st.local`/`ld.local` 指令。
-- **根治方案**：
-  - 在 `wave_owned_c32.inc` 中，将跨 `qt` 阶段存活的 `queries`、`keys`、`values` 移入 `10 KB` L1 Shared Memory (`__attribute__((shared)) i2 cw_qkv_smem[3][8][32]`)，并对内层 `ci<2`、`e<8`、`kt<2` 循环强制 `_Pragma("unroll")`：使 `c32_wave1` 全系内核的 `lmem` 从 **`1,872 ~ 2,032 B` 降至 `0 B`**，寄存器占用从 `250` 降至 `210 ~ 216`，`c32_wave1` 耗时直接减半（`-70.4 ms/frame`）。
-  - 在 `wave_owned_mh.inc` 中，使用无分支常量下标选择器 `w2_set_pair` / `w2_get_pair` (`selp.b32`) 替代 `query_words[qt*4+ci*2]` 动态下标，并将 `qkv[part][qt][ci]` 按常量 `part=0/1/2` 分支展开，使 `c256_wave2_bi_bo_w16` 的 `lmem` 从 **`1,616 B` 降至 `0 B`**。
+| 路径 | 职责 |
+|---|---|
+| `build_sm86_dlls.py` | 哈希门控的原始 DLL 输入、15 个 Fatbin 编译与 PE 组装 |
+| `dlssnr_patcher.py` | PTX/PE 解析、转换及宿主架构适配 |
+| `ptx_mapped.py` | 完整目的操作数定义统计、多定义过滤和严格块内诊断模式 |
+| `pe_fatbins.py` | O4 超槽位时的 PE 扩容后备；当前发行 DLL 全部原槽位 |
+| `bench_nvngx.dll.cpp` | D3D12 timestamp、合成场景/天空、输出检查 |
+| `sky-audit/` | 天空色带排查、控制实验、有限值转换检查和历史失败 |
+| `magpie-native/` | 原生 Feature 18、Preset 2 EXE 补丁、验证与正式部署 |
+| `magpie-fix/` | 旧 add-on 入口、缺 SR 库与窗口测试的历史修复材料 |
+| `release-rtx30/` | 三个发行包的组装、版本、部署脚本与发布回执 |
 
-### 1.3 宿主运行时与 D3D12-CUDA 桥接层（`Development/HIP/hip_api.h`, `hip_d3d12_bridge.h`）
-- **零改动 ABI 兼容**：`hip_api.h` 保持 `hip_probe::Api` 的全部方法名与函数指针签名，底层动态加载 Windows `nvcuda.dll` 或 Linux/WSL `libcuda.so.1`。
-- **Primary Context 与多线程自动绑定**：
-  - `hipInit` / `hipSetDevice` 通过 `cuDeviceGet` + `cuDevicePrimaryCtxRetain` + `cuCtxSetCurrent` 绑定主上下文；
-  - 内置 `thread_local` 快速上下文守卫 `EnsureCurrentContext()`，确保后台线程（如 `D3D12Bridge::PollWatch`）首次调用 CUDA Driver API 时自动绑定当前设备的 `CUcontext`。
-- **D3D12 共享资源与 Fence 同步**：
-  - 通过 `cuDeviceGetLuid` 获取 8 字节 LUID 与 `ID3D12Device::GetAdapterLuid()` 精确匹配；
-  - 通过 `cuImportExternalMemory` (`type=5`, `CU_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE`)、`cuExternalMemoryGetMappedBuffer`、`cuImportExternalSemaphore` (`type=4`, `CU_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE`)、`cuWaitExternalSemaphoresAsync`、`cuSignalExternalSemaphoresAsync` 实现 D3D12 <-> CUDA 零拷贝显存共享与 GPU 侧 Fence 同步。
-- **>48 KB Shared Memory 自动 Opt-in**：在 `WrapHipModuleGetFunction` 与 `WrapHipModuleLaunchKernel` 中自动检测并设置 `CU_FUNC_ATTRIBUTE_MAX_DYNAMIC_SHARED_SIZE_BYTES` 与 `CU_FUNC_ATTRIBUTE_PREFERRED_SHARED_MEMORY_CARVEOUT = 100`。
+## 当前 PTX 架构
 
----
+1. 只接受 SHA256 `2bc19bc09a7b89dd44f73e2ac0108fcc586e2154bdd0830f242f4f040e28789f` 的原版 DLL。
+2. 用位重排与 FP16x2 乘 256 完成 E4M3 解包；以 FP16 加 2 的 RNE 网格处理 E4M3 次正规量化，普通值走紧凑位打包。
+3. 将 FP8 `m16n8k32` 映射到两次 FP16 `m16n8k16`，保持原生 Warp fragment 坐标。
+4. 拒绝 packed 目标、FP8 中间寄存器或 FP16 来源在 entry 中多定义的 mapped，包含花括号向量加载和内联指令。默认保留单定义跨块转发，不额外量化；严格模式和量化模式供诊断。
+5. 全部 Fatbin 以 O4 编译、验证加载后组装输出；当前发布 15/15 原槽位。保留 PE 扩节后备能力，不降 O1 偷换发布判据。
 
-## 2. 目录结构与外部资产约定
+转换辅助函数的有限值 `0 bit-diff`，与整个默认转发网络的数值等价是两个命题。上游 shared-bug 输出一致也不是正确性证明。
 
-- **代码仓库**：`/home/lmxxf/work/DLSS5-RTX-3080-laptop`（保持轻量纯源码，大二进制权重与 `.hsaco`/`.cubin` 均在 `.gitignore` 中忽略）
-  - `hip/sm86_compat.h`：RDNA4 -> Ampere `sm_86` 设备端兼容头
-  - `hip/ptx2cubin.cpp`：调用 `libcuda.so.1` JIT Linker 的 PTX -> cubin 编译与符号校验工具
-  - `hip/build_sm86_modules.py`：并行编译全部 40 个模块（1,970 个内核入口）的构建脚本
-  - `Development/HIP/hip_api.h`：NVIDIA CUDA Driver API (`nvcuda.dll` / `libcuda.so.1`) 适配层
-  - `Development/HIP/hip_d3d12_bridge.h`：D3D12 <-> CUDA 互操作桥接层
-  - `Development/HIP/hip_reference_network.h`：支持 31-block `0.5x Small` 与 71-block `1x Original` 的宿主执行图
-  - `Development/HIP/test_cuda_bridge.cpp`：Linux/Windows 双端 CUDA Driver API 与 D3D12 互操作自检程序
-  - `Development/HIP/benchmark_cuda_nn.cpp`：Linux 原生纯神经网络全档位（1080p/900p × 0.5x/1x）精度与性能基准工具
-- **外部权重与编译产物目录**：`/home/lmxxf/work/dlss5-assets/native-game-tiled-assets`
-  - 根目录：71-block `1x Original` 权重资产
-  - `small/`：31-block `0.5x Small` 权重资产（93 个文件）
-  - `HIP/`（含 `gfx1201/`, `gfx1200/`, `sm_86/`）：40 个 `sm_86` 编译模块（`.hsaco` ELF cubin）
+## 三包当前状态
 
----
+| 包 | 当前默认 |
+|---|---|
+| OptiScaler-REFramework | NR → DLSS SR，Preset 2 / Style 1 / 单遍，保留 dinput8 与完整辅助库 |
+| OptiScaler 常规 | DLSS/FFX → NR → DLSS SR，完整 FFX loader/provider，默认细节 1.5、色彩 1.1 |
+| Magpie | 原生 DLSSNR Preset 2 / Style 1 → DLSS_SR，无 ReShade/add-on/外置权重 |
 
-## 3. 已完成与后续优化路线图
+Magpie 0.6.6 原后端把 Preset 写死为 0。`magpie-native/patch_preset2.py` 对已知原始 EXE 做最小字节守卫补丁，输出 SHA 固定为 `b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea`。JSON 只配置 Style 等原生参数，不伪装它能改变硬编码 Preset。
 
-1. **已完成：WMMA 累加器跨 K 步保持 Ampere 布局 + Q/K/V/prob 8 字节预洗牌 (`sm86_preshuffle_fp8`) + 32/32 核零 `LMem` 溢出**：
-   - 通过 `build_sm86_modules.py` 的 LCSSA 代数抵消 Pass 消去所有 K 循环内部（含 Diamond-PHI 与 4-partition 分段归并循环）的 `c_to_ampere` / `d_to_rdna4` 洗牌；
-   - 通过 Shuffle-Before-Unpack `__sm86_prep_fp8`、8 字节预洗牌 `sm86_preshuffle_fp8` + `sm86_wmma_fp8_preshuffled_ab`、`vit_stream_qkv` LDS 预解包与 32/32 核 `LMem = 0 B` 优化，将端到端推理提速 **`4.52× ~ 4.84×`**（`0.5x Small 900p` 达 **`43.1 ms` / `23.2 FPS`**，`0.5x Small 1080p` 达 **`57.1 ms` / `17.5 FPS`**），并在 Windows 11 实机通过 `frame.exe` D3D12 编解码 + CUDA 共享显存/Fence 互操作全链路验证。
-2. **下一步：宿主侧权重量化预重排（Host-side Ampere Fragment Pre-Shuffling）**：
-   - 在宿主侧上传权重时直接按 `sm86_preshuffle_fp8` 的 8 字节 Ampere Lane 布局预重排 `FragmentPackedMatrixW16`，即可省去内核中的全部权重 `shfl.sync`，直接通过 `sm86_unpack_e4m3x8` 送入 `mma.sync.m16n8k16`，将 `sm_86` Tensor Core 吞吐推至硬件极限。
-3. **《鬼武者》(Onimusha) / RE9 实机集成验证**：
-   - 使用已交叉编译的 `LmxxfNrRuntime.dll` 与 `dlss5-amd.addon64` 配合 40 个 `sm_86` 模块在 Windows 实机游戏中验证端到端帧率与画质。
+源码仓不放 DLL、ZIP、模型权重、GPU 模块或临时图像。当前发行包位于本机 `C:\DLSS5-5090-dll\发布打包`；大二进制与恢复备份独立于 Git。
+
+## 已验证
+
+- 转换有限域：GPU 双通道各 63,488 个有限 FP16 编码零差异。
+- Fragment 坐标：A/B 768 个标量槽位检查零错位。
+- mapped 控制：天空逐行红绿变号 106→0；仅多定义过滤且不额外量化恢复 O4 容量和速度。
+- 发布：原槽位 15/15 O4；NR DLL SHA256 `3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a`。
+- 《鬼武者》与《剑星》用户实机验收；当前日志有约 17.5 ms / 18.4～18.9 ms NR 总耗时示例，不据此补写整机 FPS。
+- Magpie 原生：实际 720p 动画窗口到 4K，960 次成功、0 失败；NR GPU 约 15.9 ms，完整窗口评估约 36 FPS。
+- 历史上游 O1 最低 GPU 时间比较为 2.08～2.25× 提速；当时双方的错误 mapped 一致，不再引用为正确性证据。
+
+## 回归入口
+
+```bash
+python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py -v
+```
+
+移动脚本或修改打包路径后检查 Python 语法、文档链接与引用路径。更改模型转换时，再跑有限值 GPU 检查和同输入输出对照；更改发布链时，检查原生模型真实分发、逐文件 SHA256 与 ZIP CRC，而非只看 DLL 注册成功。
+
+## 后续工作
+
+1. 收集 Magpie 原生路线在《光环》同一场景的整机 FPS，与旧路线做同负载对照；不把 `1/NR耗时` 当整机帧率。
+2. 若要提升完整链路 FPS，分别测 NR、SR、共享纹理/fence、捕获与呈现，避免只改模型外的重复处理。
+3. 扩展更多 RTX 30 设备与游戏验收，记录显存、功耗、质量档位和输入格式。
+4. 如需更新 NVIDIA DLL/Magpie 版本，先重新核验输入哈希与指令布局，拒绝复用旧偏移。
+5. `hip-port/` 继续作为研究材料，独立优化与结果不写成默认 PTX 发布成果。

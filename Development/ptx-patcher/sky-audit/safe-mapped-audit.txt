@@ -1,0 +1,7 @@
+0 packs {'down_multidef': 462, 'cross_block_down': 344, 'safe_pack': 3344, 'pack_multidef': 60} uses {'safe_use': 16960, 'cross_block_down': 1216, 'cross_block_use': 1216, 'pack_multidef': 512} example []
+1 packs {'down_multidef': 294, 'pack_multidef': 40, 'source_not_local': 160, 'source_multidef': 192, 'cross_block_down': 256, 'safe_pack': 1560} uses {'source_not_local': 2560, 'safe_use': 5120, 'cross_block_down': 768, 'cross_block_use': 768} example []
+2 packs {'down_multidef': 294, 'pack_multidef': 40, 'source_multidef': 384, 'cross_block_down': 256, 'safe_pack': 1288} uses {'safe_use': 3840, 'cross_block_down': 768, 'cross_block_use': 768} example []
+3 packs {'down_multidef': 1062, 'pack_multidef': 40, 'source_multidef': 544, 'safe_pack': 1384} uses {'safe_use': 5376} example []
+4 packs {'down_multidef': 220, 'source_not_local': 128, 'source_multidef': 384, 'safe_pack': 328, 'pack_multidef': 72, 'cross_block_down': 112} uses {'source_not_local': 512, 'safe_use': 1152, 'cross_block_use': 128} example []
+5 packs {'down_multidef': 596, 'cross_block_down': 912, 'safe_pack': 368, 'pack_multidef': 112} uses {'pack_multidef': 192, 'safe_use': 768} example [('%r1352', 'pack_multidef', [(4081, 4147, None), (4299, 4330, None)])]
+6 packs {'down_multidef': 36, 'pack_multidef': 32, 'cross_block_down': 128, 'safe_pack': 4} uses {} example []

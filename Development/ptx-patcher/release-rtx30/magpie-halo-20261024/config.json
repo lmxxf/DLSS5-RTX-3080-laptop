@@ -1,0 +1,230 @@
+{
+    "language": "",
+    "theme": 2,
+    "windowPos": {
+        "centerX": 1595.0,
+        "centerY": 841.5,
+        "width": 980.0,
+        "height": 690.0,
+        "maximized": false
+    },
+    "shortcuts": {
+        "scale": 3137,
+        "windowedModeScale": 3153,
+        "toolbar": 3140,
+        "profiler": 3152,
+        "effectParameters": 3141,
+        "screenshot": 3155,
+        "toolbarPin": 3142,
+        "comparison": 3139
+    },
+    "countdownSeconds": 3,
+    "developerMode": false,
+    "debugMode": false,
+    "benchmarkMode": false,
+    "disableTopmost": false,
+    "disableEffectCache": false,
+    "disableFontCache": false,
+    "saveEffectSources": false,
+    "warningsAreErrors": false,
+    "allowScalingMaximized": true,
+    "simulateExclusiveFullscreen": false,
+    "alwaysRunAsAdmin": false,
+    "showNotifyIcon": true,
+    "smoothMotionCompatibilityMode": false,
+    "inlineParams": false,
+    "autoCheckForUpdates": true,
+    "checkForPreviewUpdates": false,
+    "updateCheckDate": 0,
+    "duplicateFrameDetectionMode": 2,
+    "enableStatisticsForDynamicDetection": false,
+    "frontEdgeSync": false,
+    "vrr": false,
+    "frontEdgeSyncFrameRate": 60.0,
+    "minFrameRate": 10.0,
+    "disableFP16": false,
+    "experimentalDlssnrSettingsVersion": 2,
+    "experimentalDlssSrSettingsVersion": 1,
+    "experimentalDepthRemovalVersion": 1,
+    "scalingModes": [
+        {
+            "name": "Lanczos",
+            "effects": [
+                {
+                    "name": "Lanczos",
+                    "scalingType": 1,
+                    "scale": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "FSR",
+            "effects": [
+                {
+                    "name": "FSR\\FSR_EASU",
+                    "scalingType": 1,
+                    "scale": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                },
+                {
+                    "name": "FSR\\FSR_RCAS",
+                    "parameters": {
+                        "sharpness": 0.8700000047683716
+                    }
+                }
+            ]
+        },
+        {
+            "name": "RTX Video VSR Ultra",
+            "effects": [
+                {
+                    "name": "FrameRate_Filter"
+                },
+                {
+                    "name": "RTXVideo\\RTXVideo_VSR_Ultra",
+                    "scalingType": 1,
+                    "scale": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "DLSSFG",
+            "effects": [
+                {
+                    "name": "FrameRate_Filter"
+                },
+                {
+                    "name": "DLSSFG\\DLSS_FrameGeneration",
+                    "parameters": {
+                        "motionVectorQuality": 2.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "XeSSFG",
+            "effects": [
+                {
+                    "name": "FrameRate_Filter"
+                },
+                {
+                    "name": "XeSSFG\\XeSS_FrameGeneration_x2_ZeroMV",
+                    "parameters": {
+                        "amdOpticalFlowMode": 1.0,
+                        "opticalFlowMethod": 0.0,
+                        "nvidiaOpticalFlowQuality": 2.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "DLSSNR",
+            "effects": [
+                {
+                    "name": "DLSSNR\\DLSSNR_AI_Filter",
+                    "parameters": {
+                        "motionVectorQuality": 2.0
+                    }
+                }
+            ]
+        },
+        {
+            "name": "DLSS5-AMD",
+            "effects": [
+                {
+                    "name": "FSR3\\FSR3_SR",
+                    "parameters": {
+                        "amdOpticalFlowMode": 1.0,
+                        "opticalFlowMethod": 1.0,
+                        "nvidiaOpticalFlowQuality": 2.0
+                    }
+                },
+                {
+                    "name": "FSR4\\FSR4_SR",
+                    "scalingType": 3,
+                    "scale": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "parameters": {
+                        "amdOpticalFlowMode": 1.0,
+                        "opticalFlowMethod": 0.0,
+                        "nvidiaOpticalFlowQuality": 2.0
+                    }
+                },
+                {
+                    "name": "XeSSFG\\XeSS_FrameGeneration_x2_ZeroMV",
+                    "parameters": {
+                        "amdOpticalFlowMode": 1.0,
+                        "opticalFlowMethod": 0.0,
+                        "nvidiaOpticalFlowQuality": 2.0
+                    }
+                }
+            ]
+        }
+    ],
+    "profiles": [
+        {
+            "scalingMode": 6,
+            "captureMethod": 0,
+            "multiMonitorUsage": 0,
+            "initialWindowedScaleFactor": 0,
+            "customInitialWindowedScaleFactor": 1.25,
+            "graphicsCardId": {
+                "idx": -1,
+                "vendorId": 0,
+                "deviceId": 0
+            },
+            "frameRateLimiterEnabled": false,
+            "maxFrameRate": 60.0,
+            "3DGameMode": false,
+            "captureTitleBar": false,
+            "adjustCursorSpeed": true,
+            "disableDirectFlip": false,
+            "cursorScaling": 2,
+            "customCursorScaling": 1.0,
+            "cursorInterpolationMode": 0,
+            "autoHideCursorEnabled": false,
+            "autoHideCursorDelay": 3.0,
+            "croppingEnabled": false,
+            "cropping": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+            },
+            "destAlignment": 4
+        }
+    ],
+    "overlay": {
+        "fullscreenInitialToolbarState": 2,
+        "windowedInitialToolbarState": 2,
+        "screenshotsDir": "",
+        "windows": {
+            "effectParameters": {
+                "hArea": 0,
+                "vArea": 1,
+                "hPos": 60.0,
+                "vPos": 0.5,
+                "width": 0.0,
+                "height": 0.0
+            },
+            "profiler": {
+                "hArea": 2,
+                "vArea": 1,
+                "hPos": 60.0,
+                "vPos": 0.5,
+                "width": 0.0,
+                "height": 0.0
+            }
+        }
+    }
+}

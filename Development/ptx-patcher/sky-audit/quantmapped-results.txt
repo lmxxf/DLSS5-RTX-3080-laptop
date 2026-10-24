@@ -1,0 +1,7 @@
+fast-1280x720.log W=1280 H=720 preset=2 gpu_median_ms=16.454 gpu_mean_ms=16.288 gpu_min_ms=15.312 wall_median_ms=16.808 wall_mean_ms=16.803 wall_min_ms=15.524 nonfinite=0 mean_rgb=0.721722 range=[0.5566, 0.9141]
+quantmapped-1280x720.log W=1280 H=720 preset=2 gpu_median_ms=22.114 gpu_mean_ms=22.217 gpu_min_ms=21.552 wall_median_ms=22.701 wall_mean_ms=22.754 wall_min_ms=21.574 nonfinite=0 mean_rgb=0.719262 range=[0.5503, 0.9150]
+fast-1600x900.log W=1600 H=900 preset=2 gpu_median_ms=24.720 gpu_mean_ms=24.708 gpu_min_ms=22.200 wall_median_ms=25.235 wall_mean_ms=25.254 wall_min_ms=22.618 nonfinite=0 mean_rgb=0.431373 range=[0.1184, 0.7173]
+quantmapped-1600x900.log W=1600 H=900 preset=2 gpu_median_ms=34.133 gpu_mean_ms=33.589 gpu_min_ms=30.804 wall_median_ms=34.498 wall_mean_ms=34.063 wall_min_ms=31.287 nonfinite=0 mean_rgb=0.431301 range=[0.1180, 0.7148]
+fast-1920x1080.log W=1920 H=1080 preset=2 gpu_median_ms=32.854 gpu_mean_ms=32.813 gpu_min_ms=31.511 wall_median_ms=33.067 wall_mean_ms=33.256 wall_min_ms=32.322 nonfinite=0 mean_rgb=0.431606 range=[0.1179, 0.7212]
+quantmapped-1920x1080.log W=1920 H=1080 preset=2 gpu_median_ms=47.160 gpu_mean_ms=47.110 gpu_min_ms=41.987 wall_median_ms=48.116 wall_mean_ms=47.714 wall_min_ms=42.944 nonfinite=0 mean_rgb=0.431762 range=[0.1191, 0.7207]
+quantmapped sky sign changes 104 HF RMS 0.02613936 vs nomapped maxabs 0.17626953 RMSE 0.047193073

@@ -186,6 +186,7 @@ private:
  void CreateUnlocked(ID3D12CommandQueue*queue,ID3D12Resource*source,const std::vector<float>&noise,const std::wstring&directory,ID3D12Resource*temporal_rgb,const TemporalConfig*temporal_config){
 #ifdef DLSS5_USE_HIP
   NativeSmallGeometryEnabled()=dlss5_mode::Requested()==0&&small_assets_ready&&hip_reference::FastPrefixFromEnvironment()&&!NativeOutputTemporalMode(NativeSelectedTemporalMode())&&!NativeTemporalExperimentRequested();
+  static std::atomic<unsigned> geometry_logs{0};if(geometry_logs.fetch_add(1)<4)if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-game-oneshot.txt").c_str(),L"ab")){fprintf(f,"pid=%lu geometry_selection requested=%u small_assets=%u fast=%u temporal=%u experiment=%u enabled=%u\n",GetCurrentProcessId(),dlss5_mode::Requested(),unsigned(small_assets_ready),unsigned(hip_reference::FastPrefixFromEnvironment()),unsigned(NativeSelectedTemporalMode()),unsigned(NativeTemporalExperimentRequested()),unsigned(NativeSmallGeometryEnabled()));fclose(f);}
 #endif
   built_temporal=NativeSelectedTemporalMode();
   if(resources||!queue||!source)throw std::runtime_error("frame initialization contract");
@@ -408,6 +409,7 @@ public:
 #ifdef DLSS5_USE_HIP
   NativePollRequestedModelMode(true);
   NativeSmallGeometryEnabled()=dlss5_mode::Requested()==0&&small_assets_ready&&hip_reference::FastPrefixFromEnvironment()&&!NativeOutputTemporalMode(NativeSelectedTemporalMode())&&!NativeTemporalExperimentRequested();
+  static std::atomic<unsigned> geometry_logs{0};if(geometry_logs.fetch_add(1)<4)if(FILE*f=_wfopen(NativeLabPath(L"logs\\native-game-oneshot.txt").c_str(),L"ab")){fprintf(f,"pid=%lu geometry_selection requested=%u small_assets=%u fast=%u temporal=%u experiment=%u enabled=%u\n",GetCurrentProcessId(),dlss5_mode::Requested(),unsigned(small_assets_ready),unsigned(hip_reference::FastPrefixFromEnvironment()),unsigned(NativeSelectedTemporalMode()),unsigned(NativeTemporalExperimentRequested()),unsigned(NativeSmallGeometryEnabled()));fclose(f);}
   {auto d=target->GetDesc();auto g=NativeResolveNetworkGeometry(unsigned(d.Width),d.Height);
    if(g.processing_width!=resources->geometry.processing_width||g.processing_height!=resources->geometry.processing_height||g.valid_width!=resources->geometry.valid_width||g.valid_height!=resources->geometry.valid_height||built_temporal!=NativeSelectedTemporalMode()){
     resources->submit.Flush();if(resources->overlap)resources->compute.Flush();

@@ -11,15 +11,11 @@ import sys
 import time
 import numpy as np
 
-sys.path.insert(0, "/tmp/dlssnr-310-9-16-sm86")
+PATCHER_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(PATCHER_DIR))
 import dlssnr_patcher as dp
 
-src_code = Path("/tmp/dlssnr-310-9-16-sm86/dlssnr_patcher.py").read_text()
-src_code = re.sub(
-    r'rf"\(\?P<guard>@!\?\{PTX_PREDICATE\}\\s\+\)\?([^"]*)"',
-    r'r"(?P<guard>)\1"',
-    src_code,
-)
+src_code = (PATCHER_DIR / "dlssnr_patcher.py").read_text()
 # Also patch fence.acquire.gpu -> fence.acq_rel.gpu in transform_ptx for 310.9.16.0 compatibility!
 src_code = src_code.replace(
     'output = output.replace("fence.release.gpu;", "fence.acq_rel.gpu;")',
@@ -71,6 +67,8 @@ stock_fp8_to_half = dp.fp8_pair_to_half_lines
 stock_half_decl = dp.half_conversion_declarations
 stock_half_to_fp8 = dp.half_pair_to_fp8_lines
 stock_render_mma = dp.render_fp8_mma_run
+stock_mapped_sources = dp.mapped_fp16_sources
+stock_pack_sources = dp.fp8_pack_sources
 
 
 def fast_fp8_conversion_declarations() -> list[str]:
@@ -105,11 +103,9 @@ def fast_render_fp8_mma_run(
       register: (f"dlssnr_fp16_{index}_0", f"dlssnr_fp16_{index}_1")
       for index, register in enumerate(operands)
   }
-  mapped = {
-      register: sources
-      for register, sources in packed_sources.items()
-      if sources[2] < matches[0].start()
-  }
+  from ptx_mapped import mapped_at
+  mapped = mapped_at(packed_sources, matches[0].start())
+  quant_lines, quant_names = dp.mapped_fp16_sources(mapped, operands)
   has_encoded_operands = any(register not in mapped for register in operands)
 
   lines = ["{"]
@@ -140,10 +136,12 @@ def fast_render_fp8_mma_run(
         "mov.b32 dlssnr_fp8_scale, 0x5c005c00;",
     ])
 
+  lines.extend(quant_lines)
   for register in operands:
     first, second = names[register]
     if register in mapped:
       low, high, _position = mapped[register]
+      low, high = quant_names[low], quant_names[high]
       for source_index, destination in (
           ("dlssnr_source0", first),
           ("dlssnr_source1", second),
@@ -244,6 +242,36 @@ def fast_half_pair_to_fp8_lines(source: str, destination: str) -> list[str]:
   ]
 
 
+def forward_mapped_fp16_sources(mapped, operands):
+  # Preserve upstream FP16 forwarding; only eligibility filtering changes.
+  return [], {s:s for r in operands if r in mapped for s in mapped[r][:2]}
+
+
+def fast_mapped_fp16_sources(mapped, operands):
+  sources = sorted({s for r in operands if r in mapped for s in mapped[r][:2]})
+  if not sources:
+    return [], {}
+  names = {s: f"qm_q{i}" for i, s in enumerate(sources)}
+  lines = [
+      ".reg .b32 qm_min, qm_max, qm_two, qm_threshold, qm_lsb, qm_abs, qm_sub, qm_mask, qm_sign;",
+      ".reg .b32 " + ", ".join(names.values()) + ";",
+      "mov.b32 qm_min, 0xdf00df00;", "mov.b32 qm_max, 0x5f005f00;",
+      "mov.b32 qm_two, 0x40004000;", "mov.b32 qm_threshold, 0x24002400;",
+  ]
+  for source, q in names.items():
+    lines += [
+        f"max.f16x2 {q}, {source}, qm_min;", f"min.f16x2 {q}, {q}, qm_max;",
+        f"and.b32 qm_sign, {q}, 0x80008000;", f"and.b32 qm_abs, {q}, 0x7fff7fff;",
+        "set.lt.u32.f16x2 qm_mask, qm_abs, qm_threshold;",
+        "add.rn.f16x2 qm_sub, qm_abs, qm_two;", "sub.rn.f16x2 qm_sub, qm_sub, qm_two;",
+        f"shr.u32 qm_lsb, {q}, 7;", "and.b32 qm_lsb, qm_lsb, 0x00010001;",
+        "add.u32 qm_lsb, qm_lsb, 0x003f003f;", f"add.u32 {q}, {q}, qm_lsb;",
+        f"and.b32 {q}, {q}, 0xff80ff80;", "or.b32 qm_sub, qm_sub, qm_sign;",
+        f"lop3.b32 {q}, qm_mask, qm_sub, {q}, 0xca;",
+    ]
+  return lines, names
+
+
 def pack_single_elf_fatbin(
     source_fatbin: bytes, cubin_bytes: bytes, zstd_compress_fn
 ) -> bytes:
@@ -284,7 +312,10 @@ def fast_update_pe_checksum(data: bytearray) -> int:
 
 
 def worker_compile_fatbin(args):
-  i, blob, is_fast = args
+  i, blob, is_fast, *build_options = args
+  allow_grow = bool(build_options and build_options[0])
+  mapped_mode = build_options[1] if len(build_options)>1 else "multidef"
+  quantize_mapped = bool(build_options[2]) if len(build_options)>2 else False
   t0 = time.time()
   libzstd = ctypes.CDLL("libzstd.so.1")
   libzstd.ZSTD_decompress.argtypes = [
@@ -323,12 +354,17 @@ def worker_compile_fatbin(args):
     dp.half_conversion_declarations = fast_half_conversion_declarations
     dp.half_pair_to_fp8_lines = fast_half_pair_to_fp8_lines
     dp.render_fp8_mma_run = fast_render_fp8_mma_run
+    from functools import partial
+    dp.fp8_pack_sources = partial(stock_pack_sources, local_only=mapped_mode=="strict")
+    dp.mapped_fp16_sources = fast_mapped_fp16_sources if quantize_mapped else forward_mapped_fp16_sources
   else:
     dp.fp8_conversion_declarations = stock_fp8_decl
     dp.fp8_pair_to_half_lines = stock_fp8_to_half
     dp.half_conversion_declarations = stock_half_decl
     dp.half_pair_to_fp8_lines = stock_half_to_fp8
     dp.render_fp8_mma_run = stock_render_mma
+    dp.mapped_fp16_sources = stock_mapped_sources
+    dp.fp8_pack_sources = stock_pack_sources
 
   recs = dp.parse_fatbin_records(blob)
   ptx_rec = [r for r in recs if r.kind == 1][0]
@@ -407,13 +443,16 @@ def worker_compile_fatbin(args):
     used_opt = 4
     cubin = compile_cubin(4)
     new_fb = pack_single_elf_fatbin(blob, cubin, zstd_compress)
-    if len(new_fb) > len(blob):
+    if is_fast:
+      cache = Path("/tmp/dlss-sky-audit/safe-o4"); cache.mkdir(parents=True, exist_ok=True)
+      (cache / f"fatbin{i:02d}.bin").write_bytes(new_fb)
+    if len(new_fb) > len(blob) and not allow_grow:
       used_opt = 1
       cubin = compile_cubin(1)
       new_fb = pack_single_elf_fatbin(blob, cubin, zstd_compress)
 
   assert (
-      len(new_fb) <= len(blob)
+      allow_grow or len(new_fb) <= len(blob)
   ), f"Fatbin {i} {len(new_fb)} > {len(blob)} even at O{used_opt}"
   mod = ctypes.c_void_p()
   assert libcuda.cuModuleLoadData(ctypes.byref(mod), new_fb) == 0
@@ -429,38 +468,44 @@ def worker_compile_fatbin(args):
   )
 
 
-if __name__ == "__main__":
+def main():
+  import argparse
+  from concurrent.futures import as_completed
+  from pe_fatbins import assemble
+  parser = argparse.ArgumentParser(description="Build all 15 sm_86 O4 fatbins with multi-definition-filtered mapped operands")
+  parser.add_argument("--input", type=Path, default=Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll"))
+  parser.add_argument("--output", type=Path, default=Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll"))
+  parser.add_argument("--workers", type=int, default=3)
+  parser.add_argument("--mapped-mode", choices=("strict", "multidef"), default="multidef")
+  parser.add_argument("--quantize-mapped", action="store_true", help="Diagnostic: restore explicit E4M3 quantization on mapped sources")
+  args = parser.parse_args()
   t0 = time.time()
-  orig_data = bytearray(
-      Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll").read_bytes()
-  )
-  dp.strip_authenticode(orig_data)
-  locs = dp.find_fatbins(orig_data)
+  data = bytearray(args.input.read_bytes())
+  expected_sha256 = "2bc19bc09a7b89dd44f73e2ac0108fcc586e2154bdd0830f242f4f040e28789f"
+  assert hashlib.sha256(data).hexdigest() == expected_sha256, "Unsupported original DLL SHA-256; expected 310.9.16.0 source"
+  dp.strip_authenticode(data)
+  locs = dp.find_fatbins(data)
+  assert len(locs) == 15, f"Expected 15 fatbins, found {len(locs)}"
+  dp.apply_host_patches(data, (dp.AMPERE,))
+  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped) for i, l in enumerate(locs)]
+  blobs = {}
+  with ProcessPoolExecutor(max_workers=args.workers) as pool:
+    futures = [pool.submit(worker_compile_fatbin, task) for task in tasks]
+    for future in as_completed(futures):
+      i, blob, message = future.result()
+      assert "ELF O4" in message, message
+      blobs[i] = blob
+      print(f"[{i:02d}/14] {message}", flush=True)
+  data, manifest = assemble(data, locs, blobs, dp)
+  fast_update_pe_checksum(data)
+  args.output.parent.mkdir(parents=True, exist_ok=True)
+  temporary = args.output.with_suffix(args.output.suffix + ".tmp")
+  temporary.write_bytes(data)
+  temporary.replace(args.output)
+  import json
+  args.output.with_suffix(".manifest.json").write_text(json.dumps(manifest, indent=2))
+  print(f"Done: 15/15 O4, {time.time()-t0:.2f}s, SHA256={hashlib.sha256(data).hexdigest()}")
 
-  d_fast = bytearray(
-      Path("/tmp/dlssnr-310-9-16-sm86/nvngx_dlssnr_sm86_fast.dll").read_bytes()
-  )
-  tasks = [
-      (i, bytes(orig_data[locs[i].offset : locs[i].offset + locs[i].size]), True)
-      for i in range(7)
-  ]
-  print(
-      "Recompiling Fatbins 0..6 for fast variant with fused prmt + borrow-free"
-      " bfe.u32..."
-  )
-  with ProcessPoolExecutor(max_workers=7) as pool:
-    for i, new_fb, msg in pool.map(worker_compile_fatbin, tasks):
-      loc = locs[i]
-      d_fast[loc.offset : loc.offset + loc.size] = new_fb + b"\x00" * (
-          loc.size - len(new_fb)
-      )
-      print(f"  [{i+1:02d}/15] {msg}")
 
-  chk = fast_update_pe_checksum(d_fast)
-  fast_tmp = Path("/tmp/dlssnr-310-9-16-sm86/nvngx_dlssnr_sm86_fast.dll")
-  fast_tmp.write_bytes(d_fast)
-  shutil.copy2(fast_tmp, "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll")
-  print(
-      f"Done in {time.time()-t0:.2f}s! Checksum=0x{chk:08x},"
-      f" SHA256={hashlib.sha256(d_fast).hexdigest()}"
-  )
+if __name__ == "__main__":
+  main()

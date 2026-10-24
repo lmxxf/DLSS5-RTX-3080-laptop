@@ -1,0 +1,8 @@
+GPU=NVIDIA GeForce RTX 3080 Laptop GPU (W=1280 H=720 preset=2 warmup=5 iters=20)
+ALLOC_PARAMS=0x00000001 params=000001c2fad3a3a0
+SNIP_INIT=0x00000001
+SNIP_POP=0x00000001
+SNIP_SCRATCH=0x00000001 bytes=0
+SNIP_CREATE18=0x00000001 handle=000001c343ca4a30
+CREATE_DONE_MS=355.41
+SUMMARY W=1280 H=720 preset=2 gpu_median_ms=17.886 gpu_mean_ms=18.035 gpu_min_ms=17.579 wall_median_ms=18.472 wall_mean_ms=18.522 wall_min_ms=12.018 nonfinite=0 mean_rgb=0.742048 range=[0.5864, 0.9126]

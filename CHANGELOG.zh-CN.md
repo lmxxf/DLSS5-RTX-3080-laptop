@@ -8,6 +8,8 @@
 
 ## 0.1.0 (2026-10-24)
 
+下载：[Gofile 镜像](https://gofile.io/d/s9cpHYH9)
+
 首个正式发布版本。面向 NVIDIA RTX 30 系（Ampere `sm_86`），全线仅启用 `310.9.16.0` 的 **31 块 `0.5x Small` 轻量新模型（`Preset 2`）**，三个发布包统一采用 **15/15 满血 `O4` PTX 改写路线**。
 
 ### 1. PTX 满血 `O4` 编译器与代数恒等式（`Development/ptx-patcher/`）

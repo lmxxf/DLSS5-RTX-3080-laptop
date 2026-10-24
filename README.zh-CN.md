@@ -14,7 +14,7 @@
 | **OptiScaler-REFramework**（RE Engine 专用） | 《鬼武者：剑之道》《生化危机 9》等带反篡改校验的卡普空 RE Engine 游戏 | 在常规 OptiScaler 包基础上增加 REFramework（`dinput8.dll`）绕过校验并加载同目录 `dxgi.dll` |
 | **Magpie**（便携窗口缩放） | 任何支持窗口化的游戏（《光环》等），不需要游戏内置 DLSS/FSR | Magpie 抓取游戏低分辨率窗口（如 720p），先跑内置的原生 `DLSSNR`（`Preset 2`）滤镜调用 `nvngx_dlssnr.dll`，再经 `DLSS_SR` 放大到 4K 全屏 |
 
-**当前版本：0.1.0（2026-10-24）。** 首发版本：三个发布包全线统一为 **15/15 满血 `O4` PTX 改写路线（`Preset 2` 31 块新模型）**。修复上游 `dlssnr-patcher` 在 `310.9.16.0` 上的 `fence.acquire.gpu` 编译失败、消除 `O1` 性能腰斩、修复 `fp8_pack_sources` 多定义误判引发的 106 条天空红绿横带；在 RTX 3080 Laptop（132W）上 **720p 单帧模型耗时 `15.83 ms`、900p `24.47 ms`、1080p `32.04 ms`（480p 仅 `8.2 ms`）**。[完整说明与版本记录](CHANGELOG.zh-CN.md#010--2026-10-24)。
+**当前版本：0.1.0（2026-10-24）。** 下载：[Gofile 镜像](https://gofile.io/d/s9cpHYH9)。首发版本：三个发布包全线统一为 **15/15 满血 `O4` PTX 改写路线（`Preset 2` 31 块新模型）**。修复上游 `dlssnr-patcher` 在 `310.9.16.0` 上的 `fence.acquire.gpu` 编译失败、消除 `O1` 性能腰斩、修复 `fp8_pack_sources` 多定义误判引发的 106 条天空红绿横带；在 RTX 3080 Laptop（132W）上 **720p 单帧模型耗时 `15.83 ms`、900p `24.47 ms`、1080p `32.04 ms`（480p 仅 `8.2 ms`）**。[完整说明与版本记录](CHANGELOG.zh-CN.md#010-2026-10-24)。
 
 ---
 

@@ -8,6 +8,8 @@ This file documents the detailed changes, benchmark numbers, configuration optio
 
 ## 0.1.0 (2026-10-24)
 
+Download: [Gofile Mirror](https://gofile.io/d/s9cpHYH9)
+
 Initial public release for NVIDIA RTX 30 Series GPUs (Ampere `sm_86`), retaining the lightweight **31-block `0.5x Small` model (`Preset 2`)** from `310.9.16.0` and unifying all three release packages onto the **15/15 full-`O4` PTX rewrite route**.
 
 ### 1. Full-`O4` PTX Patcher & Hardware Algebraic Identities (`Development/ptx-patcher/`)

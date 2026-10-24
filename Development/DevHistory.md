@@ -1,11 +1,23 @@
 # DLSS 5 -> NVIDIA RTX 3080 Laptop (`sm_86` Ampere) 移植开发历史与实测回执 (`DevHistory.md`)
 
 **硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，101,376 B Shared Memory/SM，Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）  
-**基线来源**：`DLSS5-AMD 0.44`（含 71-block `1x Original` 模型与 31-block `0.5x Small` 模型）
+**基线来源**：`DLSS5-AMD 0.44` 独立引擎 + NVIDIA 原版 `nvngx_dlssnr.dll` (`v310.9.16.0`)  
+**模型范围**：RTX 30 系仅保留并维护 **31 块 `0.5x Small` 轻量新模型（`Preset 2`）**，不再折腾 71 块旧模型。
 
 ---
 
-## 2026-10-24：全栈移植、V6 全激活预洗牌 + K32 消洗牌 + 32/32 零 `LMem` 栈溢出优化与 Linux/Windows 全档位验收
+## 0. 双技术路线总览：`RDNA4 -> Ampere` 独立引擎移植 vs `改写原版 PTX`
+
+本项目在 RTX 3080 Laptop (`sm_86`) 上完整跑通并同机对决了 **两条技术路线**（均跑同一 31 块 `0.5x Small` 新模型）：
+
+| 路线 | 核心路径与代码位置 | `1600×900` (900p) | `1920×1080` (1080p) | 优劣势与定位 |
+| :--- | :--- | :---: | :---: | :--- |
+| **路线 A：`RDNA4 -> Ampere` 独立引擎移植** | 将 AMD RDNA4 (`gfx1201`) 的 HIP C++ 独立推理引擎（`LmxxfNrRuntime.dll` / `dlss5-amd.addon64` + 40 个内核模块）通过 `hip/sm86_compat.h` 与 `hip/build_sm86_modules.py` 移植到 CUDA Driver API 与 `sm_86` Tensor Core | `43.10 ms` (`23.2 FPS`) | `57.13 ms` (`17.5 FPS`) | 证明跨架构全栈可移植且 `0 bit-diff`；但受限于 GeForce 30 系硬件对 **FP32 累加 Tensor Core (`.f32.f16.f16.f32`) 砍半（Half Rate）** 及 Wave32↔Warp32 座位洗牌开销，速度慢于路线 B。可用于无 NGX 的纯 ReShade / Magpie 场景 |
+| **路线 B：直接改写原版 `nvngx_dlssnr.dll` 内置 PTX（满血 `O4`）** | 提取老黄 `310.9.16.0` `nvngx_dlssnr.dll` 内置的 15 个 Fatbin PTX，修复 `fence.acquire.gpu;`，并用独创的 **两条 IEEE 754 `f16x2` 硬件指令恒等式** 替换 `e4m3x2 <-> f16x2` 转换（`tools/dlssnr-sm86-patcher/`），使 15/15 个 Fatbin 全部以满血 **`O4`** 编译塞回原 DLL（对比网上 `dlssnr-patcher` 因代码膨胀被迫降级 `O1` 的 `49.89 ms` / `67.69 ms` 快 **`2.08×~2.25×`**，且 `PSNR = ∞ dB` `0 bit-diff`） | **`23.97 ms` (`41.7 FPS`)** | **`29.97 ms` (`33.3 FPS`)** | **主力游戏发布路线**：原生使用 Full Rate **FP16 累加 Tensor Core (`.f16.f16.f16.f16`)** 且 0 跨线程洗牌；在《鬼武者：剑之道》实机 2K 下 `480p` 仅 **`8.2 ms`（46 FPS）**、`720p` **`17.1 ms`（30 FPS）** |
+
+---
+
+## 2026-10-24 (路线 A / Phase 1~6)：`RDNA4 -> Ampere` 独立引擎全栈移植、V6 全激活预洗牌 + 32/32 零 `LMem` 栈溢出优化
 
 ### 1. 仓库初始化与外部资产解耦
 - 将 639 个模型权重与资产文件（根目录 71-block `1x Original` 权重 + `small/` 31-block `0.5x Small` 93 个权重文件）从 `OptiScaler-REFramework-DLSS5-AMD-0.44.zip` 提取至 `/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/`，与 Git 源码仓分离，保持 Git 仓库轻量纯净。

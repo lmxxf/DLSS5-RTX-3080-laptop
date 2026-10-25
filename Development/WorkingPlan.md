@@ -242,3 +242,13 @@ Small31 Style1、Graph off、默认DVFS约140W，每行独立50warmup/80iter，�
 720结论见阶段一独立提交6b61bd9：已确定Phase12和旧F32共同的256 attention问题，默认绝对PSNR仍不报；400修正图只作隔离诊断，没有混入严格0bit默认。Phase14建议优先允许新输出基线的独立正确性修复，单点QKV确定256的转置/分母/PV问题，再立720F32金标准；不要原样重试本轮无收益调度变体。
 
 [Phase13报告](hip-port/phase13/README.md)、[两轮完整成绩/遥测](hip-port/phase13/final-results.md)、[32核表及负结果](hip-port/phase13/results.md)、[参考链定位](hip-port/phase13/reference-audit.md)。复测bash Development/hip-port/phase13/run_benchmark.sh（新名字）；完整模块哈希/实际加载记录/质量门保留。仅清理本轮重复模块、临时LLVM/预处理产物，证据及最终40模块在忽略artifacts，未改部署/ZIP/共享资产，不push。
+
+### Phase14 阶段一：256 attention两处ABI错配修复与新720金标准（2026-10-25，闇）
+
+以Phase12 selected为性能/旧输出基线，起点41042b6，工作树干净。定位到build_sm86_modules.py通用预洗牌插入也命中legacy attention，但两处Q/xb的A侧消费者仍走generic MMA，发生二次洗牌；400的B侧匹配已正确。新phase14_transform严格限定legacy函数，只改两处消费者为preshuffled_a，不改LDS/分母/精度/尾块。16token坐标256组已独立复现坏Q(score)与坏P(PV)，LDS转置、行和、PV原索引均正确；不能归因n%64。
+
+172项两种累加/全部16种<=256合法token数/32head/非均匀/末token/subnormal/±0/有限边界/适用浮点NaNInf入口测试：修复256对规范原始布局参考及400均0字节差异。真实首块245760 AV字节F32对CPU0bit；八块CPU精确除法仅1字节边界差已定位rcp.approx：1.0625→1.062500119，从FP8 0x38到0x39。CPU仅匹配独立RCP原语后1966080 AV字节全部相同；无保留NaN字节。保留字节7f/ff的现有packed decoder有限域捷径未扩称IEEE NaN支持。
+
+先重建未修复F32 control（目标SHA与归档精确相同），control与修复F32均复现900/1080 gold0bit，再生成新720 F32累加gold，SHA149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5。256/400正确整网0bit；新720对该独立gold PSNR43.57794791233917dB、maxabs0.05093550682067871、invalid0；相对Phase12旧720改变2947224个f32元素，为授权正确性变化。900/1080仍对Phase12 0bit、PSNR不变。非复用旧400诊断数字。
+
+默认模块已全量重编/实际加载40/40、1918entry，7个含legacy导出的模块变化；三档selected快验相对修复原型0bit、首末帧同、32/32 LOCAL0。阶段一已清理不变F32模块副本，仅保留证据/新gold/变化模块；接下来用正式50/80配对比较正确256与400，再选默认并完成最终两轮。详见[正确性证据](hip-port/phase14/correctness.md)。不改共享assets/部署/发布，不push。

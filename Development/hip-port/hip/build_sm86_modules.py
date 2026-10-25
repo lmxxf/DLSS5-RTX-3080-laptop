@@ -12,6 +12,8 @@ from phase9_transform import transform as phase9_transform, c32_mapped_lowreg
 from phase10_transform import apply_register_caps, optimize_fp8 as phase10_optimize_fp8
 from phase11_transform import pack_ffn_half_features
 PHASE11_HALF_FEATURE_PACK = True
+from phase14_transform import fix_legacy_attention_abi
+PHASE14_ATTENTION_ABI = True
 from phase12_transform import pack_c32_av
 PHASE12_C32_AV = True
 PHASE10_CAPS = True
@@ -383,6 +385,8 @@ def transform_hip_to_sm86_cu(text, compat_header_path):
         '_Pragma("unroll") for(uint c=0;c<2;c++){i2 y{};',
         'xb=sm86_preshuffle_fp8(xb);_Pragma("unroll") for(uint c=0;c<2;c++){i2 y{};'
     )
+    if PHASE14_ATTENTION_ABI:
+        text = fix_legacy_attention_abi(text)
     return f'#include "{compat_header_path}"\n' + text
 
 def assemble_module_source(mod, source_dir, compat_header_path):
@@ -758,6 +762,8 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     key += str(PHASE11_HALF_FEATURE_PACK).encode()
     key += open(os.path.join(os.path.dirname(__file__), "phase12_transform.py"), "rb").read()
     key += str(PHASE12_C32_AV).encode()
+    key += open(os.path.join(os.path.dirname(__file__), "phase14_transform.py"), "rb").read()
+    key += str(PHASE14_ATTENTION_ABI).encode()
     key += repr((PHASE10_CAPS, PHASE10_FP8)).encode()
     key += str(name in LOW_REGISTER_FP8_MODULES).encode()
     key += str(name in C32_LOCAL_FP8_POLICY_MODULES).encode()

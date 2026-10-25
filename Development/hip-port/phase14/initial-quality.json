@@ -1,0 +1,29 @@
+{
+  "1280": {
+    "full_vs_phase12_bitdiff": 2947224,
+    "invalid": 0,
+    "visible_psnr_peak1": 43.57794791233917,
+    "visible_maxabs": 0.05093550682067871,
+    "F32_sha256": "149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5",
+    "FP16_sha256": "16e78e6361e928829727ad2f69ceafb456caeb1cea0fd28d8a5f6aed940a412b",
+    "correct256_vs400_full_output_bitdiff": 0
+  },
+  "1600": {
+    "full_vs_phase12_bitdiff": 0,
+    "invalid": 0,
+    "visible_psnr_peak1": 46.975322410562406,
+    "visible_maxabs": 0.04004549980163574,
+    "F32_sha256": "cf8b1d270dbceb26f46565e1bb9d66620b902fca8491d60cd47a9a3b1e38cf24",
+    "FP16_sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0",
+    "existing_F32_gold_bitdiff": 0
+  },
+  "1920": {
+    "full_vs_phase12_bitdiff": 0,
+    "invalid": 0,
+    "visible_psnr_peak1": 46.100947087035124,
+    "visible_maxabs": 0.0416027307510376,
+    "F32_sha256": "8a59ebde0693059f0551c6f0062dd468fcb04d37dd42f1644ee19f846acd3198",
+    "FP16_sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757",
+    "existing_F32_gold_bitdiff": 0
+  }
+}

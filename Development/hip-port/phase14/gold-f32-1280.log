@@ -1,0 +1,61 @@
+
+================================================================
+Running Case: 0.5x_Small_720p (31-block, 1280x768)
+================================================================
+model requested=0.5x effective=0.5x blocks=31 assets=/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/small reason=small-ready
+multi_pass=1 multi_pass_predict=0 actual_network_passes=1
+vit_contract_byte_edge=1
+c32_norm900 scope=0 loaded=0 selected=c32-wave1-fast.hsaco processing=1280x768 fast_numeric=1 mp=1 graph=0 experimental=0
+DLSS5_FAST_NUMERIC=1: multihead-fast-padded-wave-packed-fast.hsaco missing, using multihead-fast-padded-wave-packed.hsaco
+pool64_byte_edge=1
+model_prepared mode=0.5 profile=0 uploads=102 active_weights=100 retained_weights=0 before_producer_wait=1
+GRAPH_STATUS enabled=0 builds=0 replays=0 small=1 wave_owned=1 final_direct=1
+COMPACT_VIT contract_w16=0 projection_w16=0 contract_bstream=0 projection_bout=0 inter_byte_calls=18
+[RESULT] 0.5x_Small_720p (31-block, 1280x768)
+  Validity : invalid=0 nonzero=2941774/2949120 bit_diff_first_last=0 fnv1a64=92bb84488198bb43
+  Range    : min=0.000000 max=1.000000 mean=0.469752
+  GPU  (ms): mean=29.091 median=29.091 p90=29.091 p99=29.091 min=29.091 max=29.091
+  Wall (ms): mean=29.158 median=29.158 p90=29.158 p99=29.158 min=29.158 max=29.158
+submit_pulse resources create=0 create_ok=0 record=0 record_ok=0 destroy=0 destroy_ok=0 drain=0 site_visits=0 accepted=0 reject_mask=0 lifetime_pdl_calls=0
+C512_W16_SUMMARY mode=2 w16_blocks=16 stock_blocks=0 ffn_mode=1 ffn_w16_blocks=16 ffn_stock_blocks=0 c32_mode=1 c32_w16_calls=30 c32_stock_calls=0 vit_mode=7 vit_w16_calls=32 vit_stock_calls=0 vit_contract_w16=0 vit_proj_w16=0 vit_inter_byte=15 vit_inter_byte_calls=24 weights_count=100 weights_bytes=290068216
+Kernel Calls Total_ms Avg_us Grid Block Regs LMem SMem OccW
+c128_wave2_bi_bo 2 1.359872 679.936 260 128 248 0 24576 8
+c128_wave2_bi_ho 1 0.716800 716.800 273 128 247 0 24576 8
+c128_wave2_up_lb_sh 1 0.779264 779.264 252 128 247 0 24576 8
+c256_attn_wave 1 0.216064 216.064 77 256 207 0 49152 8
+c256_attn_wave_bo 3 0.608256 202.752 70 256 207 0 49152 8
+c32_wave1_finish_b8 1 0.821248 821.248 3920 32 168 0 10240 9
+c32_wave1_finish_dcrop_b8d 1 0.956416 956.416 3969 32 168 0 10240 9
+c32_wave1_mapped_b8 1 0.917504 917.504 3840 32 170 0 10240 8
+c32_wave1_post_b8 1 3.371008 3371.008 15617 32 177 0 10240 8
+c32_wave1_prefix_b8d 1 4.028416 4028.416 15360 32 178 0 10240 8
+c32_wave1_up_b8 1 0.957440 957.440 3888 32 234 0 10240 8
+c512_qkv_attention_compact_w16 4 0.652288 163.072 320 64 229 0 6144 8
+c64_wave2_bi 1 0.971776 971.776 1000 64 248 0 12288 8
+c64_wave2_bi_bo 1 0.821248 821.248 960 64 248 0 12288 8
+c64_wave2_bi_ho 1 0.947200 947.200 1025 64 247 0 12288 8
+c64_wave2_up_lb_sh 1 0.993280 993.280 984 64 247 0 12288 8
+decoder_project2x_h16w_byteout_w 1 0.114688 114.688 480 32 58 0 2176 16
+decoder_project2x_h16w_byteout_w_bin_f8w16 1 0.084992 84.992 960 32 71 0 2176 16
+mh_attention_project_frag_c512_w16_u4 1 0.069632 69.632 480 32 133 0 0 12
+mh_attention_project_frag_c512_w16_u4_bout 3 0.195584 65.195 480 32 133 0 0 12
+mh_ffn_fused_c256_frag_project_g128_qkv_bytein_fb 1 0.471040 471.040 240 512 114 0 30016 16
+mh_ffn_fused_c256_frag_project_mapped_g128_qkv_bytein_fb 3 1.477632 492.544 280 512 128 0 30016 16
+mh_pool_project_c32_b8_out8 1 0.065536 65.536 15360 32 44 0 0 16
+mh_pool_project_group_c128_hin_out8_f8w16 1 0.048128 48.128 240 128 121 0 2176 16
+mh_pool_project_group_c256_out8_f8w16 1 0.047104 47.104 60 256 121 0 4224 16
+mh_pool_project_group_c512_f8w16 1 0.077824 77.824 15 512 121 0 8320 16
+mh_pool_project_group_c64_hin_out8_f8w16 1 0.061440 61.440 960 64 121 0 1152 16
+split_ffn_one_w2f8_w16_bin 4 0.446464 111.616 240 64 149 0 0 12
+split_projection_frag_w16_bskip 4 0.202752 50.688 480 32 135 0 1024 12
+vit_attention_fused_256_bytein_bout 8 0.474112 59.264 480 32 126 0 1536 16
+vit_expand_blocked_fp8_frag_bytein_w16 8 1.565696 195.712 960 32 119 0 0 16
+vit_gather 2 0.025600 12.800 960 256 10 0 0 48
+vit_pack_input 8 0.053248 6.656 240 256 16 0 0 48
+vit_stream_contract_frag_bout 8 1.606656 200.832 240 32 134 0 4096 12
+vit_stream_project_n64_bb 8 0.590848 73.856 240 32 223 0 0 8
+vit_stream_qkv_frag_bin_w5f8 8 1.630208 203.776 288 160 135 0 16384 10
+PROFILE_TOTAL 28.427264 kernels=36
+SP_STATS runs=0 fallback=0 rollover=0 jobs=0 disabled=0 errors=0
+
+ALL SELECTED MODEL/RESOLUTION BENCHMARKS PASSED!

@@ -1,0 +1,1 @@
+extern "C" __attribute__((global)) void p14_rcp(const float*in,float*out,unsigned n){unsigned i=__builtin_amdgcn_workgroup_id_x()*256+__builtin_amdgcn_workitem_id_x();if(i<n)asm("rcp.approx.ftz.f32 %0,%1;":"=f"(out[i]):"f"(in[i]));}

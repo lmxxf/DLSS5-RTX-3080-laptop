@@ -1,0 +1,2058 @@
+{
+  "coordinate_cases": 256,
+  "fixed_u32_diff": 0,
+  "badQ_score_diffs": 256,
+  "badP_score_diffs": 0,
+  "badP_PV_diffs": 560,
+  "LDS_transpose_and_denominator": "every coordinate verified independently",
+  "cases": [
+    {
+      "query": 0,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 0,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 0,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 0,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 1,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 2,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 3,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 4,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 5,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 6,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 7,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 8,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 9,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 10,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 11,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 12,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 13,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 14,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 4,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 0,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 1,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 2,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 3,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 4,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 5,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 6,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 7,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 8,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 9,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 10,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 11,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 12,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 13,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 2,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 14,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 0,
+      "fixed_all_u32_diff": 0
+    },
+    {
+      "query": 15,
+      "key": 15,
+      "badQ_score_diffs": 1,
+      "badP_score_diffs": 0,
+      "badP_PV_diffs": 0,
+      "fixed_all_u32_diff": 0
+    }
+  ]
+}

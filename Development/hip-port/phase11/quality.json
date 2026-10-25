@@ -1,0 +1,42 @@
+{
+  "1280": {
+    "phase10_bitdiff": 0,
+    "invalid": 0,
+    "first_last_bitdiff": 0,
+    "active_kernels": 32,
+    "nonzero_lmem": 0,
+    "psnr_unchanged_by_bit_equality": true,
+    "f32_visible": null,
+    "720_f32_absolute_reference": "not accepted; see f32-720-reference-audit.json"
+  },
+  "1600": {
+    "phase10_bitdiff": 0,
+    "invalid": 0,
+    "first_last_bitdiff": 0,
+    "active_kernels": 32,
+    "nonzero_lmem": 0,
+    "psnr_unchanged_by_bit_equality": true,
+    "f32_visible": {
+      "bitdiff": 4315276,
+      "invalid": 0,
+      "maxabs": 0.04004549980163574,
+      "psnr_peak1": 46.975322410562406
+    },
+    "720_f32_absolute_reference": "Phase1 archived F32"
+  },
+  "1920": {
+    "phase10_bitdiff": 0,
+    "invalid": 0,
+    "first_last_bitdiff": 0,
+    "active_kernels": 32,
+    "nonzero_lmem": 0,
+    "psnr_unchanged_by_bit_equality": true,
+    "f32_visible": {
+      "bitdiff": 6215301,
+      "invalid": 0,
+      "maxabs": 0.0416027307510376,
+      "psnr_peak1": 46.100947087035124
+    },
+    "720_f32_absolute_reference": "Phase1 archived F32"
+  }
+}

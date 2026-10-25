@@ -1,0 +1,711 @@
+{
+  "removed": [
+    {
+      "path": "artifacts/half-store/modules/multi-pass-skin.hsaco",
+      "bytes": 26408,
+      "sha256": "8c6498281a5e92ff954b97524a97191717887a4e45532ffc02999af0df2bbbc7",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32-wave1-rtz.hsaco",
+      "bytes": 10013344,
+      "sha256": "d6d502bb9fc49fec3f0c7bf088a13c83e339ad49e89415b8ef17828b9ee1354a",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/swin-persistent.hsaco",
+      "bytes": 7070048,
+      "sha256": "cab4ebc15e822b689bd2a899e449e14e0f4d2c358fecd394de5b2e304b485f6d",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32-wave1-fast-norm900.hsaco",
+      "bytes": 9819168,
+      "sha256": "79f4f280f9095d3b1a63ac3bc50a11af9c4e597c32984b310365f314cb449db0",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32_wmma.hsaco",
+      "bytes": 198440,
+      "sha256": "b864296327bfeab5c354903c082b2a8c60247e851641e26a9fedf21e4d9ba648",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/deep_fast-packed.hsaco",
+      "bytes": 3615264,
+      "sha256": "473f6963bbdde78e581c49715886337c62fbe561e4d26428d828e4ba2166ed6f",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multi-pass-predict.hsaco",
+      "bytes": 24616,
+      "sha256": "5690d24e527b586e4fb4173891b257b0584b84acd9ab2ed1564a6863ff607f9f",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32-wave1.hsaco",
+      "bytes": 10023072,
+      "sha256": "4ef866455b435265e26c9211ae5c842cefb3b6460a92eca63a2e48e0e018e81d",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multihead-tiled.hsaco",
+      "bytes": 115872,
+      "sha256": "867e4c455997d3674b274ffee2b22abfb5782dc73775a143a84427a5dffbf4bc",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/deep_fast-packed-fast.hsaco",
+      "bytes": 3678048,
+      "sha256": "5c81087b0e672a9d7a7239b56c99a1baff6be4acf8f6acc7849a49a6060c4690",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/vit-wide-deep.hsaco",
+      "bytes": 3596960,
+      "sha256": "991a1f1a4426daddad0d8cf5429fcfead2c3dc6051531fd67aca3b8abc9d1ed3",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multihead-fast-padded-wave-packed.hsaco",
+      "bytes": 6788256,
+      "sha256": "248bda7ee6b5d4db93dcbad5068a4745a016b7313476e902b6792d37b8e5fc2c",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32_fast_attention.hsaco",
+      "bytes": 119464,
+      "sha256": "1f84da67358c939c3b1a8b1ba23b52c3ee2d7d7ce4b4f15d73344075a489896a",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/vit-stream-fast.hsaco",
+      "bytes": 3444768,
+      "sha256": "a3deab8bf4be5cb5c79d552e4794102e3114393ca4cb794f7cb8a3e8e39635a9",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c64-wave2-fast.hsaco",
+      "bytes": 12803488,
+      "sha256": "7d4f3d35975c13edc199411b78196eb9b8021c9ace2dfa4d56ea8896086621e1",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/wave-pointwise.hsaco",
+      "bytes": 150632,
+      "sha256": "8af75b77aa0e5c30f46d0a13d1ed3f3823bd7bd02bba3868f8f90b404d58d3e4",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multihead-fast-packed.hsaco",
+      "bytes": 289440,
+      "sha256": "3b6a4469dd6e0c8062c74b8a0e5d060a4c7546219dbdbe89719f2bd7ac43373d",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32_tiled.hsaco",
+      "bytes": 87904,
+      "sha256": "60006afa192ef57cd4b75b6c20837b79e5cf29f926f8741776a7e3de105ab4d3",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32_fused_attention.hsaco",
+      "bytes": 235168,
+      "sha256": "448e04ae971ef1db27f00427b0db9e2d3bf7af7657c0312aab6e7a1cd6232800",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multihead-fast-padded-wave.hsaco",
+      "bytes": 6501536,
+      "sha256": "de2e06d0c2b0abead4619f34badb5e5d4fff8fce69cfadade4661c0ac432aa68",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/boundary-fast.hsaco",
+      "bytes": 149416,
+      "sha256": "797a6b08d437c4da4415977005e2f0ca743d5733d89d018dde015575a1d73492",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/swin-persistent-fast.hsaco",
+      "bytes": 6941408,
+      "sha256": "a41e835628e90e58566ab2bbd5e3e581b0be05e877e294b604cdcfe5020d1154",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c512-m32-deep.hsaco",
+      "bytes": 4057632,
+      "sha256": "53bcb370540dd0e55582c2b511d35eb707ffd85ce0834bef3e23886402117ea6",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32_fast.hsaco",
+      "bytes": 109088,
+      "sha256": "69c697061d7343dfe8fc65feaff83f2093782273a18e36e0266a9d95001ef302",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/deep_fast.hsaco",
+      "bytes": 3629792,
+      "sha256": "981a9a9d6a52506a70487bb87a2caa743532f01a8278bb3a33485faab7ab3b7d",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/deep_reference.hsaco",
+      "bytes": 130024,
+      "sha256": "dcfdc8bb18aff573ae0a9a28c8c1581ee6db260059c3e334f1a105151859062b",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multihead_fused_attention.hsaco",
+      "bytes": 3225184,
+      "sha256": "2178cbba7db009baf3ac8752ad7ffaab6e2371868552aef98f11fbef992ba3e0",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multihead-wmma.hsaco",
+      "bytes": 234408,
+      "sha256": "ef47f1d1fcb107964c664d90cc7df33ee7a43d8490cc242c60e9022bb802bce7",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32_prefix_reference.hsaco",
+      "bytes": 145320,
+      "sha256": "26b850368b63c7fe40b152075db20eb753cd6fa6116085bfc6004467d8ddb671",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32_fused_ffn_attention.hsaco",
+      "bytes": 5337760,
+      "sha256": "0e525846a2d316c438f95388f4d62cfb5bf16e20b2d710cfbbf3236e458a15f6",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/prefix_fast.hsaco",
+      "bytes": 132768,
+      "sha256": "399151151970f1bb6e6745eb91c62c1344e704ab3978e80e53165c7c8d8062a2",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/vit-stream.hsaco",
+      "bytes": 3848416,
+      "sha256": "2b745cf7c6ae86cc45faefc784f137c531afb0f6764622d328c160083a42a239",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multihead-reference.hsaco",
+      "bytes": 144744,
+      "sha256": "4bd5d1e0dbaaf2068282f376606884d238e21948436bb0732dec85b0c5dffa1f",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/boundary_reference.hsaco",
+      "bytes": 27944,
+      "sha256": "bfedccd159a160edab86dd141b195d2095bc1dd6f8e446dd2e37a1a64530a7b9",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c32_fused_ffn_attention-packed.hsaco",
+      "bytes": 4077216,
+      "sha256": "359cc5ff999bbacfe6b333e7261d80827ca6a040e7c6a5980635a6c31afa5202",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c64-wave2.hsaco",
+      "bytes": 12966560,
+      "sha256": "9730584f5d27d316311ac05ae60ed02f43a3f1153d70fb1fa222855782a69132",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/deep_wmma.hsaco",
+      "bytes": 207144,
+      "sha256": "19f3b6bf333f7f6615e050daa70a737e46bd021f7030f589158eef1dee3b7e4f",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/multihead-fast.hsaco",
+      "bytes": 297120,
+      "sha256": "12aa740561797165cbca8dc2d41eff514940b57b6209c2530456f20d383df911",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/modules/c512-m32-mh.hsaco",
+      "bytes": 6519200,
+      "sha256": "28d0215161e5b03d16d0974eb42bb2299d2accf11a9dcb462778aa8ab85cd0d0",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-store/c32-wave1-fast.raw.ll.inspect",
+      "bytes": 19689928,
+      "sha256": "d74c9873ec3bf8cf02a46e90249938aae33e0316afb4025c75d9559156907149",
+      "reason": "full temporary IR; SSA audit retained and --keep-ir reproduces"
+    },
+    {
+      "path": "artifacts/half-store/c32-wave1-fast.final.ll.inspect",
+      "bytes": 28055853,
+      "sha256": "fe0211abfaf2948c03281a99df58db333278b1987d14281eaf451602f427c4e0",
+      "reason": "full temporary IR; SSA audit retained and --keep-ir reproduces"
+    },
+    {
+      "path": "artifacts/half-store/c32-wave1-fast.opt.ll.inspect",
+      "bytes": 20251872,
+      "sha256": "09359a79d1e37c7c1bfcf5920651bd83476a6d9db19d6521780f9625d7b18739",
+      "reason": "full temporary IR; SSA audit retained and --keep-ir reproduces"
+    },
+    {
+      "path": "artifacts/half-store/c32-wave1-fast.named.ll.inspect",
+      "bytes": 20435402,
+      "sha256": "d40bbd121e3eb04134f779755e503465eb892ecddb2561276658f99bc290d7e7",
+      "reason": "full temporary IR; SSA audit retained and --keep-ir reproduces"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multi-pass-skin.hsaco",
+      "bytes": 26408,
+      "sha256": "8c6498281a5e92ff954b97524a97191717887a4e45532ffc02999af0df2bbbc7",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32-wave1-rtz.hsaco",
+      "bytes": 10013344,
+      "sha256": "d6d502bb9fc49fec3f0c7bf088a13c83e339ad49e89415b8ef17828b9ee1354a",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/swin-persistent.hsaco",
+      "bytes": 7070048,
+      "sha256": "cab4ebc15e822b689bd2a899e449e14e0f4d2c358fecd394de5b2e304b485f6d",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32-wave1-fast-norm900.hsaco",
+      "bytes": 9819168,
+      "sha256": "79f4f280f9095d3b1a63ac3bc50a11af9c4e597c32984b310365f314cb449db0",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32_wmma.hsaco",
+      "bytes": 198440,
+      "sha256": "b864296327bfeab5c354903c082b2a8c60247e851641e26a9fedf21e4d9ba648",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/deep_fast-packed.hsaco",
+      "bytes": 3615264,
+      "sha256": "473f6963bbdde78e581c49715886337c62fbe561e4d26428d828e4ba2166ed6f",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multi-pass-predict.hsaco",
+      "bytes": 24616,
+      "sha256": "5690d24e527b586e4fb4173891b257b0584b84acd9ab2ed1564a6863ff607f9f",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32-wave1.hsaco",
+      "bytes": 10023072,
+      "sha256": "4ef866455b435265e26c9211ae5c842cefb3b6460a92eca63a2e48e0e018e81d",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multihead-tiled.hsaco",
+      "bytes": 115872,
+      "sha256": "867e4c455997d3674b274ffee2b22abfb5782dc73775a143a84427a5dffbf4bc",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/deep_fast-packed-fast.hsaco",
+      "bytes": 3678048,
+      "sha256": "5c81087b0e672a9d7a7239b56c99a1baff6be4acf8f6acc7849a49a6060c4690",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/vit-wide-deep.hsaco",
+      "bytes": 3596960,
+      "sha256": "991a1f1a4426daddad0d8cf5429fcfead2c3dc6051531fd67aca3b8abc9d1ed3",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multihead-fast-padded-wave-packed.hsaco",
+      "bytes": 6788256,
+      "sha256": "248bda7ee6b5d4db93dcbad5068a4745a016b7313476e902b6792d37b8e5fc2c",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32_fast_attention.hsaco",
+      "bytes": 119464,
+      "sha256": "1f84da67358c939c3b1a8b1ba23b52c3ee2d7d7ce4b4f15d73344075a489896a",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/vit-stream-fast.hsaco",
+      "bytes": 3444768,
+      "sha256": "a3deab8bf4be5cb5c79d552e4794102e3114393ca4cb794f7cb8a3e8e39635a9",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c64-wave2-fast.hsaco",
+      "bytes": 12803488,
+      "sha256": "7d4f3d35975c13edc199411b78196eb9b8021c9ace2dfa4d56ea8896086621e1",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/wave-pointwise.hsaco",
+      "bytes": 150632,
+      "sha256": "8af75b77aa0e5c30f46d0a13d1ed3f3823bd7bd02bba3868f8f90b404d58d3e4",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multihead-fast-packed.hsaco",
+      "bytes": 289440,
+      "sha256": "3b6a4469dd6e0c8062c74b8a0e5d060a4c7546219dbdbe89719f2bd7ac43373d",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32_tiled.hsaco",
+      "bytes": 87904,
+      "sha256": "60006afa192ef57cd4b75b6c20837b79e5cf29f926f8741776a7e3de105ab4d3",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32_fused_attention.hsaco",
+      "bytes": 235168,
+      "sha256": "448e04ae971ef1db27f00427b0db9e2d3bf7af7657c0312aab6e7a1cd6232800",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multihead-fast-padded-wave.hsaco",
+      "bytes": 6501536,
+      "sha256": "de2e06d0c2b0abead4619f34badb5e5d4fff8fce69cfadade4661c0ac432aa68",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/boundary-fast.hsaco",
+      "bytes": 149416,
+      "sha256": "797a6b08d437c4da4415977005e2f0ca743d5733d89d018dde015575a1d73492",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/swin-persistent-fast.hsaco",
+      "bytes": 6941408,
+      "sha256": "a41e835628e90e58566ab2bbd5e3e581b0be05e877e294b604cdcfe5020d1154",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c512-m32-deep.hsaco",
+      "bytes": 4057632,
+      "sha256": "53bcb370540dd0e55582c2b511d35eb707ffd85ce0834bef3e23886402117ea6",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32_fast.hsaco",
+      "bytes": 109088,
+      "sha256": "69c697061d7343dfe8fc65feaff83f2093782273a18e36e0266a9d95001ef302",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/deep_fast.hsaco",
+      "bytes": 3629792,
+      "sha256": "981a9a9d6a52506a70487bb87a2caa743532f01a8278bb3a33485faab7ab3b7d",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/deep_reference.hsaco",
+      "bytes": 130024,
+      "sha256": "dcfdc8bb18aff573ae0a9a28c8c1581ee6db260059c3e334f1a105151859062b",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multihead_fused_attention.hsaco",
+      "bytes": 3225184,
+      "sha256": "2178cbba7db009baf3ac8752ad7ffaab6e2371868552aef98f11fbef992ba3e0",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multihead-wmma.hsaco",
+      "bytes": 234408,
+      "sha256": "ef47f1d1fcb107964c664d90cc7df33ee7a43d8490cc242c60e9022bb802bce7",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32_prefix_reference.hsaco",
+      "bytes": 145320,
+      "sha256": "26b850368b63c7fe40b152075db20eb753cd6fa6116085bfc6004467d8ddb671",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32_fused_ffn_attention.hsaco",
+      "bytes": 5337760,
+      "sha256": "0e525846a2d316c438f95388f4d62cfb5bf16e20b2d710cfbbf3236e458a15f6",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/prefix_fast.hsaco",
+      "bytes": 132768,
+      "sha256": "399151151970f1bb6e6745eb91c62c1344e704ab3978e80e53165c7c8d8062a2",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/vit-stream.hsaco",
+      "bytes": 3848416,
+      "sha256": "2b745cf7c6ae86cc45faefc784f137c531afb0f6764622d328c160083a42a239",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multihead-reference.hsaco",
+      "bytes": 144744,
+      "sha256": "4bd5d1e0dbaaf2068282f376606884d238e21948436bb0732dec85b0c5dffa1f",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/boundary_reference.hsaco",
+      "bytes": 27944,
+      "sha256": "bfedccd159a160edab86dd141b195d2095bc1dd6f8e446dd2e37a1a64530a7b9",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c32_fused_ffn_attention-packed.hsaco",
+      "bytes": 4077216,
+      "sha256": "359cc5ff999bbacfe6b333e7261d80827ca6a040e7c6a5980635a6c31afa5202",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c64-wave2.hsaco",
+      "bytes": 12966560,
+      "sha256": "9730584f5d27d316311ac05ae60ed02f43a3f1153d70fb1fa222855782a69132",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/deep_wmma.hsaco",
+      "bytes": 207144,
+      "sha256": "19f3b6bf333f7f6615e050daa70a737e46bd021f7030f589158eef1dee3b7e4f",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/multihead-fast.hsaco",
+      "bytes": 297120,
+      "sha256": "12aa740561797165cbca8dc2d41eff514940b57b6209c2530456f20d383df911",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/modules/c512-m32-mh.hsaco",
+      "bytes": 6519200,
+      "sha256": "28d0215161e5b03d16d0974eb42bb2299d2accf11a9dcb462778aa8ab85cd0d0",
+      "reason": "unchanged candidate copy; build_variant reconstructs from immutable Phase10"
+    },
+    {
+      "path": "artifacts/half-feature-pack/c32-wave1-fast.raw.ll.inspect",
+      "bytes": 19607203,
+      "sha256": "c6d6c9abe3abf46b786d845bdd329fd2842fb5413046ab3f13021aca9fd30c00",
+      "reason": "full temporary IR; SSA audit retained and --keep-ir reproduces"
+    },
+    {
+      "path": "artifacts/half-feature-pack/c32-wave1-fast.final.ll.inspect",
+      "bytes": 27977742,
+      "sha256": "42dfd0ab3665640383f1623365db0e8c7e444b4eae225eca513ae65abd26cea7",
+      "reason": "full temporary IR; SSA audit retained and --keep-ir reproduces"
+    },
+    {
+      "path": "artifacts/half-feature-pack/c32-wave1-fast.opt.ll.inspect",
+      "bytes": 20168836,
+      "sha256": "398107393f1a9c1ab3e42a7a7876b259c814662c8fc8408d1a1f7fe592cef112",
+      "reason": "full temporary IR; SSA audit retained and --keep-ir reproduces"
+    },
+    {
+      "path": "artifacts/half-feature-pack/c32-wave1-fast.named.ll.inspect",
+      "bytes": 20352170,
+      "sha256": "17f80dd078316c362f9a9fb58ce7933c83361da105782a3d780e7833e82dd4dd",
+      "reason": "full temporary IR; SSA audit retained and --keep-ir reproduces"
+    },
+    {
+      "path": "artifacts/audit/phase10-c32.sass",
+      "bytes": 135625834,
+      "sha256": "a2dba1cb34776fff5f2bf1e6e57b3d030127ae8d1cacd6301f765186f492192a",
+      "reason": "full derived disassembly; counts/hot extracts retained, audit_sass regenerates"
+    },
+    {
+      "path": "artifacts/audit/half-store-c32.sass",
+      "bytes": 135279306,
+      "sha256": "a714fb16ee9f4800780926dad426ca690691ffe2f5990ad2918bc3e0812d06f3",
+      "reason": "full derived disassembly; counts/hot extracts retained, audit_sass regenerates"
+    },
+    {
+      "path": "artifacts/audit/selected-c32.sass",
+      "bytes": 135113658,
+      "sha256": "78baf663b56c3ce3247a8ba44f43967ac4b5cc8ffb59738f6c70db7051e8ff09",
+      "reason": "full derived disassembly; counts/hot extracts retained, audit_sass regenerates"
+    },
+    {
+      "path": "artifacts/audit/half-feature-pack-c32.sass",
+      "bytes": 135113658,
+      "sha256": "78baf663b56c3ce3247a8ba44f43967ac4b5cc8ffb59738f6c70db7051e8ff09",
+      "reason": "full derived disassembly; counts/hot extracts retained, audit_sass regenerates"
+    }
+  ],
+  "identical_output_hardlinks": [
+    {
+      "path": "artifacts/outputs/baseline-b-1280.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "8e427cd8b7c5a29e25b26beeb42304c67dfb09eca675db10215b5b3d134fab7c"
+    },
+    {
+      "path": "artifacts/outputs/half-feature-pack-1280.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "8e427cd8b7c5a29e25b26beeb42304c67dfb09eca675db10215b5b3d134fab7c"
+    },
+    {
+      "path": "artifacts/outputs/selected-confirm-1280.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "8e427cd8b7c5a29e25b26beeb42304c67dfb09eca675db10215b5b3d134fab7c"
+    },
+    {
+      "path": "artifacts/outputs/selected-1280.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "8e427cd8b7c5a29e25b26beeb42304c67dfb09eca675db10215b5b3d134fab7c"
+    },
+    {
+      "path": "artifacts/outputs/baseline-final-1280.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "8e427cd8b7c5a29e25b26beeb42304c67dfb09eca675db10215b5b3d134fab7c"
+    },
+    {
+      "path": "artifacts/outputs/baseline-confirm-1280.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "8e427cd8b7c5a29e25b26beeb42304c67dfb09eca675db10215b5b3d134fab7c"
+    },
+    {
+      "path": "artifacts/outputs/half-store-1280.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "8e427cd8b7c5a29e25b26beeb42304c67dfb09eca675db10215b5b3d134fab7c"
+    },
+    {
+      "path": "artifacts/outputs/half-feature-pack-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/half-feature-pack-reverse-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/baseline-final-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/selected-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/half-store-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/baseline-b-reverse-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/selected-confirm-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/baseline-confirm-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/baseline-b-1600.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "path": "artifacts/outputs/half-store-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/selected-confirm-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/selected-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/half-store-reverse-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/baseline-a-reverse-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/baseline-b-reverse-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/half-feature-pack-reverse-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/baseline-confirm-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/half-feature-pack-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/baseline-b-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "path": "artifacts/outputs/baseline-final-1920.rgb32",
+      "canonical": "artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    }
+  ],
+  "removed_file_bytes": 979237542,
+  "deduplicated_output_bytes": 551485440,
+  "retained": "Full final40 modules; changed candidate C32 cubins, source, hashes, logs, numeric results, baseline/final raw output paths, unvalidated F32 diagnostic"
+}

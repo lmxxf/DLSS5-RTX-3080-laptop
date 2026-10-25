@@ -1,0 +1,229 @@
+{
+  "baseline-a": {
+    "1280": {
+      "samples_util95": 3,
+      "sm_mhz": 1635.0,
+      "mem_mhz": 7001.0,
+      "power_w": 131.96,
+      "temp_c": 62.0
+    },
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1605.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.23000000000002,
+      "temp_c": 65.0
+    },
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1567.5,
+      "mem_mhz": 7001.0,
+      "power_w": 139.36,
+      "temp_c": 67.0
+    }
+  },
+  "baseline-a-reverse": {
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1545.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.615,
+      "temp_c": 69.0
+    }
+  },
+  "baseline-b": {
+    "1280": {
+      "samples_util95": 3,
+      "sm_mhz": 1650.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.61,
+      "temp_c": 66.0
+    },
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1605.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.73000000000002,
+      "temp_c": 68.5
+    },
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1575.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.42000000000002,
+      "temp_c": 71.0
+    }
+  },
+  "baseline-b-reverse": {
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1552.5,
+      "mem_mhz": 7001.0,
+      "power_w": 139.745,
+      "temp_c": 73.5
+    },
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1552.5,
+      "mem_mhz": 7001.0,
+      "power_w": 139.62,
+      "temp_c": 70.0
+    }
+  },
+  "baseline-confirm": {
+    "1280": {
+      "samples_util95": 3,
+      "sm_mhz": 1575.0,
+      "mem_mhz": 7001.0,
+      "power_w": 135.84,
+      "temp_c": 78.0
+    },
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1545.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.175,
+      "temp_c": 78.5
+    },
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1522.5,
+      "mem_mhz": 7001.0,
+      "power_w": 139.78,
+      "temp_c": 77.5
+    }
+  },
+  "baseline-final": {
+    "1280": {
+      "samples_util95": 3,
+      "sm_mhz": 1620.0,
+      "mem_mhz": 7001.0,
+      "power_w": 134.38,
+      "temp_c": 65.0
+    },
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1590.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.77,
+      "temp_c": 70.0
+    },
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1560.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.665,
+      "temp_c": 74.0
+    }
+  },
+  "half-feature-pack": {
+    "1280": {
+      "samples_util95": 3,
+      "sm_mhz": 1620.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.54,
+      "temp_c": 73.0
+    },
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1582.5,
+      "mem_mhz": 7001.0,
+      "power_w": 139.535,
+      "temp_c": 74.5
+    },
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1530.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.61,
+      "temp_c": 75.5
+    }
+  },
+  "half-feature-pack-reverse": {
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1567.5,
+      "mem_mhz": 7001.0,
+      "power_w": 139.33,
+      "temp_c": 71.5
+    },
+    "1920": {
+      "samples_util95": 7,
+      "sm_mhz": 1560.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.56,
+      "temp_c": 67.0
+    }
+  },
+  "half-store": {
+    "1280": {
+      "samples_util95": 3,
+      "sm_mhz": 1620.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.25,
+      "temp_c": 69.0
+    },
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1575.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.55,
+      "temp_c": 70.5
+    }
+  },
+  "half-store-reverse": {
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1575.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.64499999999998,
+      "temp_c": 66.5
+    }
+  },
+  "selected": {
+    "1280": {
+      "samples_util95": 3,
+      "sm_mhz": 1635.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.83,
+      "temp_c": 68.0
+    },
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1575.0,
+      "mem_mhz": 7001.0,
+      "power_w": 138.875,
+      "temp_c": 71.5
+    },
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1537.5,
+      "mem_mhz": 7001.0,
+      "power_w": 139.25,
+      "temp_c": 75.0
+    }
+  },
+  "selected-confirm": {
+    "1280": {
+      "samples_util95": 3,
+      "sm_mhz": 1590.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.75,
+      "temp_c": 78.0
+    },
+    "1600": {
+      "samples_util95": 6,
+      "sm_mhz": 1552.5,
+      "mem_mhz": 7001.0,
+      "power_w": 139.095,
+      "temp_c": 78.0
+    },
+    "1920": {
+      "samples_util95": 8,
+      "sm_mhz": 1530.0,
+      "mem_mhz": 7001.0,
+      "power_w": 139.45,
+      "temp_c": 76.5
+    }
+  }
+}

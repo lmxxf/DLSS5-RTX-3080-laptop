@@ -609,3 +609,29 @@ Zero已删除_storage_两副本；本次对Content整树复查，上述两个文
 备份目录下`backup-manifest.json`新增原版dxgi条目、patched SHA/字节和两个部署位置；`phase10-deployment.json`及仓库deployment.json同步记录补丁、原版备份、_storage_清理、整树无残留与真实游戏证据。旧“dxgi未改”的字段已移除，dinput8仍保持原文件。
 
 原版dxgi保留未改；回滚厂商补丁时应同时恢复两个位置，避免镜像副本继续加载另一版本。PTX三文件的原始备份仍完整。核查与记录脚本为`Development/hip-port/phase10/deploy-onimusha/audit_hotfix.py`，关键当前日志摘录为hotfix-live-evidence.txt；完整日志快照/反汇编/临时源码放在忽略的artifacts。本次没有修改其它游戏、发布ZIP，也没有将DLL或模型提交到Git。
+
+## 2026-10-25：Phase 11，C32 FFN feature直接half2→FP8，小收益收敛
+
+本轮以Phase10 selected为唯一基线，初始工作区干净，未找到适用AGENTS；没有动ptx-patcher、共享assets、Windows游戏/Magpie或v0.1.0 ZIP。Graph始终off，没有原样重试跨h2解包。冻结40模块SHA并在每个bench前验证。
+
+先读C32源码、实际SSA/PTX和新发现的Triton cuobjdump/nvdisasm SASS。A尝试消除FFN已有half结果再走RTZ的往返，LLVM/原语有限域通过、prefix/post各少16条F2FP.RZ，但900p变慢，1080p反向32.024→32.032med无收益，放弃。原始负结果与首次汇总保留；初扫A1080日志误被反向复测覆盖，首扫JSON/MD仍在，之后脚本禁止覆盖旧运行名，此记录不作保留依据。
+
+保留B仅限C32 fast的FFN feature Site2：原residual RTZ和存储保持，将RTZ half8直接成对量化为E4M3，省half扩FP32再通用量化。clamp448、half2加2.0生成相同2^-9子正规网格，normal3bit RNE及指数差用每16位槽+0xc0/取低8位；最坏低槽0xff7e不会跨槽进位，符号/负零保持。16252928有限half字节穷举逐位一致；模拟真实RTZ生产者后，全部half输入位模式也0bit。其它float激活、累加与布局不改。
+
+默认源码全量重编并实际CUDA加载 **40/40模块、1918entry**；39模块机器码与Phase10逐字节相同，最终C32与候选57个代码节相同。prefix/post SASS静态槽分别12227→12117、10356→10252，HADD2.F32各少32条；mapped反增7372→7532且F2FP.RZ16→24，未据静态多少推算速度。finish Regs168→162但Occ仍11。
+
+最终第一对50warmup/80iter（Small31/Style1/默认DVFS约140W、Graph0）：
+
+| 档位（处理尺寸） | Phase10 GPU min /median ms | Phase11 GPU min /median ms | Phase11 Wall med ms | Phase11核累计ms |
+|---|---:|---:|---:|---:|
+| 720p（1280×768） | 13.949 /14.369 | 13.894 /14.406 | 14.490 | 13.586432 |
+| 900p（1600×1024） | 23.110 /24.077 | 23.205 /24.019 | 24.126 | 22.693888 |
+| 1080p（1920×1152） | 31.099 /32.161 | 31.549 /31.928 | 32.041 | 28.465152 |
+
+反向确认Phase11 median14.580/24.170/32.011，配对Phase10为14.737/24.471/32.257；1080p两对分别快0.233/0.246ms（约0.72%/0.76%），900p微小正向，720p首对慢0.037、反向快0.157，不宣称稳定720收益。独立插桩帧有波动（720确认核累计15.984640高于median14.580），不将PROFILE_TOTAL与median差额当launch气泡，不拼不同轮次min/median，不作锁频因果结论。
+
+最终及反向三档均相对Phase10 **0bit-diff、invalid0、首末帧一致、32/32活跃核LMem0**。900/1080可见F32 PSNR46.975322/46.100947dB不变，720比特相同保证任何共同固定参考下PSNR不降。尝试的旧Phase1 F32模块/当前Host/720组合未验收（观测11.6075dB/maxabs1），未当作可信绝对金标准；原诊断保留，本轮不修复旁支。
+
+候选/对照均在phase11忽略artifacts，遥测和每次运行完整40模块哈希/时窗/参数保留。已删除约979MB冗余模块/临时IR/派生反汇编，逐字节验证后硬链接去重约551MB重复输出；最终40模块、改变的候选C32、原始日志和质量证据保留。最终默认 `hip-port/phase11/artifacts/selected/modules/`；[说明](hip-port/phase11/README.md)、[三档与核级表](hip-port/phase11/results.md)、[质量门](hip-port/phase11/quality.json)，复测 `bash Development/hip-port/phase11/run_benchmark.sh`。
+
+建议Phase12先审计已有FP16的AV/V生产者量化，先证明舍入/NaN和布局，再逐站小步控制；不要将float激活或Q/K归约直接降精度。另补匹配当前Host/Small图的720p F32参考。只提交本轮，不push。

@@ -1,0 +1,65 @@
+[
+  {
+    "kernel": "c32_wave1_prefix_b8d_w16",
+    "phase10": {
+      "F2FP": 130,
+      "F2FP_RZ": 36,
+      "F2F": 0,
+      "SHFL": 209,
+      "HMMA": 148,
+      "LDS": 172,
+      "STS": 14
+    },
+    "half-store": {
+      "F2FP": 114,
+      "F2FP_RZ": 20,
+      "F2F": 0,
+      "SHFL": 209,
+      "HMMA": 148,
+      "LDS": 172,
+      "STS": 14
+    }
+  },
+  {
+    "kernel": "c32_wave1_post_b8_w16",
+    "phase10": {
+      "F2FP": 108,
+      "F2FP_RZ": 28,
+      "F2F": 0,
+      "SHFL": 180,
+      "HMMA": 140,
+      "LDS": 40,
+      "STS": 14
+    },
+    "half-store": {
+      "F2FP": 92,
+      "F2FP_RZ": 12,
+      "F2F": 0,
+      "SHFL": 180,
+      "HMMA": 140,
+      "LDS": 40,
+      "STS": 14
+    }
+  },
+  {
+    "kernel": "c32_wave1_mapped_b8_w16",
+    "phase10": {
+      "F2FP": 90,
+      "F2FP_RZ": 16,
+      "F2F": 0,
+      "SHFL": 180,
+      "HMMA": 104,
+      "LDS": 26,
+      "STS": 6
+    },
+    "half-store": {
+      "F2FP": 82,
+      "F2FP_RZ": 8,
+      "F2F": 0,
+      "SHFL": 180,
+      "HMMA": 104,
+      "LDS": 26,
+      "STS": 6
+    }
+  }
+]

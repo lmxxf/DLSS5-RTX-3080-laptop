@@ -1,0 +1,242 @@
+[
+  {
+    "module": "boundary-fast",
+    "code_sections": 16,
+    "identical_code_sections": 16,
+    "all_code_identical": true
+  },
+  {
+    "module": "boundary_reference",
+    "code_sections": 5,
+    "identical_code_sections": 5,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32-wave1-fast-norm900",
+    "code_sections": 57,
+    "identical_code_sections": 57,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32-wave1-fast",
+    "code_sections": 57,
+    "identical_code_sections": 21,
+    "all_code_identical": false
+  },
+  {
+    "module": "c32-wave1-rtz",
+    "code_sections": 57,
+    "identical_code_sections": 57,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32-wave1",
+    "code_sections": 57,
+    "identical_code_sections": 57,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32_fast",
+    "code_sections": 4,
+    "identical_code_sections": 4,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32_fast_attention",
+    "code_sections": 8,
+    "identical_code_sections": 8,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32_fused_attention",
+    "code_sections": 3,
+    "identical_code_sections": 3,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32_fused_ffn_attention-packed",
+    "code_sections": 12,
+    "identical_code_sections": 12,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32_fused_ffn_attention",
+    "code_sections": 12,
+    "identical_code_sections": 12,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32_prefix_reference",
+    "code_sections": 11,
+    "identical_code_sections": 11,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32_tiled",
+    "code_sections": 5,
+    "identical_code_sections": 5,
+    "all_code_identical": true
+  },
+  {
+    "module": "c32_wmma",
+    "code_sections": 7,
+    "identical_code_sections": 7,
+    "all_code_identical": true
+  },
+  {
+    "module": "c512-m32-deep",
+    "code_sections": 95,
+    "identical_code_sections": 95,
+    "all_code_identical": true
+  },
+  {
+    "module": "c512-m32-mh",
+    "code_sections": 116,
+    "identical_code_sections": 116,
+    "all_code_identical": true
+  },
+  {
+    "module": "c64-wave2-fast",
+    "code_sections": 150,
+    "identical_code_sections": 150,
+    "all_code_identical": true
+  },
+  {
+    "module": "c64-wave2",
+    "code_sections": 150,
+    "identical_code_sections": 150,
+    "all_code_identical": true
+  },
+  {
+    "module": "deep_fast-packed-fast",
+    "code_sections": 94,
+    "identical_code_sections": 94,
+    "all_code_identical": true
+  },
+  {
+    "module": "deep_fast-packed",
+    "code_sections": 94,
+    "identical_code_sections": 94,
+    "all_code_identical": true
+  },
+  {
+    "module": "deep_fast",
+    "code_sections": 86,
+    "identical_code_sections": 86,
+    "all_code_identical": true
+  },
+  {
+    "module": "deep_reference",
+    "code_sections": 17,
+    "identical_code_sections": 17,
+    "all_code_identical": true
+  },
+  {
+    "module": "deep_wmma",
+    "code_sections": 9,
+    "identical_code_sections": 9,
+    "all_code_identical": true
+  },
+  {
+    "module": "multi-pass-predict",
+    "code_sections": 6,
+    "identical_code_sections": 6,
+    "all_code_identical": true
+  },
+  {
+    "module": "multi-pass-skin",
+    "code_sections": 5,
+    "identical_code_sections": 5,
+    "all_code_identical": true
+  },
+  {
+    "module": "multihead-fast-packed",
+    "code_sections": 16,
+    "identical_code_sections": 16,
+    "all_code_identical": true
+  },
+  {
+    "module": "multihead-fast-padded-wave-packed",
+    "code_sections": 131,
+    "identical_code_sections": 131,
+    "all_code_identical": true
+  },
+  {
+    "module": "multihead-fast-padded-wave",
+    "code_sections": 123,
+    "identical_code_sections": 123,
+    "all_code_identical": true
+  },
+  {
+    "module": "multihead-fast",
+    "code_sections": 16,
+    "identical_code_sections": 16,
+    "all_code_identical": true
+  },
+  {
+    "module": "multihead-reference",
+    "code_sections": 15,
+    "identical_code_sections": 15,
+    "all_code_identical": true
+  },
+  {
+    "module": "multihead-tiled",
+    "code_sections": 8,
+    "identical_code_sections": 8,
+    "all_code_identical": true
+  },
+  {
+    "module": "multihead-wmma",
+    "code_sections": 10,
+    "identical_code_sections": 10,
+    "all_code_identical": true
+  },
+  {
+    "module": "multihead_fused_attention",
+    "code_sections": 31,
+    "identical_code_sections": 31,
+    "all_code_identical": true
+  },
+  {
+    "module": "prefix_fast",
+    "code_sections": 6,
+    "identical_code_sections": 6,
+    "all_code_identical": true
+  },
+  {
+    "module": "swin-persistent-fast",
+    "code_sections": 121,
+    "identical_code_sections": 121,
+    "all_code_identical": true
+  },
+  {
+    "module": "swin-persistent",
+    "code_sections": 121,
+    "identical_code_sections": 121,
+    "all_code_identical": true
+  },
+  {
+    "module": "vit-stream-fast",
+    "code_sections": 104,
+    "identical_code_sections": 104,
+    "all_code_identical": true
+  },
+  {
+    "module": "vit-stream",
+    "code_sections": 104,
+    "identical_code_sections": 104,
+    "all_code_identical": true
+  },
+  {
+    "module": "vit-wide-deep",
+    "code_sections": 87,
+    "identical_code_sections": 87,
+    "all_code_identical": true
+  },
+  {
+    "module": "wave-pointwise",
+    "code_sections": 15,
+    "identical_code_sections": 15,
+    "all_code_identical": true
+  }
+]

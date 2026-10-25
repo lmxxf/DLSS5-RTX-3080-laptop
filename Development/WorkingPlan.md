@@ -176,3 +176,11 @@
 - 当前Host已交叉编译并部署LmxxfNrRuntime.dll（SHA ec94f6db31c9310c32cc93b789b66294a25b00630b121a2d761dda182fcda353），40模块+标记在游戏HIP/sm_86，AMD旧目录移除，93个Small权重/207cso完整。Runtime架构目录探测与CUDA配置加载已修正。
 - INI backend=lmxxf、WhitePointSource1、Preset2、Style1；配置0.5/FAST_NUMERIC1，FREE_RES1确保854×480→896×512。Windows D3D12/CUDA PrepareFrame验证modules40/hip1及优化gates开启，API各阶段成功。
 - PTX三文件备份在C:\DLSS5-5090-dll\backups\Onimusha-ptx-0.1.0，两个旧NR DLL已移出根目录。部署与哈希[回执](hip-port/phase10/deploy-onimusha/README.md)齐全。下一步由Zero进入游戏验收画质与帧率，发布ZIP未改。
+
+## 15. Phase 11 当前默认：C32 FFN feature直接half2量化（2026-10-25，闇）
+
+- 唯一基线Phase10 selected，40SHA固定；只保留C32 fast Site2 half8→FP8，原RTZ residual/累加/布局保持。有限half16252928字节穷举0bit，实际RTZ生产者后全half模式0bit。A（只删RTZ往返）无稳定收益，保留负结果、不入默认；Graph/跨h2未重试。
+- 最终默认实际重编/加载40/40模块、1918entry；39模块机器码未变，C32最终/候选57节一致。三档相对Phase10 0bit、invalid0、首末帧0bit、32/32零LMem，720 C256 wave2仍启用。F32 900/1080可见46.975322/46.100947dB不变；720 bit相同保证共同参考PSNR不降，旧未验收F32组合未作绝对金标准。
+- 第一对50/80，Phase11 **GPU min/median**：720p13.894/14.406、900p23.205/24.019、1080p31.549/31.928ms；Wall med14.490/24.126/32.041，独立核累计13.586432/22.693888/28.465152ms。配对Phase10 med14.369/24.077/32.161。反向Phase11 med14.580/24.170/32.011，对照14.737/24.471/32.257。
+- 收益小：1080两对约0.72%/0.76%，900微小正向；720没有稳定收益结论。默认DVFS约140W未锁频；单帧核累计不当帧均值或launch气泡。源、SSA/SASS、负结果、遥测及哈希均在[Phase11](hip-port/phase11/README.md)，[核级表](hip-port/phase11/results.md)。
+- 最终候选 `phase11/artifacts/selected/modules/`；复测入口 `bash Development/hip-port/phase11/run_benchmark.sh`。只清理本轮重复临时产物，最终40模块保留；不改已冻结发布/部署，不push。Phase12优先从AV/V已有half生产点量化着手，逐站证明零误差，并补匹配720 F32参考。

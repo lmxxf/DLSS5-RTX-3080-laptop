@@ -1,0 +1,8 @@
+{
+  "accepted_as_gold": false,
+  "source": "Phase1 f32-modules with current host, AMPERE_WEIGHTS=0",
+  "observed_psnr_phase10_visible": 11.607545439265575,
+  "maxabs": 1.0,
+  "reason": "Legacy module/current host/720 graph combination has not been independently validated; do not publish this absolute PSNR as a trusted gold. Root cause outside the Phase10-only optimization scope.",
+  "quality_gate": "Phase11 candidate must be byte-identical to Phase10; therefore PSNR vs any fixed common F32 reference cannot decrease."
+}

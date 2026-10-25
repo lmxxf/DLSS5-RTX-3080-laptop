@@ -1,0 +1,1245 @@
+{
+  "cases": {
+    "ramp1024": {
+      "native_CPU_head_bitdiff": 0,
+      "f32_CPU_head_bitdiff": 0,
+      "upstream_branch_replays": {
+        "low_only_RGB_MSE": 4.4953928766132905e-05,
+        "skip_only_RGB_MSE": 2.458036890923463e-06,
+        "interaction_RMS": 0.0020639210051805776,
+        "scope": "standalone F32 replays, nonlinear contributions not added as independent percentages"
+      },
+      "final_RGB_error_decomposition": {
+        "local_post_same_inputs_MSE": 1.310395091947769e-06,
+        "upstream_input_MSE": 4.532029602950853e-05,
+        "cross_term": -1.3076163250966414e-06,
+        "total_MSE": 4.532307479635967e-05
+      },
+      "linear_head_feature_contributions": [
+        {
+          "feature": 25,
+          "signed_covariance_contribution": [
+            0.00019629426545813116,
+            -1.1986659876885562e-05,
+            0.00013101908245559946
+          ],
+          "feature_error_RMS": 0.16597286734274594
+        },
+        {
+          "feature": 9,
+          "signed_covariance_contribution": [
+            1.8676623358993383e-05,
+            0.00011596481122818085,
+            0.00015027660574103402
+          ],
+          "feature_error_RMS": 0.15763923073492986
+        },
+        {
+          "feature": 24,
+          "signed_covariance_contribution": [
+            -3.2812620444613337e-07,
+            0.00022774096609541985,
+            4.657119154118311e-05
+          ],
+          "feature_error_RMS": 0.32939657010822576
+        },
+        {
+          "feature": 14,
+          "signed_covariance_contribution": [
+            9.505994542619501e-05,
+            3.928605514873824e-06,
+            0.00015774889100444376
+          ],
+          "feature_error_RMS": 0.2702606334448839
+        },
+        {
+          "feature": 5,
+          "signed_covariance_contribution": [
+            9.491211623721136e-05,
+            0.00010108867749113941,
+            2.0952428817112436e-05
+          ],
+          "feature_error_RMS": 0.13107106523863835
+        },
+        {
+          "feature": 21,
+          "signed_covariance_contribution": [
+            0.0001362562585644089,
+            -8.743279960085369e-07,
+            -5.077906199732484e-07
+          ],
+          "feature_error_RMS": 0.15071044228553684
+        },
+        {
+          "feature": 22,
+          "signed_covariance_contribution": [
+            5.478309520793102e-05,
+            2.751210824946697e-05,
+            2.0514037654138783e-05
+          ],
+          "feature_error_RMS": 0.20170149341844565
+        },
+        {
+          "feature": 10,
+          "signed_covariance_contribution": [
+            9.050593119863735e-05,
+            1.1415484751029986e-05,
+            7.243896942345587e-08
+          ],
+          "feature_error_RMS": 0.16263397820044398
+        },
+        {
+          "feature": 19,
+          "signed_covariance_contribution": [
+            -1.8469689340745468e-05,
+            8.330833262646879e-05,
+            3.0629381816322416e-05
+          ],
+          "feature_error_RMS": 0.15830832793237773
+        },
+        {
+          "feature": 2,
+          "signed_covariance_contribution": [
+            2.5670669029220448e-05,
+            6.0818420164290275e-05,
+            -3.4301640043242684e-06
+          ],
+          "feature_error_RMS": 0.1987825132049489
+        },
+        {
+          "feature": 30,
+          "signed_covariance_contribution": [
+            5.321581427737183e-05,
+            3.244499868890599e-06,
+            1.4671810706823338e-05
+          ],
+          "feature_error_RMS": 0.1393218996509078
+        },
+        {
+          "feature": 28,
+          "signed_covariance_contribution": [
+            -8.142235707441617e-07,
+            5.032761879439073e-05,
+            2.146112831492293e-05
+          ],
+          "feature_error_RMS": 0.3134296317691415
+        },
+        {
+          "feature": 23,
+          "signed_covariance_contribution": [
+            3.552487845061208e-06,
+            4.397263473002312e-05,
+            2.0473675213382868e-05
+          ],
+          "feature_error_RMS": 0.4853480727046211
+        },
+        {
+          "feature": 3,
+          "signed_covariance_contribution": [
+            4.120074132338856e-06,
+            7.724328216980329e-06,
+            4.866363190493692e-05
+          ],
+          "feature_error_RMS": 0.304317629465961
+        },
+        {
+          "feature": 1,
+          "signed_covariance_contribution": [
+            4.241146092846159e-05,
+            1.5873962674138588e-05,
+            -5.599077985158688e-10
+          ],
+          "feature_error_RMS": 0.1890178722907211
+        },
+        {
+          "feature": 16,
+          "signed_covariance_contribution": [
+            1.584524446405574e-06,
+            5.351383511362894e-06,
+            3.3840656184559374e-05
+          ],
+          "feature_error_RMS": 0.19670764235124255
+        },
+        {
+          "feature": 20,
+          "signed_covariance_contribution": [
+            3.2995831452600455e-07,
+            -1.5682195307344735e-06,
+            4.079941569946168e-05
+          ],
+          "feature_error_RMS": 0.4150454892478367
+        },
+        {
+          "feature": 17,
+          "signed_covariance_contribution": [
+            1.3427396555220299e-05,
+            4.171950707347708e-06,
+            7.83055096640851e-06
+          ],
+          "feature_error_RMS": 0.16361481376264334
+        },
+        {
+          "feature": 29,
+          "signed_covariance_contribution": [
+            6.6643950355483395e-06,
+            1.682176963251756e-05,
+            9.672489314579513e-07
+          ],
+          "feature_error_RMS": 0.07750159030485389
+        },
+        {
+          "feature": 26,
+          "signed_covariance_contribution": [
+            1.590038761929767e-06,
+            6.328131037028111e-06,
+            1.0022122625158991e-05
+          ],
+          "feature_error_RMS": 0.213293407642781
+        },
+        {
+          "feature": 27,
+          "signed_covariance_contribution": [
+            -1.7814817052113193e-06,
+            -9.609741763938452e-07,
+            2.0041257217889674e-05
+          ],
+          "feature_error_RMS": 0.40154109218880063
+        },
+        {
+          "feature": 7,
+          "signed_covariance_contribution": [
+            5.515036019832669e-07,
+            5.772616270617707e-07,
+            7.074869447805566e-06
+          ],
+          "feature_error_RMS": 0.2366719984657304
+        },
+        {
+          "feature": 4,
+          "signed_covariance_contribution": [
+            1.890210060300781e-06,
+            3.0308847508683104e-06,
+            2.348491176058794e-06
+          ],
+          "feature_error_RMS": 0.24103433735798285
+        },
+        {
+          "feature": 8,
+          "signed_covariance_contribution": [
+            1.7225029018103097e-06,
+            5.5334655389794875e-06,
+            -3.546983879546664e-07
+          ],
+          "feature_error_RMS": 0.14991255061319095
+        },
+        {
+          "feature": 13,
+          "signed_covariance_contribution": [
+            3.0097705292616063e-07,
+            -1.1999751409765228e-07,
+            1.1958084824791112e-06
+          ],
+          "feature_error_RMS": 0.08401905111800922
+        },
+        {
+          "feature": 15,
+          "signed_covariance_contribution": [
+            7.319483865237714e-07,
+            1.550782715663033e-07,
+            -4.387644559988188e-07
+          ],
+          "feature_error_RMS": 0.17334714169455723
+        },
+        {
+          "feature": 0,
+          "signed_covariance_contribution": [
+            -3.433872632310583e-09,
+            -1.820022986311295e-07,
+            -3.830707067132221e-08
+          ],
+          "feature_error_RMS": 0.10560105045363107
+        },
+        {
+          "feature": 12,
+          "signed_covariance_contribution": [
+            3.935649355288312e-08,
+            -4.821966187500246e-07,
+            9.896378861643646e-08
+          ],
+          "feature_error_RMS": 0.11268310528071142
+        },
+        {
+          "feature": 6,
+          "signed_covariance_contribution": [
+            9.50955087884557e-07,
+            -1.1791064426396904e-06,
+            -2.8611437422846347e-07
+          ],
+          "feature_error_RMS": 0.1951348373625087
+        },
+        {
+          "feature": 11,
+          "signed_covariance_contribution": [
+            -8.733330010879139e-06,
+            -1.403040611951523e-05,
+            1.746353437904787e-05
+          ],
+          "feature_error_RMS": 0.16565073538125327
+        },
+        {
+          "feature": 31,
+          "signed_covariance_contribution": [
+            -3.465963490061069e-06,
+            -2.358809240484471e-05,
+            -4.1022536414512155e-05
+          ],
+          "feature_error_RMS": 0.2531005165698808
+        },
+        {
+          "feature": 18,
+          "signed_covariance_contribution": [
+            -2.7149131595217013e-05,
+            -3.3426676596090936e-06,
+            -3.766785057483338e-05
+          ],
+          "feature_error_RMS": 0.3885819860045699
+        }
+      ],
+      "head_dot_error_MSE": 0.0007473544302148393,
+      "head_contributions_sum": 0.0007473544302148419,
+      "feature_error_RMS_native_f32": 0.23820090034378413,
+      "feature_reference_RMS": 2.220903532409403
+    },
+    "canonical720": {
+      "native_CPU_head_bitdiff": 0,
+      "f32_CPU_head_bitdiff": 0,
+      "upstream_branch_replays": {
+        "low_only_RGB_MSE": 4.3237633826825924e-05,
+        "skip_only_RGB_MSE": 2.1877899035034424e-06,
+        "interaction_RMS": 0.001759064462823686,
+        "scope": "standalone F32 replays, nonlinear contributions not added as independent percentages"
+      },
+      "final_RGB_error_decomposition": {
+        "local_post_same_inputs_MSE": 7.81187775368581e-07,
+        "upstream_input_MSE": 4.384744489507067e-05,
+        "cross_term": -7.548369543949961e-07,
+        "total_MSE": 4.3873795716044255e-05
+      },
+      "linear_head_feature_contributions": [
+        {
+          "feature": 9,
+          "signed_covariance_contribution": [
+            1.488682871506524e-05,
+            0.0001031604625927367,
+            0.00019289039060728486
+          ],
+          "feature_error_RMS": 0.16128751322312548
+        },
+        {
+          "feature": 25,
+          "signed_covariance_contribution": [
+            0.00017584594134359245,
+            -1.654004330156255e-08,
+            0.0001301984936702906
+          ],
+          "feature_error_RMS": 0.14969199626320956
+        },
+        {
+          "feature": 14,
+          "signed_covariance_contribution": [
+            9.105910347564358e-05,
+            1.2412956258988212e-06,
+            0.00016305194801366428
+          ],
+          "feature_error_RMS": 0.2592792092151498
+        },
+        {
+          "feature": 24,
+          "signed_covariance_contribution": [
+            -8.402165188354383e-08,
+            0.00017644453565405664,
+            7.652336243738796e-05
+          ],
+          "feature_error_RMS": 0.301424706194908
+        },
+        {
+          "feature": 5,
+          "signed_covariance_contribution": [
+            0.00010415338122877319,
+            6.91579750467656e-05,
+            2.0548722937839936e-05
+          ],
+          "feature_error_RMS": 0.1184129337825103
+        },
+        {
+          "feature": 21,
+          "signed_covariance_contribution": [
+            0.00014050693262700225,
+            1.2191594076114076e-06,
+            -1.0298568119170468e-06
+          ],
+          "feature_error_RMS": 0.14378755306614577
+        },
+        {
+          "feature": 22,
+          "signed_covariance_contribution": [
+            7.526541167767993e-05,
+            1.9826229987421546e-05,
+            2.2296512232172742e-05
+          ],
+          "feature_error_RMS": 0.2047777498667054
+        },
+        {
+          "feature": 30,
+          "signed_covariance_contribution": [
+            6.145496248115703e-05,
+            9.236042606291807e-06,
+            1.677936052602876e-05
+          ],
+          "feature_error_RMS": 0.14964120435709244
+        },
+        {
+          "feature": 19,
+          "signed_covariance_contribution": [
+            -1.4825125752011515e-05,
+            6.136946836189049e-05,
+            2.8691792372574594e-05
+          ],
+          "feature_error_RMS": 0.13855605534496984
+        },
+        {
+          "feature": 10,
+          "signed_covariance_contribution": [
+            6.418023588197992e-05,
+            5.164390638213028e-06,
+            -1.2730735379624656e-09
+          ],
+          "feature_error_RMS": 0.14719224150956697
+        },
+        {
+          "feature": 3,
+          "signed_covariance_contribution": [
+            3.418886033724886e-06,
+            1.031581404168022e-05,
+            5.3973045063627444e-05
+          ],
+          "feature_error_RMS": 0.2918838938489408
+        },
+        {
+          "feature": 28,
+          "signed_covariance_contribution": [
+            -3.1499673573598774e-07,
+            4.1460155157462175e-05,
+            2.188220068650906e-05
+          ],
+          "feature_error_RMS": 0.28725457277854155
+        },
+        {
+          "feature": 1,
+          "signed_covariance_contribution": [
+            4.4878896619868296e-05,
+            1.3565058056197168e-05,
+            1.3923440551540712e-09
+          ],
+          "feature_error_RMS": 0.17234547148485688
+        },
+        {
+          "feature": 2,
+          "signed_covariance_contribution": [
+            2.1723093894103787e-05,
+            4.0945861426826926e-05,
+            -4.976550481034236e-06
+          ],
+          "feature_error_RMS": 0.1745580549024682
+        },
+        {
+          "feature": 16,
+          "signed_covariance_contribution": [
+            7.077060847220953e-07,
+            7.417686185067563e-06,
+            4.2618980146912896e-05
+          ],
+          "feature_error_RMS": 0.20162615908557718
+        },
+        {
+          "feature": 20,
+          "signed_covariance_contribution": [
+            1.3193781157443083e-06,
+            -1.186351162545302e-06,
+            5.053182528962076e-05
+          ],
+          "feature_error_RMS": 0.4481311503143833
+        },
+        {
+          "feature": 23,
+          "signed_covariance_contribution": [
+            2.012647254481353e-06,
+            3.066060658555535e-05,
+            1.5003892836542058e-05
+          ],
+          "feature_error_RMS": 0.3959149537212683
+        },
+        {
+          "feature": 17,
+          "signed_covariance_contribution": [
+            1.0892072643497776e-05,
+            3.272682251403292e-06,
+            8.75518527083954e-06
+          ],
+          "feature_error_RMS": 0.13704490837559113
+        },
+        {
+          "feature": 29,
+          "signed_covariance_contribution": [
+            4.542218166179006e-06,
+            1.3459766455123657e-05,
+            1.0630596085034049e-06
+          ],
+          "feature_error_RMS": 0.06648232986791835
+        },
+        {
+          "feature": 26,
+          "signed_covariance_contribution": [
+            1.4847435652253882e-06,
+            6.473801783978039e-06,
+            1.0912355786003782e-05
+          ],
+          "feature_error_RMS": 0.19782953075526608
+        },
+        {
+          "feature": 27,
+          "signed_covariance_contribution": [
+            -2.7904783509362757e-06,
+            -1.1773185396250031e-06,
+            1.9330259148831283e-05
+          ],
+          "feature_error_RMS": 0.3614454241222468
+        },
+        {
+          "feature": 4,
+          "signed_covariance_contribution": [
+            1.999550887279147e-06,
+            2.5540668181920494e-06,
+            2.8463457518024576e-06
+          ],
+          "feature_error_RMS": 0.2043155087229902
+        },
+        {
+          "feature": 8,
+          "signed_covariance_contribution": [
+            1.6599733424031757e-06,
+            2.8185767305875174e-06,
+            1.4372376061058313e-06
+          ],
+          "feature_error_RMS": 0.13938456436401034
+        },
+        {
+          "feature": 7,
+          "signed_covariance_contribution": [
+            2.577036399940649e-08,
+            2.0985466412765347e-07,
+            5.011192291473708e-06
+          ],
+          "feature_error_RMS": 0.18173951425526821
+        },
+        {
+          "feature": 15,
+          "signed_covariance_contribution": [
+            1.0937412933997326e-06,
+            1.7182629295582176e-06,
+            -2.2373614012405742e-07
+          ],
+          "feature_error_RMS": 0.15698939806313045
+        },
+        {
+          "feature": 13,
+          "signed_covariance_contribution": [
+            1.5202408268682706e-07,
+            -7.610280532204269e-08,
+            1.6423300923437338e-06
+          ],
+          "feature_error_RMS": 0.0825090375375653
+        },
+        {
+          "feature": 0,
+          "signed_covariance_contribution": [
+            -3.639068662143174e-09,
+            -1.4574995959737208e-07,
+            -3.906567274129393e-08
+          ],
+          "feature_error_RMS": 0.09044933408025431
+        },
+        {
+          "feature": 12,
+          "signed_covariance_contribution": [
+            -2.4992399828410375e-07,
+            -2.5396814740836516e-07,
+            -1.856307531775254e-07
+          ],
+          "feature_error_RMS": 0.09586137689094174
+        },
+        {
+          "feature": 6,
+          "signed_covariance_contribution": [
+            -2.051097625968619e-06,
+            -1.3201675557470763e-06,
+            -4.3838114027411086e-07
+          ],
+          "feature_error_RMS": 0.1817409434943901
+        },
+        {
+          "feature": 11,
+          "signed_covariance_contribution": [
+            -4.172469445997705e-06,
+            -9.325531028323634e-06,
+            4.606499284171028e-06
+          ],
+          "feature_error_RMS": 0.14632900735460755
+        },
+        {
+          "feature": 18,
+          "signed_covariance_contribution": [
+            -2.730061504841278e-05,
+            -1.4098227197092375e-05,
+            -4.231733412811694e-05
+          ],
+          "feature_error_RMS": 0.3740038931431779
+        },
+        {
+          "feature": 31,
+          "signed_covariance_contribution": [
+            -3.0169589462385986e-06,
+            -2.3717329966393168e-05,
+            -6.198817869926969e-05
+          ],
+          "feature_error_RMS": 0.24117744765508772
+        }
+      ],
+      "head_dot_error_MSE": 0.000706075005619921,
+      "head_contributions_sum": 0.0007060750056199202,
+      "feature_error_RMS_native_f32": 0.22086423247045178,
+      "feature_reference_RMS": 1.9851223825138882
+    },
+    "ramp720": {
+      "native_CPU_head_bitdiff": 0,
+      "f32_CPU_head_bitdiff": 0,
+      "upstream_branch_replays": {
+        "low_only_RGB_MSE": 1.863005953068846e-05,
+        "skip_only_RGB_MSE": 1.6905801352207914e-06,
+        "interaction_RMS": 0.0016982974934383948,
+        "scope": "standalone F32 replays, nonlinear contributions not added as independent percentages"
+      },
+      "final_RGB_error_decomposition": {
+        "local_post_same_inputs_MSE": 8.222052981228011e-07,
+        "upstream_input_MSE": 1.8895849466454712e-05,
+        "cross_term": -8.155298246192422e-07,
+        "total_MSE": 1.890252493995828e-05
+      },
+      "linear_head_feature_contributions": [
+        {
+          "feature": 25,
+          "signed_covariance_contribution": [
+            9.112879670671404e-05,
+            -9.348293343373344e-06,
+            8.237240870008081e-05
+          ],
+          "feature_error_RMS": 0.13138302915773203
+        },
+        {
+          "feature": 9,
+          "signed_covariance_contribution": [
+            8.749142475763321e-06,
+            5.033079765010513e-05,
+            5.8005004283117986e-05
+          ],
+          "feature_error_RMS": 0.10501772208689057
+        },
+        {
+          "feature": 14,
+          "signed_covariance_contribution": [
+            3.324016808525832e-05,
+            2.379398074918521e-06,
+            6.424139971039415e-05
+          ],
+          "feature_error_RMS": 0.1723085709644509
+        },
+        {
+          "feature": 5,
+          "signed_covariance_contribution": [
+            3.222159376067688e-05,
+            5.347077007035702e-05,
+            1.3239708911923052e-05
+          ],
+          "feature_error_RMS": 0.09234417770735627
+        },
+        {
+          "feature": 24,
+          "signed_covariance_contribution": [
+            1.0378102953890914e-06,
+            8.311137164922088e-05,
+            7.460772811740954e-06
+          ],
+          "feature_error_RMS": 0.19531418064342856
+        },
+        {
+          "feature": 19,
+          "signed_covariance_contribution": [
+            -5.9725449798723234e-06,
+            4.477345463166583e-05,
+            2.221696012090832e-05
+          ],
+          "feature_error_RMS": 0.10027457777439765
+        },
+        {
+          "feature": 21,
+          "signed_covariance_contribution": [
+            5.264695741557048e-05,
+            -9.877789748740896e-07,
+            1.6248975643802166e-07
+          ],
+          "feature_error_RMS": 0.09807413033567301
+        },
+        {
+          "feature": 10,
+          "signed_covariance_contribution": [
+            4.135804149649915e-05,
+            9.748618413609598e-06,
+            -3.305329271240894e-08
+          ],
+          "feature_error_RMS": 0.10779733287010769
+        },
+        {
+          "feature": 22,
+          "signed_covariance_contribution": [
+            1.2964858217628626e-05,
+            1.074954767430212e-05,
+            1.0337871093952014e-05
+          ],
+          "feature_error_RMS": 0.12455764196281104
+        },
+        {
+          "feature": 23,
+          "signed_covariance_contribution": [
+            1.7694112909811261e-06,
+            1.9380332176238292e-05,
+            9.688575293884917e-06
+          ],
+          "feature_error_RMS": 0.3363228423770551
+        },
+        {
+          "feature": 28,
+          "signed_covariance_contribution": [
+            -4.2961002419689315e-07,
+            1.7752607495352897e-05,
+            9.666569165313425e-06
+          ],
+          "feature_error_RMS": 0.18556868731105627
+        },
+        {
+          "feature": 30,
+          "signed_covariance_contribution": [
+            1.9029263854210484e-05,
+            -1.673095807593852e-07,
+            5.8310378521474534e-06
+          ],
+          "feature_error_RMS": 0.0838840969032145
+        },
+        {
+          "feature": 2,
+          "signed_covariance_contribution": [
+            4.955990571596657e-06,
+            1.931577757735978e-05,
+            -1.8411610157123822e-06
+          ],
+          "feature_error_RMS": 0.11967802712455922
+        },
+        {
+          "feature": 3,
+          "signed_covariance_contribution": [
+            1.1738814247322603e-06,
+            -3.987662314820367e-07,
+            1.883623862613881e-05
+          ],
+          "feature_error_RMS": 0.17563028353986676
+        },
+        {
+          "feature": 1,
+          "signed_covariance_contribution": [
+            1.3142784775244257e-05,
+            4.600731510279832e-06,
+            2.9489219449623902e-09
+          ],
+          "feature_error_RMS": 0.11214804402410544
+        },
+        {
+          "feature": 16,
+          "signed_covariance_contribution": [
+            1.1715513229811227e-06,
+            7.000011966134796e-07,
+            1.2480710932850378e-05
+          ],
+          "feature_error_RMS": 0.11947786197537473
+        },
+        {
+          "feature": 20,
+          "signed_covariance_contribution": [
+            5.652263080774284e-08,
+            -7.539662445788194e-07,
+            1.4292189682551053e-05
+          ],
+          "feature_error_RMS": 0.2514418496915808
+        },
+        {
+          "feature": 17,
+          "signed_covariance_contribution": [
+            5.4085306041865815e-06,
+            1.342395097104204e-06,
+            2.450251618406636e-06
+          ],
+          "feature_error_RMS": 0.10613836707733142
+        },
+        {
+          "feature": 27,
+          "signed_covariance_contribution": [
+            -5.060848174841168e-07,
+            -8.307002188266626e-08,
+            7.249601697841365e-06
+          ],
+          "feature_error_RMS": 0.2406026296331882
+        },
+        {
+          "feature": 7,
+          "signed_covariance_contribution": [
+            2.3995155008620793e-07,
+            4.376956380886051e-07,
+            3.987412765440167e-06
+          ],
+          "feature_error_RMS": 0.15189517472237782
+        },
+        {
+          "feature": 26,
+          "signed_covariance_contribution": [
+            2.59096516413184e-07,
+            7.499031497871636e-07,
+            2.517059839887682e-06
+          ],
+          "feature_error_RMS": 0.11013853928249058
+        },
+        {
+          "feature": 8,
+          "signed_covariance_contribution": [
+            3.2850106920348815e-07,
+            2.764213370068333e-06,
+            -3.3892984627066684e-07
+          ],
+          "feature_error_RMS": 0.10693151132887027
+        },
+        {
+          "feature": 29,
+          "signed_covariance_contribution": [
+            -6.52523167355369e-07,
+            3.929341788531711e-06,
+            -1.043574826234878e-06
+          ],
+          "feature_error_RMS": 0.044577304976296986
+        },
+        {
+          "feature": 4,
+          "signed_covariance_contribution": [
+            1.0110884907469734e-07,
+            8.101598509445962e-07,
+            5.293410343422631e-07
+          ],
+          "feature_error_RMS": 0.12464676197932247
+        },
+        {
+          "feature": 6,
+          "signed_covariance_contribution": [
+            1.167277074334407e-06,
+            -4.6731160066950716e-08,
+            4.492049363990173e-08
+          ],
+          "feature_error_RMS": 0.12606783415500514
+        },
+        {
+          "feature": 13,
+          "signed_covariance_contribution": [
+            3.2906395042919206e-07,
+            -3.09028020118545e-08,
+            1.60368724304481e-07
+          ],
+          "feature_error_RMS": 0.05474131828367235
+        },
+        {
+          "feature": 12,
+          "signed_covariance_contribution": [
+            1.95109248870407e-07,
+            -1.6760239036682726e-07,
+            2.3482414606683083e-07
+          ],
+          "feature_error_RMS": 0.08066054973867622
+        },
+        {
+          "feature": 0,
+          "signed_covariance_contribution": [
+            -1.56300882139995e-08,
+            -4.036288326508106e-08,
+            -1.0384401369780185e-08
+          ],
+          "feature_error_RMS": 0.07437202930480384
+        },
+        {
+          "feature": 15,
+          "signed_covariance_contribution": [
+            -1.0256735038301822e-07,
+            -6.182651657154027e-07,
+            -3.0133930563130656e-07
+          ],
+          "feature_error_RMS": 0.11596599658618739
+        },
+        {
+          "feature": 11,
+          "signed_covariance_contribution": [
+            -4.754523182909967e-06,
+            -5.839015036657608e-06,
+            6.65222801510961e-06
+          ],
+          "feature_error_RMS": 0.10048853079268578
+        },
+        {
+          "feature": 31,
+          "signed_covariance_contribution": [
+            -7.68496850052733e-07,
+            -5.5116814825323395e-06,
+            -9.227777474138775e-06
+          ],
+          "feature_error_RMS": 0.14046500254741365
+        },
+        {
+          "feature": 18,
+          "signed_covariance_contribution": [
+            -8.69511113192348e-06,
+            4.802933400100158e-06,
+            -1.5447565587570698e-05
+          ],
+          "feature_error_RMS": 0.2373599375384987
+        }
+      ],
+      "head_dot_error_MSE": 0.0003107839117133764,
+      "head_contributions_sum": 0.00031078391171337534,
+      "feature_error_RMS_native_f32": 0.1484453197386784,
+      "feature_reference_RMS": 1.550767492320496
+    },
+    "canonical1024": {
+      "native_CPU_head_bitdiff": 0,
+      "f32_CPU_head_bitdiff": 0,
+      "upstream_branch_replays": {
+        "low_only_RGB_MSE": 4.342150872939149e-05,
+        "skip_only_RGB_MSE": 2.158219351498217e-06,
+        "interaction_RMS": 0.0017540343763129342,
+        "scope": "standalone F32 replays, nonlinear contributions not added as independent percentages"
+      },
+      "final_RGB_error_decomposition": {
+        "local_post_same_inputs_MSE": 7.777792601047815e-07,
+        "upstream_input_MSE": 4.410000955308404e-05,
+        "cross_term": -7.319914239631978e-07,
+        "total_MSE": 4.41457973892256e-05
+      },
+      "linear_head_feature_contributions": [
+        {
+          "feature": 9,
+          "signed_covariance_contribution": [
+            1.829943303994803e-05,
+            0.00010213358455004908,
+            0.00018640795716444282
+          ],
+          "feature_error_RMS": 0.16102279123110136
+        },
+        {
+          "feature": 25,
+          "signed_covariance_contribution": [
+            0.00017736464382058626,
+            -3.3314082402301446e-06,
+            0.00012799651407666311
+          ],
+          "feature_error_RMS": 0.1508546638154033
+        },
+        {
+          "feature": 14,
+          "signed_covariance_contribution": [
+            9.170028232666952e-05,
+            2.0301153870896524e-06,
+            0.00016123305843745723
+          ],
+          "feature_error_RMS": 0.26126737782062165
+        },
+        {
+          "feature": 24,
+          "signed_covariance_contribution": [
+            1.0724687013405987e-06,
+            0.00017798743534696207,
+            6.912670342166101e-05
+          ],
+          "feature_error_RMS": 0.30428505077800966
+        },
+        {
+          "feature": 5,
+          "signed_covariance_contribution": [
+            0.00010115764446686032,
+            6.909507706769602e-05,
+            2.1183180617916118e-05
+          ],
+          "feature_error_RMS": 0.11784641535668298
+        },
+        {
+          "feature": 21,
+          "signed_covariance_contribution": [
+            0.0001405815573694839,
+            6.239783034246296e-07,
+            -1.2934906932567674e-06
+          ],
+          "feature_error_RMS": 0.1436724883532984
+        },
+        {
+          "feature": 22,
+          "signed_covariance_contribution": [
+            7.19870967328881e-05,
+            1.8656254919549288e-05,
+            2.3338953079207924e-05
+          ],
+          "feature_error_RMS": 0.201572031826535
+        },
+        {
+          "feature": 19,
+          "signed_covariance_contribution": [
+            -1.4303167929111092e-05,
+            7.046081220320606e-05,
+            3.4171320183421865e-05
+          ],
+          "feature_error_RMS": 0.14075291566197806
+        },
+        {
+          "feature": 30,
+          "signed_covariance_contribution": [
+            6.019089866970553e-05,
+            7.567180284627714e-06,
+            1.604435097981046e-05
+          ],
+          "feature_error_RMS": 0.14818337323032077
+        },
+        {
+          "feature": 10,
+          "signed_covariance_contribution": [
+            7.221125226600754e-05,
+            8.972122350086107e-06,
+            4.973463564961847e-08
+          ],
+          "feature_error_RMS": 0.1476887151749986
+        },
+        {
+          "feature": 28,
+          "signed_covariance_contribution": [
+            -4.2121921679274536e-07,
+            4.397866573690954e-05,
+            2.3247493327801203e-05
+          ],
+          "feature_error_RMS": 0.2985935849416208
+        },
+        {
+          "feature": 3,
+          "signed_covariance_contribution": [
+            3.07634669475583e-06,
+            8.809891248180185e-06,
+            5.092522510751479e-05
+          ],
+          "feature_error_RMS": 0.2903069532381565
+        },
+        {
+          "feature": 2,
+          "signed_covariance_contribution": [
+            1.9780258089179186e-05,
+            4.23594440560323e-05,
+            -5.246177752159556e-06
+          ],
+          "feature_error_RMS": 0.17734896180800955
+        },
+        {
+          "feature": 1,
+          "signed_covariance_contribution": [
+            4.401300914314439e-05,
+            1.2861956429291052e-05,
+            6.30604540928649e-09
+          ],
+          "feature_error_RMS": 0.1738629707782481
+        },
+        {
+          "feature": 23,
+          "signed_covariance_contribution": [
+            2.7657154058010784e-06,
+            3.320663701024266e-05,
+            1.5698855115245497e-05
+          ],
+          "feature_error_RMS": 0.41121579872056685
+        },
+        {
+          "feature": 20,
+          "signed_covariance_contribution": [
+            1.3104993241561961e-06,
+            -1.486079006892476e-06,
+            5.0125567240880344e-05
+          ],
+          "feature_error_RMS": 0.4477192564602058
+        },
+        {
+          "feature": 16,
+          "signed_covariance_contribution": [
+            2.171172705333235e-06,
+            7.168642286781191e-06,
+            3.950369658901416e-05
+          ],
+          "feature_error_RMS": 0.19745612963927714
+        },
+        {
+          "feature": 17,
+          "signed_covariance_contribution": [
+            1.1978608401389399e-05,
+            3.831386913989012e-06,
+            8.855522943828408e-06
+          ],
+          "feature_error_RMS": 0.13913324587599188
+        },
+        {
+          "feature": 29,
+          "signed_covariance_contribution": [
+            3.761752139698443e-06,
+            1.3950014382786088e-05,
+            1.5148316798367512e-07
+          ],
+          "feature_error_RMS": 0.06774704188702599
+        },
+        {
+          "feature": 26,
+          "signed_covariance_contribution": [
+            1.3802637185643681e-06,
+            5.727568682891438e-06,
+            1.0186415565499347e-05
+          ],
+          "feature_error_RMS": 0.1945801049971926
+        },
+        {
+          "feature": 27,
+          "signed_covariance_contribution": [
+            -2.9845431455048245e-06,
+            -1.2324325956842783e-06,
+            1.8950224236287304e-05
+          ],
+          "feature_error_RMS": 0.36303579107543854
+        },
+        {
+          "feature": 4,
+          "signed_covariance_contribution": [
+            1.6851851923806209e-06,
+            2.468355986072241e-06,
+            2.585852064564708e-06
+          ],
+          "feature_error_RMS": 0.2036722047319148
+        },
+        {
+          "feature": 7,
+          "signed_covariance_contribution": [
+            1.4648627932526853e-07,
+            2.893862190551353e-07,
+            4.75262432679514e-06
+          ],
+          "feature_error_RMS": 0.20869559851736055
+        },
+        {
+          "feature": 8,
+          "signed_covariance_contribution": [
+            1.2160324091075476e-06,
+            2.7353562999420163e-06,
+            1.1948616084466786e-06
+          ],
+          "feature_error_RMS": 0.13990668601142225
+        },
+        {
+          "feature": 15,
+          "signed_covariance_contribution": [
+            1.1320484985789143e-06,
+            1.7280867470648814e-06,
+            -1.9284856285556522e-07
+          ],
+          "feature_error_RMS": 0.1625635404100492
+        },
+        {
+          "feature": 13,
+          "signed_covariance_contribution": [
+            2.3364106428515834e-07,
+            -6.98047494773032e-08,
+            1.5736747214894332e-06
+          ],
+          "feature_error_RMS": 0.08215349893363572
+        },
+        {
+          "feature": 0,
+          "signed_covariance_contribution": [
+            -1.4645550019564327e-08,
+            -1.458278222977043e-07,
+            -3.640792345326904e-08
+          ],
+          "feature_error_RMS": 0.08992658936905665
+        },
+        {
+          "feature": 12,
+          "signed_covariance_contribution": [
+            -2.0453904337332027e-07,
+            -3.0624447456724616e-07,
+            -1.818740877885143e-07
+          ],
+          "feature_error_RMS": 0.09522744079774603
+        },
+        {
+          "feature": 6,
+          "signed_covariance_contribution": [
+            -1.6065153352045939e-06,
+            -1.04350449196836e-06,
+            -2.903421278335156e-07
+          ],
+          "feature_error_RMS": 0.1800167288420166
+        },
+        {
+          "feature": 11,
+          "signed_covariance_contribution": [
+            -6.660644710826362e-06,
+            -9.90098395030212e-06,
+            5.9148489614375964e-06
+          ],
+          "feature_error_RMS": 0.15436426583172252
+        },
+        {
+          "feature": 18,
+          "signed_covariance_contribution": [
+            -2.6636280385637184e-05,
+            -1.0334151152680272e-05,
+            -3.983547459215115e-05
+          ],
+          "feature_error_RMS": 0.3757321295821228
+        },
+        {
+          "feature": 31,
+          "signed_covariance_contribution": [
+            -2.757525008067169e-06,
+            -2.1718617814323925e-05,
+            -5.6505979757474026e-05
+          ],
+          "feature_error_RMS": 0.23593127576415696
+        }
+      ],
+      "head_dot_error_MSE": 0.000710113980789866,
+      "head_contributions_sum": 0.0007101139807898708,
+      "feature_error_RMS_native_f32": 0.22315584987039455,
+      "feature_reference_RMS": 1.9474843850013432
+    }
+  },
+  "scope": "isolated post kernel replay verified0bit; CPU head reconstructs outputs0bit; crossF32 uses COPIED Native low/skip, never injected into original network; MSE cross term retained"
+}

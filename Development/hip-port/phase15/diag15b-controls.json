@@ -1,0 +1,18 @@
+[
+  {
+    "shift_pixels": 1,
+    "tokens": 256,
+    "input_sha256": "73209c0b47fc342ed6f84eda8d3580850c95f25136c0ce60725e93aab2061a86",
+    "PSNR_peak1": 43.59259281548161,
+    "maxabs": 0.05199146270751953,
+    "scope": "whole-image reflected horizontal translation, sameN256; no equivariance/gold claim"
+  },
+  {
+    "shift_pixels": 8,
+    "tokens": 256,
+    "input_sha256": "c733fc4b6e1cf2189d762b48b8283d0480db7cf4854aeb274a6869f801b8b5aa",
+    "PSNR_peak1": 43.4808336975192,
+    "maxabs": 0.05175912380218506,
+    "scope": "whole-image reflected horizontal translation, sameN256; no equivariance/gold claim"
+  }
+]

@@ -70,7 +70,7 @@ PSNR固定 **peak=1，在可见区域的编码工作RGB输出域**，不是以�
 
 新720 F32 gold仍是SHA `149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5`，没有替换900/1080既有gold。
 
-同时复跑256坐标、172项16..256合法token/实际QKV/NaNInf入口覆盖，以及CPU按明确`rcp.approx`口径对八块 **1966080 AV字节0bit**。这里“实际QKV”来自实际CUDA执行的**合成benchmark图**，不是游戏捕获；原始样本与来源在`regression-provenance.json`。原始保留FP8字节的兼容测试没有扩称IEEE NaN语义。
+同时复跑256坐标、172项16..256合法token/实际QKV/NaNInf入口覆盖，以及CPU按明确`rcp.approx`口径对八块 **1966080 AV字节0bit**。这里“实际QKV”来自实际CUDA执行的**全零Prepare预热**（Phase15B已核实输入归属），不是游戏捕获；原始样本与来源在`regression-provenance.json`。原始保留FP8字节的兼容测试没有扩称IEEE NaN语义。
 
 最终从默认源码全量重编40/40并实际CUDA load/resolve **1918entry**，全部模块SHA与Phase14相同。`selected-modules.sha256.json`、`reference-modules.sha256.json`、`cuda-load-verification.json`、`host-provenance.json`、`platform-provenance.json`、`validation.json`记录参考链和质量门；18项既有Python/LLVM回归通过。未改变Graph off/Small31/Style1默认，也未设置GPU锁频或功耗。
 
@@ -96,3 +96,8 @@ python3 Development/hip-port/phase15/validate_all.py --tag regression
 ## 下一步停留在质量侧
 
 先补回**已有**原始HDR捕获或多帧素材（旧D盘档案），并逐层检查1024² codec-ramp差异来源，再决定是否恢复C32性能工作。本轮不要求Zero重新进游戏，不强行安排Phase16。继续保留Phase14实现，无新性能保留项或性能负收益结论。
+
+
+## Phase15B 质量诊断追加
+
+见 [DIAGNOSTIC15B.md](DIAGNOSTIC15B.md)。本轮新增严格的Prepare后启用与消费输入SHA门控；历史QKV fixture已证实属于零预热，数值数据与gold保持不变。新诊断核验实际冻结输入，未修改生产默认或45dB门槛。

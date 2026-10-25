@@ -1,0 +1,82 @@
+[
+  {
+    "case": "ramp1024",
+    "mode": "native",
+    "working_input_sha256": "df3f5b8c367b33a9b6c72acc2237a464091628748886949202982b216c7b8a9c",
+    "output_sha256": "2068016ee637edf827c3014ebf2eae98781a41eeba59adf8dc006120aa9be2ec",
+    "frozen_output_match": true,
+    "log": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/diag15b-ramp1024-native.log",
+    "trace": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/traces/ramp1024/native",
+    "returncode": 0
+  },
+  {
+    "case": "ramp1024",
+    "mode": "f32",
+    "working_input_sha256": "df3f5b8c367b33a9b6c72acc2237a464091628748886949202982b216c7b8a9c",
+    "output_sha256": "02de4ded9480b1c98b59672bd8d9097cb3ca0eeeba5b27266dedb6adc0c502e3",
+    "frozen_output_match": true,
+    "log": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/diag15b-ramp1024-f32.log",
+    "trace": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/traces/ramp1024/f32",
+    "returncode": 0
+  },
+  {
+    "case": "canonical720",
+    "mode": "native",
+    "working_input_sha256": "22d865fcb33143ae4cee257dc75865202cbdb930403c271dcabee4aebd7c12d3",
+    "output_sha256": "16e78e6361e928829727ad2f69ceafb456caeb1cea0fd28d8a5f6aed940a412b",
+    "frozen_output_match": true,
+    "log": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/diag15b-canonical720-native.log",
+    "trace": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/traces/canonical720/native",
+    "returncode": 0
+  },
+  {
+    "case": "canonical720",
+    "mode": "f32",
+    "working_input_sha256": "22d865fcb33143ae4cee257dc75865202cbdb930403c271dcabee4aebd7c12d3",
+    "output_sha256": "149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5",
+    "frozen_output_match": true,
+    "log": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/diag15b-canonical720-f32.log",
+    "trace": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/traces/canonical720/f32",
+    "returncode": 0
+  },
+  {
+    "case": "ramp720",
+    "mode": "native",
+    "working_input_sha256": "02eee4e3783050dad74a5aaa9513d308c6449afa599b7a12f64fc6a01cc411b3",
+    "output_sha256": "939bce1c7e37d9a7ae85b64236dcd9a0e06b7ea8e14ce6c490a0d36a070c7028",
+    "frozen_output_match": true,
+    "log": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/diag15b-ramp720-native.log",
+    "trace": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/traces/ramp720/native",
+    "returncode": 0
+  },
+  {
+    "case": "ramp720",
+    "mode": "f32",
+    "working_input_sha256": "02eee4e3783050dad74a5aaa9513d308c6449afa599b7a12f64fc6a01cc411b3",
+    "output_sha256": "04f7697b817f40e1bfe00cc10bb9b1071d90dae0a5017f2ab04feaf9d983272a",
+    "frozen_output_match": true,
+    "log": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/diag15b-ramp720-f32.log",
+    "trace": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/traces/ramp720/f32",
+    "returncode": 0
+  },
+  {
+    "case": "canonical1024",
+    "mode": "native",
+    "working_input_sha256": "2327c7edc260e275eb9c03f6e455c32bdd8c2089d5fd86c58b4f4fa15e88c2b1",
+    "output_sha256": "ee5b6a24cef2d6e28714fc93fa8526de3e25ec9fbe27489fbd01e31ff5e752f5",
+    "frozen_output_match": null,
+    "log": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/diag15b-canonical1024-native.log",
+    "trace": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/traces/canonical1024/native",
+    "returncode": 0
+  },
+  {
+    "case": "canonical1024",
+    "mode": "f32",
+    "working_input_sha256": "2327c7edc260e275eb9c03f6e455c32bdd8c2089d5fd86c58b4f4fa15e88c2b1",
+    "output_sha256": "fdf573d4e4b74008af40ffc4711a7f531d2ec943ecb6d47c618b2ea519d015f9",
+    "frozen_output_match": null,
+    "log": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/diag15b-canonical1024-f32.log",
+    "trace": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/traces/canonical1024/f32",
+    "returncode": 0
+  }
+]

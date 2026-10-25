@@ -1,0 +1,64 @@
+[
+  {
+    "case": "ramp1024",
+    "processing": [
+      1024,
+      1024
+    ],
+    "visible": [
+      1024,
+      1024
+    ],
+    "input_file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/inputs/ramp1024.rgba32",
+    "input_sha256": "df3f5b8c367b33a9b6c72acc2237a464091628748886949202982b216c7b8a9c",
+    "kind": "ramp",
+    "frozen_output_native": "2068016ee637edf827c3014ebf2eae98781a41eeba59adf8dc006120aa9be2ec",
+    "frozen_output_f32": "02de4ded9480b1c98b59672bd8d9097cb3ca0eeeba5b27266dedb6adc0c502e3"
+  },
+  {
+    "case": "canonical720",
+    "processing": [
+      1280,
+      768
+    ],
+    "visible": [
+      1280,
+      720
+    ],
+    "input_file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/inputs/canonical720.rgba32",
+    "input_sha256": "22d865fcb33143ae4cee257dc75865202cbdb930403c271dcabee4aebd7c12d3",
+    "kind": "canonical",
+    "frozen_output_native": "16e78e6361e928829727ad2f69ceafb456caeb1cea0fd28d8a5f6aed940a412b",
+    "frozen_output_f32": "149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5"
+  },
+  {
+    "case": "ramp720",
+    "processing": [
+      1280,
+      768
+    ],
+    "visible": [
+      1280,
+      720
+    ],
+    "input_file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/inputs/ramp720.rgba32",
+    "input_sha256": "02eee4e3783050dad74a5aaa9513d308c6449afa599b7a12f64fc6a01cc411b3",
+    "kind": "ramp",
+    "frozen_output_native": "939bce1c7e37d9a7ae85b64236dcd9a0e06b7ea8e14ce6c490a0d36a070c7028",
+    "frozen_output_f32": "04f7697b817f40e1bfe00cc10bb9b1071d90dae0a5017f2ab04feaf9d983272a"
+  },
+  {
+    "case": "canonical1024",
+    "processing": [
+      1024,
+      1024
+    ],
+    "visible": [
+      1024,
+      1024
+    ],
+    "input_file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/diagnostic15b-replay/inputs/canonical1024.rgba32",
+    "input_sha256": "2327c7edc260e275eb9c03f6e455c32bdd8c2089d5fd86c58b4f4fa15e88c2b1",
+    "kind": "canonical"
+  }
+]

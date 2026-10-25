@@ -1,0 +1,77 @@
+{
+  "cases": {
+    "ramp1024": {
+      "C64_first_encoder": {
+        "local_same_input_MSE": 0.06398118208289816,
+        "upstream_input_MSE": 0.35307277961874206,
+        "cross_term": -0.06420818034530384,
+        "total_MSE": 0.3528457813563364
+      },
+      "C128_first_encoder": {
+        "local_same_input_MSE": 0.05319076821069757,
+        "upstream_input_MSE": 0.42285980501219456,
+        "cross_term": -0.05347623370835208,
+        "total_MSE": 0.42257433951454004
+      }
+    },
+    "canonical720": {
+      "C64_first_encoder": {
+        "local_same_input_MSE": 0.0671787037931305,
+        "upstream_input_MSE": 0.4822195819656675,
+        "cross_term": -0.066228865965968,
+        "total_MSE": 0.48316941979283
+      },
+      "C128_first_encoder": {
+        "local_same_input_MSE": 0.06019135990451711,
+        "upstream_input_MSE": 0.42385368527805745,
+        "cross_term": -0.06035798270798599,
+        "total_MSE": 0.42368706247458854
+      }
+    },
+    "ramp720": {
+      "C64_first_encoder": {
+        "local_same_input_MSE": 0.0663968798481316,
+        "upstream_input_MSE": 0.39122302524823077,
+        "cross_term": -0.06598543061603171,
+        "total_MSE": 0.3916344744803306
+      },
+      "C128_first_encoder": {
+        "local_same_input_MSE": 0.05074725303954134,
+        "upstream_input_MSE": 0.4292340551910456,
+        "cross_term": -0.050910374522209166,
+        "total_MSE": 0.4290709337083778
+      }
+    },
+    "canonical1024": {
+      "C64_first_encoder": {
+        "local_same_input_MSE": 0.06693855467165122,
+        "upstream_input_MSE": 0.4818537282772013,
+        "cross_term": -0.06629581177185173,
+        "total_MSE": 0.4824964711770008
+      },
+      "C128_first_encoder": {
+        "local_same_input_MSE": 0.060018895181201515,
+        "upstream_input_MSE": 0.4215298498638731,
+        "cross_term": -0.0598165705705469,
+        "total_MSE": 0.4217321744745277
+      }
+    }
+  },
+  "cold_capture_provenance_check": [
+    {
+      "mode": "f32",
+      "current_Prepare_QKV_SHA": "2f23599719f74ff077645211b8b74214a5c17ceaa80ab2e413160163a560193a",
+      "historical_QKV_SHA": "2f23599719f74ff077645211b8b74214a5c17ceaa80ab2e413160163a560193a",
+      "byte_identical": true,
+      "actual_frozen_input_QKV_SHA": "2d750f1cd6f4b8a6f6b4c7310eac30a2fe72ca8251bbc732743e8281ae22cb70"
+    },
+    {
+      "mode": "native",
+      "current_Prepare_QKV_SHA": "0b6457a7ea7e9d4a5b1edabf05fdaaef22a89f1ba8ae1b7e5b1f9079b8e5efb5",
+      "historical_QKV_SHA": "0b6457a7ea7e9d4a5b1edabf05fdaaef22a89f1ba8ae1b7e5b1f9079b8e5efb5",
+      "byte_identical": true,
+      "actual_frozen_input_QKV_SHA": "cec8d8729dc143a049b1cfef6a3f3238d23d18ac4fe873256bc44a54791c5ef3"
+    }
+  ],
+  "scope": "Separate same-input F32 operator replays; original network tensors read-only. MSE cross terms included."
+}

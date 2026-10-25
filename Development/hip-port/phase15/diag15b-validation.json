@@ -1,0 +1,17 @@
+{
+  "frozen_input_and_main_output_verified": true,
+  "production_default_changed": false,
+  "gold_changed": false,
+  "performance_experiment": false,
+  "actual_input_attention_CPU_bytes": 8126464,
+  "actual_input_attention_CPU_byte_diff": 0,
+  "expand_CPU_K8_RNE_values": 65536,
+  "expand_CPU_K8_RNE_bitdiff": 0,
+  "CPU_RGB_head_bitdiff": 0,
+  "diagnostic_capture_order_bug_confirmed": true,
+  "production_implementation_bug_proven": false,
+  "entire_network_formal_CPU_proof": false,
+  "classification": "Evidence supports known FP16 accumulation/quantization error propagation and input-pattern/geometry interaction; checked operators and output head reproduced. No specific production fix justified. Fused encoder internals not exhaustively CPU-proven.",
+  "quality45_pass": false,
+  "realHDR_visual_acceptance": false
+}

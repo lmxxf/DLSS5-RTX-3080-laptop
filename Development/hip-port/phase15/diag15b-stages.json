@@ -1,0 +1,3338 @@
+{
+  "ramp1024": {
+    "pre-down": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 8388608,
+      "NRMSE": 0.017151867948863413,
+      "RMSE": 0.005196549691546987,
+      "maxabs": 0.125,
+      "native_RMS": 0.3030757282945107,
+      "F32_RMS": 0.30297281363405915,
+      "native_maxabs": 2.25,
+      "F32_maxabs": 2.25,
+      "invalid": 0,
+      "sha256": [
+        "c0acc513c6269f4c1910ae30d13e1952d7f93df7a75a821da523fdc286a844d5",
+        "0df39c921137203ed813301e04826862d89366727804faad3cc2b94eacb58410"
+      ]
+    },
+    "block0": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 33554432,
+      "NRMSE": 0.018327109573453095,
+      "RMSE": 0.007111337013240384,
+      "maxabs": 0.25,
+      "native_RMS": 0.3881538860018098,
+      "F32_RMS": 0.3880228349559927,
+      "native_maxabs": 3.25,
+      "F32_maxabs": 3.25,
+      "invalid": 0,
+      "sha256": [
+        "579889a57533953ec16faf7e9952616969f8135fce61bcd19fe72622e0a2c1fb",
+        "c2f5c7d41f3af5ae237ec2085448f8dad7a583751f12911eb6a73b94a278ecb4"
+      ]
+    },
+    "block4": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 8388608,
+      "NRMSE": 0.051085892477067026,
+      "RMSE": 0.1688005324823438,
+      "maxabs": 4.0,
+      "native_RMS": 3.3078790293305054,
+      "F32_RMS": 3.304249457090724,
+      "native_maxabs": 30.0,
+      "F32_maxabs": 30.0,
+      "invalid": 0,
+      "sha256": [
+        "1948ce69fce15e7e9bd6b5e87f719273fff3d1d21c971a20fad2110015a0df72",
+        "677b18ee9b1f11aa66509b8e7e2b96d608766b692c1b1efba779b9891728d6fc"
+      ]
+    },
+    "block4-down": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.04251376410875853,
+      "RMSE": 0.10824928744213834,
+      "maxabs": 1.25,
+      "native_RMS": 2.549156870391786,
+      "F32_RMS": 2.546217435962985,
+      "native_maxabs": 16.0,
+      "F32_maxabs": 16.0,
+      "invalid": 0,
+      "sha256": [
+        "59cf1eeb95a2c599703d5798b726137b4d3d90aa69ab1fbd424358295e4f5910",
+        "adf3c1bc2ef6f69d79ad521406b977e75d451f1d310f411b1f9b12b4e7d942f1"
+      ]
+    },
+    "block5": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 4194304,
+      "NRMSE": 0.09115190693554533,
+      "RMSE": 0.5940082334078681,
+      "maxabs": 8.0,
+      "native_RMS": 6.528361796565054,
+      "F32_RMS": 6.516684657271064,
+      "native_maxabs": 40.0,
+      "F32_maxabs": 40.0,
+      "invalid": 0,
+      "sha256": [
+        "bd9cb04e1aef30ab0e11eebf98d1da21ffb50d87356eb0a66e41d71e056f8382",
+        "62df04c27639d4ec2656e2ed8a2444355465656c8f08fac708ea4e9e68c84026"
+      ]
+    },
+    "block8": {
+      "types": [
+        "half",
+        "half"
+      ],
+      "elements": 4194304,
+      "NRMSE": 0.09970733578958048,
+      "RMSE": 0.7358359694314726,
+      "maxabs": 9.46630859375,
+      "native_RMS": 7.392920884417656,
+      "F32_RMS": 7.379958190682778,
+      "native_maxabs": 47.59375,
+      "F32_maxabs": 48.875,
+      "invalid": 0,
+      "sha256": [
+        "029eb8b2d0d66223719e188e56a72307f6ea9b395eaf8cd4c44aa05140c75fbb",
+        "db7ab2a4fc63d601f79d7a8e7d11183c80ee29ce76fca5cecaabf56fc0b66de4"
+      ]
+    },
+    "block9": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.1347672965237466,
+      "RMSE": 0.6500571817267616,
+      "maxabs": 6.0,
+      "native_RMS": 4.828999739509633,
+      "F32_RMS": 4.823552883337825,
+      "native_maxabs": 26.0,
+      "F32_maxabs": 26.0,
+      "invalid": 0,
+      "sha256": [
+        "ecbea593a4e75d74295dde7bcc48feaaebd4338869f7cfb2f52f5a1b2f47169f",
+        "d7c1ad1ddfa9702444073a3488006ddcc02fac643af0c3e7ec5944f05f235b93"
+      ]
+    },
+    "block14": {
+      "types": [
+        "half",
+        "half"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.14294440099837052,
+      "RMSE": 0.5449901363878221,
+      "maxabs": 8.0009765625,
+      "native_RMS": 3.8175381685442558,
+      "F32_RMS": 3.812602190651977,
+      "native_maxabs": 20.1875,
+      "F32_maxabs": 20.328125,
+      "invalid": 0,
+      "sha256": [
+        "fe54d819fec971afc379c607e48875bff000c6d10025abc21557fc8a176939cf",
+        "bce9c3a2bfc5a03b394e8e820d70180081e5ba1985bc90dee7cb2b0d7f7a1fb1"
+      ]
+    },
+    "block15": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1048576,
+      "NRMSE": 0.13810583297952092,
+      "RMSE": 0.4356143746692095,
+      "maxabs": 3.625,
+      "native_RMS": 3.1586516276687506,
+      "F32_RMS": 3.1542069242926525,
+      "native_maxabs": 20.0,
+      "F32_maxabs": 20.0,
+      "invalid": 0,
+      "sha256": [
+        "c33135cb63a207821ffe1eb865fceefc137a38007024a3051656a43dec46841b",
+        "cddae49d2449fd0cecb4fed240aa426de477925330183d7405d8f1973ef7554a"
+      ]
+    },
+    "block22": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 1048576,
+      "NRMSE": 0.15811996782075824,
+      "RMSE": 0.3782304943190079,
+      "maxabs": 4.391014099121094,
+      "native_RMS": 2.3968781577025635,
+      "F32_RMS": 2.3920476302383435,
+      "native_maxabs": 12.6796875,
+      "F32_maxabs": 12.548038482666016,
+      "invalid": 0,
+      "sha256": [
+        "04a3438353e3b455a1ecf3c5c41a6cac89936f8bc7024c28b0de356609b6c120",
+        "3e75b17fef49446e1d55c79cef3a0563383fd4599fa008212a96205fda83ca3a"
+      ]
+    },
+    "block23": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.11092921885447504,
+      "RMSE": 0.2517399725613061,
+      "maxabs": 2.0,
+      "native_RMS": 2.273856114577646,
+      "F32_RMS": 2.2693747883644324,
+      "native_maxabs": 12.0,
+      "F32_maxabs": 12.0,
+      "invalid": 0,
+      "sha256": [
+        "805e1e1e958b3eefb6e6b14733595062eb8c2782807b9e4f3a3f81c8f962356a",
+        "c3f2edfdc20202844122aec6a21faf0c2e37561295d11c8815487aa35e4e8a7f"
+      ]
+    },
+    "block30": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.11429578033507609,
+      "RMSE": 0.24186664010513612,
+      "maxabs": 2.01171875,
+      "native_RMS": 2.1214908283081835,
+      "F32_RMS": 2.1161467150936453,
+      "native_maxabs": 11.1953125,
+      "F32_maxabs": 11.125,
+      "invalid": 0,
+      "sha256": [
+        "71aac1a7146256fc8eac23b5dbd5a44209124879f184d374785dfaefa147061d",
+        "a899aa81eb1dfe0325dfe21709562b4efb476be4e5c2c7e33b9d7fa19cf9ae45"
+      ]
+    },
+    "head": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.06272486734483583,
+      "RMSE": 0.18787463804743695,
+      "maxabs": 1.0,
+      "native_RMS": 3.0019545816608657,
+      "F32_RMS": 2.995217782041348,
+      "native_maxabs": 13.0,
+      "F32_maxabs": 13.0,
+      "invalid": 0,
+      "sha256": [
+        "7ac0336f3f1f61c9ddaaa83c587791c3fde48b14f0c51b0f2c5a52e2ad62047c",
+        "b149a9a0147154bd7e0846f601d59503781d0e842ab80364802b862aa4ab164e"
+      ]
+    },
+    "block31": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.07304070694425716,
+      "RMSE": 0.27167902491065016,
+      "maxabs": 4.0,
+      "native_RMS": 3.732779758855846,
+      "F32_RMS": 3.719556344354509,
+      "native_maxabs": 36.0,
+      "F32_maxabs": 36.0,
+      "invalid": 0,
+      "sha256": [
+        "49ac267cd926a5865365a82c7d2305d90687e54dd63118b24ca9fa90efb2a7f3",
+        "2668e6c8ba95aa811bc2352fced728f28fd161b2fba69e10489cce1fe21ed9b4"
+      ]
+    },
+    "block32": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.08085681974024625,
+      "RMSE": 0.250169765014832,
+      "maxabs": 2.0,
+      "native_RMS": 3.104679682129965,
+      "F32_RMS": 3.0939847228533863,
+      "native_maxabs": 28.0,
+      "F32_maxabs": 26.0,
+      "invalid": 0,
+      "sha256": [
+        "ca53e986702e3d9ca0585953411ba748499f8c2d3fa496b7e5feb9b8ff1d8e7e",
+        "02261f5b132d424ad6b504371c8251ef15a8a6fbb627eb6fe64119772b5c153d"
+      ]
+    },
+    "block33": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.08872260426333185,
+      "RMSE": 0.23504161362443715,
+      "maxabs": 2.0,
+      "native_RMS": 2.661095562382157,
+      "F32_RMS": 2.6491739684153686,
+      "native_maxabs": 14.0,
+      "F32_maxabs": 14.0,
+      "invalid": 0,
+      "sha256": [
+        "571701a0e94d084fd0ee00962f905735071ba04354faaa316e012e8a2b2401de",
+        "006def8026b459f5a9bb5855a1d07e08d41f94993dbd849d4fa750e223c41d2c"
+      ]
+    },
+    "block34": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.08242018085746122,
+      "RMSE": 0.22817647341303607,
+      "maxabs": 2.0,
+      "native_RMS": 2.755520075223563,
+      "F32_RMS": 2.768453927656967,
+      "native_maxabs": 15.0,
+      "F32_maxabs": 15.0,
+      "invalid": 0,
+      "sha256": [
+        "3f559c90ef330fc686f52b9cbb4650303702c631462a27761f526023d692d615",
+        "14cb299684a00df93e32aa09a45404aa8d505906206ff74fa2b9d7c781c3095b"
+      ]
+    },
+    "block35": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.08820939692149128,
+      "RMSE": 0.2075377229823097,
+      "maxabs": 2.25,
+      "native_RMS": 2.340959745674066,
+      "F32_RMS": 2.352784739782586,
+      "native_maxabs": 14.0,
+      "F32_maxabs": 15.0,
+      "invalid": 0,
+      "sha256": [
+        "ba43887cf9e66f17abafaba87d4ed358b28fc79e82cfa791accb4ef5c0732638",
+        "e739a9685ed2614412423778e517b787878a37d6d93a8a74400132e70d00584d"
+      ]
+    },
+    "block36": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.09900158160615026,
+      "RMSE": 0.18051689966905946,
+      "maxabs": 2.5,
+      "native_RMS": 1.8174455145357977,
+      "F32_RMS": 1.8233738970675721,
+      "native_maxabs": 12.0,
+      "F32_maxabs": 12.0,
+      "invalid": 0,
+      "sha256": [
+        "de1094df2bc2862315652f89425a332312c8a7817ff182f286c3acd24da56f92",
+        "3bfd19116a93a83ec7de180444e72096e27d3531c4d7b2bcd0f08d73fbde5e3f"
+      ]
+    },
+    "block37": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.11293341345497403,
+      "RMSE": 0.15049940791768374,
+      "maxabs": 2.25,
+      "native_RMS": 1.3244056270070914,
+      "F32_RMS": 1.3326384398864122,
+      "native_maxabs": 9.0,
+      "F32_maxabs": 9.0,
+      "invalid": 0,
+      "sha256": [
+        "062a0382bfd44ea31d1fdf4f32f2126cfe1a5472b58c828ec79c41c92984bd93",
+        "282c0163fe232490cf6919ec90de90577197354fa69d9e80402c730ebb525a2f"
+      ]
+    },
+    "block38": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.13025494468258003,
+      "RMSE": 0.11934744521193,
+      "maxabs": 1.375,
+      "native_RMS": 0.9113995946173102,
+      "F32_RMS": 0.9162603807691857,
+      "native_maxabs": 5.0,
+      "F32_maxabs": 5.0,
+      "invalid": 0,
+      "sha256": [
+        "d86dcae37790efc6daa421fd54ecad4f1bfe4b928fb3490d87a4c8614ba6294b",
+        "c8ff614cf0ececc99fd861c7ed076d355da2d9c06b9e7f0ab8cd423ec0d39e7d"
+      ]
+    },
+    "block39": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.12152284747531618,
+      "RMSE": 0.17002196501073727,
+      "maxabs": 1.5,
+      "native_RMS": 1.3958713088224983,
+      "F32_RMS": 1.3990946438715754,
+      "native_maxabs": 6.5,
+      "F32_maxabs": 6.5,
+      "invalid": 0,
+      "sha256": [
+        "b7299b440b5702a46d7edb701b29656d18f3ca553e91b33c08a72bdae332b0b9",
+        "c11024945cd7a934c41c33a75a1b7c1d21e00b9d8faee9bb9f3d98e152efe7fe"
+      ]
+    },
+    "block40": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.11384756283639483,
+      "RMSE": 0.15077570336730117,
+      "maxabs": 1.5,
+      "native_RMS": 1.3263646693108608,
+      "F32_RMS": 1.3243647875358922,
+      "native_maxabs": 5.0,
+      "F32_maxabs": 5.0,
+      "invalid": 0,
+      "sha256": [
+        "5af24c0aea318191749990d00c033a15aa092779f095cfc0294dcbea479ae40d",
+        "1146a8b3de673217266d353e65421805b3ed6eb48d8f44edc91a9d1f62e54924"
+      ]
+    },
+    "block47": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.10168573365225297,
+      "RMSE": 0.12442759635994044,
+      "maxabs": 1.125,
+      "native_RMS": 1.224845118071623,
+      "F32_RMS": 1.2236485088995923,
+      "native_maxabs": 4.5,
+      "F32_maxabs": 5.0,
+      "invalid": 0,
+      "sha256": [
+        "6dc6b073903fbebcd70bbc21a8b138317391e4e886fe2bb09c0b284b86cb7d19",
+        "879b2191984d79c808dd5d5ce0811b545b805ade29bf32909bc53b05b82d6207"
+      ]
+    },
+    "block48": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1048576,
+      "NRMSE": 0.10639313088893168,
+      "RMSE": 0.1933317714413591,
+      "maxabs": 2.0,
+      "native_RMS": 1.817210401528085,
+      "F32_RMS": 1.8171452407316255,
+      "native_maxabs": 9.0,
+      "F32_maxabs": 9.0,
+      "invalid": 0,
+      "sha256": [
+        "3e2b634b2c59d27513a83d7b04bd67ccb485f89ecce2aac7da16580b1e716fb4",
+        "21b68dd6c4872d8367d511461f0ed33d43dca918b5f177c14607d16a4b83b0d2"
+      ]
+    },
+    "block55": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1048576,
+      "NRMSE": 0.09912639077821521,
+      "RMSE": 0.17200784371557393,
+      "maxabs": 1.5,
+      "native_RMS": 1.7343352603722968,
+      "F32_RMS": 1.7352376331387194,
+      "native_maxabs": 7.5,
+      "F32_maxabs": 7.5,
+      "invalid": 0,
+      "sha256": [
+        "dc0b223c5108bef670442efaf9703530f5adfa5b01ea1dc0f737ac1f88763b2e",
+        "658df35c4453fb55c66fe72a0948900bafddd32dc320967d05bb5277447cf94e"
+      ]
+    },
+    "block56": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.10441692597134546,
+      "RMSE": 0.2865343117598628,
+      "maxabs": 3.0,
+      "native_RMS": 2.746462007455487,
+      "F32_RMS": 2.744136633925565,
+      "native_maxabs": 11.0,
+      "F32_maxabs": 11.0,
+      "invalid": 0,
+      "sha256": [
+        "0b42bb2771afc2ac97b166ec91be241344523ebaead5309964a0da6f0af57546",
+        "89f716b472fe874d21b1545d39b991e573d6bd741d7be3366ce6db6a0ff6020d"
+      ]
+    },
+    "block61": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.11360685043163257,
+      "RMSE": 0.27064639221750264,
+      "maxabs": 3.0,
+      "native_RMS": 2.3812264262698015,
+      "F32_RMS": 2.3823069752327553,
+      "native_maxabs": 10.0,
+      "F32_maxabs": 10.0,
+      "invalid": 0,
+      "sha256": [
+        "d09b125917e33f0a6cc3735ca1dcd1c9f198e0dae64ccd269525eaa4e1016e15",
+        "50abfa037f456c2c994075da91bd31cd84bee7e295c83c5f053629d0ebc4d30f"
+      ]
+    },
+    "block62": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 4194304,
+      "NRMSE": 0.1003448880944073,
+      "RMSE": 0.37918688511311366,
+      "maxabs": 3.0,
+      "native_RMS": 3.777965818685979,
+      "F32_RMS": 3.7788360953311737,
+      "native_maxabs": 16.0,
+      "F32_maxabs": 16.0,
+      "invalid": 0,
+      "sha256": [
+        "b727a23ebfdf3e72de702581910082b1fcf955e4935728bbb581a1908ee4d808",
+        "306d5452c2eee25713ccb4384567abbd22adf3a758ec7d520331233eaf9e517f"
+      ]
+    },
+    "block65": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 4194304,
+      "NRMSE": 0.093053364825988,
+      "RMSE": 0.39819689154666305,
+      "maxabs": 4.0,
+      "native_RMS": 4.275413725321058,
+      "F32_RMS": 4.279231517219186,
+      "native_maxabs": 20.0,
+      "F32_maxabs": 20.0,
+      "invalid": 0,
+      "sha256": [
+        "684bd4304dd50caea490b8c3962fa246c21401da23e06819170358f57594615b",
+        "28f2e8f168ffd752ea800eb5f230dc8625e8a60d68088beab8e218a8d470a43a"
+      ]
+    },
+    "block69": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 8388608,
+      "NRMSE": 0.10293023070577163,
+      "RMSE": 0.381907003239275,
+      "maxabs": 4.0,
+      "native_RMS": 3.703725741227197,
+      "F32_RMS": 3.7103482681483997,
+      "native_maxabs": 24.0,
+      "F32_maxabs": 22.0,
+      "invalid": 0,
+      "sha256": [
+        "759d2ee8a92e3c56f986624836889982affba4d09973d12ca61a3a47c71a1fdd",
+        "b04ee36545447693b3ca59180e8c2d029cdc096de30d17cbb7c4b8f31d125b5e"
+      ]
+    },
+    "block70": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 3145728,
+      "NRMSE": 0.023024900191945946,
+      "RMSE": 0.006732241439250354,
+      "maxabs": 0.05438286066055298,
+      "native_RMS": 0.29269124686315395,
+      "F32_RMS": 0.29238960356515575,
+      "native_maxabs": 0.9370461106300354,
+      "F32_maxabs": 0.9425856471061707,
+      "invalid": 0,
+      "sha256": [
+        "2068016ee637edf827c3014ebf2eae98781a41eeba59adf8dc006120aa9be2ec",
+        "02de4ded9480b1c98b59672bd8d9097cb3ca0eeeba5b27266dedb6adc0c502e3"
+      ]
+    },
+    "vit31-expand": {
+      "RMSE": 0.23990917618839552,
+      "NRMSE": 0.08980958107937158,
+      "maxabs": 4.0,
+      "native_RMS": 2.6771790885995705,
+      "F32_RMS": 2.6713093781872725
+    },
+    "vit32-expand": {
+      "RMSE": 0.2055036411001568,
+      "NRMSE": 0.11316954318280871,
+      "maxabs": 3.0,
+      "native_RMS": 1.8226837613144746,
+      "F32_RMS": 1.815891761338967
+    },
+    "vit33-expand": {
+      "RMSE": 0.20414815475286005,
+      "NRMSE": 0.12369890223858543,
+      "maxabs": 3.0,
+      "native_RMS": 1.6507101975300404,
+      "F32_RMS": 1.6503635121927547
+    },
+    "vit34-expand": {
+      "RMSE": 0.1925112598841669,
+      "NRMSE": 0.13090540824223132,
+      "maxabs": 2.75,
+      "native_RMS": 1.4579463622433904,
+      "F32_RMS": 1.4706134946536222
+    },
+    "vit35-expand": {
+      "RMSE": 0.15066877576302593,
+      "NRMSE": 0.13280519570751728,
+      "maxabs": 2.125,
+      "native_RMS": 1.1303903487570721,
+      "F32_RMS": 1.1345096474602574
+    },
+    "vit36-expand": {
+      "RMSE": 0.13450943462386605,
+      "NRMSE": 0.13118489275397735,
+      "maxabs": 2.0,
+      "native_RMS": 1.025939045994028,
+      "F32_RMS": 1.0253424140546694
+    },
+    "vit37-expand": {
+      "RMSE": 0.10967150384158648,
+      "NRMSE": 0.15604043960065775,
+      "maxabs": 1.5,
+      "native_RMS": 0.7018945751035227,
+      "F32_RMS": 0.7028402644997688
+    },
+    "vit38-expand": {
+      "RMSE": 0.10624932824106652,
+      "NRMSE": 0.15087859309077586,
+      "maxabs": 1.5,
+      "native_RMS": 0.702814840189053,
+      "F32_RMS": 0.7042041290585324
+    },
+    "vit31-contract": {
+      "RMSE": 0.2769604431136808,
+      "NRMSE": 0.07230868259512718,
+      "maxabs": 2.0,
+      "native_RMS": 3.837540680885831,
+      "F32_RMS": 3.8302515434342173
+    },
+    "vit32-contract": {
+      "RMSE": 0.27277654588184175,
+      "NRMSE": 0.08987664564392818,
+      "maxabs": 4.0,
+      "native_RMS": 3.0446165358272426,
+      "F32_RMS": 3.035010306932497
+    },
+    "vit33-contract": {
+      "RMSE": 0.2591857595745765,
+      "NRMSE": 0.10472599348968922,
+      "maxabs": 2.0,
+      "native_RMS": 2.4805802199465163,
+      "F32_RMS": 2.474894254405852
+    },
+    "vit34-contract": {
+      "RMSE": 0.24440970615711882,
+      "NRMSE": 0.10710316757156016,
+      "maxabs": 2.0,
+      "native_RMS": 2.276983376696156,
+      "F32_RMS": 2.2820025933763195
+    },
+    "vit35-contract": {
+      "RMSE": 0.2149972631354691,
+      "NRMSE": 0.10402307199822663,
+      "maxabs": 2.0,
+      "native_RMS": 2.059216677284402,
+      "F32_RMS": 2.0668228596357388
+    },
+    "vit36-contract": {
+      "RMSE": 0.19104046490198273,
+      "NRMSE": 0.11648071487589665,
+      "maxabs": 2.25,
+      "native_RMS": 1.6331670371262883,
+      "F32_RMS": 1.6401038155159429
+    },
+    "vit37-contract": {
+      "RMSE": 0.1605483230545965,
+      "NRMSE": 0.1278904454322263,
+      "maxabs": 2.5,
+      "native_RMS": 1.2511292239975687,
+      "F32_RMS": 1.25535822877149
+    },
+    "vit38-contract": {
+      "RMSE": 0.1404101646456402,
+      "NRMSE": 0.15022980718204398,
+      "maxabs": 2.25,
+      "native_RMS": 0.9309222327380579,
+      "F32_RMS": 0.9346358574200616
+    },
+    "vit31-qkv": {
+      "RMSE": 0.22713965445296236,
+      "NRMSE": 0.07879435012557605,
+      "maxabs": 2.0,
+      "native_RMS": 2.887299606185383,
+      "F32_RMS": 2.8826896102444604
+    },
+    "vit32-qkv": {
+      "RMSE": 0.21470958290205347,
+      "NRMSE": 0.11682410674605666,
+      "maxabs": 2.0,
+      "native_RMS": 1.8406105151358143,
+      "F32_RMS": 1.8378876490686362
+    },
+    "vit33-qkv": {
+      "RMSE": 0.22285581836769106,
+      "NRMSE": 0.13711234627918525,
+      "maxabs": 2.125,
+      "native_RMS": 1.6289527080909005,
+      "F32_RMS": 1.625351942515204
+    },
+    "vit34-qkv": {
+      "RMSE": 0.21160745251186697,
+      "NRMSE": 0.1255789673508558,
+      "maxabs": 2.25,
+      "native_RMS": 1.677856866430429,
+      "F32_RMS": 1.6850548859878396
+    },
+    "vit35-qkv": {
+      "RMSE": 0.17604475978752177,
+      "NRMSE": 0.11957348264463902,
+      "maxabs": 1.25,
+      "native_RMS": 1.4687838898248793,
+      "F32_RMS": 1.4722725799557916
+    },
+    "vit36-qkv": {
+      "RMSE": 0.17073233510891625,
+      "NRMSE": 0.1336277142984529,
+      "maxabs": 1.375,
+      "native_RMS": 1.2774870377039376,
+      "F32_RMS": 1.277671596833509
+    },
+    "vit37-qkv": {
+      "RMSE": 0.14777403468460418,
+      "NRMSE": 0.1420083518400267,
+      "maxabs": 1.375,
+      "native_RMS": 1.0378584039945575,
+      "F32_RMS": 1.0406010123339264
+    },
+    "vit38-qkv": {
+      "RMSE": 0.1334772356885457,
+      "NRMSE": 0.15684241601871385,
+      "maxabs": 1.626953125,
+      "native_RMS": 0.8485338271585593,
+      "F32_RMS": 0.8510276688967843
+    },
+    "vit31-attention": {
+      "RMSE": 0.11166578003379261,
+      "NRMSE": 0.023714042129319837,
+      "maxabs": 2.0,
+      "native_RMS": 4.72065638476731,
+      "F32_RMS": 4.708846320877958
+    },
+    "vit32-attention": {
+      "RMSE": 0.09520506609939991,
+      "NRMSE": 0.034395309918639164,
+      "maxabs": 1.0,
+      "native_RMS": 2.772900018150681,
+      "F32_RMS": 2.7679665141731236
+    },
+    "vit33-attention": {
+      "RMSE": 0.09203731563578517,
+      "NRMSE": 0.04123238278794864,
+      "maxabs": 0.5,
+      "native_RMS": 2.2415111578308133,
+      "F32_RMS": 2.2321609718535536
+    },
+    "vit34-attention": {
+      "RMSE": 0.0982884813615422,
+      "NRMSE": 0.042825360786521445,
+      "maxabs": 0.5,
+      "native_RMS": 2.282892462490106,
+      "F32_RMS": 2.29509990240355
+    },
+    "vit35-attention": {
+      "RMSE": 0.08387796475788273,
+      "NRMSE": 0.044094342364539976,
+      "maxabs": 0.5,
+      "native_RMS": 1.8944387741745066,
+      "F32_RMS": 1.9022387059192465
+    },
+    "vit36-attention": {
+      "RMSE": 0.07073114007895477,
+      "NRMSE": 0.049891627918161194,
+      "maxabs": 0.5,
+      "native_RMS": 1.4199970178612475,
+      "F32_RMS": 1.4176955739944441
+    },
+    "vit37-attention": {
+      "RMSE": 0.06059293427469747,
+      "NRMSE": 0.052570780715499595,
+      "maxabs": 0.25,
+      "native_RMS": 1.1422454632324415,
+      "F32_RMS": 1.1525971927754286
+    },
+    "vit38-attention": {
+      "RMSE": 0.048880589581641376,
+      "NRMSE": 0.052028649841378664,
+      "maxabs": 0.25,
+      "native_RMS": 0.9345339049530602,
+      "F32_RMS": 0.9394937160711478
+    }
+  },
+  "canonical720": {
+    "pre-down": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 7864320,
+      "NRMSE": 0.017022531839592396,
+      "RMSE": 0.01186585117710309,
+      "maxabs": 0.5,
+      "native_RMS": 0.6972635887335231,
+      "F32_RMS": 0.6970673510214576,
+      "native_maxabs": 7.5,
+      "F32_maxabs": 7.5,
+      "invalid": 0,
+      "sha256": [
+        "c8f2304676e1a56a714f27890e754301d1aca3fa59b0e8fa7970932a0851ffa6",
+        "a8877e55646bae95853c4e6325d7e5b5c83eb01d2c2ba73675f4db6ee38cdca8"
+      ]
+    },
+    "block0": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 31457280,
+      "NRMSE": 0.020696098035766348,
+      "RMSE": 0.01524071269220806,
+      "maxabs": 0.5,
+      "native_RMS": 0.7366040894253565,
+      "F32_RMS": 0.73640512650595,
+      "native_maxabs": 8.0,
+      "F32_maxabs": 8.0,
+      "invalid": 0,
+      "sha256": [
+        "a8d2438480d85ed7364746a3c307a3fb6cadbe8a3b45b43e0e6e2934b43cf404",
+        "1ec87495cec21464f173600168ec3bdec6c3fc221c1b188b12ab48f96f575c6a"
+      ]
+    },
+    "block4": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 7864320,
+      "NRMSE": 0.05366747593516092,
+      "RMSE": 0.1756284045370264,
+      "maxabs": 4.0,
+      "native_RMS": 3.2758913971675345,
+      "F32_RMS": 3.2725296182964563,
+      "native_maxabs": 64.0,
+      "F32_maxabs": 64.0,
+      "invalid": 0,
+      "sha256": [
+        "a1b84e38bc0af05a74cd28632ccfa41f84a8614211a8097cfbae5aa26d761486",
+        "975b35c604868ac2a2166752885be26b32ac2960741a2a69904ce995ab51c83f"
+      ]
+    },
+    "block4-down": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.04023879833524102,
+      "RMSE": 0.11401123263624421,
+      "maxabs": 3.0,
+      "native_RMS": 2.836362006882487,
+      "F32_RMS": 2.833365740357945,
+      "native_maxabs": 24.0,
+      "F32_maxabs": 24.0,
+      "invalid": 0,
+      "sha256": [
+        "0d6cb0efbf3ad4c5c7c64096d19a27169284b377967fd995d696e71f66665d05",
+        "b317f0d18e0421f5b48904ebfc1b2e8efb628e69354d5d3b89d906e3264fbde2"
+      ]
+    },
+    "block5": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 3932160,
+      "NRMSE": 0.12691342925206317,
+      "RMSE": 0.6951038913664849,
+      "maxabs": 15.0,
+      "native_RMS": 5.485151218348068,
+      "F32_RMS": 5.476992430690189,
+      "native_maxabs": 52.0,
+      "F32_maxabs": 56.0,
+      "invalid": 0,
+      "sha256": [
+        "06859739d770ccc4da0857b385eaaa2a798fb31cc0352ff82a8586b76a4f4807",
+        "cc824e32cc47baddb3c8c89c8c11998b2358339a3005a5987d2c0a02a67153dd"
+      ]
+    },
+    "block8": {
+      "types": [
+        "half",
+        "half"
+      ],
+      "elements": 3932160,
+      "NRMSE": 0.1358117166170947,
+      "RMSE": 0.8119755408087453,
+      "maxabs": 11.91748046875,
+      "native_RMS": 5.9916187618930365,
+      "F32_RMS": 5.978685499558301,
+      "native_maxabs": 70.9375,
+      "F32_maxabs": 70.5,
+      "invalid": 0,
+      "sha256": [
+        "9949a739d8f7177e97f7b380de26ca90fe90aa0c6cc3bd15520ef266300067d5",
+        "998e86502e3e8dfc59fe69aebd3917d11b51a5e4f86a0e65c1ce3a912df66cb4"
+      ]
+    },
+    "block9": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.12433473045747437,
+      "RMSE": 0.6509124844974081,
+      "maxabs": 6.0,
+      "native_RMS": 5.242736554374056,
+      "F32_RMS": 5.23516222782207,
+      "native_maxabs": 36.0,
+      "F32_maxabs": 36.0,
+      "invalid": 0,
+      "sha256": [
+        "2557ce730ea0ebd82443e516529e10f3bfceef91af4c7380abc033fbb4c000a2",
+        "03b663e24fc93ea86577df17c1af2dac873292aafe899faf175daf390b812933"
+      ]
+    },
+    "block14": {
+      "types": [
+        "half",
+        "half"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.13551842140956158,
+      "RMSE": 0.6141680833454606,
+      "maxabs": 6.15625,
+      "native_RMS": 4.54065198548368,
+      "F32_RMS": 4.531989650981336,
+      "native_maxabs": 26.359375,
+      "F32_maxabs": 27.171875,
+      "invalid": 0,
+      "sha256": [
+        "068d90a3531345a1058ac78cd0ae91fb34985bb2be7d60ce7c2cd925585db466",
+        "d21eddf6191e9a68379dbeafc00213e2fa62edca5490ab5acce98064f7f669b4"
+      ]
+    },
+    "block15": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 983040,
+      "NRMSE": 0.13766216243921456,
+      "RMSE": 0.44921342660420704,
+      "maxabs": 3.375,
+      "native_RMS": 3.2703973837236116,
+      "F32_RMS": 3.263158290155144,
+      "native_maxabs": 18.0,
+      "F32_maxabs": 18.0,
+      "invalid": 0,
+      "sha256": [
+        "02cd97a3e93d6702fb9f14ecc35b01a7f6bf7513816f7ff9b287091cbc98a5b5",
+        "13e2d67f5b116c7bbdfe1c1a2fa14b98f52e2be904e499f35b0b2c8547092ff6"
+      ]
+    },
+    "block22": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 983040,
+      "NRMSE": 0.1427683414015903,
+      "RMSE": 0.4075385595868069,
+      "maxabs": 3.1341819763183594,
+      "native_RMS": 2.8612093322289938,
+      "F32_RMS": 2.854544330948341,
+      "native_maxabs": 15.8984375,
+      "F32_maxabs": 15.881778717041016,
+      "invalid": 0,
+      "sha256": [
+        "653977483d69a8f349225d98392b61124d9532aa49e1ab718561a437d3e71dab",
+        "3d6d51623f24294ceb3979a7f8c53f87da81d98bb1cc47a41f4630ecf8a735e0"
+      ]
+    },
+    "block23": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.11001269078149417,
+      "RMSE": 0.27598500209056187,
+      "maxabs": 2.0,
+      "native_RMS": 2.514942205769122,
+      "F32_RMS": 2.5086651379041336,
+      "native_maxabs": 13.0,
+      "F32_maxabs": 13.0,
+      "invalid": 0,
+      "sha256": [
+        "46bc18ca9e203fe5e98a9e43350d70f34ebccc1994af0d78e993c359c88b87ba",
+        "4da85cd51619889290cad29bc32d86bce569e4351d365f4ea11c2ba7a3330b6a"
+      ]
+    },
+    "block30": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.11437217329376162,
+      "RMSE": 0.2800651037311351,
+      "maxabs": 2.51171875,
+      "native_RMS": 2.4553811279486593,
+      "F32_RMS": 2.448717163149431,
+      "native_maxabs": 12.0,
+      "F32_maxabs": 12.2421875,
+      "invalid": 0,
+      "sha256": [
+        "a1d921e90a1d69ac73b772faea4eab05c84e90fa5de580b04e2428a1258d8b5d",
+        "55174c84f20bf22de35530ff1ca2e2ad57dcdc99796c8df910f0a67b77bdc611"
+      ]
+    },
+    "head": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.06772139732664582,
+      "RMSE": 0.21174734823194388,
+      "maxabs": 2.0,
+      "native_RMS": 3.137523097828953,
+      "F32_RMS": 3.126742161131239,
+      "native_maxabs": 18.0,
+      "F32_maxabs": 18.0,
+      "invalid": 0,
+      "sha256": [
+        "c9ae3dd6541001a06b710904b5437b8d5eba23c310217a0be15f96e583058bdb",
+        "16f397d4f346fd64581db4a04af0899599daf17b0b6a9c1670d431419f24063e"
+      ]
+    },
+    "block31": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.07593100970947095,
+      "RMSE": 0.2958644609280248,
+      "maxabs": 4.0,
+      "native_RMS": 3.920456599925986,
+      "F32_RMS": 3.896490538714927,
+      "native_maxabs": 40.0,
+      "F32_maxabs": 40.0,
+      "invalid": 0,
+      "sha256": [
+        "6e6a4bf7acb73342065edb17981a3a6a6e3a28b4c042e171d82f80e16c443184",
+        "8f3b6cb9e65c223d44d245cc8844171bb1ba1d5e7909a71c2ece683c08506e1e"
+      ]
+    },
+    "block32": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.08099271188966344,
+      "RMSE": 0.272809528148797,
+      "maxabs": 2.0,
+      "native_RMS": 3.3763875207393377,
+      "F32_RMS": 3.3683219364286265,
+      "native_maxabs": 32.0,
+      "F32_maxabs": 32.0,
+      "invalid": 0,
+      "sha256": [
+        "4b7edf6ef505c6fa371485be1cdbfecb2a8749d22b1e81160ea1bbef4456e76e",
+        "9550f048391950969f0be8d6fe423b788af75d5cfde790383eb397cd1b3a8dd9"
+      ]
+    },
+    "block33": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.08699097069684249,
+      "RMSE": 0.2405977029626077,
+      "maxabs": 2.0,
+      "native_RMS": 2.769773870700012,
+      "F32_RMS": 2.7657778851678074,
+      "native_maxabs": 16.0,
+      "F32_maxabs": 16.0,
+      "invalid": 0,
+      "sha256": [
+        "6646d673ff42f1995a831362be8d2d88d59d1418597314e33a5ec86d824802c2",
+        "479d659be5714ee89a519188544df947f76a72786a5c9f39157d072a68efc126"
+      ]
+    },
+    "block34": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.09639842139795117,
+      "RMSE": 0.19787025459075713,
+      "maxabs": 1.5,
+      "native_RMS": 2.057295372821039,
+      "F32_RMS": 2.0526296148970196,
+      "native_maxabs": 10.0,
+      "F32_maxabs": 10.0,
+      "invalid": 0,
+      "sha256": [
+        "478b8603025f605145c433aa4513f688f09539df821437de830e3bd56ffefed3",
+        "62ff6dc972c23e665ff2be4368d0580aa4eb23c9c3f6239cb293d5022c235f0c"
+      ]
+    },
+    "block35": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.10017740051804944,
+      "RMSE": 0.1795032422494509,
+      "maxabs": 1.5,
+      "native_RMS": 1.7899350790371615,
+      "F32_RMS": 1.7918536648104475,
+      "native_maxabs": 11.0,
+      "F32_maxabs": 11.0,
+      "invalid": 0,
+      "sha256": [
+        "3fcd5fd27f899d7ada04aa82dba6837b0672b895e3cc2644c510632f2a20f0cc",
+        "6b17971c9d73d6e56f9a3c80966ad27f214f7682d010a2ac8b72472812fcfdd0"
+      ]
+    },
+    "block36": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.10808384668515542,
+      "RMSE": 0.15168460978158482,
+      "maxabs": 1.5,
+      "native_RMS": 1.4039851461816262,
+      "F32_RMS": 1.4033975883874392,
+      "native_maxabs": 9.0,
+      "F32_maxabs": 10.0,
+      "invalid": 0,
+      "sha256": [
+        "e558a46bcb6d3473ad23a8cc9f679a287c7ae9d2784e59d7185a2b08833638ba",
+        "ee539c2e91d72f07b8aa6f66031a12ef6b65ee404f9d4eeabe71e44b6f3dce73"
+      ]
+    },
+    "block37": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.11574511229828324,
+      "RMSE": 0.1292138730266213,
+      "maxabs": 1.625,
+      "native_RMS": 1.1125769953775226,
+      "F32_RMS": 1.1163656975305196,
+      "native_maxabs": 6.5,
+      "F32_maxabs": 7.0,
+      "invalid": 0,
+      "sha256": [
+        "21497d328e9a2e5aaf28742d810af476873e24de48d4a2c5e5d0b8878f0c4be6",
+        "fe6a410b1d0f496a5ca499ca6609cf617c3d0861afd9ff850c554ea9d3e8c596"
+      ]
+    },
+    "block38": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.12436219702353521,
+      "RMSE": 0.11063897098420444,
+      "maxabs": 1.25,
+      "native_RMS": 0.8862414097789277,
+      "F32_RMS": 0.8896511450603137,
+      "native_maxabs": 5.5,
+      "F32_maxabs": 5.5,
+      "invalid": 0,
+      "sha256": [
+        "91963277f4297b88711d1be085722114142dca614882c0caf81e6114ad256cb7",
+        "cf96a8272ead553715033daf66c819937c746b0f26f2b6d5ffa9d15ed313d91d"
+      ]
+    },
+    "block39": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.117035289413667,
+      "RMSE": 0.1762706194744527,
+      "maxabs": 2.0,
+      "native_RMS": 1.5049625065239074,
+      "F32_RMS": 1.5061322132627493,
+      "native_maxabs": 8.0,
+      "F32_maxabs": 8.0,
+      "invalid": 0,
+      "sha256": [
+        "7cac4ccb7911f018d872c92fa820e4e5cd4703a9f4a6d23b4fbbad1e07cbfad4",
+        "d9f491469964124dbd657ae2a4a23098d74e715a91a97965b5b3c5afb333a21a"
+      ]
+    },
+    "block40": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.10941540565980781,
+      "RMSE": 0.15935210802483096,
+      "maxabs": 1.5,
+      "native_RMS": 1.4525539540773957,
+      "F32_RMS": 1.456395532821816,
+      "native_maxabs": 6.5,
+      "F32_maxabs": 6.5,
+      "invalid": 0,
+      "sha256": [
+        "9cea24726dcfb6c3e7dcdd2bef3bca6a0cedcb65be5cb8f623559b56a062e43a",
+        "c21064aa763d8a0b45dab2789383e59a88c2326345b157a83481a1b5aea81e44"
+      ]
+    },
+    "block47": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.09936901177969074,
+      "RMSE": 0.13203221477465482,
+      "maxabs": 1.25,
+      "native_RMS": 1.325084230918308,
+      "F32_RMS": 1.32870612688975,
+      "native_maxabs": 5.5,
+      "F32_maxabs": 5.5,
+      "invalid": 0,
+      "sha256": [
+        "1e046747a7efdab4d0f62029658ad698fae060b62f02b21465cfb29c544fbc66",
+        "7105308dfc148dd07887f60505917491cc3828384e5de2a853cc7f61b961db99"
+      ]
+    },
+    "block48": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 983040,
+      "NRMSE": 0.10912070424112746,
+      "RMSE": 0.21267238753709095,
+      "maxabs": 2.5,
+      "native_RMS": 1.949689706927535,
+      "F32_RMS": 1.9489645802426463,
+      "native_maxabs": 10.0,
+      "F32_maxabs": 11.0,
+      "invalid": 0,
+      "sha256": [
+        "304b55a3b6e57f8621e7f3cbae7a0559a3d0a7c24bf4a3c1e8d9800d88e6fdc6",
+        "800e9bb509c062d45307b610a1bddd29c7968fd9497740a103956c3df92051cc"
+      ]
+    },
+    "block55": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 983040,
+      "NRMSE": 0.10827855581663323,
+      "RMSE": 0.1839727398349643,
+      "maxabs": 1.5,
+      "native_RMS": 1.6977069825612188,
+      "F32_RMS": 1.6990690210766857,
+      "native_maxabs": 8.0,
+      "F32_maxabs": 8.0,
+      "invalid": 0,
+      "sha256": [
+        "d8d257ac6defe371c0e9adbfcb031dd13cce32ca3c1d44d603b292ee6646d94c",
+        "a2b6fe100af7b988907c5213ce7b4086b5dc1a5244763edc0f158c815ce86b0d"
+      ]
+    },
+    "block56": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.11968738637176156,
+      "RMSE": 0.3171404243813103,
+      "maxabs": 3.0,
+      "native_RMS": 2.642593178700847,
+      "F32_RMS": 2.649739742801626,
+      "native_maxabs": 14.0,
+      "F32_maxabs": 14.0,
+      "invalid": 0,
+      "sha256": [
+        "53772a9134513b379e5549248ac5fcca48ed194f33f2d951399cf51dfc6404e3",
+        "42724be1a5ca6e10f4d4a13fb849ea69dd88d15ffd0653d527ebfd1ffa0e4489"
+      ]
+    },
+    "block61": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.1317457146067414,
+      "RMSE": 0.2993138595294319,
+      "maxabs": 2.5,
+      "native_RMS": 2.267749504796467,
+      "F32_RMS": 2.2719058484966927,
+      "native_maxabs": 10.0,
+      "F32_maxabs": 10.0,
+      "invalid": 0,
+      "sha256": [
+        "a82a4ca5106b9e285510db7630a1c5b65c80d2e8116d99a5c9123e4fd26a4dc6",
+        "2a7e51978dbfd4df14ef03c40d27156d1d4ad9bf68999954b90b9da6d7d04b61"
+      ]
+    },
+    "block62": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 3932160,
+      "NRMSE": 0.1114893929167849,
+      "RMSE": 0.4430946207692308,
+      "maxabs": 4.0,
+      "native_RMS": 3.9754176854449845,
+      "F32_RMS": 3.974320867456461,
+      "native_maxabs": 20.0,
+      "F32_maxabs": 20.0,
+      "invalid": 0,
+      "sha256": [
+        "4be5a7ca4b34b2cee389e36b0eae81f807535bcadce0c9de3d8989d5aaf83f0f",
+        "4c75dbf2f625b0de4fa35855eea5863cf5edb8425948addb7cce412fe3eb5605"
+      ]
+    },
+    "block65": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 3932160,
+      "NRMSE": 0.11213707346364916,
+      "RMSE": 0.4699036735143322,
+      "maxabs": 5.0,
+      "native_RMS": 4.183203015273937,
+      "F32_RMS": 4.19043995888352,
+      "native_maxabs": 20.0,
+      "F32_maxabs": 22.0,
+      "invalid": 0,
+      "sha256": [
+        "fdf42354c889dc70702c683b3e9709f19b92094e4cdb650b67d8fff46c61100a",
+        "6e27abeea98b0acbb90a2a03f428d84ac866da7461da08da3cd4358c2d90915c"
+      ]
+    },
+    "block69": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 7864320,
+      "NRMSE": 0.11274875612247286,
+      "RMSE": 0.39274571164504674,
+      "maxabs": 4.0,
+      "native_RMS": 3.476285883855926,
+      "F32_RMS": 3.4833706832067253,
+      "native_maxabs": 20.0,
+      "F32_maxabs": 20.0,
+      "invalid": 0,
+      "sha256": [
+        "a11ec1c24fcf99cc382c446a2e11b8bc0c994cdf0d2f09e5f92404ee576c85a1",
+        "9f869fb5ed76fda8cf2aeccb7e0cbe7c5b75aa4f3d7d6b371012f14cdc7eda98"
+      ]
+    },
+    "block70": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 2949120,
+      "NRMSE": 0.01247296162861201,
+      "RMSE": 0.006624230985375488,
+      "maxabs": 0.05379384756088257,
+      "native_RMS": 0.5315307714081375,
+      "F32_RMS": 0.5310872575908526,
+      "native_maxabs": 1.0,
+      "F32_maxabs": 1.0,
+      "invalid": 0,
+      "sha256": [
+        "16e78e6361e928829727ad2f69ceafb456caeb1cea0fd28d8a5f6aed940a412b",
+        "149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5"
+      ]
+    },
+    "vit31-expand": {
+      "RMSE": 0.26831385228201055,
+      "NRMSE": 0.1046932023312866,
+      "maxabs": 4.0,
+      "native_RMS": 2.574690985992104,
+      "F32_RMS": 2.562858392973499
+    },
+    "vit32-expand": {
+      "RMSE": 0.22273124570224945,
+      "NRMSE": 0.12460606849392658,
+      "maxabs": 4.0,
+      "native_RMS": 1.7912415969701991,
+      "F32_RMS": 1.7874831329993015
+    },
+    "vit33-expand": {
+      "RMSE": 0.20606199070980943,
+      "NRMSE": 0.13282799162684217,
+      "maxabs": 3.0,
+      "native_RMS": 1.5560594435216808,
+      "F32_RMS": 1.55134462387044
+    },
+    "vit34-expand": {
+      "RMSE": 0.15232401642596607,
+      "NRMSE": 0.15799789461625863,
+      "maxabs": 2.5,
+      "native_RMS": 0.9686236654418909,
+      "F32_RMS": 0.964088900019376
+    },
+    "vit35-expand": {
+      "RMSE": 0.13362102390188546,
+      "NRMSE": 0.14814257647870588,
+      "maxabs": 2.0,
+      "native_RMS": 0.9000249064534821,
+      "F32_RMS": 0.9019758335382552
+    },
+    "vit36-expand": {
+      "RMSE": 0.11006918678201721,
+      "NRMSE": 0.14822236981890186,
+      "maxabs": 1.75,
+      "native_RMS": 0.7421379911464283,
+      "F32_RMS": 0.7425949734611569
+    },
+    "vit37-expand": {
+      "RMSE": 0.09364544778358569,
+      "NRMSE": 0.1505238387694849,
+      "maxabs": 1.5,
+      "native_RMS": 0.621742837131592,
+      "F32_RMS": 0.6221303452604349
+    },
+    "vit38-expand": {
+      "RMSE": 0.09736517932556883,
+      "NRMSE": 0.14211339938890977,
+      "maxabs": 1.25,
+      "native_RMS": 0.6849740433471333,
+      "F32_RMS": 0.6851231463341311
+    },
+    "vit31-contract": {
+      "RMSE": 0.3072528775145861,
+      "NRMSE": 0.07917371191480456,
+      "maxabs": 2.0,
+      "native_RMS": 3.8993279077218777,
+      "F32_RMS": 3.8807436216355216
+    },
+    "vit32-contract": {
+      "RMSE": 0.296782629278342,
+      "NRMSE": 0.09531936086157038,
+      "maxabs": 4.0,
+      "native_RMS": 3.129629252602838,
+      "F32_RMS": 3.113560840062189
+    },
+    "vit33-contract": {
+      "RMSE": 0.26842174528251567,
+      "NRMSE": 0.10805197907344509,
+      "maxabs": 2.0,
+      "native_RMS": 2.493079937399533,
+      "F32_RMS": 2.4841909198170637
+    },
+    "vit34-contract": {
+      "RMSE": 0.22004797411313476,
+      "NRMSE": 0.11387882116107417,
+      "maxabs": 1.5625,
+      "native_RMS": 1.9374052494749048,
+      "F32_RMS": 1.9322993676048967
+    },
+    "vit35-contract": {
+      "RMSE": 0.18867406289324123,
+      "NRMSE": 0.12058506202230906,
+      "maxabs": 1.5,
+      "native_RMS": 1.5641990296029353,
+      "F32_RMS": 1.5646553538972783
+    },
+    "vit36-contract": {
+      "RMSE": 0.16238007918530425,
+      "NRMSE": 0.12967586448545412,
+      "maxabs": 1.5,
+      "native_RMS": 1.2515732701545488,
+      "F32_RMS": 1.2521997044678934
+    },
+    "vit37-contract": {
+      "RMSE": 0.13748048511560487,
+      "NRMSE": 0.13645158893260645,
+      "maxabs": 1.625,
+      "native_RMS": 1.0077144882330784,
+      "F32_RMS": 1.0075403752425822
+    },
+    "vit38-contract": {
+      "RMSE": 0.12816121005967246,
+      "NRMSE": 0.14327022114677032,
+      "maxabs": 1.5,
+      "native_RMS": 0.8941217021834102,
+      "F32_RMS": 0.8945418596679645
+    },
+    "vit31-qkv": {
+      "RMSE": 0.24788630001994133,
+      "NRMSE": 0.08768951012528921,
+      "maxabs": 3.0,
+      "native_RMS": 2.8377329776779114,
+      "F32_RMS": 2.8268637795531735
+    },
+    "vit32-qkv": {
+      "RMSE": 0.2332672502621549,
+      "NRMSE": 0.1255759050355429,
+      "maxabs": 2.125,
+      "native_RMS": 1.8629623903024026,
+      "F32_RMS": 1.8575796861358962
+    },
+    "vit33-qkv": {
+      "RMSE": 0.225283925912062,
+      "NRMSE": 0.13935692059806193,
+      "maxabs": 2.0,
+      "native_RMS": 1.6197933585145574,
+      "F32_RMS": 1.6165966135390846
+    },
+    "vit34-qkv": {
+      "RMSE": 0.1944033090359558,
+      "NRMSE": 0.13860184757091093,
+      "maxabs": 1.75,
+      "native_RMS": 1.403807892269383,
+      "F32_RMS": 1.4026025802902515
+    },
+    "vit35-qkv": {
+      "RMSE": 0.17219581358700803,
+      "NRMSE": 0.13724865262705238,
+      "maxabs": 1.5,
+      "native_RMS": 1.2541103708805819,
+      "F32_RMS": 1.2546266232202514
+    },
+    "vit36-qkv": {
+      "RMSE": 0.16383909244918524,
+      "NRMSE": 0.1371792174025893,
+      "maxabs": 1.39453125,
+      "native_RMS": 1.194140725229735,
+      "F32_RMS": 1.1943433965536878
+    },
+    "vit37-qkv": {
+      "RMSE": 0.13623193030217104,
+      "NRMSE": 0.13793313101538024,
+      "maxabs": 1.21875,
+      "native_RMS": 0.9866764634650944,
+      "F32_RMS": 0.9876664822969943
+    },
+    "vit38-qkv": {
+      "RMSE": 0.12791434134100726,
+      "NRMSE": 0.15377423953761707,
+      "maxabs": 1.53125,
+      "native_RMS": 0.8316933230061438,
+      "F32_RMS": 0.8318320527913662
+    },
+    "vit31-attention": {
+      "RMSE": 0.108291088825148,
+      "NRMSE": 0.02368236271283462,
+      "maxabs": 1.0,
+      "native_RMS": 4.58847965316982,
+      "F32_RMS": 4.572647169467589
+    },
+    "vit32-attention": {
+      "RMSE": 0.10698700214135623,
+      "NRMSE": 0.03857219628001972,
+      "maxabs": 1.0,
+      "native_RMS": 2.7790565459250876,
+      "F32_RMS": 2.7736818864207424
+    },
+    "vit33-attention": {
+      "RMSE": 0.0938867675691714,
+      "NRMSE": 0.042581479894714024,
+      "maxabs": 0.6484375,
+      "native_RMS": 2.211226528535946,
+      "F32_RMS": 2.2048732876666954
+    },
+    "vit34-attention": {
+      "RMSE": 0.06732463617327301,
+      "NRMSE": 0.04100557876095951,
+      "maxabs": 0.5,
+      "native_RMS": 1.642054253196368,
+      "F32_RMS": 1.6418408959848967
+    },
+    "vit35-attention": {
+      "RMSE": 0.06374055728506191,
+      "NRMSE": 0.04622776218631401,
+      "maxabs": 0.5,
+      "native_RMS": 1.3772508579906484,
+      "F32_RMS": 1.3788371807435804
+    },
+    "vit36-attention": {
+      "RMSE": 0.0536150282637123,
+      "NRMSE": 0.045212260365605876,
+      "maxabs": 0.25,
+      "native_RMS": 1.1884861225568046,
+      "F32_RMS": 1.1858515329726496
+    },
+    "vit37-attention": {
+      "RMSE": 0.04644029601714956,
+      "NRMSE": 0.04631906214793156,
+      "maxabs": 0.28125,
+      "native_RMS": 0.9993839934174195,
+      "F32_RMS": 1.0026173645060172
+    },
+    "vit38-attention": {
+      "RMSE": 0.04414838951878688,
+      "NRMSE": 0.049870054566157285,
+      "maxabs": 0.25,
+      "native_RMS": 0.8853338463408601,
+      "F32_RMS": 0.8852685224200009
+    }
+  },
+  "ramp720": {
+    "pre-down": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 7864320,
+      "NRMSE": 0.0177642403685657,
+      "RMSE": 0.005383600183769316,
+      "maxabs": 0.125,
+      "native_RMS": 0.3031631132158191,
+      "F32_RMS": 0.30305828293653025,
+      "native_maxabs": 1.625,
+      "F32_maxabs": 1.625,
+      "invalid": 0,
+      "sha256": [
+        "6c3693210aba84924c754915823c00c9735eed56d4b310d829d8ff87adbaca28",
+        "45bba586d54d3474508ff221bb2564e88c57a9e12aec5ee772c4b9a9d80d4208"
+      ]
+    },
+    "block0": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 31457280,
+      "NRMSE": 0.018752348178892455,
+      "RMSE": 0.007722303564451737,
+      "maxabs": 0.25,
+      "native_RMS": 0.41195083395381443,
+      "F32_RMS": 0.4118046172555564,
+      "native_maxabs": 3.25,
+      "F32_maxabs": 3.25,
+      "invalid": 0,
+      "sha256": [
+        "7fc8eae281c83d5ae7111b2d042fb96fb5451521c1e9c5c6893679a61802fae0",
+        "ebc5ee8d33a9bd6cea29bcec185f6add81ac77379efb0468ed0890bc3469b89d"
+      ]
+    },
+    "block4": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 7864320,
+      "NRMSE": 0.05173062445020113,
+      "RMSE": 0.19846939432669078,
+      "maxabs": 4.0,
+      "native_RMS": 3.840583476871949,
+      "F32_RMS": 3.836593824954671,
+      "native_maxabs": 26.0,
+      "F32_maxabs": 24.0,
+      "invalid": 0,
+      "sha256": [
+        "aeae8f760e3157218d1ba7ab7ec4a5b48458a3989072b3fc753c3064c2b7a554",
+        "9697591c104c39709716af68d6863e21cbe08525d492d480ec14730360be5ab7"
+      ]
+    },
+    "block4-down": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.04152905976614717,
+      "RMSE": 0.13258774250809938,
+      "maxabs": 1.2890625,
+      "native_RMS": 3.195958192143095,
+      "F32_RMS": 3.1926497554895192,
+      "native_maxabs": 14.0,
+      "F32_maxabs": 15.0,
+      "invalid": 0,
+      "sha256": [
+        "f1d0548ad3ccda6ac0fb6f3392ca67fb5b7797523de117858529d083c91cc23b",
+        "97e279eb0c0a67d6202cabdb9047458a4943d94dd8674b70c2a0c8463e4b7f76"
+      ]
+    },
+    "block5": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 3932160,
+      "NRMSE": 0.1003740618094975,
+      "RMSE": 0.6258070585095142,
+      "maxabs": 8.25,
+      "native_RMS": 6.245057827816561,
+      "F32_RMS": 6.234748771024624,
+      "native_maxabs": 44.0,
+      "F32_maxabs": 48.0,
+      "invalid": 0,
+      "sha256": [
+        "c4f27d50e3124b18d69d896f092dd1299bf45c9629d8d7fac63880aaccba5c84",
+        "c90017c31d48007e7ad13b3801fd404c7bf1a39d3472d9e9525518247f2fe65b"
+      ]
+    },
+    "block8": {
+      "types": [
+        "half",
+        "half"
+      ],
+      "elements": 3932160,
+      "NRMSE": 0.10597705601503499,
+      "RMSE": 0.7510410628881172,
+      "maxabs": 9.52734375,
+      "native_RMS": 7.101396575358668,
+      "F32_RMS": 7.086827008872249,
+      "native_maxabs": 44.5625,
+      "F32_maxabs": 44.65625,
+      "invalid": 0,
+      "sha256": [
+        "62216281872a5ded0d8ba14c51b99e5a6d6bcc6bdaa5cb2c0ddbb427635b1afc",
+        "df0589fc2d6fe431aee29e0a9aae7b32d10a7a9842a5f445efd67157a9617c2a"
+      ]
+    },
+    "block9": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.13838640270341213,
+      "RMSE": 0.6550350629610432,
+      "maxabs": 6.0,
+      "native_RMS": 4.743461450691121,
+      "F32_RMS": 4.733377341738592,
+      "native_maxabs": 24.0,
+      "F32_maxabs": 24.0,
+      "invalid": 0,
+      "sha256": [
+        "9e7b89944c975b87c07ded2a7ae21bb2534e648c069e0457efd09ef0efe4a4b0",
+        "6bac9279956268a8b0c545be575fb5380912905671301746aca9290afec60e66"
+      ]
+    },
+    "block14": {
+      "types": [
+        "half",
+        "half"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.15106159288595764,
+      "RMSE": 0.5268032227490008,
+      "maxabs": 7.05859375,
+      "native_RMS": 3.493981433473604,
+      "F32_RMS": 3.48734057866519,
+      "native_maxabs": 17.09375,
+      "F32_maxabs": 17.015625,
+      "invalid": 0,
+      "sha256": [
+        "8f1b9e8fd3feb806b27f332ac1614fbdf7817f075953eb06aaa3c0b08874215e",
+        "184f8c58a07b4a09775f58af2c9166ad10f99259502ea3b34d242daa508e6cdc"
+      ]
+    },
+    "block15": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 983040,
+      "NRMSE": 0.14267791416105305,
+      "RMSE": 0.4581921650398804,
+      "maxabs": 4.0,
+      "native_RMS": 3.218746522014052,
+      "F32_RMS": 3.2113741480876907,
+      "native_maxabs": 22.0,
+      "F32_maxabs": 22.0,
+      "invalid": 0,
+      "sha256": [
+        "82e04b11f7aa4d89ecb3cb9815a2e13831055dee7dd78ef5a0dff323706fa471",
+        "7f080f4768100e3c36178c59b3834017e2b478b0892e8cce4f4ecbb3b5c88dce"
+      ]
+    },
+    "block22": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 983040,
+      "NRMSE": 0.17023685171122258,
+      "RMSE": 0.38089381000690564,
+      "maxabs": 6.724582672119141,
+      "native_RMS": 2.2435496588804367,
+      "F32_RMS": 2.2374345282948855,
+      "native_maxabs": 13.5625,
+      "F32_maxabs": 13.020843505859375,
+      "invalid": 0,
+      "sha256": [
+        "46685983c78d55c4999211509a6665f2045962fc8a3a49aa331f9038ab10db6a",
+        "d5c0f71c0808302429baba536038c8f95cc9b2ef3c51ad50c72c47cec9989871"
+      ]
+    },
+    "block23": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.12376866539203452,
+      "RMSE": 0.2601505785502639,
+      "maxabs": 2.0,
+      "native_RMS": 2.107583155340465,
+      "F32_RMS": 2.101909863261777,
+      "native_maxabs": 12.0,
+      "F32_maxabs": 12.0,
+      "invalid": 0,
+      "sha256": [
+        "1b59927eafd34113bf5176ea99ff15fb504646c231996d10f9901538f15de600",
+        "e94f6b191471a9f0a221e0943d8a06ec37cdea777b93102767a7e20b09dfd1fb"
+      ]
+    },
+    "block30": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.12676178739651722,
+      "RMSE": 0.2426276124952798,
+      "maxabs": 2.02734375,
+      "native_RMS": 1.9169193389932497,
+      "F32_RMS": 1.9140437940996247,
+      "native_maxabs": 11.1796875,
+      "F32_maxabs": 10.9921875,
+      "invalid": 0,
+      "sha256": [
+        "87b89e4e1c31999b6f9e354db29566a1769c807d98f91d49ac0486a7e014ed62",
+        "ff740b98fe4f3ad01e6aa732682cf6043f29b95fde113a81361afe2abc8e9a1d"
+      ]
+    },
+    "head": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.06829594712356432,
+      "RMSE": 0.17723222626627022,
+      "maxabs": 1.0,
+      "native_RMS": 2.6009636284064337,
+      "F32_RMS": 2.595062133710704,
+      "native_maxabs": 13.0,
+      "F32_maxabs": 13.0,
+      "invalid": 0,
+      "sha256": [
+        "f9e004993235307cb151b2d0470db48fe0747e4a7320551cf17260d5065d42aa",
+        "c86c7090e73369c2bdf3d5ae4b59cacb4d6eb3e1978db5a5b8a22e03a60b706c"
+      ]
+    },
+    "block31": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.07826810667345604,
+      "RMSE": 0.24063222449055077,
+      "maxabs": 2.0,
+      "native_RMS": 3.079783771852482,
+      "F32_RMS": 3.074460782531732,
+      "native_maxabs": 32.0,
+      "F32_maxabs": 32.0,
+      "invalid": 0,
+      "sha256": [
+        "f84de92a2b37b8c63d0ef6983135af26b984d80e142ebbdc770568435bc98bf9",
+        "c5ce4ba7d1c67143204305a87fcce3803bf8fa84b54232467d2f0605c16ffc25"
+      ]
+    },
+    "block32": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.08687829138213561,
+      "RMSE": 0.21889694027892576,
+      "maxabs": 2.0,
+      "native_RMS": 2.5233655716910577,
+      "F32_RMS": 2.519581552497435,
+      "native_maxabs": 24.0,
+      "F32_maxabs": 22.0,
+      "invalid": 0,
+      "sha256": [
+        "be9ab61bf9cec90aaac6c06e64bc75eef8171a86382b83e44d3ffde288643da4",
+        "d8a1a085731a6b260ba5c9c7802a082c8b817720956ec97bb11c2157b68ee9a0"
+      ]
+    },
+    "block33": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.09266627318259454,
+      "RMSE": 0.2014452120494857,
+      "maxabs": 2.0,
+      "native_RMS": 2.175281500159963,
+      "F32_RMS": 2.173878425568571,
+      "native_maxabs": 13.0,
+      "F32_maxabs": 13.0,
+      "invalid": 0,
+      "sha256": [
+        "86bdafe925f35d7e5e5895ab91624a994be1d272000e9b44d703a0e507ffb3ae",
+        "32d5cc01f444cbf0d72cb8814d5509a5cfcb450be3e3ea768002b4760588386a"
+      ]
+    },
+    "block34": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.09021282633825477,
+      "RMSE": 0.18267728981827563,
+      "maxabs": 2.0,
+      "native_RMS": 2.0288798542950293,
+      "F32_RMS": 2.024959168592319,
+      "native_maxabs": 11.0,
+      "F32_maxabs": 11.0,
+      "invalid": 0,
+      "sha256": [
+        "de9ab5d522e6412c62623a4f1c87a1390cea81fa197addcf058569a7bcb110cd",
+        "f2f09ac66bcca44038155a1f3fe9cf756ed29eb4fd75c2498f8321f15b02d2cf"
+      ]
+    },
+    "block35": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.0950370671248786,
+      "RMSE": 0.16448391075376176,
+      "maxabs": 1.75,
+      "native_RMS": 1.7311586185994778,
+      "F32_RMS": 1.7307342885237618,
+      "native_maxabs": 11.0,
+      "F32_maxabs": 11.0,
+      "invalid": 0,
+      "sha256": [
+        "1395430a736878c73afc1e1786213abaa3527aa97d731447896f0f1a20e5fa61",
+        "45b80064ead18e1427774366b1f938a414f6b1c67e4f4a0f162854efcb0cdead"
+      ]
+    },
+    "block36": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.10577648190085381,
+      "RMSE": 0.138813033702309,
+      "maxabs": 2.0,
+      "native_RMS": 1.309440000300736,
+      "F32_RMS": 1.3123241689246286,
+      "native_maxabs": 8.0,
+      "F32_maxabs": 8.0,
+      "invalid": 0,
+      "sha256": [
+        "4ec0dcd5b9216e51f67267bd1d083827dbc9cf4266953e4f4ab19a57a5f5e7e0",
+        "8ab98d75c4c885dd134145897764d3932866e2eac101f1e62b0b13e2d7297e90"
+      ]
+    },
+    "block37": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.11628381921521232,
+      "RMSE": 0.12000841194513286,
+      "maxabs": 2.0,
+      "native_RMS": 1.0294370714486618,
+      "F32_RMS": 1.032030189196205,
+      "native_maxabs": 6.0,
+      "F32_maxabs": 6.0,
+      "invalid": 0,
+      "sha256": [
+        "a6baf97537a4372aebf90828aae8e387c01b0ab48dd93a18f3cf6e502dfe1047",
+        "8c898f9d3123efff96e06bc4a6a6d7325405272a1772f653f15980d4c9480ea8"
+      ]
+    },
+    "block38": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 245760,
+      "NRMSE": 0.13179663071091116,
+      "RMSE": 0.10008124860563718,
+      "maxabs": 1.25,
+      "native_RMS": 0.7593630650224912,
+      "F32_RMS": 0.7593612072311623,
+      "native_maxabs": 3.5,
+      "F32_maxabs": 4.0,
+      "invalid": 0,
+      "sha256": [
+        "9afa0d359dd979a4cbca888b9d03c9707b69a514d51e97f54dd8a7a7172b3c6b",
+        "4f57670b4aa032a14996498d823ea889acf7f2f554112f76cdbbee0fca3328cc"
+      ]
+    },
+    "block39": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.12978361433973287,
+      "RMSE": 0.15558419851736283,
+      "maxabs": 1.25,
+      "native_RMS": 1.20036240419587,
+      "F32_RMS": 1.1987969306363444,
+      "native_maxabs": 6.0,
+      "F32_maxabs": 7.0,
+      "invalid": 0,
+      "sha256": [
+        "164caad65f4e8e4661f8e0652796d0764b025fda6df64518ad0944a4bc6e618d",
+        "60bcea07ffb57036d6fff9d26e3f94d7c48e5b3fcf2bd3c2718e467611f55d2a"
+      ]
+    },
+    "block40": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.1266193493920474,
+      "RMSE": 0.1312764323590621,
+      "maxabs": 1.25,
+      "native_RMS": 1.03825112014295,
+      "F32_RMS": 1.0367801839874817,
+      "native_maxabs": 5.0,
+      "F32_maxabs": 5.0,
+      "invalid": 0,
+      "sha256": [
+        "f9e1c4a7d92b1a9012d5ba2871cbef1289547964cb64268d6eae4854d7cd57d9",
+        "40103c3e32f22740caf97695424ee16207a3e41c3f996a6bd956e63840029f36"
+      ]
+    },
+    "block47": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 491520,
+      "NRMSE": 0.12318540695802248,
+      "RMSE": 0.10561023136833851,
+      "maxabs": 1.0,
+      "native_RMS": 0.8622691159653499,
+      "F32_RMS": 0.8573274544145233,
+      "native_maxabs": 4.0,
+      "F32_maxabs": 4.0,
+      "invalid": 0,
+      "sha256": [
+        "8bdc80fc7ff0901fb1352c942f1d76ea038e848d3a5036d4f478d7d456ff9e87",
+        "f225ffa5564d36ca1da6db86cabae9a65d4ce779e58bd5b0e88f4f4617002a3f"
+      ]
+    },
+    "block48": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 983040,
+      "NRMSE": 0.12154027956789855,
+      "RMSE": 0.1710151011900942,
+      "maxabs": 1.75,
+      "native_RMS": 1.4171781979957183,
+      "F32_RMS": 1.4070652280716247,
+      "native_maxabs": 6.5,
+      "F32_maxabs": 6.5,
+      "invalid": 0,
+      "sha256": [
+        "d16105071c9a2147e72c6c21d7708dd12b10f0aea1a2017b8dff546717d4afd8",
+        "d862bbeff63b363919f5ab6e327ba256ea220d841bf2c527f670352e886ac603"
+      ]
+    },
+    "block55": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 983040,
+      "NRMSE": 0.1171734391207414,
+      "RMSE": 0.13621257032894515,
+      "maxabs": 1.25,
+      "native_RMS": 1.173474525409157,
+      "F32_RMS": 1.162486749139324,
+      "native_maxabs": 4.5,
+      "F32_maxabs": 4.5,
+      "invalid": 0,
+      "sha256": [
+        "043ed1c579de42478ccd364949587f8e3d20356ae662e20f898b9f0475b11e66",
+        "e3a27a14ada9ae83d8c4fa297781675612cea4a1dbf70d0540b888816aa0a0b0"
+      ]
+    },
+    "block56": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.13573591257547307,
+      "RMSE": 0.22315960663790652,
+      "maxabs": 2.25,
+      "native_RMS": 1.653768743057976,
+      "F32_RMS": 1.6440719512149988,
+      "native_maxabs": 8.0,
+      "F32_maxabs": 9.0,
+      "invalid": 0,
+      "sha256": [
+        "fbdec5d3d1b9778da75012287619077e37d8b98809704ad85a74cd8fd90029e7",
+        "c48cd074ef1251c978e650af895afa2809f68542dce9c28e2f7fac3fe99fa588"
+      ]
+    },
+    "block61": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1966080,
+      "NRMSE": 0.13305436806528195,
+      "RMSE": 0.17766611501056,
+      "maxabs": 2.0,
+      "native_RMS": 1.3422847154342983,
+      "F32_RMS": 1.3352896082553989,
+      "native_maxabs": 7.0,
+      "F32_maxabs": 7.0,
+      "invalid": 0,
+      "sha256": [
+        "eab989ffe976eed22f004259b03f350d75eb1be674b1d01a029dc4f1b87bfbd2",
+        "0ae3f20ccde79c5ed56e12cb59b9bb1f88916c13cc12fb97b06afaf803fe13bd"
+      ]
+    },
+    "block62": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 3932160,
+      "NRMSE": 0.10770584320405484,
+      "RMSE": 0.2647426373791889,
+      "maxabs": 3.0,
+      "native_RMS": 2.4709617758799918,
+      "F32_RMS": 2.4580155496078233,
+      "native_maxabs": 12.0,
+      "F32_maxabs": 12.0,
+      "invalid": 0,
+      "sha256": [
+        "c8cfb4ee34db47dc395eb9ebd634d16748aa4a4d4f0277937e6f435d4f4f3592",
+        "ec6ecb18e4e8e1e17353f84a118565811c8d699d1293563dac259cc1a26950ac"
+      ]
+    },
+    "block65": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 3932160,
+      "NRMSE": 0.0962318752538949,
+      "RMSE": 0.2579845853164659,
+      "maxabs": 2.25,
+      "native_RMS": 2.6993435183886825,
+      "F32_RMS": 2.680864158947419,
+      "native_maxabs": 12.0,
+      "F32_maxabs": 12.0,
+      "invalid": 0,
+      "sha256": [
+        "99e580b95cf29ffb2c81dc387ad5feb70f0fed9514d1330dafdb2a798e0b97d2",
+        "f6fbc198ec0748873d2b542ca8b492f05108b384179a3fcb0a10157b1c033cd6"
+      ]
+    },
+    "block69": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 7864320,
+      "NRMSE": 0.0925826049822057,
+      "RMSE": 0.25068622362649046,
+      "maxabs": 3.0,
+      "native_RMS": 2.7091257297876963,
+      "F32_RMS": 2.707703284808978,
+      "native_maxabs": 16.0,
+      "F32_maxabs": 16.0,
+      "invalid": 0,
+      "sha256": [
+        "326a45406791216cbad4c75b560cc9644a49947a50c2c39cb3f999ba887e79d9",
+        "fee4e4da97c68a9b6e67fe108a8dafa965c8a66d99f8591300601b6fb439120c"
+      ]
+    },
+    "block70": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 2949120,
+      "NRMSE": 0.014304616254229638,
+      "RMSE": 0.004348550215399014,
+      "maxabs": 0.03700941801071167,
+      "native_RMS": 0.30364580269210784,
+      "F32_RMS": 0.3039962861019232,
+      "native_maxabs": 0.960584282875061,
+      "F32_maxabs": 0.9630242586135864,
+      "invalid": 0,
+      "sha256": [
+        "939bce1c7e37d9a7ae85b64236dcd9a0e06b7ea8e14ce6c490a0d36a070c7028",
+        "04f7697b817f40e1bfe00cc10bb9b1071d90dae0a5017f2ab04feaf9d983272a"
+      ]
+    },
+    "vit31-expand": {
+      "RMSE": 0.21808249621987516,
+      "NRMSE": 0.09921162843420021,
+      "maxabs": 4.0,
+      "native_RMS": 2.2050554349313054,
+      "F32_RMS": 2.198154587942413
+    },
+    "vit32-expand": {
+      "RMSE": 0.17894432052667877,
+      "NRMSE": 0.12900301748255885,
+      "maxabs": 3.0,
+      "native_RMS": 1.3922756088503128,
+      "F32_RMS": 1.387132828508232
+    },
+    "vit33-expand": {
+      "RMSE": 0.17021201655362947,
+      "NRMSE": 0.1353358304104,
+      "maxabs": 2.25,
+      "native_RMS": 1.2611096895004077,
+      "F32_RMS": 1.257701054018503
+    },
+    "vit34-expand": {
+      "RMSE": 0.14349616098692253,
+      "NRMSE": 0.1454761157737336,
+      "maxabs": 2.25,
+      "native_RMS": 0.9870532468579614,
+      "F32_RMS": 0.9863898291738104
+    },
+    "vit35-expand": {
+      "RMSE": 0.11554677221613043,
+      "NRMSE": 0.13705211695093306,
+      "maxabs": 2.0,
+      "native_RMS": 0.840252499226592,
+      "F32_RMS": 0.84308637317509
+    },
+    "vit36-expand": {
+      "RMSE": 0.09521889207254329,
+      "NRMSE": 0.14278913426910436,
+      "maxabs": 2.0,
+      "native_RMS": 0.6641829661974109,
+      "F32_RMS": 0.6668497050559262
+    },
+    "vit37-expand": {
+      "RMSE": 0.08850276048550455,
+      "NRMSE": 0.13937401305931418,
+      "maxabs": 1.5,
+      "native_RMS": 0.632562121776832,
+      "F32_RMS": 0.6350018812175547
+    },
+    "vit38-expand": {
+      "RMSE": 0.08766904985849107,
+      "NRMSE": 0.1375287555053775,
+      "maxabs": 1.25,
+      "native_RMS": 0.6380137926945042,
+      "F32_RMS": 0.6374597773122664
+    },
+    "vit31-contract": {
+      "RMSE": 0.25186441939819404,
+      "NRMSE": 0.07856512299793815,
+      "maxabs": 2.0,
+      "native_RMS": 3.214998378391577,
+      "F32_RMS": 3.2058044306098004
+    },
+    "vit32-contract": {
+      "RMSE": 0.24129357820624422,
+      "NRMSE": 0.0987239629322279,
+      "maxabs": 2.0,
+      "native_RMS": 2.449390351426558,
+      "F32_RMS": 2.444123706540099
+    },
+    "vit33-contract": {
+      "RMSE": 0.2243008488342157,
+      "NRMSE": 0.11332195115764335,
+      "maxabs": 2.0,
+      "native_RMS": 1.983502065472784,
+      "F32_RMS": 1.979323922178047
+    },
+    "vit34-contract": {
+      "RMSE": 0.19822649478656865,
+      "NRMSE": 0.11496802147600896,
+      "maxabs": 1.75,
+      "native_RMS": 1.7258834428631735,
+      "F32_RMS": 1.7241881024101446
+    },
+    "vit35-contract": {
+      "RMSE": 0.1726323241076452,
+      "NRMSE": 0.11318447427616861,
+      "maxabs": 2.0,
+      "native_RMS": 1.5251502234596945,
+      "F32_RMS": 1.525229720875185
+    },
+    "vit36-contract": {
+      "RMSE": 0.1477156113581048,
+      "NRMSE": 0.12550720901794116,
+      "maxabs": 1.75,
+      "native_RMS": 1.1752547796540393,
+      "F32_RMS": 1.176949216813426
+    },
+    "vit37-contract": {
+      "RMSE": 0.1287908434236117,
+      "NRMSE": 0.1365869483941865,
+      "maxabs": 2.0,
+      "native_RMS": 0.9403506895706679,
+      "F32_RMS": 0.9429220356539817
+    },
+    "vit38-contract": {
+      "RMSE": 0.11709390306581549,
+      "NRMSE": 0.1458333498692914,
+      "maxabs": 2.0,
+      "native_RMS": 0.8019507774445483,
+      "F32_RMS": 0.8029295299790157
+    },
+    "vit31-qkv": {
+      "RMSE": 0.20804761886035944,
+      "NRMSE": 0.08698038241577194,
+      "maxabs": 2.0,
+      "native_RMS": 2.396949466748479,
+      "F32_RMS": 2.3918912872316214
+    },
+    "vit32-qkv": {
+      "RMSE": 0.1985703795414925,
+      "NRMSE": 0.1277905338261084,
+      "maxabs": 1.875,
+      "native_RMS": 1.5562359385527937,
+      "F32_RMS": 1.5538739341342618
+    },
+    "vit33-qkv": {
+      "RMSE": 0.20385975232952785,
+      "NRMSE": 0.13951606349534038,
+      "maxabs": 2.25,
+      "native_RMS": 1.4627256397518893,
+      "F32_RMS": 1.4611919747602142
+    },
+    "vit34-qkv": {
+      "RMSE": 0.19168407500530402,
+      "NRMSE": 0.13542447016557368,
+      "maxabs": 2.0,
+      "native_RMS": 1.4161452243406287,
+      "F32_RMS": 1.4154316038375176
+    },
+    "vit35-qkv": {
+      "RMSE": 0.15915276921283208,
+      "NRMSE": 0.12584502175576892,
+      "maxabs": 1.75,
+      "native_RMS": 1.2640776254165749,
+      "F32_RMS": 1.2646727458294256
+    },
+    "vit36-qkv": {
+      "RMSE": 0.15472343817532366,
+      "NRMSE": 0.13422708266395153,
+      "maxabs": 1.734375,
+      "native_RMS": 1.1517039940822704,
+      "F32_RMS": 1.152699105907609
+    },
+    "vit37-qkv": {
+      "RMSE": 0.13643284446550072,
+      "NRMSE": 0.1413326247437192,
+      "maxabs": 1.375,
+      "native_RMS": 0.9646367912477024,
+      "F32_RMS": 0.9653315695006491
+    },
+    "vit38-qkv": {
+      "RMSE": 0.12089754324941618,
+      "NRMSE": 0.15212200515769597,
+      "maxabs": 1.0,
+      "native_RMS": 0.7937106568637955,
+      "F32_RMS": 0.794740663088741
+    },
+    "vit31-attention": {
+      "RMSE": 0.11258976702748226,
+      "NRMSE": 0.030294742957333847,
+      "maxabs": 1.0,
+      "native_RMS": 3.73108573511525,
+      "F32_RMS": 3.716478703451952
+    },
+    "vit32-attention": {
+      "RMSE": 0.07580508796526225,
+      "NRMSE": 0.03623564281284035,
+      "maxabs": 0.875,
+      "native_RMS": 2.096238218192508,
+      "F32_RMS": 2.092003399989366
+    },
+    "vit33-attention": {
+      "RMSE": 0.07463473195769936,
+      "NRMSE": 0.04263477870622656,
+      "maxabs": 1.25,
+      "native_RMS": 1.7521614329227477,
+      "F32_RMS": 1.7505598533058504
+    },
+    "vit34-attention": {
+      "RMSE": 0.06518404979153465,
+      "NRMSE": 0.041349874256211644,
+      "maxabs": 2.0,
+      "native_RMS": 1.578097664689569,
+      "F32_RMS": 1.5764026121976078
+    },
+    "vit35-attention": {
+      "RMSE": 0.05085587016641002,
+      "NRMSE": 0.03842755342145983,
+      "maxabs": 0.5,
+      "native_RMS": 1.321733914362788,
+      "F32_RMS": 1.323422014632074
+    },
+    "vit36-attention": {
+      "RMSE": 0.04287102850617214,
+      "NRMSE": 0.04229925347792823,
+      "maxabs": 0.5,
+      "native_RMS": 1.0103086155292562,
+      "F32_RMS": 1.0135173787060394
+    },
+    "vit37-attention": {
+      "RMSE": 0.03640596952112017,
+      "NRMSE": 0.04072706940772323,
+      "maxabs": 0.25,
+      "native_RMS": 0.8925125367084713,
+      "F32_RMS": 0.8939010356148132
+    },
+    "vit38-attention": {
+      "RMSE": 0.035839198736403156,
+      "NRMSE": 0.04799012652501997,
+      "maxabs": 0.40625,
+      "native_RMS": 0.7455342393767107,
+      "F32_RMS": 0.7468035892282583
+    }
+  },
+  "canonical1024": {
+    "pre-down": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 8388608,
+      "NRMSE": 0.016957044372060904,
+      "RMSE": 0.011818509306336447,
+      "maxabs": 0.5,
+      "native_RMS": 0.697173945334398,
+      "F32_RMS": 0.696967528480912,
+      "native_maxabs": 7.5,
+      "F32_maxabs": 7.5,
+      "invalid": 0,
+      "sha256": [
+        "2d64bbeb72bd9dc99ca274c13695c76a29821bf6aad5a9cdb782e3514ee524db",
+        "f18d6fea4e8ecdb3afc041a4bd69138673b904d744d06b8c2308c4e5a55ed72e"
+      ]
+    },
+    "block0": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 33554432,
+      "NRMSE": 0.020708009235355002,
+      "RMSE": 0.015247434668197187,
+      "maxabs": 0.5,
+      "native_RMS": 0.7365191069799127,
+      "F32_RMS": 0.7363061555026295,
+      "native_maxabs": 8.0,
+      "F32_maxabs": 8.0,
+      "invalid": 0,
+      "sha256": [
+        "893489e6d8f4ee5a5cd1999528ab68cbd964728fe84e66948b3b3a7b1f3c0012",
+        "fc6a2ebb2b6603a31e704600d513414d13661b57a61cc774875fbb71bcca7457"
+      ]
+    },
+    "block4": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 8388608,
+      "NRMSE": 0.05366349846098435,
+      "RMSE": 0.17557691074236795,
+      "maxabs": 4.0,
+      "native_RMS": 3.2750767443623925,
+      "F32_RMS": 3.2718126059190835,
+      "native_maxabs": 64.0,
+      "F32_maxabs": 64.0,
+      "invalid": 0,
+      "sha256": [
+        "0524ddf7facdae7f309fad1006d755a9332cecaa82c7da737f03a8c128a31621",
+        "cacfe2bfa9dc687f7ac9a2248b3c1633bbf283eaea22c878843fff7e3323783a"
+      ]
+    },
+    "block4-down": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.04023000643773953,
+      "RMSE": 0.113964361836873,
+      "maxabs": 3.0,
+      "native_RMS": 2.8356571777058797,
+      "F32_RMS": 2.8328198757125653,
+      "native_maxabs": 24.0,
+      "F32_maxabs": 26.0,
+      "invalid": 0,
+      "sha256": [
+        "92b4ff647d7aae610d1e919a618dd01c69ee1ed7f8d7ad8326a552595bfc7eb6",
+        "3f27850e4241f45244acce318a0d14476c9db278316a1504a8c8aea65eadb754"
+      ]
+    },
+    "block5": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 4194304,
+      "NRMSE": 0.12683134277871813,
+      "RMSE": 0.6946196593654694,
+      "maxabs": 12.0,
+      "native_RMS": 5.486176933086592,
+      "F32_RMS": 5.476719272596271,
+      "native_maxabs": 52.0,
+      "F32_maxabs": 56.0,
+      "invalid": 0,
+      "sha256": [
+        "5f0931cf6c89f5e362f043eeb69e1ce414bd69989a0e936d9eb3673a8ded08ad",
+        "f6816e65c9e9e39e41154e158043df0a792d3fade39a941d8f2ff2a9b99e6d24"
+      ]
+    },
+    "block8": {
+      "types": [
+        "half",
+        "half"
+      ],
+      "elements": 4194304,
+      "NRMSE": 0.13568826488184613,
+      "RMSE": 0.8114148126324796,
+      "maxabs": 10.390625,
+      "native_RMS": 5.993033008699758,
+      "F32_RMS": 5.9799925464375185,
+      "native_maxabs": 70.9375,
+      "F32_maxabs": 70.375,
+      "invalid": 0,
+      "sha256": [
+        "141d708e5857415ffb6feacbb1b6b2dd2f954e66bd545b24c654485de7d8e66c",
+        "1bac9d899c603032948dfc8bae077cb0a1e3bf96f8bc0405bc749500306dea0f"
+      ]
+    },
+    "block9": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.12401645487605714,
+      "RMSE": 0.6494090963903475,
+      "maxabs": 6.0,
+      "native_RMS": 5.244835666223815,
+      "F32_RMS": 5.236475248702853,
+      "native_maxabs": 36.0,
+      "F32_maxabs": 36.0,
+      "invalid": 0,
+      "sha256": [
+        "b6aa712b037ae152fbb46490357411a1c1abc9c89138b95ff9327cb314af149f",
+        "e393456cf931440a40b4be32f438e0afd4b584eb4a7c7caafb95b20fb33d774d"
+      ]
+    },
+    "block14": {
+      "types": [
+        "half",
+        "half"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.135070592796483,
+      "RMSE": 0.6122192855286849,
+      "maxabs": 6.15625,
+      "native_RMS": 4.540604830796898,
+      "F32_RMS": 4.532587537030681,
+      "native_maxabs": 26.609375,
+      "F32_maxabs": 27.078125,
+      "invalid": 0,
+      "sha256": [
+        "6db22624ca696bcf5d01dba4a4f8a4aa435c41cad70beb1a0a778c6960ce574e",
+        "fa54c38c2ee4b9edf50fee75180254d1ecf7884dac6546485d3ea9db03eabb92"
+      ]
+    },
+    "block15": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1048576,
+      "NRMSE": 0.13736235950829473,
+      "RMSE": 0.44782365234092064,
+      "maxabs": 3.9375,
+      "native_RMS": 3.2673442074786267,
+      "F32_RMS": 3.2601627836327207,
+      "native_maxabs": 18.0,
+      "F32_maxabs": 18.0,
+      "invalid": 0,
+      "sha256": [
+        "2752dd9f221a6e8c5ea930642960b8b63c98366ce67bc6c73d3f139e3070dae6",
+        "d2626d887c1ea8b9e0c6a0ea0b2da4747dee0147c9aa94525297eb4f97d99ead"
+      ]
+    },
+    "block22": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 1048576,
+      "NRMSE": 0.14234647392902147,
+      "RMSE": 0.4061983161064226,
+      "maxabs": 3.1341819763183594,
+      "native_RMS": 2.8601401459694573,
+      "F32_RMS": 2.8535888869924952,
+      "native_maxabs": 15.8671875,
+      "F32_maxabs": 15.881778717041016,
+      "invalid": 0,
+      "sha256": [
+        "766250bbbd14cfceffa11f5c9815ebefdf79cf097b575537fbd8f2f93c54e334",
+        "b4025ffa4d09f73fc4990440045799c4ab0649729e4fb4c4034eb25613587b4d"
+      ]
+    },
+    "block23": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.10979423442603686,
+      "RMSE": 0.2751784076725631,
+      "maxabs": 2.0,
+      "native_RMS": 2.5130276115489223,
+      "F32_RMS": 2.506310182051842,
+      "native_maxabs": 13.0,
+      "F32_maxabs": 13.0,
+      "invalid": 0,
+      "sha256": [
+        "df55b3863591e6c1d8ef6ec827a779921a23eba154b5e8df318e20bb778163fc",
+        "a42d61c29f398330162ea9609835de8247613f2c22c94690f044a05766c5b8e1"
+      ]
+    },
+    "block30": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.11359882509234946,
+      "RMSE": 0.27842252493682607,
+      "maxabs": 2.49609375,
+      "native_RMS": 2.457618297301075,
+      "F32_RMS": 2.4509278569605293,
+      "native_maxabs": 12.0,
+      "F32_maxabs": 12.1640625,
+      "invalid": 0,
+      "sha256": [
+        "a18a243cf6228a3a016fccd232a72cec98c3b13ebe50154f3ba19f739c5ffc01",
+        "0fb3daa9e719683dc09fa90b1caa412539d3edb926a661dea674a174f26e6e28"
+      ]
+    },
+    "head": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.06739348844615282,
+      "RMSE": 0.21093671823948354,
+      "maxabs": 2.0,
+      "native_RMS": 3.1400758094856345,
+      "F32_RMS": 3.1299272838209182,
+      "native_maxabs": 18.0,
+      "F32_maxabs": 18.0,
+      "invalid": 0,
+      "sha256": [
+        "1e984b201a7666ec38a6038ecd3d312fcd33e2a015bdec36bddfa469cf9caed7",
+        "ffd6c294a2012700c794f61d9902c78604a668d6605ef05ddfa8760eadaba5af"
+      ]
+    },
+    "block31": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.0754684532443571,
+      "RMSE": 0.2945721112493825,
+      "maxabs": 4.0,
+      "native_RMS": 3.9225069924054576,
+      "F32_RMS": 3.9032482923109084,
+      "native_maxabs": 40.0,
+      "F32_maxabs": 40.0,
+      "invalid": 0,
+      "sha256": [
+        "344b801a0baeff6ba210fff6017e0ade1ad24f07059c9ad31df4386a6b7a76e1",
+        "accf9e06871e69bd88d8badc95196288e1ee5d2b4e66ebbde57be95967505057"
+      ]
+    },
+    "block32": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.08090217360050626,
+      "RMSE": 0.2722206060662634,
+      "maxabs": 2.0,
+      "native_RMS": 3.375817542459276,
+      "F32_RMS": 3.3648120186545882,
+      "native_maxabs": 32.0,
+      "F32_maxabs": 32.0,
+      "invalid": 0,
+      "sha256": [
+        "42c5fb89e5dfa13f810586872d46111bc2173338ac1d9be869472a111ae92a35",
+        "77034aa9596581055e283d6d68ca9b719fb52ce59cd39a044ec9678d9d92806e"
+      ]
+    },
+    "block33": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.08802034821026729,
+      "RMSE": 0.24262859871741552,
+      "maxabs": 2.0,
+      "native_RMS": 2.7682195386876702,
+      "F32_RMS": 2.7565057813428835,
+      "native_maxabs": 16.0,
+      "F32_maxabs": 16.0,
+      "invalid": 0,
+      "sha256": [
+        "8585f8bc7dfc5930a4131a60a86da31372d2efade864c655af623fb8ffc76c2a",
+        "ffe34c4783f3d95c28867c657d1a0065be0e628ab2377fd9a35b5e04ae2d38e3"
+      ]
+    },
+    "block34": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.09822369760867572,
+      "RMSE": 0.20138546748131458,
+      "maxabs": 1.625,
+      "native_RMS": 2.05949903475918,
+      "F32_RMS": 2.050273736218285,
+      "native_maxabs": 10.0,
+      "F32_maxabs": 9.0,
+      "invalid": 0,
+      "sha256": [
+        "3931e2139bc6cd5f4673bcc118cd7169c005724d222d01167d031f60cc9ce10a",
+        "b7887b545e4b657a37b14ce757915cc99bbb51b8de93c77dd1f954169e2c9975"
+      ]
+    },
+    "block35": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.10193810187668056,
+      "RMSE": 0.18279448151306382,
+      "maxabs": 2.0,
+      "native_RMS": 1.7959509513737093,
+      "F32_RMS": 1.793190947720403,
+      "native_maxabs": 11.0,
+      "F32_maxabs": 12.0,
+      "invalid": 0,
+      "sha256": [
+        "07ad56a39db214c9ea8d57f6acea5438cf669a76cd7f0c0f46bd0012268d866d",
+        "55a83f17abfe878349cb806a4394bc2aaafc21f669c6ae779e194bbb6df18550"
+      ]
+    },
+    "block36": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.10931648410231128,
+      "RMSE": 0.15360637064837057,
+      "maxabs": 2.0,
+      "native_RMS": 1.409075498565583,
+      "F32_RMS": 1.4051528633559747,
+      "native_maxabs": 10.0,
+      "F32_maxabs": 10.0,
+      "invalid": 0,
+      "sha256": [
+        "ec6346ed69a06cf4df14d30bfb1bdc32164b9c47a2e75c0ef24c51ffc55a7931",
+        "538a4a847e4b2553edd6d76d980ce0f9fd8bdeb3c3d276b986c9068abadbc9fe"
+      ]
+    },
+    "block37": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.11811056570608247,
+      "RMSE": 0.13147292436537739,
+      "maxabs": 2.0,
+      "native_RMS": 1.1146268068358118,
+      "F32_RMS": 1.113134321044123,
+      "native_maxabs": 7.0,
+      "F32_maxabs": 7.0,
+      "invalid": 0,
+      "sha256": [
+        "6ad236ca98911c167f29bdbdbcc95d2648ce10b113c5a8986cea7df81f35429c",
+        "2c2792670548479a8727d58d232bb91da678e9035a91369cf6946fa1e4c3404a"
+      ]
+    },
+    "block38": {
+      "types": [
+        "fp8",
+        "float"
+      ],
+      "elements": 262144,
+      "NRMSE": 0.12737512807225096,
+      "RMSE": 0.11231627326787706,
+      "maxabs": 1.5,
+      "native_RMS": 0.8834235201851947,
+      "F32_RMS": 0.8817755472965486,
+      "native_maxabs": 5.5,
+      "F32_maxabs": 5.5,
+      "invalid": 0,
+      "sha256": [
+        "40839c2505a93e6a454123801e509b783e6a473de0e12cdd6ac7cf81abccb453",
+        "91c14566a26297a47a5f36aa10e336c8a3dd036c201dbd6e506ff6d0dfc71442"
+      ]
+    },
+    "block39": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.11823564080936884,
+      "RMSE": 0.17720749135179975,
+      "maxabs": 2.0,
+      "native_RMS": 1.5037509986194846,
+      "F32_RMS": 1.4987654326457378,
+      "native_maxabs": 9.0,
+      "F32_maxabs": 8.0,
+      "invalid": 0,
+      "sha256": [
+        "3d9bdb3cd338f1448d2966c271fd566ee8b8b19be97c16d461798021fa659b04",
+        "5354928c2acf56e09133114bc34fcea4850c9dd05457be938d8051ad0ab87d7b"
+      ]
+    },
+    "block40": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.11244882693177478,
+      "RMSE": 0.1618358026700436,
+      "maxabs": 1.75,
+      "native_RMS": 1.4491365746394231,
+      "F32_RMS": 1.439195117333087,
+      "native_maxabs": 6.5,
+      "F32_maxabs": 6.5,
+      "invalid": 0,
+      "sha256": [
+        "bdbe6d388b48547fe19dc132a2236f788374dd58cf3824b9adbb1e97fd0b0e1a",
+        "0a4108fd6ada0df9eedcd2adafb7ee5ee1e7e7d8717e6b9efe1e700bce7ea945"
+      ]
+    },
+    "block47": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 524288,
+      "NRMSE": 0.10364974447735659,
+      "RMSE": 0.1357245426279164,
+      "maxabs": 1.25,
+      "native_RMS": 1.3267364299096203,
+      "F32_RMS": 1.3094537117509912,
+      "native_maxabs": 5.5,
+      "F32_maxabs": 5.5,
+      "invalid": 0,
+      "sha256": [
+        "1afef2c90af1e419d98fb4c6b67dfc9525ebe4676ada5a2782dc8b57a90d3e9a",
+        "ecd1f85e1f3e2b25474801ed45c1d836a8d2519e8447fe073db161bff2a557c6"
+      ]
+    },
+    "block48": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1048576,
+      "NRMSE": 0.11224921579293863,
+      "RMSE": 0.21663374534452196,
+      "maxabs": 2.5,
+      "native_RMS": 1.949097462772434,
+      "F32_RMS": 1.929935490543979,
+      "native_maxabs": 11.0,
+      "F32_maxabs": 11.0,
+      "invalid": 0,
+      "sha256": [
+        "6ecde6bc2a4c624b52347abc484f903cdce40e34ae515902a471f8e518f76782",
+        "b6d5cec834449d1217b212c5c3e7c1ff20dfa79e810a0a202755e612326da65a"
+      ]
+    },
+    "block55": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 1048576,
+      "NRMSE": 0.11284146315140337,
+      "RMSE": 0.18883256497998677,
+      "maxabs": 1.5,
+      "native_RMS": 1.6984148133562444,
+      "F32_RMS": 1.6734324396930538,
+      "native_maxabs": 8.0,
+      "F32_maxabs": 8.0,
+      "invalid": 0,
+      "sha256": [
+        "e984d374bbe501f2d9ebdd66fc90f32cad1a6817ecb54070f0dcaa81868fd2c0",
+        "c4622ca723b443199affcea04d50e2a97ffef40f92ca3eb38fbb931116b321f9"
+      ]
+    },
+    "block56": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.12532115445434838,
+      "RMSE": 0.32574375222427476,
+      "maxabs": 3.0,
+      "native_RMS": 2.6492235705986005,
+      "F32_RMS": 2.599271875866223,
+      "native_maxabs": 15.0,
+      "F32_maxabs": 14.0,
+      "invalid": 0,
+      "sha256": [
+        "6daca863e5619e84d0eca5cdc315259b237c808e1ea9b456924b1821862fdc41",
+        "2a2b967fb8910f2cfeeaacc53ab5f7f0d1e5d3561474063f612b169295693c15"
+      ]
+    },
+    "block61": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 2097152,
+      "NRMSE": 0.13660967885112893,
+      "RMSE": 0.3038482701336009,
+      "maxabs": 2.5,
+      "native_RMS": 2.2674321915503874,
+      "F32_RMS": 2.2242074843373363,
+      "native_maxabs": 10.0,
+      "F32_maxabs": 10.0,
+      "invalid": 0,
+      "sha256": [
+        "1b22a02e1c0e834e7a7da29d0853617ee6aa21b6db8684c8c4d3faccc323e8ae",
+        "898f8f5a1d64fbda2c146ed9e71779a3f58e6e1e8ab01b145c932a670a827169"
+      ]
+    },
+    "block62": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 4194304,
+      "NRMSE": 0.11336359051724818,
+      "RMSE": 0.4451257728498697,
+      "maxabs": 4.0,
+      "native_RMS": 3.974163416961027,
+      "F32_RMS": 3.9265320621804425,
+      "native_maxabs": 20.0,
+      "F32_maxabs": 20.0,
+      "invalid": 0,
+      "sha256": [
+        "c0b82bccf679c07c1c52e310dd09b0b9bc10d5946546ab1390bab5f29db11ab8",
+        "1ce10b764f309800d8d18bb93cfc4a2c2d0c422f05bcb67c2abfd5e947a2eb27"
+      ]
+    },
+    "block65": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 4194304,
+      "NRMSE": 0.1140138518375028,
+      "RMSE": 0.47129578155103186,
+      "maxabs": 5.0,
+      "native_RMS": 4.183478878377885,
+      "F32_RMS": 4.133671250952401,
+      "native_maxabs": 20.0,
+      "F32_maxabs": 22.0,
+      "invalid": 0,
+      "sha256": [
+        "9242960414fc093dba5d50173ba04ee621289704d7fa864ff8d8a72812460dae",
+        "600f0f69201fad84d8a1d05fa02055c0f585dfefdba82d4ca314af7680f4eb3e"
+      ]
+    },
+    "block69": {
+      "types": [
+        "fp8",
+        "fp8"
+      ],
+      "elements": 8388608,
+      "NRMSE": 0.11421413067761828,
+      "RMSE": 0.3938598564962915,
+      "maxabs": 4.5,
+      "native_RMS": 3.4807863908726535,
+      "F32_RMS": 3.448433693445547,
+      "native_maxabs": 20.0,
+      "F32_maxabs": 20.0,
+      "invalid": 0,
+      "sha256": [
+        "583e53859b4a7311474ccb5dff3b5660cd3a7aa26051845a686740c17a823c18",
+        "404cd79d1363e01150a5665ab000dfe8bd40872c9bd9c1718190a5605d5d571e"
+      ]
+    },
+    "block70": {
+      "types": [
+        "float",
+        "float"
+      ],
+      "elements": 3145728,
+      "NRMSE": 0.012489257214414056,
+      "RMSE": 0.006644230383515129,
+      "maxabs": 0.054007887840270996,
+      "native_RMS": 0.5313076769154813,
+      "F32_RMS": 0.5319956398885687,
+      "native_maxabs": 1.0,
+      "F32_maxabs": 1.0,
+      "invalid": 0,
+      "sha256": [
+        "ee5b6a24cef2d6e28714fc93fa8526de3e25ec9fbe27489fbd01e31ff5e752f5",
+        "fdf573d4e4b74008af40ffc4711a7f531d2ec943ecb6d47c618b2ea519d015f9"
+      ]
+    },
+    "vit31-expand": {
+      "RMSE": 0.266552060197191,
+      "NRMSE": 0.10391173730506029,
+      "maxabs": 4.0,
+      "native_RMS": 2.5749728258838065,
+      "F32_RMS": 2.565177593120758
+    },
+    "vit32-expand": {
+      "RMSE": 0.2235504761869281,
+      "NRMSE": 0.12497945856442605,
+      "maxabs": 3.375,
+      "native_RMS": 1.7931437676861373,
+      "F32_RMS": 1.7886977488519793
+    },
+    "vit33-expand": {
+      "RMSE": 0.20731474690180599,
+      "NRMSE": 0.133475199842143,
+      "maxabs": 3.0625,
+      "native_RMS": 1.559254992711084,
+      "F32_RMS": 1.5532079903007505
+    },
+    "vit34-expand": {
+      "RMSE": 0.15467802981003745,
+      "NRMSE": 0.15944483130272455,
+      "maxabs": 3.0,
+      "native_RMS": 0.9767782056484856,
+      "F32_RMS": 0.9701037565549129
+    },
+    "vit35-expand": {
+      "RMSE": 0.13590631238178427,
+      "NRMSE": 0.15090060477949005,
+      "maxabs": 2.0,
+      "native_RMS": 0.9043125376824761,
+      "F32_RMS": 0.9006346434487997
+    },
+    "vit36-expand": {
+      "RMSE": 0.11159908840373159,
+      "NRMSE": 0.15058223384463512,
+      "maxabs": 1.75,
+      "native_RMS": 0.7421575627109406,
+      "F32_RMS": 0.7411172324543622
+    },
+    "vit37-expand": {
+      "RMSE": 0.09495602358059489,
+      "NRMSE": 0.15328135488355615,
+      "maxabs": 1.625,
+      "native_RMS": 0.6186086131856194,
+      "F32_RMS": 0.6194884149656069
+    },
+    "vit38-expand": {
+      "RMSE": 0.09806907332419978,
+      "NRMSE": 0.14424542552455138,
+      "maxabs": 1.25,
+      "native_RMS": 0.679313150018242,
+      "F32_RMS": 0.6798764880589429
+    },
+    "vit31-contract": {
+      "RMSE": 0.30553084582036055,
+      "NRMSE": 0.0786165096228102,
+      "maxabs": 2.0,
+      "native_RMS": 3.900942007331993,
+      "F32_RMS": 3.886344576810267
+    },
+    "vit32-contract": {
+      "RMSE": 0.2951529408667789,
+      "NRMSE": 0.09477531669735305,
+      "maxabs": 4.0,
+      "native_RMS": 3.127646518339655,
+      "F32_RMS": 3.1142385079998594
+    },
+    "vit33-contract": {
+      "RMSE": 0.26815246064881065,
+      "NRMSE": 0.10814485931868899,
+      "maxabs": 2.0,
+      "native_RMS": 2.4874565267569344,
+      "F32_RMS": 2.4795673353145697
+    },
+    "vit34-contract": {
+      "RMSE": 0.22237216374050744,
+      "NRMSE": 0.11519368460844304,
+      "maxabs": 1.625,
+      "native_RMS": 1.939785469266176,
+      "F32_RMS": 1.9304197491067043
+    },
+    "vit35-contract": {
+      "RMSE": 0.1917688867122372,
+      "NRMSE": 0.12272707839923623,
+      "maxabs": 2.0,
+      "native_RMS": 1.5675158738639645,
+      "F32_RMS": 1.5625637733215252
+    },
+    "vit36-contract": {
+      "RMSE": 0.16447374154542996,
+      "NRMSE": 0.13155159801328517,
+      "maxabs": 2.0,
+      "native_RMS": 1.2539939901143067,
+      "F32_RMS": 1.2502603087255544
+    },
+    "vit37-contract": {
+      "RMSE": 0.13943852411129004,
+      "NRMSE": 0.1387026089979079,
+      "maxabs": 2.25,
+      "native_RMS": 1.006398749480244,
+      "F32_RMS": 1.0053057049085012
+    },
+    "vit38-contract": {
+      "RMSE": 0.13048195389323908,
+      "NRMSE": 0.14676396417421275,
+      "maxabs": 2.0,
+      "native_RMS": 0.8898898689466872,
+      "F32_RMS": 0.8890598903308001
+    },
+    "vit31-qkv": {
+      "RMSE": 0.2462282557968915,
+      "NRMSE": 0.08702556593735031,
+      "maxabs": 3.0,
+      "native_RMS": 2.836583879630607,
+      "F32_RMS": 2.8293783917952475
+    },
+    "vit32-qkv": {
+      "RMSE": 0.232164460586451,
+      "NRMSE": 0.1251156315717133,
+      "maxabs": 2.0625,
+      "native_RMS": 1.859599592358527,
+      "F32_RMS": 1.8555991579148114
+    },
+    "vit33-qkv": {
+      "RMSE": 0.22524821455335342,
+      "NRMSE": 0.13953514855782867,
+      "maxabs": 2.0625,
+      "native_RMS": 1.6176407460862035,
+      "F32_RMS": 1.6142758070738141
+    },
+    "vit34-qkv": {
+      "RMSE": 0.19683832466755594,
+      "NRMSE": 0.14036686252196776,
+      "maxabs": 1.6875,
+      "native_RMS": 1.4050318405324158,
+      "F32_RMS": 1.4023133461200663
+    },
+    "vit35-qkv": {
+      "RMSE": 0.17434698096010143,
+      "NRMSE": 0.13894234457937635,
+      "maxabs": 1.5,
+      "native_RMS": 1.255789466293908,
+      "F32_RMS": 1.2548153083777767
+    },
+    "vit36-qkv": {
+      "RMSE": 0.1661843191642519,
+      "NRMSE": 0.1392172918161444,
+      "maxabs": 1.375,
+      "native_RMS": 1.1940940350490465,
+      "F32_RMS": 1.1937045822132581
+    },
+    "vit37-qkv": {
+      "RMSE": 0.13790004383175966,
+      "NRMSE": 0.13978515106256725,
+      "maxabs": 1.125,
+      "native_RMS": 0.9870850863191915,
+      "F32_RMS": 0.9865142526478808
+    },
+    "vit38-qkv": {
+      "RMSE": 0.13058418188158633,
+      "NRMSE": 0.15747169458124555,
+      "maxabs": 1.375,
+      "native_RMS": 0.8291368499833806,
+      "F32_RMS": 0.8292549478739054
+    },
+    "vit31-attention": {
+      "RMSE": 0.11199067520082517,
+      "NRMSE": 0.024466416467484712,
+      "maxabs": 1.0,
+      "native_RMS": 4.590931067647031,
+      "F32_RMS": 4.577322361436058
+    },
+    "vit32-attention": {
+      "RMSE": 0.10859966307806523,
+      "NRMSE": 0.0391846348956836,
+      "maxabs": 1.0,
+      "native_RMS": 2.7771370215620714,
+      "F32_RMS": 2.7714858991841234
+    },
+    "vit33-attention": {
+      "RMSE": 0.10541391596033949,
+      "NRMSE": 0.04786483267977938,
+      "maxabs": 0.609375,
+      "native_RMS": 2.2104058355042397,
+      "F32_RMS": 2.20232496508594
+    },
+    "vit34-attention": {
+      "RMSE": 0.07668589221485382,
+      "NRMSE": 0.04671331033312019,
+      "maxabs": 0.5625,
+      "native_RMS": 1.6473374965981091,
+      "F32_RMS": 1.6416282996857703
+    },
+    "vit35-attention": {
+      "RMSE": 0.06613690038550418,
+      "NRMSE": 0.047758960207716486,
+      "maxabs": 0.5,
+      "native_RMS": 1.3853858025022388,
+      "F32_RMS": 1.3848061201051514
+    },
+    "vit36-attention": {
+      "RMSE": 0.058151288158888294,
+      "NRMSE": 0.04894251774223676,
+      "maxabs": 0.25,
+      "native_RMS": 1.1879965293662524,
+      "F32_RMS": 1.1881548159240791
+    },
+    "vit37-attention": {
+      "RMSE": 0.046793413749185914,
+      "NRMSE": 0.046844040886116295,
+      "maxabs": 0.25,
+      "native_RMS": 1.0021513880632291,
+      "F32_RMS": 0.9989192406126222
+    },
+    "vit38-attention": {
+      "RMSE": 0.048486009218093,
+      "NRMSE": 0.05507654591616338,
+      "maxabs": 0.25,
+      "native_RMS": 0.8795217354225566,
+      "F32_RMS": 0.8803385980649115
+    }
+  }
+}

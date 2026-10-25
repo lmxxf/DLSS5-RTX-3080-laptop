@@ -1,0 +1,9 @@
+{
+  "warps": 4096,
+  "lane_count": 32,
+  "h2_iterations": 4,
+  "MMA_calls_per_chain": 8,
+  "half_patterns": 65536,
+  "raw_u32_diff": 0,
+  "per_chain_order": "h0hp0,h0hp1,...,h3hp1 unchanged; only ci0/ci1 interleaving differs"
+}

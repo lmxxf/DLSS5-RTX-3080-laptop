@@ -670,3 +670,26 @@ Small31 Style1、Graph off、默认DVFS约140W，每行独立50warmup/80iter，�
 首次异常放大在block31的vit_attention_fused_256_bytein_bout（n240）：head RMS约1.67正常，block31后约22；**Phase12和旧F32都受影响**，不是仅参考链错误。抓相同实际QKV，用CPU独立矩阵算法核验：F32 legacy256 AV对CPU RMSE33.331681/maxabs446.75，诊断改走400后245760个AV字节100%一致；Phase12相应RMSE33.287352→0.027869。均匀QK0/V1探针n16/240/256都通过，不能草率归因n%64尾块；具体索引/布局指令尚未证明。
 
 只在诊断Host改400后，两条720链可见差异43.577948dB/maxabs0.0509355；这是修正图诊断，不是默认720绝对PSNR。同链900/1080既有F32gold再次0bit。当前默认仍按Phase12严格0bit保持，不混入会改变输出的正确性修复；720绝对参考继续未验收。约1.24GB层dump统计/哈希后清理，小样本与复测脚本保留。详见[参考链定位](hip-port/phase13/reference-audit.md)。Phase14优先以独立正确性阶段修256路径，再另立720新输出基线；无部署、不push。
+
+### Phase13 阶段二收官：动态C32审计，默认保持Phase12（2026-10-25，闇）
+
+软件clock64/warp边界采样先取得真实阶段证据；50次预热附近抓prefix540/post547个CTA，插桩仍168regs/8KB/LMem0、输出0bit。每qt FFN expand→float激活→contract中位10432/11122周期，AV仅1304/1322。含插桩扰动/并发等待，不当硬件stall计数、纯MMA延迟或帧耗时。真实SSA保持4个u4 PHI、无f8 PHI，C/D调用数不变；SASS生产消费寄存器上下文完整保留，不凭静态条数判断速度。
+
+只试FFN即时contract：每个hp激活产生后更新两个独立ci，保持各链h2/hp累加序。4096warp×32lane、全部half模式原始u32差异0，结构2项及既有Python/LLVM16项通过。分别控制prefix/post，50/80：prefix正31.306→31.512、反候选32.017vs基线31.946，两对更慢；post正31.306→31.645、反31.816vs31.871，方向不稳。**两项均不保留，不组合、不追噪声重试。** 未重试Graph、跨h2、Phase12已拒V/AV站点。
+
+最终默认从源码全量重编40/40，实际CUDA加载1918entry；**40个SHA全部与Phase12 selected相同**。三档两轮数据如下（Small31 Style1、Graph off、默认DVFS140W上限、50warmup/80iter；相同二进制轮间差异不宣称Phase13提速）：
+
+| 档位/轮次 | GPU min / median | Wall median | PROFILE_TOTAL |
+|---|---:|---:|---:|
+| 720p正向 | 13.975 / 14.123 | 14.198 | 13.440000 |
+| 720p反向 | 14.230 / 14.377 | 14.472 | 13.700096 |
+| 900p正向 | 23.205 / 23.646 | 23.763 | 21.706752 |
+| 900p反向 | 23.397 / 23.932 | 24.067 | 21.781504 |
+| 1080p正向 | 31.264 / 31.835 | 31.934 | 28.743680 |
+| 1080p反向 | 31.537 / 32.057 | 32.188 | 29.387775 |
+
+两轮三档相对Phase12输出0bit、invalid0、首末帧一致、32/32 LOCAL0；7201280×768/C256wave2门控保留，无misaligned address。900/1080 F32可见PSNR46.975322410562406/46.100947087035124dB不变。每行min/median/Wall/独立PROFILE_TOTAL成组，实际遥测、温度/DVFS波动逐轮保留，不拼轮次、不把差额全算launch气泡。
+
+720结论见阶段一独立提交6b61bd9：已确定Phase12和旧F32共同的256 attention问题，默认绝对PSNR仍不报；400修正图只作隔离诊断，没有混入严格0bit默认。Phase14建议优先允许新输出基线的独立正确性修复，单点QKV确定256的转置/分母/PV问题，再立720F32金标准；不要原样重试本轮无收益调度变体。
+
+[Phase13报告](hip-port/phase13/README.md)、[两轮完整成绩/遥测](hip-port/phase13/final-results.md)、[32核表及负结果](hip-port/phase13/results.md)、[参考链定位](hip-port/phase13/reference-audit.md)。复测bash Development/hip-port/phase13/run_benchmark.sh（新名字）；完整模块哈希/实际加载记录/质量门保留。仅清理本轮重复模块、临时LLVM/预处理产物，证据及最终40模块在忽略artifacts，未改部署/ZIP/共享资产，不push。

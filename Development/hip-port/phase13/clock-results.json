@@ -1,0 +1,75 @@
+{
+  "diagnostic_output_bitdiff": 0,
+  "cycles": {
+    "c32_wave1_post_b8": {
+      "prefix/merge-input": {
+        "median_cycles_per_qt": 2862.5,
+        "p10": 2150.0,
+        "p90": 6164.9
+      },
+      "FFN-expand-act-contract": {
+        "median_cycles_per_qt": 11122.0,
+        "p10": 7850.8,
+        "p90": 23234.1
+      },
+      "feature-pack-QKV-norm": {
+        "median_cycles_per_qt": 5736.0,
+        "p10": 4273.4,
+        "p90": 7331.799999999999
+      },
+      "QK-softmax": {
+        "median_cycles_per_qt": 3191.0,
+        "p10": 2964.7,
+        "p90": 3636.3
+      },
+      "AV-pack": {
+        "median_cycles_per_qt": 1322.0,
+        "p10": 1230.0,
+        "p90": 1492.0
+      },
+      "project-residual": {
+        "median_cycles_per_qt": 1215.0,
+        "p10": 1012.0,
+        "p90": 1400.0
+      },
+      "tail": {
+        "median_cycles": 3587.0
+      },
+      "samples": 547
+    },
+    "c32_wave1_prefix_b8d": {
+      "prefix/merge-input": {
+        "median_cycles_per_qt": 3707.0,
+        "p10": 2637.6,
+        "p90": 7484.500000000001
+      },
+      "FFN-expand-act-contract": {
+        "median_cycles_per_qt": 10432.0,
+        "p10": 7481.9,
+        "p90": 20651.7
+      },
+      "feature-pack-QKV-norm": {
+        "median_cycles_per_qt": 6525.0,
+        "p10": 4585.8,
+        "p90": 8700.2
+      },
+      "QK-softmax": {
+        "median_cycles_per_qt": 3365.0,
+        "p10": 3067.9,
+        "p90": 4378.0
+      },
+      "AV-pack": {
+        "median_cycles_per_qt": 1304.0,
+        "p10": 1197.0,
+        "p90": 1822.3000000000004
+      },
+      "project-residual": {
+        "median_cycles_per_qt": 1169.5,
+        "p10": 966.9,
+        "p90": 1402.0
+      },
+      "samples": 540
+    }
+  },
+  "limitations": "Sampling/bar.warp/global writes perturb scheduling; not a hardware stall counter or uninstrumented performance estimate. Prefix tail return precedes marker33."
+}

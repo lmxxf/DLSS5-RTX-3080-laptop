@@ -15,7 +15,7 @@ assert s.count(old)==1;s=s.replace(old,new)
 # Read instrumented module clocks after target launch, not from another process/context.
 point='  if(opt.wall_profile){api.Check(api.hipStreamSynchronize(stream),"wall profile completion");'
 hook='''  if(const char*dir=std::getenv("DLSS5_PHASE13_CLOCK")){if(module=="c32_wave1"&&(kernel.find("prefix")!=std::string::npos||kernel.find("post")!=std::string::npos)){
- static std::set<std::string> dumped;if(dumped.insert(kernel).second){Synchronize();void*ptr{};size_t bytes{};api.Check(api.hipModuleGetGlobal(&ptr,&bytes,modules.at(module),"sm86_phase13_clock"),"clock global");std::vector<char>b(bytes);api.Check(api.hipMemcpy(b.data(),ptr,bytes,2),"clock read");std::ofstream f(std::string(dir)+"/"+kernel+".clock",std::ios::binary);f.write(b.data(),bytes);}}
+ static std::map<std::string,unsigned> seen;unsigned skip=std::getenv("DLSS5_PHASE13_CLOCK_SKIP")?unsigned(std::stoul(std::getenv("DLSS5_PHASE13_CLOCK_SKIP"))):0;if(seen[kernel]++==skip){Synchronize();void*ptr{};size_t bytes{};api.Check(api.hipModuleGetGlobal(&ptr,&bytes,modules.at(module),"sm86_phase13_clock"),"clock global");std::vector<char>b(bytes);api.Check(api.hipMemcpy(b.data(),ptr,bytes,2),"clock read");std::ofstream f(std::string(dir)+"/"+kernel+".clock",std::ios::binary);f.write(b.data(),bytes);}}
  }
 '''
 assert s.count(point)==1;s=s.replace(point,hook+point);(out/'hip_reference_network.h').write_text(s)

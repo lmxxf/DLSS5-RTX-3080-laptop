@@ -275,3 +275,9 @@ Small31 Style1、Graph off、默认DVFS约140W，每行独立50warmup/80iter，�
 [Phase14报告](hip-port/phase14/README.md)、[最终两轮与遥测](hip-port/phase14/final-results.md)、[全部控制/32核表](hip-port/phase14/results.md)、[根因/CPU/舍入证明](hip-port/phase14/correctness.md)。新gold SHA149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5，八块CPU仅匹配独立rcp.approx原语后1966080 AV字节全同；不再使用旧错误720比较。18项Python/LLVM回归、172原语项、256坐标证明与40/1918加载全部通过。复测python3 Development/hip-port/phase14/run_benchmark.py（自动新名字）；保留原语/新gold/模块SHA/CPU小样本，清理仅本轮大副本与LLVM，未碰共享assets/游戏/Magpie/发布ZIP，不push。
 
 Phase15先把新720gold固化回归，再补真实帧/动态输入/Style1 HDR和free-geometry覆盖；性能只在正确新基线上继续C32动态证据，不重试即时contract/跨h2/Graph。bridge或游戏部署另阶段验证，本轮没有部署。
+
+### Phase15 阶段一：输入审计，暂停新C32性能实验（2026-10-25，闇）
+
+以Phase14 selected/新720 F32 gold为唯一基线，起点9c27a1c，工作树干净。找到一张有GameDVR/sRGB元数据并目视核实的《明末》1920×1080武器菜单截图（SHA a055f4e3e43ee2094ca76433b8c57587e35eb5a73a6013622f540a5d52d1d29a），只有单张SDR菜单，非真实线性HDR/非动态场景序列。旧D:\DLSSNR-Lab\hip-backend\live-menu-before.f16在本机缺失；当前Temp input.f16全零，Magpie smoke input为人工渐变，均不能冒充实拍。完整搜索范围/原始来源SHA/统计见[Phase15输入审计](hip-port/phase15/input-audit.md)。
+
+按本轮用户“真实输入不足则暂停性能侧”要求，暂停新的C32性能实验；继续长期回归与动态/geometry/HDR模拟配对验证。由SDR线性化×512的配对将明确标为衍生/合成，不称真实HDR捕获或实机画质验收。43.577948dB低于旧45dB门槛，不改写门槛。无游戏/共享assets/发布包写入，无push/部署，不要求Zero重进游戏。

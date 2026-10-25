@@ -1,0 +1,82 @@
+{
+  "inputs": [
+    {
+      "path": "/mnt/c/Users/lmxxf/Videos/Captures/明末：渊虚之羽 2026_1_25 14_32_11.png",
+      "exists": true,
+      "bytes": 1031729,
+      "sha256": "a055f4e3e43ee2094ca76433b8c57587e35eb5a73a6013622f540a5d52d1d29a",
+      "size": [
+        1920,
+        1080
+      ],
+      "mode": "RGBA",
+      "srgb_chunk": true,
+      "GameDVR_title": "明末：渊虚之羽",
+      "classification": "real game SDR menu screenshot; visually inspected; not scene-linear HDR or gameplay sequence",
+      "metadata_keys": [
+        "srgb",
+        "gamma",
+        "Microsoft.GameDVR.Id",
+        "Microsoft.GameDVR.Title",
+        "Microsoft.GameDVR.Author",
+        "Microsoft.GameDVR.Basic",
+        "Microsoft.GameDVR.BasicHash",
+        "Microsoft.GameDVR.Extended",
+        "Microsoft.GameDVR.Hash"
+      ]
+    },
+    {
+      "path": "/mnt/c/Users/lmxxf/AppData/Local/Temp/dlss5_frame_test/input.f16",
+      "exists": true,
+      "bytes": 7464960,
+      "sha256": "00be8568d001d5a1ad810ff54a40241140240cb2694b46bb60127c99b43f1d7e",
+      "shape": [
+        720,
+        1296,
+        4
+      ],
+      "rgb_min": 0.0,
+      "rgb_max": 0.0,
+      "rgb_unique": 1,
+      "invalid": 0,
+      "classification": "zero buffer, not usable image"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/发布打包/验证记录/magpie-smoke-input.f16",
+      "exists": true,
+      "bytes": 7464960,
+      "sha256": "8f32c03e17faf3267434c84ff4b7c071b09796a45d965b5ae5667298ae45eafb",
+      "shape": [
+        720,
+        1296,
+        4
+      ],
+      "rgb_min": 0.1500244140625,
+      "rgb_max": 0.7998046875,
+      "rgb_unique": 1809,
+      "invalid": 0,
+      "classification": "synthetic smooth gradient smoke fixture; not game capture"
+    }
+  ],
+  "missing_documented_inputs": [
+    {
+      "path": "/mnt/d/DLSSNR-Lab/hip-backend/live-menu-before.f16",
+      "exists": false,
+      "source_document": "Development/HIP/benchmark-live-capture.md; originalD: frozen capture is unavailable on this machine"
+    }
+  ],
+  "search_scope": [
+    "repo including ignored artifacts",
+    "/home/lmxxf/work/dlss5-assets excluding model weights",
+    "/mnt/c/DLSS5-5090-dll incl package zip listings",
+    "known Temp/dlss5_frame_test",
+    "Steam userdata screenshot roots",
+    "Videos/Captures",
+    "Pictures/Screenshots"
+  ],
+  "usable_real_game_sdr_frames": 1,
+  "usable_real_scene_HDR_frames": 0,
+  "independent_real_gameplay_sequence_frames": 0,
+  "performance_experiment": "paused per user condition: one SDR menu is insufficient for representative HDR/gameplay quality",
+  "not_claimed": "No live capture, no game integration/visual acceptance, no claim of reaching legacy45dB threshold"
+}

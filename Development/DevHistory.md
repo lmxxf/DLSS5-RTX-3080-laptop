@@ -732,3 +732,19 @@ Phase15先把新720gold固化回归，再补真实帧/动态输入/Style1 HDR和
 以Phase14 selected/新720 F32 gold为唯一基线，起点9c27a1c，工作树干净。找到一张有GameDVR/sRGB元数据并目视核实的《明末》1920×1080武器菜单截图（SHA a055f4e3e43ee2094ca76433b8c57587e35eb5a73a6013622f540a5d52d1d29a），只有单张SDR菜单，非真实线性HDR/非动态场景序列。旧D:\DLSSNR-Lab\hip-backend\live-menu-before.f16在本机缺失；当前Temp input.f16全零，Magpie smoke input为人工渐变，均不能冒充实拍。完整搜索范围/原始来源SHA/统计见[Phase15输入审计](hip-port/phase15/input-audit.md)。
 
 按本轮用户“真实输入不足则暂停性能侧”要求，暂停新的C32性能实验；继续长期回归与动态/geometry/HDR模拟配对验证。由SDR线性化×512的配对将明确标为衍生/合成，不称真实HDR捕获或实机画质验收。43.577948dB低于旧45dB门槛，不改写门槛。无游戏/共享assets/发布包写入，无push/部署，不要求Zero重进游戏。
+
+### Phase15 阶段二：长期回归闭环，画质限制与性能暂停（2026-10-26，闇）
+
+以Phase14 selected/新720 gold为唯一基线，没有生产源码或算法变更。建立并实际完整重放run_all入口：40/40源码重编、1918entry真实CUDA加载，40个SHA全部与Phase14相同；256坐标、172项16..256合法token/实际执行QKV、CPU匹配rcp.approx后1966080 AV字节0bit，18项既有Python/LLVM通过。旧QKV来自合成benchmark实际执行，不冒充游戏帧。
+
+真实来源仅一张已目视核实GameDVR《明末》SDR武器菜单，原始SHA a055f4e3e43ee2094ca76433b8c57587e35eb5a73a6013622f540a5d52d1d29a；没有真实场景线性HDR/多帧游戏序列。保留源副本/元数据/SHA。以该SDR及明确标记的全幅动态衍生图、既有codec half-bit RGB规则与smoke渐变构成56输入配置、7几何：512²、854×480→896×512、1024×768、640²、1152×640、1280×768可见720、1024²。1/512手动白点模拟HDR原始范围0..512，21配对编码/三模式输出0bit；这是CPU fixture预处理+独立CUDA网络回归，不是D3D12/HDR实机验收。
+
+复用同一CUDA输入/输出地址，每帧整幅上传，输出NaN哨兵防漏写；每几何A/B等8配置两遍再恢复A，改变像素约99.998%。两轮各375帧调用加27资源重放（共750+54），全部repeat/first-last0bit、invalid0；56项correct256/4000bit，Native32种活跃核LOCAL0，无对齐错误；两轮输入/输出SHA全相同并冻结为pinned-image-outputs.json。
+
+精度均为可见编码工作RGB，固定peak1，不用逐图最大值，也不将其当原始线性HDR peak512。真实SDR菜单1280×720对F32为60.247254dB/maxabs0.043955266，但它是单张UI输入且只是相对F32精度，不能概括全部画质。新增未达旧门槛压力项：1024² codec-ramp white1/512同一编码图为43.436806dB/maxabs0.054382861，256/400及两轮均一致；具体层级来源未归因，保留证据。43.577948与43.436806都没有达到45dB，全局45门槛明确False。
+
+规范三档：720对Phase14新正确输出0bit，可信F32 PSNR43.57794791233917/maxabs0.05093550682067871；900/1080对Phase12及Phase14均0bit，F32 PSNR46.975322410562406/46.100947087035124不降，maxabs0.04004549980163574/0.0416027307510376。三档invalid0、first-last0bit、Native32 LOCAL0，金标准SHA及参考链不变。
+
+按用户真实输入不足则暂停性能侧的条件，并保留新增质量门槛缺口，本轮无新C32性能实验或性能计时，不用正确性快验时长充50/80成绩。保留Phase14实现，既无新性能保留项也无性能负收益判断；下一步先恢复既有HDR/多帧档案、逐层定位43.436806压力项，不强行开Phase16、不要求Zero重进游戏。无共享assets/游戏/Magpie/发布包写入，无push/部署。
+
+[Phase15报告/一键入口](hip-port/phase15/README.md)、[56项逐输入精度](hip-port/phase15/image-results.md)、[质量门](hip-port/phase15/validation.json)、[真实性缺口](hip-port/phase15/input-audit.md)。所有原始来源SHA、参考模块与Native模块SHA、全幅动态日志、原语/CPU证据保留；只清理本轮重复大二进制与可再生编码输入，旧档案只读。

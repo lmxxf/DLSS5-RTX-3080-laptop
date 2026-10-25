@@ -1,0 +1,15 @@
+{
+  "native_modules": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase14/artifacts/selected/modules",
+  "native_manifest_sha256": "0493b318754785d1b3cb5a36185b910e8f4c24a372b0a70a17ccd1e5e05988dc",
+  "F32_manifest_sha256": "d01d648e2e2f5956e20d363d8a5b95926c384e74b6a98c0e4c39b43435c91428",
+  "gold_sha256": "149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5",
+  "copied_regression_sources": {
+    "trace_layout.py": "c2861abc162b7b3e0847528aacb030998958a60d6a2046448a70846271bbcb2e",
+    "layout_probe.hip": "a0fb39b47cf3dae77c8bd3686164e0d91b853e9aa92d05a3eebc46dd8ca8a0a1",
+    "coverage.py": "44280c5ce3bb9ec50637f50548a7d539933edd8621df0d70ad199054cb8d45e0",
+    "rounding_audit.py": "cb5ac8af8e37cac851c87985e7843eee1da6b9f14740f06b24063f5d6bb6a968",
+    "rounding_probe.hip": "c2233df869487105c03cc370deb19076bac39e2e6a1794ea901e64cdfeec8b8b",
+    "reference.py": "c831c77d317f865d164e3f08798ceda3064c1261bbf72a881449d70253c64d2f"
+  },
+  "network_QKV_origin": "actual CUDA execution on synthetic benchmark image; NOT game capture"
+}

@@ -1,0 +1,96 @@
+{
+  "run_tag": "regression",
+  "correctness_regression_pass": true,
+  "module_count": 40,
+  "entry_count": 1918,
+  "native_module_hashes_equal_Phase14": true,
+  "input_configurations": 56,
+  "independent_real_SDR_sources": 1,
+  "real_scene_HDR_sources": 0,
+  "dynamic_calibration_enqueue_frames": 375,
+  "resource_replays": 27,
+  "all56_correct256_vs400_bitdiff": 0,
+  "all_native32_LOCAL0": true,
+  "all_repeats_bitdiff0": true,
+  "canonical_quality": [
+    {
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "Phase14_bitdiff": 0,
+      "Phase12_bitdiff": null,
+      "psnr_peak1": 43.57794791233917,
+      "maxabs": 0.05093550682067871,
+      "invalid": 0,
+      "first_last_bitdiff": 0,
+      "native_active_kernels": 32,
+      "native_LMem_nonzero": 0,
+      "legacy45_pass": false
+    },
+    {
+      "processing": [
+        1600,
+        1024
+      ],
+      "visible": [
+        1600,
+        900
+      ],
+      "Phase14_bitdiff": 0,
+      "Phase12_bitdiff": 0,
+      "psnr_peak1": 46.975322410562406,
+      "maxabs": 0.04004549980163574,
+      "invalid": 0,
+      "first_last_bitdiff": 0,
+      "native_active_kernels": 32,
+      "native_LMem_nonzero": 0,
+      "legacy45_pass": true
+    },
+    {
+      "processing": [
+        1920,
+        1152
+      ],
+      "visible": [
+        1920,
+        1080
+      ],
+      "Phase14_bitdiff": 0,
+      "Phase12_bitdiff": 0,
+      "psnr_peak1": 46.100947087035124,
+      "maxabs": 0.0416027307510376,
+      "invalid": 0,
+      "first_last_bitdiff": 0,
+      "native_active_kernels": 32,
+      "native_LMem_nonzero": 0,
+      "legacy45_pass": true
+    }
+  ],
+  "legacy45_global_gate_pass": false,
+  "accuracy_limitations": [
+    {
+      "geometry": "1024-square",
+      "input": "codec-ramp-wp1",
+      "white": 1,
+      "psnr_peak1": 43.4368063451486,
+      "maxabs": 0.05438286066055298,
+      "origin": "existing_codec_synthetic_RGB_recipe"
+    },
+    {
+      "geometry": "1024-square",
+      "input": "codec-ramp-wp512",
+      "white": 512,
+      "psnr_peak1": 43.4368063451486,
+      "maxabs": 0.05438286066055298,
+      "origin": "existing_codec_synthetic_RGB_recipe"
+    }
+  ],
+  "performance_experiment_permitted": false,
+  "performance_work": "paused: representative real HDR/gameplay inputs insufficient; no newC32 experiment or performance timing performed",
+  "new_layout_or_nonfinite_failure": false
+}

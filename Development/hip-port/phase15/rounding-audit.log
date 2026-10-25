@@ -1,0 +1,54 @@
+[
+  {
+    "block": 31,
+    "bytes": 245760,
+    "CPU_with_isolated_rcp_byte_diff": 0
+  },
+  {
+    "block": 32,
+    "bytes": 245760,
+    "CPU_with_isolated_rcp_byte_diff": 0,
+    "quantization_boundary": {
+      "token": 112,
+      "head": 3,
+      "channel": 5,
+      "numerator_f32": 2.0142364501953125,
+      "denominator_f32": 1.895751953125,
+      "exact_division_rounded_f32": 1.0625,
+      "rcp_approx_f32": 0.5274952054023743,
+      "gpu_mul_rne_f32": 1.0625001192092896,
+      "exact_division_fp8": 56,
+      "actual_fp8": 57
+    }
+  },
+  {
+    "block": 33,
+    "bytes": 245760,
+    "CPU_with_isolated_rcp_byte_diff": 0
+  },
+  {
+    "block": 34,
+    "bytes": 245760,
+    "CPU_with_isolated_rcp_byte_diff": 0
+  },
+  {
+    "block": 35,
+    "bytes": 245760,
+    "CPU_with_isolated_rcp_byte_diff": 0
+  },
+  {
+    "block": 36,
+    "bytes": 245760,
+    "CPU_with_isolated_rcp_byte_diff": 0
+  },
+  {
+    "block": 37,
+    "bytes": 245760,
+    "CPU_with_isolated_rcp_byte_diff": 0
+  },
+  {
+    "block": 38,
+    "bytes": 245760,
+    "CPU_with_isolated_rcp_byte_diff": 0
+  }
+]

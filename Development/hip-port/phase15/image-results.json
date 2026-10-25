@@ -1,0 +1,1581 @@
+{
+  "rows": [
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "input": "menu-sdr-wp1",
+      "origin": "real_game_SDR_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 57.033621598593896,
+      "maxabs": 0.04261183738708496,
+      "rmse": 0.0014070804211147262,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "9be3192b99adba2ecc18a49fea62889cffdb95c57afc729a436b4fd0d75d787a",
+      "reference_sha256": "fa4c1218385b05c3991d86efae1f71b7262a01169615baf3b7e1a7c0f239e05d",
+      "native_sha256": "0d6bbe0fc52dbbc97326774dec12b6c1512125569a05f7c830cf19d499a93ea3",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "input": "menu-linear-wp1",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 57.60038937393895,
+      "maxabs": 0.03721866011619568,
+      "rmse": 0.001318197644631048,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "87729eb32c86bf1632f6253b728621bb4fe48493912a314642bb14cdcd02d944",
+      "reference_sha256": "3c23510589403ef6a1ffd478140692b7146d46c71a61bea88b3f261d9558ad9c",
+      "native_sha256": "e968b6abb287aabaf686756bdee52f0873f61816b46ead0c8eba7fa7d8ac0f91",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "input": "menu-linear-wp512",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 57.60038937393895,
+      "maxabs": 0.03721866011619568,
+      "rmse": 0.001318197644631048,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "87729eb32c86bf1632f6253b728621bb4fe48493912a314642bb14cdcd02d944",
+      "reference_sha256": "3c23510589403ef6a1ffd478140692b7146d46c71a61bea88b3f261d9558ad9c",
+      "native_sha256": "e968b6abb287aabaf686756bdee52f0873f61816b46ead0c8eba7fa7d8ac0f91",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "input": "menu-dynamic-wp1",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.93590148604504,
+      "maxabs": 0.040804922580718994,
+      "rmse": 0.001007406910592645,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "c99cea68aea28e59745897b739b78025617b1a0383ab090dc4438f4b6c714513",
+      "reference_sha256": "c12175c43a5b65db4322a94571d3f00db1db04ec85b174798efc2b8c7f9e3580",
+      "native_sha256": "3a2b78178e793fc288dcc0d62ff991d01977be403e8032360f7f3c58699ed0c7",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "input": "menu-dynamic-wp512",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.93590148604504,
+      "maxabs": 0.040804922580718994,
+      "rmse": 0.001007406910592645,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "c99cea68aea28e59745897b739b78025617b1a0383ab090dc4438f4b6c714513",
+      "reference_sha256": "c12175c43a5b65db4322a94571d3f00db1db04ec85b174798efc2b8c7f9e3580",
+      "native_sha256": "3a2b78178e793fc288dcc0d62ff991d01977be403e8032360f7f3c58699ed0c7",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "input": "codec-ramp-wp1",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 48.22960738714297,
+      "maxabs": 0.031194627285003662,
+      "rmse": 0.003877212735910583,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "0bb4cfe34383f211120de1be64264610681130246195192e2103db87b1d5033d",
+      "reference_sha256": "da95bcfda7940d350eea7b6edab6b4c4b874244b78fefafaeab5b1063520a7c9",
+      "native_sha256": "d117f568455c078bcb4ef566453a2b6dad593f354070e4fcca0990898eb3e694",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "input": "codec-ramp-wp512",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 48.22960738714297,
+      "maxabs": 0.031194627285003662,
+      "rmse": 0.003877212735910583,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "0bb4cfe34383f211120de1be64264610681130246195192e2103db87b1d5033d",
+      "reference_sha256": "da95bcfda7940d350eea7b6edab6b4c4b874244b78fefafaeab5b1063520a7c9",
+      "native_sha256": "d117f568455c078bcb4ef566453a2b6dad593f354070e4fcca0990898eb3e694",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "input": "smoke-wp1",
+      "origin": "existing_synthetic_gradient",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 57.641360548320286,
+      "maxabs": 0.008656859397888184,
+      "rmse": 0.001311994373549095,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "ef9951853ca4db757e8c5bf807039713fce7651b68b7ee11a13a858cc440047b",
+      "reference_sha256": "5e47763208e8eeddf2abab86d18252d717bf2c5bba7b8bca1518ce4424d4a9b4",
+      "native_sha256": "76d9839d3d4cc12f6b04121e629d1ba6348fe101a20eb6dba86f508859f329a4",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "input": "menu-sdr-wp1",
+      "origin": "real_game_SDR_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.558024442325305,
+      "maxabs": 0.03007453680038452,
+      "rmse": 0.001052201163958914,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "7cf270a254624a971dfc4c659ac46b9273cb0cdb4487f7b44ea06e119944a3cc",
+      "reference_sha256": "3eeca1729d60873d1469e60e7888769b84511a137720f5db74840855ad511d73",
+      "native_sha256": "057b639dd94103e4e346cfa4b8e4b649745ce639786fdb7d56d031a74239e81d",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "input": "menu-linear-wp1",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 58.016979949760206,
+      "maxabs": 0.04455220699310303,
+      "rmse": 0.0012564667563874897,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "2cc6ea6be8e1b460d8e34c39f6485343a884f510086a94f405cfa39c5c16ff06",
+      "reference_sha256": "06ea516ebb37a43ddfb663a6e8694ec31df8e785a4802433c974642d5ce42b6f",
+      "native_sha256": "26b0354bf7b65c6445e09da1dc27f682bfd6965386b92d15071ee2182ed60bc6",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "input": "menu-linear-wp512",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 58.016979949760206,
+      "maxabs": 0.04455220699310303,
+      "rmse": 0.0012564667563874897,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "2cc6ea6be8e1b460d8e34c39f6485343a884f510086a94f405cfa39c5c16ff06",
+      "reference_sha256": "06ea516ebb37a43ddfb663a6e8694ec31df8e785a4802433c974642d5ce42b6f",
+      "native_sha256": "26b0354bf7b65c6445e09da1dc27f682bfd6965386b92d15071ee2182ed60bc6",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "input": "menu-dynamic-wp1",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 58.87877494879799,
+      "maxabs": 0.045837342739105225,
+      "rmse": 0.0011377877472173027,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "24f985e78c106692002040035a3228fc7bb440097e10609a3276cd2c6e5900d5",
+      "reference_sha256": "28f4ae50cfac23212b49921ae888e01495ca89976c0c698e80cfe0e014648218",
+      "native_sha256": "b05ffde53daeecd5c5f66c4f63a113e3ee61f6e5239632eb2aa0af39adc5d409",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "input": "menu-dynamic-wp512",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 58.87877494879799,
+      "maxabs": 0.045837342739105225,
+      "rmse": 0.0011377877472173027,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "24f985e78c106692002040035a3228fc7bb440097e10609a3276cd2c6e5900d5",
+      "reference_sha256": "28f4ae50cfac23212b49921ae888e01495ca89976c0c698e80cfe0e014648218",
+      "native_sha256": "b05ffde53daeecd5c5f66c4f63a113e3ee61f6e5239632eb2aa0af39adc5d409",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "input": "codec-ramp-wp1",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 50.23662483718033,
+      "maxabs": 0.024043023586273193,
+      "rmse": 0.0030772923566454707,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "32ec16d40b9199f1874358319d14337c7da6ad8f5a8874127273a9732d20f108",
+      "reference_sha256": "da15ac22994254dc41fa06a7cf3fe6e7aec2a96afde14fd937b123322737ef10",
+      "native_sha256": "518f945376630c2b1642eaaad0bb7fb5a39614263e74b9a2a2021bcd1061fec5",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "input": "codec-ramp-wp512",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 50.23662483718033,
+      "maxabs": 0.024043023586273193,
+      "rmse": 0.0030772923566454707,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "32ec16d40b9199f1874358319d14337c7da6ad8f5a8874127273a9732d20f108",
+      "reference_sha256": "da15ac22994254dc41fa06a7cf3fe6e7aec2a96afde14fd937b123322737ef10",
+      "native_sha256": "518f945376630c2b1642eaaad0bb7fb5a39614263e74b9a2a2021bcd1061fec5",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "input": "smoke-wp1",
+      "origin": "existing_synthetic_gradient",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 55.851391626763636,
+      "maxabs": 0.013289153575897217,
+      "rmse": 0.0016122426980328868,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "99c01f93bfe84f83d09ca2dae481d081e17028060c00df00ced768460e690e56",
+      "reference_sha256": "1febef945343f10f2e5b8e10934f30de8e8012d7a750f715399dcddb2743999a",
+      "native_sha256": "2564b24b3c1ed7e538d8fa79c1149882422269229489d296fb293cd9225d533b",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "input": "menu-sdr-wp1",
+      "origin": "real_game_SDR_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.17056719072877,
+      "maxabs": 0.0458066463470459,
+      "rmse": 0.0009805542817956565,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "7a71da1c6f4f34ab23a684048e51cdb228e97d4298e5e0855dad6e87c1a93b88",
+      "reference_sha256": "b0eda5abd6ceb8d0520c326830833838734ba24a226bff8a785f35061514996e",
+      "native_sha256": "96c05ea7a05b89d0cd200539129ab019bc8b6b7071d1b27d4bb0da609a3ef870",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "input": "menu-linear-wp1",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.29806927788839,
+      "maxabs": 0.03429335355758667,
+      "rmse": 0.0009662656391564935,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "ee4f8b07a62400b33517ad3a29492ae50a6f14698326a4f5ac483d787dfd5f0e",
+      "reference_sha256": "6ce6f59ee8619a4697f6627f1960953ef1554e6ef2d6d985050992afa0b99af6",
+      "native_sha256": "6ad68652ee228ce5f4ebfe53e84f31958457767f45acf4a6bf4c38566fce989c",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "input": "menu-linear-wp512",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.29806927788839,
+      "maxabs": 0.03429335355758667,
+      "rmse": 0.0009662656391564935,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "ee4f8b07a62400b33517ad3a29492ae50a6f14698326a4f5ac483d787dfd5f0e",
+      "reference_sha256": "6ce6f59ee8619a4697f6627f1960953ef1554e6ef2d6d985050992afa0b99af6",
+      "native_sha256": "6ad68652ee228ce5f4ebfe53e84f31958457767f45acf4a6bf4c38566fce989c",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "input": "menu-dynamic-wp1",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.836171554513,
+      "maxabs": 0.029960989952087402,
+      "rmse": 0.0009082207548666796,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "cdfcc4fce5427eb9d35e6fbde80cf1cfea0239c3ba0ab91080aaa35771f5c120",
+      "reference_sha256": "34cabcac20ae42a5ac21c63ddd4c20d66ddfe35a907ce1fd97d67be7a026b9de",
+      "native_sha256": "d0a566701e9841560be81deaee51f1c83f85f23ea0dfe139a6e9855e0e3018e3",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "input": "menu-dynamic-wp512",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.836171554513,
+      "maxabs": 0.029960989952087402,
+      "rmse": 0.0009082207548666796,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "cdfcc4fce5427eb9d35e6fbde80cf1cfea0239c3ba0ab91080aaa35771f5c120",
+      "reference_sha256": "34cabcac20ae42a5ac21c63ddd4c20d66ddfe35a907ce1fd97d67be7a026b9de",
+      "native_sha256": "d0a566701e9841560be81deaee51f1c83f85f23ea0dfe139a6e9855e0e3018e3",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "input": "codec-ramp-wp1",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 46.154754226075156,
+      "maxabs": 0.03615748882293701,
+      "rmse": 0.004923367887961806,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "46d72cd3260bff1109a118e7008b212dd552925b61f283ae662f786e896e52f9",
+      "reference_sha256": "5d0c4484672239492d0453417ea404820228c747af541d5cfa5391bdb606fa47",
+      "native_sha256": "eaf5c41cc0f05f2a3ac5d23f6b7036506cc313726e85443c01fe6942a76c0c0b",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "input": "codec-ramp-wp512",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 46.154754226075156,
+      "maxabs": 0.03615748882293701,
+      "rmse": 0.004923367887961806,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "46d72cd3260bff1109a118e7008b212dd552925b61f283ae662f786e896e52f9",
+      "reference_sha256": "5d0c4484672239492d0453417ea404820228c747af541d5cfa5391bdb606fa47",
+      "native_sha256": "eaf5c41cc0f05f2a3ac5d23f6b7036506cc313726e85443c01fe6942a76c0c0b",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "input": "smoke-wp1",
+      "origin": "existing_synthetic_gradient",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.42868927089856,
+      "maxabs": 0.00617903470993042,
+      "rmse": 0.0009518434735633468,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "efbea5f3a1796a0b728b5c1eef43c13350a08d756d2478b6d3ccecffdd5a39d0",
+      "reference_sha256": "3d273e2fefc80b10f12640bfd3f0cf7eaf4258ef72fd040dc58220f718a5e4b9",
+      "native_sha256": "b764d223b9dec7b7b7bc2fdcd7ef861b4f4685b0d8f84843557d52b74dc33001",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "input": "menu-sdr-wp1",
+      "origin": "real_game_SDR_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.417261708499765,
+      "maxabs": 0.035768985748291016,
+      "rmse": 0.0010693919598786824,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "8a5e57a90b919e7c10951cc3c6a43ca05f2d215ca781aa8ec9a0c8b40cc9f537",
+      "reference_sha256": "127040a730d7ea0dc64af176b4bf4e9794edf38839c5c33eee9e7a9ad6ab32d4",
+      "native_sha256": "bb98f8b02a30b90c2aed220104162d3f41465286e0b4348d39f3cd34c0bdb51e",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "input": "menu-linear-wp1",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.2011309231422,
+      "maxabs": 0.026789188385009766,
+      "rmse": 0.0010963354414117138,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "bedf8450283a016a99b881a7efa79d029b9dd1b69e3da243cb20e524c4482b66",
+      "reference_sha256": "3b5c41f8f3e9c108e592af885d05e680c1eae8ba13a895e0e8ec66bf7d10d8f7",
+      "native_sha256": "dbc53e2414f0195af7de969363b7342ad553a05973c223d255a87a42f6e36633",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "input": "menu-linear-wp512",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.2011309231422,
+      "maxabs": 0.026789188385009766,
+      "rmse": 0.0010963354414117138,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "bedf8450283a016a99b881a7efa79d029b9dd1b69e3da243cb20e524c4482b66",
+      "reference_sha256": "3b5c41f8f3e9c108e592af885d05e680c1eae8ba13a895e0e8ec66bf7d10d8f7",
+      "native_sha256": "dbc53e2414f0195af7de969363b7342ad553a05973c223d255a87a42f6e36633",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "input": "menu-dynamic-wp1",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.94815394518307,
+      "maxabs": 0.021412312984466553,
+      "rmse": 0.0008965867216842716,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "80cbc9f515f23982f3fd9e4662d8358f0b7052f0da3edc40ca73da40deb2aea4",
+      "reference_sha256": "5fc7ed6c2e5bfe4d5b48f2c41bb23de242e1ff1a7424953e21f88afe547c89cf",
+      "native_sha256": "e8983f6ecb682cdea8a318efcc0880579ee0a6d7ba9749a72e26b2569dd284fc",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "input": "menu-dynamic-wp512",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.94815394518307,
+      "maxabs": 0.021412312984466553,
+      "rmse": 0.0008965867216842716,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "80cbc9f515f23982f3fd9e4662d8358f0b7052f0da3edc40ca73da40deb2aea4",
+      "reference_sha256": "5fc7ed6c2e5bfe4d5b48f2c41bb23de242e1ff1a7424953e21f88afe547c89cf",
+      "native_sha256": "e8983f6ecb682cdea8a318efcc0880579ee0a6d7ba9749a72e26b2569dd284fc",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "input": "codec-ramp-wp1",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 49.0176468046367,
+      "maxabs": 0.03018885850906372,
+      "rmse": 0.0035409325961208273,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "df3ae021caeb93e04e013227621e09bf4f5c1e09641a4ddf2c2bda8f763c2266",
+      "reference_sha256": "eb8ac316a6a73428a0e17d3d28a4fd24bc6debe9621b30286d73b5e36e8967a7",
+      "native_sha256": "d3ee5fb1f29aef5ce64ff5920f1d406aab46ad9bcbb0221922894809a25396de",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "input": "codec-ramp-wp512",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 49.0176468046367,
+      "maxabs": 0.03018885850906372,
+      "rmse": 0.0035409325961208273,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "df3ae021caeb93e04e013227621e09bf4f5c1e09641a4ddf2c2bda8f763c2266",
+      "reference_sha256": "eb8ac316a6a73428a0e17d3d28a4fd24bc6debe9621b30286d73b5e36e8967a7",
+      "native_sha256": "d3ee5fb1f29aef5ce64ff5920f1d406aab46ad9bcbb0221922894809a25396de",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "input": "smoke-wp1",
+      "origin": "existing_synthetic_gradient",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 54.31038572538671,
+      "maxabs": 0.016964435577392578,
+      "rmse": 0.0019252215474089341,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "64d96560c89cb74f67a859e894344d3ddd554b0a6610481be55b1956b2187a25",
+      "reference_sha256": "d16ea67c12426bbdbc86d712555f34e7f280825d7e55790d513027426f069bc2",
+      "native_sha256": "9c40f7bf3b2dbc093a32c9e06df05cbc7185ac1cbf59f6a475b02c957df9eb68",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "input": "menu-sdr-wp1",
+      "origin": "real_game_SDR_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.800880253975215,
+      "maxabs": 0.030112743377685547,
+      "rmse": 0.0010231892939699756,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "7de44ac8e22ae8588b3c47cee5f6cf84221c562455c3725c63862823331276e9",
+      "reference_sha256": "d6396e7432c395d019880b9bf566cb0cf9065ad06488e3875af2c1a5b336e6cf",
+      "native_sha256": "5e0ceb03fa93b5919d4ca920066c2636888693427bd5d6feae886d50e4aeb9db",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "input": "menu-linear-wp1",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.046331366848804,
+      "maxabs": 0.03190040588378906,
+      "rmse": 0.001116049434268386,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "5873a35bb734784a7cf41bc4fc36c402cdb0d91c659846d27e1dd44d08ca60cc",
+      "reference_sha256": "3d31b9da8ae574e0b459da0e7a3c88f5fdb40f8e2ff94cdd73a8dcf11f09996b",
+      "native_sha256": "20b568cf27a6f43f8db615d698324e187853458e0d4d8af68f46fd34869ad0ee",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "input": "menu-linear-wp512",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 59.046331366848804,
+      "maxabs": 0.03190040588378906,
+      "rmse": 0.001116049434268386,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "5873a35bb734784a7cf41bc4fc36c402cdb0d91c659846d27e1dd44d08ca60cc",
+      "reference_sha256": "3d31b9da8ae574e0b459da0e7a3c88f5fdb40f8e2ff94cdd73a8dcf11f09996b",
+      "native_sha256": "20b568cf27a6f43f8db615d698324e187853458e0d4d8af68f46fd34869ad0ee",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "input": "menu-dynamic-wp1",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.91885973166949,
+      "maxabs": 0.03824883699417114,
+      "rmse": 0.0008996156737434135,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "d4a3f6d1dc0175a06cf2961d1eaae193e7d9adffa7a9ac9f3453104eea38953d",
+      "reference_sha256": "7a90a24521c82813631b180177d329ff5695847e6e05e01e6d871124b8487ae7",
+      "native_sha256": "f3ae13d2a164841e263a12e355a7c3db63b44747b557d3fcb302321248b73301",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "input": "menu-dynamic-wp512",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.91885973166949,
+      "maxabs": 0.03824883699417114,
+      "rmse": 0.0008996156737434135,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "d4a3f6d1dc0175a06cf2961d1eaae193e7d9adffa7a9ac9f3453104eea38953d",
+      "reference_sha256": "7a90a24521c82813631b180177d329ff5695847e6e05e01e6d871124b8487ae7",
+      "native_sha256": "f3ae13d2a164841e263a12e355a7c3db63b44747b557d3fcb302321248b73301",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "input": "codec-ramp-wp1",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 49.07155092008733,
+      "maxabs": 0.028471827507019043,
+      "rmse": 0.0035190258250086433,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "ddc7dae4e8bb57d3c323c8a26f893b2b819ae648af43dd122a91b4d21266f811",
+      "reference_sha256": "ae1d44002deef4dd2785a10e1e252c7f76e30f9c4592c71d5dd1eb411e9fcf7b",
+      "native_sha256": "e0832582a7c7b71661b6ecfac7ff6880ec5b4776fd1865a0959339f74205df4c",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "input": "codec-ramp-wp512",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 49.07155092008733,
+      "maxabs": 0.028471827507019043,
+      "rmse": 0.0035190258250086433,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "ddc7dae4e8bb57d3c323c8a26f893b2b819ae648af43dd122a91b4d21266f811",
+      "reference_sha256": "ae1d44002deef4dd2785a10e1e252c7f76e30f9c4592c71d5dd1eb411e9fcf7b",
+      "native_sha256": "e0832582a7c7b71661b6ecfac7ff6880ec5b4776fd1865a0959339f74205df4c",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "input": "smoke-wp1",
+      "origin": "existing_synthetic_gradient",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 56.147144520193024,
+      "maxabs": 0.013126671314239502,
+      "rmse": 0.0015582702308231003,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "171abf83b1fa5487cff4ebc5fb84feede102d1946a941c85ebe521d2a3b150b5",
+      "reference_sha256": "a735e3f1586030f133b9869048b22ec38993940276ec819c83011c88efb926ab",
+      "native_sha256": "1a3ec940de13814da997e72dd12357ea4d3b86478e334a671a22052282e0ee6a",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "input": "menu-sdr-wp1",
+      "origin": "real_game_SDR_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.24725371760482,
+      "maxabs": 0.04395526647567749,
+      "rmse": 0.0009719352069915909,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "34fb418cbc4583ff5d65182be90d47424690d256d67cb2e667e2a0cd69b3bb37",
+      "reference_sha256": "40d224a8ee7ada748a6004e34cbda51d7ebbcc0796b495f11e3a769ef19b4021",
+      "native_sha256": "3aa879ea766b29afb2de8f9715c1d6a9c3677dd0d19d141ceeb8c9180aacbaaa",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "input": "menu-linear-wp1",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.77332034853437,
+      "maxabs": 0.027213454246520996,
+      "rmse": 0.0009148164862179431,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "50782a6533cde536b8ca062ecbb1b22bfca939ace8955d818fa592ac1fc5f977",
+      "reference_sha256": "42adccc8abdc27ea95c04e46e4053ba426a283d563a9bdc21d2ac1303cf273e3",
+      "native_sha256": "2c745ca798c919b1194bbd5aff122599c9608c985b829903a74a899c4b3fc198",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "input": "menu-linear-wp512",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.77332034853437,
+      "maxabs": 0.027213454246520996,
+      "rmse": 0.0009148164862179431,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "50782a6533cde536b8ca062ecbb1b22bfca939ace8955d818fa592ac1fc5f977",
+      "reference_sha256": "42adccc8abdc27ea95c04e46e4053ba426a283d563a9bdc21d2ac1303cf273e3",
+      "native_sha256": "2c745ca798c919b1194bbd5aff122599c9608c985b829903a74a899c4b3fc198",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "input": "menu-dynamic-wp1",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 61.7277942072353,
+      "maxabs": 0.036622822284698486,
+      "rmse": 0.0008196157392170437,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "4904eac36ad138bec6cf74d85269471c2dbb08a478bca24d0bfb87894ddd94c2",
+      "reference_sha256": "0d534c756abcd34d4d69be927a362fb90ecf09ed2a4d0c8af679510a6ec7698f",
+      "native_sha256": "e56bbedaf907f3027fc8013a7ee7b55adb3e184e2803ee8deccbb5d47cf3fbe5",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "input": "menu-dynamic-wp512",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 61.7277942072353,
+      "maxabs": 0.036622822284698486,
+      "rmse": 0.0008196157392170437,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "4904eac36ad138bec6cf74d85269471c2dbb08a478bca24d0bfb87894ddd94c2",
+      "reference_sha256": "0d534c756abcd34d4d69be927a362fb90ecf09ed2a4d0c8af679510a6ec7698f",
+      "native_sha256": "e56bbedaf907f3027fc8013a7ee7b55adb3e184e2803ee8deccbb5d47cf3fbe5",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "input": "codec-ramp-wp1",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 47.23480180257987,
+      "maxabs": 0.03700941801071167,
+      "rmse": 0.0043477034098427505,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "02eee4e3783050dad74a5aaa9513d308c6449afa599b7a12f64fc6a01cc411b3",
+      "reference_sha256": "04f7697b817f40e1bfe00cc10bb9b1071d90dae0a5017f2ab04feaf9d983272a",
+      "native_sha256": "939bce1c7e37d9a7ae85b64236dcd9a0e06b7ea8e14ce6c490a0d36a070c7028",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "input": "codec-ramp-wp512",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 47.23480180257987,
+      "maxabs": 0.03700941801071167,
+      "rmse": 0.0043477034098427505,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "02eee4e3783050dad74a5aaa9513d308c6449afa599b7a12f64fc6a01cc411b3",
+      "reference_sha256": "04f7697b817f40e1bfe00cc10bb9b1071d90dae0a5017f2ab04feaf9d983272a",
+      "native_sha256": "939bce1c7e37d9a7ae85b64236dcd9a0e06b7ea8e14ce6c490a0d36a070c7028",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "input": "smoke-wp1",
+      "origin": "existing_synthetic_gradient",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.564907213751084,
+      "maxabs": 0.0071440935134887695,
+      "rmse": 0.0009370324678732859,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "1fc12ad336ca94680336cdf6a9291fee0a49d514978c7de3dbaf127ed6255de9",
+      "reference_sha256": "1a191c2eef1c0a9bcc25d7e50b07ac1a898ce355fa51a41dab57b29c60471087",
+      "native_sha256": "566888c8087617624aebc35e9b5425234ee6052ee9f89b7dbd5c3bfdb44b6fd6",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "input": "menu-sdr-wp1",
+      "origin": "real_game_SDR_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.88122450706133,
+      "maxabs": 0.03638559579849243,
+      "rmse": 0.0009035220892845245,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "3e2cfb37772ff29858f8666fd2685b897be83eb346a07e7f07d2d178dc605e64",
+      "reference_sha256": "0b1d924e3f6a6cc9d796000d01f4b5dc6cefca77d2bc59c15f7c18d0d219f934",
+      "native_sha256": "30e339794a8d009b423e75eff4bf0f7e8c478c60ee6271058a9c61d5f3260cca",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "input": "menu-linear-wp1",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.64897889971749,
+      "maxabs": 0.03127706050872803,
+      "rmse": 0.0009280065787898556,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "2afa2882cef3d9996b3bef592c9db67a32636c8766ad7cbdbb83ae4e0ee047a0",
+      "reference_sha256": "a1985cc9a9547894351b19b3cab8f90335bb60e31a5f41df6b469b9378d13a20",
+      "native_sha256": "813a8367b733144322e687b4399468c6417051f67f0ce113108a8e7564500f93",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "input": "menu-linear-wp512",
+      "origin": "derived_display_linear_NOT_scene_HDR",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.64897889971749,
+      "maxabs": 0.03127706050872803,
+      "rmse": 0.0009280065787898556,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "2afa2882cef3d9996b3bef592c9db67a32636c8766ad7cbdbb83ae4e0ee047a0",
+      "reference_sha256": "a1985cc9a9547894351b19b3cab8f90335bb60e31a5f41df6b469b9378d13a20",
+      "native_sha256": "813a8367b733144322e687b4399468c6417051f67f0ce113108a8e7564500f93",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "input": "menu-dynamic-wp1",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.35620006883181,
+      "maxabs": 0.04089689254760742,
+      "rmse": 0.0009598204450396497,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "fa1a124b597620f88d0e146a88a1c47d3fbce3082340ee0aca41119e57a176f3",
+      "reference_sha256": "c8ed89a217367b10dd0ab0412c983085b12f67a3aa43d459780737aec59b62d8",
+      "native_sha256": "06d7baf290b11ddc76f624c4bbba271483ac0e67d52a08d870aa14f9a65f1a55",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "input": "menu-dynamic-wp512",
+      "origin": "synthetic_whole_frame_transform_of_real_menu",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 60.35620006883181,
+      "maxabs": 0.04089689254760742,
+      "rmse": 0.0009598204450396497,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "fa1a124b597620f88d0e146a88a1c47d3fbce3082340ee0aca41119e57a176f3",
+      "reference_sha256": "c8ed89a217367b10dd0ab0412c983085b12f67a3aa43d459780737aec59b62d8",
+      "native_sha256": "06d7baf290b11ddc76f624c4bbba271483ac0e67d52a08d870aa14f9a65f1a55",
+      "meets_45dB_on_this_input_only": true
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "input": "codec-ramp-wp1",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 43.4368063451486,
+      "maxabs": 0.05438286066055298,
+      "rmse": 0.006732241439250354,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "df3f5b8c367b33a9b6c72acc2237a464091628748886949202982b216c7b8a9c",
+      "reference_sha256": "02de4ded9480b1c98b59672bd8d9097cb3ca0eeeba5b27266dedb6adc0c502e3",
+      "native_sha256": "2068016ee637edf827c3014ebf2eae98781a41eeba59adf8dc006120aa9be2ec",
+      "meets_45dB_on_this_input_only": false
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "input": "codec-ramp-wp512",
+      "origin": "existing_codec_synthetic_RGB_recipe",
+      "white": 512,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 43.4368063451486,
+      "maxabs": 0.05438286066055298,
+      "rmse": 0.006732241439250354,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "df3f5b8c367b33a9b6c72acc2237a464091628748886949202982b216c7b8a9c",
+      "reference_sha256": "02de4ded9480b1c98b59672bd8d9097cb3ca0eeeba5b27266dedb6adc0c502e3",
+      "native_sha256": "2068016ee637edf827c3014ebf2eae98781a41eeba59adf8dc006120aa9be2ec",
+      "meets_45dB_on_this_input_only": false
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "input": "smoke-wp1",
+      "origin": "existing_synthetic_gradient",
+      "white": 1,
+      "PSNR_peak": 1.0,
+      "PSNR_domain": "encoded working RGB output, visible rectangle; not linear HDR/game ground truth",
+      "psnr_peak1": 61.0716898456147,
+      "maxabs": 0.006017804145812988,
+      "rmse": 0.0008839251842377726,
+      "correct256_vs400_full_bitdiff": 0,
+      "invalid": 0,
+      "repeat_first_last_bitdiff": 0,
+      "native_LMem_nonzero": 0,
+      "input_sha256": "69296a142b4c2f684e210ebd04676618a91936657cc340dbed8bdab44c92da16",
+      "reference_sha256": "bf49350088549be47b02f9ef7bf46e14cbfdb138dc1e784278aef8e5efeedbbc",
+      "native_sha256": "6dbc2b55e7ffa165c2fd73a1d2ccf11acab5d3aed4a7dca581b4ddca1f7883f6",
+      "meets_45dB_on_this_input_only": true
+    }
+  ],
+  "new_correctness_issues": [],
+  "white1_vs512_input_and_all_output_pairs_bitdiff": 0,
+  "real_source_count": 1,
+  "real_scene_HDR_count": 0,
+  "real_gameplay_sequence_count": 0,
+  "legacy45_global_gate_pass": false,
+  "baseline720_PSNR_dB": 43.57794791233917,
+  "performance_status": "paused: representative real HDR/gameplay inputs insufficient; no C32 experiment and no new performance result",
+  "baseline_calibration": [
+    {
+      "width": 1600,
+      "mode": "f32",
+      "gold_bitdiff": 0,
+      "gold_sha256": "cf8b1d270dbceb26f46565e1bb9d66620b902fca8491d60cd47a9a3b1e38cf24"
+    },
+    {
+      "width": 1600,
+      "mode": "400",
+      "gold_bitdiff": 0,
+      "gold_sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0"
+    },
+    {
+      "width": 1920,
+      "mode": "f32",
+      "gold_bitdiff": 0,
+      "gold_sha256": "8a59ebde0693059f0551c6f0062dd468fcb04d37dd42f1644ee19f846acd3198"
+    },
+    {
+      "width": 1920,
+      "mode": "400",
+      "gold_bitdiff": 0,
+      "gold_sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757"
+    },
+    {
+      "width": 1280,
+      "mode": "f32",
+      "gold_bitdiff": 0,
+      "gold_sha256": "149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5"
+    },
+    {
+      "width": 1280,
+      "mode": "400",
+      "gold_bitdiff": 0,
+      "gold_sha256": "16e78e6361e928829727ad2f69ceafb456caeb1cea0fd28d8a5f6aed940a412b"
+    }
+  ],
+  "accuracy_limitations": [
+    {
+      "geometry": "1024-square",
+      "input": "codec-ramp-wp1",
+      "white": 1,
+      "psnr_peak1": 43.4368063451486,
+      "maxabs": 0.05438286066055298,
+      "origin": "existing_codec_synthetic_RGB_recipe"
+    },
+    {
+      "geometry": "1024-square",
+      "input": "codec-ramp-wp512",
+      "white": 512,
+      "psnr_peak1": 43.4368063451486,
+      "maxabs": 0.05438286066055298,
+      "origin": "existing_codec_synthetic_RGB_recipe"
+    }
+  ],
+  "canonical720_below45": true
+}

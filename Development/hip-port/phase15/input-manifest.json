@@ -1,0 +1,1362 @@
+{
+  "source_PNG_SHA256": "a055f4e3e43ee2094ca76433b8c57587e35eb5a73a6013622f540a5d52d1d29a",
+  "source_smoke_SHA256": "8f32c03e17faf3267434c84ff4b7c071b09796a45d965b5ae5667298ae45eafb",
+  "source_codec_recipe_SHA256": "3aa014bfee92acbc7e43e0527d8d9752df677e6d6b8a2241c16f7577e168b2b3",
+  "source_encode_shader_SHA256": "a758f19abf27f0f4f03966bb2dc50a4a9cc02c1eda81ada79f140438e60d97fd",
+  "fixture_generator_SHA256": "07839cb8b7a530ae54678e28c9a99ebc54049eccf1985da36797098d9b405e81",
+  "geometry_mapping": "bilinear resize to visible; top-left reflection without repeated edge into processing extent",
+  "true_scene_HDR_sources": 0,
+  "geometries": [
+    {
+      "geometry": "512",
+      "processing": [
+        512,
+        512
+      ],
+      "visible": [
+        512,
+        512
+      ],
+      "dynamic_changed_pixel_fraction": 0.9999847412109375,
+      "inputs": [
+        {
+          "id": "menu-sdr-wp1",
+          "origin": "real_game_SDR_menu",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            512,
+            512
+          ],
+          "visible": [
+            512,
+            512
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/512-menu-sdr-wp1.rgba32",
+          "sha256": "9be3192b99adba2ecc18a49fea62889cffdb95c57afc729a436b4fd0d75d787a",
+          "working_min": 0.01666259765625,
+          "working_max": 1.0,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        },
+        {
+          "id": "menu-linear-wp1",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            512,
+            512
+          ],
+          "visible": [
+            512,
+            512
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/512-menu-linear-wp1.rgba32",
+          "sha256": "87729eb32c86bf1632f6253b728621bb4fe48493912a314642bb14cdcd02d944",
+          "working_min": 0.017974853515625,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-linear-wp512",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            512,
+            512
+          ],
+          "visible": [
+            512,
+            512
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/512-menu-linear-wp512.rgba32",
+          "sha256": "87729eb32c86bf1632f6253b728621bb4fe48493912a314642bb14cdcd02d944",
+          "working_min": 0.017974853515625,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "menu-dynamic-wp1",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.005001068115234375,
+          "linear_source_max": 0.83447265625,
+          "processing": [
+            512,
+            512
+          ],
+          "visible": [
+            512,
+            512
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/512-menu-dynamic-wp1.rgba32",
+          "sha256": "c99cea68aea28e59745897b739b78025617b1a0383ab090dc4438f4b6c714513",
+          "working_min": 0.0662841796875,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-dynamic-wp512",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 2.560546875,
+          "linear_source_max": 427.25,
+          "processing": [
+            512,
+            512
+          ],
+          "visible": [
+            512,
+            512
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/512-menu-dynamic-wp512.rgba32",
+          "sha256": "c99cea68aea28e59745897b739b78025617b1a0383ab090dc4438f4b6c714513",
+          "working_min": 0.0662841796875,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "codec-ramp-wp1",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            512,
+            512
+          ],
+          "visible": [
+            512,
+            512
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/512-codec-ramp-wp1.rgba32",
+          "sha256": "0bb4cfe34383f211120de1be64264610681130246195192e2103db87b1d5033d",
+          "working_min": 2.7358531951904297e-05,
+          "working_max": 0.9716796875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "codec-ramp-wp512",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            512,
+            512
+          ],
+          "visible": [
+            512,
+            512
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/512-codec-ramp-wp512.rgba32",
+          "sha256": "0bb4cfe34383f211120de1be64264610681130246195192e2103db87b1d5033d",
+          "working_min": 2.7358531951904297e-05,
+          "working_max": 0.9716796875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "smoke-wp1",
+          "origin": "existing_synthetic_gradient",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.1500244140625,
+          "linear_source_max": 0.7998046875,
+          "processing": [
+            512,
+            512
+          ],
+          "visible": [
+            512,
+            512
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/512-smoke-wp1.rgba32",
+          "sha256": "ef9951853ca4db757e8c5bf807039713fce7651b68b7ee11a13a858cc440047b",
+          "working_min": 0.150390625,
+          "working_max": 0.79931640625,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        }
+      ]
+    },
+    {
+      "geometry": "480-fit",
+      "processing": [
+        896,
+        512
+      ],
+      "visible": [
+        854,
+        480
+      ],
+      "dynamic_changed_pixel_fraction": 0.9999803815569196,
+      "inputs": [
+        {
+          "id": "menu-sdr-wp1",
+          "origin": "real_game_SDR_menu",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            896,
+            512
+          ],
+          "visible": [
+            854,
+            480
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/480-fit-menu-sdr-wp1.rgba32",
+          "sha256": "7cf270a254624a971dfc4c659ac46b9273cb0cdb4487f7b44ea06e119944a3cc",
+          "working_min": 0.0128326416015625,
+          "working_max": 1.0,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        },
+        {
+          "id": "menu-linear-wp1",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            896,
+            512
+          ],
+          "visible": [
+            854,
+            480
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/480-fit-menu-linear-wp1.rgba32",
+          "sha256": "2cc6ea6be8e1b460d8e34c39f6485343a884f510086a94f405cfa39c5c16ff06",
+          "working_min": 0.0128326416015625,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-linear-wp512",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            896,
+            512
+          ],
+          "visible": [
+            854,
+            480
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/480-fit-menu-linear-wp512.rgba32",
+          "sha256": "2cc6ea6be8e1b460d8e34c39f6485343a884f510086a94f405cfa39c5c16ff06",
+          "working_min": 0.0128326416015625,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "menu-dynamic-wp1",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.005001068115234375,
+          "linear_source_max": 0.83447265625,
+          "processing": [
+            896,
+            512
+          ],
+          "visible": [
+            854,
+            480
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/480-fit-menu-dynamic-wp1.rgba32",
+          "sha256": "24f985e78c106692002040035a3228fc7bb440097e10609a3276cd2c6e5900d5",
+          "working_min": 0.062408447265625,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-dynamic-wp512",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 2.560546875,
+          "linear_source_max": 427.25,
+          "processing": [
+            896,
+            512
+          ],
+          "visible": [
+            854,
+            480
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/480-fit-menu-dynamic-wp512.rgba32",
+          "sha256": "24f985e78c106692002040035a3228fc7bb440097e10609a3276cd2c6e5900d5",
+          "working_min": 0.062408447265625,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "codec-ramp-wp1",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            896,
+            512
+          ],
+          "visible": [
+            854,
+            480
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/480-fit-codec-ramp-wp1.rgba32",
+          "sha256": "32ec16d40b9199f1874358319d14337c7da6ad8f5a8874127273a9732d20f108",
+          "working_min": 0.00036072731018066406,
+          "working_max": 0.92431640625,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "codec-ramp-wp512",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            896,
+            512
+          ],
+          "visible": [
+            854,
+            480
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/480-fit-codec-ramp-wp512.rgba32",
+          "sha256": "32ec16d40b9199f1874358319d14337c7da6ad8f5a8874127273a9732d20f108",
+          "working_min": 0.00036072731018066406,
+          "working_max": 0.92431640625,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "smoke-wp1",
+          "origin": "existing_synthetic_gradient",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.1500244140625,
+          "linear_source_max": 0.7998046875,
+          "processing": [
+            896,
+            512
+          ],
+          "visible": [
+            854,
+            480
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/480-fit-smoke-wp1.rgba32",
+          "sha256": "99c01f93bfe84f83d09ca2dae481d081e17028060c00df00ced768460e690e56",
+          "working_min": 0.150146484375,
+          "working_max": 0.7998046875,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        }
+      ]
+    },
+    {
+      "geometry": "1024",
+      "processing": [
+        1024,
+        768
+      ],
+      "visible": [
+        1024,
+        768
+      ],
+      "dynamic_changed_pixel_fraction": 0.9999834696451823,
+      "inputs": [
+        {
+          "id": "menu-sdr-wp1",
+          "origin": "real_game_SDR_menu",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1024,
+            768
+          ],
+          "visible": [
+            1024,
+            768
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-menu-sdr-wp1.rgba32",
+          "sha256": "7a71da1c6f4f34ab23a684048e51cdb228e97d4298e5e0855dad6e87c1a93b88",
+          "working_min": 0.005016326904296875,
+          "working_max": 1.0,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        },
+        {
+          "id": "menu-linear-wp1",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1024,
+            768
+          ],
+          "visible": [
+            1024,
+            768
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-menu-linear-wp1.rgba32",
+          "sha256": "ee4f8b07a62400b33517ad3a29492ae50a6f14698326a4f5ac483d787dfd5f0e",
+          "working_min": 0.005756378173828125,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-linear-wp512",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            1024,
+            768
+          ],
+          "visible": [
+            1024,
+            768
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-menu-linear-wp512.rgba32",
+          "sha256": "ee4f8b07a62400b33517ad3a29492ae50a6f14698326a4f5ac483d787dfd5f0e",
+          "working_min": 0.005756378173828125,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "menu-dynamic-wp1",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.005001068115234375,
+          "linear_source_max": 0.83447265625,
+          "processing": [
+            1024,
+            768
+          ],
+          "visible": [
+            1024,
+            768
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-menu-dynamic-wp1.rgba32",
+          "sha256": "cdfcc4fce5427eb9d35e6fbde80cf1cfea0239c3ba0ab91080aaa35771f5c120",
+          "working_min": 0.065673828125,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-dynamic-wp512",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 2.560546875,
+          "linear_source_max": 427.25,
+          "processing": [
+            1024,
+            768
+          ],
+          "visible": [
+            1024,
+            768
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-menu-dynamic-wp512.rgba32",
+          "sha256": "cdfcc4fce5427eb9d35e6fbde80cf1cfea0239c3ba0ab91080aaa35771f5c120",
+          "working_min": 0.065673828125,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "codec-ramp-wp1",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1024,
+            768
+          ],
+          "visible": [
+            1024,
+            768
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-codec-ramp-wp1.rgba32",
+          "sha256": "46d72cd3260bff1109a118e7008b212dd552925b61f283ae662f786e896e52f9",
+          "working_min": 3.7550926208496094e-06,
+          "working_max": 0.97119140625,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "codec-ramp-wp512",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            1024,
+            768
+          ],
+          "visible": [
+            1024,
+            768
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-codec-ramp-wp512.rgba32",
+          "sha256": "46d72cd3260bff1109a118e7008b212dd552925b61f283ae662f786e896e52f9",
+          "working_min": 3.7550926208496094e-06,
+          "working_max": 0.97119140625,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "smoke-wp1",
+          "origin": "existing_synthetic_gradient",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.1500244140625,
+          "linear_source_max": 0.7998046875,
+          "processing": [
+            1024,
+            768
+          ],
+          "visible": [
+            1024,
+            768
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-smoke-wp1.rgba32",
+          "sha256": "efbea5f3a1796a0b728b5c1eef43c13350a08d756d2478b6d3ccecffdd5a39d0",
+          "working_min": 0.150146484375,
+          "working_max": 0.7998046875,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        }
+      ]
+    },
+    {
+      "geometry": "640",
+      "processing": [
+        640,
+        640
+      ],
+      "visible": [
+        640,
+        640
+      ],
+      "dynamic_changed_pixel_fraction": 0.9999853515625,
+      "inputs": [
+        {
+          "id": "menu-sdr-wp1",
+          "origin": "real_game_SDR_menu",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            640,
+            640
+          ],
+          "visible": [
+            640,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/640-menu-sdr-wp1.rgba32",
+          "sha256": "8a5e57a90b919e7c10951cc3c6a43ca05f2d215ca781aa8ec9a0c8b40cc9f537",
+          "working_min": 0.0035533905029296875,
+          "working_max": 1.0,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        },
+        {
+          "id": "menu-linear-wp1",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            640,
+            640
+          ],
+          "visible": [
+            640,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/640-menu-linear-wp1.rgba32",
+          "sha256": "bedf8450283a016a99b881a7efa79d029b9dd1b69e3da243cb20e524c4482b66",
+          "working_min": 0.0035533905029296875,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-linear-wp512",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            640,
+            640
+          ],
+          "visible": [
+            640,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/640-menu-linear-wp512.rgba32",
+          "sha256": "bedf8450283a016a99b881a7efa79d029b9dd1b69e3da243cb20e524c4482b66",
+          "working_min": 0.0035533905029296875,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "menu-dynamic-wp1",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.005001068115234375,
+          "linear_source_max": 0.83447265625,
+          "processing": [
+            640,
+            640
+          ],
+          "visible": [
+            640,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/640-menu-dynamic-wp1.rgba32",
+          "sha256": "80cbc9f515f23982f3fd9e4662d8358f0b7052f0da3edc40ca73da40deb2aea4",
+          "working_min": 0.06243896484375,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-dynamic-wp512",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 2.560546875,
+          "linear_source_max": 427.25,
+          "processing": [
+            640,
+            640
+          ],
+          "visible": [
+            640,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/640-menu-dynamic-wp512.rgba32",
+          "sha256": "80cbc9f515f23982f3fd9e4662d8358f0b7052f0da3edc40ca73da40deb2aea4",
+          "working_min": 0.06243896484375,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "codec-ramp-wp1",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            640,
+            640
+          ],
+          "visible": [
+            640,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/640-codec-ramp-wp1.rgba32",
+          "sha256": "df3ae021caeb93e04e013227621e09bf4f5c1e09641a4ddf2c2bda8f763c2266",
+          "working_min": 9.179115295410156e-05,
+          "working_max": 0.9658203125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "codec-ramp-wp512",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            640,
+            640
+          ],
+          "visible": [
+            640,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/640-codec-ramp-wp512.rgba32",
+          "sha256": "df3ae021caeb93e04e013227621e09bf4f5c1e09641a4ddf2c2bda8f763c2266",
+          "working_min": 9.179115295410156e-05,
+          "working_max": 0.9658203125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "smoke-wp1",
+          "origin": "existing_synthetic_gradient",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.1500244140625,
+          "linear_source_max": 0.7998046875,
+          "processing": [
+            640,
+            640
+          ],
+          "visible": [
+            640,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/640-smoke-wp1.rgba32",
+          "sha256": "64d96560c89cb74f67a859e894344d3ddd554b0a6610481be55b1956b2187a25",
+          "working_min": 0.1502685546875,
+          "working_max": 0.79931640625,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        }
+      ]
+    },
+    {
+      "geometry": "1152",
+      "processing": [
+        1152,
+        640
+      ],
+      "visible": [
+        1152,
+        640
+      ],
+      "dynamic_changed_pixel_fraction": 0.9999918619791667,
+      "inputs": [
+        {
+          "id": "menu-sdr-wp1",
+          "origin": "real_game_SDR_menu",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1152,
+            640
+          ],
+          "visible": [
+            1152,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1152-menu-sdr-wp1.rgba32",
+          "sha256": "7de44ac8e22ae8588b3c47cee5f6cf84221c562455c3725c63862823331276e9",
+          "working_min": 0.0012254714965820312,
+          "working_max": 1.0,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        },
+        {
+          "id": "menu-linear-wp1",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1152,
+            640
+          ],
+          "visible": [
+            1152,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1152-menu-linear-wp1.rgba32",
+          "sha256": "5873a35bb734784a7cf41bc4fc36c402cdb0d91c659846d27e1dd44d08ca60cc",
+          "working_min": 0.0012254714965820312,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-linear-wp512",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            1152,
+            640
+          ],
+          "visible": [
+            1152,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1152-menu-linear-wp512.rgba32",
+          "sha256": "5873a35bb734784a7cf41bc4fc36c402cdb0d91c659846d27e1dd44d08ca60cc",
+          "working_min": 0.0012254714965820312,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "menu-dynamic-wp1",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.005001068115234375,
+          "linear_source_max": 0.83447265625,
+          "processing": [
+            1152,
+            640
+          ],
+          "visible": [
+            1152,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1152-menu-dynamic-wp1.rgba32",
+          "sha256": "d4a3f6d1dc0175a06cf2961d1eaae193e7d9adffa7a9ac9f3453104eea38953d",
+          "working_min": 0.06201171875,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-dynamic-wp512",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 2.560546875,
+          "linear_source_max": 427.25,
+          "processing": [
+            1152,
+            640
+          ],
+          "visible": [
+            1152,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1152-menu-dynamic-wp512.rgba32",
+          "sha256": "d4a3f6d1dc0175a06cf2961d1eaae193e7d9adffa7a9ac9f3453104eea38953d",
+          "working_min": 0.06201171875,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "codec-ramp-wp1",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1152,
+            640
+          ],
+          "visible": [
+            1152,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1152-codec-ramp-wp1.rgba32",
+          "sha256": "ddc7dae4e8bb57d3c323c8a26f893b2b819ae648af43dd122a91b4d21266f811",
+          "working_min": 9.173154830932617e-05,
+          "working_max": 0.96533203125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "codec-ramp-wp512",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            1152,
+            640
+          ],
+          "visible": [
+            1152,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1152-codec-ramp-wp512.rgba32",
+          "sha256": "ddc7dae4e8bb57d3c323c8a26f893b2b819ae648af43dd122a91b4d21266f811",
+          "working_min": 9.173154830932617e-05,
+          "working_max": 0.96533203125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "smoke-wp1",
+          "origin": "existing_synthetic_gradient",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.1500244140625,
+          "linear_source_max": 0.7998046875,
+          "processing": [
+            1152,
+            640
+          ],
+          "visible": [
+            1152,
+            640
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1152-smoke-wp1.rgba32",
+          "sha256": "171abf83b1fa5487cff4ebc5fb84feede102d1946a941c85ebe521d2a3b150b5",
+          "working_min": 0.1500244140625,
+          "working_max": 0.7998046875,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        }
+      ]
+    },
+    {
+      "geometry": "720",
+      "processing": [
+        1280,
+        768
+      ],
+      "visible": [
+        1280,
+        720
+      ],
+      "dynamic_changed_pixel_fraction": 0.9999908447265625,
+      "inputs": [
+        {
+          "id": "menu-sdr-wp1",
+          "origin": "real_game_SDR_menu",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1280,
+            768
+          ],
+          "visible": [
+            1280,
+            720
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/720-menu-sdr-wp1.rgba32",
+          "sha256": "34fb418cbc4583ff5d65182be90d47424690d256d67cb2e667e2a0cd69b3bb37",
+          "working_min": 0.01396942138671875,
+          "working_max": 1.0,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        },
+        {
+          "id": "menu-linear-wp1",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1280,
+            768
+          ],
+          "visible": [
+            1280,
+            720
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/720-menu-linear-wp1.rgba32",
+          "sha256": "50782a6533cde536b8ca062ecbb1b22bfca939ace8955d818fa592ac1fc5f977",
+          "working_min": 0.01444244384765625,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-linear-wp512",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            1280,
+            768
+          ],
+          "visible": [
+            1280,
+            720
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/720-menu-linear-wp512.rgba32",
+          "sha256": "50782a6533cde536b8ca062ecbb1b22bfca939ace8955d818fa592ac1fc5f977",
+          "working_min": 0.01444244384765625,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "menu-dynamic-wp1",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.005001068115234375,
+          "linear_source_max": 0.83447265625,
+          "processing": [
+            1280,
+            768
+          ],
+          "visible": [
+            1280,
+            720
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/720-menu-dynamic-wp1.rgba32",
+          "sha256": "4904eac36ad138bec6cf74d85269471c2dbb08a478bca24d0bfb87894ddd94c2",
+          "working_min": 0.06304931640625,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-dynamic-wp512",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 2.560546875,
+          "linear_source_max": 427.25,
+          "processing": [
+            1280,
+            768
+          ],
+          "visible": [
+            1280,
+            720
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/720-menu-dynamic-wp512.rgba32",
+          "sha256": "4904eac36ad138bec6cf74d85269471c2dbb08a478bca24d0bfb87894ddd94c2",
+          "working_min": 0.06304931640625,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "codec-ramp-wp1",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1280,
+            768
+          ],
+          "visible": [
+            1280,
+            720
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/720-codec-ramp-wp1.rgba32",
+          "sha256": "02eee4e3783050dad74a5aaa9513d308c6449afa599b7a12f64fc6a01cc411b3",
+          "working_min": 1.7881393432617188e-07,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "codec-ramp-wp512",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            1280,
+            768
+          ],
+          "visible": [
+            1280,
+            720
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/720-codec-ramp-wp512.rgba32",
+          "sha256": "02eee4e3783050dad74a5aaa9513d308c6449afa599b7a12f64fc6a01cc411b3",
+          "working_min": 1.7881393432617188e-07,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "smoke-wp1",
+          "origin": "existing_synthetic_gradient",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.1500244140625,
+          "linear_source_max": 0.7998046875,
+          "processing": [
+            1280,
+            768
+          ],
+          "visible": [
+            1280,
+            720
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/720-smoke-wp1.rgba32",
+          "sha256": "1fc12ad336ca94680336cdf6a9291fee0a49d514978c7de3dbaf127ed6255de9",
+          "working_min": 0.1500244140625,
+          "working_max": 0.7998046875,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        }
+      ]
+    },
+    {
+      "geometry": "1024-square",
+      "processing": [
+        1024,
+        1024
+      ],
+      "visible": [
+        1024,
+        1024
+      ],
+      "dynamic_changed_pixel_fraction": 0.9999885559082031,
+      "inputs": [
+        {
+          "id": "menu-sdr-wp1",
+          "origin": "real_game_SDR_menu",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1024,
+            1024
+          ],
+          "visible": [
+            1024,
+            1024
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-square-menu-sdr-wp1.rgba32",
+          "sha256": "3e2cfb37772ff29858f8666fd2685b897be83eb346a07e7f07d2d178dc605e64",
+          "working_min": 0.01080322265625,
+          "working_max": 1.0,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        },
+        {
+          "id": "menu-linear-wp1",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1024,
+            1024
+          ],
+          "visible": [
+            1024,
+            1024
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-square-menu-linear-wp1.rgba32",
+          "sha256": "2afa2882cef3d9996b3bef592c9db67a32636c8766ad7cbdbb83ae4e0ee047a0",
+          "working_min": 0.01142120361328125,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-linear-wp512",
+          "origin": "derived_display_linear_NOT_scene_HDR",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            1024,
+            1024
+          ],
+          "visible": [
+            1024,
+            1024
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-square-menu-linear-wp512.rgba32",
+          "sha256": "2afa2882cef3d9996b3bef592c9db67a32636c8766ad7cbdbb83ae4e0ee047a0",
+          "working_min": 0.01142120361328125,
+          "working_max": 0.9736328125,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "menu-dynamic-wp1",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.005001068115234375,
+          "linear_source_max": 0.83447265625,
+          "processing": [
+            1024,
+            1024
+          ],
+          "visible": [
+            1024,
+            1024
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-square-menu-dynamic-wp1.rgba32",
+          "sha256": "fa1a124b597620f88d0e146a88a1c47d3fbce3082340ee0aca41119e57a176f3",
+          "working_min": 0.063232421875,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "menu-dynamic-wp512",
+          "origin": "synthetic_whole_frame_transform_of_real_menu",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 2.560546875,
+          "linear_source_max": 427.25,
+          "processing": [
+            1024,
+            1024
+          ],
+          "visible": [
+            1024,
+            1024
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-square-menu-dynamic-wp512.rgba32",
+          "sha256": "fa1a124b597620f88d0e146a88a1c47d3fbce3082340ee0aca41119e57a176f3",
+          "working_min": 0.063232421875,
+          "working_max": 0.92919921875,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "codec-ramp-wp1",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 1,
+          "linear_source_min": 0.0,
+          "linear_source_max": 1.0,
+          "processing": [
+            1024,
+            1024
+          ],
+          "visible": [
+            1024,
+            1024
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-square-codec-ramp-wp1.rgba32",
+          "sha256": "df3f5b8c367b33a9b6c72acc2237a464091628748886949202982b216c7b8a9c",
+          "working_min": 3.7550926208496094e-06,
+          "working_max": 0.97265625,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance"
+        },
+        {
+          "id": "codec-ramp-wp512",
+          "origin": "existing_codec_synthetic_RGB_recipe",
+          "source_kind": "derived/synthetic_linear_FP16",
+          "white": 512,
+          "linear_source_min": 0.0,
+          "linear_source_max": 512.0,
+          "processing": [
+            1024,
+            1024
+          ],
+          "visible": [
+            1024,
+            1024
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-square-codec-ramp-wp512.rgba32",
+          "sha256": "df3f5b8c367b33a9b6c72acc2237a464091628748886949202982b216c7b8a9c",
+          "working_min": 3.7550926208496094e-06,
+          "working_max": 0.97265625,
+          "peak_for_PSNR": 1.0,
+          "codec": "CPU shader-formula soft-knee/sRGB thenFP16; NOT D3D12 shader acceptance",
+          "wp1_vs_wp512_input_bitdiff": 0
+        },
+        {
+          "id": "smoke-wp1",
+          "origin": "existing_synthetic_gradient",
+          "source_kind": "sRGB8",
+          "white": 1,
+          "linear_source_min": 0.1500244140625,
+          "linear_source_max": 0.7998046875,
+          "processing": [
+            1024,
+            1024
+          ],
+          "visible": [
+            1024,
+            1024
+          ],
+          "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase15/artifacts/inputs/1024-square-smoke-wp1.rgba32",
+          "sha256": "69296a142b4c2f684e210ebd04676618a91936657cc340dbed8bdab44c92da16",
+          "working_min": 0.150146484375,
+          "working_max": 0.7998046875,
+          "peak_for_PSNR": 1.0,
+          "codec": "sRGB_IO pass-through"
+        }
+      ]
+    }
+  ]
+}

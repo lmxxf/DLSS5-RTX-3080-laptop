@@ -1,0 +1,4 @@
+{'math': 'fixed', 'actual_source': 'phase12', 'bytes': 245760, '256_vs400_byte_diff': 0, '256_vsCPU_byte_diff': 2885, '256_vsCPU_RMSE': 0.027869328665940524, '256_vsCPU_maxabs': 1.0}
+{'math': 'fixed', 'actual_source': 'f32', 'bytes': 245760, '256_vs400_byte_diff': 0, '256_vsCPU_byte_diff': 2531, '256_vsCPU_RMSE': 0.02182096643978324, '256_vsCPU_maxabs': 1.0}
+{'math': 'f32-fixed', 'actual_source': 'phase12', 'bytes': 245760, '256_vs400_byte_diff': 0, '256_vsCPU_byte_diff': 1, '256_vsCPU_RMSE': 0.000126073676634356, '256_vsCPU_maxabs': 0.0625}
+{'math': 'f32-fixed', 'actual_source': 'f32', 'bytes': 245760, '256_vs400_byte_diff': 0, '256_vsCPU_byte_diff': 0, '256_vsCPU_RMSE': 0.0, '256_vsCPU_maxabs': 0.0}

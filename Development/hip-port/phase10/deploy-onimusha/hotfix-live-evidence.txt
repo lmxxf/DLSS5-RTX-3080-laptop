@@ -1,0 +1,19 @@
+OptiScaler.log snapshot SHA256: e4efa8fbf4660cdb2fd0a9267ed1a6b00c0533c6d5897d1e6fb6bcf69d787961
+Current run 15:17:21; differs from initial 854x480/31 FPS user report.
+30: [15:17:21.039130] [I] DlssNr.NrBackend: lmxxf
+505: [15:17:47.457858] [I] StreamlineHooks::streamlineLogCallback [15-17-47][streamline][info][tid:23772][20s:796ms:694us]dlssEntry.cpp:479[dlssBeginEvent] Created DLSSContext feature (1280,720)(optimal) -> (2560,1440) for viewport 0
+512: [15:17:47.472090] [I] DlssNr::AmdBridge::`anonymous-namespace'::IsAmd AMD pre-SR physical adapter vendor: 10DE, AMD: true
+513: [15:17:47.472882] [I] DlssNr::Backend::LmxxfBackend::LmxxfBackend lmxxf diagnostic: mode=off (restart to change; off/original/copy-current/staging-current/staging-previous/proxy-original/split-original)
+517: [15:17:47.514842] [I] DlssNr::AmdBridge::`anonymous-namespace'::IsAmd AMD pre-SR physical adapter vendor: 10DE, AMD: true
+519: [15:17:47.549058] [I] DlssNr::AmdBridge::`anonymous-namespace'::IsAmd AMD pre-SR physical adapter vendor: 10DE, AMD: true
+520: [15:17:47.619434] [I] DlssNr::AmdBridge::`anonymous-namespace'::IsAmd AMD pre-SR physical adapter vendor: 10DE, AMD: true
+521: [15:17:47.726237] [I] DlssNr::AmdBridge::`anonymous-namespace'::IsAmd AMD pre-SR physical adapter vendor: 10DE, AMD: true
+524: [15:17:47.832947] [I] DlssNr::Backend::LmxxfBackend::EnsureSession lmxxf: assets/modules dir=C:\Program Files\WindowsApps\F024294D.63383C66B8708_1.0.3.0_x64__8fty0by30jkny\DLSS5-AMD\native-game-tiled-assets\HIP
+525: [15:17:47.865847] [I] DlssNr::Backend::LmxxfBackend::EnsureSession lmxxf: after Create status=lmxxf modules_ok=40 hip=0 prepared=0 queue=0 weights=1 recreates=0
+527: [15:17:50.741069] [I] DlssNr::Backend::LmxxfBackend::Record lmxxf: after PrepareFrame HIP/net geometry status=lmxxf modules_ok=40 hip=1 net=1280x720 color_job=1280x720 weights=1 recreates=0 net_gpu_ms=off wave_owned=1/1 c512_m32=1/1 vit_proj_n64=1/1 pdl=1/0 skip=0 swin_run=1/0 vit_stream=3/3 multi_pass=0.5 predict=1 skin=0 | flags: C:\XboxGames\Onimusha- Way of t
+529: [15:17:50.743351] [I] DlssNr::Backend::LmxxfBackend::Record lmxxf nr: eval=1 output=0x2a2701410 betweenHits=0 enqueueCalls=0 skippedHits=0 lastEnqueueRc=0 transfer=1.00 color=1.00 debugView=0 scale=1.00 producerSubmitted=0 continuationSubmitted=0 submitFailures=0
+531: [15:17:50.768736] [I] DlssNr::Backend::LmxxfBackend::Record lmxxf nr: eval=2 output=0x2a2701410 betweenHits=1 enqueueCalls=1 skippedHits=0 lastEnqueueRc=0 transfer=1.00 color=1.00 debugView=0 scale=1.00 producerSubmitted=1 continuationSubmitted=1 submitFailures=0
+532: [15:17:50.787293] [I] DlssNr::Backend::LmxxfBackend::Record lmxxf nr: eval=3 output=0x2a2701410 betweenHits=2 enqueueCalls=2 skippedHits=0 lastEnqueueRc=0 transfer=1.00 color=1.00 debugView=0 scale=1.00 producerSubmitted=2 continuationSubmitted=2 submitFailures=0
+533: [15:17:50.808494] [I] DlssNr::Backend::LmxxfBackend::Record lmxxf nr: eval=4 output=0x2a2701410 betweenHits=3 enqueueCalls=3 skippedHits=0 lastEnqueueRc=0 transfer=1.00 color=1.00 debugView=0 scale=1.00 producerSubmitted=3 continuationSubmitted=3 submitFailures=0
+534: [15:17:50.830043] [I] DlssNr::Backend::LmxxfBackend::Record lmxxf nr: eval=5 output=0x2a2701410 betweenHits=4 enqueueCalls=4 skippedHits=0 lastEnqueueRc=0 transfer=1.00 color=1.00 debugView=0 scale=1.00 producerSubmitted=4 continuationSubmitted=4 submitFailures=0
+1283: [15:19:58.618527] [I] DlssNr::Backend::LmxxfBackend::SetStatus lmxxf status: lmxxf: shutdown

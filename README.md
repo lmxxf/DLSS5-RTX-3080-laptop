@@ -4,6 +4,8 @@ Running NVIDIA DLSS 5 (`nvngx_dlssnr.dll` `310.9.16.0` **31-block Small Neural R
 
 [中文说明](README.zh-CN.md) · [Changelog](CHANGELOG.md) · [Working Plan](Development/WorkingPlan.md) · [Development History](Development/DevHistory.md)
 
+> 🔗 **Sister project for AMD Radeon RX 9070 XT / RDNA 4 (`gfx1201`/`gfx1200`): [dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting)** — our original from-scratch HIP re-implementation of NVIDIA's DLSS 5 neural renderer on AMD RDNA 4 GPUs (`2.99 ms` at 720p, `4.25 ms` at 900p, `5.49 ms` at 1080p).
+
 We extract the 15 embedded Fatbin PTX modules from NVIDIA's `nvngx_dlssnr.dll` (`310.9.16.0`), lower Ada/Blackwell-exclusive hardware FP8 (`e4m3x2`) conversions, FP8 `m16n8k32` Tensor Core instructions, and asynchronous barriers into native Ampere `sm_86` PTX, and compress the generated `.cubin` size by **3.5×** using two **IEEE 754 `f16x2` hardware algebraic identities**. This allows **all 15/15 Fatbins to compile at full `--opt-level=4` (`O4`) and fit directly into their original PE slots**—achieving a **`2.08×–2.35×` speedup** over upstream `dev-camo/dlssnr-patcher` (which balloons code size with 48-line integer bit-manipulation sequences and falls back to `O1`), while fixing an upstream `fp8_pack_sources` multi-definition bug that caused 106 periodic red/green horizontal bands across smooth sky gradients. For RTX 30 GPUs, we retain only the lightweight 31-block `0.5x Small` model (`Preset 2`). No NVIDIA binaries or weights are distributed in this repository.
 
 All three release packages share the same pipeline: **capture a frame at the game's (low) render resolution → run our full-`O4` `sm_86` `nvngx_dlssnr.dll` neural renderer → upscale to display resolution via DLSS Super Resolution.**

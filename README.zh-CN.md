@@ -4,6 +4,8 @@
 
 [English](README.md) · [**📖 完整使用说明（公众号版）**](Development/doc/使用说明.md) · [更新日志](CHANGELOG.zh-CN.md) · [工作计划](Development/WorkingPlan.md) · [开发记录](Development/DevHistory.md)
 
+> 🔗 **AMD Radeon RX 9070 XT / RDNA 4（`gfx1201`/`gfx1200`）姊妹项目：[dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting)** —— 我们将 DLSS 5 从零逆向重做到 AMD RDNA 4 显卡上的原生 HIP 推理引擎（720p `2.99 ms`、900p `4.25 ms`、1080p `5.49 ms`）。
+
 把 NVIDIA 原版 `nvngx_dlssnr.dll`（`310.9.16.0`）内置的 15 个 Fatbin PTX 提取出来，将 Ada/Blackwell 专属的硬件 FP8（`e4m3x2`）转换、FP8 `m16n8k32` Tensor Core 指令与异步屏障改写为 Ampere `sm_86` 原生指令，并用两条 **IEEE 754 `f16x2` 硬件代数恒等式** 将生成的 `.cubin` 体积压缩 3.5 倍，使 **15/15 个 Fatbin 全部以满血 `--opt-level=4`（`O4`）编译塞回原 DLL 槽位**（对比网上 `dev-camo/dlssnr-patcher` 因 48 行整数位运算膨胀被迫降级 `O1` 快 **`2.08× ～ 2.25×`**，同时修复了上游 `fp8_pack_sources` 多定义误判导致的 106 条天空红绿横带 Bug）。本仓库只保留 31 块 `0.5x Small` 轻量新模型（`Preset 2`），不分发任何 NVIDIA 的二进制文件。
 
 现在三个包的流水线都是：**按游戏（低）渲染分辨率拿一帧 → 我们的 `sm_86` 满血 `O4` 版 `nvngx_dlssnr.dll` 处理这一帧 → 超分（DLSS SR）放大到显示分辨率。** 三个包是三种接到这个位置的方式：

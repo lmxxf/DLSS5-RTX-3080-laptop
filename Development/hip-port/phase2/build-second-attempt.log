@@ -1,0 +1,695 @@
+Parsed 40 modules from Development/hip-port/hip/build-modules.ps1
+[PASS] boundary_reference                     entries=  5 sha256=7db492c921a7cb5f...
+[PASS] c32_prefix_reference                   entries= 10 sha256=d3f3afa1d9b93e85...
+[PASS] wave-pointwise                         entries= 13 sha256=5a2c777dc8b8d922...
+[PASS] multihead-reference                    entries= 14 sha256=f81d7e7905d3a5e5...
+[PASS] deep_reference                         entries= 16 sha256=394e1b3627d3cef8...
+[PASS] deep_wmma                              entries=  8 sha256=34f0cd6978fa4a06...
+[PASS] c32_tiled                              entries=  4 sha256=33a81827cc9ab4fb...
+[PASS] c32_wmma                               entries=  6 sha256=a9e6d83af673f099...
+[PASS] multihead-wmma                         entries=  9 sha256=fef61afd7567679b...
+[PASS] c32_fast_attention                     entries=  6 sha256=ddadf44916af8af0...
+[PASS] c32_fast                               entries=  3 sha256=94886f4958ff78e7...
+[PASS] multihead-tiled                        entries=  7 sha256=a6e3c8451e143b08...
+[PASS] boundary-fast                          entries= 14 sha256=f5786630d4d4c4bb...
+[FAIL] multihead-fast-padded-wave            
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/multihead-fast-padded-wave.generated.cu:901:4: error: use of undeclared identifier 'else_Pragma'
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+   ^
+Development/hip-port/phase2/artifacts/modules/multihead-fast-padded-wave.generated.cu:901:25: error: expected ';' after expression
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+                        ^
+                        ;
+2 errors generated when compiling for sm_86.
+
+[FAIL] multihead_fused_attention             
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:587:287: error: use of undeclared identifier 'else_Pragma'
+ if constexpr(Diag){const unsigned char*diag=reinterpret_cast<const unsigned char*>(w)+4*(4*64*64+2*4096+2+64);uint p=raster(win,first+rc(),width);_Pragma("unroll") for(uint j=0;j<2;j++){uint ct=head*2+j;i2 a{};if constexpr(ByteFeature)__builtin_memcpy(&a,feature8+p*64+ct*16+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++)put_bits(a,e,fp8(feature[p*64+ct*16+gr()*8+e]));_Pragma("unroll") for(uint part=0;part<3;part++){i2 b{};__builtin_memcpy(&b,diag+(part*4+ct)*512+(gr()*16+rc())*8,8);result[j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,result[j]);}}}
+                                                                                                                                                                                                                                                                                              ^
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:587:308: error: expected ';' after expression
+ if constexpr(Diag){const unsigned char*diag=reinterpret_cast<const unsigned char*>(w)+4*(4*64*64+2*4096+2+64);uint p=raster(win,first+rc(),width);_Pragma("unroll") for(uint j=0;j<2;j++){uint ct=head*2+j;i2 a{};if constexpr(ByteFeature)__builtin_memcpy(&a,feature8+p*64+ct*16+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++)put_bits(a,e,fp8(feature[p*64+ct*16+gr()*8+e]));_Pragma("unroll") for(uint part=0;part<3;part++){i2 b{};__builtin_memcpy(&b,diag+(part*4+ct)*512+(gr()*16+rc())*8,8);result[j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,result[j]);}}}
+                                                                                                                                                                                                                                                                                                                   ^
+                                                                                                                                                                                                                                                                                                                   ;
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:588:2: error: use of undeclared identifier 'else_Pragma'
+ else_Pragma("unroll") for(uint j=0;j<2;j++){uint col=head*32+j*16+rc();float remain=w[4*64*64+2*4096+2+col];_Pragma("unroll") for(uint part=0;part<3;part++){float component;if(absf(remain)<.015625f){float x=absf(remain)*512.f;uint q=uint(x);float r=x-float(q);q+=uint(r>.5f||(r==.5f&&(q&1)));q=q>7?7:q;component=(remain<0?-1.f:1.f)*float(q)/512.f;}else component=F(remain);remain-=component;_Pragma("unroll") for(uint e=0;e<8;e++){uint p=raster(win,first+gr()*8+e,width);float x=ByteFeature?__builtin_amdgcn_cvt_f32_fp8(int(feature8[p*64+col]),0):__builtin_amdgcn_cvt_f32_fp8(int(fp8(feature[p*64+col])),0);_Pragma("unroll") for(uint half=0;half<2;half++)result[j][e]=__builtin_fmaf(x,half==(col%32)/16?component:0.f,result[j][e]);}}}
+ ^
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:588:23: error: expected ';' after expression
+ else_Pragma("unroll") for(uint j=0;j<2;j++){uint col=head*32+j*16+rc();float remain=w[4*64*64+2*4096+2+col];_Pragma("unroll") for(uint part=0;part<3;part++){float component;if(absf(remain)<.015625f){float x=absf(remain)*512.f;uint q=uint(x);float r=x-float(q);q+=uint(r>.5f||(r==.5f&&(q&1)));q=q>7?7:q;component=(remain<0?-1.f:1.f)*float(q)/512.f;}else component=F(remain);remain-=component;_Pragma("unroll") for(uint e=0;e<8;e++){uint p=raster(win,first+gr()*8+e,width);float x=ByteFeature?__builtin_amdgcn_cvt_f32_fp8(int(feature8[p*64+col]),0):__builtin_amdgcn_cvt_f32_fp8(int(fp8(feature[p*64+col])),0);_Pragma("unroll") for(uint half=0;half<2;half++)result[j][e]=__builtin_fmaf(x,half==(col%32)/16?component:0.f,result[j][e]);}}}
+                      ^
+                      ;
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:664:291: error: use of undeclared identifier 'else_Pragma'
+ if constexpr(Diag){const unsigned char*diag=reinterpret_cast<const unsigned char*>(w)+4*(4*128*128+4*4096+4+128);uint p=raster(win,first+rc(),width);_Pragma("unroll") for(uint j=0;j<2;j++){uint ct=head*2+j;i2 a{};if constexpr(ByteFeature)__builtin_memcpy(&a,feature8+p*128+ct*16+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++)put_bits(a,e,fp8(feature[p*128+ct*16+gr()*8+e]));_Pragma("unroll") for(uint part=0;part<3;part++){i2 b{};__builtin_memcpy(&b,diag+(part*8+ct)*512+(gr()*16+rc())*8,8);result[j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,result[j]);}}}
+                                                                                                                                                                                                                                                                                                  ^
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:664:312: error: expected ';' after expression
+ if constexpr(Diag){const unsigned char*diag=reinterpret_cast<const unsigned char*>(w)+4*(4*128*128+4*4096+4+128);uint p=raster(win,first+rc(),width);_Pragma("unroll") for(uint j=0;j<2;j++){uint ct=head*2+j;i2 a{};if constexpr(ByteFeature)__builtin_memcpy(&a,feature8+p*128+ct*16+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++)put_bits(a,e,fp8(feature[p*128+ct*16+gr()*8+e]));_Pragma("unroll") for(uint part=0;part<3;part++){i2 b{};__builtin_memcpy(&b,diag+(part*8+ct)*512+(gr()*16+rc())*8,8);result[j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,result[j]);}}}
+                                                                                                                                                                                                                                                                                                                       ^
+                                                                                                                                                                                                                                                                                                                       ;
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:665:2: error: use of undeclared identifier 'else_Pragma'
+ else_Pragma("unroll") for(uint j=0;j<2;j++){uint col=head*32+j*16+rc();float remain=w[4*128*128+4*4096+4+col];_Pragma("unroll") for(uint part=0;part<3;part++){float component;if(absf(remain)<.015625f){float x=absf(remain)*512.f;uint q=uint(x);float r=x-float(q);q+=uint(r>.5f||(r==.5f&&(q&1)));q=q>7?7:q;component=(remain<0?-1.f:1.f)*float(q)/512.f;}else component=F(remain);remain-=component;_Pragma("unroll") for(uint e=0;e<8;e++){uint p=raster(win,first+gr()*8+e,width);float x=ByteFeature?__builtin_amdgcn_cvt_f32_fp8(int(feature8[p*128+col]),0):__builtin_amdgcn_cvt_f32_fp8(int(fp8(feature[p*128+col])),0);_Pragma("unroll") for(uint half=0;half<2;half++)result[j][e]=__builtin_fmaf(x,half==(col%32)/16?component:0.f,result[j][e]);}}}
+ ^
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:665:23: error: expected ';' after expression
+ else_Pragma("unroll") for(uint j=0;j<2;j++){uint col=head*32+j*16+rc();float remain=w[4*128*128+4*4096+4+col];_Pragma("unroll") for(uint part=0;part<3;part++){float component;if(absf(remain)<.015625f){float x=absf(remain)*512.f;uint q=uint(x);float r=x-float(q);q+=uint(r>.5f||(r==.5f&&(q&1)));q=q>7?7:q;component=(remain<0?-1.f:1.f)*float(q)/512.f;}else component=F(remain);remain-=component;_Pragma("unroll") for(uint e=0;e<8;e++){uint p=raster(win,first+gr()*8+e,width);float x=ByteFeature?__builtin_amdgcn_cvt_f32_fp8(int(feature8[p*128+col]),0):__builtin_amdgcn_cvt_f32_fp8(int(fp8(feature[p*128+col])),0);_Pragma("unroll") for(uint half=0;half<2;half++)result[j][e]=__builtin_fmaf(x,half==(col%32)/16?component:0.f,result[j][e]);}}}
+                      ^
+                      ;
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:711:303: error: use of undeclared identifier 'else_Pragma'
+ if constexpr(Diag){const unsigned char*diag=reinterpret_cast<const unsigned char*>(w)+4*(4*256*256+8*4096+8+256);uint p=raster(win,first+rc(),width);_Pragma("unroll") for(uint j=0;j<2;j++){uint ct=localhead*4+pair*2+j;i2 a{};if constexpr(ByteFeature)__builtin_memcpy(&a,feature8+p*256+ct*16+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++)put_bits(a,e,fp8(feature[p*256+ct*16+gr()*8+e]));_Pragma("unroll") for(uint part=0;part<3;part++){i2 b{};__builtin_memcpy(&b,diag+(part*16+ct)*512+(gr()*16+rc())*8,8);result[j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,result[j]);}}}
+                                                                                                                                                                                                                                                                                                              ^
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:711:324: error: expected ';' after expression
+ if constexpr(Diag){const unsigned char*diag=reinterpret_cast<const unsigned char*>(w)+4*(4*256*256+8*4096+8+256);uint p=raster(win,first+rc(),width);_Pragma("unroll") for(uint j=0;j<2;j++){uint ct=localhead*4+pair*2+j;i2 a{};if constexpr(ByteFeature)__builtin_memcpy(&a,feature8+p*256+ct*16+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++)put_bits(a,e,fp8(feature[p*256+ct*16+gr()*8+e]));_Pragma("unroll") for(uint part=0;part<3;part++){i2 b{};__builtin_memcpy(&b,diag+(part*16+ct)*512+(gr()*16+rc())*8,8);result[j]=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,result[j]);}}}
+                                                                                                                                                                                                                                                                                                                                   ^
+                                                                                                                                                                                                                                                                                                                                   ;
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:712:2: error: use of undeclared identifier 'else_Pragma'
+ else_Pragma("unroll") for(uint j=0;j<2;j++){uint col=localhead*64+pair*32+j*16+rc();float remain=w[4*256*256+8*4096+8+col];_Pragma("unroll") for(uint part=0;part<3;part++){float component;if(absf(remain)<.015625f){float x=absf(remain)*512.f;uint q=uint(x);float r=x-float(q);q+=uint(r>.5f||(r==.5f&&(q&1)));q=q>7?7:q;component=(remain<0?-1.f:1.f)*float(q)/512.f;}else component=F(remain);remain-=component;_Pragma("unroll") for(uint e=0;e<8;e++){uint p=raster(win,first+gr()*8+e,width);float x=ByteFeature?__builtin_amdgcn_cvt_f32_fp8(int(feature8[p*256+col]),0):__builtin_amdgcn_cvt_f32_fp8(int(fp8(feature[p*256+col])),0);_Pragma("unroll") for(uint half=0;half<2;half++)result[j][e]=__builtin_fmaf(x,half==(col%32)/16?component:0.f,result[j][e]);}}}
+ ^
+Development/hip-port/phase2/artifacts/modules/multihead_fused_attention.generated.cu:712:23: error: expected ';' after expression
+ else_Pragma("unroll") for(uint j=0;j<2;j++){uint col=localhead*64+pair*32+j*16+rc();float remain=w[4*256*256+8*4096+8+col];_Pragma("unroll") for(uint part=0;part<3;part++){float component;if(absf(remain)<.015625f){float x=absf(remain)*512.f;uint q=uint(x);float r=x-float(q);q+=uint(r>.5f||(r==.5f&&(q&1)));q=q>7?7:q;component=(remain<0?-1.f:1.f)*float(q)/512.f;}else component=F(remain);remain-=component;_Pragma("unroll") for(uint e=0;e<8;e++){uint p=raster(win,first+gr()*8+e,width);float x=ByteFeature?__builtin_amdgcn_cvt_f32_fp8(int(feature8[p*256+col]),0):__builtin_amdgcn_cvt_f32_fp8(int(fp8(feature[p*256+col])),0);_Pragma("unroll") for(uint half=0;half<2;half++)result[j][e]=__builtin_fmaf(x,half==(col%32)/16?component:0.f,result[j][e]);}}}
+                      ^
+                      ;
+12 errors generated when compiling for sm_86.
+
+[FAIL] deep_fast                             
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/deep_fast.generated.cu:535:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/deep_fast.generated.cu:535:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/deep_fast.generated.cu:540:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/deep_fast.generated.cu:540:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/deep_fast.generated.cu:652:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+  ^
+Development/hip-port/phase2/artifacts/modules/deep_fast.generated.cu:652:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/deep_fast.generated.cu:671:269: error: use of undeclared identifier 'else_Pragma'
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/deep_fast.generated.cu:671:290: error: expected ';' after expression
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                                                 ^
+                                                                                                                                                                                                                                                                                                 ;
+8 errors generated when compiling for sm_86.
+
+[FAIL] deep_fast-packed                      
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:536:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:536:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:541:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=sm86_wmma_fp8_preshuffled_b(y,q[k/16],a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:541:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=sm86_wmma_fp8_preshuffled_b(y,q[k/16],a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:566:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:566:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:571:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:571:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:726:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+  ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:726:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:745:269: error: use of undeclared identifier 'else_Pragma'
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed.generated.cu:745:290: error: expected ';' after expression
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                                                 ^
+                                                                                                                                                                                                                                                                                                 ;
+12 errors generated when compiling for sm_86.
+
+[FAIL] multihead-fast-padded-wave-packed     
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/multihead-fast-padded-wave-packed.generated.cu:918:4: error: use of undeclared identifier 'else_Pragma'
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+   ^
+Development/hip-port/phase2/artifacts/modules/multihead-fast-padded-wave-packed.generated.cu:918:25: error: expected ';' after expression
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+                        ^
+                        ;
+2 errors generated when compiling for sm_86.
+
+[PASS] c32_fused_attention                    entries=  1 sha256=e46dab474ce8437a...
+[PASS] prefix_fast                            entries=  4 sha256=f37344177a6f5f68...
+[FAIL] c32-wave1                             
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:783:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:783:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:816:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:816:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:846:6: error: use of undeclared identifier 'else_Pragma'
+    }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,input[kt],expanded);}
+     ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:846:27: error: expected ';' after expression
+    }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,input[kt],expanded);}
+                          ^
+                          ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:849:6: error: use of undeclared identifier 'else_Pragma'
+    }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,a,ffn[ci]);}
+     ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:849:27: error: expected ';' after expression
+    }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,a,ffn[ci]);}
+                          ^
+                          ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:868:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,feature[kt],q[ci]):sm86_wmma_fp8_maybe_pre_a<(W16!=0)>(feature[kt],b,q[ci]);}
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:868:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,feature[kt],q[ci]):sm86_wmma_fp8_maybe_pre_a<(W16!=0)>(feature[kt],b,q[ci]);}
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:897:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,av[kt],acc);}
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:897:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,av[kt],acc);}
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:902:4: error: use of undeclared identifier 'else_Pragma'
+   else_Pragma("unroll") for(uint e=0;e<8;e++)a_t[e]=(cw_output_value(float(rounded[e])));
+   ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1.generated.cu:902:25: error: expected ';' after expression
+   else_Pragma("unroll") for(uint e=0;e<8;e++)a_t[e]=(cw_output_value(float(rounded[e])));
+                        ^
+                        ;
+14 errors generated when compiling for sm_86.
+
+[FAIL] c32-wave1-rtz                         
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:779:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:779:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:812:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:812:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:842:6: error: use of undeclared identifier 'else_Pragma'
+    }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,input[kt],expanded);}
+     ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:842:27: error: expected ';' after expression
+    }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,input[kt],expanded);}
+                          ^
+                          ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:845:6: error: use of undeclared identifier 'else_Pragma'
+    }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,a,ffn[ci]);}
+     ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:845:27: error: expected ';' after expression
+    }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,a,ffn[ci]);}
+                          ^
+                          ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:864:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,feature[kt],q[ci]):sm86_wmma_fp8_maybe_pre_a<(W16!=0)>(feature[kt],b,q[ci]);}
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:864:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,feature[kt],q[ci]):sm86_wmma_fp8_maybe_pre_a<(W16!=0)>(feature[kt],b,q[ci]);}
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:893:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,av[kt],acc);}
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:893:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,av[kt],acc);}
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:898:4: error: use of undeclared identifier 'else_Pragma'
+   else_Pragma("unroll") for(uint e=0;e<8;e++)a_t[e]=(cw_output_value(float(rounded[e])));
+   ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-rtz.generated.cu:898:25: error: expected ';' after expression
+   else_Pragma("unroll") for(uint e=0;e<8;e++)a_t[e]=(cw_output_value(float(rounded[e])));
+                        ^
+                        ;
+14 errors generated when compiling for sm_86.
+
+[FAIL] c32-wave1-fast                        
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:780:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:780:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:813:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:813:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:843:6: error: use of undeclared identifier 'else_Pragma'
+    }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,input[kt],expanded);}
+     ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:843:27: error: expected ';' after expression
+    }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,input[kt],expanded);}
+                          ^
+                          ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:846:6: error: use of undeclared identifier 'else_Pragma'
+    }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,a,ffn[ci]);}
+     ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:846:27: error: expected ';' after expression
+    }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,a,ffn[ci]);}
+                          ^
+                          ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:865:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,feature[kt],q[ci]):sm86_wmma_fp8_maybe_pre_a<(W16!=0)>(feature[kt],b,q[ci]);}
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:865:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,feature[kt],q[ci]):sm86_wmma_fp8_maybe_pre_a<(W16!=0)>(feature[kt],b,q[ci]);}
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:894:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,av[kt],acc);}
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:894:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,av[kt],acc);}
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:899:4: error: use of undeclared identifier 'else_Pragma'
+   else_Pragma("unroll") for(uint e=0;e<8;e++)a_t[e]=(cw_output_value(float(rounded[e])));
+   ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast.generated.cu:899:25: error: expected ';' after expression
+   else_Pragma("unroll") for(uint e=0;e<8;e++)a_t[e]=(cw_output_value(float(rounded[e])));
+                        ^
+                        ;
+14 errors generated when compiling for sm_86.
+
+[FAIL] c32-wave1-fast-norm900                
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:780:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:780:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:813:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:813:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:843:6: error: use of undeclared identifier 'else_Pragma'
+    }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,input[kt],expanded);}
+     ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:843:27: error: expected ';' after expression
+    }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(fw+512,(ht*16+r)*32+kt*16+g*8);expanded=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,input[kt],expanded);}
+                          ^
+                          ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:846:6: error: use of undeclared identifier 'else_Pragma'
+    }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,a,ffn[ci]);}
+     ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:846:27: error: expected ';' after expression
+    }else_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 b=matrix8(fw+4608,(ci*16+r)*128+ht*16+g*8);ffn[ci]=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,a,ffn[ci]);}
+                          ^
+                          ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:865:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,feature[kt],q[ci]):sm86_wmma_fp8_maybe_pre_a<(W16!=0)>(feature[kt],b,q[ci]);}
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:865:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,part*1024+(ci*16+qr)*32+kt*16+qg*8);q[ci]=part<2?sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,feature[kt],q[ci]):sm86_wmma_fp8_maybe_pre_a<(W16!=0)>(feature[kt],b,q[ci]);}
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:895:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,av[kt],acc);}
+    ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:895:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint kt=0;kt<2;kt++){i2 b=matrix8(w,3072+(ci*16+r)*32+kt*16+g*8);acc=sm86_wmma_fp8_maybe_pre_b<(W16!=0)>(b,av[kt],acc);}
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:900:4: error: use of undeclared identifier 'else_Pragma'
+   else_Pragma("unroll") for(uint e=0;e<8;e++)a_t[e]=(cw_output_value(float(rounded[e])));
+   ^
+Development/hip-port/phase2/artifacts/modules/c32-wave1-fast-norm900.generated.cu:900:25: error: expected ';' after expression
+   else_Pragma("unroll") for(uint e=0;e<8;e++)a_t[e]=(cw_output_value(float(rounded[e])));
+                        ^
+                        ;
+14 errors generated when compiling for sm_86.
+
+[FAIL] c64-wave2                             
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/c64-wave2.generated.cu:901:4: error: use of undeclared identifier 'else_Pragma'
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+   ^
+Development/hip-port/phase2/artifacts/modules/c64-wave2.generated.cu:901:25: error: expected ';' after expression
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+                        ^
+                        ;
+Development/hip-port/phase2/artifacts/modules/c64-wave2.generated.cu:1080:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)w2_bits(a,e,q8(input(qt*16+rc,head*32+ci*16+gr*8+e)));
+  ^
+Development/hip-port/phase2/artifacts/modules/c64-wave2.generated.cu:1080:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)w2_bits(a,e,q8(input(qt*16+rc,head*32+ci*16+gr*8+e)));
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/c64-wave2.generated.cu:1115:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint tile=0;tile<T;tile++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c64-wave2.generated.cu:1115:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint tile=0;tile<T;tile++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c64-wave2.generated.cu:1198:3: error: use of undeclared identifier 'else_Pragma'
+ }else_Pragma("unroll") for(uint part=0?1:0;part<3;part++){
+  ^
+Development/hip-port/phase2/artifacts/modules/c64-wave2.generated.cu:1198:24: error: expected ';' after expression
+ }else_Pragma("unroll") for(uint part=0?1:0;part<3;part++){
+                       ^
+                       ;
+8 errors generated when compiling for sm_86.
+
+[FAIL] c64-wave2-fast                        
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/c64-wave2-fast.generated.cu:901:4: error: use of undeclared identifier 'else_Pragma'
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+   ^
+Development/hip-port/phase2/artifacts/modules/c64-wave2-fast.generated.cu:901:25: error: expected ';' after expression
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+                        ^
+                        ;
+Development/hip-port/phase2/artifacts/modules/c64-wave2-fast.generated.cu:1078:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)w2_bits(a,e,q8(input(qt*16+rc,head*32+ci*16+gr*8+e)));
+  ^
+Development/hip-port/phase2/artifacts/modules/c64-wave2-fast.generated.cu:1078:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)w2_bits(a,e,q8(input(qt*16+rc,head*32+ci*16+gr*8+e)));
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/c64-wave2-fast.generated.cu:1113:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint tile=0;tile<T;tile++){
+    ^
+Development/hip-port/phase2/artifacts/modules/c64-wave2-fast.generated.cu:1113:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint tile=0;tile<T;tile++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/c64-wave2-fast.generated.cu:1196:3: error: use of undeclared identifier 'else_Pragma'
+ }else_Pragma("unroll") for(uint part=0?1:0;part<3;part++){
+  ^
+Development/hip-port/phase2/artifacts/modules/c64-wave2-fast.generated.cu:1196:24: error: expected ';' after expression
+ }else_Pragma("unroll") for(uint part=0?1:0;part<3;part++){
+                       ^
+                       ;
+8 errors generated when compiling for sm_86.
+
+[FAIL] deep_fast-packed-fast                 
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:535:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:535:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:540:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=sm86_wmma_fp8_preshuffled_b(y,q[k/16],a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:540:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=sm86_wmma_fp8_preshuffled_b(y,q[k/16],a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:565:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:565:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:570:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:570:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:725:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+  ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:725:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:744:269: error: use of undeclared identifier 'else_Pragma'
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/deep_fast-packed-fast.generated.cu:744:290: error: expected ';' after expression
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                                                 ^
+                                                                                                                                                                                                                                                                                                 ;
+12 errors generated when compiling for sm_86.
+
+[FAIL] vit-stream-fast                       
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/vit-stream-fast.generated.cu:535:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/vit-stream-fast.generated.cu:535:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/vit-stream-fast.generated.cu:540:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/vit-stream-fast.generated.cu:540:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/vit-stream-fast.generated.cu:652:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+  ^
+Development/hip-port/phase2/artifacts/modules/vit-stream-fast.generated.cu:652:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/vit-stream-fast.generated.cu:671:269: error: use of undeclared identifier 'else_Pragma'
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/vit-stream-fast.generated.cu:671:290: error: expected ';' after expression
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                                                 ^
+                                                                                                                                                                                                                                                                                                 ;
+8 errors generated when compiling for sm_86.
+
+[FAIL] c512-m32-mh                           
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/c512-m32-mh.generated.cu:901:4: error: use of undeclared identifier 'else_Pragma'
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+   ^
+Development/hip-port/phase2/artifacts/modules/c512-m32-mh.generated.cu:901:25: error: expected ';' after expression
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+                        ^
+                        ;
+2 errors generated when compiling for sm_86.
+
+[FAIL] c512-m32-deep                         
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/c512-m32-deep.generated.cu:535:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/c512-m32-deep.generated.cu:535:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/c512-m32-deep.generated.cu:540:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/c512-m32-deep.generated.cu:540:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/c512-m32-deep.generated.cu:652:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+  ^
+Development/hip-port/phase2/artifacts/modules/c512-m32-deep.generated.cu:652:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/c512-m32-deep.generated.cu:671:269: error: use of undeclared identifier 'else_Pragma'
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/c512-m32-deep.generated.cu:671:290: error: expected ';' after expression
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                                                 ^
+                                                                                                                                                                                                                                                                                                 ;
+8 errors generated when compiling for sm_86.
+
+[FAIL] vit-stream                            
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/vit-stream.generated.cu:535:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/vit-stream.generated.cu:535:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/vit-stream.generated.cu:540:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/vit-stream.generated.cu:540:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/vit-stream.generated.cu:652:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+  ^
+Development/hip-port/phase2/artifacts/modules/vit-stream.generated.cu:652:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/vit-stream.generated.cu:671:269: error: use of undeclared identifier 'else_Pragma'
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/vit-stream.generated.cu:671:290: error: expected ';' after expression
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                                                 ^
+                                                                                                                                                                                                                                                                                                 ;
+8 errors generated when compiling for sm_86.
+
+[FAIL] vit-wide-deep                         
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/vit-wide-deep.generated.cu:535:128: error: use of undeclared identifier 'else_Pragma'
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                               ^
+Development/hip-port/phase2/artifacts/modules/vit-wide-deep.generated.cu:535:149: error: expected ';' after expression
+ i2 q[2]{};for(uint k=0;k<32;k+=16){if constexpr(ByteInput)__builtin_memcpy(&q[k/16],in8+(first+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(q[k/16],e,in[(first+rc())*1024+head*32+j]);}}
+                                                                                                                                                    ^
+                                                                                                                                                    ;
+Development/hip-port/phase2/artifacts/modules/vit-wide-deep.generated.cu:540:125: error: use of undeclared identifier 'else_Pragma'
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/vit-wide-deep.generated.cu:540:146: error: expected ';' after expression
+  for(uint k=0;k<32;k+=16){i2 y{};if constexpr(ByteInput)__builtin_memcpy(&y,in8+(tokens+key+rc())*1024+head*32+k+gr()*8,8);else_Pragma("unroll") for(uint e=0;e<8;e++){uint j=k+gr()*8+e;pack(y,e,in[(tokens+key+rc())*1024+head*32+j]);}a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(q[k/16],y,a);}
+                                                                                                                                                 ^
+                                                                                                                                                 ;
+Development/hip-port/phase2/artifacts/modules/vit-wide-deep.generated.cu:652:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+  ^
+Development/hip-port/phase2/artifacts/modules/vit-wide-deep.generated.cu:652:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a,e,in[(first+rc())*inputs+k+gr()*8+e]);_Pragma("unroll") for(uint n=0;n<4;n++){uint row=col+n*16+rc();i2 b;if constexpr(Frag)b=vit_weight_fragment_native(w,row,inputs,k);else b=vit_weight_fragment<Tiled>(w,row,inputs,k);accum[n]=sm86_wmma_fp8_maybe_weight_b<Frag>(a,b,accum[n]);}
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/vit-wide-deep.generated.cu:671:269: error: use of undeclared identifier 'else_Pragma'
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                            ^
+Development/hip-port/phase2/artifacts/modules/vit-wide-deep.generated.cu:671:290: error: expected ';' after expression
+ for(uint k=0;k<inputs;k+=16){i2 a[BM];_Pragma("unroll") for(uint m=0;m<BM;m++){a[m]={};uint row=first+m*16;if(row<tokens){if constexpr(ByteInput){const uint*p=reinterpret_cast<const uint*>(in);uint off=((row+rc())*inputs+k+gr()*8)/4;a[m]={int(p[off]),int(p[off+1])};}else_Pragma("unroll") for(uint e=0;e<8;e++)pack(a[m],e,in[(row+rc())*inputs+k+gr()*8+e]);}}
+                                                                                                                                                                                                                                                                                                 ^
+                                                                                                                                                                                                                                                                                                 ;
+8 errors generated when compiling for sm_86.
+
+[FAIL] swin-persistent-fast                  
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/swin-persistent-fast.generated.cu:901:4: error: use of undeclared identifier 'else_Pragma'
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+   ^
+Development/hip-port/phase2/artifacts/modules/swin-persistent-fast.generated.cu:901:25: error: expected ';' after expression
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+                        ^
+                        ;
+Development/hip-port/phase2/artifacts/modules/swin-persistent-fast.generated.cu:1070:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)w2_bits(a,e,q8(input(qt*16+rc,head*32+ci*16+gr*8+e)));
+  ^
+Development/hip-port/phase2/artifacts/modules/swin-persistent-fast.generated.cu:1070:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)w2_bits(a,e,q8(input(qt*16+rc,head*32+ci*16+gr*8+e)));
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/swin-persistent-fast.generated.cu:1105:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint tile=0;tile<T;tile++){
+    ^
+Development/hip-port/phase2/artifacts/modules/swin-persistent-fast.generated.cu:1105:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint tile=0;tile<T;tile++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/swin-persistent-fast.generated.cu:1188:3: error: use of undeclared identifier 'else_Pragma'
+ }else_Pragma("unroll") for(uint part=0?1:0;part<3;part++){
+  ^
+Development/hip-port/phase2/artifacts/modules/swin-persistent-fast.generated.cu:1188:24: error: expected ';' after expression
+ }else_Pragma("unroll") for(uint part=0?1:0;part<3;part++){
+                       ^
+                       ;
+8 errors generated when compiling for sm_86.
+
+[FAIL] swin-persistent                       
+Clang failed:
+Development/hip-port/phase2/artifacts/modules/swin-persistent.generated.cu:901:4: error: use of undeclared identifier 'else_Pragma'
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+   ^
+Development/hip-port/phase2/artifacts/modules/swin-persistent.generated.cu:901:25: error: expected ';' after expression
+  }else_Pragma("unroll") for(uint part=0;part<3;part++){f8 q{};
+                        ^
+                        ;
+Development/hip-port/phase2/artifacts/modules/swin-persistent.generated.cu:1072:3: error: use of undeclared identifier 'else_Pragma'
+  else_Pragma("unroll") for(uint e=0;e<8;e++)w2_bits(a,e,q8(input(qt*16+rc,head*32+ci*16+gr*8+e)));
+  ^
+Development/hip-port/phase2/artifacts/modules/swin-persistent.generated.cu:1072:24: error: expected ';' after expression
+  else_Pragma("unroll") for(uint e=0;e<8;e++)w2_bits(a,e,q8(input(qt*16+rc,head*32+ci*16+gr*8+e)));
+                       ^
+                       ;
+Development/hip-port/phase2/artifacts/modules/swin-persistent.generated.cu:1107:5: error: use of undeclared identifier 'else_Pragma'
+   }else_Pragma("unroll") for(uint tile=0;tile<T;tile++){
+    ^
+Development/hip-port/phase2/artifacts/modules/swin-persistent.generated.cu:1107:26: error: expected ';' after expression
+   }else_Pragma("unroll") for(uint tile=0;tile<T;tile++){
+                         ^
+                         ;
+Development/hip-port/phase2/artifacts/modules/swin-persistent.generated.cu:1190:3: error: use of undeclared identifier 'else_Pragma'
+ }else_Pragma("unroll") for(uint part=0?1:0;part<3;part++){
+  ^
+Development/hip-port/phase2/artifacts/modules/swin-persistent.generated.cu:1190:24: error: expected ';' after expression
+ }else_Pragma("unroll") for(uint part=0?1:0;part<3;part++){
+                       ^
+                       ;
+8 errors generated when compiling for sm_86.
+
+[PASS] multi-pass-skin                        entries=  3 sha256=9f941aaeb211b350...
+[PASS] multi-pass-predict                     entries=  4 sha256=2c973db0ac57ecfa...
+[PASS] multihead-fast                         entries= 14 sha256=e19f5f2a97ee8e4e...
+[PASS] multihead-fast-packed                  entries= 14 sha256=ba2ef6915ca0b0a9...
+[PASS] c32_fused_ffn_attention-packed         entries= 10 sha256=c3323021181f9ef8...
+[PASS] c32_fused_ffn_attention                entries= 10 sha256=bdb2e1307ccc4acb...
+
+SUMMARY: 21/40 modules compiled to sm_86 cubin & verified on RTX 3080 Laptop GPU (175 kernel entry points verified)!

@@ -1,0 +1,171 @@
+[
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_bi_bo_w16",
+    "baseline": {
+      "lines": 14213,
+      "summary": {
+        "ld_global_u8": 288,
+        "st_shared_u8": 160,
+        "ld_shared_u8": 168,
+        "st_global_u8": 16
+      },
+      "opcodes": {
+        "ld.global.f32": 49,
+        "ld.global.u8": 288,
+        "ld.shared.u8": 168,
+        "st.global.u8": 16,
+        "st.shared.u8": 160
+      }
+    },
+    "aligned": {
+      "lines": 12870,
+      "summary": {
+        "st_shared_v2_32": 20,
+        "ld_global_v4_32": 6,
+        "ld_shared_v2_32": 17,
+        "ld_global_v2_32": 8,
+        "st_global_v2_32": 2
+      },
+      "opcodes": {
+        "ld.global.f32": 49,
+        "ld.global.u32": 32,
+        "ld.global.v2.u32": 8,
+        "ld.global.v4.u32": 6,
+        "ld.shared.u32": 8,
+        "ld.shared.v2.u32": 17,
+        "st.global.v2.u32": 2,
+        "st.shared.v2.u32": 20
+      }
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_bo_w16",
+    "baseline": {
+      "lines": 14207,
+      "summary": {
+        "ld_global_u8": 288,
+        "st_shared_u8": 160,
+        "ld_shared_u8": 168,
+        "st_global_u8": 16
+      },
+      "opcodes": {
+        "ld.global.f32": 49,
+        "ld.global.u8": 288,
+        "ld.shared.u8": 168,
+        "st.global.u8": 16,
+        "st.shared.u8": 160
+      }
+    },
+    "aligned": {
+      "lines": 12864,
+      "summary": {
+        "st_shared_v2_32": 20,
+        "ld_global_v4_32": 6,
+        "ld_shared_v2_32": 17,
+        "ld_global_v2_32": 8,
+        "st_global_v2_32": 2
+      },
+      "opcodes": {
+        "ld.global.f32": 49,
+        "ld.global.u32": 32,
+        "ld.global.v2.u32": 8,
+        "ld.global.v4.u32": 6,
+        "ld.shared.u32": 8,
+        "ld.shared.v2.u32": 17,
+        "st.global.v2.u32": 2,
+        "st.shared.v2.u32": 20
+      }
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c256_wave2_bi_bo_w16",
+    "baseline": {
+      "lines": 14539,
+      "summary": {
+        "ld_global_u8": 288,
+        "st_shared_u8": 160,
+        "ld_shared_u8": 208,
+        "st_global_u8": 16
+      },
+      "opcodes": {
+        "ld.global.f32": 49,
+        "ld.global.u8": 288,
+        "ld.shared.u8": 208,
+        "st.global.u8": 16,
+        "st.shared.u8": 160
+      }
+    },
+    "aligned": {
+      "lines": 13101,
+      "summary": {
+        "st_shared_v2_32": 20,
+        "ld_global_v4_32": 6,
+        "ld_shared_v2_32": 22,
+        "ld_global_v2_32": 8,
+        "st_global_v2_32": 2
+      },
+      "opcodes": {
+        "ld.global.f32": 49,
+        "ld.global.u32": 32,
+        "ld.global.v2.u32": 8,
+        "ld.global.v4.u32": 6,
+        "ld.shared.u32": 8,
+        "ld.shared.v2.u32": 22,
+        "st.global.v2.u32": 2,
+        "st.shared.v2.u32": 20
+      }
+    }
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_prefix_b8d_w16",
+    "baseline": {
+      "lines": 14529,
+      "summary": {
+        "st_shared_v2_32": 4,
+        "ld_global_v4_32": 20,
+        "ld_shared_v2_32": 16,
+        "ld_shared_u8": 256,
+        "st_global_v2_32": 10
+      },
+      "opcodes": {
+        "ld.global.f32": 55,
+        "ld.global.v4.f32": 8,
+        "ld.global.v4.u32": 12,
+        "ld.shared.b16": 16,
+        "ld.shared.u8": 256,
+        "ld.shared.v2.u32": 16,
+        "st.global.v2.u32": 10,
+        "st.shared.u16": 32,
+        "st.shared.v2.u32": 4
+      }
+    },
+    "aligned": {
+      "lines": 14221,
+      "summary": {
+        "st_shared_v2_32": 4,
+        "ld_global_v4_32": 20,
+        "st_shared_v4_32": 4,
+        "ld_shared_v2_32": 16,
+        "ld_shared_u8": 128,
+        "st_global_v2_32": 10,
+        "ld_shared_v4_32": 8
+      },
+      "opcodes": {
+        "ld.global.f32": 55,
+        "ld.global.v4.f32": 8,
+        "ld.global.v4.u32": 12,
+        "ld.shared.b16": 16,
+        "ld.shared.u8": 128,
+        "ld.shared.v2.u32": 16,
+        "ld.shared.v4.b32": 8,
+        "st.global.v2.u32": 10,
+        "st.shared.v2.u32": 4,
+        "st.shared.v4.b32": 4
+      }
+    }
+  }
+]

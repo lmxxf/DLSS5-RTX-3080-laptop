@@ -2,7 +2,8 @@
 
 **硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，101,376 B Shared Memory/SM，Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）  
 **基线来源**：`DLSS5-AMD 0.44` 独立引擎 + NVIDIA 原版 `nvngx_dlssnr.dll` (`v310.9.16.0`)  
-**模型范围**：RTX 30 系仅保留并维护 **31 块 `0.5x Small` 轻量新模型（`Preset 2`）**，不再折腾 71 块旧模型。
+**模型范围**：RTX 30 系仅保留并维护 **31 块 `0.5x Small` 轻量新模型（`Preset 2`）**，不再折腾 71 块旧模型。  
+**⚠️ Git 提交铁律（必须严格执行）**：**每完成一个功能或一个优化阶段并通过实测验证后，必须立即清理临时二进制大文件（`*.rgb32`, `*.hsaco`, `*.cubin`, `*.ptx`, `artifacts/` 等不进 Git 的构建产物）并执行一次 `git commit`（严禁加 `Co-Authored-By`）**，绝不能攒好几个阶段一宿不提交！朱雀每次派单给闇时必须在 prompt 中显式附带此提交要求。
 
 ---
 
@@ -268,3 +269,270 @@ sp_init                                              2     0.009       4.6     1
   - `OptiScaler-DLSS5-RTX30-0.1.0.zip`：`319,200,566 B`，SHA256 `e6067bf09cf5e13ed010d5c90deff695302bbe39b631d7b7fe743ad7b502caac`
   - `Magpie-DLSS5-RTX30-0.1.0.zip`：`324,124,886 B`，SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`
 - **文档体系**：根目录 `README.zh-CN.md`、`README.md`、`CHANGELOG.zh-CN.md`、`CHANGELOG.md` 与公众号文章 [`Development/doc/使用说明.md`](doc/使用说明.md) 全部对齐 `v0.1.0` PTX 主线并推送至 `origin/main`。
+
+## 2026-10-25 hip-port Phase 1：packed FP16 MMA 首轮实现与实测（数值通过，性能未达预期）
+
+### 改动与验证
+
+- v0.1.0 `ptx-patcher` 与三个发布包保持归档，本轮没有替换共享 assets、游戏或 Magpie DLL。
+- 独立引擎 `hip/sm86_compat.h` 的核心改为两条 `mma.sync.aligned.m16n8k16.row.col.f16.f16.f16.f16`；Ampere 累加器使用 `sm86_u4`，布局 `{pack(ad0,ad1),pack(ad2,ad3),pack(ad4,ad5),pack(ad6,ad7)}`。A/B 准备和 E4M3 解包未改。
+- `__sm86_c_to_ampere` 返回 `<4 x i32>`，`__sm86_d_to_rdna4` 接收 `<4 x i32>`。SSA pass 同步改写直接抵消、零初值、循环/diamond PHI、LCSSA 出口；修正整数返回 call 不得携带 `contract` 浮点标志的问题。`test_packed_acc_ir.py` 两项实际 LLVM verifier 回归通过。
+- 全量 **40/40 模块、1898 个 kernel entry CUDA 加载验证通过**。40 个生产 PTX 合计 64,524 条 FP16 累加 MMA，旧 `.f32.f16.f16.f32` MMA 为 0。模块逐文件 SHA256 已保存。
+- `wmma_validate_cuda --fp16-acc`：**63 组测试，failures=0、FP8/FP16 输入路径 bitdiff=0、half_diff=0**；包含 K16/K32、非零 C、32 个 K basis、整数及有界随机测试。非整数测试允许 FP16 累加误差；最大 CPU absolute error 0.0704956055。会溢出 FP16 的全值域 FP8 压力案例不在此模式内，原 F32 验证模式保留。
+
+### 同机整网数值与耗时
+
+- GPU：RTX 3080 Laptop，CUDA Driver 13040；同一 **140 W 上限**，默认 DVFS、未锁频。全轮 >=90% 利用率样本的功耗中位数 138.74 W、SM 时钟中位数 1695 MHz、显存 7001 MHz；原始遥测保留，不能把 1% 左右差异宣称为稳定加速。
+- Small 31-block、Style 1；既有确定性 RGB 图案；关闭 Graph/adaptive reuse；初始化、输入上传和最终读回不计入 GPU event 时间。
+- 最终 **50 帧预热、80 帧测量**；另采一帧核级 profile。1080p/900p 标签实际处理尺寸分别为 **1920×1152 / 1600×1024**，并额外对前 1080/900 行可见区域计算精度。基准 F32 输出 hash 与先前快照一致。
+
+| 档位 | F32 GPU min / median ms | FP16 GPU min / median ms | median 比值 F32/FP16 | 可见区域 PSNR（peak=1） | maxabs | invalid |
+|---|---:|---:|---:|---:|---:|---:|
+| 900p | 45.725 / 46.190 | 45.046 / 45.444 | 1.016× | 46.6216 dB | 0.03801733 | 0 |
+| 1080p | 60.548 / 63.342 | 60.024 / 63.264 | 1.001× | 46.1852 dB | 0.04758018 | 0 |
+
+- 全 padded 区域 PSNR：900p 46.5913 dB、1080p 46.1542 dB；两档 `bit_diff_first_last=0`，确定性稳定。达到本次 >=45 dB 门槛，但不是 bitwise 等价，也不是游戏画面观感验收。
+- 核级插桩累计：1080p **60.2061→60.9556 ms**（32 个活跃核），900p **45.2925→46.4978 ms**（34 个变体）。与未插桩整网时间分开看，不混算。
+
+### 寄存器收益和回退
+
+- 1080p 的 32 核：**21 核 Regs 降低、8 核升高、3 核不变**；OccW 上升 6 核、下降 3 核；LMem 为零的核从 32/32 回退为 **31/32**。
+- C64/C128 主要 wave2：248→239、247→223/239，但大多仍 **OccW=8**，未跨过资源占用率门槛；C256 240→241，OccW 仍 8。
+- `vit_stream_qkv_frag_bin_w5f8`：135→122 regs、OccW 10→15；`split_projection`：135→127、OccW 12→16；C512 attention projection：133→125、OccW 12→16。
+- pool C64/C128/C256：121→200 regs、OccW **16→8**；pool C512：121→128 regs，新增 **104 B LMem**。这是真实回退，不能写成“全网寄存器减半/零溢出”。
+- 本轮为了单独检验核心精度，C/D 边界仍使用旧 **8 次 scalar shuffle** 后打包/解包；K32 的 Hrtz 及 partition 的 FP32 求和保留原语义，通过 `_f32` 布局辅助函数维持。**尚未完成边界 4-shfl 与所有外围 K32/partition 的四寄存器化，Phase 1 性能目标未完成。** 新旧布局辅助路径之间的冗余转换、pool 的寄存器回退以及未提升的占用率是下一步要检查的具体对象；当前数据不足以将总耗时归因于某一个原因。
+
+完整 **32/34 核 Regs、LMem、OccW 与耗时对照**、逐模块哈希、构建/验证/benchmark 日志、遥测和复测脚本见 [`hip-port/phase1/`](hip-port/phase1/README.md)，主表见 [`results.md`](hip-port/phase1/results.md)。候选 40 模块、F32 对照模块及 RGB 输出保存在该目录被忽略的 `artifacts/` 内；尚未部署为稳定运行时。结论：**核心类型改写和数值门槛通过，第一轮没有获得明确端到端性能提升，继续以此负结果定位外围转换与资源占用，而不是宣称满速翻倍。**
+
+## 2026-10-25 hip-port Phase 2：静态权重预洗牌 + 精确 ones 特化 + packed 分段累加
+
+### 完成的实现与小测试
+
+- Host `packed_weights.h` 增加 `AmperePreshuffleTile256` / `AmperePreshuffleTile512W16`；在最终 FragmentPackedMatrix/W16、C32/MH residual diagonal、QKV Frag8 打包处执行纯字节置换。GPU 对应静态 weight reader 改为 `sm86_unpack_e4m3x8`，动态 Q/K/V 和 row-major fallback 保留原 prep；覆盖 C32/W2、C512、ViT expand/contract/project/QKV staging、decoder、downsample/pool 的主用 fragment 路径。
+- 基础 GPU/CPU 测试：64 个 256B tile（含唯一字节位置标签）、64 个 lo/hi 内容不同的 W16 tile，与 GPU 原 prep/preshuffle **0 bit-diff**；128 组整数/正负随机/非负随机输入、非零 C、连续4次 ones 累加对原 FP16 MMA **0 bit-diff**；4096 个线程片段的 packed add 对 FP32 加后 half RNE 打包 **0 bit-diff**。范围见 `hip-port/phase2/check_primitives.py`，不声称未测的非有限值/溢出情况等价。
+- ones 方案的重要校准：直接 `half(sum16+c)` 不等价于当前 FP16 MMA。实验保留 K8 边界的 `half(sum_hi + half(sum_lo + half(c)))` 后通过上述逐 bit 对照。`ones_a` 只需1次 XOR16；**通用 RDNA4 布局的 ones_b 要输出8个不同 A 行，精确版本需要16次 idx 广播**，不是1次 shuffle。先合成总和的9-shuffle版本产生随机输入差异，未采用。`wmma(zero,zero,pre)` 已移除。
+- `sm86_add_u4_f16x2` 用4条 packed add；pool 的跨 K32 chunk、ViT contract/stream project 与 decoder W16 的跨 partition 累加保持 `sm86_u4`。partition 从 FP32 和改为逐步 half 和的误差由整网 PSNR 验收。
+- 修复构建缓存不跟踪兼容头/pass 内容的问题，并在结构改写前先展开预处理分支。最终 **40/40 模块、1898 个 entry 编译和 CUDA 加载验证通过**；新 Linux CUDA benchmark runner 已重编，未部署 Windows frame.exe。Host 和模块通过 `AMPERE_WEIGHTS_V2` 配对，误将新 Host 默认预洗牌搭配旧模块会明确拒绝；关闭开关跑 Phase 1 模块的输出哈希完全复现。
+
+### 同机 Small 31-block 整网实测
+
+同轮重新测量 Phase 1；Style1，默认DVFS、同一约140W上限，50帧预热/80帧测量。高利用率遥测功耗中位数137.77W、SM1695MHz、显存7001MHz。处理尺寸900p=1600×1024、1080p=1920×1152；GPU event 和 CPU Wall 均不计初始化、打包和传输/最终读回。
+
+| 档位 | Phase 1 GPU min / median ms | Phase 2 GPU min / median ms | median 速度比 | Phase 2 Wall median ms | 对 F32 可见区域 PSNR | maxabs | invalid |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 900p | 44.461 / 44.872 | 41.743 / 42.264 | 1.0617× | 42.360 | 46.6206 dB | 0.03485873 | 0 |
+| 1080p | 59.245 / 59.806 | 53.921 / 54.476 | 1.0978× | 54.585 | 46.1009 dB | 0.04160273 | 0 |
+
+- 两档首/末帧 bit_diff=0；输出 FNV1a64：900p `b9577aa87bf709d6`、1080p `a8365381a41f7f83`。完整 padded 区域 PSNR 为46.5919/46.0816 dB，均过45dB门槛。相对 Phase 1 的可见区域 PSNR另保存在结果 JSON 中；整网不宣称0 bit-diff。
+- 额外插桩帧累计：900p **43.9020→41.6553 ms（34核）**；1080p **58.8165→53.6494 ms（32核）**。与未插桩整网时间分开报告。
+- 1080p pool：C64/C128/C256 从 **200→111 regs，OccW8→16**；C512从128→111 regs，**104B LMem→0**。恢复 **32/32 零 LMem**，900p亦34/34零LMem。
+- 代表性1080p核累计：C32 prefix **8.1244→7.3697 ms**，post **7.3226→6.6785 ms**；C256 bi_bo **3.2758→2.7525 ms**；ViT expand **3.1549→2.8549 ms**，compact contract **3.6557→3.3864 ms**。
+- 真实回退仍保留：wave2 多核寄存器升到250、OccW仍8；compact contract **154→217 regs、OccW12→8**；C512 attention projection与split projection的OccW16→12。32核中14核寄存器下降、15核上升、3核持平，不能写成“全网占用率提升”。
+- 静态 PTX 指令示例（不是动态计数/SASS利用率）：C128 pool shfl **136→40**、selp **813→381**、packed add **0→16**；C32 prefix shfl **385→337**、MMA **96→76**。QKV静态权重 staging 确已零-shuffle unpack，但精确 ones_b 广播抵消其总shfl计数收益。三项改动组合实测，不单独归因各项加速贡献。
+
+完整 [实验说明与复测入口](hip-port/phase2/README.md)、[32/34核分解表](hip-port/phase2/results.md)、原始日志、逐模块SHA256、遥测均归档于 `hip-port/phase2/`；二进制与RGB输出在其忽略的 `artifacts/` 内。**v0.1.0 PTX发布包、共享assets、游戏/Magpie运行时未替换。** 本轮取得稳定可见的约6%/10%速度提升与零溢出恢复，仍远未达到原生PTX路线的延迟，后续应继续围绕寄存器与核间/边界布局收敛。
+- 最终长负载段时钟复查：Phase1 1080p/900p=1695/1695MHz，Phase2=1695/1710MHz；900p有约0.9%的Boost差异，速度比按默认DVFS实测报告，不冒充锁频等频结果。40模块缓存复查通过，完整数据见Phase2归档。
+
+## 2026-10-25 hip-port Phase 3：三项实现完成，两个性能预期未兑现
+
+### 实现和控制设计
+
+- 按Zero建议增加noinline `__sm86_unpack_fp8`；WMMA wrappers和QKV staging均使用该入口。prep/unpack纳入同基本块CSE、零折叠，后置O3前再alwaysinline。LLVM verifier回归和GPU置换/ones/packed add测试通过。
+- compact contract/projection移除fast_numeric与1920×1152限制，使用TierGeometry/free_geometry；保留其他设备/功能/导出检查。900p C256 wave2也放开，新增`DLSS5_LAB_COMPACT_ALL`和`DLSS5_LAB_C256_900`控制开关。
+- C32把Q移到消费qt循环，K/V共享数组3→2平面。Q从原residual half值重建并沿用原运算顺序，避免跨qt缓存Q。
+- 最终 **40/40模块、1898 entry编译/CUDA加载通过**；重编新benchmark runner。额外保留原3平面Q的deferred控制核，控制目录与完整候选**仅差一个fast C32模块**。两档最终Q重排对照 **0 bit-diff**。
+- 开发中的两次错误已修正并留日志：最初文本定位误中同名残差part循环，后Q变量改名使新投影绕过预洗牌读入规则；错误候选未被计入通过数据。
+
+### 最终同轮数据（50预热/80测量，Small31-block、Style1）
+
+| 档位 | Phase2 GPU min / median ms | 全Phase3 GPU min / median ms | 保留共享Q控制 GPU min / median ms | 全候选/共享Q对F32可见PSNR | maxabs | invalid |
+|---|---:|---:|---:|---:|---:|---:|
+| 900p（处理1600×1024） | 41.506 / 41.929 | 41.139 / 41.879 | **40.632 / 41.009** | 46.9753dB | 0.04004550 | 0 |
+| 1080p（处理1920×1152） | 53.505 / 54.067 | 54.925 / 55.420 | **53.683 / 54.370** | 46.1009dB | 0.04160273 | 0 |
+
+三组均首末帧逐位一致；两档完整Phase3与共享Q控制逐位一致。完整组合没有净提速，1080p回退；当前较合适子集是保留共享Q、启用900p新门控。仍为32/32零LMem（900p从34种活跃核变为32种）。完整候选输出hash：1080p `a8365381a41f7f83`、900p `b949727e624db210`。
+
+### 三项假设分别校验
+
+1. **延后解包修法没有降低关键Regs**：deferred-only+旧门控与Phase2整网0bit-diff，但wave2仍250regs、compact contract仍217regs。cubin ELF `.text`核机器码比较：contract、QKV、ViT expand与Phase2逐字节相同；wave2大小同、字节不同但Regs未降。捕获的persistent原始IR里noinline保留、pass后alwaysinline生效，unpack calls1154→1154，没有额外CSE删除。不能把“加了noinline”写成已解决根因或拿模块hash变化充当核优化证据。
+2. **900p门控确有小收益，C256保留**：20预热/40测量的共享Q控制，compact-only median41.230ms，再启C256 median40.750ms。C256 split累计3.807232ms→fused3.346432ms，省0.460800ms，输出逐位一致。新900p compact W16/inter-byte生效，`vit_pack_input`8次→0次。compact全路径不与旧900p逐位一致：除权重无损重排外，还选择了Phase2的W16 half-partition求和与byte入口/出口组合；实际PSNR已单独通过。
+3. **C32资源目标达到，性能目标未达到**：SMem10240→8192B；五个核OccW8/9→11。prefix/post/mapped regs169→146、160→152、146→152；finish/dcrop145regs；up225regs仍OccW8。新增residual读入、重新打包/预洗牌是实际成本；理论占用率上升没有转化为本轮延迟收益。8KB local-Q保留实验，不作为当前最快组合推广。
+
+默认DVFS、约140W上限、未锁频、显存7001MHz。六个长负载段SM中位数：Phase2 1710/1740MHz，共享Q1710/1725MHz，local-Q1725/1710MHz（每组1080p/900p），完整遥测留档。不宣称严格等频因果结论。
+
+详见 [`hip-port/phase3/README.md`](hip-port/phase3/README.md)、[32核分解表](hip-port/phase3/results.md)、三组原始日志、编译/机器码证据、SHA256及复测脚本。候选与对照均在忽略的artifacts目录；共享assets、游戏与v0.1.0发布包未覆盖。
+
+## 2026-10-25 hip-port Phase 4：预初始化修复 + qt滚动 + C64/C128 W16
+
+以Zero指定的 **Phase3共享Q+900p新门控** 为基线，C32源码恢复共享Q默认，未沿用8KB local-Q候选。
+
+### 分步结果与保留项
+
+1. **ViT预初始化修复保留**：contract/project的float total在进入partition循环前转换为packed_total；删除循环内`if(part==part0/p==0)`对旧f8 total的读取。contract **217→150regs**、project **210→155regs**，OccW均8→12、LMem=0；两档0bit-diff。900p核累计contract2.755584→2.178048ms，project1.087488→0.893952ms；1080p3.372032→3.309568ms、1.383424→1.362944ms。
+2. **Stage3两处qt禁止展开保留**：代表C64/C128核机器码237568→173184B、C256267648→198272B；0bit-diff、实际LMem=0。峰值Regs仍250、OccW仍8，未达到168以内目标；该改动缩小代码，没有解决全部峰值活跃区间。
+3. **显式kt滚动不保留**：单独试了QKV kt，再试Stage1/2/3/5等全部相关kt。9个实际活跃wave2核的SASS机器码与只滚动qt版本逐字节相同，无额外收益。后SSA代表核已有28/36个u4 PHI且f8 PHI=0，不把packed PHI计数误当总Regs下降。
+4. **小通道W16/双qt复用保留**：`c64-wave2`与`c64-wave2-fast`均设`W2_FFN_W16_SMALL 3`、`W2_FFN_QT_SMALL_MASK 3`。Host实际选用新增C64/C128 `_w16` 导出，输出0bit-diff、32/32零LMem。1080p C128 bi_bo2.373632→2.059264ms、C64 bi_bo1.500160→1.348608ms；900p分别1.927168→1.583104ms、1.124352→1.011712ms。wave2仍250regs/OccW8，未宣称寄存器瓶颈已解决。
+
+可选的“将running total直接作为partial MMA初值”经过GPU反例检查：partial先+2048再−2048，独立partial再加1得到1，seeded MMA得到0，256个输出均复现。它改变了FP16舍入边界，因此没有作为等价SSA消除纳入本轮0bit路线；基础置换/ones/packed add测试仍通过。
+
+### 最终同轮成绩（50预热/80测量，Small31-block、Style1）
+
+| 档位 | 共享Q基线 GPU min / median ms | Phase4 GPU min / median ms | median速度比 | Phase4 Wall median | 对F32可见PSNR | maxabs |
+|---|---:|---:|---:|---:|---:|---:|
+| 900p（处理1600×1024） | 40.364 / 40.793 | **38.763 / 39.442** | 1.0343× | 39.521ms | 46.9753dB | 0.04004550 |
+| 1080p（处理1920×1152） | 53.460 / 54.126 | **52.252 / 52.845** | 1.0242× | 52.942ms | 46.1009dB | 0.04160273 |
+
+两档对所选基线 **0bit-diff、首末帧bit_diff=0、invalid=0、32/32实际CUDA LMem=0**。输出FNV保持900p `b949727e624db210`、1080p `a8365381a41f7f83`。额外插桩帧核累计900p40.535040→38.511616ms、1080p53.289984→51.993632ms，与未插桩整网时间分开报告。
+
+最终默认配置重编 **40/40模块、1918 entry CUDA加载通过**（比之前多20个小通道W16导出）。最终模块在`hip-port/phase4/artifacts/selected/modules/`，源码保留获益改动。Host实现未变，runner沿用已验证版本；复测脚本支持从源码重编。
+
+默认DVFS、约140W上限，未锁频；基线1080p/900p长负载SM中位数1710/1740MHz，候选1695/1710MHz，显存7001MHz。具体频率/功耗已留档，速度比不冒充锁频测试。
+
+完整[Phase4说明](hip-port/phase4/README.md)、[32核分解表](hip-port/phase4/results.md)、分步日志、有效编译参数、SSA/SASS证据、哈希与复测脚本均已归档。共享assets、游戏/Magpie和v0.1.0发布包未覆盖。**当前独立引擎最优测试基线升级为Phase4 selected；wave2 250regs仍是明确未解决项。**
+
+## 2026-10-25 hip-port Phase 5：4-u32 Benes + 受约束的寄存器Q
+
+### 先独立验证向量化
+
+- 替换C/D映射为Zero提出的4-u32半精度Benes，保留scalar f32实现作测试参考。D→RDNA4每位置遍历65536种half位模式、256位置；C→Ampere测试16777216随机FP32位模式，均0bit-diff。`wmma_validate_cuda --fp16-acc` 63组零失败、FP8/FP16路径逐位一致。
+- 两方向实际PTX helper selp48→17：16条交换＋1条生成prmt selector，另加4prmt；shfl仍8条，不误称4-shfl或净少32条总指令。
+- 完整向量化40/40模块、1918 entry编译/加载通过。单独向量化已让prefix **169→168regs、OccW8→9**，无需为该断崖加launch bounds。
+
+### 再验证零重算Q与资源约束
+
+- Q仍在第一个qt循环按原顺序计算/归一化/量化/预洗牌，只将part0写入四对显式寄存器，K/V放两平面共享内存；第二循环选择寄存器，不重读residual或重建feature。
+- 裸Q虽然0bit-diff、8KB、无spill，实际峰值却178～216regs、OccW8；逻辑缓存16个u32不等于整个kernel峰值只增加16。清零与不清零均测，未把裸版本作为获益改动。
+- 单独prefix `(32,9)` 可压至168regs/OccW11，但其余缓存核仍占用过高；进一步对非up核统一约束，**五个C32核167～168regs、SMem8192B、OccW11、LMem0**。up保留原Q/10KB/234regs/OccW8，不强压。
+- 补齐10KB共享Q＋同约束控制，避免把约束与缓存收益混为一谈。最终50/80 GPU median：仅向量化900p/1080p **37.011/49.793ms**；同约束共享Q **37.105/49.867ms**；受约束寄存器Q **36.671/49.346ms**。选择最后组合，但注明该额外收益小、未锁频，不宣称严格等频约1%因果提升。
+- 默认仅在已测 `c32-wave1-fast` 启用 `SM86_C32_REGISTER_Q_MASK63`、`SM86_C32_MINBLOCKS9`；normal/rtz/fast-norm900仍共享Q。mask bit6单列Up并关闭。CUDA后置pass实现，原HIP源共享Q路径保留。
+
+### 最终成绩（50预热/80测量，Small31-block、Style1）
+
+| 档位 | Phase4基线 GPU min / median ms | Phase5组合 GPU min / median ms | median速度比 | 对F32可见PSNR | maxabs |
+|---|---:|---:|---:|---:|---:|
+| 900p（处理1600×1024） | 38.604 / 39.105 | **36.095 / 36.671** | 1.0664× | 46.9753dB | 0.04004550 |
+| 1080p（处理1920×1152） | 51.792 / 52.571 | **48.893 / 49.346** | 1.0654× | 46.1009dB | 0.04160273 |
+
+两档对基线0bit-diff、首末帧逐位一致、invalid0、32/32实际CUDA LMem0。1080p仅向量化的min为48.513ms，虽低于组合min48.893，但组合median/mean/p90更好；按median选型，不拼接不同方案min/median。
+
+最终默认源码重编C32 fast的整个cubin与获胜长测模块逐字节相同（SHA256 `92bc4bfa05cd3bd7c15d965428cc0f695d73340f6d14424702adfc0e21cc884f`），最终40模块集所有哈希也与长测集合相同。`selected-bench.log` 明确引用register-q-capped同一次长测，不当独立重复结果。
+
+同一约140W上限、默认DVFS未锁频，显存7001MHz。四组SM时钟中位数1080p/900p：基线1710/1725，向量化1680/1665，同约束共享Q1657.5/1680，Q组合1680/1695MHz。主要向量化收益明确，Q的额外小收益与Boost差异同量级，完整遥测留档。
+
+当前最优独立引擎基线为 `hip-port/phase5/artifacts/selected/modules/`；源码已保留选定改动。详见[Phase5说明](hip-port/phase5/README.md)、[32核分解表](hip-port/phase5/results.md)、分步日志、GPU验证、哈希和复测脚本。外部共享assets、游戏/Magpie运行时、v0.1.0正式包未覆盖。
+
+## 2026-10-25 hip-port Phase 6：IR对齐升级，900p进入20～30ms
+
+### 实现与编译
+
+- `build_sm86_modules.py` 新增 `upgrade_ir_alignments`，在SSA抵消结束和第二次O3结束、llc之前均调用。共享global至少align16且保留更强对齐；i32/float至少4，8B传输至少8，16B传输至少16。可配置模块cap8，最终没有采用fallback。
+- LLVM verifier/对齐规则测试通过；完整 **40/40模块、1918 entry CUDA编译/加载通过**。默认16B两档无misaligned-address错误，与Phase5输出0bit-diff。
+
+### 指令与资源数据
+
+- C64/C128 bi_bo_w16热核：global load/store u8和shared load/store u8原288/16/168/160条全部降0，替换为native word v2/v4；PTX约14213→12870行，使用当前Phase5分母，不沿用更早未滚动qt时的21576行。C256主用W16核也清除四类u8。
+- 原始16B全40模块静态LD global u8 **141625→9669**、LD shared u8 **86848→37640**。模块含未执行入口和真实byte/gather，不能把所有剩余u8当成本帧未修复的memcpy，也不能将静态数当动态事务数。
+- ViT contract/project **148/150→106/101regs**、OccW12→16；split FFN164→106regs、OccW12→16；C512 QKV207→203regs。wave2仍242～250regs/OccW8，没有达到显著下降的前提，未再强压wave2 launch bounds。
+- 原始16B使受约束prefix新增32B LMem。C32 cap8、放松约束、half自然2B控制均保持数值，但没有两档明确速度优势，未默认采用。
+- 最后只关闭prefix寄存器Q：fast家族Q mask63→31，prefix改回共享Q，**152regs/10KB/OccW9，消除32B LMem**。其余四个非up核仍167～168regs/8KB/OccW11，up234regs/10KB/OccW8，恢复32/32零LMem。与原始16B相比额外0.093/0.019ms（1080p/900p），差异很小，默认选无spill方案，保留原始方案供比较。
+
+### 最终推荐成绩（50预热/80测量，Small31-block、Style1）
+
+| 档位 | Phase5基线 GPU min / median ms | Phase6默认 GPU min / median ms | median速度比 | 默认Wall median | 对F32可见PSNR | maxabs |
+|---|---:|---:|---:|---:|---:|---:|
+| 900p（处理1600×1024） | 36.016 / 36.671 | **27.315 / 27.685** | 1.3246× | 27.781ms | 46.9753dB | 0.04004550 |
+| 1080p（处理1920×1152） | 49.145 / 49.394 | **36.538 / 36.891** | 1.3389× | 36.982ms | 46.1009dB | 0.04160273 |
+
+两档对Phase5基线0bit-diff、首末帧逐位一致、invalid0、32/32实际CUDA LMem0。FNV仍900p `b949727e624db210`、1080p `a8365381a41f7f83`。插桩核累计900p36.103168→26.121184ms，1080p48.503808→34.360320ms。原始带32B local方案另为900p27.336/27.666ms、1080p36.292/36.798ms，不能把它的min拼到推荐median。
+
+**900p达成20～30ms目标；1080p仍约37ms，未进入30ms。** C32六核占原始16B插桩累计900p49.2%、1080p50.8%，成为更明确的剩余瓶颈；不是单靠继续清模块中的未使用u8即可推导出新加速。
+
+默认DVFS、约140W上限，未锁频，显存7001MHz。遥测覆盖基线与原始16B，SM中位数基线1080p/900p1665/1687.5MHz、16B均1620MHz；最后prefix共享Q长测未另采分段遥测，不宣称严格等频倍数。
+
+最终默认源码重编C32 fast与推荐长测模块整个cubin相同，40模块集哈希相同；`selected-bench.log` 明确引用prefix-shared-q同次长测，不伪装独立重复。产物在 `hip-port/phase6/artifacts/selected/modules/`，默认源码已采用对齐升级和prefix共享Q回退。
+
+详见[Phase6说明](hip-port/phase6/README.md)、[32核表](hip-port/phase6/results.md)、[40模块指令统计](hip-port/phase6/ptx-counts.md)、全部对照/IR诊断/哈希/复测脚本。外部共享assets、游戏/Magpie和v0.1.0正式包未覆盖。
+
+## 2026-10-25：Phase 7 无分支FP8与常量裁剪；跨h2预解包无收益
+
+保留compat头的无分支FP32→E4M3、8处3指令解包位处理、常量fmed3二指令裁剪。GPU原语4262720测试值（随机float位模式、全部half模式与量化边界邻近值）对旧实现0bit-diff。LUT0xEA输入排列错误由小测试抓获，修正后最终40/40模块、1918entry真实CUDA加载通过。独立FP8转换核0bra、常量裁剪核1max+1min。
+
+50warmup/80iter，第一轮：900p同轮Phase6 min27.421/median27.908ms → **27.344/27.636ms**；1080p36.467/36.946 → **36.371/36.722ms**。核累计26.256384→25.724960ms、34.411520→33.817600ms。反向顺序复测1+2为900p27.113/27.564、1080p35.816/36.599；随后基线27.757/28.173、36.655/37.330。重复结果分列，不混拼最小值，默认DVFS不宣称严格等频速度比。
+
+两档全部对本轮/归档Phase6输出0bit-diff、首末帧逐位一致、invalid0、32/32活跃核CUDA LMem0。PSNR900p46.9753、1080p46.1009dB不变。prefix静态PTX bra617→10、min/max528/530→288/290、MMA84不变；C64/C128 bi_bo_w16 bra540→19、min/max128/130→64/66、MMA100不变。静态PTX削减没有变成同量级帧耗时改善，不能等同动态SASS分支数。
+
+资源有得有失：C512QKV203→151regs/OccW8→12，C32up234→210；wave2主核仍OccW8。splitFFN106→186regs/OccW16→8，ViTproject101→138/OccW16→12，ViTattention78→119，完整核表保留回退而不只报好处。
+
+第3项仅C32 W16 expansion外提input[0/1]解包，数值0bit、LMem0、寄存器基本不变，但两档median27.788/36.904ms均慢于1+2，prefix/mapped/up各增640B机器码；因此不进入默认，保留独立实验。默认源码保留1+2，`phase7/artifacts/selected/modules/`40模块哈希等于step12；selected日志明确为第一轮step12别名，不算独立复测。
+
+[Phase7说明](hip-port/phase7/README.md)、[32核表](hip-port/phase7/results.md)、[主用核PTX](hip-port/phase7/ptx-counts.md)、[40模块PTX](hip-port/phase7/ptx-module-counts.md)、原语验证/重复长测/遥测/哈希均已落盘。外部运行时、游戏/Magpie、共享assets及正式包未替换。
+
+## 2026-10-25：Phase 8，2-shfl D→AB直通；bounds配合低寄存器FP8恢复零spill
+
+加入 `sm86_d_bytes_to_ab`，GPU验证256/256个位置标签精确一致，4194304个随机half值经FP8打包后0bit-diff。独立bridge PTX确为2shfl+4selp+4prmt（另有lane地址计算ALU）。C32的expand/AV与wave2的expand/contract/result/AV通过CUDA源码后处理接入；Q/K归一化、位置偏置和残差通道寻址不改。SSA测试确认D→C映射成对删除，LLVM verifier通过。
+
+原始完整40/40模块、1918entry编译加载通过。先测C32-only、C32+wave2，再加请求的bounds；全部两档0bit-diff。但mapped新增8B local，splitFFN在bounds下出现56/64B local，ViTproject16B local。不能只凭OccW提高认定修复。
+
+最终两处局部处理：`vit-stream-fast`、`c512-m32-deep`恢复逐位等价的FP8 C++转换表达式，保留Phase7常量裁剪/LOP3和Phase8 bounds，splitFFN恢复**106regs/OccW16/LMem0**，ViTproject恢复**101regs/OccW16/LMem0**；C32fast Qmask31→29，仅mapped改共享Q，直通仍保留，mapped **146regs/10KB/OccW9/LMem0**。另外三个主用寄存器Q核仍8KB/OccW11。C32/wave2继续使用Phase7无分支FP8 asm。
+
+最终默认源码重编3个修正模块，37个复用完整构建；以最终40模块目录重新跑独立50warmup/80iter。**900p min26.486 / median26.837ms，1080p min35.237 / median35.790ms**；最后配对Phase7基线26.979/27.382、35.741/36.354ms，median速度比1.0203×/1.0158×。候选核累计**25.025536 /33.181696ms**（独立单帧）；最终900p基线插桩有抖动，不能把其27.055104ms当稳定均值。所有控制原始日志保留。
+
+两档对本轮Phase7与归档Phase6输出0bit-diff、首末帧逐位一致、invalid0、32/32活跃核CUDA LMem0；可见PSNR46.9753/46.1009dB、maxabs0.04004550/0.04160273不变。默认DVFS未锁频，最后基线/候选高利用率窗口SM中位1620/1605MHz，功耗约139W。
+
+主用prefix静态shfl269→229，mapped240→200，C64/C128/C256 bi_bo_w16为324→204，MMA不变。只消除了目标布局往返，不能说整个核的所有shuffle少83%，也不能按静态PTX数量推算动态SASS收益。带mapped8B local的控制更快（26.658/35.362med），最终选择零spill，不能把它的min拼到默认median。
+
+[Phase8说明](hip-port/phase8/README.md)、[32核分解与资源表](hip-port/phase8/results.md)、[PTX表](hip-port/phase8/ptx-counts.md)。默认产物 `hip-port/phase8/artifacts/selected/modules/`；源/模块哈希、原语、3个新布局/SSA测试及既有IR/对齐测试、遥测与复测脚本均保留，diff-check通过。外部运行时、共享assets、游戏/Magpie和正式包未覆盖。
+
+## 2026-10-25：Phase 9，Graph真实重放、V直通、五个C32非Up全部8KB零LMem
+
+Graph门控已解锁：Small、wave-owned、compact W16、final direct、900p选择路径的7处旧限制移除，PreflightPdl的Graph return保留。benchmark用DLSS5_BENCH_GRAPH控制，真实每档build1/replay130，Small/wave-owned/direct均1。改变整张输入后Graph与Raw逐位一致，恢复输入也一致；first/last0bit-diff。但多轮Graph未带来预估1.5～2.3ms收益，默认仍由opt.graph显式选择，没有强制开启。
+
+V（part2）已纳入2-shfl直通：C32及wave2融合/非融合QKV路径转换，Q/K归一化保持。相对Phase8，主用prefix静态shfl229→209、mapped200→180、wave2主核204→184，MMA不变，V-only两档0bit-diff、零LMem。
+
+第三拳关键是逐核编码选择：全模块低寄存器版令mapped零spill但prefix仍16B local；先消费qt3仍16B且更慢；全模块无分支版令prefix零spill但mapped8B。最终只让CW pack的 `!Up && cw_kind==1` 使用低寄存器FP8表达式，其余C32保持无分支；Qmask恢复63、minblocks9不变。**五个非Up C32全部8KB/OccW11/LMem0**，Up保持10KB/217regs/Occ8；整网32/32活跃核零LMem。mapped静态bra442恢复，prefix18，不隐瞒编码器局部回退。
+
+最终默认源码C32重编后50warmup/80iter，同轮Phase8 GPU median900p26.641、1080p35.486ms；候选无Graph为**900p min26.265/median26.612ms，1080p min34.924/median35.318ms**，Wall median26.722/35.407ms，独立插桩核累计**24.837120/32.576256ms**。Graph候选GPU min/median26.254/26.614、35.058/35.420ms，Wall median26.727/35.555ms。**未进入24/32ms，没有正面反超原版PTX的实测结论。** GPU median减去另一个插桩帧的累计不能全部当作可消除launch气泡。
+
+全部成功控制及最终两档对Phase8输出0bit-diff、invalid0、首末帧一致；F32 PSNR46.9753/46.1009dB、maxabs0.04004550/0.04160273不变。83次kernel调用已核实。默认DVFS未锁频，最后基线/候选/Graph窗口SM中位1620/1605/1590MHz，约139W；实际处理1600×1024/1920×1152。
+
+完整V构建最初因过窄源码断言拦下三个非register-Q变体，修正后补编，**40/40模块、1918entry**加载验证通过；原失败日志保留。最终默认C32另编一次，其余39个复用完整V集，两档无Graph/Graph均验证。产物 `hip-port/phase9/artifacts/selected/modules/`，源/模块哈希、动态输入Graph检查、全部控制、10个相关测试和diff-check落盘。[说明](hip-port/phase9/README.md)、[32核表](hip-port/phase9/results.md)、[PTX表](hip-port/phase9/ptx-counts.md)。外部运行时、共享assets、游戏/Magpie和发布包未更新。
+
+## 2026-10-25：Phase 10，9核maxnreg＋内部FP8饱和，median首次低于24/32ms
+
+先仅对Phase9相同PTX加精确入口maxnreg白名单，3个模块O4重编、9个活跃核资源全部复现：C64四核/C128三核168regs/LMem0/Occ12，C512 QKV128/0/16，C32 Up168/0/9（10KB）。五个非Up继续8KB/Occ11/LMem0。caps单独50/80 median26.279/34.895ms（首轮基线26.242/34.964），资源提升没有直接变成同幅度帧提速。
+
+第二锤CUDA后处理将FP8绝对值先用min.f32饱和到448，再做原RNE/subnormal，删除p_sat/p_nan与FP8前端冗余clamp，浮点残差夹断保留。注意当前cw_z保留-0，最终删clamp后返回x；原来x+0入口仍保留+0。4242851个有限值GPU原语（随机FP32、全部有限half、舍入边界/邻近ULP/正负零/极值）全部0bit-diff。NaN旧/新编码并不完全相同，单独诊断记录，不扩张有限域结论。
+
+首个组合版median23.702/31.412ms但出现mapped8B、FFN56/64B、ViTproject16B local。随后只在三条低寄存器路径用受约束短分支隔离subnormal/normal计算，保持内部min与RNE，不恢复旧饱和谓词/外层clamp。三个模块另编后LMem全消失，splitFFN105regs/Occ16、project101/Occ16、mapped168/Occ11。
+
+最终独立50warmup/80iter：**900p min23.461/median23.750ms，1080p min30.944/median31.631ms**；Wall median23.850/31.712ms，独立插桩核累计**21.753888/28.430336ms**。同轮Phase9 median26.361/35.028ms，时间减少9.90%/9.70%，速度比1.1099×/1.1074×。前一次修正组23.107/23.479与30.751/31.259单列，未混拼最小值。p90仍24.534/32.042，达标指median。
+
+两档对Phase9逐位一致、invalid0、first/last0、32/32活跃核LMem0；F32 PSNR46.9753/46.1009dB和maxabs不变。Graph关闭、实际处理1600×1024/1920×1152，默认DVFS未锁频；没有同输入/同尺寸重跑原版DLL，不宣称正面对比超越它。最后基线/候选SM中位1612.5/1567.5MHz、约139W。
+
+完整40/40模块、1918entry编译加载后，3个低寄存器模块局部修正重编，37个复用；默认PHASE10_CAPS/FP8均True，与构建脚本显式True配置一致，未声称第二次全部重编。最终集 `hip-port/phase10/artifacts/selected/modules/`，[说明](hip-port/phase10/README.md)、[32核表](hip-port/phase10/results.md)、[静态指令表](hip-port/phase10/ptx-counts.md)、原语/哈希/源快照/遥测/复测脚本均保留。外部共享assets、运行时、游戏/Magpie及正式包未替换。
+
+## 2026-10-25：Phase 10 720p补测与三档PTX历史标尺
+
+单位均为ms。CUDA均使用Phase10最终selected模块、0.5x Small31、Style1、Graph off、50 warmup/80 iter；720p本次补测，900p/1080p沿用上一轮最终独立复测，未混入其它控制轮次的min或核累计。PROFILE_TOTAL是单独插桩帧。PTX列为历史GPU median标尺，本轮未统一输入/处理尺寸重跑DLL，不计算严格同条件加速比。
+
+| 档位（CUDA处理尺寸） | CUDA GPU min | CUDA GPU median | CUDA Wall median | CUDA PROFILE_TOTAL | invalid | PTX历史GPU median |
+|---|---:|---:|---:|---:|---:|---:|
+| 720p（1280×768） | 13.843 | **14.103** | 14.182 | 14.001120 | 0 | 15.83 |
+| 900p（1600×1024） | 23.461 | **23.750** | 23.850 | 21.753888 | 0 | 24.47 |
+| 1080p（1920×1152） | 30.944 | **31.631** | 31.712 | 28.430336 | 0 | 32.04 |
+
+720p首次触发旧C256分散核的CUDA_ERROR_MISALIGNED_ADDRESS；逐核同步定位为mh_ffn_fused_c256_frag_project_g128_qkv_bytein_fb。仅扩展Host的1280×768门控以使用现有c256_wave2，selected的40个模块字节不变。采用Phase5无对齐升级模块、关闭新720 C256门控跑旧分散路径，完整输出与本次720p逐位一致（0 bit-diff）。新路径首末帧0bit-diff、invalid0、32/32活跃核LMem0。同步诊断仅由DLSS5_BENCH_SYNC_KERNELS显式启用，正式计时未启用。
+
+复测脚本：`bash Development/hip-port/phase10/bench_720p.sh`；[三档记录](hip-port/phase10/three-tier-results.md)，原日志`hip-port/phase10/selected-720p-bench.log`、故障定位及Phase5参考日志均保留。900p/1080p门控不变。
+
+## 2026-10-25：Phase 10 Windows Runtime部署《鬼武者：剑之道》
+
+按Zero指示将C256整块融合放宽到所有TierGeometry/free_geometry，只有DLSS5_LAB_C256_SPLIT=1退回分散核。当前selected模块未改，Linux 3/5快验896×512与1280×768均invalid0、首末帧逐位一致、无对齐错误，median7.999/14.092ms（不是50/80正式性能表）。
+
+build-runtime.sh交叉编译当前Host/packed_weights为LmxxfNrRuntime.dll（5,048,942B，SHA256 ec94f6db31c9310c32cc93b789b66294a25b00630b121a2d761dda182fcda353）。补上RuntimeOptions对sm_86子目录的探测，flags loader允许CUDA架构/AMPERE/C256配置；否则架构目录仅sm_86时会错误关闭优化。
+
+原OptiScaler.ini、nvngx.dll_dlssnr.dll、nvngx_dlssnr.dll已备份到C:\DLSS5-5090-dll\backups\Onimusha-ptx-0.1.0并核对哈希，两个旧NR DLL已从Content根移除。按指定0.44底包解出DLSS5-AMD、D3D12_Optiscaler、shaders，部署40个selected CUDA模块与AMPERE_WEIGHTS_V2到HIP/sm_86，删除gfx1200/gfx1201，更新SHA清单；93个Small权重和207个cso齐全。dxgi/dinput8不变。
+
+INI切换lmxxf，Enabled/WhitePointSource/Preset/Style= true/1/2/1，DX12 upscaler=dlss。default-config选择0.5 Small、FAST_NUMERIC=1、AMPERE_WEIGHTS=1、CUDA_ARCH_NAME=sm_86、C256_SPLIT=0、Graph0。特别将NETWORK_FREE_RES=1：底包原0会把854×480升级到1344×768；Windows原生D3D12/CUDA探针重测确认实际854×480→896×512，modules_ok40/hip1，wave-owned/C512/ViT gates均开启，PrepareFrame与Cancel成功。尚未代替Zero启动游戏作画质验收。
+
+[部署回执](hip-port/phase10/deploy-onimusha/README.md)及完整deployment.json、Windows探针/编译/两档快验日志已归档；备份目录含原文件SHA与新部署SHA。未改其它游戏与发布ZIP。

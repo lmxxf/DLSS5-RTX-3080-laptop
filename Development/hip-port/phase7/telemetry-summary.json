@@ -1,0 +1,62 @@
+[
+  {
+    "variant": "baseline",
+    "window": [
+      "2026-10-25 06:16:07",
+      "2026-10-25 06:16:19"
+    ],
+    "samples_util_ge95": 15,
+    "sm_mhz": 1620.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.58,
+    "temp_c": 65.0
+  },
+  {
+    "variant": "step12",
+    "window": [
+      "2026-10-25 06:16:19",
+      "2026-10-25 06:16:30"
+    ],
+    "samples_util_ge95": 16,
+    "sm_mhz": 1582.5,
+    "mem_mhz": 7001.0,
+    "power_w": 139.70999999999998,
+    "temp_c": 70.0
+  },
+  {
+    "variant": "hoist",
+    "window": [
+      "2026-10-25 06:16:32",
+      "2026-10-25 06:16:43"
+    ],
+    "samples_util_ge95": 15,
+    "sm_mhz": 1590.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.2,
+    "temp_c": 73.0
+  },
+  {
+    "variant": "step12-repeat",
+    "window": [
+      "2026-10-25 06:17:23",
+      "2026-10-25 06:17:34"
+    ],
+    "samples_util_ge95": 15,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.82,
+    "temp_c": 66.0
+  },
+  {
+    "variant": "baseline-repeat",
+    "window": [
+      "2026-10-25 06:17:34",
+      "2026-10-25 06:17:45"
+    ],
+    "samples_util_ge95": 17,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.65,
+    "temp_c": 71.0
+  }
+]

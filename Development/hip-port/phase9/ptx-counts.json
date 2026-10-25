@@ -1,0 +1,170 @@
+[
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_prefix_b8d_w16",
+    "phase8": {
+      "shfl": 229,
+      "selp": 1136,
+      "prmt": 332,
+      "bra": 10,
+      "mma": 84,
+      "lines": 13332
+    },
+    "v-bridge": {
+      "shfl": 209,
+      "selp": 1100,
+      "prmt": 328,
+      "bra": 10,
+      "mma": 84,
+      "lines": 13232
+    },
+    "selected": {
+      "shfl": 209,
+      "selp": 1112,
+      "prmt": 328,
+      "bra": 18,
+      "mma": 84,
+      "lines": 13345
+    }
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_mapped_b8_w16",
+    "phase8": {
+      "shfl": 200,
+      "selp": 870,
+      "prmt": 324,
+      "bra": 10,
+      "mma": 80,
+      "lines": 10273
+    },
+    "v-bridge": {
+      "shfl": 180,
+      "selp": 834,
+      "prmt": 320,
+      "bra": 10,
+      "mma": 80,
+      "lines": 10173
+    },
+    "selected": {
+      "shfl": 180,
+      "selp": 686,
+      "prmt": 320,
+      "bra": 442,
+      "mma": 80,
+      "lines": 10674
+    }
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_finish_b8_w16",
+    "phase8": {
+      "shfl": 184,
+      "selp": 993,
+      "prmt": 340,
+      "bra": 37,
+      "mma": 92,
+      "lines": 12866
+    },
+    "v-bridge": {
+      "shfl": 164,
+      "selp": 957,
+      "prmt": 336,
+      "bra": 37,
+      "mma": 92,
+      "lines": 12766
+    },
+    "selected": {
+      "shfl": 164,
+      "selp": 957,
+      "prmt": 336,
+      "bra": 37,
+      "mma": 92,
+      "lines": 12766
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_bi_bo_w16",
+    "phase8": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 384,
+      "bra": 19,
+      "mma": 100,
+      "lines": 11925
+    },
+    "v-bridge": {
+      "shfl": 184,
+      "selp": 963,
+      "prmt": 380,
+      "bra": 19,
+      "mma": 100,
+      "lines": 11825
+    },
+    "selected": {
+      "shfl": 184,
+      "selp": 963,
+      "prmt": 380,
+      "bra": 19,
+      "mma": 100,
+      "lines": 11825
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_bo_w16",
+    "phase8": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 384,
+      "bra": 19,
+      "mma": 100,
+      "lines": 11919
+    },
+    "v-bridge": {
+      "shfl": 184,
+      "selp": 963,
+      "prmt": 380,
+      "bra": 19,
+      "mma": 100,
+      "lines": 11819
+    },
+    "selected": {
+      "shfl": 184,
+      "selp": 963,
+      "prmt": 380,
+      "bra": 19,
+      "mma": 100,
+      "lines": 11819
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c256_wave2_bi_bo_w16",
+    "phase8": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 404,
+      "bra": 22,
+      "mma": 100,
+      "lines": 12175
+    },
+    "v-bridge": {
+      "shfl": 184,
+      "selp": 963,
+      "prmt": 400,
+      "bra": 22,
+      "mma": 100,
+      "lines": 12075
+    },
+    "selected": {
+      "shfl": 184,
+      "selp": 963,
+      "prmt": 400,
+      "bra": 22,
+      "mma": 100,
+      "lines": 12075
+    }
+  }
+]

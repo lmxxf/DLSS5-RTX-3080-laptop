@@ -1,0 +1,74 @@
+[
+  {
+    "variant": "baseline-final",
+    "window": [
+      "2026-10-25 07:31:35",
+      "2026-10-25 07:31:46"
+    ],
+    "samples_util_ge95": 14,
+    "sm_mhz": 1612.5,
+    "mem_mhz": 7001.0,
+    "power_w": 139.47500000000002,
+    "temp_c": 63.0
+  },
+  {
+    "variant": "baseline",
+    "window": [
+      "2026-10-25 07:20:03",
+      "2026-10-25 07:20:14"
+    ],
+    "samples_util_ge95": 0,
+    "sm_mhz": null,
+    "mem_mhz": null,
+    "power_w": null,
+    "temp_c": null
+  },
+  {
+    "variant": "caps",
+    "window": [
+      "2026-10-25 07:20:14",
+      "2026-10-25 07:20:25"
+    ],
+    "samples_util_ge95": 0,
+    "sm_mhz": null,
+    "mem_mhz": null,
+    "power_w": null,
+    "temp_c": null
+  },
+  {
+    "variant": "lowreg-fix",
+    "window": [
+      "2026-10-25 07:29:46",
+      "2026-10-25 07:29:56"
+    ],
+    "samples_util_ge95": 13,
+    "sm_mhz": 1590.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.69,
+    "temp_c": 62.0
+  },
+  {
+    "variant": "optimized",
+    "window": [
+      "2026-10-25 07:25:30",
+      "2026-10-25 07:25:40"
+    ],
+    "samples_util_ge95": 12,
+    "sm_mhz": 1575.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.605,
+    "temp_c": 65.0
+  },
+  {
+    "variant": "selected",
+    "window": [
+      "2026-10-25 07:31:46",
+      "2026-10-25 07:31:56"
+    ],
+    "samples_util_ge95": 14,
+    "sm_mhz": 1567.5,
+    "mem_mhz": 7001.0,
+    "power_w": 139.26999999999998,
+    "temp_c": 67.5
+  }
+]

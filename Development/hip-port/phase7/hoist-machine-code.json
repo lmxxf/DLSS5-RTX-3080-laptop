@@ -1,0 +1,20 @@
+[
+  {
+    "kernel": "c32_wave1_prefix_b8d_w16",
+    "step12_bytes": 240512,
+    "hoist_bytes": 241152,
+    "identical": false
+  },
+  {
+    "kernel": "c32_wave1_mapped_b8_w16",
+    "step12_bytes": 200960,
+    "hoist_bytes": 201600,
+    "identical": false
+  },
+  {
+    "kernel": "c32_wave1_up_b8_w16",
+    "step12_bytes": 219520,
+    "hoist_bytes": 220160,
+    "identical": false
+  }
+]

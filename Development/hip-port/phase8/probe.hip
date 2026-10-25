@@ -1,0 +1,4 @@
+using U=unsigned;
+SM86_DEV sm86_i2 pack(sm86_f8 f,U raw){U a=0,b=0;_Pragma("unroll") for(U i=0;i<8;i++){U x=raw?U(f[i]):sm86_f32_to_e4m3_byte(f[i]);if(i<4)a|=(x&255)<<(8*i);else b|=(x&255)<<(8*(i-4));}return sm86_i2{int(a),int(b)};}
+extern "C" __attribute__((global)) void direct(const U* in,U* out,U n){U warp=__builtin_amdgcn_workgroup_id_x(),lane=sm86_lane_id();if(warp>=n)return;sm86_u4 ad;_Pragma("unroll") for(U i=0;i<4;i++)ad[i]=in[(warp*32+lane)*4+i];sm86_i2 a=sm86_preshuffle_fp8(pack(__sm86_d_to_rdna4(ad),warp==0)),b=sm86_d_bytes_to_ab(pack(sm86_unpack_acc(ad),warp==0));out[(warp*32+lane)*4]=a[0];out[(warp*32+lane)*4+1]=a[1];out[(warp*32+lane)*4+2]=b[0];out[(warp*32+lane)*4+3]=b[1];}
+extern "C" __attribute__((global)) void bridge_only(const int* in,int* out){U lane=sm86_lane_id();sm86_i2 a={in[lane*2],in[lane*2+1]},b=sm86_d_bytes_to_ab(a);out[lane*2]=b[0];out[lane*2+1]=b[1];}

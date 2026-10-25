@@ -1,0 +1,182 @@
+[
+  {
+    "variant": "baseline-final",
+    "window": [
+      "2026-10-25 07:02:50",
+      "2026-10-25 07:03:00"
+    ],
+    "samples_util_ge95": 14,
+    "sm_mhz": 1620.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.57,
+    "temp_c": 63.0
+  },
+  {
+    "variant": "baseline",
+    "window": [
+      "2026-10-25 06:48:02",
+      "2026-10-25 06:48:13"
+    ],
+    "samples_util_ge95": 0,
+    "sm_mhz": null,
+    "mem_mhz": null,
+    "power_w": null,
+    "temp_c": null
+  },
+  {
+    "variant": "graph-only",
+    "window": [
+      "2026-10-25 06:48:13",
+      "2026-10-25 06:48:23"
+    ],
+    "samples_util_ge95": 0,
+    "sm_mhz": null,
+    "mem_mhz": null,
+    "power_w": null,
+    "temp_c": null
+  },
+  {
+    "variant": "q31-lowreg",
+    "window": [
+      "2026-10-25 07:00:35",
+      "2026-10-25 07:00:46"
+    ],
+    "samples_util_ge95": 15,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.7,
+    "temp_c": 67.0
+  },
+  {
+    "variant": "q63-fast",
+    "window": [
+      "2026-10-25 07:00:24",
+      "2026-10-25 07:00:35"
+    ],
+    "samples_util_ge95": 15,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.66,
+    "temp_c": 63.0
+  },
+  {
+    "variant": "q63-graph",
+    "window": [
+      "2026-10-25 06:52:11",
+      "2026-10-25 06:52:22"
+    ],
+    "samples_util_ge95": 16,
+    "sm_mhz": 1597.5,
+    "mem_mhz": 7001.0,
+    "power_w": 139.455,
+    "temp_c": 69.0
+  },
+  {
+    "variant": "q63-lowreg",
+    "window": [
+      "2026-10-25 06:52:01",
+      "2026-10-25 06:52:11"
+    ],
+    "samples_util_ge95": 13,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.75,
+    "temp_c": 64.0
+  },
+  {
+    "variant": "q63-peel-graph",
+    "window": [
+      "2026-10-25 06:55:20",
+      "2026-10-25 06:55:30"
+    ],
+    "samples_util_ge95": 15,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.2,
+    "temp_c": 73.0
+  },
+  {
+    "variant": "q63-peel",
+    "window": [
+      "2026-10-25 06:55:08",
+      "2026-10-25 06:55:20"
+    ],
+    "samples_util_ge95": 15,
+    "sm_mhz": 1620.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.76,
+    "temp_c": 70.0
+  },
+  {
+    "variant": "q63-policy-graph",
+    "window": [
+      "2026-10-25 07:01:26",
+      "2026-10-25 07:01:37"
+    ],
+    "samples_util_ge95": 16,
+    "sm_mhz": 1590.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.365,
+    "temp_c": 70.0
+  },
+  {
+    "variant": "q63-policy",
+    "window": [
+      "2026-10-25 07:01:16",
+      "2026-10-25 07:01:26"
+    ],
+    "samples_util_ge95": 13,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.47,
+    "temp_c": 65.0
+  },
+  {
+    "variant": "selected-graph",
+    "window": [
+      "2026-10-25 07:03:11",
+      "2026-10-25 07:03:22"
+    ],
+    "samples_util_ge95": 16,
+    "sm_mhz": 1590.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.55,
+    "temp_c": 73.0
+  },
+  {
+    "variant": "selected",
+    "window": [
+      "2026-10-25 07:03:00",
+      "2026-10-25 07:03:11"
+    ],
+    "samples_util_ge95": 16,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.41500000000002,
+    "temp_c": 69.0
+  },
+  {
+    "variant": "v-bridge",
+    "window": [
+      "2026-10-25 06:54:36",
+      "2026-10-25 06:54:47"
+    ],
+    "samples_util_ge95": 14,
+    "sm_mhz": 1612.5,
+    "mem_mhz": 7001.0,
+    "power_w": 139.64,
+    "temp_c": 65.0
+  },
+  {
+    "variant": "v-graph",
+    "window": [
+      "2026-10-25 06:54:47",
+      "2026-10-25 06:54:58"
+    ],
+    "samples_util_ge95": 15,
+    "sm_mhz": 1605.0,
+    "mem_mhz": 7001.0,
+    "power_w": 139.47,
+    "temp_c": 70.0
+  }
+]

@@ -5,6 +5,18 @@ import sys
 import json
 import hashlib
 import subprocess
+from phase2_transform import transform as phase2_transform
+from phase5_transform import transform as phase5_transform
+from phase8_transform import transform as phase8_transform, low_register_fp8
+from phase9_transform import transform as phase9_transform, c32_mapped_lowreg
+from phase10_transform import apply_register_caps, optimize_fp8 as phase10_optimize_fp8
+PHASE10_CAPS = True
+PHASE10_FP8 = True
+C32_LOCAL_FP8_POLICY_MODULES = {"c32-wave1-fast"}
+LOW_REGISTER_FP8_MODULES = {"vit-stream-fast", "c512-m32-deep"}
+
+# Per-module controlled experiments; defaults enable the verified Phase-8 sites.
+PHASE8_OVERRIDES = {}
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 def parse_ps1_modules(ps1_path):
@@ -126,24 +138,24 @@ def transform_hip_to_sm86_cu(text, compat_header_path):
     )
     text = text.replace(
         'for(uint j=0;j<4;j++)for(uint e=0;e<8;e++)acc[j][e]=H(acc[j][e]+sum[j][e]);\n }',
-        '_Pragma("unroll") for(uint j=0;j<4;j++){sum[j]=__sm86_c_to_ampere(sum[j]);_Pragma("unroll") for(uint e=0;e<8;e++)acc[j][e]=H(acc[j][e]+sum[j][e]);}\n }\n _Pragma("unroll") for(uint j=0;j<4;j++)acc[j]=__sm86_d_to_rdna4(acc[j]);'
+        '_Pragma("unroll") for(uint j=0;j<4;j++){sum[j]=__sm86_c_to_ampere_f32(sum[j]);_Pragma("unroll") for(uint e=0;e<8;e++)acc[j][e]=H(acc[j][e]+sum[j][e]);}\n }\n _Pragma("unroll") for(uint j=0;j<4;j++)acc[j]=__sm86_d_to_rdna4_f32(acc[j]);'
     )
     text = text.replace(
         'for(uint e=0;e<8;e++)acc[e]=channels==32?Hrtz(acc[e]+sum[e]):H(acc[e]+sum[e]);\n }',
-        'sum=__sm86_c_to_ampere(sum);_Pragma("unroll") for(uint e=0;e<8;e++)acc[e]=channels==32?Hrtz(acc[e]+sum[e]):H(acc[e]+sum[e]);\n }\n acc=__sm86_d_to_rdna4(acc);'
+        'sum=__sm86_c_to_ampere_f32(sum);_Pragma("unroll") for(uint e=0;e<8;e++)acc[e]=channels==32?Hrtz(acc[e]+sum[e]):H(acc[e]+sum[e]);\n }\n acc=__sm86_d_to_rdna4_f32(acc);'
     )
     # 4. Conjugate 4-partition accumulation in vit_contract_blocked_body, vit_stream_project_tiles, and decoder_project2x_h16w_wide_body so `acc`/`a` stays in Ampere layout across `part=0..3`!
     text = text.replace(
         '_Pragma("unroll") for(uint n=0;n<4;n++)for(uint e=0;e<8;e++){if constexpr(Partial)out[(part*tokens+first+gr()*8+e)*1024+col+n*16+rc()]=acc[n][e];else total[n][e]+=acc[n][e];}\n  }',
-        '_Pragma("unroll") for(uint n=0;n<4;n++){if constexpr(Partial){for(uint e=0;e<8;e++)out[(part*tokens+first+gr()*8+e)*1024+col+n*16+rc()]=acc[n][e];}else{if(part==part0)total[n]=__sm86_c_to_ampere(total[n]);acc[n]=__sm86_c_to_ampere(acc[n]);_Pragma("unroll") for(uint e=0;e<8;e++)total[n][e]+=acc[n][e];}}\n  }\n  if constexpr(!Partial){_Pragma("unroll") for(uint n=0;n<4;n++)total[n]=__sm86_d_to_rdna4(total[n]);}'
+        '_Pragma("unroll") for(uint n=0;n<4;n++){if constexpr(Partial){for(uint e=0;e<8;e++)out[(part*tokens+first+gr()*8+e)*1024+col+n*16+rc()]=acc[n][e];}else{if(part==part0)total[n]=__sm86_c_to_ampere_f32(total[n]);acc[n]=__sm86_c_to_ampere_f32(acc[n]);_Pragma("unroll") for(uint e=0;e<8;e++)total[n][e]+=acc[n][e];}}\n  }\n  if constexpr(!Partial){_Pragma("unroll") for(uint n=0;n<4;n++)total[n]=__sm86_d_to_rdna4_f32(total[n]);}'
     )
     text = text.replace(
         '#pragma unroll\n   for(uint t=0;t<TM;t++)\n#pragma unroll\n   for(uint j=0;j<TN;j++)for(uint e=0;e<8;e++)total[t][j][e]+=a[t][j][e];}',
-        '#pragma unroll\n   for(uint t=0;t<TM;t++)\n#pragma unroll\n   for(uint j=0;j<TN;j++){if(p==0)total[t][j]=__sm86_c_to_ampere(total[t][j]);a[t][j]=__sm86_c_to_ampere(a[t][j]);_Pragma("unroll") for(uint e=0;e<8;e++)total[t][j][e]+=a[t][j][e];}}\n#pragma unroll\n  for(uint t=0;t<TM;t++)\n#pragma unroll\n  for(uint j=0;j<TN;j++)total[t][j]=__sm86_d_to_rdna4(total[t][j]);'
+        '#pragma unroll\n   for(uint t=0;t<TM;t++)\n#pragma unroll\n   for(uint j=0;j<TN;j++){if(p==0)total[t][j]=__sm86_c_to_ampere_f32(total[t][j]);a[t][j]=__sm86_c_to_ampere_f32(a[t][j]);_Pragma("unroll") for(uint e=0;e<8;e++)total[t][j][e]+=a[t][j][e];}}\n#pragma unroll\n  for(uint t=0;t<TM;t++)\n#pragma unroll\n  for(uint j=0;j<TN;j++)total[t][j]=__sm86_d_to_rdna4_f32(total[t][j]);'
     )
     text = text.replace(
         '    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x0,i2{bw[0],bw[1]},a);\n    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x1,i2{bw[2],bw[3]},a);\n   }for(uint e=0;e<8;e++)total[e]=p?total[e]+a[e]:a[e];\n  }',
-        '    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x0,i2{bw[0],bw[1]},a);\n    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x1,i2{bw[2],bw[3]},a);\n   }a=__sm86_c_to_ampere(a);_Pragma("unroll") for(uint e=0;e<8;e++)total[e]=p?total[e]+a[e]:a[e];\n  }\n  total=__sm86_d_to_rdna4(total);'
+        '    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x0,i2{bw[0],bw[1]},a);\n    a=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(x1,i2{bw[2],bw[3]},a);\n   }a=__sm86_c_to_ampere_f32(a);_Pragma("unroll") for(uint e=0;e<8;e++)total[e]=p?total[e]+a[e]:a[e];\n  }\n  total=__sm86_d_to_rdna4_f32(total);'
     )
     # 5. Automatically unroll small inner loops (<=16 steps or template tile bounds, excluding outer tile loops qt/ht/h2/qb) so SROA promotes f8/h8/i2 arrays to SSA registers (eliminating LMem!)
     unroll_pat = re.compile(
@@ -216,7 +228,7 @@ def transform_hip_to_sm86_cu(text, compat_header_path):
         "acc=__builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(b,av[kt],acc);",
         "acc=sm86_wmma_fp8_preshuffled_b(b,av[kt],acc);"
     )
-    # Pre-shuffle Q, K, V, prob in wave_owned_c32.inc (cw_qkv_smem[3][8][32] layout)
+    # Shared Q/K/V is the measured Phase-3 winner and Phase-4 baseline.
     text = text.replace(
         "cw_qkv_smem[part][qt*2+ci][qlane]=a;",
         "cw_qkv_smem[part][qt*2+ci][qlane]=sm86_preshuffle_fp8(a);"
@@ -392,7 +404,7 @@ def assemble_module_source(mod, source_dir, compat_header_path):
             text += open(os.path.join(source_dir, part), "r", encoding="utf-8").read() + "\n"
     return transform_hip_to_sm86_cu(text, compat_header_path)
 
-prep_call_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@(__sm86_prep_(?:fp8|f16))\((<2 x i32>|<8 x half>)(?:\s+noundef)?\s+(%\S+|zeroinitializer|<[^>]+>)\)(.*)$')
+prep_call_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@(__sm86_(?:prep|unpack)_(?:fp8|f16))\((<2 x i32>|<8 x half>)(?:\s+noundef)?\s+(%\S+|zeroinitializer|<[^>]+>)\)(.*)$')
 
 def cse_and_hoist_prep_calls(body: str, split_basic_blocks) -> str:
     blocks = split_basic_blocks(body)
@@ -429,7 +441,7 @@ def cse_and_hoist_prep_calls(body: str, split_basic_blocks) -> str:
     return "\n".join("\n".join(bb_map[lbl]) for lbl in bb_order)
 
 # --- SSA IR Algebraic Cancellation for WMMA C/D Shuffles ---
-d2r_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@__sm86_d_to_rdna4\(<8 x float>(?:\s+noundef)?\s+(%\S+|zeroinitializer)\)(.*)$')
+d2r_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@__sm86_d_to_rdna4\(<4 x i32>(?:\s+noundef)?\s+(%\S+|zeroinitializer)\)(.*)$')
 c2a_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*(?:tail\s+)?call[^@]*@__sm86_c_to_ampere\(<8 x float>(?:\s+noundef)?\s+(%\S+|zeroinitializer)\)(.*)$')
 phi_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*phi\s+<8 x float>\s*(.+)$')
 fadd_zero_pat = re.compile(r'^(\s*)(%\S+)\s*=\s*fadd\s+<8 x float>\s+(%\S+|zeroinitializer),\s*zeroinitializer\s*$')
@@ -479,12 +491,12 @@ def pass1_direct_and_dce(body: str) -> str:
             arg_v = resolve(arg_v)
             if arg_v == "zeroinitializer":
                 alias[res_v] = "zeroinitializer"
-                new_lines.append(f"{indent}{res_v} = fadd <8 x float> zeroinitializer, zeroinitializer")
+                new_lines.append(f"{indent}{res_v} = or <4 x i32> zeroinitializer, zeroinitializer")
                 continue
             elif arg_v in d2r_map:
                 src_x = resolve(d2r_map[arg_v])
                 alias[res_v] = src_x
-                new_lines.append(f"{indent}{res_v} = fadd <8 x float> {src_x}, zeroinitializer")
+                new_lines.append(f"{indent}{res_v} = or <4 x i32> {src_x}, zeroinitializer")
                 continue
         new_lines.append(ln)
 
@@ -631,14 +643,14 @@ def optimize_function_body(body: str) -> str:
             else:
                 pre_amp = f"%init_amp_{pvar[1:]}"
                 preheader_inserts.setdefault(pre_lbl, []).append(
-                    f"  {pre_amp} = tail call contract <8 x float> @__sm86_c_to_ampere(<8 x float> noundef {pre_v})"
+                    f"  {pre_amp} = tail call <4 x i32> @__sm86_c_to_ampere(<8 x float> noundef {pre_v})"
                 )
 
-            lns[i] = f"{indent}{pvar} = phi <8 x float> [ {pre_amp}, %{pre_lbl} ], [ {new_back_v}, %{latch_lbl} ]"
+            lns[i] = f"{indent}{pvar} = phi <4 x i32> [ {pre_amp}, %{pre_lbl} ], [ {new_back_v}, %{latch_lbl} ]"
             if is_diamond:
                 d_lbl, d_idx, d_indent, _ = all_phis[back_v]
                 old_d_ln = bb_map[d_lbl][d_idx]
-                bb_map[d_lbl][d_idx] = re.sub(re.escape(d_var) + r'(?![a-zA-Z0-9_.])', mma_v, old_d_ln)
+                bb_map[d_lbl][d_idx] = re.sub(re.escape(d_var) + r'(?![a-zA-Z0-9_.])', mma_v, old_d_ln).replace("phi <8 x float>", "phi <4 x i32>")
 
             for c_res in c2a_by_arg[pvar]:
                 c2a_to_identity[c_res] = pvar
@@ -650,13 +662,13 @@ def optimize_function_body(body: str) -> str:
                         e_indent, epvar, erhs = phi_pat.match(elns[idx]).groups()
                         amp_epvar = f"%amp_{epvar[1:]}"
                         new_erhs = re.sub(re.escape(back_v) + r'(?![a-zA-Z0-9_.])', new_back_v, erhs)
-                        elns[idx] = f"{e_indent}{amp_epvar} = phi <8 x float> {new_erhs}"
+                        elns[idx] = f"{e_indent}{amp_epvar} = phi <4 x i32> {new_erhs}"
                         exit_inserts.setdefault(exit_lbl, []).append(
-                            f"  {epvar} = tail call contract <8 x float> @__sm86_d_to_rdna4(<8 x float> noundef {amp_epvar})"
+                            f"  {epvar} = tail call contract <8 x float> @__sm86_d_to_rdna4(<4 x i32> noundef {amp_epvar})"
                         )
                 else:
                     exit_inserts.setdefault(exit_lbl, []).append(
-                        f"  {back_v} = tail call contract <8 x float> @__sm86_d_to_rdna4(<8 x float> noundef {new_back_v})"
+                        f"  {back_v} = tail call contract <8 x float> @__sm86_d_to_rdna4(<4 x i32> noundef {new_back_v})"
                     )
 
     for lbl, lns in blocks:
@@ -669,7 +681,7 @@ def optimize_function_body(body: str) -> str:
             if mc and mc.group(2) in c2a_to_identity:
                 indent, res_v, _, _ = mc.groups()
                 pvar = c2a_to_identity[res_v]
-                updated.append(f"{indent}{res_v} = fadd <8 x float> {pvar}, zeroinitializer")
+                updated.append(f"{indent}{res_v} = or <4 x i32> {pvar}, zeroinitializer")
                 continue
             updated.append(ln)
         if lbl in preheader_inserts:
@@ -686,13 +698,32 @@ def optimize_function_body(body: str) -> str:
     body = "\n".join("\n".join(bb_map[lbl]) for lbl in bb_order)
     return pass1_direct_and_dce(body)
 
-def cancel_wmma_shuffles_ir(ir: str) -> str:
+# Optional per-module caps are populated only when address validation needs them.
+IR_VECTOR_ALIGNMENT_OVERRIDES = {}
+
+def upgrade_ir_alignments(ir: str, vector16_alignment: int = 16) -> str:
+    """Expose native tensor memcpy alignment before and after LLVM optimization.
+
+    Existing stronger guarantees are preserved. Physical offsets are validated by
+    the GPU tests; a module may cap 16-byte transfers at 8 without weakening facts
+    already established by LLVM itself.
+    """
+    assert vector16_alignment in (4, 8, 16)
+    ir = re.sub(r"(addrspace\(3\)\s+global\s+[^\n]+?,\s*)align\s+(\d+)",
+                lambda m: m[1] + "align " + str(max(16, int(m[2]))), ir)
+    ir = re.sub(r"\b((?:load|store)\s+(?:i32|float)\b[^\n]+?,\s*)align\s+[12]\b", r"\1align 4", ir)
+    ir = re.sub(r"\b((?:load|store)\s+(?:<2 x i32>|<2 x float>|<4 x half>|i64)[^\n]+?,\s*)align\s+[124]\b", r"\1align 8", ir)
+    ir = re.sub(r"\b((?:load|store)\s+(?:<4 x i32>|<4 x float>|<8 x half>)[^\n]+?,\s*)align\s+(1|2|4|8)\b",
+                lambda m: m[1] + "align " + str(max(int(m[2]), vector16_alignment)), ir)
+    return ir
+
+def cancel_wmma_shuffles_ir(ir: str, vector16_alignment: int = 16) -> str:
     out_chunks = []
     pos = 0
     for m in re.finditer(r'(define\s+[^\n]+\{\n)(.*?)(\n\}\n)', ir, flags=re.DOTALL):
         out_chunks.append(ir[pos:m.start()])
         header, body, footer = m.group(1), m.group(2), m.group(3)
-        if '@__sm86_prep_' in body:
+        if '@__sm86_prep_' in body or '@__sm86_unpack_' in body:
             body = cse_and_hoist_prep_calls(body, split_basic_blocks)
         if '@__sm86_c_to_ampere' in body or '@__sm86_d_to_rdna4' in body:
             body = optimize_function_body(optimize_function_body(body))
@@ -701,11 +732,58 @@ def cancel_wmma_shuffles_ir(ir: str) -> str:
     out_chunks.append(ir[pos:])
     res = "".join(out_chunks)
     res = re.sub(r'\bnoinline\b', 'alwaysinline', res)
-    return res
+    return upgrade_ir_alignments(res, vector16_alignment)
 
 def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_bin):
     name = mod["name"]
     cu_src = assemble_module_source(mod, source_dir, compat_header_path)
+    # Cache depends on helper bodies and SSA rewrites, not just the include path.
+    key = open(compat_header_path, "rb").read() + open(__file__, "rb").read()
+    phase2 = os.path.join(os.path.dirname(__file__), "phase2_transform.py")
+    if os.path.exists(phase2): key += open(phase2, "rb").read()
+    phase5 = os.path.join(os.path.dirname(__file__), "phase5_transform.py")
+    if os.path.exists(phase5): key += open(phase5, "rb").read()
+    phase8 = os.path.join(os.path.dirname(__file__), "phase8_transform.py")
+    if os.path.exists(phase8): key += open(phase8, "rb").read()
+    phase9 = os.path.join(os.path.dirname(__file__), "phase9_transform.py")
+    if os.path.exists(phase9): key += open(phase9, "rb").read()
+    phase10 = os.path.join(os.path.dirname(__file__), "phase10_transform.py")
+    if os.path.exists(phase10): key += open(phase10, "rb").read()
+    key += repr((PHASE10_CAPS, PHASE10_FP8)).encode()
+    key += str(name in LOW_REGISTER_FP8_MODULES).encode()
+    key += str(name in C32_LOCAL_FP8_POLICY_MODULES).encode()
+    key += repr(PHASE8_OVERRIDES.get(name, (True, True, True))).encode()
+    build_key = hashlib.sha256(cu_src.encode() + key).hexdigest()
+    stamp = os.path.join(out_dir, name + ".build-key")
+    cached_bin = os.path.join(out_dir, name + ".hsaco")
+    cached_ptx = os.path.join(out_dir, name + ".ptx")
+    if os.path.exists(stamp) and open(stamp).read() == build_key and os.path.exists(cached_bin):
+        entries = re.findall(r"\.visible\s+\.entry\s+([a-zA-Z0-9_]+)\s*\(", open(cached_ptx).read())
+        return (name, True, "", entries, hashlib.sha256(open(cached_bin,"rb").read()).hexdigest())
+    # Resolve #if branches before structural rewrites; raw alternatives may have
+    # mutually exclusive braces. Keep the original source next to the generated CU.
+    phase1_cu = os.path.join(out_dir, name + ".phase1.cu")
+    open(phase1_cu, "w").write(cu_src)
+    pre = subprocess.run(["clang++", "-x", "cuda", "--cuda-device-only", "--cuda-gpu-arch=sm_86",
+        "-nocudainc", "-nocudalib", "-std=c++20", "-E", "-P", phase1_cu],capture_output=True,text=True)
+    if pre.returncode: return (name,False,"preprocess failed: " + pre.stderr,[],"")
+    cpp = re.sub(r'(?m)^\s*#pragma unroll([^\n]*)\n\s*',lambda m:'_Pragma("unroll'+m[1]+'") ',pre.stdout)
+    flag = re.search(r"(?m)^#define W2_FRAGMENT_WEIGHTS ([01])",cu_src)
+    qflag=re.search(r"(?m)^#define SM86_C32_REGISTER_Q_MASK (\d+)",cu_src)
+    bflag=re.search(r"(?m)^#define SM86_C32_PREFIX_MINBLOCKS (\d+)",cu_src)
+    allbflag=re.search(r"(?m)^#define SM86_C32_MINBLOCKS (\d+)",cu_src)
+    cu_src = "static constexpr bool sm86_phase2_fragment_weights = " + ("true" if flag and flag[1]=="1" else "false") + ";\n" + phase5_transform(phase2_transform(cpp),int(qflag[1]) if qflag else 0,int(bflag[1]) if bflag else 0,int(allbflag[1]) if allbflag else 0)
+    cu_src = phase8_transform(cu_src, *PHASE8_OVERRIDES.get(name, (True, True, True)))
+    cu_src = phase9_transform(cu_src)
+    if name in C32_LOCAL_FP8_POLICY_MODULES:
+        cu_src = c32_mapped_lowreg(cu_src)
+    if name in LOW_REGISTER_FP8_MODULES:
+        cu_src = low_register_fp8(cu_src)
+    if PHASE10_FP8:
+        cu_src = phase10_optimize_fp8(cu_src)
+    cu_src += "\n// build fingerprint: " + build_key + "\n"
+
+
     cu_path = os.path.join(out_dir, f"{name}.generated.cu")
     raw_ll = os.path.join(out_dir, f"{name}.raw.ll")
     named_ll = os.path.join(out_dir, f"{name}.named.ll")
@@ -739,12 +817,19 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     if res.returncode != 0:
         return (name, False, f"opt-14 prepass failed:\n{res.stderr}", [], "")
 
-    opt_ir = cancel_wmma_shuffles_ir(open(named_ll, "r", encoding="utf-8").read())
+    vector_alignment = IR_VECTOR_ALIGNMENT_OVERRIDES.get(name, 16)
+    opt_ir = cancel_wmma_shuffles_ir(open(named_ll, "r", encoding="utf-8").read(), vector_alignment)
     open(opt_ll, "w", encoding="utf-8").write(opt_ir)
 
     res = subprocess.run(["opt-14", "-O3", "-disable-loop-unrolling", "-S", opt_ll, "-o", final_ll], capture_output=True, text=True)
     if res.returncode != 0:
         return (name, False, f"opt-14 -O3 failed:\n{res.stderr}", [], "")
+
+    # SROA/InstCombine can create fresh low-alignment transfers in the second O3.
+    with open(final_ll, "r", encoding="utf-8") as f:
+        final_ir = upgrade_ir_alignments(f.read(), vector_alignment)
+    with open(final_ll, "w", encoding="utf-8") as f:
+        f.write(final_ir)
 
     res = subprocess.run(["llc-14", "-march=nvptx64", "-mcpu=sm_86", "--fp-contract=fast", "-O3", final_ll, "-o", ptx_path], capture_output=True, text=True)
     if res.returncode != 0:
@@ -755,6 +840,9 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
             os.remove(tmp)
 
     ptx_txt = open(ptx_path, "r", encoding="utf-8").read()
+    if PHASE10_CAPS:
+        ptx_txt = apply_register_caps(ptx_txt)
+        open(ptx_path,"w",encoding="utf-8").write(ptx_txt)
     entries = re.findall(r"\.visible\s+\.entry\s+([a-zA-Z0-9_]+)\s*\(", ptx_txt)
 
     cmd_cubin = [ptx2cubin_bin, ptx_path, hsaco_path] + entries
@@ -763,6 +851,7 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
         return (name, False, f"ptx2cubin failed:\n{res2.stderr}", entries, "")
 
     sha = hashlib.sha256(open(hsaco_path, "rb").read()).hexdigest()
+    open(stamp, "w").write(build_key)
     return (name, True, "", entries, sha)
 
 def main():
@@ -797,6 +886,7 @@ def main():
     print(f"\nSUMMARY: {passed}/{len(modules)} modules compiled to sm_86 cubin & verified on RTX 3080 Laptop GPU ({total_entries} kernel entry points verified)!")
     if passed != len(modules):
         sys.exit(1)
+    open(os.path.join(out_dir,"AMPERE_WEIGHTS_V2"),"w").write("CPU Ampere FP8 tiles; paired Phase-2 modules\n")
 
 if __name__ == "__main__":
     main()

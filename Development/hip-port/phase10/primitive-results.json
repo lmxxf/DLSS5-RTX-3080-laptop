@@ -1,0 +1,46 @@
+{
+  "finite_samples": 4242851,
+  "outer_clamp_preserve_zero_bitdiff": 0,
+  "outer_clamp_add_zero_bitdiff": 0,
+  "lowreg_vs_fast_bitdiff": 0,
+  "negative_zero_old_preserved": 128,
+  "negative_zero_add0": 0,
+  "nonfinite_diagnostic": [
+    {
+      "bits": "0x7f800000",
+      "old_clamped": 126,
+      "new_saturating": 126,
+      "old_raw": 127
+    },
+    {
+      "bits": "0xff800000",
+      "old_clamped": 254,
+      "new_saturating": 254,
+      "old_raw": 255
+    },
+    {
+      "bits": "0x7fc00000",
+      "old_clamped": 254,
+      "new_saturating": 126,
+      "old_raw": 127
+    },
+    {
+      "bits": "0xffc00000",
+      "old_clamped": 254,
+      "new_saturating": 254,
+      "old_raw": 255
+    },
+    {
+      "bits": "0x7f800001",
+      "old_clamped": 254,
+      "new_saturating": 126,
+      "old_raw": 127
+    },
+    {
+      "bits": "0xff800001",
+      "old_clamped": 254,
+      "new_saturating": 254,
+      "old_raw": 255
+    }
+  ]
+}

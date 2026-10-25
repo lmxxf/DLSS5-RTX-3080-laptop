@@ -1,0 +1,142 @@
+
+================================================================
+Running Case: 0.5x_Small_1080p (31-block, 1920x1152)
+================================================================
+model requested=0.5x effective=0.5x blocks=31 assets=/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/small reason=small-ready
+multi_pass=1 multi_pass_predict=0 actual_network_passes=1
+vit_contract_byte_edge=1
+c32_norm900 scope=0 loaded=0 selected=c32-wave1-fast.hsaco processing=1920x1152 fast_numeric=1 mp=1 graph=0 experimental=0
+DLSS5_FAST_NUMERIC=1: multihead-fast-padded-wave-packed-fast.hsaco missing, using multihead-fast-padded-wave-packed.hsaco
+pool64_byte_edge=1
+CONTRACT_COMPACT key=block31-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block31-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block32-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block32-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block33-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block33-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block34-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block34-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block35-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block35-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block36-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block36-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block37-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block37-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block38-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block38-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+model_prepared mode=0.5 profile=0 uploads=94 active_weights=92 retained_weights=0 before_producer_wait=1
+COMPACT_VIT contract_w16=1 projection_w16=1 contract_bstream=1 projection_bout=1 inter_byte_calls=255
+[RESULT] 0.5x_Small_1080p (31-block, 1920x1152)
+  Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+  Range    : min=0.000000 max=1.000000 mean=0.498077
+  GPU  (ms): mean=55.060 median=55.089 p90=56.454 p99=56.454 min=54.425 max=56.454
+  Wall (ms): mean=55.181 median=55.220 p90=56.541 p99=56.541 min=54.600 max=56.541
+submit_pulse resources create=0 create_ok=0 record=0 record_ok=0 destroy=0 destroy_ok=0 drain=0 site_visits=0 accepted=0 reject_mask=0 lifetime_pdl_calls=0
+C512_W16_SUMMARY mode=2 w16_blocks=72 stock_blocks=0 ffn_mode=1 ffn_w16_blocks=72 ffn_stock_blocks=0 c32_mode=1 c32_w16_calls=114 c32_stock_calls=0 vit_mode=7 vit_w16_calls=144 vit_stock_calls=0 vit_contract_w16=1 vit_proj_w16=1 vit_inter_byte=15 vit_inter_byte_calls=270 weights_count=92 weights_bytes=154793464
+Kernel Calls Total_ms Avg_us Grid Block Regs LMem SMem OccW
+c128_wave2_bi_bo 2 2.343936 1171.968 570 128 250 0 24576 8
+c128_wave2_bi_ho 1 1.292288 1292.288 589 128 250 0 24576 8
+c128_wave2_up_lb_sh 1 1.385472 1385.472 558 128 250 0 24576 8
+c256_wave2_bi_bo_w16 3 2.723840 907.947 150 256 250 0 49152 8
+c256_wave2_bi_w16 1 1.156096 1156.096 160 256 250 0 49152 8
+c32_wave1_finish_b8 1 1.613824 1613.824 8760 32 145 0 8192 11
+c32_wave1_finish_dcrop_b8d 1 1.705984 1705.984 8833 32 145 0 8192 11
+c32_wave1_mapped_b8 1 1.698816 1698.816 8640 32 152 0 8192 11
+c32_wave1_post_b8 1 6.823936 6823.936 34945 32 152 0 8192 11
+c32_wave1_prefix_b8d 1 7.543808 7543.808 34560 32 146 0 8192 11
+c32_wave1_up_b8 1 2.029568 2029.568 8712 32 225 0 8192 8
+c512_qkv_attention_compact_w16 4 0.935936 233.984 640 64 229 0 6144 8
+c64_wave2_bi 1 1.869824 1869.824 2220 64 250 0 12288 8
+c64_wave2_bi_bo 1 1.495040 1495.040 2160 64 250 0 12288 8
+c64_wave2_bi_ho 1 1.602560 1602.560 2257 64 250 0 12288 8
+c64_wave2_up_lb_sh 1 1.794048 1794.048 2196 64 250 0 12288 8
+decoder_project2x_h16w_byteout_w_bin_f8w16 2 0.357376 178.688 2160 32 61 0 2176 16
+mh_attention_project_frag_c512_w16_u4 1 0.132096 132.096 1080 32 140 0 0 12
+mh_attention_project_frag_c512_w16_u4_bout 3 0.396288 132.096 1080 32 140 0 0 12
+mh_pool_project_c32_b8_out8 1 0.129024 129.024 34560 32 44 0 0 16
+mh_pool_project_group_c128_hin_out8_f8w16 1 0.076800 76.800 540 128 111 0 2176 16
+mh_pool_project_group_c256_out8_f8w16 1 0.073728 73.728 135 256 111 0 4224 16
+mh_pool_project_group_c512_out8_f8w16 1 0.065536 65.536 40 512 111 0 8320 16
+mh_pool_project_group_c64_hin_out8_f8w16 1 0.109568 109.568 2160 64 111 0 1152 16
+split_ffn_one_w2f8_w16_bin 4 0.787456 196.864 544 64 152 0 0 12
+split_projection_frag_w16_bskip 4 0.364544 91.136 1080 32 145 0 1024 12
+vit_attention_fused_640_bytein_bout 8 1.950720 243.840 1280 32 93 0 0 16
+vit_expand_blocked_fp8_frag_bytein_w16 8 2.839552 354.944 2560 32 121 0 0 16
+vit_gather_b8 2 0.026624 13.312 640 256 16 0 0 48
+vit_stream_contract_frag_bstream_bout 8 3.376128 422.016 640 32 217 0 4096 8
+vit_stream_project_n64_bb_bout 8 1.381376 172.672 640 32 210 0 0 8
+vit_stream_qkv_frag_bin_w5f8 8 3.811360 476.420 768 160 119 0 16384 15
+PROFILE_TOTAL 53.893152 kernels=32
+SP_STATS runs=0 fallback=0 rollover=0 jobs=0 disabled=0 errors=0
+
+================================================================
+Running Case: 0.5x_Small_900p (31-block, 1600x1024)
+================================================================
+model requested=0.5x effective=0.5x blocks=31 assets=/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/small reason=small-ready
+multi_pass=1 multi_pass_predict=0 actual_network_passes=1
+vit_contract_byte_edge=1
+c32_norm900 scope=0 loaded=0 selected=c32-wave1-fast.hsaco processing=1600x1024 fast_numeric=1 mp=1 graph=0 experimental=0
+DLSS5_FAST_NUMERIC=1: multihead-fast-padded-wave-packed-fast.hsaco missing, using multihead-fast-padded-wave-packed.hsaco
+pool64_byte_edge=1
+CONTRACT_COMPACT key=block31-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block31-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block32-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block32-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block33-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block33-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block34-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block34-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block35-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block35-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block36-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block36-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block37-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block37-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block38-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block38-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+model_prepared mode=0.5 profile=0 uploads=94 active_weights=92 retained_weights=0 before_producer_wait=1
+COMPACT_VIT contract_w16=1 projection_w16=1 contract_bstream=1 projection_bout=1 inter_byte_calls=187
+[RESULT] 0.5x_Small_900p (31-block, 1600x1024)
+  Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+  Range    : min=0.000000 max=1.000000 mean=0.500139
+  GPU  (ms): mean=41.475 median=41.595 p90=42.133 p99=42.133 min=41.038 max=42.133
+  Wall (ms): mean=41.579 median=41.669 p90=42.217 p99=42.217 min=41.164 max=42.217
+submit_pulse resources create=0 create_ok=0 record=0 record_ok=0 destroy=0 destroy_ok=0 drain=0 site_visits=0 accepted=0 reject_mask=0 lifetime_pdl_calls=0
+C512_W16_SUMMARY mode=2 w16_blocks=72 stock_blocks=0 ffn_mode=1 ffn_w16_blocks=72 ffn_stock_blocks=0 c32_mode=1 c32_w16_calls=114 c32_stock_calls=0 vit_mode=7 vit_w16_calls=144 vit_stock_calls=0 vit_contract_w16=1 vit_proj_w16=1 vit_inter_byte=15 vit_inter_byte_calls=198 weights_count=92 weights_bytes=154793464
+Kernel Calls Total_ms Avg_us Grid Block Regs LMem SMem OccW
+c128_wave2_bi_bo 2 1.912832 956.416 425 128 250 0 24576 8
+c128_wave2_bi_ho 1 0.951296 951.296 442 128 250 0 24576 8
+c128_wave2_up_lb_sh 1 1.128448 1128.448 416 128 250 0 24576 8
+c256_wave2_bi_bo_w16 3 2.457600 819.200 117 256 250 0 49152 8
+c256_wave2_bi_w16 1 0.894976 894.976 117 256 250 0 49152 8
+c32_wave1_finish_b8 1 1.209344 1209.344 6500 32 145 0 8192 11
+c32_wave1_finish_dcrop_b8d 1 1.277952 1277.952 6565 32 145 0 8192 11
+c32_wave1_mapped_b8 1 1.266688 1266.688 6400 32 152 0 8192 11
+c32_wave1_post_b8 1 5.025792 5025.792 25929 32 152 0 8192 11
+c32_wave1_prefix_b8d 1 5.612544 5612.544 25600 32 146 0 8192 11
+c32_wave1_up_b8 1 1.515520 1515.520 6464 32 225 0 8192 8
+c512_qkv_attention_compact_w16 4 0.757760 189.440 560 64 229 0 6144 8
+c64_wave2_bi 1 1.427456 1427.456 1650 64 250 0 12288 8
+c64_wave2_bi_bo 1 1.127424 1127.424 1600 64 250 0 12288 8
+c64_wave2_bi_ho 1 1.201152 1201.152 1683 64 250 0 12288 8
+c64_wave2_up_lb_sh 1 1.355776 1355.776 1632 64 250 0 12288 8
+decoder_project2x_h16w_byteout_w 1 0.214016 214.016 1664 32 55 0 2176 16
+decoder_project2x_h16w_w_bin_f8w16 1 0.153600 153.600 896 32 61 0 2176 16
+mh_attention_project_frag_c512_w16_u4 4 0.452608 113.152 832 32 140 0 0 12
+mh_pool_project_c32_b8_out8 1 0.097280 97.280 25600 32 44 0 0 16
+mh_pool_project_group_c128_hin_out8_f8w16 1 0.065536 65.536 400 128 111 0 2176 16
+mh_pool_project_group_c256_f8w16 1 0.069632 69.632 104 256 111 0 4224 16
+mh_pool_project_group_c512_out8_f8w16 1 0.065536 65.536 28 512 111 0 8320 16
+mh_pool_project_group_c64_hin_out8_f8w16 1 0.086016 86.016 1600 64 111 0 1152 16
+split_ffn_one_w2f8_w16 4 0.672768 168.192 416 64 152 0 0 12
+split_projection_frag_w16 4 0.319488 79.872 832 32 145 0 1024 12
+vit_attention_fused_640_bytein_bout 8 1.105920 138.240 896 32 93 0 0 16
+vit_expand_blocked_fp8_frag_bytein_w16 8 2.059264 257.408 1792 32 121 0 0 16
+vit_gather_b8 2 0.021504 10.752 448 256 16 0 0 48
+vit_stream_contract_frag_bstream_bout 8 2.774016 346.752 448 32 217 0 4096 8
+vit_stream_project_n64_bb_bout 8 1.081344 135.168 448 32 210 0 0 8
+vit_stream_qkv_frag_bin_w5f8 8 2.703360 337.920 576 160 119 0 16384 15
+PROFILE_TOTAL 41.064448 kernels=32
+SP_STATS runs=0 fallback=0 rollover=0 jobs=0 disabled=0 errors=0
+
+ALL SELECTED MODEL/RESOLUTION BENCHMARKS PASSED!

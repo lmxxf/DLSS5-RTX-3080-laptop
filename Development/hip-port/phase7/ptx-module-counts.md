@@ -1,0 +1,44 @@
+# Static PTX module totals (including unused entry points)
+
+| Module | bra before→after | min before→after | max before→after |
+|---|---:|---:|---:|
+| boundary-fast | 873→285 | 174→174 | 181→181 |
+| boundary_reference | 92→92 | 1→1 | 34→34 |
+| c32-wave1-fast-norm900 | 22623→1260 | 19089→10957 | 19327→11195 |
+| c32-wave1-fast | 22847→1498 | 19089→10957 | 19327→11195 |
+| c32-wave1-rtz | 22623→1260 | 19041→10933 | 19279→11171 |
+| c32-wave1 | 22623→1260 | 19089→10957 | 19327→11195 |
+| c32_fast | 897→690 | 224→140 | 184→100 |
+| c32_fast_attention | 811→241 | 171→171 | 178→178 |
+| c32_fused_attention | 753→263 | 180→188 | 186→194 |
+| c32_fused_ffn_attention-packed | 6104→453 | 4909→3097 | 5075→3263 |
+| c32_fused_ffn_attention | 18044→453 | 12863→7074 | 13029→7240 |
+| c32_prefix_reference | 1256→1256 | 52→52 | 20→20 |
+| c32_tiled | 537→397 | 164→103 | 130→69 |
+| c32_wmma | 1753→709 | 790→437 | 723→370 |
+| c512-m32-deep | 19108→3157 | 11246→6632 | 11320→6706 |
+| c512-m32-mh | 27102→5840 | 15058→7587 | 15138→7667 |
+| c64-wave2-fast | 51516→6438 | 21774→10897 | 21914→11037 |
+| c64-wave2 | 51630→6552 | 21774→10897 | 21914→11037 |
+| deep_fast-packed-fast | 20114→3251 | 11390→6616 | 11464→6690 |
+| deep_fast-packed | 19245→3251 | 11102→6328 | 11176→6402 |
+| deep_fast | 21030→3110 | 9102→5480 | 9176→5554 |
+| deep_reference | 809→809 | 47→47 | 6→6 |
+| deep_wmma | 1173→1173 | 156→156 | 25→25 |
+| multi-pass-predict | 24→24 | 13→13 | 13→13 |
+| multi-pass-skin | 40→40 | 41→41 | 42→42 |
+| multihead-fast-packed | 3213→1694 | 50→50 | 43→43 |
+| multihead-fast-padded-wave-packed | 29988→6826 | 17160→8590 | 17252→8682 |
+| multihead-fast-padded-wave | 28467→6088 | 16552→8286 | 16644→8378 |
+| multihead-fast | 3283→1694 | 50→50 | 43→43 |
+| multihead-reference | 1333→1333 | 54→54 | 5→5 |
+| multihead-tiled | 992→860 | 85→85 | 17→17 |
+| multihead-wmma | 2428→1404 | 141→141 | 25→25 |
+| multihead_fused_attention | 13229→3643 | 4211→4211 | 4135→4135 |
+| prefix_fast | 1682→1680 | 4→3 | 2→1 |
+| swin-persistent-fast | 29838→6395 | 14958→7489 | 15042→7573 |
+| swin-persistent | 29952→6509 | 14958→7489 | 15042→7573 |
+| vit-stream-fast | 17759→3357 | 9870→5736 | 9976→5842 |
+| vit-stream | 17759→3357 | 9870→5736 | 9976→5842 |
+| vit-wide-deep | 20362→3117 | 8910→5256 | 8984→5330 |
+| wave-pointwise | 1415→1415 | 67→67 | 10→10 |

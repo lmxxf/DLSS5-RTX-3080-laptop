@@ -202,6 +202,13 @@ SM86_DEV float __builtin_amdgcn_cosf(float x) {
 
 SM86_DEV float __builtin_amdgcn_fmed3f(float a, float b, float c) {
     float hi, r;
+    if (__builtin_constant_p(b) && __builtin_constant_p(c)) {
+        float lo = b < c ? b : c, upper = b < c ? c : b;
+        asm("max.f32 %0, %1, %2;\n\t"
+            "min.f32 %0, %0, %3;"
+            : "=&f"(r) : "f"(a), "f"(lo), "f"(upper));
+        return r;
+    }
     asm("min.f32 %0, %2, %3;\n\t"
         "max.f32 %1, %2, %3;\n\t"
         "max.f32 %0, %4, %0;\n\t"
@@ -254,6 +261,16 @@ SM86_DEV float __builtin_amdgcn_cvt_f32_fp8(int src, int byte_sel) {
     return sm86_v_cvt_f32_f16(raw);
 }
 
+// Preserve sign bits while shifting the FP8 exponent/mantissa into half layout.
+SM86_DEV sm86_u32 sm86_fp8_half_bits(sm86_u32 u) {
+    sm86_u32 r;
+    asm("{ .reg .b32 t; shr.u32 t, %1, 1;\n\t"
+        "and.b32 t, t, 0x3f803f80;\n\t"
+        "lop3.b32 %0, %1, 0x80008000, t, 0xea; }"
+        : "=r"(r) : "r"(u));
+    return r;
+}
+
 // Vectorized branchless unpacking of 8 E4M3 bytes (sm86_i2) -> 8 FP16 values (sm86_u4)
 // Uses 4 prmt.b32 + 4 mul.rn.f16x2 (0x5c005c00), zero branches!
 SM86_DEV sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) {
@@ -264,10 +281,10 @@ SM86_DEV sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) {
         "prmt.b32 %2, %5, 0, 0x1404;\n\t"
         "prmt.b32 %3, %5, 0, 0x3424;"
         : "=&r"(u0), "=&r"(u1), "=&r"(u2), "=r"(u3) : "r"(a0), "r"(a1));
-    u0 = (u0 & 0x80008000u) | ((u0 & 0x7f007f00u) >> 1);
-    u1 = (u1 & 0x80008000u) | ((u1 & 0x7f007f00u) >> 1);
-    u2 = (u2 & 0x80008000u) | ((u2 & 0x7f007f00u) >> 1);
-    u3 = (u3 & 0x80008000u) | ((u3 & 0x7f007f00u) >> 1);
+    u0 = sm86_fp8_half_bits(u0);
+    u1 = sm86_fp8_half_bits(u1);
+    u2 = sm86_fp8_half_bits(u2);
+    u3 = sm86_fp8_half_bits(u3);
     sm86_u32 scale = 0x5c005c00u;
     asm("mul.rn.f16x2 %0, %0, %4;\n\t"
         "mul.rn.f16x2 %1, %1, %4;\n\t"
@@ -277,17 +294,36 @@ SM86_DEV sm86_u4 sm86_unpack_e4m3x8(sm86_i2 a) {
     return sm86_u4{u0, u1, u2, u3};
 }
 
+// Reference implementation. The CUDA builder applies Phase-10 finite-saturation
+// lowering after preprocessing; see optimize_fp8 in phase10_transform.py.
 SM86_DEV sm86_u32 sm86_f32_to_e4m3_byte(float x) {
-    sm86_u32 b = __builtin_bit_cast(sm86_u32, x);
-    sm86_u32 s = (b >> 24) & 0x80u;
-    sm86_u32 a = b & 0x7fffffffu;
-    float magic;
-    asm("add.rn.f32 %0, %1, 0f46800000;" : "=f"(magic) : "f"(__builtin_bit_cast(float, a)));
-    sm86_u32 sub = __builtin_bit_cast(sm86_u32, magic) & 0xffu;
-    sm86_u32 r = a + 0x7ffffu + ((a >> 20) & 1u);
-    sm86_u32 norm = (r >= 0x43e00000u) ? 0x7eu : ((r >> 20) - 0x3c0u);
-    sm86_u32 mag = (a < 0x3c800000u) ? sub : ((a >= 0x7f800000u) ? 0x7fu : norm);
-    return s | mag;
+    sm86_u32 res;
+    asm("{\n\t"
+        " .reg .b32 b, a, r, sub, norm, mag, s;\n\t"
+        " .reg .f32 fa, fmagic;\n\t"
+        " .reg .pred p_sub, p_sat, p_nan;\n\t"
+        " mov.b32 b, %1;\n\t"
+        " and.b32 a, b, 0x7fffffff;\n\t"
+        " shr.u32 s, b, 24;\n\t"
+        " and.b32 s, s, 0x80;\n\t"
+        " mov.b32 fa, a;\n\t"
+        " add.rn.f32 fmagic, fa, 0f46800000;\n\t"
+        " mov.b32 sub, fmagic;\n\t"
+        " and.b32 sub, sub, 0xff;\n\t"
+        " bfe.u32 r, a, 20, 1;\n\t"
+        " add.u32 r, a, r;\n\t"
+        " add.u32 r, r, 0x7ffff;\n\t"
+        " setp.ge.u32 p_sat, r, 0x43e00000;\n\t"
+        " shr.u32 norm, r, 20;\n\t"
+        " add.s32 norm, norm, -960;\n\t"
+        " selp.b32 norm, 0x7e, norm, p_sat;\n\t"
+        " setp.ge.u32 p_nan, a, 0x7f800000;\n\t"
+        " selp.b32 norm, 0x7f, norm, p_nan;\n\t"
+        " setp.lt.u32 p_sub, a, 0x3c800000;\n\t"
+        " selp.b32 mag, sub, norm, p_sub;\n\t"
+        " or.b32 %0, s, mag;\n\t"
+        "}" : "=r"(res) : "f"(x));
+    return res;
 }
 
 SM86_DEV int __builtin_amdgcn_cvt_pk_fp8_f32(float a, float b, int old, bool word_sel) {
@@ -330,13 +366,13 @@ SM86_DEV void sm86_frag_benes4(sm86_u4 u, sm86_u32 &r0, sm86_u32 &r1, sm86_u32 &
 // Marked `noinline, const` during initial Clang IR emission so SSA pass cancels
 // back-to-back C/D shuffles across K-loops; converted to `alwaysinline` before opt -O3!
 extern "C" __attribute__((device, noinline))
-sm86_f8 __sm86_c_to_ampere(sm86_f8 c) __asm__("__sm86_c_to_ampere");
+sm86_f8 __sm86_c_to_ampere_f32(sm86_f8 c) __asm__("__sm86_c_to_ampere_f32");
 
 extern "C" __attribute__((device, noinline))
-sm86_f8 __sm86_d_to_rdna4(sm86_f8 d) __asm__("__sm86_d_to_rdna4");
+sm86_f8 __sm86_d_to_rdna4_f32(sm86_f8 d) __asm__("__sm86_d_to_rdna4_f32");
 
 extern "C" __attribute__((device, noinline))
-sm86_f8 __sm86_c_to_ampere(sm86_f8 c) {
+sm86_f8 __sm86_c_to_ampere_f32(sm86_f8 c) {
     sm86_u32 lane = sm86_lane_id();
     float v0 = c[0], v1 = c[1], v2 = c[2], v3 = c[3], v4 = c[4], v5 = c[5], v6 = c[6], v7 = c[7];
     bool p0 = (lane & 1u) != 0;
@@ -373,7 +409,7 @@ sm86_f8 __sm86_c_to_ampere(sm86_f8 c) {
 }
 
 extern "C" __attribute__((device, noinline))
-sm86_f8 __sm86_d_to_rdna4(sm86_f8 d) {
+sm86_f8 __sm86_d_to_rdna4_f32(sm86_f8 d) {
     sm86_u32 lane = sm86_lane_id();
     float d0 = d[0], d1 = d[1], d2 = d[2], d3 = d[3], d4 = d[4], d5 = d[5], d6 = d[6], d7 = d[7];
     bool q0 = (lane & 4u) != 0;
@@ -409,6 +445,85 @@ sm86_f8 __sm86_d_to_rdna4(sm86_f8 d) {
     };
 }
 
+// Packed Ampere accumulator: {ad01, ad23, ad45, ad67}.
+SM86_DEV sm86_u32 sm86_pack_acc(float lo, float hi) {
+    sm86_u32 r;
+    asm("cvt.rn.f16x2.f32 %0, %2, %1;" : "=r"(r) : "f"(lo), "f"(hi));
+    return r;
+}
+SM86_DEV sm86_f8 sm86_unpack_acc(sm86_u4 a) {
+    sm86_h8 h = __builtin_bit_cast(sm86_h8, a);
+    return __builtin_convertvector(h, sm86_f8);
+}
+// Phase 5: permute packed half pairs; keep scalar float mapping as a test reference.
+extern "C" __attribute__((device, noinline))
+sm86_u4 __sm86_c_to_ampere(sm86_f8 c) {
+    sm86_u32 lane = sm86_lane_id();
+    sm86_u32 u0 = sm86_pack_acc(c[0], c[1]);
+    sm86_u32 u1 = sm86_pack_acc(c[2], c[3]);
+    sm86_u32 u2 = sm86_pack_acc(c[4], c[5]);
+    sm86_u32 u3 = sm86_pack_acc(c[6], c[7]);
+    bool p1 = (lane & 8u) != 0;
+    sm86_u32 b0 = p1 ? u1 : u0, b1 = p1 ? u0 : u1;
+    sm86_u32 b2 = p1 ? u3 : u2, b3 = p1 ? u2 : u3;
+    bool p2 = (lane & 16u) != 0;
+    sm86_u32 w0 = p2 ? b2 : b0, w1 = p2 ? b3 : b1;
+    sm86_u32 w2 = p2 ? b0 : b2, w3 = p2 ? b1 : b3;
+    sm86_u32 base0 = (lane & 24u) | ((lane & 3u) << 1);
+    sm86_u32 x0 = sm86_shfl_idx_u32(w0, base0);
+    sm86_u32 x1 = sm86_shfl_idx_u32(w0, base0 ^ 1u);
+    sm86_u32 x2 = sm86_shfl_idx_u32(w1, base0 ^ 8u);
+    sm86_u32 x3 = sm86_shfl_idx_u32(w1, base0 ^ 9u);
+    sm86_u32 x4 = sm86_shfl_idx_u32(w2, base0 ^ 16u);
+    sm86_u32 x5 = sm86_shfl_idx_u32(w2, base0 ^ 17u);
+    sm86_u32 x6 = sm86_shfl_idx_u32(w3, base0 ^ 24u);
+    sm86_u32 x7 = sm86_shfl_idx_u32(w3, base0 ^ 25u);
+    sm86_u32 sel = (lane & 4u) ? 0x7632u : 0x5410u;
+    sm86_u32 y0, y1, y2, y3;
+    asm("prmt.b32 %0, %4, %5, %12;\n\t"
+        "prmt.b32 %1, %6, %7, %12;\n\t"
+        "prmt.b32 %2, %8, %9, %12;\n\t"
+        "prmt.b32 %3, %10, %11, %12;"
+        : "=&r"(y0), "=&r"(y1), "=&r"(y2), "=r"(y3)
+        : "r"(x0), "r"(x1), "r"(x2), "r"(x3), "r"(x4), "r"(x5), "r"(x6), "r"(x7), "r"(sel));
+    sm86_u32 z0 = p1 ? y1 : y0, z1 = p1 ? y0 : y1;
+    sm86_u32 z2 = p1 ? y3 : y2, z3 = p1 ? y2 : y3;
+    return sm86_u4{ p2 ? z2 : z0, p2 ? z3 : z1, p2 ? z0 : z2, p2 ? z1 : z3 };
+}
+extern "C" __attribute__((device, noinline))
+sm86_f8 __sm86_d_to_rdna4(sm86_u4 d) {
+    sm86_u32 lane = sm86_lane_id();
+    sm86_u32 u0 = d[0];
+    sm86_u32 u1 = d[1];
+    sm86_u32 u2 = d[2];
+    sm86_u32 u3 = d[3];
+    bool p1 = (lane & 8u) != 0;
+    sm86_u32 b0 = p1 ? u1 : u0, b1 = p1 ? u0 : u1;
+    sm86_u32 b2 = p1 ? u3 : u2, b3 = p1 ? u2 : u3;
+    bool p2 = (lane & 16u) != 0;
+    sm86_u32 w0 = p2 ? b2 : b0, w1 = p2 ? b3 : b1;
+    sm86_u32 w2 = p2 ? b0 : b2, w3 = p2 ? b1 : b3;
+    sm86_u32 base0 = (lane & 24u) | ((lane >> 1) & 3u);
+    sm86_u32 x0 = sm86_shfl_idx_u32(w0, base0);
+    sm86_u32 x1 = sm86_shfl_idx_u32(w0, base0 ^ 4u);
+    sm86_u32 x2 = sm86_shfl_idx_u32(w1, base0 ^ 8u);
+    sm86_u32 x3 = sm86_shfl_idx_u32(w1, base0 ^ 12u);
+    sm86_u32 x4 = sm86_shfl_idx_u32(w2, base0 ^ 16u);
+    sm86_u32 x5 = sm86_shfl_idx_u32(w2, base0 ^ 20u);
+    sm86_u32 x6 = sm86_shfl_idx_u32(w3, base0 ^ 24u);
+    sm86_u32 x7 = sm86_shfl_idx_u32(w3, base0 ^ 28u);
+    sm86_u32 sel = (lane & 1u) ? 0x7632u : 0x5410u;
+    sm86_u32 y0, y1, y2, y3;
+    asm("prmt.b32 %0, %4, %5, %12;\n\t"
+        "prmt.b32 %1, %6, %7, %12;\n\t"
+        "prmt.b32 %2, %8, %9, %12;\n\t"
+        "prmt.b32 %3, %10, %11, %12;"
+        : "=&r"(y0), "=&r"(y1), "=&r"(y2), "=r"(y3)
+        : "r"(x0), "r"(x1), "r"(x2), "r"(x3), "r"(x4), "r"(x5), "r"(x6), "r"(x7), "r"(sel));
+    sm86_u32 z0 = p1 ? y1 : y0, z1 = p1 ? y0 : y1;
+    sm86_u32 z2 = p1 ? y3 : y2, z3 = p1 ? y2 : y3;
+    return sm86_unpack_acc(sm86_u4{ p2 ? z2 : z0, p2 ? z3 : z1, p2 ? z0 : z2, p2 ? z1 : z3 });
+}
 // Pure operand preparation functions marked `noinline, const` during initial Clang IR
 // emission so LLVM GVN / EarlyCSE / LICM automatically deduplicates shared A or B
 // fragments across multi-tile WMMAs and hoists loop-invariant fragments out of loops!
@@ -456,10 +571,10 @@ sm86_u4 __sm86_prep_fp8(sm86_i2 a) {
         "prmt.b32 %3, %7, 0, %8;"
         : "=&r"(r0), "=&r"(r1), "=&r"(r2), "=r"(r3)
         : "r"(b0), "r"(b1), "r"(b2), "r"(b3), "r"(sel));
-    r0 = (r0 & 0x80008000u) | ((r0 & 0x7f007f00u) >> 1);
-    r1 = (r1 & 0x80008000u) | ((r1 & 0x7f007f00u) >> 1);
-    r2 = (r2 & 0x80008000u) | ((r2 & 0x7f007f00u) >> 1);
-    r3 = (r3 & 0x80008000u) | ((r3 & 0x7f007f00u) >> 1);
+    r0 = sm86_fp8_half_bits(r0);
+    r1 = sm86_fp8_half_bits(r1);
+    r2 = sm86_fp8_half_bits(r2);
+    r3 = sm86_fp8_half_bits(r3);
     sm86_u32 scale = 0x5c005c00u;
     asm("mul.rn.f16x2 %0, %0, %4;\n\t"
         "mul.rn.f16x2 %1, %1, %4;\n\t"
@@ -498,60 +613,92 @@ SM86_DEV sm86_i2 sm86_preshuffle_fp8(sm86_i2 a) {
     return sm86_i2{(int)o0, (int)o1};
 }
 
-SM86_DEV sm86_f8 sm86_mma_prepared_core(sm86_u4 ra, sm86_u4 rb, sm86_f8 ac) {
-    float ad0, ad1, ad2, ad3, ad4, ad5, ad6, ad7;
-    asm volatile(
-        "mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 "
-        "{%0, %1, %2, %3}, {%4, %5, %6, %7}, {%8, %9}, {%10, %11, %12, %13};"
-        : "=f"(ad0), "=f"(ad1), "=f"(ad4), "=f"(ad5)
+SM86_DEV sm86_u4 sm86_mma_prepared_core(sm86_u4 ra, sm86_u4 rb, sm86_u4 ac) {
+    sm86_u4 d;
+    asm volatile("mma.sync.aligned.m16n8k16.row.col.f16.f16.f16.f16 "
+        "{%0, %1}, {%2, %3, %4, %5}, {%6, %7}, {%8, %9};"
+        : "=r"(d[0]), "=r"(d[2])
         : "r"(ra[0]), "r"(ra[1]), "r"(ra[2]), "r"(ra[3]),
-          "r"(rb[0]), "r"(rb[2]),
-          "f"(ac[0]), "f"(ac[1]), "f"(ac[4]), "f"(ac[5])
-    );
-    asm volatile(
-        "mma.sync.aligned.m16n8k16.row.col.f32.f16.f16.f32 "
-        "{%0, %1, %2, %3}, {%4, %5, %6, %7}, {%8, %9}, {%10, %11, %12, %13};"
-        : "=f"(ad2), "=f"(ad3), "=f"(ad6), "=f"(ad7)
+          "r"(rb[0]), "r"(rb[2]), "r"(ac[0]), "r"(ac[2]));
+    asm volatile("mma.sync.aligned.m16n8k16.row.col.f16.f16.f16.f16 "
+        "{%0, %1}, {%2, %3, %4, %5}, {%6, %7}, {%8, %9};"
+        : "=r"(d[1]), "=r"(d[3])
         : "r"(ra[0]), "r"(ra[1]), "r"(ra[2]), "r"(ra[3]),
-          "r"(rb[1]), "r"(rb[3]),
-          "f"(ac[2]), "f"(ac[3]), "f"(ac[6]), "f"(ac[7])
-    );
-    return sm86_f8{ad0, ad1, ad2, ad3, ad4, ad5, ad6, ad7};
+          "r"(rb[1]), "r"(rb[3]), "r"(ac[1]), "r"(ac[3]));
+    return d;
 }
 
 SM86_DEV sm86_f8 __builtin_amdgcn_wmma_f32_16x16x16_f16_w32_gfx12(sm86_h8 a, sm86_h8 b, sm86_f8 c) {
-    sm86_f8 ac = __sm86_c_to_ampere(c);
-    sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_f16(a), __sm86_prep_f16(b), ac);
+    sm86_u4 ac = __sm86_c_to_ampere(c);
+    sm86_u4 ad = sm86_mma_prepared_core(__sm86_prep_f16(a), __sm86_prep_f16(b), ac);
     return __sm86_d_to_rdna4(ad);
 }
 
 SM86_DEV sm86_f8 __builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(sm86_i2 a, sm86_i2 b, sm86_f8 c) {
-    sm86_f8 ac = __sm86_c_to_ampere(c);
-    sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), __sm86_prep_fp8(b), ac);
+    sm86_u4 ac = __sm86_c_to_ampere(c);
+    sm86_u4 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), __sm86_prep_fp8(b), ac);
     return __sm86_d_to_rdna4(ad);
 }
 
 // Zero-shuffle WMMA for pre-shuffled Q/K/V/prob `i2` fragments!
+// Keep the narrow FP8 pair opaque through the first Clang optimization.
+// The SSA pass deduplicates within a basic block, then inlines before NVPTX.
+extern "C" __attribute__((device, noinline))
+sm86_u4 __sm86_unpack_fp8(sm86_i2 a) __asm__("__sm86_unpack_fp8");
+extern "C" __attribute__((device, noinline))
+sm86_u4 __sm86_unpack_fp8(sm86_i2 a) { return sm86_unpack_e4m3x8(a); }
+
+// Exact Ampere accumulator-byte layout -> Ampere A/B fragment layout.
+SM86_DEV sm86_i2 sm86_d_bytes_to_ab(sm86_i2 a) {
+    sm86_u32 lane=sm86_lane_id(),u0=(sm86_u32)a[0],u1=(sm86_u32)a[1],ev,od;
+    asm("prmt.b32 %0, %2, %3, 0x6420;\n\t"
+        "prmt.b32 %1, %2, %3, 0x7531;"
+        : "=&r"(ev), "=r"(od) : "r"(u0), "r"(u1));
+    bool p=(lane&4u)!=0;
+    sm86_u32 w0=p?od:ev,w1=p?ev:od;
+    sm86_u32 base=((lane&3u)<<3)|(lane>>3)|(lane&4u);
+    sm86_u32 v0=sm86_shfl_idx_u32(w0,base),v1=sm86_shfl_idx_u32(w1,base^4u);
+    sm86_u32 x0=p?v1:v0,x1=p?v0:v1,o0,o1;
+    asm("prmt.b32 %0, %2, %3, 0x5140;\n\t"
+        "prmt.b32 %1, %2, %3, 0x7362;"
+        : "=&r"(o0), "=r"(o1) : "r"(x0), "r"(x1));
+    return sm86_i2{(int)o0,(int)o1};
+}
+
 SM86_DEV sm86_f8 sm86_wmma_fp8_preshuffled_ab(sm86_i2 pa, sm86_i2 pb, sm86_f8 c) {
-    sm86_f8 ac = __sm86_c_to_ampere(c);
-    sm86_f8 ad = sm86_mma_prepared_core(sm86_unpack_e4m3x8(pa), sm86_unpack_e4m3x8(pb), ac);
+    sm86_u4 ac = __sm86_c_to_ampere(c);
+    sm86_u4 ad = sm86_mma_prepared_core(__sm86_unpack_fp8(pa), __sm86_unpack_fp8(pb), ac);
     return __sm86_d_to_rdna4(ad);
 }
 
 SM86_DEV sm86_f8 sm86_wmma_fp8_prepped_b(sm86_i2 a, sm86_u4 rb, sm86_f8 c) {
-    sm86_f8 ac = __sm86_c_to_ampere(c);
-    sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), rb, ac);
+    sm86_u4 ac = __sm86_c_to_ampere(c);
+    sm86_u4 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), rb, ac);
     return __sm86_d_to_rdna4(ad);
 }
 
 SM86_DEV sm86_f8 sm86_wmma_fp8_preshuffled_b(sm86_i2 a, sm86_i2 pb, sm86_f8 c) {
-    sm86_f8 ac = __sm86_c_to_ampere(c);
-    sm86_f8 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), sm86_unpack_e4m3x8(pb), ac);
+    sm86_u4 ac = __sm86_c_to_ampere(c);
+    sm86_u4 ad = sm86_mma_prepared_core(__sm86_prep_fp8(a), __sm86_unpack_fp8(pb), ac);
     return __sm86_d_to_rdna4(ad);
 }
 
 SM86_DEV sm86_f8 sm86_wmma_fp8_preshuffled_a(sm86_i2 pa, sm86_i2 b, sm86_f8 c) {
-    sm86_f8 ac = __sm86_c_to_ampere(c);
-    sm86_f8 ad = sm86_mma_prepared_core(sm86_unpack_e4m3x8(pa), __sm86_prep_fp8(b), ac);
+    sm86_u4 ac = __sm86_c_to_ampere(c);
+    sm86_u4 ad = sm86_mma_prepared_core(__sm86_unpack_fp8(pa), __sm86_prep_fp8(b), ac);
     return __sm86_d_to_rdna4(ad);
 }
+
+// Phase 2: a static fragment is already CPU-permuted; the dynamic operand alone shuffles.
+SM86_DEV sm86_f8 sm86_wmma_fp8_weight_a(sm86_i2 wa,sm86_i2 b,sm86_f8 c){return __sm86_d_to_rdna4(sm86_mma_prepared_core(__sm86_unpack_fp8(wa),__sm86_prep_fp8(b),__sm86_c_to_ampere(c)));}
+SM86_DEV sm86_f8 sm86_wmma_fp8_weight_b(sm86_i2 a,sm86_i2 wb,sm86_f8 c){return __sm86_d_to_rdna4(sm86_mma_prepared_core(__sm86_prep_fp8(a),__sm86_unpack_fp8(wb),__sm86_c_to_ampere(c)));}
+SM86_DEV sm86_u4 sm86_add_u4_f16x2(sm86_u4 a,sm86_u4 b){sm86_u4 d;
+ asm("add.rn.f16x2 %0,%4,%8; add.rn.f16x2 %1,%5,%9; add.rn.f16x2 %2,%6,%10; add.rn.f16x2 %3,%7,%11;"
+ :"=r"(d[0]),"=r"(d[1]),"=r"(d[2]),"=r"(d[3]):"r"(a[0]),"r"(a[1]),"r"(a[2]),"r"(a[3]),"r"(b[0]),"r"(b[1]),"r"(b[2]),"r"(b[3]));return d;}
+SM86_DEV float sm86_sum_h8(sm86_h8 x){float s=0;_Pragma("unroll") for(unsigned e=0;e<8;e++)s+=float(x[e]);return s+sm86_shfl_xor_f32(s,16);}
+SM86_DEV sm86_f8 sm86_wmma_ones_a(sm86_h8 b,sm86_f8 c){float own=0;_Pragma("unroll") for(unsigned e=0;e<8;e++)own+=float(b[e]);float other=sm86_shfl_xor_f32(own,16);bool hi=(sm86_lane_id()&16)!=0;float lo=hi?other:own,up=hi?own:other;sm86_f8 d;_Pragma("unroll") for(unsigned e=0;e<8;e++)d[e]=float((_Float16)(up+float((_Float16)(lo+float((_Float16)c[e])))));return d;}
+SM86_DEV sm86_f8 sm86_wmma_ones_b(sm86_h8 a,sm86_f8 c){float own=0;_Pragma("unroll") for(unsigned e=0;e<8;e++)own+=float(a[e]);unsigned g=sm86_lane_id()>>4;sm86_f8 d;_Pragma("unroll") for(unsigned e=0;e<8;e++){float lo=sm86_shfl_idx_f32(own,g*8+e),up=sm86_shfl_idx_f32(own,g*8+e+16);d[e]=float((_Float16)(up+float((_Float16)(lo+float((_Float16)c[e])))));}return d;}
+template<bool Static> SM86_DEV sm86_f8 sm86_wmma_fp8_maybe_weight_b(sm86_i2 a,sm86_i2 b,sm86_f8 c){if constexpr(Static)return sm86_wmma_fp8_weight_b(a,b,c);else return __builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,c);}
+template<bool Static> SM86_DEV sm86_f8 sm86_wmma_fp8_maybe_pre_b(sm86_i2 a,sm86_i2 b,sm86_f8 c){if constexpr(Static)return sm86_wmma_fp8_preshuffled_ab(a,b,c);else return sm86_wmma_fp8_preshuffled_b(a,b,c);}
+template<bool Static> SM86_DEV sm86_f8 sm86_wmma_fp8_maybe_pre_a(sm86_i2 a,sm86_i2 b,sm86_f8 c){if constexpr(Static)return sm86_wmma_fp8_preshuffled_ab(a,b,c);else return sm86_wmma_fp8_preshuffled_a(a,b,c);}
+template<bool Static> SM86_DEV sm86_f8 sm86_wmma_fp8_maybe_weight_a(sm86_i2 a,sm86_i2 b,sm86_f8 c){if constexpr(Static)return sm86_wmma_fp8_weight_a(a,b,c);else return __builtin_amdgcn_wmma_f32_16x16x16_fp8_fp8_w32_gfx12(a,b,c);}

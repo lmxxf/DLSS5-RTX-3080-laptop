@@ -1,0 +1,31 @@
+Extracted and SHA-verified 667 support/weight/shader files
+{
+  "time": "2026-10-25T11:33:26.504193",
+  "game": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content",
+  "backend": "lmxxf",
+  "runtime": {
+    "bytes": 5048942,
+    "sha256": "ec94f6db31c9310c32cc93b789b66294a25b00630b121a2d761dda182fcda353"
+  },
+  "backup": "/mnt/c/DLSS5-5090-dll/backups/Onimusha-ptx-0.1.0",
+  "module_directory": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/DLSS5-AMD/native-game-tiled-assets/HIP/sm_86",
+  "marker_sha256": "35687a7a287df37abbe76f558cde518139e06c3ec849c18b5b3ac0bc417eedcd",
+  "small_weight_files": 93,
+  "cso_files": 207,
+  "extracted_files": 667,
+  "ini_sha256": "93e5db535821c0771bf3ddefd866be7d68d33532e0a42c3b585e2b86a71e507e",
+  "flags": {
+    "DLSS5_MULTI_PASS": "0.5",
+    "DLSS5_FAST_NUMERIC": "1",
+    "DLSS5_AMPERE_WEIGHTS": "1",
+    "DLSS5_CUDA_ARCH_NAME": "sm_86",
+    "DLSS5_LAB_C256_SPLIT": "0",
+    "DLSS5_STYLE": "1",
+    "DLSS5_HIP_GRAPH": "0",
+    "DLSS5_VIT_ADAPTIVE": "0"
+  },
+  "unchanged_host_dlls": {
+    "dxgi.dll": "aa3761f2cdb0d9a4653732bd430019ff421b3ce9471fe3697b553dc6d71714a2",
+    "dinput8.dll": "14f4d6fd65218f850f39781fb53fb07ba28da6601c1954529098b91608e6ae88"
+  }
+}

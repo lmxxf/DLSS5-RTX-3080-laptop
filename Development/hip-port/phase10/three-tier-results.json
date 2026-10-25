@@ -1,0 +1,48 @@
+{
+  "warmup": 50,
+  "iterations": 80,
+  "graph": false,
+  "rows": [
+    {
+      "display": "720p",
+      "processing": "1280\u00d7768",
+      "gpu_min": 13.843,
+      "gpu_median": 14.103,
+      "wall_median": 14.182,
+      "kernel_total": 14.00112,
+      "invalid": 0,
+      "first_last_bitdiff": 0,
+      "hash": "ae610e7a8c4221c6",
+      "active_kernels": 32,
+      "lmem_nonzero": 0,
+      "reference_bitdiff": 0,
+      "source": "selected-720p-bench.log",
+      "ptx_historical_median": 15.83
+    },
+    {
+      "display": "900p",
+      "processing": "1600\u00d71024",
+      "gpu_min": 23.461,
+      "gpu_median": 23.75,
+      "wall_median": 23.85,
+      "kernel_total": 21.753888000000003,
+      "invalid": 0,
+      "lmem_nonzero": 0,
+      "source": "selected-bench.log (previous final independent run)",
+      "ptx_historical_median": 24.47
+    },
+    {
+      "display": "1080p",
+      "processing": "1920\u00d71152",
+      "gpu_min": 30.944,
+      "gpu_median": 31.631,
+      "wall_median": 31.712,
+      "kernel_total": 28.43033599999999,
+      "invalid": 0,
+      "lmem_nonzero": 0,
+      "source": "selected-bench.log (previous final independent run)",
+      "ptx_historical_median": 32.04
+    }
+  ],
+  "ptx_note": "Historical rounded reference; input/processing geometry not unified in this supplement."
+}

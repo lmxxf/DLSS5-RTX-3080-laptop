@@ -431,6 +431,7 @@ void LoadFlagsFileOnce(const std::wstring &assets)
                                      key == "DLSS5_FIT_LARGE" || key == "DLSS5_NETWORK_HEIGHT" ||
                                      key == "DLSS5_NETWORK_1080_ROWS" || key == "DLSS5_STYLE" || key == "DLSS5_DIRECT_IO" ||
                                      key == "DLSS5_NETWORK_FREE_RES" || key == "DLSS5_FAST_NUMERIC" ||
+                                     key == "DLSS5_CUDA_ARCH_NAME" || key == "DLSS5_AMPERE_WEIGHTS" || key == "DLSS5_LAB_C256_SPLIT" ||
                                      key == "DLSS5_MULTI_PASS" || key == "DLSS5_MULTI_PASS_SKIP_BLOCKS" || key == "DLSS5_MULTI_PASS_SKIN_PROTECT" || key == "DLSS5_MULTI_PASS_PREDICT" ||
                                      key == "DLSS5_FRAME_STATS" || key == "DLSS5_STRENGTH" || key == "DLSS5_HOT_RELOAD" || key == "DLSS5_MULTI_PASS_HOTKEY" || key == "DLSS5_VIT_ADAPTIVE" || key == "DLSS5_VIT_REUSE_HOTKEY" ||
                                      key == "DLSS5_TEMPORAL_MODE" || key == "DLSS5_TEMPORAL_ENHANCE_STRENGTH" || key == "DLSS5_FAST_HISTORY" ||
@@ -461,11 +462,11 @@ hip_reference::Options RuntimeOptions(unsigned w, unsigned h, const std::wstring
     auto opt = LmxxfProductionOptions(w, h, Utf8(modulesDir), Utf8(weightsDir));
     opt.small_geometry=NativeCurrentNetworkGeometry().small_model;
     opt.integration.allow_small_model = !NativeOutputTemporalMode(NativeSelectedTemporalMode());
-    // The bridge picks HIP\gfx1200 or HIP\gfx1201 by device when those folders exist; require the module in every
+    // The bridge picks the matching architecture (including CUDA sm_86); require the module in every
     // architecture folder present (conservative: off rather than a load failure), else in the folder itself.
     auto has = [&](const wchar_t *f) {
         bool any = false;
-        for (const wchar_t *arch : {L"gfx1200", L"gfx1201"})
+        for (const wchar_t *arch : {L"sm_86", L"gfx1200", L"gfx1201"})
         {
             const std::wstring sub = JoinPath(modulesDir, arch);
             if (!IsDirectory(sub))

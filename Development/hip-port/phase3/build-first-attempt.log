@@ -1,0 +1,287 @@
+Parsed 40 modules from Development/hip-port/hip/build-modules.ps1
+[PASS] boundary_reference                     entries=  5 sha256=2c714405983c0021...
+[PASS] deep_reference                         entries= 16 sha256=f4b5556fe94948be...
+[PASS] wave-pointwise                         entries= 13 sha256=c182865439946b9e...
+[PASS] multihead-reference                    entries= 14 sha256=4e95b6369d06849d...
+[PASS] c32_prefix_reference                   entries= 10 sha256=f9772d700a005caa...
+[PASS] c32_tiled                              entries=  4 sha256=911beef1ccbf8636...
+[PASS] deep_wmma                              entries=  8 sha256=555dc436ff98b54c...
+[PASS] c32_wmma                               entries=  6 sha256=7bb05492dd42489f...
+[PASS] c32_fast                               entries=  3 sha256=49ecdffbd258409b...
+[PASS] c32_fast_attention                     entries=  6 sha256=74aa9370394422bf...
+[PASS] multihead-wmma                         entries=  9 sha256=4fda9cffdae1b27a...
+[PASS] multihead-tiled                        entries=  7 sha256=7431022d4c61d7bd...
+[PASS] boundary-fast                          entries= 14 sha256=3646ee0eecc66357...
+[PASS] c32_fused_attention                    entries=  1 sha256=505a99a66c798b1e...
+[PASS] prefix_fast                            entries=  4 sha256=b44def266fd72228...
+[PASS] multihead-fast                         entries= 14 sha256=c5f0df695bf76ff6...
+[PASS] multihead-fast-packed                  entries= 14 sha256=961fddeb7161d88a...
+[FAIL] c32-wave1                             
+Clang failed:
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:893:6: error: use of undeclared identifier 'ffn'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+     ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:893:51: error: use of undeclared identifier 'input'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+                                                  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:893:60: error: use of undeclared identifier 'ffn'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+                                                           ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:894:6: error: use of undeclared identifier 'ffn'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+     ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:894:51: error: use of undeclared identifier 'input'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+                                                  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:894:60: error: use of undeclared identifier 'ffn'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+                                                           ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:896:5: error: expected expression
+   }else _Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+    ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:901:3: error: expected unqualified-id
+  if constexpr(W16==1){
+  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:920:4: error: expected unqualified-id
+  }else{
+   ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:939:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 a;float a_t[8];
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:943:1: error: expected unqualified-id
+_Pragma("unroll") for(uint part=0;part<3;part++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:971:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:978:1: error: expected unqualified-id
+_Pragma("unroll") for(uint e=0;e<8;e++)ones[e]=(__fp16)1.f;
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:979:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++)sums=sm86_wmma_ones_a(ex[kt],sums);
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:981:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){i2 a;float a_t[8];
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:984:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){f8 acc{};
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:987:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:1005:3: error: C++ requires a type specifier for all declarations
+  __builtin_amdgcn_sched_barrier(0);
+  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1.generated.cu:1006:2: error: extraneous closing brace ('}')
+ }
+ ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated when compiling for sm_86.
+
+[FAIL] c32-wave1-rtz                         
+Clang failed:
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:889:6: error: use of undeclared identifier 'ffn'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+     ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:889:51: error: use of undeclared identifier 'input'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+                                                  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:889:60: error: use of undeclared identifier 'ffn'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+                                                           ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:890:6: error: use of undeclared identifier 'ffn'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+     ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:890:51: error: use of undeclared identifier 'input'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+                                                  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:890:60: error: use of undeclared identifier 'ffn'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+                                                           ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:892:5: error: expected expression
+   }else _Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+    ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:897:3: error: expected unqualified-id
+  if constexpr(W16==1){
+  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:916:4: error: expected unqualified-id
+  }else{
+   ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:935:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 a;float a_t[8];
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:939:1: error: expected unqualified-id
+_Pragma("unroll") for(uint part=0;part<3;part++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:967:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:974:1: error: expected unqualified-id
+_Pragma("unroll") for(uint e=0;e<8;e++)ones[e]=(__fp16)1.f;
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:975:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++)sums=sm86_wmma_ones_a(ex[kt],sums);
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:977:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){i2 a;float a_t[8];
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:980:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){f8 acc{};
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:983:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:1001:3: error: C++ requires a type specifier for all declarations
+  __builtin_amdgcn_sched_barrier(0);
+  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-rtz.generated.cu:1002:2: error: extraneous closing brace ('}')
+ }
+ ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated when compiling for sm_86.
+
+[PASS] multihead_fused_attention              entries= 28 sha256=2a689a21beac25c7...
+[FAIL] c32-wave1-fast                        
+Clang failed:
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:890:6: error: use of undeclared identifier 'ffn'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+     ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:890:51: error: use of undeclared identifier 'input'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+                                                  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:890:60: error: use of undeclared identifier 'ffn'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+                                                           ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:891:6: error: use of undeclared identifier 'ffn'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+     ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:891:51: error: use of undeclared identifier 'input'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+                                                  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:891:60: error: use of undeclared identifier 'ffn'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+                                                           ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:893:5: error: expected expression
+   }else _Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+    ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:898:3: error: expected unqualified-id
+  if constexpr(W16==1){
+  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:917:4: error: expected unqualified-id
+  }else{
+   ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:936:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 a;float a_t[8];
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:940:1: error: expected unqualified-id
+_Pragma("unroll") for(uint part=0;part<3;part++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:968:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:975:1: error: expected unqualified-id
+_Pragma("unroll") for(uint e=0;e<8;e++)ones[e]=(__fp16)1.f;
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:976:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++)sums=sm86_wmma_ones_a(ex[kt],sums);
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:978:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){i2 a;float a_t[8];
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:981:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){f8 acc{};
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:984:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:1002:3: error: C++ requires a type specifier for all declarations
+  __builtin_amdgcn_sched_barrier(0);
+  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast.generated.cu:1003:2: error: extraneous closing brace ('}')
+ }
+ ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated when compiling for sm_86.
+
+[PASS] c32_fused_ffn_attention-packed         entries= 10 sha256=dc7d7085e22e3574...
+[FAIL] c32-wave1-fast-norm900                
+Clang failed:
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:891:6: error: use of undeclared identifier 'ffn'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+     ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:891:51: error: use of undeclared identifier 'input'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+                                                  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:891:60: error: use of undeclared identifier 'ffn'
+     ffn[0]=sm86_wmma_fp8_maybe_pre_b<true>(bp.lo,input[0],ffn[0]);
+                                                           ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:892:6: error: use of undeclared identifier 'ffn'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+     ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:892:51: error: use of undeclared identifier 'input'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+                                                  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:892:60: error: use of undeclared identifier 'ffn'
+     ffn[1]=sm86_wmma_fp8_maybe_pre_b<true>(bp.hi,input[1],ffn[1]);
+                                                           ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:894:5: error: expected expression
+   }else _Pragma("unroll") for(uint part=0;part<3;part++)_Pragma("unroll") for(uint ci=0;ci<2;ci++)_Pragma("unroll") for(uint kt=0;kt<2;kt++){
+    ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:899:3: error: expected unqualified-id
+  if constexpr(W16==1){
+  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:918:4: error: expected unqualified-id
+  }else{
+   ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:937:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){i2 a;float a_t[8];
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:941:1: error: expected unqualified-id
+_Pragma("unroll") for(uint part=0;part<3;part++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:970:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:977:1: error: expected unqualified-id
+_Pragma("unroll") for(uint e=0;e<8;e++)ones[e]=(__fp16)1.f;
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:978:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++)sums=sm86_wmma_ones_a(ex[kt],sums);
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:980:1: error: expected unqualified-id
+_Pragma("unroll 4") for(uint kt=0;kt<4;kt++){i2 a;float a_t[8];
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:983:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){f8 acc{};
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:986:1: error: expected unqualified-id
+_Pragma("unroll") for(uint ci=0;ci<2;ci++){
+^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:1004:3: error: C++ requires a type specifier for all declarations
+  __builtin_amdgcn_sched_barrier(0);
+  ^
+Development/hip-port/phase3/artifacts/modules/c32-wave1-fast-norm900.generated.cu:1005:2: error: extraneous closing brace ('}')
+ }
+ ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated when compiling for sm_86.
+
+[PASS] deep_fast                              entries= 83 sha256=24e2085ed7998ef5...
+[PASS] deep_fast-packed                       entries= 89 sha256=c72a97fcf2608fce...
+[PASS] multihead-fast-padded-wave             entries=121 sha256=090ca26b585ebc1a...
+[PASS] c32_fused_ffn_attention                entries= 10 sha256=251a381fb3936db9...
+[PASS] multihead-fast-padded-wave-packed      entries=129 sha256=e9ab6dd5b95318a8...
+[PASS] deep_fast-packed-fast                  entries= 89 sha256=80ad94a19bc76730...
+[PASS] multi-pass-skin                        entries=  3 sha256=7e1f57d06e304ebc...
+[PASS] multi-pass-predict                     entries=  4 sha256=802382c340ae4c59...
+[PASS] vit-stream-fast                        entries=101 sha256=af2d9a018f38f232...
+[PASS] c512-m32-mh                            entries=113 sha256=3b44a2d61f934abe...
+[PASS] vit-stream                             entries=101 sha256=4590deeb81bda5e3...
+[PASS] vit-wide-deep                          entries= 84 sha256=35ec9f519e6ef76d...
+[PASS] c512-m32-deep                          entries= 91 sha256=370ab95625218a1c...
+[PASS] c64-wave2                              entries=137 sha256=3520b0223ffa219b...
+[PASS] swin-persistent                        entries=118 sha256=0333db21eb18313c...
+[PASS] swin-persistent-fast                   entries=118 sha256=3dc1ec556fb22fe5...
+[PASS] c64-wave2-fast                         entries=137 sha256=282172f9e433ec5f...
+
+SUMMARY: 36/40 modules compiled to sm_86 cubin & verified on RTX 3080 Laptop GPU (1714 kernel entry points verified)!

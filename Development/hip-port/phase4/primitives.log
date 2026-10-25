@@ -1,0 +1,24 @@
+{
+  "tile256_prep_bitdiff": 0,
+  "tile512w16": "pass",
+  "ones_a": {
+    "bitdiff": 0,
+    "maxabs": 0.0,
+    "max_half_ulp": 0.0,
+    "integer_bitdiff": 0,
+    "invalid": 0
+  },
+  "ones_b": {
+    "bitdiff": 0,
+    "maxabs": 0.0,
+    "max_half_ulp": 0.0,
+    "integer_bitdiff": 0,
+    "invalid": 0
+  },
+  "packed_add_bitdiff": 0,
+  "seeded_partition_counterexample": {
+    "separate_total": 1,
+    "seeded_total": 0,
+    "different_outputs": 256
+  }
+}

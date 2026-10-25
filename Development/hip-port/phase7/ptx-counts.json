@@ -1,0 +1,127 @@
+[
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_prefix_b8d_w16",
+    "baseline": {
+      "bra": 617,
+      "min": 528,
+      "max": 530,
+      "mma": 84,
+      "lines": 14107
+    },
+    "step12": {
+      "bra": 10,
+      "min": 288,
+      "max": 290,
+      "mma": 84,
+      "lines": 13528
+    },
+    "hoist": {
+      "bra": 10,
+      "min": 288,
+      "max": 290,
+      "mma": 84,
+      "lines": 13528
+    }
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_mapped_b8_w16",
+    "baseline": {
+      "bra": 442,
+      "min": 400,
+      "max": 402,
+      "mma": 80,
+      "lines": 11104
+    },
+    "step12": {
+      "bra": 18,
+      "min": 224,
+      "max": 226,
+      "mma": 80,
+      "lines": 10580
+    },
+    "hoist": {
+      "bra": 18,
+      "min": 224,
+      "max": 226,
+      "mma": 80,
+      "lines": 10580
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_bi_bo_w16",
+    "baseline": {
+      "bra": 540,
+      "min": 128,
+      "max": 130,
+      "mma": 100,
+      "lines": 12869
+    },
+    "step12": {
+      "bra": 19,
+      "min": 64,
+      "max": 66,
+      "mma": 100,
+      "lines": 12519
+    },
+    "hoist": {
+      "bra": 19,
+      "min": 64,
+      "max": 66,
+      "mma": 100,
+      "lines": 12519
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_bo_w16",
+    "baseline": {
+      "bra": 540,
+      "min": 128,
+      "max": 130,
+      "mma": 100,
+      "lines": 12863
+    },
+    "step12": {
+      "bra": 19,
+      "min": 64,
+      "max": 66,
+      "mma": 100,
+      "lines": 12513
+    },
+    "hoist": {
+      "bra": 19,
+      "min": 64,
+      "max": 66,
+      "mma": 100,
+      "lines": 12513
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c256_wave2_bi_bo_w16",
+    "baseline": {
+      "bra": 544,
+      "min": 128,
+      "max": 130,
+      "mma": 100,
+      "lines": 13100
+    },
+    "step12": {
+      "bra": 22,
+      "min": 64,
+      "max": 66,
+      "mma": 100,
+      "lines": 12769
+    },
+    "hoist": {
+      "bra": 22,
+      "min": 64,
+      "max": 66,
+      "mma": 100,
+      "lines": 12769
+    }
+  }
+]

@@ -1,0 +1,5 @@
+using U=unsigned;
+SM86_DEV U old_ref(float x){U b=__builtin_bit_cast(U,x),s=(b>>24)&128,a=b&0x7fffffff;float magic;asm("add.rn.f32 %0,%1,0f46800000;":"=f"(magic):"f"(__builtin_bit_cast(float,a)));U sub=__builtin_bit_cast(U,magic)&255,r=a+0x7ffff+((a>>20)&1),norm=r>=0x43e00000?126:((r>>20)-960);return s|((a<0x3c800000)?sub:((a>=0x7f800000)?127:norm));}
+SM86_DEV sm86_u32 sm86_c32_lowreg_byte(float x){return old_ref(x);}
+SM86_DEV float clamp_ref(float x){float r;asm("max.f32 %0,%1,0fC3e00000; min.f32 %0,%0,0f43e00000;":"=&f"(r):"f"(x));return r;}
+extern "C" __attribute__((global)) void compare(const U* in,U* out,U n){U i=__builtin_amdgcn_workgroup_id_x()*32+sm86_lane_id();if(i>=n)return;float x=__builtin_bit_cast(float,in[i]);out[i*8]=old_ref(clamp_ref(x));out[i*8+1]=sm86_f32_to_e4m3_byte(x);out[i*8+2]=old_ref(clamp_ref(x+0.f));out[i*8+3]=sm86_f32_to_e4m3_byte(x+0.f);out[i*8+4]=old_ref(x);out[i*8+5]=sm86_c32_lowreg_byte(x);out[i*8+6]=__builtin_bit_cast(U,clamp_ref(x));out[i*8+7]=__builtin_bit_cast(U,x+0.f);}

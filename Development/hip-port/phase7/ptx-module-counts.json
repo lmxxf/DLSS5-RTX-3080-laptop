@@ -1,0 +1,682 @@
+[
+  {
+    "module": "boundary-fast",
+    "baseline": {
+      "bra": 873,
+      "min": 174,
+      "max": 181,
+      "mma": 20,
+      "lines": 13775
+    },
+    "step12": {
+      "bra": 285,
+      "min": 174,
+      "max": 181,
+      "mma": 20,
+      "lines": 14126
+    }
+  },
+  {
+    "module": "boundary_reference",
+    "baseline": {
+      "bra": 92,
+      "min": 1,
+      "max": 34,
+      "mma": 0,
+      "lines": 2098
+    },
+    "step12": {
+      "bra": 92,
+      "min": 1,
+      "max": 34,
+      "mma": 0,
+      "lines": 2106
+    }
+  },
+  {
+    "module": "c32-wave1-fast-norm900",
+    "baseline": {
+      "bra": 22623,
+      "min": 19089,
+      "max": 19327,
+      "mma": 4232,
+      "lines": 623964
+    },
+    "step12": {
+      "bra": 1260,
+      "min": 10957,
+      "max": 11195,
+      "mma": 4232,
+      "lines": 610132
+    }
+  },
+  {
+    "module": "c32-wave1-fast",
+    "baseline": {
+      "bra": 22847,
+      "min": 19089,
+      "max": 19327,
+      "mma": 4232,
+      "lines": 627150
+    },
+    "step12": {
+      "bra": 1498,
+      "min": 10957,
+      "max": 11195,
+      "mma": 4232,
+      "lines": 613334
+    }
+  },
+  {
+    "module": "c32-wave1-rtz",
+    "baseline": {
+      "bra": 22623,
+      "min": 19041,
+      "max": 19279,
+      "mma": 4232,
+      "lines": 644856
+    },
+    "step12": {
+      "bra": 1260,
+      "min": 10933,
+      "max": 11171,
+      "mma": 4232,
+      "lines": 630822
+    }
+  },
+  {
+    "module": "c32-wave1",
+    "baseline": {
+      "bra": 22623,
+      "min": 19089,
+      "max": 19327,
+      "mma": 4232,
+      "lines": 648002
+    },
+    "step12": {
+      "bra": 1260,
+      "min": 10957,
+      "max": 11195,
+      "mma": 4232,
+      "lines": 634400
+    }
+  },
+  {
+    "module": "c32_fast",
+    "baseline": {
+      "bra": 897,
+      "min": 224,
+      "max": 184,
+      "mma": 48,
+      "lines": 11481
+    },
+    "step12": {
+      "bra": 690,
+      "min": 140,
+      "max": 100,
+      "mma": 48,
+      "lines": 11466
+    }
+  },
+  {
+    "module": "c32_fast_attention",
+    "baseline": {
+      "bra": 811,
+      "min": 171,
+      "max": 178,
+      "mma": 20,
+      "lines": 12091
+    },
+    "step12": {
+      "bra": 241,
+      "min": 171,
+      "max": 178,
+      "mma": 20,
+      "lines": 12392
+    }
+  },
+  {
+    "module": "c32_fused_attention",
+    "baseline": {
+      "bra": 753,
+      "min": 180,
+      "max": 186,
+      "mma": 36,
+      "lines": 13350
+    },
+    "step12": {
+      "bra": 263,
+      "min": 188,
+      "max": 194,
+      "mma": 36,
+      "lines": 13388
+    }
+  },
+  {
+    "module": "c32_fused_ffn_attention-packed",
+    "baseline": {
+      "bra": 6104,
+      "min": 4909,
+      "max": 5075,
+      "mma": 1320,
+      "lines": 206833
+    },
+    "step12": {
+      "bra": 453,
+      "min": 3097,
+      "max": 3263,
+      "mma": 1320,
+      "lines": 210065
+    }
+  },
+  {
+    "module": "c32_fused_ffn_attention",
+    "baseline": {
+      "bra": 18044,
+      "min": 12863,
+      "max": 13029,
+      "mma": 1320,
+      "lines": 351462
+    },
+    "step12": {
+      "bra": 453,
+      "min": 7074,
+      "max": 7240,
+      "mma": 1320,
+      "lines": 345531
+    }
+  },
+  {
+    "module": "c32_prefix_reference",
+    "baseline": {
+      "bra": 1256,
+      "min": 52,
+      "max": 20,
+      "mma": 0,
+      "lines": 12704
+    },
+    "step12": {
+      "bra": 1256,
+      "min": 52,
+      "max": 20,
+      "mma": 0,
+      "lines": 12712
+    }
+  },
+  {
+    "module": "c32_tiled",
+    "baseline": {
+      "bra": 537,
+      "min": 164,
+      "max": 130,
+      "mma": 28,
+      "lines": 9264
+    },
+    "step12": {
+      "bra": 397,
+      "min": 103,
+      "max": 69,
+      "mma": 28,
+      "lines": 9244
+    }
+  },
+  {
+    "module": "c32_wmma",
+    "baseline": {
+      "bra": 1753,
+      "min": 790,
+      "max": 723,
+      "mma": 44,
+      "lines": 24393
+    },
+    "step12": {
+      "bra": 709,
+      "min": 437,
+      "max": 370,
+      "mma": 44,
+      "lines": 23953
+    }
+  },
+  {
+    "module": "c512-m32-deep",
+    "baseline": {
+      "bra": 19108,
+      "min": 11246,
+      "max": 11320,
+      "mma": 2588,
+      "lines": 441993
+    },
+    "step12": {
+      "bra": 3157,
+      "min": 6632,
+      "max": 6706,
+      "mma": 2594,
+      "lines": 435372
+    }
+  },
+  {
+    "module": "c512-m32-mh",
+    "baseline": {
+      "bra": 27102,
+      "min": 15058,
+      "max": 15138,
+      "mma": 3512,
+      "lines": 603498
+    },
+    "step12": {
+      "bra": 5840,
+      "min": 7587,
+      "max": 7667,
+      "mma": 3516,
+      "lines": 600179
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "baseline": {
+      "bra": 51516,
+      "min": 21774,
+      "max": 21914,
+      "mma": 5688,
+      "lines": 1078393
+    },
+    "step12": {
+      "bra": 6438,
+      "min": 10897,
+      "max": 11037,
+      "mma": 5688,
+      "lines": 1059087
+    }
+  },
+  {
+    "module": "c64-wave2",
+    "baseline": {
+      "bra": 51630,
+      "min": 21774,
+      "max": 21914,
+      "mma": 5688,
+      "lines": 1125735
+    },
+    "step12": {
+      "bra": 6552,
+      "min": 10897,
+      "max": 11037,
+      "mma": 5688,
+      "lines": 1106343
+    }
+  },
+  {
+    "module": "deep_fast-packed-fast",
+    "baseline": {
+      "bra": 20114,
+      "min": 11390,
+      "max": 11464,
+      "mma": 1564,
+      "lines": 420292
+    },
+    "step12": {
+      "bra": 3251,
+      "min": 6616,
+      "max": 6690,
+      "mma": 1570,
+      "lines": 415836
+    }
+  },
+  {
+    "module": "deep_fast-packed",
+    "baseline": {
+      "bra": 19245,
+      "min": 11102,
+      "max": 11176,
+      "mma": 1564,
+      "lines": 416660
+    },
+    "step12": {
+      "bra": 3251,
+      "min": 6328,
+      "max": 6402,
+      "mma": 1570,
+      "lines": 413001
+    }
+  },
+  {
+    "module": "deep_fast",
+    "baseline": {
+      "bra": 21030,
+      "min": 9102,
+      "max": 9176,
+      "mma": 1516,
+      "lines": 421077
+    },
+    "step12": {
+      "bra": 3110,
+      "min": 5480,
+      "max": 5554,
+      "mma": 1522,
+      "lines": 419460
+    }
+  },
+  {
+    "module": "deep_reference",
+    "baseline": {
+      "bra": 809,
+      "min": 47,
+      "max": 6,
+      "mma": 0,
+      "lines": 9907
+    },
+    "step12": {
+      "bra": 809,
+      "min": 47,
+      "max": 6,
+      "mma": 0,
+      "lines": 9915
+    }
+  },
+  {
+    "module": "deep_wmma",
+    "baseline": {
+      "bra": 1173,
+      "min": 156,
+      "max": 25,
+      "mma": 52,
+      "lines": 18338
+    },
+    "step12": {
+      "bra": 1173,
+      "min": 156,
+      "max": 25,
+      "mma": 52,
+      "lines": 18346
+    }
+  },
+  {
+    "module": "multi-pass-predict",
+    "baseline": {
+      "bra": 24,
+      "min": 13,
+      "max": 13,
+      "mma": 0,
+      "lines": 1505
+    },
+    "step12": {
+      "bra": 24,
+      "min": 13,
+      "max": 13,
+      "mma": 0,
+      "lines": 1513
+    }
+  },
+  {
+    "module": "multi-pass-skin",
+    "baseline": {
+      "bra": 40,
+      "min": 41,
+      "max": 42,
+      "mma": 0,
+      "lines": 1252
+    },
+    "step12": {
+      "bra": 40,
+      "min": 41,
+      "max": 42,
+      "mma": 0,
+      "lines": 1260
+    }
+  },
+  {
+    "module": "multihead-fast-packed",
+    "baseline": {
+      "bra": 3213,
+      "min": 50,
+      "max": 43,
+      "mma": 92,
+      "lines": 36097
+    },
+    "step12": {
+      "bra": 1694,
+      "min": 50,
+      "max": 43,
+      "mma": 92,
+      "lines": 37826
+    }
+  },
+  {
+    "module": "multihead-fast-padded-wave-packed",
+    "baseline": {
+      "bra": 29988,
+      "min": 17160,
+      "max": 17252,
+      "mma": 2632,
+      "lines": 652289
+    },
+    "step12": {
+      "bra": 6826,
+      "min": 8590,
+      "max": 8682,
+      "mma": 2636,
+      "lines": 646415
+    }
+  },
+  {
+    "module": "multihead-fast-padded-wave",
+    "baseline": {
+      "bra": 28467,
+      "min": 16552,
+      "max": 16644,
+      "mma": 2528,
+      "lines": 624384
+    },
+    "step12": {
+      "bra": 6088,
+      "min": 8286,
+      "max": 8378,
+      "mma": 2528,
+      "lines": 618445
+    }
+  },
+  {
+    "module": "multihead-fast",
+    "baseline": {
+      "bra": 3283,
+      "min": 50,
+      "max": 43,
+      "mma": 92,
+      "lines": 37365
+    },
+    "step12": {
+      "bra": 1694,
+      "min": 50,
+      "max": 43,
+      "mma": 92,
+      "lines": 39075
+    }
+  },
+  {
+    "module": "multihead-reference",
+    "baseline": {
+      "bra": 1333,
+      "min": 54,
+      "max": 5,
+      "mma": 0,
+      "lines": 13127
+    },
+    "step12": {
+      "bra": 1333,
+      "min": 54,
+      "max": 5,
+      "mma": 0,
+      "lines": 13135
+    }
+  },
+  {
+    "module": "multihead-tiled",
+    "baseline": {
+      "bra": 992,
+      "min": 85,
+      "max": 17,
+      "mma": 32,
+      "lines": 13561
+    },
+    "step12": {
+      "bra": 860,
+      "min": 85,
+      "max": 17,
+      "mma": 32,
+      "lines": 13660
+    }
+  },
+  {
+    "module": "multihead-wmma",
+    "baseline": {
+      "bra": 2428,
+      "min": 141,
+      "max": 25,
+      "mma": 44,
+      "lines": 28159
+    },
+    "step12": {
+      "bra": 1404,
+      "min": 141,
+      "max": 25,
+      "mma": 44,
+      "lines": 28088
+    }
+  },
+  {
+    "module": "multihead_fused_attention",
+    "baseline": {
+      "bra": 13229,
+      "min": 4211,
+      "max": 4135,
+      "mma": 1196,
+      "lines": 266252
+    },
+    "step12": {
+      "bra": 3643,
+      "min": 4211,
+      "max": 4135,
+      "mma": 1196,
+      "lines": 266457
+    }
+  },
+  {
+    "module": "prefix_fast",
+    "baseline": {
+      "bra": 1682,
+      "min": 4,
+      "max": 2,
+      "mma": 20,
+      "lines": 12319
+    },
+    "step12": {
+      "bra": 1680,
+      "min": 3,
+      "max": 1,
+      "mma": 20,
+      "lines": 12325
+    }
+  },
+  {
+    "module": "swin-persistent-fast",
+    "baseline": {
+      "bra": 29838,
+      "min": 14958,
+      "max": 15042,
+      "mma": 2896,
+      "lines": 610026
+    },
+    "step12": {
+      "bra": 6395,
+      "min": 7489,
+      "max": 7573,
+      "mma": 2900,
+      "lines": 603580
+    }
+  },
+  {
+    "module": "swin-persistent",
+    "baseline": {
+      "bra": 29952,
+      "min": 14958,
+      "max": 15042,
+      "mma": 2896,
+      "lines": 647983
+    },
+    "step12": {
+      "bra": 6509,
+      "min": 7489,
+      "max": 7573,
+      "mma": 2900,
+      "lines": 641451
+    }
+  },
+  {
+    "module": "vit-stream-fast",
+    "baseline": {
+      "bra": 17759,
+      "min": 9870,
+      "max": 9976,
+      "mma": 1968,
+      "lines": 403627
+    },
+    "step12": {
+      "bra": 3357,
+      "min": 5736,
+      "max": 5842,
+      "mma": 1974,
+      "lines": 401243
+    }
+  },
+  {
+    "module": "vit-stream",
+    "baseline": {
+      "bra": 17759,
+      "min": 9870,
+      "max": 9976,
+      "mma": 1968,
+      "lines": 417387
+    },
+    "step12": {
+      "bra": 3357,
+      "min": 5736,
+      "max": 5842,
+      "mma": 1974,
+      "lines": 415003
+    }
+  },
+  {
+    "module": "vit-wide-deep",
+    "baseline": {
+      "bra": 20362,
+      "min": 8910,
+      "max": 8984,
+      "mma": 1548,
+      "lines": 416348
+    },
+    "step12": {
+      "bra": 3117,
+      "min": 5256,
+      "max": 5330,
+      "mma": 1554,
+      "lines": 415486
+    }
+  },
+  {
+    "module": "wave-pointwise",
+    "baseline": {
+      "bra": 1415,
+      "min": 67,
+      "max": 10,
+      "mma": 0,
+      "lines": 14753
+    },
+    "step12": {
+      "bra": 1415,
+      "min": 67,
+      "max": 10,
+      "mma": 0,
+      "lines": 14761
+    }
+  }
+]

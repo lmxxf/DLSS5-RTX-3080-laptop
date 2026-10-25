@@ -1,0 +1,82 @@
+[
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_prefix_b8d_w16",
+    "regs": 168,
+    "lmem": 16,
+    "smem": 8192,
+    "occw": 11
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_mapped_b8_w16",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 8192,
+    "occw": 11
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_post_b8_w16",
+    "regs": 162,
+    "lmem": 0,
+    "smem": 8192,
+    "occw": 11
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_up_b8_w16",
+    "regs": 239,
+    "lmem": 0,
+    "smem": 10240,
+    "occw": 8
+  },
+  {
+    "module": "c512-m32-deep",
+    "kernel": "split_ffn_one_w2f8_w16",
+    "regs": 106,
+    "lmem": 0,
+    "smem": 0,
+    "occw": 16
+  },
+  {
+    "module": "c512-m32-deep",
+    "kernel": "split_ffn_one_w2f8_w16_bin",
+    "regs": 106,
+    "lmem": 0,
+    "smem": 0,
+    "occw": 16
+  },
+  {
+    "module": "vit-stream-fast",
+    "kernel": "vit_stream_project_n64_bb_bout_compactw_w16",
+    "regs": 101,
+    "lmem": 0,
+    "smem": 0,
+    "occw": 16
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_bi_bo_w16",
+    "regs": 225,
+    "lmem": 0,
+    "smem": 12288,
+    "occw": 8
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_bo_w16",
+    "regs": 231,
+    "lmem": 0,
+    "smem": 24576,
+    "occw": 8
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c256_wave2_bi_bo_w16",
+    "regs": 226,
+    "lmem": 0,
+    "smem": 49152,
+    "occw": 8
+  }
+]

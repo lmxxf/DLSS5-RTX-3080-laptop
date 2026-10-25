@@ -1,0 +1,170 @@
+[
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_prefix_b8d_w16",
+    "baseline": {
+      "shfl": 269,
+      "selp": 1208,
+      "prmt": 340,
+      "mma": 84,
+      "bra": 10,
+      "lines": 13528
+    },
+    "full": {
+      "shfl": 229,
+      "selp": 1136,
+      "prmt": 332,
+      "mma": 84,
+      "bra": 10,
+      "lines": 13332
+    },
+    "selected": {
+      "shfl": 229,
+      "selp": 1136,
+      "prmt": 332,
+      "mma": 84,
+      "bra": 10,
+      "lines": 13332
+    }
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_mapped_b8_w16",
+    "baseline": {
+      "shfl": 240,
+      "selp": 954,
+      "prmt": 332,
+      "mma": 80,
+      "bra": 18,
+      "lines": 10580
+    },
+    "full": {
+      "shfl": 200,
+      "selp": 882,
+      "prmt": 324,
+      "mma": 80,
+      "bra": 18,
+      "lines": 10386
+    },
+    "selected": {
+      "shfl": 200,
+      "selp": 870,
+      "prmt": 324,
+      "mma": 80,
+      "bra": 10,
+      "lines": 10273
+    }
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_post_b8_w16",
+    "baseline": {
+      "shfl": 240,
+      "selp": 922,
+      "prmt": 332,
+      "mma": 80,
+      "bra": 26,
+      "lines": 10704
+    },
+    "full": {
+      "shfl": 200,
+      "selp": 850,
+      "prmt": 324,
+      "mma": 80,
+      "bra": 26,
+      "lines": 10510
+    },
+    "selected": {
+      "shfl": 200,
+      "selp": 850,
+      "prmt": 324,
+      "mma": 80,
+      "bra": 26,
+      "lines": 10510
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_bi_bo_w16",
+    "baseline": {
+      "shfl": 324,
+      "selp": 1215,
+      "prmt": 408,
+      "mma": 100,
+      "bra": 19,
+      "lines": 12519
+    },
+    "full": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 384,
+      "mma": 100,
+      "bra": 19,
+      "lines": 11925
+    },
+    "selected": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 384,
+      "mma": 100,
+      "bra": 19,
+      "lines": 11925
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_bo_w16",
+    "baseline": {
+      "shfl": 324,
+      "selp": 1215,
+      "prmt": 408,
+      "mma": 100,
+      "bra": 19,
+      "lines": 12513
+    },
+    "full": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 384,
+      "mma": 100,
+      "bra": 19,
+      "lines": 11919
+    },
+    "selected": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 384,
+      "mma": 100,
+      "bra": 19,
+      "lines": 11919
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c256_wave2_bi_bo_w16",
+    "baseline": {
+      "shfl": 324,
+      "selp": 1215,
+      "prmt": 428,
+      "mma": 100,
+      "bra": 22,
+      "lines": 12769
+    },
+    "full": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 404,
+      "mma": 100,
+      "bra": 22,
+      "lines": 12175
+    },
+    "selected": {
+      "shfl": 204,
+      "selp": 999,
+      "prmt": 404,
+      "mma": 100,
+      "bra": 22,
+      "lines": 12175
+    }
+  }
+]

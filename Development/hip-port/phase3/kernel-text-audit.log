@@ -1,0 +1,38 @@
+[
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_bo",
+    "phase2_bytes": 237568,
+    "phase3_bytes": 237568,
+    "identical": false,
+    "phase2_sha256": "50fb5581364c63a476cec780344b90c88a7006e9709a06603a40fec8d196688d",
+    "phase3_sha256": "95f3640b473da75d608ead687844c950ba4c8b79fd4d4cdd7d8d9969ab0fb982"
+  },
+  {
+    "module": "vit-stream-fast",
+    "kernel": "vit_stream_contract_frag_bstream_bout_compactw_w16",
+    "phase2_bytes": 57600,
+    "phase3_bytes": 57600,
+    "identical": true,
+    "phase2_sha256": "33b52d272ab38ec1fcf55a5da553558e9438e0c3494e52ae9f23dc0aca9966cb",
+    "phase3_sha256": "33b52d272ab38ec1fcf55a5da553558e9438e0c3494e52ae9f23dc0aca9966cb"
+  },
+  {
+    "module": "vit-stream-fast",
+    "kernel": "vit_stream_qkv_frag_bin_w5f8",
+    "phase2_bytes": 38784,
+    "phase3_bytes": 38784,
+    "identical": true,
+    "phase2_sha256": "3199d12e8ea88da47f98ab0895a359e83bffa7472bbe3d3f5706951e91e2f89a",
+    "phase3_sha256": "3199d12e8ea88da47f98ab0895a359e83bffa7472bbe3d3f5706951e91e2f89a"
+  },
+  {
+    "module": "deep_fast-packed-fast",
+    "kernel": "vit_expand_blocked_fp8_frag_bytein_w16",
+    "phase2_bytes": 28672,
+    "phase3_bytes": 28672,
+    "identical": true,
+    "phase2_sha256": "9e3d274a67cb446d3976e2f801fc07b3c0aabf685251fdc6a2e041c2a7ce34d9",
+    "phase3_sha256": "9e3d274a67cb446d3976e2f801fc07b3c0aabf685251fdc6a2e041c2a7ce34d9"
+  }
+]

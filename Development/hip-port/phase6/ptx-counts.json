@@ -1,0 +1,1993 @@
+{
+  "boundary-fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/boundary-fast.ptx",
+    "baseline": {
+      "summary": {
+        "st_global_u8": 1,
+        "ld_global_u8": 1
+      },
+      "opcodes": {
+        "ld.global.b16": 19,
+        "ld.global.f32": 281,
+        "ld.global.u32": 1,
+        "ld.global.u8": 1,
+        "st.global.f32": 59,
+        "st.global.u8": 1
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_global_u8": 1,
+        "ld_global_u8": 1
+      },
+      "opcodes": {
+        "ld.global.b16": 19,
+        "ld.global.f32": 281,
+        "ld.global.u32": 1,
+        "ld.global.u8": 1,
+        "st.global.f32": 59,
+        "st.global.u8": 1
+      }
+    }
+  },
+  "boundary_reference": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/boundary_reference.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 75,
+        "st.global.f32": 12
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 75,
+        "st.global.f32": 12
+      }
+    }
+  },
+  "c32-wave1-fast-norm900": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32-wave1-fast-norm900.ptx",
+    "baseline": {
+      "summary": {
+        "st_shared_u8": 1040,
+        "ld_shared_u8": 7296,
+        "ld_global_u8": 7408,
+        "st_global_u8": 226,
+        "st_shared_v2_32": 216,
+        "ld_shared_v2_32": 648,
+        "ld_global_v4_32": 562,
+        "ld_shared_v4_32": 48,
+        "st_global_v2_32": 72,
+        "st_global_v4_32": 16
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 3515,
+        "ld.global.u16": 64,
+        "ld.global.u64": 48,
+        "ld.global.u8": 7408,
+        "ld.global.v4.f32": 328,
+        "ld.global.v4.u32": 234,
+        "ld.shared.b16": 1740,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 7296,
+        "ld.shared.v2.u32": 648,
+        "ld.shared.v4.b32": 48,
+        "st.global.b16": 24,
+        "st.global.f32": 135,
+        "st.global.u16": 64,
+        "st.global.u32": 2,
+        "st.global.u8": 226,
+        "st.global.v2.u32": 72,
+        "st.global.v4.f32": 16,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 1312,
+        "st.shared.u32": 6,
+        "st.shared.u8": 1040,
+        "st.shared.v2.u32": 216
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_shared_u8": 944,
+        "ld_shared_u8": 6272,
+        "ld_global_v2_32": 694,
+        "st_global_u8": 66,
+        "ld_global_v4_32": 585,
+        "st_shared_v4_32": 127,
+        "st_shared_v2_32": 216,
+        "st_global_v2_32": 92,
+        "ld_shared_v2_32": 648,
+        "ld_shared_v4_32": 112,
+        "st_global_v4_32": 24
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 3467,
+        "ld.global.u32": 452,
+        "ld.global.u64": 48,
+        "ld.global.v2.u32": 694,
+        "ld.global.v4.f32": 340,
+        "ld.global.v4.u32": 245,
+        "ld.shared.b16": 1740,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 6272,
+        "ld.shared.v2.u32": 648,
+        "ld.shared.v4.b32": 112,
+        "st.global.b16": 24,
+        "st.global.f32": 135,
+        "st.global.u32": 2,
+        "st.global.u8": 66,
+        "st.global.v2.u32": 92,
+        "st.global.v4.b32": 8,
+        "st.global.v4.f32": 16,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 320,
+        "st.shared.u32": 18,
+        "st.shared.u8": 944,
+        "st.shared.v2.u32": 216,
+        "st.shared.v4.b32": 124,
+        "st.shared.v4.u32": 3
+      }
+    }
+  },
+  "c32-wave1-fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/selected/modules/c32-wave1-fast.ptx",
+    "baseline": {
+      "summary": {
+        "st_shared_u8": 1040,
+        "ld_shared_u8": 7296,
+        "ld_global_u8": 7408,
+        "st_global_u8": 226,
+        "st_shared_v2_32": 152,
+        "ld_shared_v2_32": 584,
+        "ld_global_v4_32": 562,
+        "ld_shared_v4_32": 48,
+        "st_global_v2_32": 72,
+        "st_global_v4_32": 16
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 3483,
+        "ld.global.u16": 64,
+        "ld.global.u64": 48,
+        "ld.global.u8": 7408,
+        "ld.global.v4.f32": 328,
+        "ld.global.v4.u32": 234,
+        "ld.shared.b16": 1740,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 7296,
+        "ld.shared.v2.u32": 584,
+        "ld.shared.v4.b32": 48,
+        "st.global.b16": 24,
+        "st.global.f32": 135,
+        "st.global.u16": 64,
+        "st.global.u32": 2,
+        "st.global.u8": 226,
+        "st.global.v2.u32": 72,
+        "st.global.v4.f32": 16,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 1312,
+        "st.shared.u32": 6,
+        "st.shared.u8": 1040,
+        "st.shared.v2.u32": 152
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_shared_u8": 944,
+        "ld_shared_u8": 6272,
+        "ld_global_v2_32": 694,
+        "st_global_u8": 66,
+        "ld_global_v4_32": 585,
+        "st_shared_v4_32": 127,
+        "st_shared_v2_32": 160,
+        "st_global_v2_32": 92,
+        "ld_shared_v2_32": 592,
+        "ld_shared_v4_32": 112,
+        "st_global_v4_32": 24
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 3439,
+        "ld.global.u32": 452,
+        "ld.global.u64": 48,
+        "ld.global.v2.u32": 694,
+        "ld.global.v4.f32": 340,
+        "ld.global.v4.u32": 245,
+        "ld.shared.b16": 1740,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 6272,
+        "ld.shared.v2.u32": 592,
+        "ld.shared.v4.b32": 112,
+        "st.global.b16": 24,
+        "st.global.f32": 135,
+        "st.global.u32": 2,
+        "st.global.u8": 66,
+        "st.global.v2.u32": 92,
+        "st.global.v4.b32": 8,
+        "st.global.v4.f32": 16,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 320,
+        "st.shared.u32": 18,
+        "st.shared.u8": 944,
+        "st.shared.v2.u32": 160,
+        "st.shared.v4.b32": 124,
+        "st.shared.v4.u32": 3
+      }
+    }
+  },
+  "c32-wave1-rtz": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32-wave1-rtz.ptx",
+    "baseline": {
+      "summary": {
+        "st_shared_u8": 1040,
+        "ld_shared_u8": 7296,
+        "ld_global_u8": 7408,
+        "st_global_u8": 226,
+        "st_shared_v2_32": 216,
+        "ld_shared_v2_32": 648,
+        "ld_global_v4_32": 562,
+        "ld_shared_v4_32": 48,
+        "st_global_v2_32": 72,
+        "st_global_v4_32": 16
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 3515,
+        "ld.global.u16": 64,
+        "ld.global.u64": 48,
+        "ld.global.u8": 7408,
+        "ld.global.v4.f32": 328,
+        "ld.global.v4.u32": 234,
+        "ld.shared.b16": 1740,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 7296,
+        "ld.shared.v2.u32": 648,
+        "ld.shared.v4.b32": 48,
+        "st.global.b16": 24,
+        "st.global.f32": 135,
+        "st.global.u16": 64,
+        "st.global.u32": 2,
+        "st.global.u8": 226,
+        "st.global.v2.u32": 72,
+        "st.global.v4.f32": 16,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 1312,
+        "st.shared.u32": 6,
+        "st.shared.u8": 1040,
+        "st.shared.v2.u32": 216
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_shared_u8": 944,
+        "ld_shared_u8": 6272,
+        "ld_global_v2_32": 694,
+        "st_global_u8": 66,
+        "ld_global_v4_32": 585,
+        "st_shared_v4_32": 127,
+        "st_shared_v2_32": 216,
+        "st_global_v2_32": 92,
+        "ld_shared_v2_32": 648,
+        "ld_shared_v4_32": 112,
+        "st_global_v4_32": 24
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 3467,
+        "ld.global.u32": 452,
+        "ld.global.u64": 48,
+        "ld.global.v2.u32": 694,
+        "ld.global.v4.f32": 340,
+        "ld.global.v4.u32": 245,
+        "ld.shared.b16": 1740,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 6272,
+        "ld.shared.v2.u32": 648,
+        "ld.shared.v4.b32": 112,
+        "st.global.b16": 24,
+        "st.global.f32": 135,
+        "st.global.u32": 2,
+        "st.global.u8": 66,
+        "st.global.v2.u32": 92,
+        "st.global.v4.b32": 8,
+        "st.global.v4.f32": 16,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 320,
+        "st.shared.u32": 18,
+        "st.shared.u8": 944,
+        "st.shared.v2.u32": 216,
+        "st.shared.v4.b32": 124,
+        "st.shared.v4.u32": 3
+      }
+    }
+  },
+  "c32-wave1": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32-wave1.ptx",
+    "baseline": {
+      "summary": {
+        "st_shared_u8": 1040,
+        "ld_shared_u8": 7296,
+        "ld_global_u8": 7408,
+        "st_global_u8": 226,
+        "st_shared_v2_32": 216,
+        "ld_shared_v2_32": 648,
+        "ld_global_v4_32": 562,
+        "ld_shared_v4_32": 48,
+        "st_global_v2_32": 72,
+        "st_global_v4_32": 16
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 3515,
+        "ld.global.u16": 64,
+        "ld.global.u64": 48,
+        "ld.global.u8": 7408,
+        "ld.global.v4.f32": 328,
+        "ld.global.v4.u32": 234,
+        "ld.shared.b16": 1740,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 7296,
+        "ld.shared.v2.u32": 648,
+        "ld.shared.v4.b32": 48,
+        "st.global.b16": 24,
+        "st.global.f32": 135,
+        "st.global.u16": 64,
+        "st.global.u32": 2,
+        "st.global.u8": 226,
+        "st.global.v2.u32": 72,
+        "st.global.v4.f32": 16,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 1312,
+        "st.shared.u32": 6,
+        "st.shared.u8": 1040,
+        "st.shared.v2.u32": 216
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_shared_u8": 944,
+        "ld_shared_u8": 6272,
+        "ld_global_v2_32": 694,
+        "st_global_u8": 66,
+        "ld_global_v4_32": 585,
+        "st_shared_v4_32": 127,
+        "st_shared_v2_32": 216,
+        "st_global_v2_32": 92,
+        "ld_shared_v2_32": 648,
+        "ld_shared_v4_32": 112,
+        "st_global_v4_32": 24
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 3467,
+        "ld.global.u32": 452,
+        "ld.global.u64": 48,
+        "ld.global.v2.u32": 694,
+        "ld.global.v4.f32": 340,
+        "ld.global.v4.u32": 245,
+        "ld.shared.b16": 1740,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 6272,
+        "ld.shared.v2.u32": 648,
+        "ld.shared.v4.b32": 112,
+        "st.global.b16": 24,
+        "st.global.f32": 135,
+        "st.global.u32": 2,
+        "st.global.u8": 66,
+        "st.global.v2.u32": 92,
+        "st.global.v4.b32": 8,
+        "st.global.v4.f32": 16,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 320,
+        "st.shared.u32": 18,
+        "st.shared.u8": 944,
+        "st.shared.v2.u32": 216,
+        "st.shared.v4.b32": 124,
+        "st.shared.v4.u32": 3
+      }
+    }
+  },
+  "c32_fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32_fast.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 94,
+        "ld.global.u32": 1,
+        "ld.shared.u32": 96,
+        "st.global.f32": 24,
+        "st.shared.u32": 22
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 94,
+        "ld.global.u32": 1,
+        "ld.shared.u32": 96,
+        "st.global.f32": 24,
+        "st.shared.u32": 22
+      }
+    }
+  },
+  "c32_fast_attention": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32_fast_attention.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 256,
+        "st.global.f32": 48
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 256,
+        "st.global.f32": 48
+      }
+    }
+  },
+  "c32_fused_attention": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32_fused_attention.ptx",
+    "baseline": {
+      "summary": {
+        "st_shared_u8": 48,
+        "ld_shared_u8": 176
+      },
+      "opcodes": {
+        "ld.global.f32": 137,
+        "ld.shared.b16": 40,
+        "ld.shared.f32": 56,
+        "ld.shared.u8": 176,
+        "st.global.f32": 8,
+        "st.shared.f32": 24,
+        "st.shared.u16": 8,
+        "st.shared.u8": 48
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_shared_u8": 48,
+        "ld_shared_u8": 176
+      },
+      "opcodes": {
+        "ld.global.f32": 137,
+        "ld.shared.b16": 40,
+        "ld.shared.f32": 56,
+        "ld.shared.u8": 176,
+        "st.global.f32": 8,
+        "st.shared.f32": 24,
+        "st.shared.u16": 8,
+        "st.shared.u8": 48
+      }
+    }
+  },
+  "c32_fused_ffn_attention-packed": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32_fused_ffn_attention-packed.ptx",
+    "baseline": {
+      "summary": {
+        "st_shared_u8": 1040,
+        "ld_shared_u8": 5248,
+        "ld_global_u8": 4048,
+        "st_global_u8": 64
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 631,
+        "ld.global.u8": 4048,
+        "ld.shared.b16": 514,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 5248,
+        "st.global.b16": 24,
+        "st.global.f32": 59,
+        "st.global.u8": 64,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 320,
+        "st.shared.u32": 6,
+        "st.shared.u8": 1040
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_shared_u8": 944,
+        "ld_shared_u8": 5248,
+        "ld_global_v2_32": 346,
+        "st_global_u8": 64,
+        "ld_global_v4_32": 15,
+        "st_shared_v4_32": 3
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 583,
+        "ld.global.u32": 308,
+        "ld.global.v2.u32": 346,
+        "ld.global.v4.f32": 12,
+        "ld.global.v4.u32": 3,
+        "ld.shared.b16": 514,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 5248,
+        "st.global.b16": 24,
+        "st.global.f32": 59,
+        "st.global.u8": 64,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 320,
+        "st.shared.u32": 18,
+        "st.shared.u8": 944,
+        "st.shared.v4.u32": 3
+      }
+    }
+  },
+  "c32_fused_ffn_attention": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32_fused_ffn_attention.ptx",
+    "baseline": {
+      "summary": {
+        "st_shared_u8": 1040,
+        "ld_shared_u8": 5248,
+        "st_global_u8": 64,
+        "ld_global_u8": 80
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 4599,
+        "ld.global.u8": 80,
+        "ld.shared.b16": 514,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 5248,
+        "st.global.b16": 24,
+        "st.global.f32": 59,
+        "st.global.u8": 64,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 320,
+        "st.shared.u32": 6,
+        "st.shared.u8": 1040
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_shared_u8": 944,
+        "ld_shared_u8": 5248,
+        "st_global_u8": 64,
+        "ld_global_v4_32": 15,
+        "st_shared_v4_32": 3
+      },
+      "opcodes": {
+        "ld.global.b16": 48,
+        "ld.global.f32": 4551,
+        "ld.global.u32": 8,
+        "ld.global.v4.f32": 12,
+        "ld.global.v4.u32": 3,
+        "ld.shared.b16": 514,
+        "ld.shared.f32": 568,
+        "ld.shared.u8": 5248,
+        "st.global.b16": 24,
+        "st.global.f32": 59,
+        "st.global.u8": 64,
+        "st.shared.b16": 104,
+        "st.shared.f32": 250,
+        "st.shared.u16": 320,
+        "st.shared.u32": 18,
+        "st.shared.u8": 944,
+        "st.shared.v4.u32": 3
+      }
+    }
+  },
+  "c32_prefix_reference": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32_prefix_reference.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 234,
+        "ld.global.u32": 3,
+        "st.global.f32": 16
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 234,
+        "ld.global.u32": 3,
+        "st.global.f32": 16
+      }
+    }
+  },
+  "c32_tiled": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32_tiled.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 88,
+        "ld.shared.u32": 56,
+        "st.global.f32": 32,
+        "st.shared.u32": 14
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 88,
+        "ld.shared.u32": 56,
+        "st.global.f32": 32,
+        "st.shared.u32": 14
+      }
+    }
+  },
+  "c32_wmma": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c32_wmma.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 344,
+        "ld.global.u32": 16,
+        "st.global.f32": 48
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 344,
+        "ld.global.u32": 16,
+        "st.global.f32": 48
+      }
+    }
+  },
+  "c512-m32-deep": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c512-m32-deep.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 6748,
+        "st_global_u8": 1495,
+        "st_shared_u8": 320,
+        "ld_shared_u8": 128,
+        "ld_global_v4_32": 24,
+        "ld_global_v2_32": 4,
+        "st_global_v4_32": 4
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3389,
+        "ld.global.u16": 1568,
+        "ld.global.u32": 717,
+        "ld.global.u8": 6748,
+        "ld.global.v2.u32": 4,
+        "ld.global.v4.f32": 24,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 64,
+        "ld.shared.u16": 72,
+        "ld.shared.u8": 128,
+        "ld.volatile.shared.u32": 1,
+        "st.global.b16": 64,
+        "st.global.f32": 1283,
+        "st.global.u32": 9,
+        "st.global.u64": 8,
+        "st.global.u8": 1495,
+        "st.global.v4.u32": 4,
+        "st.shared.b16": 8,
+        "st.shared.f32": 144,
+        "st.shared.u16": 72,
+        "st.shared.u8": 320,
+        "st.volatile.shared.u32": 1
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v2_32": 189,
+        "ld_global_u8": 532,
+        "st_global_u8": 1495,
+        "ld_global_v4_32": 251,
+        "st_shared_u8": 320,
+        "ld_shared_v2_32": 7,
+        "ld_shared_u8": 8,
+        "ld_shared_v4_32": 4,
+        "st_global_v4_32": 4
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3389,
+        "ld.global.u32": 1777,
+        "ld.global.u8": 532,
+        "ld.global.v2.u32": 189,
+        "ld.global.v4.f32": 24,
+        "ld.global.v4.u32": 227,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 64,
+        "ld.shared.u16": 72,
+        "ld.shared.u8": 8,
+        "ld.shared.v2.u32": 7,
+        "ld.shared.v4.u32": 4,
+        "ld.volatile.shared.u32": 1,
+        "st.global.b16": 64,
+        "st.global.f32": 1283,
+        "st.global.u32": 9,
+        "st.global.u64": 8,
+        "st.global.u8": 1495,
+        "st.global.v4.u32": 4,
+        "st.shared.b16": 8,
+        "st.shared.f32": 144,
+        "st.shared.u16": 72,
+        "st.shared.u8": 320,
+        "st.volatile.shared.u32": 1
+      }
+    }
+  },
+  "c512-m32-mh": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c512-m32-mh.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 9304,
+        "st_global_u8": 1612,
+        "ld_global_v4_32": 16,
+        "st_global_v4_32": 12,
+        "ld_shared_u8": 4064,
+        "st_shared_u8": 3064,
+        "ld_shared_v4_32": 4
+      },
+      "opcodes": {
+        "ld.global.b16": 256,
+        "ld.global.f32": 3021,
+        "ld.global.u16": 592,
+        "ld.global.u32": 1260,
+        "ld.global.u8": 9304,
+        "ld.global.v4.f32": 16,
+        "ld.shared.f32": 2688,
+        "ld.shared.u16": 96,
+        "ld.shared.u32": 162,
+        "ld.shared.u8": 4064,
+        "ld.shared.v4.u32": 4,
+        "st.global.f32": 894,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 1612,
+        "st.global.v4.f32": 8,
+        "st.global.v4.u32": 4,
+        "st.shared.b16": 96,
+        "st.shared.f32": 812,
+        "st.shared.u32": 41,
+        "st.shared.u8": 3064
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v4_32": 224,
+        "ld_global_v2_32": 482,
+        "ld_shared_v4_32": 16,
+        "st_global_u8": 1564,
+        "st_global_v4_32": 12,
+        "ld_shared_v2_32": 484,
+        "st_shared_u8": 2656,
+        "ld_global_u8": 744,
+        "st_shared_v2_32": 28,
+        "st_global_v2_32": 6,
+        "ld_shared_u8": 192
+      },
+      "opcodes": {
+        "ld.global.b16": 256,
+        "ld.global.f32": 3021,
+        "ld.global.u32": 1900,
+        "ld.global.u8": 744,
+        "ld.global.v2.u32": 482,
+        "ld.global.v4.f32": 16,
+        "ld.global.v4.u32": 208,
+        "ld.shared.f32": 2688,
+        "ld.shared.u32": 162,
+        "ld.shared.u8": 192,
+        "ld.shared.v2.u32": 484,
+        "ld.shared.v4.u32": 16,
+        "st.global.f32": 894,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 1564,
+        "st.global.v2.u32": 6,
+        "st.global.v4.f32": 8,
+        "st.global.v4.u32": 4,
+        "st.shared.b16": 96,
+        "st.shared.f32": 812,
+        "st.shared.u32": 87,
+        "st.shared.u8": 2656,
+        "st.shared.v2.u32": 28
+      }
+    }
+  },
+  "c64-wave2-fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c64-wave2-fast.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 13912,
+        "st_global_u8": 1932,
+        "ld_global_v4_32": 16,
+        "st_global_v4_32": 8,
+        "ld_shared_u8": 10016,
+        "st_shared_u8": 8312
+      },
+      "opcodes": {
+        "ld.global.b16": 512,
+        "ld.global.cg.u32": 2,
+        "ld.global.f32": 5529,
+        "ld.global.u16": 752,
+        "ld.global.u32": 1452,
+        "ld.global.u8": 13912,
+        "ld.global.v4.f32": 16,
+        "ld.shared.f32": 2592,
+        "ld.shared.u16": 96,
+        "ld.shared.u32": 162,
+        "ld.shared.u8": 10016,
+        "st.global.b16": 16,
+        "st.global.f32": 1102,
+        "st.global.u16": 16,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 1932,
+        "st.global.v4.f32": 8,
+        "st.shared.b16": 96,
+        "st.shared.f32": 746,
+        "st.shared.u32": 41,
+        "st.shared.u8": 8312
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v4_32": 322,
+        "ld_global_v2_32": 641,
+        "ld_shared_v4_32": 12,
+        "st_global_u8": 1564,
+        "st_global_v4_32": 8,
+        "ld_shared_v2_32": 1136,
+        "st_shared_u8": 2592,
+        "ld_global_u8": 776,
+        "st_shared_v2_32": 692,
+        "st_global_v2_32": 46,
+        "ld_shared_u8": 128
+      },
+      "opcodes": {
+        "ld.global.b16": 512,
+        "ld.global.cg.u32": 2,
+        "ld.global.f32": 5529,
+        "ld.global.u32": 2606,
+        "ld.global.u8": 776,
+        "ld.global.v2.u32": 641,
+        "ld.global.v4.f32": 16,
+        "ld.global.v4.u32": 306,
+        "ld.shared.f32": 2592,
+        "ld.shared.u32": 362,
+        "ld.shared.u8": 128,
+        "ld.shared.v2.u32": 1136,
+        "ld.shared.v4.u32": 12,
+        "st.global.b16": 16,
+        "st.global.f32": 1102,
+        "st.global.u16": 16,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 1564,
+        "st.global.v2.u32": 46,
+        "st.global.v4.f32": 8,
+        "st.shared.b16": 96,
+        "st.shared.f32": 746,
+        "st.shared.u32": 87,
+        "st.shared.u8": 2592,
+        "st.shared.v2.u32": 692
+      }
+    }
+  },
+  "c64-wave2": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/c64-wave2.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 13912,
+        "st_global_u8": 1932,
+        "ld_global_v4_32": 16,
+        "st_global_v4_32": 8,
+        "ld_shared_u8": 10016,
+        "st_shared_u8": 8312
+      },
+      "opcodes": {
+        "ld.global.b16": 512,
+        "ld.global.cg.u32": 2,
+        "ld.global.f32": 5529,
+        "ld.global.u16": 752,
+        "ld.global.u32": 1452,
+        "ld.global.u8": 13912,
+        "ld.global.v4.f32": 16,
+        "ld.shared.f32": 2592,
+        "ld.shared.u16": 96,
+        "ld.shared.u32": 162,
+        "ld.shared.u8": 10016,
+        "st.global.b16": 32,
+        "st.global.f32": 1102,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 1932,
+        "st.global.v4.f32": 8,
+        "st.shared.b16": 96,
+        "st.shared.f32": 746,
+        "st.shared.u32": 41,
+        "st.shared.u8": 8312
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v4_32": 322,
+        "ld_global_v2_32": 641,
+        "ld_shared_v4_32": 12,
+        "st_global_u8": 1564,
+        "st_global_v4_32": 8,
+        "ld_shared_v2_32": 1136,
+        "st_shared_u8": 2592,
+        "ld_global_u8": 776,
+        "st_shared_v2_32": 692,
+        "st_global_v2_32": 46,
+        "ld_shared_u8": 128
+      },
+      "opcodes": {
+        "ld.global.b16": 512,
+        "ld.global.cg.u32": 2,
+        "ld.global.f32": 5529,
+        "ld.global.u32": 2606,
+        "ld.global.u8": 776,
+        "ld.global.v2.u32": 641,
+        "ld.global.v4.f32": 16,
+        "ld.global.v4.u32": 306,
+        "ld.shared.f32": 2592,
+        "ld.shared.u32": 362,
+        "ld.shared.u8": 128,
+        "ld.shared.v2.u32": 1136,
+        "ld.shared.v4.u32": 12,
+        "st.global.b16": 32,
+        "st.global.f32": 1102,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 1564,
+        "st.global.v2.u32": 46,
+        "st.global.v4.f32": 8,
+        "st.shared.b16": 96,
+        "st.shared.f32": 746,
+        "st.shared.u32": 87,
+        "st.shared.u8": 2592,
+        "st.shared.v2.u32": 692
+      }
+    }
+  },
+  "deep_fast-packed-fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/deep_fast-packed-fast.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 5356,
+        "st_global_u8": 1199,
+        "ld_global_v4_32": 312,
+        "st_global_v4_32": 47,
+        "st_shared_u8": 392,
+        "ld_shared_u8": 200,
+        "st_global_v2_32": 1,
+        "ld_global_v2_32": 4
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3685,
+        "ld.global.u16": 800,
+        "ld.global.u32": 253,
+        "ld.global.u8": 5356,
+        "ld.global.v2.u32": 4,
+        "ld.global.v4.f32": 312,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 640,
+        "ld.shared.u16": 56,
+        "ld.shared.u8": 200,
+        "st.global.b16": 64,
+        "st.global.f32": 1270,
+        "st.global.u32": 8,
+        "st.global.u64": 8,
+        "st.global.u8": 1199,
+        "st.global.v2.u32": 1,
+        "st.global.v4.f32": 24,
+        "st.global.v4.u32": 23,
+        "st.shared.b16": 8,
+        "st.shared.f32": 288,
+        "st.shared.u16": 56,
+        "st.shared.u8": 392
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v2_32": 188,
+        "ld_global_u8": 532,
+        "st_global_u8": 1199,
+        "ld_global_v4_32": 481,
+        "st_global_v4_32": 47,
+        "st_shared_u8": 392,
+        "ld_shared_v2_32": 8,
+        "ld_shared_u8": 8,
+        "st_global_v2_32": 1,
+        "ld_shared_v4_32": 8
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3685,
+        "ld.global.u32": 815,
+        "ld.global.u8": 532,
+        "ld.global.v2.u32": 188,
+        "ld.global.v4.f32": 312,
+        "ld.global.v4.u32": 169,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 640,
+        "ld.shared.u16": 56,
+        "ld.shared.u8": 8,
+        "ld.shared.v2.u32": 8,
+        "ld.shared.v4.u32": 8,
+        "st.global.b16": 64,
+        "st.global.f32": 1270,
+        "st.global.u32": 8,
+        "st.global.u64": 8,
+        "st.global.u8": 1199,
+        "st.global.v2.u32": 1,
+        "st.global.v4.f32": 24,
+        "st.global.v4.u32": 23,
+        "st.shared.b16": 8,
+        "st.shared.f32": 288,
+        "st.shared.u16": 56,
+        "st.shared.u8": 392
+      }
+    }
+  },
+  "deep_fast-packed": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/deep_fast-packed.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 5356,
+        "st_global_u8": 1199,
+        "ld_global_v4_32": 312,
+        "st_global_v4_32": 47,
+        "st_shared_u8": 392,
+        "ld_shared_u8": 200,
+        "st_global_v2_32": 1,
+        "ld_global_v2_32": 4
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3397,
+        "ld.global.u16": 800,
+        "ld.global.u32": 325,
+        "ld.global.u8": 5356,
+        "ld.global.v2.u32": 4,
+        "ld.global.v4.f32": 312,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 640,
+        "ld.shared.u16": 56,
+        "ld.shared.u8": 200,
+        "st.global.b16": 64,
+        "st.global.f32": 1270,
+        "st.global.u32": 8,
+        "st.global.u64": 8,
+        "st.global.u8": 1199,
+        "st.global.v2.u32": 1,
+        "st.global.v4.f32": 24,
+        "st.global.v4.u32": 23,
+        "st.shared.b16": 8,
+        "st.shared.f32": 288,
+        "st.shared.u16": 56,
+        "st.shared.u8": 392
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v2_32": 188,
+        "ld_global_u8": 532,
+        "st_global_u8": 1199,
+        "ld_global_v4_32": 481,
+        "st_global_v4_32": 47,
+        "st_shared_u8": 392,
+        "ld_shared_v2_32": 8,
+        "ld_shared_u8": 8,
+        "st_global_v2_32": 1,
+        "ld_shared_v4_32": 8
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3397,
+        "ld.global.u32": 887,
+        "ld.global.u8": 532,
+        "ld.global.v2.u32": 188,
+        "ld.global.v4.f32": 312,
+        "ld.global.v4.u32": 169,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 640,
+        "ld.shared.u16": 56,
+        "ld.shared.u8": 8,
+        "ld.shared.v2.u32": 8,
+        "ld.shared.v4.u32": 8,
+        "st.global.b16": 64,
+        "st.global.f32": 1270,
+        "st.global.u32": 8,
+        "st.global.u64": 8,
+        "st.global.u8": 1199,
+        "st.global.v2.u32": 1,
+        "st.global.v4.f32": 24,
+        "st.global.v4.u32": 23,
+        "st.shared.b16": 8,
+        "st.shared.f32": 288,
+        "st.shared.u16": 56,
+        "st.shared.u8": 392
+      }
+    }
+  },
+  "deep_fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/deep_fast.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 5116,
+        "st_global_u8": 1335,
+        "st_shared_u8": 256,
+        "ld_shared_u8": 64,
+        "ld_global_v4_32": 24,
+        "ld_global_v2_32": 4
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3637,
+        "ld.global.u16": 704,
+        "ld.global.u32": 253,
+        "ld.global.u8": 5116,
+        "ld.global.v2.u32": 4,
+        "ld.global.v4.f32": 24,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 64,
+        "ld.shared.u16": 72,
+        "ld.shared.u8": 64,
+        "st.global.b16": 64,
+        "st.global.f32": 1219,
+        "st.global.u32": 8,
+        "st.global.u64": 8,
+        "st.global.u8": 1335,
+        "st.shared.b16": 8,
+        "st.shared.f32": 144,
+        "st.shared.u16": 72,
+        "st.shared.u8": 256
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v2_32": 177,
+        "ld_global_u8": 532,
+        "st_global_u8": 1335,
+        "ld_global_v4_32": 175,
+        "st_shared_u8": 256,
+        "ld_shared_v2_32": 7,
+        "ld_shared_u8": 8
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3637,
+        "ld.global.u32": 801,
+        "ld.global.u8": 532,
+        "ld.global.v2.u32": 177,
+        "ld.global.v4.f32": 24,
+        "ld.global.v4.u32": 151,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 64,
+        "ld.shared.u16": 72,
+        "ld.shared.u8": 8,
+        "ld.shared.v2.u32": 7,
+        "st.global.b16": 64,
+        "st.global.f32": 1219,
+        "st.global.u32": 8,
+        "st.global.u64": 8,
+        "st.global.u8": 1335,
+        "st.shared.b16": 8,
+        "st.shared.f32": 144,
+        "st.shared.u16": 72,
+        "st.shared.u8": 256
+      }
+    }
+  },
+  "deep_reference": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/deep_reference.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 266,
+        "ld.global.u32": 8,
+        "st.global.f32": 20
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 266,
+        "ld.global.u32": 8,
+        "st.global.f32": 20
+      }
+    }
+  },
+  "deep_wmma": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/deep_wmma.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 434,
+        "ld.global.u32": 32,
+        "st.global.f32": 88
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 434,
+        "ld.global.u32": 32,
+        "st.global.f32": 88
+      }
+    }
+  },
+  "multi-pass-predict": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multi-pass-predict.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 38,
+        "st.global.f32": 8
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 38,
+        "st.global.f32": 8
+      }
+    }
+  },
+  "multi-pass-skin": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multi-pass-skin.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 38,
+        "st.global.f32": 7
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 38,
+        "st.global.f32": 7
+      }
+    }
+  },
+  "multihead-fast-packed": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multihead-fast-packed.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 180,
+        "ld.global.u32": 222,
+        "ld.shared.u32": 80,
+        "st.global.f32": 107,
+        "st.shared.u32": 20
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 180,
+        "ld.global.u32": 222,
+        "ld.shared.u32": 80,
+        "st.global.f32": 107,
+        "st.shared.u32": 20
+      }
+    }
+  },
+  "multihead-fast-padded-wave-packed": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multihead-fast-padded-wave-packed.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 5976,
+        "st_global_u8": 2152,
+        "ld_global_v4_32": 16,
+        "st_global_v4_32": 8,
+        "ld_shared_u8": 5744,
+        "st_shared_u8": 4432
+      },
+      "opcodes": {
+        "ld.global.b16": 512,
+        "ld.global.cg.u32": 13,
+        "ld.global.f32": 3173,
+        "ld.global.u16": 976,
+        "ld.global.u32": 1524,
+        "ld.global.u8": 5976,
+        "ld.global.v4.f32": 16,
+        "ld.shared.f32": 3384,
+        "ld.shared.u16": 192,
+        "ld.shared.u32": 162,
+        "ld.shared.u8": 5744,
+        "st.global.f32": 998,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 2152,
+        "st.global.v4.f32": 8,
+        "st.shared.b16": 192,
+        "st.shared.f32": 962,
+        "st.shared.u32": 41,
+        "st.shared.u8": 4432
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v4_32": 266,
+        "ld_global_v2_32": 227,
+        "st_global_u8": 808,
+        "ld_shared_v4_32": 24,
+        "st_global_v4_32": 8,
+        "ld_shared_v2_32": 550,
+        "st_shared_u8": 4224,
+        "ld_global_u8": 792
+      },
+      "opcodes": {
+        "ld.global.b16": 512,
+        "ld.global.cg.u32": 13,
+        "ld.global.f32": 3173,
+        "ld.global.u32": 1854,
+        "ld.global.u8": 792,
+        "ld.global.v2.u32": 227,
+        "ld.global.v4.f32": 16,
+        "ld.global.v4.u32": 250,
+        "ld.shared.f32": 3384,
+        "ld.shared.u32": 162,
+        "ld.shared.u64": 168,
+        "ld.shared.v2.u32": 550,
+        "ld.shared.v4.u32": 24,
+        "st.global.f32": 998,
+        "st.global.u32": 48,
+        "st.global.u64": 172,
+        "st.global.u8": 808,
+        "st.global.v4.f32": 8,
+        "st.shared.b16": 192,
+        "st.shared.f32": 962,
+        "st.shared.u32": 93,
+        "st.shared.u8": 4224
+      }
+    }
+  },
+  "multihead-fast-padded-wave": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multihead-fast-padded-wave.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 5912,
+        "st_global_u8": 1984,
+        "ld_global_v4_32": 16,
+        "st_global_v4_32": 8,
+        "ld_shared_u8": 4400,
+        "st_shared_u8": 3376
+      },
+      "opcodes": {
+        "ld.global.b16": 256,
+        "ld.global.cg.u32": 13,
+        "ld.global.f32": 3073,
+        "ld.global.u16": 592,
+        "ld.global.u32": 1584,
+        "ld.global.u8": 5912,
+        "ld.global.v4.f32": 16,
+        "ld.shared.f32": 3384,
+        "ld.shared.u16": 96,
+        "ld.shared.u32": 162,
+        "ld.shared.u8": 4400,
+        "st.global.f32": 894,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 1984,
+        "st.global.v4.f32": 8,
+        "st.shared.b16": 96,
+        "st.shared.f32": 962,
+        "st.shared.u32": 41,
+        "st.shared.u8": 3376
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v4_32": 218,
+        "ld_global_v2_32": 219,
+        "ld_shared_v4_32": 12,
+        "st_global_u8": 1984,
+        "st_global_v4_32": 8,
+        "ld_shared_v2_32": 550,
+        "st_shared_u8": 3168,
+        "ld_global_u8": 792
+      },
+      "opcodes": {
+        "ld.global.b16": 256,
+        "ld.global.cg.u32": 13,
+        "ld.global.f32": 3073,
+        "ld.global.u32": 1914,
+        "ld.global.u8": 792,
+        "ld.global.v2.u32": 219,
+        "ld.global.v4.f32": 16,
+        "ld.global.v4.u32": 202,
+        "ld.shared.f32": 3384,
+        "ld.shared.u32": 162,
+        "ld.shared.v2.u32": 550,
+        "ld.shared.v4.u32": 12,
+        "st.global.f32": 894,
+        "st.global.u32": 48,
+        "st.global.u64": 4,
+        "st.global.u8": 1984,
+        "st.global.v4.f32": 8,
+        "st.shared.b16": 96,
+        "st.shared.f32": 962,
+        "st.shared.u32": 93,
+        "st.shared.u8": 3168
+      }
+    }
+  },
+  "multihead-fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multihead-fast.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 180,
+        "ld.global.u32": 249,
+        "ld.shared.u32": 80,
+        "st.global.f32": 107,
+        "st.shared.u32": 20
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 180,
+        "ld.global.u32": 249,
+        "ld.shared.u32": 80,
+        "st.global.f32": 107,
+        "st.shared.u32": 20
+      }
+    }
+  },
+  "multihead-reference": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multihead-reference.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 211,
+        "ld.global.u32": 2,
+        "st.global.f32": 15
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 211,
+        "ld.global.u32": 2,
+        "st.global.f32": 15
+      }
+    }
+  },
+  "multihead-tiled": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multihead-tiled.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 48,
+        "ld.global.u32": 56,
+        "ld.shared.u32": 64,
+        "st.global.f32": 56,
+        "st.shared.u32": 16
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 48,
+        "ld.global.u32": 56,
+        "ld.shared.u32": 64,
+        "st.global.f32": 56,
+        "st.shared.u32": 16
+      }
+    }
+  },
+  "multihead-wmma": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multihead-wmma.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 56,
+        "ld.global.u32": 320,
+        "st.global.f32": 72
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 56,
+        "ld.global.u32": 320,
+        "st.global.f32": 72
+      }
+    }
+  },
+  "multihead_fused_attention": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/multihead_fused_attention.ptx",
+    "baseline": {
+      "summary": {
+        "st_shared_u8": 445,
+        "ld_shared_u8": 1664,
+        "ld_global_u8": 5644,
+        "st_global_u8": 200
+      },
+      "opcodes": {
+        "ld.global.cg.u32": 7,
+        "ld.global.f32": 1226,
+        "ld.global.u32": 136,
+        "ld.global.u8": 5644,
+        "ld.shared.b16": 152,
+        "ld.shared.f32": 16,
+        "ld.shared.u8": 1664,
+        "st.global.f32": 344,
+        "st.global.u8": 200,
+        "st.shared.f32": 8,
+        "st.shared.u16": 40,
+        "st.shared.u8": 445
+      }
+    },
+    "aligned": {
+      "summary": {
+        "st_shared_u8": 305,
+        "ld_shared_u8": 1376,
+        "st_global_u8": 200,
+        "ld_global_v2_32": 462,
+        "ld_shared_v2_32": 36,
+        "ld_global_u8": 128
+      },
+      "opcodes": {
+        "ld.global.cg.u32": 7,
+        "ld.global.f32": 1226,
+        "ld.global.u32": 591,
+        "ld.global.u8": 128,
+        "ld.global.v2.u32": 462,
+        "ld.shared.b16": 152,
+        "ld.shared.f32": 16,
+        "ld.shared.u8": 1376,
+        "ld.shared.v2.u32": 36,
+        "st.global.f32": 344,
+        "st.global.u8": 200,
+        "st.shared.f32": 8,
+        "st.shared.u16": 40,
+        "st.shared.u32": 35,
+        "st.shared.u8": 305
+      }
+    }
+  },
+  "prefix_fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/prefix_fast.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 74,
+        "ld.shared.f32": 16,
+        "st.global.f32": 44,
+        "st.shared.f32": 30,
+        "st.shared.u32": 2
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 74,
+        "ld.shared.f32": 16,
+        "st.global.f32": 44,
+        "st.shared.f32": 30,
+        "st.shared.u32": 2
+      }
+    }
+  },
+  "swin-persistent-fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/swin-persistent-fast.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 5528,
+        "st_global_u8": 1564,
+        "ld_global_v4_32": 16,
+        "st_global_v4_32": 8,
+        "ld_shared_u8": 5024,
+        "st_shared_u8": 3992
+      },
+      "opcodes": {
+        "ld.global.b16": 256,
+        "ld.global.cg.u32": 30,
+        "ld.global.f32": 2917,
+        "ld.global.u16": 592,
+        "ld.global.u32": 1260,
+        "ld.global.u8": 5528,
+        "ld.global.v4.f32": 16,
+        "ld.shared.f32": 2592,
+        "ld.shared.u16": 96,
+        "ld.shared.u32": 162,
+        "ld.shared.u8": 5024,
+        "st.global.f32": 894,
+        "st.global.u32": 53,
+        "st.global.u64": 4,
+        "st.global.u8": 1564,
+        "st.global.v4.f32": 8,
+        "st.global.wb.u32": 21,
+        "st.shared.b16": 96,
+        "st.shared.f32": 746,
+        "st.shared.u32": 41,
+        "st.shared.u8": 3992
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v4_32": 218,
+        "ld_global_v2_32": 181,
+        "ld_shared_v4_32": 12,
+        "st_global_u8": 1564,
+        "st_global_v4_32": 8,
+        "ld_shared_v2_32": 612,
+        "st_shared_u8": 2592,
+        "ld_global_u8": 744,
+        "st_shared_v2_32": 152
+      },
+      "opcodes": {
+        "ld.global.b16": 256,
+        "ld.global.cg.u32": 30,
+        "ld.global.f32": 2917,
+        "ld.global.u32": 1582,
+        "ld.global.u8": 744,
+        "ld.global.v2.u32": 181,
+        "ld.global.v4.f32": 16,
+        "ld.global.v4.u32": 202,
+        "ld.shared.f32": 2592,
+        "ld.shared.u32": 194,
+        "ld.shared.v2.u32": 612,
+        "ld.shared.v4.u32": 12,
+        "st.global.f32": 894,
+        "st.global.u32": 53,
+        "st.global.u64": 4,
+        "st.global.u8": 1564,
+        "st.global.v4.f32": 8,
+        "st.global.wb.u32": 21,
+        "st.shared.b16": 96,
+        "st.shared.f32": 746,
+        "st.shared.u32": 87,
+        "st.shared.u8": 2592,
+        "st.shared.v2.u32": 152
+      }
+    }
+  },
+  "swin-persistent": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/swin-persistent.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 5528,
+        "st_global_u8": 1564,
+        "ld_global_v4_32": 16,
+        "st_global_v4_32": 8,
+        "ld_shared_u8": 5024,
+        "st_shared_u8": 3992
+      },
+      "opcodes": {
+        "ld.global.b16": 256,
+        "ld.global.cg.u32": 30,
+        "ld.global.f32": 2917,
+        "ld.global.u16": 592,
+        "ld.global.u32": 1260,
+        "ld.global.u8": 5528,
+        "ld.global.v4.f32": 16,
+        "ld.shared.f32": 2592,
+        "ld.shared.u16": 96,
+        "ld.shared.u32": 162,
+        "ld.shared.u8": 5024,
+        "st.global.f32": 894,
+        "st.global.u32": 53,
+        "st.global.u64": 4,
+        "st.global.u8": 1564,
+        "st.global.v4.f32": 8,
+        "st.global.wb.u32": 21,
+        "st.shared.b16": 96,
+        "st.shared.f32": 746,
+        "st.shared.u32": 41,
+        "st.shared.u8": 3992
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v4_32": 218,
+        "ld_global_v2_32": 181,
+        "ld_shared_v4_32": 12,
+        "st_global_u8": 1564,
+        "st_global_v4_32": 8,
+        "ld_shared_v2_32": 612,
+        "st_shared_u8": 2592,
+        "ld_global_u8": 744,
+        "st_shared_v2_32": 152
+      },
+      "opcodes": {
+        "ld.global.b16": 256,
+        "ld.global.cg.u32": 30,
+        "ld.global.f32": 2917,
+        "ld.global.u32": 1582,
+        "ld.global.u8": 744,
+        "ld.global.v2.u32": 181,
+        "ld.global.v4.f32": 16,
+        "ld.global.v4.u32": 202,
+        "ld.shared.f32": 2592,
+        "ld.shared.u32": 194,
+        "ld.shared.v2.u32": 612,
+        "ld.shared.v4.u32": 12,
+        "st.global.f32": 894,
+        "st.global.u32": 53,
+        "st.global.u64": 4,
+        "st.global.u8": 1564,
+        "st.global.v4.f32": 8,
+        "st.global.wb.u32": 21,
+        "st.shared.b16": 96,
+        "st.shared.f32": 746,
+        "st.shared.u32": 87,
+        "st.shared.u8": 2592,
+        "st.shared.v2.u32": 152
+      }
+    }
+  },
+  "vit-stream-fast": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/vit-stream-fast.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 7164,
+        "st_global_u8": 1623,
+        "st_shared_u8": 288,
+        "ld_shared_u8": 192,
+        "ld_global_v4_32": 24,
+        "ld_global_v2_32": 4,
+        "st_shared_v4_32": 4,
+        "ld_shared_v4_32": 16
+      },
+      "opcodes": {
+        "ld.global.b16": 72,
+        "ld.global.f32": 3616,
+        "ld.global.u16": 920,
+        "ld.global.u32": 367,
+        "ld.global.u8": 7164,
+        "ld.global.v2.u32": 4,
+        "ld.global.v4.f32": 24,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 128,
+        "ld.shared.u16": 200,
+        "ld.shared.u8": 192,
+        "ld.shared.v4.u32": 16,
+        "ld.volatile.shared.u32": 15,
+        "st.global.b16": 96,
+        "st.global.f32": 1411,
+        "st.global.u32": 23,
+        "st.global.u64": 8,
+        "st.global.u8": 1623,
+        "st.shared.b16": 8,
+        "st.shared.f32": 208,
+        "st.shared.u16": 104,
+        "st.shared.u8": 288,
+        "st.shared.v4.u32": 4,
+        "st.volatile.shared.u32": 15
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v2_32": 326,
+        "ld_global_u8": 756,
+        "st_global_u8": 1623,
+        "ld_global_v4_32": 237,
+        "st_shared_u8": 256,
+        "ld_shared_v2_32": 16,
+        "ld_shared_u8": 8,
+        "st_shared_v4_32": 10,
+        "ld_shared_v4_32": 32
+      },
+      "opcodes": {
+        "ld.global.b16": 72,
+        "ld.global.f32": 3616,
+        "ld.global.u32": 933,
+        "ld.global.u8": 756,
+        "ld.global.v2.u32": 326,
+        "ld.global.v4.b32": 16,
+        "ld.global.v4.f32": 24,
+        "ld.global.v4.u32": 197,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 128,
+        "ld.shared.u16": 72,
+        "ld.shared.u32": 14,
+        "ld.shared.u8": 8,
+        "ld.shared.v2.u32": 16,
+        "ld.shared.v4.u32": 32,
+        "ld.volatile.shared.u32": 15,
+        "st.global.b16": 96,
+        "st.global.f32": 1411,
+        "st.global.u32": 23,
+        "st.global.u64": 8,
+        "st.global.u8": 1623,
+        "st.shared.b16": 8,
+        "st.shared.f32": 208,
+        "st.shared.u16": 72,
+        "st.shared.u8": 256,
+        "st.shared.v4.b32": 4,
+        "st.shared.v4.u32": 6,
+        "st.volatile.shared.u32": 15
+      }
+    }
+  },
+  "vit-stream": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/vit-stream.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 7164,
+        "st_global_u8": 1623,
+        "st_shared_u8": 288,
+        "ld_shared_u8": 192,
+        "ld_global_v4_32": 24,
+        "ld_global_v2_32": 4,
+        "st_shared_v4_32": 4,
+        "ld_shared_v4_32": 16
+      },
+      "opcodes": {
+        "ld.global.b16": 72,
+        "ld.global.f32": 3616,
+        "ld.global.u16": 920,
+        "ld.global.u32": 367,
+        "ld.global.u8": 7164,
+        "ld.global.v2.u32": 4,
+        "ld.global.v4.f32": 24,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 128,
+        "ld.shared.u16": 200,
+        "ld.shared.u8": 192,
+        "ld.shared.v4.u32": 16,
+        "ld.volatile.shared.u32": 15,
+        "st.global.b16": 96,
+        "st.global.f32": 1411,
+        "st.global.u32": 23,
+        "st.global.u64": 8,
+        "st.global.u8": 1623,
+        "st.shared.b16": 8,
+        "st.shared.f32": 208,
+        "st.shared.u16": 104,
+        "st.shared.u8": 288,
+        "st.shared.v4.u32": 4,
+        "st.volatile.shared.u32": 15
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v2_32": 326,
+        "ld_global_u8": 756,
+        "st_global_u8": 1623,
+        "ld_global_v4_32": 237,
+        "st_shared_u8": 256,
+        "ld_shared_v2_32": 16,
+        "ld_shared_u8": 8,
+        "st_shared_v4_32": 10,
+        "ld_shared_v4_32": 32
+      },
+      "opcodes": {
+        "ld.global.b16": 72,
+        "ld.global.f32": 3616,
+        "ld.global.u32": 933,
+        "ld.global.u8": 756,
+        "ld.global.v2.u32": 326,
+        "ld.global.v4.b32": 16,
+        "ld.global.v4.f32": 24,
+        "ld.global.v4.u32": 197,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 128,
+        "ld.shared.u16": 72,
+        "ld.shared.u32": 14,
+        "ld.shared.u8": 8,
+        "ld.shared.v2.u32": 16,
+        "ld.shared.v4.u32": 32,
+        "ld.volatile.shared.u32": 15,
+        "st.global.b16": 96,
+        "st.global.f32": 1411,
+        "st.global.u32": 23,
+        "st.global.u64": 8,
+        "st.global.u8": 1623,
+        "st.shared.b16": 8,
+        "st.shared.f32": 208,
+        "st.shared.u16": 72,
+        "st.shared.u8": 256,
+        "st.shared.v4.b32": 4,
+        "st.shared.v4.u32": 6,
+        "st.volatile.shared.u32": 15
+      }
+    }
+  },
+  "vit-wide-deep": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/vit-wide-deep.ptx",
+    "baseline": {
+      "summary": {
+        "ld_global_u8": 5244,
+        "st_global_u8": 1335,
+        "st_shared_u8": 256,
+        "ld_shared_u8": 64,
+        "ld_global_v4_32": 24,
+        "ld_global_v2_32": 4
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3417,
+        "ld.global.u16": 704,
+        "ld.global.u32": 326,
+        "ld.global.u8": 5244,
+        "ld.global.v2.u32": 4,
+        "ld.global.v4.f32": 24,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 64,
+        "ld.shared.u16": 72,
+        "ld.shared.u8": 64,
+        "st.global.b16": 64,
+        "st.global.f32": 1251,
+        "st.global.u32": 8,
+        "st.global.u64": 8,
+        "st.global.u8": 1335,
+        "st.shared.b16": 8,
+        "st.shared.f32": 144,
+        "st.shared.u16": 72,
+        "st.shared.u8": 256
+      }
+    },
+    "aligned": {
+      "summary": {
+        "ld_global_v2_32": 193,
+        "ld_global_u8": 532,
+        "st_global_u8": 1335,
+        "ld_global_v4_32": 175,
+        "st_shared_u8": 256,
+        "ld_shared_v2_32": 7,
+        "ld_shared_u8": 8
+      },
+      "opcodes": {
+        "ld.global.b16": 8,
+        "ld.global.f32": 3417,
+        "ld.global.u32": 874,
+        "ld.global.u8": 532,
+        "ld.global.v2.u32": 193,
+        "ld.global.v4.f32": 24,
+        "ld.global.v4.u32": 151,
+        "ld.shared.b16": 32,
+        "ld.shared.f32": 64,
+        "ld.shared.u16": 72,
+        "ld.shared.u8": 8,
+        "ld.shared.v2.u32": 7,
+        "st.global.b16": 64,
+        "st.global.f32": 1251,
+        "st.global.u32": 8,
+        "st.global.u64": 8,
+        "st.global.u8": 1335,
+        "st.shared.b16": 8,
+        "st.shared.f32": 144,
+        "st.shared.u16": 72,
+        "st.shared.u8": 256
+      }
+    }
+  },
+  "wave-pointwise": {
+    "baseline_path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase5/artifacts/vector/modules/wave-pointwise.ptx",
+    "baseline": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 233,
+        "ld.global.u32": 3,
+        "st.global.f32": 19
+      }
+    },
+    "aligned": {
+      "summary": {},
+      "opcodes": {
+        "ld.global.f32": 233,
+        "ld.global.u32": 3,
+        "st.global.f32": 19
+      }
+    }
+  }
+}

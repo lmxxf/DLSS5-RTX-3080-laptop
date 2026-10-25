@@ -1,0 +1,1538 @@
+{
+  "baseline": {
+    "1920": {
+      "gpu_median": 59.806,
+      "gpu_min": 59.245,
+      "kernels": {
+        "c128_wave2_bi_bo": {
+          "calls": 2.0,
+          "ms": 2.598912,
+          "us": 1299.456,
+          "grid": 570.0,
+          "block": 128.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c128_wave2_bi_ho": {
+          "calls": 1.0,
+          "ms": 1.395712,
+          "us": 1395.712,
+          "grid": 589.0,
+          "block": 128.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c128_wave2_up_lb_sh": {
+          "calls": 1.0,
+          "ms": 1.514496,
+          "us": 1514.496,
+          "grid": 558.0,
+          "block": 128.0,
+          "regs": 223.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c256_wave2_bi_bo_w16": {
+          "calls": 3.0,
+          "ms": 3.275776,
+          "us": 1091.925,
+          "grid": 150.0,
+          "block": 256.0,
+          "regs": 241.0,
+          "lmem": 0.0,
+          "smem": 49152.0,
+          "occw": 8.0
+        },
+        "c256_wave2_bi_w16": {
+          "calls": 1.0,
+          "ms": 1.363968,
+          "us": 1363.968,
+          "grid": 160.0,
+          "block": 256.0,
+          "regs": 241.0,
+          "lmem": 0.0,
+          "smem": 49152.0,
+          "occw": 8.0
+        },
+        "c32_wave1_finish_b8": {
+          "calls": 1.0,
+          "ms": 1.748992,
+          "us": 1748.992,
+          "grid": 8760.0,
+          "block": 32.0,
+          "regs": 163.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_finish_dcrop_b8d": {
+          "calls": 1.0,
+          "ms": 1.865728,
+          "us": 1865.728,
+          "grid": 8833.0,
+          "block": 32.0,
+          "regs": 163.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_mapped_b8": {
+          "calls": 1.0,
+          "ms": 1.819648,
+          "us": 1819.648,
+          "grid": 8640.0,
+          "block": 32.0,
+          "regs": 161.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_post_b8": {
+          "calls": 1.0,
+          "ms": 7.322624,
+          "us": 7322.624,
+          "grid": 34945.0,
+          "block": 32.0,
+          "regs": 163.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_prefix_b8d": {
+          "calls": 1.0,
+          "ms": 8.124416,
+          "us": 8124.416,
+          "grid": 34560.0,
+          "block": 32.0,
+          "regs": 170.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 8.0
+        },
+        "c32_wave1_up_b8": {
+          "calls": 1.0,
+          "ms": 2.055168,
+          "us": 2055.168,
+          "grid": 8712.0,
+          "block": 32.0,
+          "regs": 234.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 8.0
+        },
+        "c512_qkv_attention_compact_w16": {
+          "calls": 4.0,
+          "ms": 1.07008,
+          "us": 267.52,
+          "grid": 640.0,
+          "block": 64.0,
+          "regs": 232.0,
+          "lmem": 0.0,
+          "smem": 6144.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi": {
+          "calls": 1.0,
+          "ms": 2.082816,
+          "us": 2082.816,
+          "grid": 2220.0,
+          "block": 64.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi_bo": {
+          "calls": 1.0,
+          "ms": 1.667072,
+          "us": 1667.072,
+          "grid": 2160.0,
+          "block": 64.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi_ho": {
+          "calls": 1.0,
+          "ms": 1.794048,
+          "us": 1794.048,
+          "grid": 2257.0,
+          "block": 64.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_up_lb_sh": {
+          "calls": 1.0,
+          "ms": 1.990656,
+          "us": 1990.656,
+          "grid": 2196.0,
+          "block": 64.0,
+          "regs": 223.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "decoder_project2x_h16w_byteout_w_bin_f8w16": {
+          "calls": 2.0,
+          "ms": 0.379904,
+          "us": 189.952,
+          "grid": 2160.0,
+          "block": 32.0,
+          "regs": 70.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 16.0
+        },
+        "mh_attention_project_frag_c512_w16_u4": {
+          "calls": 1.0,
+          "ms": 0.142336,
+          "us": 142.336,
+          "grid": 1080.0,
+          "block": 32.0,
+          "regs": 125.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "mh_attention_project_frag_c512_w16_u4_bout": {
+          "calls": 3.0,
+          "ms": 0.431104,
+          "us": 143.701,
+          "grid": 1080.0,
+          "block": 32.0,
+          "regs": 125.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_c32_b8_out8": {
+          "calls": 1.0,
+          "ms": 0.129024,
+          "us": 129.024,
+          "grid": 34560.0,
+          "block": 32.0,
+          "regs": 44.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c128_hin_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.129024,
+          "us": 129.024,
+          "grid": 540.0,
+          "block": 128.0,
+          "regs": 200.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 8.0
+        },
+        "mh_pool_project_group_c256_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.105472,
+          "us": 105.472,
+          "grid": 135.0,
+          "block": 256.0,
+          "regs": 200.0,
+          "lmem": 0.0,
+          "smem": 4224.0,
+          "occw": 8.0
+        },
+        "mh_pool_project_group_c512_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.101376,
+          "us": 101.376,
+          "grid": 40.0,
+          "block": 512.0,
+          "regs": 128.0,
+          "lmem": 104.0,
+          "smem": 8320.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c64_hin_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.185344,
+          "us": 185.344,
+          "grid": 2160.0,
+          "block": 64.0,
+          "regs": 200.0,
+          "lmem": 0.0,
+          "smem": 1152.0,
+          "occw": 8.0
+        },
+        "split_ffn_one_w2f8_w16_bin": {
+          "calls": 4.0,
+          "ms": 0.874496,
+          "us": 218.624,
+          "grid": 544.0,
+          "block": 64.0,
+          "regs": 139.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 12.0
+        },
+        "split_projection_frag_w16_bskip": {
+          "calls": 4.0,
+          "ms": 0.393216,
+          "us": 98.304,
+          "grid": 1080.0,
+          "block": 32.0,
+          "regs": 127.0,
+          "lmem": 0.0,
+          "smem": 1024.0,
+          "occw": 16.0
+        },
+        "vit_attention_fused_640_bytein_bout": {
+          "calls": 8.0,
+          "ms": 2.01216,
+          "us": 251.52,
+          "grid": 1280.0,
+          "block": 32.0,
+          "regs": 106.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "vit_expand_blocked_fp8_frag_bytein_w16": {
+          "calls": 8.0,
+          "ms": 3.154944,
+          "us": 394.368,
+          "grid": 2560.0,
+          "block": 32.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "vit_gather_b8": {
+          "calls": 2.0,
+          "ms": 0.024576,
+          "us": 12.288,
+          "grid": 640.0,
+          "block": 256.0,
+          "regs": 16.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 48.0
+        },
+        "vit_stream_contract_frag_bstream_bout": {
+          "calls": 8.0,
+          "ms": 3.65568,
+          "us": 456.96,
+          "grid": 640.0,
+          "block": 32.0,
+          "regs": 154.0,
+          "lmem": 0.0,
+          "smem": 4096.0,
+          "occw": 12.0
+        },
+        "vit_stream_project_n64_bb_bout": {
+          "calls": 8.0,
+          "ms": 1.52576,
+          "us": 190.72,
+          "grid": 640.0,
+          "block": 32.0,
+          "regs": 226.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 8.0
+        },
+        "vit_stream_qkv_frag_bin_w5f8": {
+          "calls": 8.0,
+          "ms": 3.881984,
+          "us": 485.248,
+          "grid": 768.0,
+          "block": 160.0,
+          "regs": 122.0,
+          "lmem": 0.0,
+          "smem": 16384.0,
+          "occw": 15.0
+        }
+      }
+    },
+    "1600": {
+      "gpu_median": 44.872,
+      "gpu_min": 44.461,
+      "kernels": {
+        "c128_wave2_bi_bo": {
+          "calls": 2.0,
+          "ms": 2.034688,
+          "us": 1017.344,
+          "grid": 425.0,
+          "block": 128.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c128_wave2_bi_ho": {
+          "calls": 1.0,
+          "ms": 1.053696,
+          "us": 1053.696,
+          "grid": 442.0,
+          "block": 128.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c128_wave2_up_lb_sh": {
+          "calls": 1.0,
+          "ms": 1.179648,
+          "us": 1179.648,
+          "grid": 416.0,
+          "block": 128.0,
+          "regs": 223.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c256_attn_wave": {
+          "calls": 1.0,
+          "ms": 0.290816,
+          "us": 290.816,
+          "grid": 117.0,
+          "block": 256.0,
+          "regs": 201.0,
+          "lmem": 0.0,
+          "smem": 49152.0,
+          "occw": 8.0
+        },
+        "c256_attn_wave_bo": {
+          "calls": 3.0,
+          "ms": 0.837632,
+          "us": 279.211,
+          "grid": 117.0,
+          "block": 256.0,
+          "regs": 201.0,
+          "lmem": 0.0,
+          "smem": 49152.0,
+          "occw": 8.0
+        },
+        "c32_wave1_finish_b8": {
+          "calls": 1.0,
+          "ms": 1.298432,
+          "us": 1298.432,
+          "grid": 6500.0,
+          "block": 32.0,
+          "regs": 163.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_finish_dcrop_b8d": {
+          "calls": 1.0,
+          "ms": 1.39776,
+          "us": 1397.76,
+          "grid": 6565.0,
+          "block": 32.0,
+          "regs": 163.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_mapped_b8": {
+          "calls": 1.0,
+          "ms": 1.34656,
+          "us": 1346.56,
+          "grid": 6400.0,
+          "block": 32.0,
+          "regs": 161.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_post_b8": {
+          "calls": 1.0,
+          "ms": 5.4272,
+          "us": 5427.2,
+          "grid": 25929.0,
+          "block": 32.0,
+          "regs": 163.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_prefix_b8d": {
+          "calls": 1.0,
+          "ms": 6.032384,
+          "us": 6032.384,
+          "grid": 25600.0,
+          "block": 32.0,
+          "regs": 170.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 8.0
+        },
+        "c32_wave1_up_b8": {
+          "calls": 1.0,
+          "ms": 1.51552,
+          "us": 1515.52,
+          "grid": 6464.0,
+          "block": 32.0,
+          "regs": 234.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 8.0
+        },
+        "c512_qkv_attention_compact_w16": {
+          "calls": 4.0,
+          "ms": 0.856064,
+          "us": 214.016,
+          "grid": 560.0,
+          "block": 64.0,
+          "regs": 232.0,
+          "lmem": 0.0,
+          "smem": 6144.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi": {
+          "calls": 1.0,
+          "ms": 1.528832,
+          "us": 1528.832,
+          "grid": 1650.0,
+          "block": 64.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi_bo": {
+          "calls": 1.0,
+          "ms": 1.248256,
+          "us": 1248.256,
+          "grid": 1600.0,
+          "block": 64.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi_ho": {
+          "calls": 1.0,
+          "ms": 1.344512,
+          "us": 1344.512,
+          "grid": 1683.0,
+          "block": 64.0,
+          "regs": 239.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_up_lb_sh": {
+          "calls": 1.0,
+          "ms": 1.47456,
+          "us": 1474.56,
+          "grid": 1632.0,
+          "block": 64.0,
+          "regs": 223.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "decoder_project2x_h16w_byteout_w": {
+          "calls": 1.0,
+          "ms": 0.217088,
+          "us": 217.088,
+          "grid": 1664.0,
+          "block": 32.0,
+          "regs": 55.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 16.0
+        },
+        "decoder_project2x_h16w_w": {
+          "calls": 1.0,
+          "ms": 0.253952,
+          "us": 253.952,
+          "grid": 896.0,
+          "block": 32.0,
+          "regs": 55.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 16.0
+        },
+        "mh_attention_project_frag_c512_w16_u4": {
+          "calls": 4.0,
+          "ms": 0.485376,
+          "us": 121.344,
+          "grid": 832.0,
+          "block": 32.0,
+          "regs": 125.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "mh_ffn_fused_c256_frag_project_mapped_g128_qkv_bytein_fb": {
+          "calls": 4.0,
+          "ms": 3.068928,
+          "us": 767.232,
+          "grid": 468.0,
+          "block": 512.0,
+          "regs": 128.0,
+          "lmem": 0.0,
+          "smem": 30016.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_c32_b8_out8": {
+          "calls": 1.0,
+          "ms": 0.09728,
+          "us": 97.28,
+          "grid": 25600.0,
+          "block": 32.0,
+          "regs": 44.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c128_hin_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.1024,
+          "us": 102.4,
+          "grid": 400.0,
+          "block": 128.0,
+          "regs": 200.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 8.0
+        },
+        "mh_pool_project_group_c256_f8w16": {
+          "calls": 1.0,
+          "ms": 0.105472,
+          "us": 105.472,
+          "grid": 104.0,
+          "block": 256.0,
+          "regs": 200.0,
+          "lmem": 0.0,
+          "smem": 4224.0,
+          "occw": 8.0
+        },
+        "mh_pool_project_group_c512_f8w16": {
+          "calls": 1.0,
+          "ms": 0.099328,
+          "us": 99.328,
+          "grid": 28.0,
+          "block": 512.0,
+          "regs": 128.0,
+          "lmem": 104.0,
+          "smem": 8320.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c64_hin_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.141312,
+          "us": 141.312,
+          "grid": 1600.0,
+          "block": 64.0,
+          "regs": 200.0,
+          "lmem": 0.0,
+          "smem": 1152.0,
+          "occw": 8.0
+        },
+        "split_ffn_one_w2f8_w16": {
+          "calls": 4.0,
+          "ms": 0.781312,
+          "us": 195.328,
+          "grid": 416.0,
+          "block": 64.0,
+          "regs": 197.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 8.0
+        },
+        "split_projection_frag_w16": {
+          "calls": 4.0,
+          "ms": 0.352256,
+          "us": 88.064,
+          "grid": 832.0,
+          "block": 32.0,
+          "regs": 127.0,
+          "lmem": 0.0,
+          "smem": 1024.0,
+          "occw": 16.0
+        },
+        "vit_attention_fused_640_bytein_bout": {
+          "calls": 8.0,
+          "ms": 1.132544,
+          "us": 141.568,
+          "grid": 896.0,
+          "block": 32.0,
+          "regs": 106.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "vit_expand_blocked_fp8_frag_bytein_w16": {
+          "calls": 8.0,
+          "ms": 2.280448,
+          "us": 285.056,
+          "grid": 1792.0,
+          "block": 32.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "vit_gather": {
+          "calls": 2.0,
+          "ms": 0.029696,
+          "us": 14.848,
+          "grid": 1792.0,
+          "block": 256.0,
+          "regs": 10.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 48.0
+        },
+        "vit_pack_input": {
+          "calls": 8.0,
+          "ms": 0.057344,
+          "us": 7.168,
+          "grid": 448.0,
+          "block": 256.0,
+          "regs": 16.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 48.0
+        },
+        "vit_stream_contract_frag_bout": {
+          "calls": 8.0,
+          "ms": 1.961984,
+          "us": 245.248,
+          "grid": 448.0,
+          "block": 32.0,
+          "regs": 117.0,
+          "lmem": 0.0,
+          "smem": 4096.0,
+          "occw": 16.0
+        },
+        "vit_stream_project_n64_bb": {
+          "calls": 8.0,
+          "ms": 1.130496,
+          "us": 141.312,
+          "grid": 448.0,
+          "block": 32.0,
+          "regs": 210.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 8.0
+        },
+        "vit_stream_qkv_frag_bin_w5f8": {
+          "calls": 8.0,
+          "ms": 2.738176,
+          "us": 342.272,
+          "grid": 576.0,
+          "block": 160.0,
+          "regs": 122.0,
+          "lmem": 0.0,
+          "smem": 16384.0,
+          "occw": 15.0
+        }
+      }
+    }
+  },
+  "candidate": {
+    "1920": {
+      "gpu_median": 54.476,
+      "gpu_min": 53.921,
+      "kernels": {
+        "c128_wave2_bi_bo": {
+          "calls": 2.0,
+          "ms": 2.38592,
+          "us": 1192.96,
+          "grid": 570.0,
+          "block": 128.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c128_wave2_bi_ho": {
+          "calls": 1.0,
+          "ms": 1.272832,
+          "us": 1272.832,
+          "grid": 589.0,
+          "block": 128.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c128_wave2_up_lb_sh": {
+          "calls": 1.0,
+          "ms": 1.406976,
+          "us": 1406.976,
+          "grid": 558.0,
+          "block": 128.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c256_wave2_bi_bo_w16": {
+          "calls": 3.0,
+          "ms": 2.752512,
+          "us": 917.504,
+          "grid": 150.0,
+          "block": 256.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 49152.0,
+          "occw": 8.0
+        },
+        "c256_wave2_bi_w16": {
+          "calls": 1.0,
+          "ms": 1.207296,
+          "us": 1207.296,
+          "grid": 160.0,
+          "block": 256.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 49152.0,
+          "occw": 8.0
+        },
+        "c32_wave1_finish_b8": {
+          "calls": 1.0,
+          "ms": 1.57696,
+          "us": 1576.96,
+          "grid": 8760.0,
+          "block": 32.0,
+          "regs": 159.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_finish_dcrop_b8d": {
+          "calls": 1.0,
+          "ms": 1.6384,
+          "us": 1638.4,
+          "grid": 8833.0,
+          "block": 32.0,
+          "regs": 159.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_mapped_b8": {
+          "calls": 1.0,
+          "ms": 1.659904,
+          "us": 1659.904,
+          "grid": 8640.0,
+          "block": 32.0,
+          "regs": 146.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_post_b8": {
+          "calls": 1.0,
+          "ms": 6.678528,
+          "us": 6678.528,
+          "grid": 34945.0,
+          "block": 32.0,
+          "regs": 160.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_prefix_b8d": {
+          "calls": 1.0,
+          "ms": 7.369728,
+          "us": 7369.728,
+          "grid": 34560.0,
+          "block": 32.0,
+          "regs": 169.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 8.0
+        },
+        "c32_wave1_up_b8": {
+          "calls": 1.0,
+          "ms": 1.928192,
+          "us": 1928.192,
+          "grid": 8712.0,
+          "block": 32.0,
+          "regs": 234.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 8.0
+        },
+        "c512_qkv_attention_compact_w16": {
+          "calls": 4.0,
+          "ms": 0.9472,
+          "us": 236.8,
+          "grid": 640.0,
+          "block": 64.0,
+          "regs": 229.0,
+          "lmem": 0.0,
+          "smem": 6144.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi": {
+          "calls": 1.0,
+          "ms": 1.911808,
+          "us": 1911.808,
+          "grid": 2220.0,
+          "block": 64.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi_bo": {
+          "calls": 1.0,
+          "ms": 1.503232,
+          "us": 1503.232,
+          "grid": 2160.0,
+          "block": 64.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi_ho": {
+          "calls": 1.0,
+          "ms": 1.60768,
+          "us": 1607.68,
+          "grid": 2257.0,
+          "block": 64.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_up_lb_sh": {
+          "calls": 1.0,
+          "ms": 1.8176,
+          "us": 1817.6,
+          "grid": 2196.0,
+          "block": 64.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "decoder_project2x_h16w_byteout_w_bin_f8w16": {
+          "calls": 2.0,
+          "ms": 0.362496,
+          "us": 181.248,
+          "grid": 2160.0,
+          "block": 32.0,
+          "regs": 61.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 16.0
+        },
+        "mh_attention_project_frag_c512_w16_u4": {
+          "calls": 1.0,
+          "ms": 0.132096,
+          "us": 132.096,
+          "grid": 1080.0,
+          "block": 32.0,
+          "regs": 140.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 12.0
+        },
+        "mh_attention_project_frag_c512_w16_u4_bout": {
+          "calls": 3.0,
+          "ms": 0.39936,
+          "us": 133.12,
+          "grid": 1080.0,
+          "block": 32.0,
+          "regs": 140.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 12.0
+        },
+        "mh_pool_project_c32_b8_out8": {
+          "calls": 1.0,
+          "ms": 0.130048,
+          "us": 130.048,
+          "grid": 34560.0,
+          "block": 32.0,
+          "regs": 44.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c128_hin_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.077824,
+          "us": 77.824,
+          "grid": 540.0,
+          "block": 128.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c256_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.07168,
+          "us": 71.68,
+          "grid": 135.0,
+          "block": 256.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 4224.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c512_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.06656,
+          "us": 66.56,
+          "grid": 40.0,
+          "block": 512.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 8320.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c64_hin_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.108544,
+          "us": 108.544,
+          "grid": 2160.0,
+          "block": 64.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 1152.0,
+          "occw": 16.0
+        },
+        "split_ffn_one_w2f8_w16_bin": {
+          "calls": 4.0,
+          "ms": 0.807936,
+          "us": 201.984,
+          "grid": 544.0,
+          "block": 64.0,
+          "regs": 152.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 12.0
+        },
+        "split_projection_frag_w16_bskip": {
+          "calls": 4.0,
+          "ms": 0.370688,
+          "us": 92.672,
+          "grid": 1080.0,
+          "block": 32.0,
+          "regs": 145.0,
+          "lmem": 0.0,
+          "smem": 1024.0,
+          "occw": 12.0
+        },
+        "vit_attention_fused_640_bytein_bout": {
+          "calls": 8.0,
+          "ms": 1.961984,
+          "us": 245.248,
+          "grid": 1280.0,
+          "block": 32.0,
+          "regs": 93.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "vit_expand_blocked_fp8_frag_bytein_w16": {
+          "calls": 8.0,
+          "ms": 2.854912,
+          "us": 356.864,
+          "grid": 2560.0,
+          "block": 32.0,
+          "regs": 121.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "vit_gather_b8": {
+          "calls": 2.0,
+          "ms": 0.024576,
+          "us": 12.288,
+          "grid": 640.0,
+          "block": 256.0,
+          "regs": 16.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 48.0
+        },
+        "vit_stream_contract_frag_bstream_bout": {
+          "calls": 8.0,
+          "ms": 3.386368,
+          "us": 423.296,
+          "grid": 640.0,
+          "block": 32.0,
+          "regs": 217.0,
+          "lmem": 0.0,
+          "smem": 4096.0,
+          "occw": 8.0
+        },
+        "vit_stream_project_n64_bb_bout": {
+          "calls": 8.0,
+          "ms": 1.385472,
+          "us": 173.184,
+          "grid": 640.0,
+          "block": 32.0,
+          "regs": 210.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 8.0
+        },
+        "vit_stream_qkv_frag_bin_w5f8": {
+          "calls": 8.0,
+          "ms": 3.844096,
+          "us": 480.512,
+          "grid": 768.0,
+          "block": 160.0,
+          "regs": 119.0,
+          "lmem": 0.0,
+          "smem": 16384.0,
+          "occw": 15.0
+        }
+      },
+      "accuracy_vs_phase1": {
+        "padded": {
+          "invalid": 0,
+          "psnr_peak1_db": 48.4813753087198,
+          "maxabs": 0.046734392642974854,
+          "rmse": 0.0037664415707881773
+        },
+        "visible": {
+          "invalid": 0,
+          "psnr_peak1_db": 48.489389007040764,
+          "maxabs": 0.046734392642974854,
+          "rmse": 0.0037629682124580574
+        }
+      },
+      "accuracy_vs_f32": {
+        "padded": {
+          "invalid": 0,
+          "psnr_peak1_db": 46.08164586978773,
+          "maxabs": 0.0416027307510376,
+          "rmse": 0.004964982321974246
+        },
+        "visible": {
+          "invalid": 0,
+          "psnr_peak1_db": 46.100947087035124,
+          "maxabs": 0.0416027307510376,
+          "rmse": 0.004953961711371818
+        }
+      }
+    },
+    "1600": {
+      "gpu_median": 42.264,
+      "gpu_min": 41.743,
+      "kernels": {
+        "c128_wave2_bi_bo": {
+          "calls": 2.0,
+          "ms": 1.910784,
+          "us": 955.392,
+          "grid": 425.0,
+          "block": 128.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c128_wave2_bi_ho": {
+          "calls": 1.0,
+          "ms": 0.954368,
+          "us": 954.368,
+          "grid": 442.0,
+          "block": 128.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c128_wave2_up_lb_sh": {
+          "calls": 1.0,
+          "ms": 1.145856,
+          "us": 1145.856,
+          "grid": 416.0,
+          "block": 128.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 24576.0,
+          "occw": 8.0
+        },
+        "c256_attn_wave": {
+          "calls": 1.0,
+          "ms": 0.272384,
+          "us": 272.384,
+          "grid": 117.0,
+          "block": 256.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 49152.0,
+          "occw": 8.0
+        },
+        "c256_attn_wave_bo": {
+          "calls": 3.0,
+          "ms": 0.780288,
+          "us": 260.096,
+          "grid": 117.0,
+          "block": 256.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 49152.0,
+          "occw": 8.0
+        },
+        "c32_wave1_finish_b8": {
+          "calls": 1.0,
+          "ms": 1.158144,
+          "us": 1158.144,
+          "grid": 6500.0,
+          "block": 32.0,
+          "regs": 159.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_finish_dcrop_b8d": {
+          "calls": 1.0,
+          "ms": 1.230848,
+          "us": 1230.848,
+          "grid": 6565.0,
+          "block": 32.0,
+          "regs": 159.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_mapped_b8": {
+          "calls": 1.0,
+          "ms": 1.245184,
+          "us": 1245.184,
+          "grid": 6400.0,
+          "block": 32.0,
+          "regs": 146.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_post_b8": {
+          "calls": 1.0,
+          "ms": 4.9408,
+          "us": 4940.8,
+          "grid": 25929.0,
+          "block": 32.0,
+          "regs": 160.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 9.0
+        },
+        "c32_wave1_prefix_b8d": {
+          "calls": 1.0,
+          "ms": 5.489664,
+          "us": 5489.664,
+          "grid": 25600.0,
+          "block": 32.0,
+          "regs": 169.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 8.0
+        },
+        "c32_wave1_up_b8": {
+          "calls": 1.0,
+          "ms": 1.41824,
+          "us": 1418.24,
+          "grid": 6464.0,
+          "block": 32.0,
+          "regs": 234.0,
+          "lmem": 0.0,
+          "smem": 10240.0,
+          "occw": 8.0
+        },
+        "c512_qkv_attention_compact_w16": {
+          "calls": 4.0,
+          "ms": 0.761856,
+          "us": 190.464,
+          "grid": 560.0,
+          "block": 64.0,
+          "regs": 229.0,
+          "lmem": 0.0,
+          "smem": 6144.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi": {
+          "calls": 1.0,
+          "ms": 1.44896,
+          "us": 1448.96,
+          "grid": 1650.0,
+          "block": 64.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi_bo": {
+          "calls": 1.0,
+          "ms": 1.130496,
+          "us": 1130.496,
+          "grid": 1600.0,
+          "block": 64.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_bi_ho": {
+          "calls": 1.0,
+          "ms": 1.207296,
+          "us": 1207.296,
+          "grid": 1683.0,
+          "block": 64.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "c64_wave2_up_lb_sh": {
+          "calls": 1.0,
+          "ms": 1.3568,
+          "us": 1356.8,
+          "grid": 1632.0,
+          "block": 64.0,
+          "regs": 250.0,
+          "lmem": 0.0,
+          "smem": 12288.0,
+          "occw": 8.0
+        },
+        "decoder_project2x_h16w_byteout_w": {
+          "calls": 1.0,
+          "ms": 0.20992,
+          "us": 209.92,
+          "grid": 1664.0,
+          "block": 32.0,
+          "regs": 55.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 16.0
+        },
+        "decoder_project2x_h16w_w": {
+          "calls": 1.0,
+          "ms": 0.26112,
+          "us": 261.12,
+          "grid": 896.0,
+          "block": 32.0,
+          "regs": 55.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 16.0
+        },
+        "mh_attention_project_frag_c512_w16_u4": {
+          "calls": 4.0,
+          "ms": 0.454656,
+          "us": 113.664,
+          "grid": 832.0,
+          "block": 32.0,
+          "regs": 140.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 12.0
+        },
+        "mh_ffn_fused_c256_frag_project_mapped_g128_qkv_bytein_fb": {
+          "calls": 4.0,
+          "ms": 2.742272,
+          "us": 685.568,
+          "grid": 468.0,
+          "block": 512.0,
+          "regs": 128.0,
+          "lmem": 0.0,
+          "smem": 30016.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_c32_b8_out8": {
+          "calls": 1.0,
+          "ms": 0.09728,
+          "us": 97.28,
+          "grid": 25600.0,
+          "block": 32.0,
+          "regs": 44.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c128_hin_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.065536,
+          "us": 65.536,
+          "grid": 400.0,
+          "block": 128.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 2176.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c256_f8w16": {
+          "calls": 1.0,
+          "ms": 0.069632,
+          "us": 69.632,
+          "grid": 104.0,
+          "block": 256.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 4224.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c512_f8w16": {
+          "calls": 1.0,
+          "ms": 0.065536,
+          "us": 65.536,
+          "grid": 28.0,
+          "block": 512.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 8320.0,
+          "occw": 16.0
+        },
+        "mh_pool_project_group_c64_hin_out8_f8w16": {
+          "calls": 1.0,
+          "ms": 0.08704,
+          "us": 87.04,
+          "grid": 1600.0,
+          "block": 64.0,
+          "regs": 111.0,
+          "lmem": 0.0,
+          "smem": 1152.0,
+          "occw": 16.0
+        },
+        "split_ffn_one_w2f8_w16": {
+          "calls": 4.0,
+          "ms": 0.676864,
+          "us": 169.216,
+          "grid": 416.0,
+          "block": 64.0,
+          "regs": 152.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 12.0
+        },
+        "split_projection_frag_w16": {
+          "calls": 4.0,
+          "ms": 0.316416,
+          "us": 79.104,
+          "grid": 832.0,
+          "block": 32.0,
+          "regs": 145.0,
+          "lmem": 0.0,
+          "smem": 1024.0,
+          "occw": 12.0
+        },
+        "vit_attention_fused_640_bytein_bout": {
+          "calls": 8.0,
+          "ms": 1.096704,
+          "us": 137.088,
+          "grid": 896.0,
+          "block": 32.0,
+          "regs": 93.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "vit_expand_blocked_fp8_frag_bytein_w16": {
+          "calls": 8.0,
+          "ms": 2.054144,
+          "us": 256.768,
+          "grid": 1792.0,
+          "block": 32.0,
+          "regs": 121.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 16.0
+        },
+        "vit_gather": {
+          "calls": 2.0,
+          "ms": 0.028672,
+          "us": 14.336,
+          "grid": 1792.0,
+          "block": 256.0,
+          "regs": 10.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 48.0
+        },
+        "vit_pack_input": {
+          "calls": 8.0,
+          "ms": 0.062464,
+          "us": 7.808,
+          "grid": 448.0,
+          "block": 256.0,
+          "regs": 16.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 48.0
+        },
+        "vit_stream_contract_frag_bout": {
+          "calls": 8.0,
+          "ms": 3.15392,
+          "us": 394.24,
+          "grid": 448.0,
+          "block": 32.0,
+          "regs": 208.0,
+          "lmem": 0.0,
+          "smem": 4096.0,
+          "occw": 8.0
+        },
+        "vit_stream_project_n64_bb": {
+          "calls": 8.0,
+          "ms": 1.050624,
+          "us": 131.328,
+          "grid": 448.0,
+          "block": 32.0,
+          "regs": 210.0,
+          "lmem": 0.0,
+          "smem": 0.0,
+          "occw": 8.0
+        },
+        "vit_stream_qkv_frag_bin_w5f8": {
+          "calls": 8.0,
+          "ms": 2.710528,
+          "us": 338.816,
+          "grid": 576.0,
+          "block": 160.0,
+          "regs": 119.0,
+          "lmem": 0.0,
+          "smem": 16384.0,
+          "occw": 15.0
+        }
+      },
+      "accuracy_vs_phase1": {
+        "padded": {
+          "invalid": 0,
+          "psnr_peak1_db": 48.47030135688005,
+          "maxabs": 0.03457203507423401,
+          "rmse": 0.003771246604469662
+        },
+        "visible": {
+          "invalid": 0,
+          "psnr_peak1_db": 48.52578172915855,
+          "maxabs": 0.03457203507423401,
+          "rmse": 0.003747234859572002
+        }
+      },
+      "accuracy_vs_f32": {
+        "padded": {
+          "invalid": 0,
+          "psnr_peak1_db": 46.59192049707339,
+          "maxabs": 0.03999394178390503,
+          "rmse": 0.004681704249214074
+        },
+        "visible": {
+          "invalid": 0,
+          "psnr_peak1_db": 46.62056975312521,
+          "maxabs": 0.03485873341560364,
+          "rmse": 0.004666287706782746
+        }
+      }
+    }
+  }
+}

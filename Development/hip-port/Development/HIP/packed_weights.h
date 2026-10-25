@@ -5,7 +5,24 @@
 #include <vector>
 #include <cmath>
 #include <utility>
+#include <cstdlib>
+#include <array>
 namespace hip_reference {
+// This host layout must be paired with Phase-2 sm_86 modules (never old modules).
+inline bool AmpereStaticWeights(){static bool on=[]{const char* v=std::getenv("DLSS5_AMPERE_WEIGHTS");return !v||std::strcmp(v,"0");}();return on;}
+inline void AmperePreshuffleTile256(uint8_t* tile){
+ std::array<uint8_t,256> src;std::memcpy(src.data(),tile,256);
+ for(unsigned l=0;l<32;l++){
+  unsigned base=(l>>2)^((l&2u)<<3),idx[4]={base,base^8u,base^16u,base^24u};
+  uint8_t v[4][4];
+  for(unsigned j=0;j<4;j++){unsigned lane=idx[j],word=(j<2?0u:1u)^((lane>>4)&1u);std::memcpy(v[j],src.data()+lane*8+word*4,4);}
+  unsigned q=(l&2u)?2u:0u,h=(l&1u)?2u:0u;
+  for(unsigned w=0;w<2;w++){unsigned a=(w*2)^q,b=a+1;tile[l*8+w*4]=v[a][h];tile[l*8+w*4+1]=v[a][h+1];tile[l*8+w*4+2]=v[b][h];tile[l*8+w*4+3]=v[b][h+1];}
+ }
+}
+inline void AmperePreshuffleTile512W16(uint8_t* tile){
+ uint8_t tmp[256];for(unsigned half=0;half<2;half++){for(unsigned l=0;l<32;l++)std::memcpy(tmp+l*8,tile+l*16+half*8,8);AmperePreshuffleTile256(tmp);for(unsigned l=0;l<32;l++)std::memcpy(tile+l*16+half*8,tmp+l*8,8);}
+}
 // Lossless encoding only: reject weights requiring quantization or saturation.
 inline uint8_t ExactWeightFp8(float value){
  uint32_t bits;std::memcpy(&bits,&value,4);uint32_t a=bits&0x7fffffffu;uint8_t sign=uint8_t((bits>>24)&128u);
@@ -36,17 +53,17 @@ inline float HostScalePiece(float v){float m=std::fabs(v);if(m<.015625f){float x
 inline void AppendC32ResidualDiagonals(std::vector<float>&v){if(v.size()!=8736)throw std::runtime_error("C32 FFN weight shape for diagonals");v.resize(8736+1536,0.f);uint8_t*d=reinterpret_cast<uint8_t*>(v.data())+34944;
  for(unsigned part=0;part<3;part++)for(unsigned ci=0;ci<2;ci++)for(unsigned kt=0;kt<2;kt++){uint8_t*tile=d+((part*2+ci)*2+kt)*512;
   for(unsigned gr=0;gr<2;gr++)for(unsigned rc=0;rc<16;rc++){unsigned c=ci*16+rc;float remaining=v[8704+c],piece=0.f;for(unsigned j=0;j<=part;j++){piece=HostScalePiece(remaining);remaining-=piece;}
-   for(unsigned e=0;e<8;e++){unsigned k=kt*16+gr*8+e;tile[(gr*16+rc)*8+e]=k==c?ExactWeightFp8(piece):uint8_t(0);}}}}
+   for(unsigned e=0;e<8;e++){unsigned k=kt*16+gr*8+e;tile[(gr*16+rc)*8+e]=k==c?ExactWeightFp8(piece):uint8_t(0);}}}if(AmpereStaticWeights())for(unsigned i=0;i<12;i++)AmperePreshuffleTile256(d+i*512);}
 inline void AppendC32ResidualDiagonalsW16(std::vector<float>&v){if(v.size()!=8736)throw std::runtime_error("C32 FFN weight shape for diagonals");v.resize(8736+1536,0.f);uint8_t*d=reinterpret_cast<uint8_t*>(v.data())+34944;
  for(unsigned part=0;part<3;part++){uint8_t*tile=d+part*512;
   for(unsigned gr=0;gr<2;gr++)for(unsigned rc=0;rc<16;rc++)for(unsigned ci=0;ci<2;ci++){unsigned c=ci*16+rc;float remaining=v[8704+c],piece=0.f;for(unsigned j=0;j<=part;j++){piece=HostScalePiece(remaining);remaining-=piece;}
-   for(unsigned e=0;e<8;e++){unsigned k=ci*16+gr*8+e;tile[((gr*16+rc)*2+ci)*8+e]=k==c?ExactWeightFp8(piece):uint8_t(0);}}}}
+   for(unsigned e=0;e<8;e++){unsigned k=ci*16+gr*8+e;tile[((gr*16+rc)*2+ci)*8+e]=k==c?ExactWeightFp8(piece):uint8_t(0);}}}if(AmpereStaticWeights())for(unsigned i=0;i<3;i++)AmperePreshuffleTile512W16(d+i*512);}
 // MH attention residual scales (floats at 4cc+heads*4096+heads+col) as three diagonal fragment B tiles per 16-column tile:
 // tile (part*(c/16)+ct) byte (gr*16+rc)*8+e holds piece[part] of column ct*16+rc at k=gr*8+e==rc, zero elsewhere.
 inline void AppendMhResidualDiagonals(std::vector<float>&v,unsigned c){size_t cc=size_t(c)*c,heads=c/32;if(v.size()!=4*cc+heads*4096+heads+c)throw std::runtime_error("MH attention weight shape for diagonals");size_t base=v.size();v.resize(base+size_t(c)*24,0.f);uint8_t*d=reinterpret_cast<uint8_t*>(v.data())+base*4;
  for(unsigned part=0;part<3;part++)for(unsigned ct=0;ct<c/16;ct++){uint8_t*tile=d+(part*(c/16)+ct)*512;
   for(unsigned gr=0;gr<2;gr++)for(unsigned rc=0;rc<16;rc++){unsigned col=ct*16+rc;float remaining=v[4*cc+heads*4096+heads+col],piece=0.f;for(unsigned j=0;j<=part;j++){piece=HostScalePiece(remaining);remaining-=piece;}
-   for(unsigned e=0;e<8;e++){unsigned k=gr*8+e;tile[(gr*16+rc)*8+e]=k==rc?ExactWeightFp8(piece):uint8_t(0);}}}}
+   for(unsigned e=0;e<8;e++){unsigned k=gr*8+e;tile[(gr*16+rc)*8+e]=k==rc?ExactWeightFp8(piece):uint8_t(0);}}}if(AmpereStaticWeights())for(unsigned i=0;i<3*(c/16);i++)AmperePreshuffleTile256(d+i*512);}
 // Preserve float-region offsets for scales/bias and separate matrix regions.
 // Each matrix becomes row-major FP8 at its original starting byte address.
 inline void PackWeightRegions(std::vector<float>&values,const std::vector<std::pair<size_t,size_t>>&regions){
@@ -70,6 +87,7 @@ inline void FragmentPackedMatrix(std::vector<float>&v,size_t start,size_t rows,s
  if(rows%16||columns%32||start>v.size()||rows*columns>(v.size()-start)*4)throw std::runtime_error("packed fragment shape");
  auto*dst=reinterpret_cast<uint8_t*>(v.data()+start);std::vector<uint8_t>src(dst,dst+rows*columns);
  for(size_t n=0;n<rows;n++)for(size_t k=0;k<columns;k++)dst[((n/16)*(columns/32)+k/32)*512+(((k%32)/16*2+(k%16)/8)*16+n%16)*8+k%8]=src[n*columns+k];
+ if(AmpereStaticWeights())for(size_t i=0;i<rows*columns;i+=512){AmperePreshuffleTile256(dst+i);AmperePreshuffleTile256(dst+i+256);}
 }
 // Wide fragment tiles (W2_FFN_W16 modules, key @ffn-frag-w16): same 512-byte tiles, bytes ordered [lane half gr][row%16]
 // [k/16 within tile][8 k], so one 16-byte load per lane covers both K16 steps of a 32-k tile. Pure permutation.
@@ -77,6 +95,7 @@ inline void FragmentPackedMatrixW16(std::vector<float>&v,size_t start,size_t row
  if(rows%16||columns%32||start>v.size()||rows*columns>(v.size()-start)*4)throw std::runtime_error("packed fragment shape");
  auto*dst=reinterpret_cast<uint8_t*>(v.data()+start);std::vector<uint8_t>src(dst,dst+rows*columns);
  for(size_t n=0;n<rows;n++)for(size_t k=0;k<columns;k++)dst[((n/16)*(columns/32)+k/32)*512+((((k%16)/8)*16+n%16)*2+(k%32)/16)*8+k%8]=src[n*columns+k];
+ if(AmpereStaticWeights())for(size_t i=0;i<rows*columns;i+=512){AmperePreshuffleTile512W16(dst+i);}
 }
 inline void TilePackedMatrix(std::vector<float>&v,size_t start,size_t rows,size_t columns){
  if(rows%16||columns%32||start>v.size()||rows*columns>(v.size()-start)*4)throw std::runtime_error("packed tile shape");

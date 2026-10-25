@@ -1,0 +1,98 @@
+[
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_prefix_b8d",
+    "phase1": {
+      "shfl": 385,
+      "mma": 96,
+      "selp": 1994,
+      "packed_add": 0
+    },
+    "phase2": {
+      "shfl": 337,
+      "mma": 76,
+      "selp": 1738,
+      "packed_add": 0
+    }
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_post_b8",
+    "phase1": {
+      "shfl": 356,
+      "mma": 88,
+      "selp": 1712,
+      "packed_add": 0
+    },
+    "phase2": {
+      "shfl": 308,
+      "mma": 72,
+      "selp": 1456,
+      "packed_add": 0
+    }
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_bo",
+    "phase1": {
+      "shfl": 692,
+      "mma": 120,
+      "selp": 3209,
+      "packed_add": 0
+    },
+    "phase2": {
+      "shfl": 504,
+      "mma": 112,
+      "selp": 2816,
+      "packed_add": 0
+    }
+  },
+  {
+    "module": "vit-stream-fast",
+    "kernel": "vit_stream_qkv_frag_bin_w5f8",
+    "phase1": {
+      "shfl": 80,
+      "mma": 36,
+      "selp": 282,
+      "packed_add": 0
+    },
+    "phase2": {
+      "shfl": 80,
+      "mma": 32,
+      "selp": 177,
+      "packed_add": 0
+    }
+  },
+  {
+    "module": "vit-stream-fast",
+    "kernel": "vit_stream_contract_frag_bstream_bout_compactw_w16",
+    "phase1": {
+      "shfl": 112,
+      "mma": 32,
+      "selp": 409,
+      "packed_add": 0
+    },
+    "phase2": {
+      "shfl": 80,
+      "mma": 32,
+      "selp": 505,
+      "packed_add": 16
+    }
+  },
+  {
+    "module": "multihead-fast-padded-wave-packed",
+    "kernel": "mh_pool_project_group_c128_hin_out8_f8w16",
+    "phase1": {
+      "shfl": 136,
+      "mma": 16,
+      "selp": 813,
+      "packed_add": 0
+    },
+    "phase2": {
+      "shfl": 40,
+      "mma": 16,
+      "selp": 381,
+      "packed_add": 16
+    }
+  }
+]

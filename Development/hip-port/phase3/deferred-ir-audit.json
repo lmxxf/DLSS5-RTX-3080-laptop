@@ -1,0 +1,11 @@
+{
+  "module": "swin-persistent-fast",
+  "clang_raw_unpack_calls": 1154,
+  "post_cse_unpack_calls": 1154,
+  "clang_raw_noinline_attributes": [
+    "attributes #0 = { convergent mustprogress nofree noinline nounwind readnone willreturn \"frame-pointer\"=\"all\" \"min-legal-vector-width\"=\"256\" \"no-trapping-math\"=\"true\" \"stack-protector-buffer-size\"=\"8\" \"target-cpu\"=\"sm_86\" \"target-features\"=\"+ptx32,+sm_86\" }",
+    "attributes #2 = { convergent mustprogress nofree noinline nounwind readnone willreturn \"frame-pointer\"=\"all\" \"min-legal-vector-width\"=\"128\" \"no-trapping-math\"=\"true\" \"stack-protector-buffer-size\"=\"8\" \"target-cpu\"=\"sm_86\" \"target-features\"=\"+ptx32,+sm_86\" }"
+  ],
+  "post_pass_has_noinline": false,
+  "post_pass_has_alwaysinline": true
+}

@@ -44,6 +44,7 @@ struct Case{std::vector<U8>a=std::vector<U8>(512),b=std::vector<U8>(512);std::ve
 struct Result{std::vector<float>d,mid;std::vector<U16>half;std::vector<U32>status;};
 
 int main(int argc, char** argv) {
+    const bool fp16_acc = argc > 2 && std::string(argv[2]) == "--fp16-acc";
     cuInit(0);
     CUdevice dev = 0; cuDeviceGet(&dev, 0);
     char name[256]{}; cuDeviceGetName(name, 256, dev);
@@ -61,6 +62,11 @@ int main(int argc, char** argv) {
     const U8 boundary[]={0,128,1,129,7,135,8,136,0x38,0xb8,0x7e,0xfe};
     for(unsigned j=0;j<4;j++){auto&t=add("boundary_cancel",false);for(unsigned i=0;i<512;i++){t.a[i]=boundary[(i+j)%12];t.b[i]=boundary[(i*7+j)%12];}if(j==3)for(auto&v:t.c)v=16777216.0f;}
 
+    // FP16 has a finite accumulator range; full-finite FP8 stress deliberately
+    // overflows it. Keep the exact mapping cases and bounded random K16/K32 tests.
+    if(fp16_acc) cases.erase(std::remove_if(cases.begin(),cases.end(),[](const Case& c){
+        return c.name=="random_fullfinite" || c.name=="boundary_cancel";
+    }),cases.end());
     U32 n=U32(cases.size());std::vector<U8>a,b;std::vector<float>c;
     for(auto&t:cases){a.insert(a.end(),t.a.begin(),t.a.end());b.insert(b.end(),t.b.begin(),t.b.end());c.insert(c.end(),t.c.begin(),t.c.end());}
 
@@ -93,7 +99,7 @@ int main(int argc, char** argv) {
                 double v=double(decode(cases[j].a[m*32+k]))*decode(cases[j].b[k*16+col]);
                 ref+=v;sumabs+=std::abs(v);
                 if(k==15||k==31){
-                    double tolerance=cases[j].exact?0:64*std::ldexp(1.,-24)*sumabs+std::ldexp(1.,-149);
+                    double tolerance=cases[j].exact?0:(fp16_acc ? 4*std::ldexp(1.,-10) : 64*std::ldexp(1.,-24))*sumabs+std::ldexp(1.,-149);
                     for(const Result*r:{&fp8,&fp16}){
                         float got=k==15?r->mid[idx]:r->d[idx];
                         double error=std::abs(double(got)-ref);

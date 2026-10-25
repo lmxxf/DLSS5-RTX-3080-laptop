@@ -565,7 +565,7 @@ W2_REP_BEGIN(4)
  constexpr bool W2QkvPair=C==256&&(W2_QKV_FUSE&8);
  if constexpr(W2QkvFuse){
   constexpr uint ps=W2_DEFER_Q?1:0;
-  _Pragma("unroll") for(uint qt=0;qt<4;qt++){
+  _Pragma("clang loop unroll(disable)") for(uint qt=0;qt<4;qt++){
    uint qlane=w2_lane();
 #if W2_LAUNDER_QKV
    __asm__ volatile("" : "+v"(qlane));qlane&=31u;
@@ -595,7 +595,7 @@ W2_REP_BEGIN(4)
   }
  }else
  _Pragma("unroll") for(uint part=W2_DEFER_Q?1:0;part<3;part++){
-  _Pragma("unroll 4") for(uint qt=0;qt<4;qt++){
+  _Pragma("clang loop unroll(disable)") for(uint qt=0;qt<4;qt++){
    uint qlane=w2_lane();
 #if W2_LAUNDER_QKV
    // Make each tile's coordinates a fresh compiler value, preventing whole-window

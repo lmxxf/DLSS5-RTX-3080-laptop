@@ -1,0 +1,74 @@
+[
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_bi_bo_w16",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 12288,
+    "occw": 12
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_bi_w16",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 12288,
+    "occw": 12
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_bi_ho",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 12288,
+    "occw": 12
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c64_wave2_up_lb_sh",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 12288,
+    "occw": 12
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_bo_w16",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 24576,
+    "occw": 12
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_bi_ho",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 24576,
+    "occw": 12
+  },
+  {
+    "module": "c64-wave2-fast",
+    "kernel": "c128_wave2_up_lb_sh",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 24576,
+    "occw": 12
+  },
+  {
+    "module": "c512-m32-mh",
+    "kernel": "c512_qkv_attention_compact_w16",
+    "regs": 128,
+    "lmem": 0,
+    "smem": 6144,
+    "occw": 16
+  },
+  {
+    "module": "c32-wave1-fast",
+    "kernel": "c32_wave1_up_b8_w16",
+    "regs": 168,
+    "lmem": 0,
+    "smem": 10240,
+    "occw": 9
+  }
+]

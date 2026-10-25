@@ -1,3 +1,4 @@
+#define DLSS5_LAYER_BENCH 1
 #include "hip_reference_network.h"
 #include <algorithm>
 #include <chrono>
@@ -6,7 +7,57 @@
 #include <cstdlib>
 #include <cstring>
 #include <numeric>
+#include <fstream>
 #include <vector>
+
+namespace hip_reference {
+struct LayerBenchmark {
+ static void Describe(Network& net) {
+   std::printf("GRAPH_STATUS enabled=%u builds=%u replays=%u small=%u wave_owned=%u final_direct=%u\n",unsigned(net.opt.graph),net.graph_builds,net.graph_replays,unsigned(net.small_active),unsigned(net.wave_owned_active),unsigned(net.final_direct_compatible));
+   std::printf("COMPACT_VIT contract_w16=%u projection_w16=%u contract_bstream=%u projection_bout=%u inter_byte_calls=%llu\n",unsigned(net.compact_contract_w16),unsigned(net.compact_projection_w16),unsigned(net.compact_contract_bstream_fn!=nullptr),unsigned(net.compact_projection_bout_fn!=nullptr),net.vit_inter_byte_calls);
+ }
+ static void ValidateGraphInput(Network& net,void* in,void* out,const std::vector<float>& original,const std::vector<float>& reference) {
+    auto changed=original;for(size_t i=0;i<changed.size();i++)if(i%4<3)changed[i]=1.f-changed[i];
+    net.api.Check(net.api.hipMemcpy(in,changed.data(),changed.size()*4,1),"graph changed input");
+    net.Enqueue(in,nullptr,out,0);net.Synchronize();std::vector<float> got(reference.size()),raw(reference.size());
+    net.api.Check(net.api.hipMemcpy(got.data(),out,got.size()*4,2),"graph changed read");
+    net.EnqueueRaw(in,nullptr,out,0);net.Synchronize();
+    net.api.Check(net.api.hipMemcpy(raw.data(),out,raw.size()*4,2),"raw changed read");
+    size_t diff=0,changed_values=0;for(size_t i=0;i<got.size();i++){diff+=std::memcmp(&got[i],&raw[i],4)!=0;changed_values+=std::memcmp(&got[i],&reference[i],4)!=0;}
+    if(diff||!changed_values)throw std::runtime_error("Graph changed-input mismatch or stale output");
+    net.api.Check(net.api.hipMemcpy(in,original.data(),original.size()*4,1),"graph restore input");net.Enqueue(in,nullptr,out,0);net.Synchronize();
+    net.api.Check(net.api.hipMemcpy(got.data(),out,got.size()*4,2),"graph restore read");
+    size_t restore=0;for(size_t i=0;i<got.size();i++)restore+=std::memcmp(&got[i],&reference[i],4)!=0;
+    if(restore)throw std::runtime_error("Graph restore mismatch");
+    std::printf("GRAPH_MUTABLE_INPUT raw_bitdiff=%zu changed_values=%zu restored_bitdiff=%zu\n",diff,changed_values,restore);
+ }
+ static void Run(Network& net, void* in, void* out) {
+    net.opt.profile=true;
+    net.EnqueueRaw(in,nullptr,out,0); net.Synchronize();
+    struct Row { double ms{}; unsigned calls{},block{},grid{}; Handle function{}; };
+    std::map<std::string,Row> rows;
+    for(auto& t:net.timings) {
+      float ms; net.api.Check(net.api.hipEventElapsedTime(&ms,t.begin,t.end),"profile elapsed");
+      auto& r=rows[t.name]; r.ms+=ms; ++r.calls; r.block=t.block; r.grid=t.grid; r.function=t.function;
+      net.api.hipEventDestroy(t.begin); net.api.hipEventDestroy(t.end);
+    }
+    net.timings.clear(); net.opt.profile=false;
+    auto& drv=hip_probe::detail::Drv();
+    // CUDA occupancy API takes the output pointer first.
+    using Occ=int(*)(int*,Handle,int,size_t);
+    auto occupancy=reinterpret_cast<Occ>(dlsym(dlopen("libcuda.so.1",RTLD_NOW),"cuOccupancyMaxActiveBlocksPerMultiprocessor"));
+    double total=0;
+    std::printf("Kernel Calls Total_ms Avg_us Grid Block Regs LMem SMem OccW\n");
+    for(auto& kv:rows) {
+      auto& r=kv.second; Handle fn=r.function;
+      int regs=-1,local=-1,shared=-1,blocks=-1;
+      if(fn) {drv.cuFuncGetAttribute(&regs,4,fn);drv.cuFuncGetAttribute(&local,3,fn);drv.cuFuncGetAttribute(&shared,1,fn);if(occupancy)occupancy(&blocks,fn,r.block,0);}
+      std::printf("%s %u %.6f %.3f %u %u %d %d %d %d\n",kv.first.c_str(),r.calls,r.ms,r.ms*1000/r.calls,r.grid,r.block,regs,local,shared,blocks<0?-1:blocks*((r.block+31)/32));total+=r.ms;
+    }
+    std::printf("PROFILE_TOTAL %.6f kernels=%zu\n",total,rows.size());
+ }
+};
+}
 
 static hip_reference::Options MakeProductionOptions(unsigned processing_w, unsigned processing_h,
                                                     const std::string& modules, const std::string& assets) {
@@ -108,6 +159,8 @@ int main(int argc, char** argv) {
     setenv("DLSS5_MULTI_PASS_SKIN_PROTECT", "0", 1);
 
     CaseConfig cases[] = {
+        {"0.5x_Small_480p (31-block, 896x512)", "0.5", true, 896, 512},
+        {"0.5x_Small_720p (31-block, 1280x768)", "0.5", true, 1280, 768},
         {"0.5x_Small_1080p (31-block, 1920x1152)", "0.5", true, 1920, 1152},
         {"1x_Original_1080p (71-block, 1920x1152)", "1", false, 1920, 1152},
         {"0.5x_Small_900p (31-block, 1600x1024)", "0.5", true, 1600, 1024},
@@ -115,6 +168,10 @@ int main(int argc, char** argv) {
     };
 
     for (const auto& c : cases) {
+      // 720p is an explicit supplemental case; preserve the existing default run list.
+      if ((c.w == 1280 || c.w == 896) && !std::getenv("DLSS5_BENCH_WIDTH")) continue;
+      if (std::getenv("DLSS5_BENCH_SMALL_ONLY") && !c.small_geo) continue;
+      if (const char* width=std::getenv("DLSS5_BENCH_WIDTH");width&&unsigned(std::stoul(width))!=c.w) continue;
       std::printf("\n================================================================\n");
       std::printf("Running Case: %s\n", c.label);
       std::printf("================================================================\n");
@@ -125,6 +182,7 @@ int main(int argc, char** argv) {
 
       auto opt = MakeProductionOptions(c.w, c.h, modules, assets);
       opt.small_geometry = c.small_geo;
+      opt.graph = std::getenv("DLSS5_BENCH_GRAPH") && std::strcmp(std::getenv("DLSS5_BENCH_GRAPH"),"0") != 0;
 
       hip_reference::Network net(opt);
       auto& api = net.Runtime();
@@ -181,6 +239,10 @@ int main(int argc, char** argv) {
       std::vector<float> out_last(pixels * 3, 0.0f);
       api.Check(api.hipMemcpy(out_last.data(), d_out, pixels * 12, 2), "read last output");
 
+      if (const char* prefix = std::getenv("DLSS5_BENCH_DUMP")) {
+        std::ofstream dump(std::string(prefix)+"-"+std::to_string(c.w)+".rgb32", std::ios::binary);
+        dump.write(reinterpret_cast<const char*>(out_last.data()), out_last.size()*4);
+      }
       size_t invalid = 0, nonzero = 0, bit_diff = 0;
       double sum = 0.0, min_v = 1e30, max_v = -1e30;
       for (size_t i = 0; i < out_last.size(); ++i) {
@@ -210,6 +272,7 @@ int main(int argc, char** argv) {
 
       uint64_t hash64 = Fnv1a64(out_last.data(), out_last.size() * sizeof(float));
 
+      hip_reference::LayerBenchmark::Describe(net);
       std::printf("[RESULT] %s\n", c.label);
       std::printf("  Validity : invalid=%zu nonzero=%zu/%zu bit_diff_first_last=%zu fnv1a64=%016llx\n",
                   invalid, nonzero, out_last.size(), bit_diff, static_cast<unsigned long long>(hash64));
@@ -220,6 +283,8 @@ int main(int argc, char** argv) {
                   wall_mean, wall_med, wall_p90, wall_p99, wall_ms.front(), wall_ms.back());
       std::fflush(stdout);
 
+      if(std::getenv("DLSS5_BENCH_PROFILE") && !net.GraphEnabled()) hip_reference::LayerBenchmark::Run(net,d_in,d_out);
+      if(net.GraphEnabled() && std::getenv("DLSS5_BENCH_GRAPH_VALIDATE")) hip_reference::LayerBenchmark::ValidateGraphInput(net,d_in,d_out,host_in,out_last);
       api.hipEventDestroy(ev_start);
       api.hipEventDestroy(ev_stop);
       api.hipFree(d_in);
@@ -230,7 +295,7 @@ int main(int argc, char** argv) {
       }
     }
 
-    std::printf("\nALL 4 MODEL/RESOLUTION BENCHMARKS PASSED!\n");
+    std::printf("\nALL SELECTED MODEL/RESOLUTION BENCHMARKS PASSED!\n");
     return 0;
   } catch (const std::exception& e) {
     std::fprintf(stderr, "BENCHMARK FAILED: %s\n", e.what());

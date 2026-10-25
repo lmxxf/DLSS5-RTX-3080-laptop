@@ -1,0 +1,24 @@
+{
+  "baseline": "phase3 shared Q + widened compact/C256 900p gates",
+  "vit_initialization": "preheader, preserve partition rounding",
+  "stage3_qt": "rolled",
+  "explicit_kt_roll": "not retained; identical machine code in 9 active kernels",
+  "W2_FFN_W16_SMALL": 3,
+  "W2_FFN_QT_SMALL_MASK": 3,
+  "C32": "original shared Q",
+  "seed_running_total_into_partial_mma": false,
+  "module_set": "artifacts/selected/modules",
+  "compiled_modules": 40,
+  "loaded_entries": 1918,
+  "validated_resolutions": [
+    [
+      1600,
+      1024
+    ],
+    [
+      1920,
+      1152
+    ]
+  ],
+  "mode": "0.5x Small, Style 1"
+}

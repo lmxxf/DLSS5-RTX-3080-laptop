@@ -703,3 +703,26 @@ Small31 Style1、Graph off、默认DVFS约140W，每行独立50warmup/80iter，�
 先重建未修复F32 control（目标SHA与归档精确相同），control与修复F32均复现900/1080 gold0bit，再生成新720 F32累加gold，SHA149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5。256/400正确整网0bit；新720对该独立gold PSNR43.57794791233917dB、maxabs0.05093550682067871、invalid0；相对Phase12旧720改变2947224个f32元素，为授权正确性变化。900/1080仍对Phase12 0bit、PSNR不变。非复用旧400诊断数字。
 
 默认模块已全量重编/实际加载40/40、1918entry，7个含legacy导出的模块变化；三档selected快验相对修复原型0bit、首末帧同、32/32 LOCAL0。阶段一已清理不变F32模块副本，仅保留证据/新gold/变化模块；接下来用正式50/80配对比较正确256与400，再选默认并完成最终两轮。详见[正确性证据](hip-port/phase14/correctness.md)。不改共享assets/部署/发布，不push。
+
+### Phase14 阶段二：采用等价400默认、原生Host最终验收（2026-10-25，闇）
+
+正确性修复先独立提交830185d。正确256/400两组ABBA有近乎持平轮次，全部保留；后续双向配对与实际attention核累计支持400微小正向，因此选400为<=256token运行时默认。两处Host选桶（byte stream/普通）同时更新，无1280特判；correct256仅保留benchmark显式开关，运行时默认不读该开关。默认模块仍是阶段一完整重编的40模块，7变33不变、实际1918entry加载；最终正式Host重新编译并不强制选桶。
+
+最终720correct256对照median14.182/14.424，default400为14.147/14.381，只快0.035/0.043ms，不夸大收益。先前近乎零/负向与ABBA完整保留；8次attention插桩核累计约0.301～0.317→0.260～0.270ms，不当作整帧收益或寄存器推算速度。Graph off、Small31/Style1、默认DVFS140W上限、50warmup/80iter，逐轮遥测齐全：
+
+| 档位/轮次 | GPU min / median | Wall median | PROFILE_TOTAL |
+|---|---:|---:|---:|
+| 720p正向 | 14.076 / 14.147 | 14.245 | 13.498368 |
+| 720p反向 | 14.204 / 14.381 | 14.468 | 13.714240 |
+| 900p正向 | 23.375 / 23.722 | 23.882 | 22.387712 |
+| 900p反向 | 23.586 / 23.885 | 23.996 | 21.772288 |
+| 1080p正向 | 31.347 / 31.826 | 31.926 | 28.646400 |
+| 1080p反向 | 31.250 / 32.111 | 32.206 | 28.637216 |
+
+900p Phase12对照median23.640/23.998，1080p31.681/32.100；本轮900方向不同、1080慢0.145/0.011ms，如实保留，不宣称提速或锁频因果。PROFILE_TOTAL是独立插桩帧，不将与median之差全部当launch气泡。
+
+两轮三档invalid0、首末帧0bit、32/32 LOCAL0；720相对新正确基线0bit，对旧Phase12改变2947224个f32元素；900/1080仍对Phase12 0bit、F32 PSNR46.975322410562406/46.100947087035124dB不变。新720可信F32 PSNR43.57794791233917dB/maxabs0.05093550682067871，最终原生Host无强制选桶重新生成三档F32 gold均0bit。另整网512×512/896×512/1024×768（64/128/192token）correct256/4000bit、invalid0、首末帧同、32 LOCAL0，无对齐错误；不是只验证720。
+
+[Phase14报告](hip-port/phase14/README.md)、[最终两轮与遥测](hip-port/phase14/final-results.md)、[全部控制/32核表](hip-port/phase14/results.md)、[根因/CPU/舍入证明](hip-port/phase14/correctness.md)。新gold SHA149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5，八块CPU仅匹配独立rcp.approx原语后1966080 AV字节全同；不再使用旧错误720比较。18项Python/LLVM回归、172原语项、256坐标证明与40/1918加载全部通过。复测python3 Development/hip-port/phase14/run_benchmark.py（自动新名字）；保留原语/新gold/模块SHA/CPU小样本，清理仅本轮大副本与LLVM，未碰共享assets/游戏/Magpie/发布ZIP，不push。
+
+Phase15先把新720gold固化回归，再补真实帧/动态输入/Style1 HDR和free-geometry覆盖；性能只在正确新基线上继续C32动态证据，不重试即时contract/跨h2/Graph。bridge或游戏部署另阶段验证，本轮没有部署。

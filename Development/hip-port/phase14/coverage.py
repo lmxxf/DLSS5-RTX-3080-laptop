@@ -18,7 +18,7 @@ for n in range(16,257,16):
  # existing decoder interprets +/-0x7f as +/-480; this task does not redefine it.
  a=rng.choice(np.array([0,128,0x7f,0xff,0x38,0xb8],np.uint8),(3,n,1024));cases.append((n,'reserved-byte-ABI-only',a))
 for src in ['phase12','f32']:
- cases.append((240,'actual-'+src,np.fromfile(r/f'phase13/artifacts/attention/{src}-legacy256/qkv.bin',np.uint8).reshape(3,240,1024)))
+ cases.append((240,'actual-'+src,np.fromfile(p/f'artifacts/actual-qkv/{src}.bin',np.uint8).reshape(3,240,1024)))
 for kind in ['fixed','f32-fixed']:
  m=d.load(p/f'artifacts/{kind}/probe/deep_fast-packed-fast.hsaco')
  for n,label,raw in cases:

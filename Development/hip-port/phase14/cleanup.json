@@ -1,0 +1,694 @@
+{
+  "removed_own_unchanged_copies_and_preprocessed_source": [
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multi-pass-skin.hsaco",
+      "bytes": 26408
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32-wave1-rtz.hsaco",
+      "bytes": 10013344
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/swin-persistent.hsaco",
+      "bytes": 7070048
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32-wave1-fast-norm900.hsaco",
+      "bytes": 9819168
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32_wmma.hsaco",
+      "bytes": 198440
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/deep_fast-packed.hsaco",
+      "bytes": 3615264
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multi-pass-predict.hsaco",
+      "bytes": 24616
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32-wave1.hsaco",
+      "bytes": 10023072
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multihead-tiled.hsaco",
+      "bytes": 115872
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/vit-wide-deep.hsaco",
+      "bytes": 3596960
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multihead-fast-padded-wave-packed.hsaco",
+      "bytes": 6788256
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32_fast_attention.hsaco",
+      "bytes": 119464
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/vit-stream-fast.hsaco",
+      "bytes": 3444768
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c64-wave2-fast.hsaco",
+      "bytes": 12803488
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/wave-pointwise.hsaco",
+      "bytes": 150632
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multihead-fast-packed.hsaco",
+      "bytes": 289440
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32_tiled.hsaco",
+      "bytes": 87904
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32_fused_attention.hsaco",
+      "bytes": 235168
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multihead-fast-padded-wave.hsaco",
+      "bytes": 6501536
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/boundary-fast.hsaco",
+      "bytes": 149416
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32-wave1-fast.hsaco",
+      "bytes": 10208928
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/swin-persistent-fast.hsaco",
+      "bytes": 6941408
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c512-m32-deep.hsaco",
+      "bytes": 4057632
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32_fast.hsaco",
+      "bytes": 109088
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/deep_fast.hsaco",
+      "bytes": 3629792
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/deep_reference.hsaco",
+      "bytes": 130024
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multihead_fused_attention.hsaco",
+      "bytes": 3225184
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multihead-wmma.hsaco",
+      "bytes": 234408
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32_prefix_reference.hsaco",
+      "bytes": 145320
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32_fused_ffn_attention.hsaco",
+      "bytes": 5337760
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/prefix_fast.hsaco",
+      "bytes": 132768
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/vit-stream.hsaco",
+      "bytes": 3848416
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multihead-reference.hsaco",
+      "bytes": 144744
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/boundary_reference.hsaco",
+      "bytes": 27944
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c32_fused_ffn_attention-packed.hsaco",
+      "bytes": 4077216
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c64-wave2.hsaco",
+      "bytes": 12966560
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/deep_wmma.hsaco",
+      "bytes": 207144
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/multihead-fast.hsaco",
+      "bytes": 297120
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/c512-m32-mh.hsaco",
+      "bytes": 6519200
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multi-pass-skin.hsaco",
+      "bytes": 25256
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32-wave1-rtz.hsaco",
+      "bytes": 10696416
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/swin-persistent.hsaco",
+      "bytes": 8519008
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32-wave1-fast-norm900.hsaco",
+      "bytes": 10567136
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32_wmma.hsaco",
+      "bytes": 221224
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/deep_fast-packed.hsaco",
+      "bytes": 4084640
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multi-pass-predict.hsaco",
+      "bytes": 23464
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32-wave1.hsaco",
+      "bytes": 10704992
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multihead-tiled.hsaco",
+      "bytes": 119328
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/vit-wide-deep.hsaco",
+      "bytes": 4065632
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multihead-fast-padded-wave-packed.hsaco",
+      "bytes": 6900256
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32_fast_attention.hsaco",
+      "bytes": 125224
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/vit-stream-fast.hsaco",
+      "bytes": 4436704
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c64-wave2-fast.hsaco",
+      "bytes": 14808992
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/wave-pointwise.hsaco",
+      "bytes": 105832
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multihead-fast-packed.hsaco",
+      "bytes": 283872
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32_tiled.hsaco",
+      "bytes": 92128
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32_fused_attention.hsaco",
+      "bytes": 136544
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multihead-fast-padded-wave.hsaco",
+      "bytes": 6514720
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/boundary-fast.hsaco",
+      "bytes": 154280
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32-wave1-fast.hsaco",
+      "bytes": 10614112
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/swin-persistent-fast.hsaco",
+      "bytes": 8364256
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c512-m32-deep.hsaco",
+      "bytes": 4435296
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32_fast.hsaco",
+      "bytes": 115680
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/deep_fast.hsaco",
+      "bytes": 4088864
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/deep_reference.hsaco",
+      "bytes": 128744
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multihead_fused_attention.hsaco",
+      "bytes": 3873248
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multihead-wmma.hsaco",
+      "bytes": 254504
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32_prefix_reference.hsaco",
+      "bytes": 106792
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32_fused_ffn_attention.hsaco",
+      "bytes": 3696352
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/prefix_fast.hsaco",
+      "bytes": 134432
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/vit-stream.hsaco",
+      "bytes": 4475104
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multihead-reference.hsaco",
+      "bytes": 105192
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/boundary_reference.hsaco",
+      "bytes": 22696
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c32_fused_ffn_attention-packed.hsaco",
+      "bytes": 2972896
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c64-wave2.hsaco",
+      "bytes": 14997920
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/deep_wmma.hsaco",
+      "bytes": 214184
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/multihead-fast.hsaco",
+      "bytes": 293600
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-control/modules/c512-m32-mh.hsaco",
+      "bytes": 6892064
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multi-pass-skin.hsaco",
+      "bytes": 25256
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32-wave1-rtz.hsaco",
+      "bytes": 10696416
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/swin-persistent.hsaco",
+      "bytes": 8519008
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32-wave1-fast-norm900.hsaco",
+      "bytes": 10567136
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32_wmma.hsaco",
+      "bytes": 221224
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/deep_fast-packed.hsaco",
+      "bytes": 4084640
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multi-pass-predict.hsaco",
+      "bytes": 23464
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32-wave1.hsaco",
+      "bytes": 10704992
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multihead-tiled.hsaco",
+      "bytes": 119328
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/vit-wide-deep.hsaco",
+      "bytes": 4065632
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multihead-fast-padded-wave-packed.hsaco",
+      "bytes": 6900256
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32_fast_attention.hsaco",
+      "bytes": 125224
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/vit-stream-fast.hsaco",
+      "bytes": 4436704
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c64-wave2-fast.hsaco",
+      "bytes": 14808992
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/wave-pointwise.hsaco",
+      "bytes": 105832
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multihead-fast-packed.hsaco",
+      "bytes": 283872
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32_tiled.hsaco",
+      "bytes": 92128
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32_fused_attention.hsaco",
+      "bytes": 136544
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multihead-fast-padded-wave.hsaco",
+      "bytes": 6514720
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/boundary-fast.hsaco",
+      "bytes": 154280
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32-wave1-fast.hsaco",
+      "bytes": 10614112
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/swin-persistent-fast.hsaco",
+      "bytes": 8364256
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c512-m32-deep.hsaco",
+      "bytes": 4435296
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32_fast.hsaco",
+      "bytes": 115680
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/deep_fast.hsaco",
+      "bytes": 4088864
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/deep_reference.hsaco",
+      "bytes": 128744
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multihead_fused_attention.hsaco",
+      "bytes": 3873248
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multihead-wmma.hsaco",
+      "bytes": 254504
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32_prefix_reference.hsaco",
+      "bytes": 106792
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32_fused_ffn_attention.hsaco",
+      "bytes": 3696352
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/prefix_fast.hsaco",
+      "bytes": 134432
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/vit-stream.hsaco",
+      "bytes": 4475104
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multihead-reference.hsaco",
+      "bytes": 105192
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/boundary_reference.hsaco",
+      "bytes": 22696
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c32_fused_ffn_attention-packed.hsaco",
+      "bytes": 2972896
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c64-wave2.hsaco",
+      "bytes": 14997920
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/deep_wmma.hsaco",
+      "bytes": 214184
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/multihead-fast.hsaco",
+      "bytes": 293600
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/f32-fixed/modules/c512-m32-mh.hsaco",
+      "bytes": 6892064
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/layout/layout.phase1.cu",
+      "bytes": 1920
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/modules/deep_fast-packed-fast.phase1.cu",
+      "bytes": 124005
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/fixed/probe/deep_fast-packed-fast.phase1.cu",
+      "bytes": 126818
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/rounding/rounding.phase1.cu",
+      "bytes": 346
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/swin-persistent-fast.phase1.cu",
+      "bytes": 185963
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multihead-fast-packed.phase1.cu",
+      "bytes": 17164
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/deep_reference.phase1.cu",
+      "bytes": 11171
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32-wave1-fast-norm900.phase1.cu",
+      "bytes": 103131
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multihead_fused_attention.phase1.cu",
+      "bytes": 56580
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multihead-fast-padded-wave.phase1.cu",
+      "bytes": 128769
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multihead-wmma.phase1.cu",
+      "bytes": 9811
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/deep_fast-packed-fast.phase1.cu",
+      "bytes": 123949
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c64-wave2.phase1.cu",
+      "bytes": 189309
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multihead-fast.phase1.cu",
+      "bytes": 17132
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multihead-tiled.phase1.cu",
+      "bytes": 8592
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/prefix_fast.phase1.cu",
+      "bytes": 9816
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multi-pass-skin.phase1.cu",
+      "bytes": 2238
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32-wave1-fast.phase1.cu",
+      "bytes": 103172
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/vit-wide-deep.phase1.cu",
+      "bytes": 126310
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/swin-persistent.phase1.cu",
+      "bytes": 185941
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32_fused_ffn_attention-packed.phase1.cu",
+      "bytes": 51388
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/boundary_reference.phase1.cu",
+      "bytes": 4574
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/boundary-fast.phase1.cu",
+      "bytes": 12041
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/vit-stream-fast.phase1.cu",
+      "bytes": 146881
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32_fused_ffn_attention.phase1.cu",
+      "bytes": 51325
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32_prefix_reference.phase1.cu",
+      "bytes": 10940
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/vit-stream.phase1.cu",
+      "bytes": 146858
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multi-pass-predict.phase1.cu",
+      "bytes": 3626
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32-wave1.phase1.cu",
+      "bytes": 103085
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32_wmma.phase1.cu",
+      "bytes": 8404
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c512-m32-deep.phase1.cu",
+      "bytes": 154673
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/wave-pointwise.phase1.cu",
+      "bytes": 10365
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/deep_wmma.phase1.cu",
+      "bytes": 7433
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c64-wave2-fast.phase1.cu",
+      "bytes": 189331
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32_fused_attention.phase1.cu",
+      "bytes": 7726
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multihead-fast-padded-wave-packed.phase1.cu",
+      "bytes": 130396
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32_fast_attention.phase1.cu",
+      "bytes": 8004
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32-wave1-rtz.phase1.cu",
+      "bytes": 103111
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32_tiled.phase1.cu",
+      "bytes": 6479
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/deep_fast-packed.phase1.cu",
+      "bytes": 123957
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/multihead-reference.phase1.cu",
+      "bytes": 11639
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c32_fast.phase1.cu",
+      "bytes": 8028
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/deep_fast.phase1.cu",
+      "bytes": 123628
+    },
+    {
+      "file": "Development/hip-port/phase14/artifacts/selected/modules/c512-m32-mh.phase1.cu",
+      "bytes": 154741
+    }
+  ],
+  "removed_llvm_after_validated_build": [],
+  "SHA_verified_immutable_bench_output_hardlinks": [
+    "Development/hip-port/phase14/artifacts/outputs/baseline-confirm-reverse-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/baseline-confirm-reverse-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/baseline-final-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/baseline-final-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/baseline-final-reverse-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/baseline-final-reverse-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/baseline-final-reverse-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/cap256-abba-a-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/cap256-abba-a2-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/cap256-forward-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/cap256-reverse-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/cap400-abba-b1-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/cap400-abba-b2-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/cap400-forward-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/cap400-reverse-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/control256-final-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/control256-final-reverse-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/default400-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/default400-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/default400-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/default400-reverse-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/default400-reverse-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/default400-reverse-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/fixed-quick-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/fixed-quick-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/fixed-quick-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/fixed-quick-400-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/gold-f32-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/gold-f32-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/gold-f32-400-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/gold-native-default-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/gold-native-default-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/gold-native-default-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-quick-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-quick-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-quick-1920.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-reverse-1280.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-reverse-1600.rgb32",
+    "Development/hip-port/phase14/artifacts/outputs/selected-reverse-1920.rgb32"
+  ],
+  "preserved": "Final40 cubins/PTX/generated source, changed/controls/probe cubins, new720F32gold, all8 capturedQKV/AV, localactualQKV, logs, telemetry, hashes. No earlier phase or external asset removed."
+}

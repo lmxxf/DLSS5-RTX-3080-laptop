@@ -1,0 +1,24 @@
+# Phase14 formal controls
+
+Small31/Style1, Graph off, defaultDVFS140W cap,50warmup/80iter. PROFILE_TOTAL is a separate instrumented frame. Both720 paths are corrected; wrong Phase12720 output is not used for quality.
+
+| Variant | Width | GPU min / median | Wall med | PROFILE_TOTAL | Attention entry | SM MHz med | Power W med | Temp C med |
+|---|---:|---:|---:|---:|---|---:|---:|---:|
+| baseline-confirm | 1600 | 23.239 / 23.640 | 23.722 | 21.630976 | vit_attention_fused_640_bytein_bout | 1590.0 | 139.53 | 69.0 |
+| baseline-confirm | 1920 | 31.287 / 31.681 | 31.836 | 28.406816 | vit_attention_fused_640_bytein_bout | 1537.5 | 139.82 | 73.0 |
+| baseline-confirm-reverse | 1600 | 23.799 / 23.998 | 24.072 | 21.764096 | vit_attention_fused_640_bytein_bout | 1552.5 | 139.86 | 76.5 |
+| baseline-confirm-reverse | 1920 | 31.524 / 32.100 | 32.225 | 28.738560 | vit_attention_fused_640_bytein_bout | 1530.0 | 139.69 | 79.0 |
+| baseline-final | 1280 | 13.957 / 14.105 | 14.205 | 13.448192 | vit_attention_fused_400_bytein_bout | 1605.0 | 131.65 | 64.0 |
+| baseline-final | 1600 | 23.183 / 23.588 | 23.696 | 21.629952 | vit_attention_fused_640_bytein_bout | 1575.0 | 139.22 | 68.0 |
+| baseline-final | 1920 | 31.222 / 31.801 | 31.899 | 29.022208 | vit_attention_fused_640_bytein_bout | 1537.5 | 139.60500000000002 | 72.5 |
+| baseline-final-reverse | 1280 | 14.214 / 14.390 | 14.476 | 13.420544 | vit_attention_fused_400_bytein_bout | 1590.0 | 139.62 | 75.0 |
+| baseline-final-reverse | 1600 | 23.622 / 24.054 | 24.136 | 21.767168 | vit_attention_fused_640_bytein_bout | 1560.0 | 139.14499999999998 | 76.5 |
+| baseline-final-reverse | 1920 | 31.557 / 32.083 | 32.190 | 28.516384 | vit_attention_fused_640_bytein_bout | 1530.0 | 139.695 | 78.5 |
+| cap256-abba-a | 1280 | 13.987 / 14.142 | 14.220 | 13.411360 | vit_attention_fused_256_bytein_bout | 1605.0 | 132.43 | 64.0 |
+| cap256-abba-a2 | 1280 | 14.012 / 14.261 | 14.359 | 13.777920 | vit_attention_fused_256_bytein_bout | 1605.0 | 126.58 | 69.0 |
+| cap256-forward | 1280 | 13.886 / 14.114 | 14.196 | 13.593600 | vit_attention_fused_256_bytein_bout | 1635.0 | 133.15 | 64.0 |
+| cap256-reverse | 1280 | 13.989 / 14.222 | 14.311 | 14.389248 | vit_attention_fused_256_bytein_bout | 1605.0 | 139.79 | 69.0 |
+| cap400-abba-b1 | 1280 | 13.974 / 14.141 | 14.220 | 13.659136 | vit_attention_fused_400_bytein_bout | 1620.0 | 139.86 | 66.0 |
+| cap400-abba-b2 | 1280 | 13.981 / 14.178 | 14.274 | 13.452288 | vit_attention_fused_400_bytein_bout | 1612.5 | 130.04 | 67.5 |
+| cap400-forward | 1280 | 13.924 / 14.115 | 14.208 | 13.300736 | vit_attention_fused_400_bytein_bout | 1620.0 | 139.37 | 66.0 |
+| cap400-reverse | 1280 | 13.970 / 14.121 | 14.220 | 13.686784 | vit_attention_fused_400_bytein_bout | 1620.0 | 131.92 | 67.0 |

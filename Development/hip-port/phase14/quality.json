@@ -1,0 +1,189 @@
+{
+  "changed_modules": [
+    "c512-m32-deep.hsaco",
+    "deep_fast-packed-fast.hsaco",
+    "deep_fast-packed.hsaco",
+    "deep_fast.hsaco",
+    "vit-stream-fast.hsaco",
+    "vit-stream.hsaco",
+    "vit-wide-deep.hsaco"
+  ],
+  "module_count": 40,
+  "entry_count": 1918,
+  "new_720_F32_gold_sha256": "149906da306f42ca462eb2b29047787d8aad4bc9aa52461095fa2da374677ec5",
+  "rounds": {
+    "default400": {
+      "1280": {
+        "gpu_min": 14.076,
+        "gpu_median": 14.147,
+        "wall_median": 14.245,
+        "profile_total": 13.498368,
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase12_old": {
+          "bitdiff": 2947224,
+          "maxabs": 1.0,
+          "psnr_peak1": 10.39770012641819,
+          "invalid": 0
+        },
+        "visible_vs_trusted_F32": {
+          "bitdiff": 2758092,
+          "maxabs": 0.05093550682067871,
+          "psnr_peak1": 43.57794791233917,
+          "invalid": 0
+        },
+        "attention_entry": "vit_attention_fused_400_bytein_bout",
+        "telemetry": {
+          "util95_samples": 3,
+          "sm_mhz": 1620.0,
+          "mem_mhz": 7001.0,
+          "power_w": 139.66,
+          "temp_c": 67.0
+        }
+      },
+      "1600": {
+        "gpu_min": 23.375,
+        "gpu_median": 23.722,
+        "wall_median": 23.882,
+        "profile_total": 22.387712,
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase12_old": {
+          "bitdiff": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0,
+          "invalid": 0
+        },
+        "visible_vs_trusted_F32": {
+          "bitdiff": 4315276,
+          "maxabs": 0.04004549980163574,
+          "psnr_peak1": 46.975322410562406,
+          "invalid": 0
+        },
+        "attention_entry": "vit_attention_fused_640_bytein_bout",
+        "telemetry": {
+          "util95_samples": 5,
+          "sm_mhz": 1575.0,
+          "mem_mhz": 7001.0,
+          "power_w": 139.79,
+          "temp_c": 71.0
+        }
+      },
+      "1920": {
+        "gpu_min": 31.347,
+        "gpu_median": 31.826,
+        "wall_median": 31.926,
+        "profile_total": 28.6464,
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase12_old": {
+          "bitdiff": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0,
+          "invalid": 0
+        },
+        "visible_vs_trusted_F32": {
+          "bitdiff": 6215301,
+          "maxabs": 0.0416027307510376,
+          "psnr_peak1": 46.100947087035124,
+          "invalid": 0
+        },
+        "attention_entry": "vit_attention_fused_640_bytein_bout",
+        "telemetry": {
+          "util95_samples": 8,
+          "sm_mhz": 1545.0,
+          "mem_mhz": 7001.0,
+          "power_w": 139.69,
+          "temp_c": 75.0
+        }
+      }
+    },
+    "default400-reverse": {
+      "1280": {
+        "gpu_min": 14.204,
+        "gpu_median": 14.381,
+        "wall_median": 14.468,
+        "profile_total": 13.71424,
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase12_old": {
+          "bitdiff": 2947224,
+          "maxabs": 1.0,
+          "psnr_peak1": 10.39770012641819,
+          "invalid": 0
+        },
+        "visible_vs_trusted_F32": {
+          "bitdiff": 2758092,
+          "maxabs": 0.05093550682067871,
+          "psnr_peak1": 43.57794791233917,
+          "invalid": 0
+        },
+        "attention_entry": "vit_attention_fused_400_bytein_bout",
+        "telemetry": {
+          "util95_samples": 3,
+          "sm_mhz": 1590.0,
+          "mem_mhz": 7001.0,
+          "power_w": 139.69,
+          "temp_c": 75.0
+        }
+      },
+      "1600": {
+        "gpu_min": 23.586,
+        "gpu_median": 23.885,
+        "wall_median": 23.996,
+        "profile_total": 21.772288,
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase12_old": {
+          "bitdiff": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0,
+          "invalid": 0
+        },
+        "visible_vs_trusted_F32": {
+          "bitdiff": 4315276,
+          "maxabs": 0.04004549980163574,
+          "psnr_peak1": 46.975322410562406,
+          "invalid": 0
+        },
+        "attention_entry": "vit_attention_fused_640_bytein_bout",
+        "telemetry": {
+          "util95_samples": 6,
+          "sm_mhz": 1560.0,
+          "mem_mhz": 7001.0,
+          "power_w": 139.28,
+          "temp_c": 76.0
+        }
+      },
+      "1920": {
+        "gpu_min": 31.25,
+        "gpu_median": 32.111,
+        "wall_median": 32.206,
+        "profile_total": 28.637216,
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase12_old": {
+          "bitdiff": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0,
+          "invalid": 0
+        },
+        "visible_vs_trusted_F32": {
+          "bitdiff": 6215301,
+          "maxabs": 0.0416027307510376,
+          "psnr_peak1": 46.100947087035124,
+          "invalid": 0
+        },
+        "attention_entry": "vit_attention_fused_640_bytein_bout",
+        "telemetry": {
+          "util95_samples": 8,
+          "sm_mhz": 1530.0,
+          "mem_mhz": 7001.0,
+          "power_w": 139.685,
+          "temp_c": 78.0
+        }
+      }
+    }
+  },
+  "default": "Native Host chooses400 for<=256; corrected256 onlyexplicit benchmark control"
+}

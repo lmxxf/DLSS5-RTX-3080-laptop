@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase12/build_station.py", line 23, in <module>
+    r=build.compile_one_module(mod,str(source),str(out),str(source/'sm86_compat.h'),str(root/'hip/ptx2cubin'));print(r,flush=True);assert r[1],r[2]
+  File "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/hip/build_sm86_modules.py", line 788, in compile_one_module
+    cu_src = phase10_optimize_fp8(cu_src)
+  File "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase12/build_station.py", line 22, in <lambda>
+    original=build.phase10_optimize_fp8;build.phase10_optimize_fp8=lambda text:transform(original(text),a.site)
+  File "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase12/transform.py", line 45, in transform
+    text,n=re.subn(pat,repl,text,count=1,flags=re.S);assert n==1,(expr,n);total+=n
+AssertionError: ('q[part][ci]', 0)

@@ -1,0 +1,32 @@
+[
+  {
+    "width": 1920,
+    "returncode": 0,
+    "flags": {
+      "DLSS5_AMPERE_WEIGHTS": "0",
+      "DLSS5_LAB_COMPACT_ALL": "0",
+      "DLSS5_LAB_C256_SPLIT": "0"
+    },
+    "gold_bitdiff": 0
+  },
+  {
+    "width": 1600,
+    "returncode": 0,
+    "flags": {
+      "DLSS5_AMPERE_WEIGHTS": "0",
+      "DLSS5_LAB_COMPACT_ALL": "0",
+      "DLSS5_LAB_C256_SPLIT": "1"
+    },
+    "gold_bitdiff": 0
+  },
+  {
+    "width": 1280,
+    "returncode": 0,
+    "flags": {
+      "DLSS5_AMPERE_WEIGHTS": "0",
+      "DLSS5_LAB_COMPACT_ALL": "0",
+      "DLSS5_LAB_C256_SPLIT": "1"
+    },
+    "candidate_720_reference_sha256": "0c6c6b614fe43c97ebb5c228f0744d1ef9fdd05f4b7cf4b5940d6190a6684a8c"
+  }
+]

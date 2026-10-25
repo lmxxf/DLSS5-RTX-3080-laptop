@@ -1,0 +1,18 @@
+{
+  "trusted_720_reference_established": false,
+  "frozen_phase1_host_reproduces_900_1080_gold_bitdiff": [
+    0,
+    0
+  ],
+  "current_host_paired_flags_reproduces_900_1080_gold_bitdiff": [
+    0,
+    0
+  ],
+  "paired_flags": "AMPERE_WEIGHTS0; COMPACT_ALL0; C256_SPLIT0 at1920 and1 at1600/1280",
+  "720_reference_sha256": "0c6c6b614fe43c97ebb5c228f0744d1ef9fdd05f4b7cf4b5940d6190a6684a8c",
+  "720_reproduces_phase11_bad_reference": true,
+  "720_visible_psnr_vs_phase11": 11.607545439265575,
+  "720_maxabs": 1.0,
+  "blocker": "Calibrated F32 chain still yields the identical unacceptable720 reference after pairing gates. 720 geometry/module path correctness is not independently established; no accepted absolute720 gold. Exact cause is not claimed. Further needs layer-level comparison or a current-graph F32 implementation.",
+  "mainline_gate": "Use byte equality to Phase11; existing900/1080 F32 gold remains trusted."
+}

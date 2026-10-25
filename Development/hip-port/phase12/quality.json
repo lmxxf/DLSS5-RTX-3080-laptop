@@ -1,0 +1,96 @@
+{
+  "changed_modules": [
+    "c32-wave1-fast.hsaco"
+  ],
+  "rounds": {
+    "selected": {
+      "1280": {
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase11": {
+          "bitdiff": 0,
+          "invalid": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0
+        }
+      },
+      "1600": {
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase11": {
+          "bitdiff": 0,
+          "invalid": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0
+        },
+        "f32_visible": {
+          "bitdiff": 4315276,
+          "invalid": 0,
+          "maxabs": 0.04004549980163574,
+          "psnr_peak1": 46.975322410562406
+        }
+      },
+      "1920": {
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase11": {
+          "bitdiff": 0,
+          "invalid": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0
+        },
+        "f32_visible": {
+          "bitdiff": 6215301,
+          "invalid": 0,
+          "maxabs": 0.0416027307510376,
+          "psnr_peak1": 46.100947087035124
+        }
+      }
+    },
+    "selected-reverse": {
+      "1280": {
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase11": {
+          "bitdiff": 0,
+          "invalid": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0
+        }
+      },
+      "1600": {
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase11": {
+          "bitdiff": 0,
+          "invalid": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0
+        },
+        "f32_visible": {
+          "bitdiff": 4315276,
+          "invalid": 0,
+          "maxabs": 0.04004549980163574,
+          "psnr_peak1": 46.975322410562406
+        }
+      },
+      "1920": {
+        "invalid": 0,
+        "first_last_bitdiff": 0,
+        "vs_phase11": {
+          "bitdiff": 0,
+          "invalid": 0,
+          "maxabs": 0.0,
+          "psnr_peak1": 999.0
+        },
+        "f32_visible": {
+          "bitdiff": 6215301,
+          "invalid": 0,
+          "maxabs": 0.0416027307510376,
+          "psnr_peak1": 46.100947087035124
+        }
+      }
+    }
+  },
+  "720_f32_trusted": false
+}

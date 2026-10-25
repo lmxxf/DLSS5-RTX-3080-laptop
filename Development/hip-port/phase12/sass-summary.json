@@ -1,0 +1,209 @@
+[
+  [
+    "baseline-c32",
+    "c32_wave1_prefix_b8d_w16",
+    12117,
+    {
+      "F2FP.PACK_AB.RZ": 36,
+      "SHFL.IDX": 201,
+      "F2FP.PACK_AB": 94,
+      "HADD2.F32": 616,
+      "HMUL2": 368,
+      "HADD2": 16,
+      "SHFL.BFLY": 8
+    }
+  ],
+  [
+    "baseline-c32",
+    "c32_wave1_post_b8_w16",
+    10252,
+    {
+      "HMUL2": 400,
+      "HADD2.F32": 520,
+      "SHFL.IDX": 172,
+      "F2FP.PACK_AB": 80,
+      "F2FP.PACK_AB.RZ": 28,
+      "HADD2": 16,
+      "SHFL.BFLY": 8
+    }
+  ],
+  [
+    "baseline-wave2",
+    "c64_wave2_bi_bo_w16",
+    10580,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 372,
+      "HADD2.F32": 408,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "SHFL.BFLY": 4
+    }
+  ],
+  [
+    "baseline-wave2",
+    "c128_wave2_bi_bo_w16",
+    10213,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 336,
+      "HADD2.F32": 408,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "SHFL.BFLY": 4
+    }
+  ],
+  [
+    "baseline-wave2",
+    "c256_wave2_bi_bo_w16",
+    10060,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 344,
+      "HADD2.F32": 400,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "SHFL.BFLY": 4
+    }
+  ],
+  [
+    "c32-av",
+    "c32_wave1_prefix_b8d_w16",
+    12035,
+    {
+      "F2FP.PACK_AB.RZ": 36,
+      "SHFL.IDX": 201,
+      "F2FP.PACK_AB": 94,
+      "HADD2.F32": 584,
+      "HMUL2": 384,
+      "HADD2": 32,
+      "SHFL.BFLY": 8
+    }
+  ],
+  [
+    "c32-av",
+    "c32_wave1_post_b8_w16",
+    10169,
+    {
+      "HMUL2": 416,
+      "HADD2.F32": 488,
+      "SHFL.IDX": 172,
+      "F2FP.PACK_AB": 80,
+      "F2FP.PACK_AB.RZ": 28,
+      "HADD2": 32,
+      "SHFL.BFLY": 8
+    }
+  ],
+  [
+    "c32-v",
+    "c32_wave1_prefix_b8d_w16",
+    12013,
+    {
+      "F2FP.PACK_AB.RZ": 36,
+      "SHFL.IDX": 201,
+      "F2FP.PACK_AB": 94,
+      "HADD2.F32": 584,
+      "HMUL2": 384,
+      "HADD2": 32,
+      "SHFL.BFLY": 8
+    }
+  ],
+  [
+    "c32-v",
+    "c32_wave1_post_b8_w16",
+    10140,
+    {
+      "HMUL2": 416,
+      "HADD2.F32": 488,
+      "SHFL.IDX": 172,
+      "F2FP.PACK_AB": 80,
+      "F2FP.PACK_AB.RZ": 28,
+      "HADD2": 32,
+      "SHFL.BFLY": 8
+    }
+  ],
+  [
+    "wave2-av",
+    "c64_wave2_bi_bo_w16",
+    10468,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 372,
+      "HADD2.F32": 376,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "SHFL.BFLY": 4,
+      "HADD2": 32
+    }
+  ],
+  [
+    "wave2-av",
+    "c128_wave2_bi_bo_w16",
+    10099,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 336,
+      "HADD2.F32": 376,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "SHFL.BFLY": 4,
+      "HADD2": 32
+    }
+  ],
+  [
+    "wave2-av",
+    "c256_wave2_bi_bo_w16",
+    9947,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 344,
+      "HADD2.F32": 368,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "SHFL.BFLY": 4,
+      "HADD2": 32
+    }
+  ],
+  [
+    "wave2-v",
+    "c64_wave2_bi_bo_w16",
+    10469,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 372,
+      "HADD2.F32": 376,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "HADD2": 32,
+      "SHFL.BFLY": 4
+    }
+  ],
+  [
+    "wave2-v",
+    "c128_wave2_bi_bo_w16",
+    10093,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 336,
+      "HADD2.F32": 376,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "HADD2": 32,
+      "SHFL.BFLY": 4
+    }
+  ],
+  [
+    "wave2-v",
+    "c256_wave2_bi_bo_w16",
+    9972,
+    {
+      "SHFL.IDX": 180,
+      "HMUL2": 344,
+      "HADD2.F32": 376,
+      "F2FP.PACK_AB.RZ": 8,
+      "F2FP.PACK_AB": 28,
+      "HADD2": 24,
+      "SHFL.BFLY": 4
+    }
+  ]
+]

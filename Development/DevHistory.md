@@ -635,3 +635,30 @@ Zero已删除_storage_两副本；本次对Content整树复查，上述两个文
 候选/对照均在phase11忽略artifacts，遥测和每次运行完整40模块哈希/时窗/参数保留。已删除约979MB冗余模块/临时IR/派生反汇编，逐字节验证后硬链接去重约551MB重复输出；最终40模块、改变的候选C32、原始日志和质量证据保留。最终默认 `hip-port/phase11/artifacts/selected/modules/`；[说明](hip-port/phase11/README.md)、[三档与核级表](hip-port/phase11/results.md)、[质量门](hip-port/phase11/quality.json)，复测 `bash Development/hip-port/phase11/run_benchmark.sh`。
 
 建议Phase12先审计已有FP16的AV/V生产者量化，先证明舍入/NaN和布局，再逐站小步控制；不要将float激活或Q/K归约直接降精度。另补匹配当前Host/Small图的720p F32参考。只提交本轮，不push。
+
+## Phase12：C32 AV half2→FP8；逐站验证与720 F32参考审计（2026-10-25，闇）
+
+唯一基线Phase11 selected（起点1da7855，工作树干净）。分别实验C32 AV、C32 V、wave2 AV、wave2 V；默认只保留C32 AV。没有改float激活多项式、Q/K行归一化、RTZ residual，不重试Graph/跨h2；未动冻结PTX、共享assets、Windows部署或发布包，不push。
+
+- 四站分别覆盖65536种half模式×256位置、256单点布局及实际MMA累加次数（4/2/4/4、8、16），包含NaN/Inf/±0，GPU字节比较均0；不沿用Site2有限域结论。C32用half2乘1保持-0并规范化NaN，wave2用half2加0复现原零语义；裸halfpack的NaN规范化差异已显式处理。完整验证D→RDNA4→pack→preshuffle与D→halfpack→2shfl的ABI。
+- C32 AV独立反向/确认med33.884vs34.013、32.179vs32.664；C32 V补充只快0.038ms，wave2 AV近零/首轮负、wave2 V方向不稳定，后三站不入默认。保留全部负结果。
+- 最终默认从源码全量重编40/40并独立CUDA加载1918entry，39模块SHA未变，唯一C32机器码与单站候选精确一致。16项Python/LLVM回归通过；完整SHA与复测入口见Phase12。
+
+Small31 Style1、Graph off、默认DVFS约140W，每行独立50warmup/80iter，单位ms；不跨轮拼min，不把插桩累计与GPU median之差全当launch气泡：
+
+| 档位 | 顺序 | Phase11 median | Phase12 min / median | Wall median | 独立核累计 |
+|---|---|---:|---:|---:|---:|
+| 720p 1280×768 | 正向 | 14.555 | 13.884 / 14.588 | 14.730 | 13.984768 |
+| 720p 1280×768 | 反向 | 14.876 | 14.233 / 14.884 | 14.973 | 14.102528 |
+| 900p 1600×1024 | 正向 | 24.159 | 23.244 / 24.236 | 24.339 | 22.022144 |
+| 900p 1600×1024 | 反向 | 24.644 | 23.465 / 24.569 | 24.691 | 23.024640 |
+| 1080p 1920×1152 | 正向 | 32.639 | 31.327 / 32.637 | 32.754 | 28.468224 |
+| 1080p 1920×1152 | 反向 | 33.217 | 31.583 / 32.849 | 32.998 | 30.803968 |
+
+1080正向0.002ms几乎持平，反向正向0.368ms；额外ABBA确认31.966→31.921、33.221→32.887ms，与此前独立站点配对同方向，但不宣称固定收益比例。720无收益结论，900方向相反、不宣称稳定收益。全部min/median/Wall、核累计、时钟/温度/功耗原始遥测按轮保留；首轮探索前四项未采到遥测，明确缺失，不补造。prefix/post静态SASS槽12117→12035/10252→10169，不能等同速度。
+
+两轮三档0bit-diff、invalid0、首末帧一致、32/32活跃核LMem0；7201280×768仍走C256wave2、无对齐错误。可信900/1080 F32可见PSNR46.975322410562406/46.100947087035124dB与基线完全相同。
+
+720 F32旁支：先用冻结Phase1 Host+F32模块重现900/1080gold0bit，再用当前Host+同F32模块、旧权重/compact/C256门控配对，两档再次0bit。但同链720仍产生与Phase11坏参考同SHA的输出，可见PSNR11.607545dB/maxabs1（坏参考诊断，不是精度成绩）。**可信720绝对F32参考仍未建立**；具体阻断为720几何/模块路径尚未逐层校准，精确根因不捏造。下阶段优先逐层定位首次偏离，再建当前图F32链，不让其阻断已通过严格0bit的主线。
+
+[Phase12说明](hip-port/phase12/README.md)、[两轮完整成绩](hip-port/phase12/final-results.md)、[32核表与全部控制](hip-port/phase12/results.md)、[质量门](hip-port/phase12/quality.json)。默认产物hip-port/phase12/artifacts/selected/modules；复测bash Development/hip-port/phase12/run_benchmark.sh。已清理本轮重复大文件，最终40模块/哈希/原始日志保留，临时产物被Git忽略。Phase13性能侧先取prefix/post动态依赖证据，不继续无依据推广half站点。

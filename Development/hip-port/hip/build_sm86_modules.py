@@ -12,6 +12,8 @@ from phase9_transform import transform as phase9_transform, c32_mapped_lowreg
 from phase10_transform import apply_register_caps, optimize_fp8 as phase10_optimize_fp8
 from phase11_transform import pack_ffn_half_features
 PHASE11_HALF_FEATURE_PACK = True
+from phase12_transform import pack_c32_av
+PHASE12_C32_AV = True
 PHASE10_CAPS = True
 PHASE10_FP8 = True
 C32_LOCAL_FP8_POLICY_MODULES = {"c32-wave1-fast"}
@@ -754,6 +756,8 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     phase11 = os.path.join(os.path.dirname(__file__), "phase11_transform.py")
     if os.path.exists(phase11): key += open(phase11, "rb").read()
     key += str(PHASE11_HALF_FEATURE_PACK).encode()
+    key += open(os.path.join(os.path.dirname(__file__), "phase12_transform.py"), "rb").read()
+    key += str(PHASE12_C32_AV).encode()
     key += repr((PHASE10_CAPS, PHASE10_FP8)).encode()
     key += str(name in LOW_REGISTER_FP8_MODULES).encode()
     key += str(name in C32_LOCAL_FP8_POLICY_MODULES).encode()
@@ -788,6 +792,8 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
         cu_src = phase10_optimize_fp8(cu_src)
     if PHASE11_HALF_FEATURE_PACK and name == "c32-wave1-fast":
         cu_src = pack_ffn_half_features(cu_src)
+    if PHASE12_C32_AV and name == "c32-wave1-fast":
+        cu_src = pack_c32_av(cu_src)
     cu_src += "\n// build fingerprint: " + build_key + "\n"
 
 

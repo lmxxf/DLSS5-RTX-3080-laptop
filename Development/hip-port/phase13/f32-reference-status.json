@@ -1,0 +1,13 @@
+{
+  "baseline": "Phase12 selected",
+  "default_720_trusted_f32": false,
+  "first_abnormal_stage": "block31 attention vit_attention_fused_256_bytein_bout, tokens240",
+  "head_numeric_range_normal": true,
+  "both_f32_and_phase12_affected": true,
+  "C256_fused_vs_split_f32_output_bitdiff": 0,
+  "CPU_F32_forced400_attention_byte_diff": 0,
+  "diagnostic_corrected_chains_visible_psnr": 43.57794791233917,
+  "diagnostic_corrected_chains_maxabs": 0.05093550682067871,
+  "production_action": "No change: attention400 diagnostic changes default720 output. Default0bit requirement takes precedence; do not report default720 absolutePSNR.",
+  "root_cause_scope": "Localized to legacy256 LDS-transpose attention path vs400 transposed-score path. Exact offending index/instruction not yet proven; no claim of n%64 tail cause. Uniform Q/K0,V1 tests pass at16/240/256 tokens."
+}

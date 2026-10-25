@@ -1,0 +1,38 @@
+{
+  "phase12": {
+    "input_qkv_sha256": "0b6457a7ea7e9d4a5b1edabf05fdaaef22a89f1ba8ae1b7e5b1f9079b8e5efb5",
+    "cpu_attention_rms": 2.6834350209275177,
+    "formula": "RNE(QK^T), source clamp/half-bit exp mapping, FP8(prob)*V / sum(half prob), E4M3 output",
+    "limitations": "F32 tensorcore partial order/rcp and F16 accumulation may differ near quantization boundaries; not requiring bit equality to CPU.",
+    "legacy256": {
+      "rmse": 33.28735217403124,
+      "maxabs": 446.75,
+      "got_rms": 33.922262461938125,
+      "byte_equal_ratio": 0.07010498046875
+    },
+    "forced400": {
+      "rmse": 0.027869328665940524,
+      "maxabs": 1.0,
+      "got_rms": 2.6843147961079263,
+      "byte_equal_ratio": 0.9882609049479166
+    }
+  },
+  "f32": {
+    "input_qkv_sha256": "2f23599719f74ff077645211b8b74214a5c17ceaa80ab2e413160163a560193a",
+    "cpu_attention_rms": 2.6438350511468887,
+    "formula": "RNE(QK^T), source clamp/half-bit exp mapping, FP8(prob)*V / sum(half prob), E4M3 output",
+    "limitations": "F32 tensorcore partial order/rcp and F16 accumulation may differ near quantization boundaries; not requiring bit equality to CPU.",
+    "legacy256": {
+      "rmse": 33.331681337615564,
+      "maxabs": 446.75,
+      "got_rms": 33.94874681258182,
+      "byte_equal_ratio": 0.06743977864583334
+    },
+    "forced400": {
+      "rmse": 0.0,
+      "maxabs": 0.0,
+      "got_rms": 2.6438350511468887,
+      "byte_equal_ratio": 1.0
+    }
+  }
+}

@@ -662,3 +662,11 @@ Small31 Style1、Graph off、默认DVFS约140W，每行独立50warmup/80iter，�
 720 F32旁支：先用冻结Phase1 Host+F32模块重现900/1080gold0bit，再用当前Host+同F32模块、旧权重/compact/C256门控配对，两档再次0bit。但同链720仍产生与Phase11坏参考同SHA的输出，可见PSNR11.607545dB/maxabs1（坏参考诊断，不是精度成绩）。**可信720绝对F32参考仍未建立**；具体阻断为720几何/模块路径尚未逐层校准，精确根因不捏造。下阶段优先逐层定位首次偏离，再建当前图F32链，不让其阻断已通过严格0bit的主线。
 
 [Phase12说明](hip-port/phase12/README.md)、[两轮完整成绩](hip-port/phase12/final-results.md)、[32核表与全部控制](hip-port/phase12/results.md)、[质量门](hip-port/phase12/quality.json)。默认产物hip-port/phase12/artifacts/selected/modules；复测bash Development/hip-port/phase12/run_benchmark.sh。已清理本轮重复大文件，最终40模块/哈希/原始日志保留，临时产物被Git忽略。Phase13性能侧先取prefix/post动态依赖证据，不继续无依据推广half站点。
+
+### Phase13 阶段一：720p首个异常核已定位（2026-10-25，闇）
+
+以Phase12 selected/41220e0为唯一基线，初始工作树干净。Stage只读tap不装observer、不改raw/inter-byte门控；三档两链trace输出均与各自原样0bit。C256 split/fused F32 720输出0bit相同，排除此门控。
+
+首次异常放大在block31的vit_attention_fused_256_bytein_bout（n240）：head RMS约1.67正常，block31后约22；**Phase12和旧F32都受影响**，不是仅参考链错误。抓相同实际QKV，用CPU独立矩阵算法核验：F32 legacy256 AV对CPU RMSE33.331681/maxabs446.75，诊断改走400后245760个AV字节100%一致；Phase12相应RMSE33.287352→0.027869。均匀QK0/V1探针n16/240/256都通过，不能草率归因n%64尾块；具体索引/布局指令尚未证明。
+
+只在诊断Host改400后，两条720链可见差异43.577948dB/maxabs0.0509355；这是修正图诊断，不是默认720绝对PSNR。同链900/1080既有F32gold再次0bit。当前默认仍按Phase12严格0bit保持，不混入会改变输出的正确性修复；720绝对参考继续未验收。约1.24GB层dump统计/哈希后清理，小样本与复测脚本保留。详见[参考链定位](hip-port/phase13/reference-audit.md)。Phase14优先以独立正确性阶段修256路径，再另立720新输出基线；无部署、不push。

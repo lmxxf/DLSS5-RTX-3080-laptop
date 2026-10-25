@@ -1,0 +1,98 @@
+[
+  {
+    "kind": "phase12",
+    "width": 1280,
+    "flags": {
+      "DLSS5_PHASE13_TRACE": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/traces/phase12-1280",
+      "DLSS5_BENCH_WIDTH": "1280",
+      "DLSS5_BENCH_GRAPH": "0",
+      "DLSS5_AMPERE_WEIGHTS": "1",
+      "DLSS5_BENCH_SMALL_ONLY": "1",
+      "DLSS5_LAB_COMPACT_ALL": "1",
+      "DLSS5_LAB_C256_SPLIT": "0",
+      "DLSS5_BENCH_DUMP": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/outputs/trace-phase12"
+    },
+    "modules": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase12/artifacts/selected/modules",
+    "returncode": 0
+  },
+  {
+    "kind": "f32",
+    "width": 1280,
+    "flags": {
+      "DLSS5_PHASE13_TRACE": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/traces/f32-1280",
+      "DLSS5_BENCH_WIDTH": "1280",
+      "DLSS5_BENCH_GRAPH": "0",
+      "DLSS5_AMPERE_WEIGHTS": "0",
+      "DLSS5_BENCH_SMALL_ONLY": "1",
+      "DLSS5_LAB_COMPACT_ALL": "0",
+      "DLSS5_LAB_C256_SPLIT": "1",
+      "DLSS5_BENCH_DUMP": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/outputs/trace-f32"
+    },
+    "modules": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase1/artifacts/f32-modules",
+    "returncode": 0
+  },
+  {
+    "kind": "phase12",
+    "width": 1600,
+    "flags": {
+      "DLSS5_PHASE13_TRACE": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/traces/phase12-1600",
+      "DLSS5_BENCH_WIDTH": "1600",
+      "DLSS5_BENCH_GRAPH": "0",
+      "DLSS5_AMPERE_WEIGHTS": "1",
+      "DLSS5_BENCH_SMALL_ONLY": "1",
+      "DLSS5_LAB_COMPACT_ALL": "1",
+      "DLSS5_LAB_C256_SPLIT": "0",
+      "DLSS5_BENCH_DUMP": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/outputs/trace-phase12"
+    },
+    "modules": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase12/artifacts/selected/modules",
+    "returncode": 0
+  },
+  {
+    "kind": "f32",
+    "width": 1600,
+    "flags": {
+      "DLSS5_PHASE13_TRACE": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/traces/f32-1600",
+      "DLSS5_BENCH_WIDTH": "1600",
+      "DLSS5_BENCH_GRAPH": "0",
+      "DLSS5_AMPERE_WEIGHTS": "0",
+      "DLSS5_BENCH_SMALL_ONLY": "1",
+      "DLSS5_LAB_COMPACT_ALL": "0",
+      "DLSS5_LAB_C256_SPLIT": "1",
+      "DLSS5_BENCH_DUMP": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/outputs/trace-f32"
+    },
+    "modules": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase1/artifacts/f32-modules",
+    "returncode": 0
+  },
+  {
+    "kind": "phase12",
+    "width": 1920,
+    "flags": {
+      "DLSS5_PHASE13_TRACE": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/traces/phase12-1920",
+      "DLSS5_BENCH_WIDTH": "1920",
+      "DLSS5_BENCH_GRAPH": "0",
+      "DLSS5_AMPERE_WEIGHTS": "1",
+      "DLSS5_BENCH_SMALL_ONLY": "1",
+      "DLSS5_LAB_COMPACT_ALL": "1",
+      "DLSS5_LAB_C256_SPLIT": "0",
+      "DLSS5_BENCH_DUMP": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/outputs/trace-phase12"
+    },
+    "modules": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase12/artifacts/selected/modules",
+    "returncode": 0
+  },
+  {
+    "kind": "f32",
+    "width": 1920,
+    "flags": {
+      "DLSS5_PHASE13_TRACE": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/traces/f32-1920",
+      "DLSS5_BENCH_WIDTH": "1920",
+      "DLSS5_BENCH_GRAPH": "0",
+      "DLSS5_AMPERE_WEIGHTS": "0",
+      "DLSS5_BENCH_SMALL_ONLY": "1",
+      "DLSS5_LAB_COMPACT_ALL": "0",
+      "DLSS5_LAB_C256_SPLIT": "0",
+      "DLSS5_BENCH_DUMP": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase13/artifacts/outputs/trace-f32"
+    },
+    "modules": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase1/artifacts/f32-modules",
+    "returncode": 0
+  }
+]

@@ -1,0 +1,71 @@
+
+================================================================
+Running Case: 0.5x_Small_1080p (31-block, 1920x1152)
+================================================================
+model requested=0.5x effective=0.5x blocks=31 assets=/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/small reason=small-ready
+multi_pass=1 multi_pass_predict=0 actual_network_passes=1
+vit_contract_byte_edge=1
+c32_norm900 scope=0 loaded=0 selected=c32-wave1-fast.hsaco processing=1920x1152 fast_numeric=1 mp=1 graph=0 experimental=0
+DLSS5_FAST_NUMERIC=1: multihead-fast-padded-wave-packed-fast.hsaco missing, using multihead-fast-padded-wave-packed.hsaco
+pool64_byte_edge=1
+TRACE_STAGE pre-down 17694720
+TRACE_STAGE block0 70778880
+TRACE_STAGE block4 17694720
+TRACE_STAGE block4-down 4423680
+TRACE_STAGE block5 8847360
+TRACE_STAGE block8 17694720
+TRACE_STAGE block9 4423680
+TRACE_STAGE block14 8847360
+TRACE_STAGE block15 2211840
+TRACE_STAGE block22 8847360
+TRACE_STAGE block23 1105920
+TRACE_STAGE block30 4423680
+TRACE_STAGE head 655360
+CONTRACT_COMPACT key=block31-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block31-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+TRACE_STAGE block31 655360
+CONTRACT_COMPACT key=block32-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block32-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+TRACE_STAGE block32 655360
+CONTRACT_COMPACT key=block33-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block33-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+TRACE_STAGE block33 655360
+CONTRACT_COMPACT key=block34-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block34-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+TRACE_STAGE block34 655360
+CONTRACT_COMPACT key=block35-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block35-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+TRACE_STAGE block35 655360
+CONTRACT_COMPACT key=block36-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block36-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+TRACE_STAGE block36 655360
+CONTRACT_COMPACT key=block37-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block37-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+TRACE_STAGE block37 655360
+CONTRACT_COMPACT key=block38-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block38-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+TRACE_STAGE block38 655360
+TRACE_STAGE block39 1105920
+TRACE_STAGE block40 1105920
+TRACE_STAGE block47 1105920
+TRACE_STAGE block48 2211840
+TRACE_STAGE block55 2211840
+TRACE_STAGE block56 4423680
+TRACE_STAGE block61 4423680
+TRACE_STAGE block62 8847360
+TRACE_STAGE block65 35389440
+TRACE_STAGE block69 17694720
+TRACE_STAGE block70 26542080
+model_prepared mode=0.5 profile=0 uploads=94 active_weights=92 retained_weights=0 before_producer_wait=1
+GRAPH_STATUS enabled=0 builds=0 replays=0 small=1 wave_owned=1 final_direct=1
+COMPACT_VIT contract_w16=1 projection_w16=1 contract_bstream=1 projection_bout=1 inter_byte_calls=45
+[RESULT] 0.5x_Small_1080p (31-block, 1920x1152)
+  Validity : invalid=0 nonzero=6632896/6635520 bit_diff_first_last=0 fnv1a64=d463648c43236f7d
+  Range    : min=0.000000 max=1.000000 mean=0.496550
+  GPU  (ms): mean=60.156 median=60.156 p90=60.156 p99=60.156 min=60.156 max=60.156
+  Wall (ms): mean=60.218 median=60.218 p90=60.218 p99=60.218 min=60.218 max=60.218
+submit_pulse resources create=0 create_ok=0 record=0 record_ok=0 destroy=0 destroy_ok=0 drain=0 site_visits=0 accepted=0 reject_mask=0 lifetime_pdl_calls=0
+C512_W16_SUMMARY mode=2 w16_blocks=12 stock_blocks=0 ffn_mode=1 ffn_w16_blocks=12 ffn_stock_blocks=0 c32_mode=1 c32_w16_calls=18 c32_stock_calls=0 vit_mode=7 vit_w16_calls=24 vit_stock_calls=0 vit_contract_w16=1 vit_proj_w16=1 vit_inter_byte=15 vit_inter_byte_calls=45 weights_count=92 weights_bytes=154793464
+SP_STATS runs=0 fallback=0 rollover=0 jobs=0 disabled=0 errors=0
+
+ALL SELECTED MODEL/RESOLUTION BENCHMARKS PASSED!

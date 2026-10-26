@@ -21,3 +21,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 控制实验和部署回执见[天空排查](sky-audit/去量化控制变量回执.md)。三个发行包、实机数据与安装说明见[仓库主文档](../../README.zh-CN.md)。
 
 生产代码及发布、天空排查、Magpie原生适配材料都在本目录；`../hip-port/`仅为附加实验路线。
+
+### 2026-10-26：V2 偶奇 K16 零洗牌默认
+
+`build_sm86_dlls.py` 现默认使用同lane偶/奇K拆解，仍为multidef_nq、15/15 O4。默认输出新名字 `nvngx_dlssnr_sm86_v2.dll`，保留旧fast；`--mma-layout legacy`可构建旧拆解对照。浮点累加顺序改变，不宣称旧输出逐位相同。三档正反实测约10.2/15.3/20.3ms，比旧版约1.56～1.61×；[完整回执与V7分析](v2/README.md)。

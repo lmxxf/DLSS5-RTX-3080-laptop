@@ -1,0 +1,34 @@
+
+Resource usage:
+ Common:
+  GLOBAL:2
+ Function __cuda_sm70_shflsync_bfly:
+  REG:24 STACK:0 SHARED:0 LOCAL:0 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function __cuda_sm70_shflsync_idx_p:
+  REG:24 STACK:0 SHARED:0 LOCAL:0 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function __cuda_sm70_shflsync_idx:
+  REG:24 STACK:0 SHARED:0 LOCAL:0 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_upsample_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_outview_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_ds_fp8:
+  REG:168 STACK:8 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_inpview_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_chained_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_wait_fp8:
+  REG:168 STACK:0 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_tilesync_fp8:
+  REG:168 STACK:8 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_4h_128_4_fp8:
+  REG:168 STACK:8 SHARED:8192 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0

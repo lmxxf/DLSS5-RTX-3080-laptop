@@ -1,0 +1,1906 @@
+{
+  "10/WEIGHTS_CC_SMALL_FP8/1033": [
+    {
+      "name": "block0.layer0.layer",
+      "old_bytes": 21696,
+      "new_bytes": 33984,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block1.layer0.layer",
+      "old_bytes": 20672,
+      "new_bytes": 32960,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block10.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515211,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block10.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block10.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block10.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block10.layer4.layer",
+      "old_bytes": 524304,
+      "new_bytes": 1048592,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block11.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block11.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block11.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block11.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block11.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block12.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block12.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block12.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block12.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block12.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block13.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block13.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block13.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block13.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block13.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block14.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block14.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block14.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block14.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block14.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block15.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block15.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block15.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block15.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block15.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block16.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block16.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block16.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block16.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block16.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block17.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block17.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block17.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block17.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block17.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block18.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block18.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block18.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block18.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block18.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block19.layer0.layer",
+      "old_bytes": 525312,
+      "new_bytes": 1049600,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block2.layer0.layer",
+      "old_bytes": 22720,
+      "new_bytes": 37056,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block20.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515063,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block20.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block20.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block20.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block21.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515142,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block21.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block21.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block21.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block22.layer0.layer",
+      "old_bytes": 820784,
+      "new_bytes": 1574448,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block23.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block24.layer0.layer",
+      "old_bytes": 230176,
+      "new_bytes": 426784,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block25.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block26.layer0.layer",
+      "old_bytes": 70048,
+      "new_bytes": 123296,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block27.layer0.layer",
+      "old_bytes": 61760,
+      "new_bytes": 106816,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block28.layer0.layer",
+      "old_bytes": 22784,
+      "new_bytes": 37120,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block29.layer0.layer",
+      "old_bytes": 20672,
+      "new_bytes": 32960,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block3.layer0.layer",
+      "old_bytes": 61760,
+      "new_bytes": 106816,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block30.layer0.blend_scale",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block30.layer0.layer",
+      "old_bytes": 21808,
+      "new_bytes": 34096,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block4.layer0.layer",
+      "old_bytes": 69936,
+      "new_bytes": 123184,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block5.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block6.layer0.layer",
+      "old_bytes": 229936,
+      "new_bytes": 426544,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block7.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block8.layer0.layer",
+      "old_bytes": 820288,
+      "new_bytes": 1573952,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block9.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515073,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block9.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block9.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block9.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    }
+  ],
+  "10/WEIGHTS_HT/1033": [
+    {
+      "name": "block0.layer0.layer",
+      "old_bytes": 21696,
+      "new_bytes": 33984,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block1.layer0.layer",
+      "old_bytes": 20672,
+      "new_bytes": 32960,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block10.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block11.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block12.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block13.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block14.layer0.layer",
+      "old_bytes": 229936,
+      "new_bytes": 426544,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block15.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block16.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block17.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block18.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block19.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block2.layer0.layer",
+      "old_bytes": 20672,
+      "new_bytes": 32960,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block20.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block21.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block22.layer0.layer",
+      "old_bytes": 820288,
+      "new_bytes": 1573952,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block23.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515054,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block23.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block23.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block23.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block24.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 514901,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block24.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block24.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block24.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block25.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 514946,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block25.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block25.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block25.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block26.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 514857,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block26.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block26.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block26.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block27.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515155,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block27.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block27.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block27.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block28.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515178,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block28.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block28.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block28.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block29.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515047,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block29.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block29.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block29.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block3.layer0.layer",
+      "old_bytes": 20672,
+      "new_bytes": 32960,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block30.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515055,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block30.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block30.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block30.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block30.layer4.layer",
+      "old_bytes": 524304,
+      "new_bytes": 1048592,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block31.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block31.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block31.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block31.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block31.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block32.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block32.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block32.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block32.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block32.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block33.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block33.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block33.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block33.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block33.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block34.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block34.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block34.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block34.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block34.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block35.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block35.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block35.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block35.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block35.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block36.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block36.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block36.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block36.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block36.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block37.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block37.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block37.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block37.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block37.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block38.layer0.layer",
+      "old_bytes": 4194320,
+      "new_bytes": 8388624,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block38.layer1.layer",
+      "old_bytes": 4196352,
+      "new_bytes": 8390656,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block38.layer2.layer",
+      "old_bytes": 3145856,
+      "new_bytes": 6291584,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block38.layer3.layer",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block38.layer4.layer",
+      "old_bytes": 1050624,
+      "new_bytes": 2099200,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block39.layer0.layer",
+      "old_bytes": 525312,
+      "new_bytes": 1049600,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block4.layer0.layer",
+      "old_bytes": 22720,
+      "new_bytes": 37056,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block40.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515093,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block40.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block40.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block40.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block41.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515071,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block41.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block41.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block41.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block42.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 514966,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block42.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block42.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block42.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block43.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 514923,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block43.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block43.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block43.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block44.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515231,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block44.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block44.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block44.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block45.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515089,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block45.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block45.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block45.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block46.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515008,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block46.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block46.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block46.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block47.layer0.layer",
+      "old_bytes": 524288,
+      "new_bytes": 1048576,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false,
+      "finite_elements": 524288,
+      "linear_fp8_to_f16_bitdiff": 515044,
+      "old_reserved_bytes": 0
+    },
+    {
+      "name": "block47.layer1.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block47.layer2.layer",
+      "old_bytes": 917568,
+      "new_bytes": 1704000,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block47.layer3.layer",
+      "old_bytes": 263168,
+      "new_bytes": 525312,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block48.layer0.layer",
+      "old_bytes": 820784,
+      "new_bytes": 1574448,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block49.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block5.layer0.layer",
+      "old_bytes": 61760,
+      "new_bytes": 106816,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block50.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block51.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block52.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block53.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block54.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block55.layer0.layer",
+      "old_bytes": 689232,
+      "new_bytes": 1311824,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block56.layer0.layer",
+      "old_bytes": 230176,
+      "new_bytes": 426784,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block57.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block58.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block59.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block6.layer0.layer",
+      "old_bytes": 61760,
+      "new_bytes": 106816,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block60.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block61.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block62.layer0.layer",
+      "old_bytes": 70048,
+      "new_bytes": 123296,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block63.layer0.layer",
+      "old_bytes": 61760,
+      "new_bytes": 106816,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block64.layer0.layer",
+      "old_bytes": 61760,
+      "new_bytes": 106816,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block65.layer0.layer",
+      "old_bytes": 61760,
+      "new_bytes": 106816,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block66.layer0.layer",
+      "old_bytes": 22784,
+      "new_bytes": 37120,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block67.layer0.layer",
+      "old_bytes": 20672,
+      "new_bytes": 32960,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block68.layer0.layer",
+      "old_bytes": 20672,
+      "new_bytes": 32960,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block69.layer0.layer",
+      "old_bytes": 20672,
+      "new_bytes": 32960,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block7.layer0.layer",
+      "old_bytes": 61760,
+      "new_bytes": 106816,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block70.layer0.blend_scale",
+      "old_bytes": 2,
+      "new_bytes": 2,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": true
+    },
+    {
+      "name": "block70.layer0.layer",
+      "old_bytes": 21808,
+      "new_bytes": 34096,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block8.layer0.layer",
+      "old_bytes": 69936,
+      "new_bytes": 123184,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    },
+    {
+      "name": "block9.layer0.layer",
+      "old_bytes": 197184,
+      "new_bytes": 361024,
+      "old_dtype": 1,
+      "new_dtype": 1,
+      "unchanged": false
+    }
+  ]
+}

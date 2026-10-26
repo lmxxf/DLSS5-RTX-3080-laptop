@@ -1,0 +1,24 @@
+{
+  "variant": "old",
+  "width": 1600,
+  "height": 900,
+  "round": "forward",
+  "args": [
+    "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+    "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+    "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll",
+    "1600",
+    "900",
+    "2",
+    "50",
+    "80",
+    "C:/DLSS5-5090-dll/ptx-v2-bench/compare-forward-old-1600.rgb32"
+  ],
+  "dll_sha256": "3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a",
+  "begin": "2026-10-26T22:22:24.298237",
+  "end": "2026-10-26T22:22:28.698269",
+  "returncode": 0,
+  "output": "/mnt/c/DLSS5-5090-dll/ptx-v2-bench/compare-forward-old-1600.rgb32",
+  "warmup": 50,
+  "iterations": 80
+}

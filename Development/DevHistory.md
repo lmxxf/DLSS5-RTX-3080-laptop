@@ -765,3 +765,18 @@ Phase15先把新720gold固化回归，再补真实帧/动态输入/Style1 HDR和
 GPU median按A1/B1/B2/A2，单位ms：首组720为14.102/14.087/14.083/14.146，900为23.628/24.193/23.712/24.309，1080为32.091/31.915/32.402/32.326；确认组720为14.173/14.444/14.432/14.899，900为25.241/24.444/24.437/24.518，1080为32.538/32.606/32.463/32.592。两次median均值比较小幅正向，但默认DVFS/基线抖动与收益同量级，不宣称稳定百分比；第二组900不拿0.439ms作因果收益。四核独立插桩数据与整帧min/median/Wall/PROFILE_TOTAL逐轮完整保留，不能按静态写指令削减推算加速。
 
 按任务要求保留四处默认开启，数值/资源/向量化目标达成，整帧收益很小。详见[Phase16报告](hip-port/phase16/README.md)、[两组ABBA与四核](hip-port/phase16/summary.md)、[32核完整表](hip-port/phase16/results.md)、[验收](hip-port/phase16/validation.json)。最终40模块在phase16/artifacts/tail/modules；临时LLVM/失败输出已清理，正确输出按SHA去重，保留日志/遥测/SHA/生成源。未改共享assets、游戏/Magpie、PTX或发布ZIP，不push；本阶段独立commit，下一阶段Phase17未启动。
+
+
+## 2026-10-26：路线 B ptx-patcher V2 偶奇K16零洗牌（闇）
+
+以c77a689派单执行。fast_render_fp8_mma_run默认同lane偶/奇字节解包，mapped用5410/7632 PRMT，保留multidef_nq、不加量化；旧拆解仅--mma-layout legacy诊断。GPU每奇偶位置65536字节对（64516有限对）0bit，65536组mapped half位标签0bit，768个A/B槽独立坐标证明、64组实际MMA对CPU整数矩阵积8192输出全同；8项mapped及1项代码生成回归通过。精确实数内积相同不保证FP16旧累加顺序逐位相同，实际PSNR单独保留。
+
+新DLL `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v2.dll` 为266414592B、15/15 O4、全部原槽位、无新增节；SHA737af93c2843fe18462c39da36a0a482e4d410493bed0e178fecabf526880f74。原DLL/旧fast哈希确认未改。
+
+bench_sky同轮50warmup/80iter、每档正old/new/V7再反V7/new/old：720天空旧median15.877/15.956，新10.187/10.249，V7 6.417/6.477ms；900旧24.514/24.527，新15.266/15.280，V7 9.328/9.319；1080旧31.959/32.005，新20.359/20.333，V7 12.311/12.305。新对旧约1.56～1.61×，V7仍快约1.58～1.66×；默认DVFS无锁频，不作等频因果。完整min/median/Wall和遥测逐轮归档；三DLL正反输出各自全幅0bit、18次全finite。天空变号均0，新HF RMS0.000101989（旧0.000103482，V7 0.000093139）。新旧PSNR62.544361/61.663517/58.495481dB；新对V7为47.913975/39.253644/38.541064dB。相互PSNR不是原生新卡绝对画质gold。
+
+FB00～06全导出静态SHFL总计26300/16627/14195/12371/6563/4963/834→1274/706/706/706/610/258/257；只消除MMA搬运新增SHFL，原归约保留。max STACK分别264/80/8/232/1152/608/456→240/120/0/200/1032/480/168B；仍有spill，且部分变体回退，不能宣称全DLL零STACK。例FB00 upsample200→48B但outview152→200B；FB05 projection264→0B。
+
+V7二进制分析：22Fatbin，新15～21为75/86/120网络，原00～06保留sm120；Small资源113893343→226693087B、HT147695410→291526450B。Small四个纯矩阵共2097152值，原FP8解码与V7 FP16位值多重集合全同但顺序不同，证实离线FP16预展开/重排；混合scale/metadata没有简单翻倍。FB18-sm86另有1040条IMMA.16832.S8.S8，位于五个C256非_fp8变体；未用运行时核追踪证明本次Small实际执行，不能把剩余1.6×全归INT8，也没有单因素消融分配预解码收益。
+
+[完整回执](ptx-patcher/v2/README.md)、[实测/PSNR](ptx-patcher/v2/bench-results.md)、[资源/栈表](ptx-patcher/v2/sass-summary.md)。临时PTX/cubin/SASS、全部本轮RGB和discord_v7旧RGB记录SHA后清理；保留新DLL、源码/原始日志/遥测/资源表/哈希/IMMA摘录。未改发布ZIP、游戏/Magpie，不push，阶段独立commit。V7权重ABI与进一步优化尚未移植。

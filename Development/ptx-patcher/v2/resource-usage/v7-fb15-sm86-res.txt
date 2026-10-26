@@ -1,0 +1,80 @@
+
+Resource usage:
+ Common:
+  GLOBAL:2 CONSTANT[4]:16
+ Function cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8:
+  REG:168 STACK:64 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync:
+  REG:217 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8:
+  REG:168 STACK:56 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_outview_wait:
+  REG:211 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8:
+  REG:168 STACK:48 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_ds_wait:
+  REG:221 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8:
+  REG:168 STACK:64 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync:
+  REG:213 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_upsample_fp8:
+  REG:168 STACK:64 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_upsample:
+  REG:168 STACK:24 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_ds_fp8:
+  REG:168 STACK:40 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_ds:
+  REG:168 STACK:16 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_outview_fp8:
+  REG:168 STACK:48 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_outview:
+  REG:168 STACK:16 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_inpview_fp8:
+  REG:168 STACK:88 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_inpview:
+  REG:168 STACK:24 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_chained_fp8:
+  REG:168 STACK:64 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_wait_fp8:
+  REG:168 STACK:64 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_tilesync_fp8:
+  REG:168 STACK:80 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_chained:
+  REG:218 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_wait:
+  REG:168 STACK:32 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_tilesync:
+  REG:168 STACK:8 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1_fp8:
+  REG:168 STACK:64 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_1h_32_1:
+  REG:168 STACK:32 SHARED:0 LOCAL:0 CONSTANT[0]:448 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_fp8_control_mask_full_rect:
+  REG:168 STACK:96 SHARED:0 LOCAL:0 CONSTANT[0]:664 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_control_mask_full_rect:
+  REG:213 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:664 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_fp8_control_mask:
+  REG:168 STACK:96 SHARED:0 LOCAL:0 CONSTANT[0]:664 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_control_mask:
+  REG:213 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:664 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_fp8_simple_blend_full_rect:
+  REG:168 STACK:88 SHARED:0 LOCAL:0 CONSTANT[0]:664 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_simple_blend_full_rect:
+  REG:213 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:664 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_fp8_simple_blend:
+  REG:168 STACK:96 SHARED:0 LOCAL:0 CONSTANT[0]:664 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_simple_blend:
+  REG:213 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:664 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32_fp8:
+  REG:168 STACK:96 SHARED:0 LOCAL:0 CONSTANT[0]:536 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_post_block_swin_1h_32:
+  REG:213 STACK:0 SHARED:0 LOCAL:0 CONSTANT[0]:536 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8:
+  REG:168 STACK:80 SHARED:2048 LOCAL:0 CONSTANT[0]:624 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_pre_block_swin_1h_32_1_ds:
+  REG:214 STACK:0 SHARED:2048 LOCAL:0 CONSTANT[0]:624 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_pre_block_swin_1h_32_1_fp8:
+  REG:168 STACK:48 SHARED:2048 LOCAL:0 CONSTANT[0]:624 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_pre_block_swin_1h_32_1:
+  REG:207 STACK:0 SHARED:2048 LOCAL:0 CONSTANT[0]:624 TEXTURE:0 SURFACE:0 SAMPLER:0

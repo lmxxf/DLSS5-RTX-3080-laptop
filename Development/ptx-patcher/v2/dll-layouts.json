@@ -1,0 +1,976 @@
+{
+  "old": {
+    "bytes": 266414592,
+    "sha256": "3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a",
+    "sections": [
+      {
+        "virtual_address": 4096,
+        "virtual_size": 873452,
+        "raw_offset": 1024,
+        "raw_size": 873472
+      },
+      {
+        "virtual_address": 880640,
+        "virtual_size": 231038,
+        "raw_offset": 874496,
+        "raw_size": 231424
+      },
+      {
+        "virtual_address": 1114112,
+        "virtual_size": 3771780,
+        "raw_offset": 1105920,
+        "raw_size": 3672576
+      },
+      {
+        "virtual_address": 4886528,
+        "virtual_size": 39900,
+        "raw_offset": 4778496,
+        "raw_size": 39936
+      },
+      {
+        "virtual_address": 4927488,
+        "virtual_size": 244,
+        "raw_offset": 4818432,
+        "raw_size": 512
+      },
+      {
+        "virtual_address": 4931584,
+        "virtual_size": 261590224,
+        "raw_offset": 4818944,
+        "raw_size": 261590528
+      },
+      {
+        "virtual_address": 266522624,
+        "virtual_size": 4932,
+        "raw_offset": 266409472,
+        "raw_size": 5120
+      }
+    ],
+    "fatbin_count": 15,
+    "fatbins": [
+      {
+        "index": 0,
+        "offset": 1107664,
+        "bytes": 484728,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "offset": 1949392,
+        "bytes": 398784,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "offset": 2506432,
+        "bytes": 389744,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "offset": 3012896,
+        "bytes": 330648,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "offset": 3599728,
+        "bytes": 390312,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "offset": 4032912,
+        "bytes": 430640,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "offset": 4575872,
+        "bytes": 65952,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "offset": 4649280,
+        "bytes": 1448,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 8,
+        "offset": 4657312,
+        "bytes": 1520,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 9,
+        "offset": 4668224,
+        "bytes": 1608,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 10,
+        "offset": 4680032,
+        "bytes": 1816,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 11,
+        "offset": 4690608,
+        "bytes": 1536,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 12,
+        "offset": 4700576,
+        "bytes": 1128,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 13,
+        "offset": 4707136,
+        "bytes": 8888,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 14,
+        "offset": 4761968,
+        "bytes": 1240,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      }
+    ]
+  },
+  "v7": {
+    "bytes": 534586880,
+    "sha256": "30b6b599dbc593e5f9a8a0ddb2edac6f2f15ad0eaa967cd6bb0ab6bb224825c3",
+    "sections": [
+      {
+        "virtual_address": 4096,
+        "virtual_size": 873452,
+        "raw_offset": 1024,
+        "raw_size": 873472
+      },
+      {
+        "virtual_address": 880640,
+        "virtual_size": 231038,
+        "raw_offset": 874496,
+        "raw_size": 231424
+      },
+      {
+        "virtual_address": 1114112,
+        "virtual_size": 3771780,
+        "raw_offset": 1105920,
+        "raw_size": 3672576
+      },
+      {
+        "virtual_address": 4886528,
+        "virtual_size": 39900,
+        "raw_offset": 4778496,
+        "raw_size": 39936
+      },
+      {
+        "virtual_address": 4927488,
+        "virtual_size": 244,
+        "raw_offset": 4818432,
+        "raw_size": 512
+      },
+      {
+        "virtual_address": 4931584,
+        "virtual_size": 261590224,
+        "raw_offset": 0,
+        "raw_size": 0
+      },
+      {
+        "virtual_address": 266522624,
+        "virtual_size": 4932,
+        "raw_offset": 4818944,
+        "raw_size": 5120
+      },
+      {
+        "virtual_address": 266530816,
+        "virtual_size": 11541176,
+        "raw_offset": 4824064,
+        "raw_size": 11541504
+      },
+      {
+        "virtual_address": 278073344,
+        "virtual_size": 518221024,
+        "raw_offset": 16365568,
+        "raw_size": 518221312
+      }
+    ],
+    "fatbin_count": 22,
+    "fatbins": [
+      {
+        "index": 0,
+        "offset": 1107664,
+        "bytes": 841720,
+        "records": [
+          {
+            "kind": 1,
+            "arch": 120,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "offset": 1949392,
+        "bytes": 557032,
+        "records": [
+          {
+            "kind": 1,
+            "arch": 120,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "offset": 2506432,
+        "bytes": 506464,
+        "records": [
+          {
+            "kind": 1,
+            "arch": 120,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "offset": 3012896,
+        "bytes": 586832,
+        "records": [
+          {
+            "kind": 1,
+            "arch": 120,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "offset": 3599728,
+        "bytes": 433184,
+        "records": [
+          {
+            "kind": 1,
+            "arch": 120,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "offset": 4032912,
+        "bytes": 542960,
+        "records": [
+          {
+            "kind": 1,
+            "arch": 120,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "offset": 4575872,
+        "bytes": 70336,
+        "records": [
+          {
+            "kind": 1,
+            "arch": 120,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "offset": 4649280,
+        "bytes": 4480,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 8,
+        "offset": 4657312,
+        "bytes": 4912,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 9,
+        "offset": 4668224,
+        "bytes": 5168,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 10,
+        "offset": 4680032,
+        "bytes": 5728,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 11,
+        "offset": 4690608,
+        "bytes": 4760,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 12,
+        "offset": 4700576,
+        "bytes": 3408,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 13,
+        "offset": 4707136,
+        "bytes": 27840,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 14,
+        "offset": 4761968,
+        "bytes": 3816,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 15,
+        "offset": 4824064,
+        "bytes": 3016416,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 16,
+        "offset": 7840480,
+        "bytes": 1763848,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 17,
+        "offset": 9604352,
+        "bytes": 1663480,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 18,
+        "offset": 11267840,
+        "bytes": 2115624,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 19,
+        "offset": 13383488,
+        "bytes": 1294584,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 20,
+        "offset": 14678080,
+        "bytes": 1528792,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 21,
+        "offset": 16206880,
+        "bytes": 158360,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 75,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 32833
+          },
+          {
+            "kind": 2,
+            "arch": 120,
+            "flags": 16810049
+          }
+        ]
+      }
+    ]
+  },
+  "new": {
+    "bytes": 266414592,
+    "sha256": "737af93c2843fe18462c39da36a0a482e4d410493bed0e178fecabf526880f74",
+    "sections": [
+      {
+        "virtual_address": 4096,
+        "virtual_size": 873452,
+        "raw_offset": 1024,
+        "raw_size": 873472
+      },
+      {
+        "virtual_address": 880640,
+        "virtual_size": 231038,
+        "raw_offset": 874496,
+        "raw_size": 231424
+      },
+      {
+        "virtual_address": 1114112,
+        "virtual_size": 3771780,
+        "raw_offset": 1105920,
+        "raw_size": 3672576
+      },
+      {
+        "virtual_address": 4886528,
+        "virtual_size": 39900,
+        "raw_offset": 4778496,
+        "raw_size": 39936
+      },
+      {
+        "virtual_address": 4927488,
+        "virtual_size": 244,
+        "raw_offset": 4818432,
+        "raw_size": 512
+      },
+      {
+        "virtual_address": 4931584,
+        "virtual_size": 261590224,
+        "raw_offset": 4818944,
+        "raw_size": 261590528
+      },
+      {
+        "virtual_address": 266522624,
+        "virtual_size": 4932,
+        "raw_offset": 266409472,
+        "raw_size": 5120
+      }
+    ],
+    "fatbin_count": 15,
+    "fatbins": [
+      {
+        "index": 0,
+        "offset": 1107664,
+        "bytes": 330168,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "offset": 1949392,
+        "bytes": 244560,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "offset": 2506432,
+        "bytes": 238512,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "offset": 3012896,
+        "bytes": 247160,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "offset": 3599728,
+        "bytes": 306808,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "offset": 4032912,
+        "bytes": 343520,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "offset": 4575872,
+        "bytes": 51512,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "offset": 4649280,
+        "bytes": 1448,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 8,
+        "offset": 4657312,
+        "bytes": 1520,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 9,
+        "offset": 4668224,
+        "bytes": 1608,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 10,
+        "offset": 4680032,
+        "bytes": 1816,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 11,
+        "offset": 4690608,
+        "bytes": 1536,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 12,
+        "offset": 4700576,
+        "bytes": 1128,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 13,
+        "offset": 4707136,
+        "bytes": 8888,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      },
+      {
+        "index": 14,
+        "offset": 4761968,
+        "bytes": 1240,
+        "records": [
+          {
+            "kind": 2,
+            "arch": 86,
+            "flags": 16810049
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "finite_pair_count_each_parity": 64516,
+  "byte_pairs_tested_each_parity": 65536,
+  "mismatches": 0,
+  "coordinate_slots": 768,
+  "mapped_prmt_cases": 65536,
+  "actual_generated_MMA_matrix_cases": 64,
+  "MMA_output_elements": 8192,
+  "scope": "finite E4M3 decode, all half-bit mapped permutation, exact K coordinate permutation; not legacy FP16 rounding equivalence"
+}

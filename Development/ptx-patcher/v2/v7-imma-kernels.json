@@ -1,0 +1,82 @@
+[
+  {
+    "kernel": "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync",
+    "SHFL": 144,
+    "IMMA": 208,
+    "HMMA": 168,
+    "PRMT": 169,
+    "LDL": 0,
+    "STL": 0,
+    "resources": {
+      "REG": 226,
+      "STACK": 0,
+      "SHARED": 49152,
+      "LOCAL": 0,
+      "CONSTANT[0]": 440
+    }
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_8h_256_8_outview_wait",
+    "SHFL": 112,
+    "IMMA": 208,
+    "HMMA": 160,
+    "PRMT": 122,
+    "LDL": 0,
+    "STL": 0,
+    "resources": {
+      "REG": 220,
+      "STACK": 0,
+      "SHARED": 49152,
+      "LOCAL": 0,
+      "CONSTANT[0]": 440
+    }
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_8h_256_8_ds_wait",
+    "SHFL": 144,
+    "IMMA": 208,
+    "HMMA": 168,
+    "PRMT": 121,
+    "LDL": 0,
+    "STL": 0,
+    "resources": {
+      "REG": 218,
+      "STACK": 0,
+      "SHARED": 49152,
+      "LOCAL": 0,
+      "CONSTANT[0]": 440
+    }
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync",
+    "SHFL": 112,
+    "IMMA": 208,
+    "HMMA": 160,
+    "PRMT": 122,
+    "LDL": 0,
+    "STL": 0,
+    "resources": {
+      "REG": 226,
+      "STACK": 0,
+      "SHARED": 49152,
+      "LOCAL": 0,
+      "CONSTANT[0]": 440
+    }
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_8h_256_8_chained",
+    "SHFL": 112,
+    "IMMA": 208,
+    "HMMA": 160,
+    "PRMT": 121,
+    "LDL": 0,
+    "STL": 0,
+    "resources": {
+      "REG": 219,
+      "STACK": 0,
+      "SHARED": 49152,
+      "LOCAL": 0,
+      "CONSTANT[0]": 440
+    }
+  }
+]

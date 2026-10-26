@@ -1,0 +1,61 @@
+{
+  "resources": {
+    "source": {
+      "10/WEIGHTS_CC_SMALL_FP8/1033": {
+        "rva": 152628464,
+        "bytes": 113893343,
+        "sha256": "f743e8eb320f42bc9bdc992ee2bf51f7bb7c8688ced4ecf5ce6807ec4eef7962",
+        "prefix_hex": "dfdfc906000000001300000000000000626c6f636b302e6c61796572302e6c61"
+      },
+      "10/WEIGHTS_HT/1033": {
+        "rva": 4933048,
+        "bytes": 147695410,
+        "sha256": "836f445d06ecd2e59bb9f17b84b91c143396fd76ccda1c9dc7fe81d5edd548f4",
+        "prefix_hex": "32a7cd08000000001300000000000000626c6f636b302e6c61796572302e6c61"
+      },
+      "16/1/1033": {
+        "rva": 4931856,
+        "bytes": 1188,
+        "sha256": "b89fb80211edcc1a21acead8d07c54897d9318f70300ee81a56d11189bd302f6",
+        "prefix_hex": "a40434000000560053005f00560045005200530049004f004e005f0049004e00"
+      }
+    },
+    "v7": {
+      "10/WEIGHTS_CC_SMALL_FP8/1033": {
+        "rva": 278073616,
+        "bytes": 226693087,
+        "sha256": "f230d68e0efa2fc84d55c96f08c82190d835e05ab5f6e119dcbcf5a2320c15b9",
+        "prefix_hex": "df0f830d000000001300000000000000626c6f636b302e6c61796572302e6c61"
+      },
+      "10/WEIGHTS_HT/1033": {
+        "rva": 504766704,
+        "bytes": 291526450,
+        "sha256": "5eb1fba789e0dc44e0dc732e6673db0118c2a95cadb5866e6c9d197a0e597c58",
+        "prefix_hex": "32576011000000001300000000000000626c6f636b302e6c61796572302e6c61"
+      },
+      "16/1/1033": {
+        "rva": 796293168,
+        "bytes": 1188,
+        "sha256": "b89fb80211edcc1a21acead8d07c54897d9318f70300ee81a56d11189bd302f6",
+        "prefix_hex": "a40434000000560053005f00560045005200530049004f004e005f0049004e00"
+      }
+    }
+  },
+  "comparison": {
+    "10/WEIGHTS_CC_SMALL_FP8/1033": {
+      "source_bytes": 113893343,
+      "v7_bytes": 226693087,
+      "identical": false
+    },
+    "10/WEIGHTS_HT/1033": {
+      "source_bytes": 147695410,
+      "v7_bytes": 291526450,
+      "identical": false
+    },
+    "16/1/1033": {
+      "source_bytes": 1188,
+      "v7_bytes": 1188,
+      "identical": true
+    }
+  }
+}

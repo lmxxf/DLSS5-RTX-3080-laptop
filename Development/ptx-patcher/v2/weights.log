@@ -1,0 +1,7 @@
+leaves: {'source': 3, 'v7': 3}
+10/WEIGHTS_CC_SMALL_FP8/1033 {'source_bytes': 113893343, 'v7_bytes': 226693087, 'identical': False} prefix dfdfc906000000001300000000000000626c6f636b302e6c61796572302e6c61 df0f830d000000001300000000000000626c6f636b302e6c61796572302e6c61
+10/WEIGHTS_HT/1033 {'source_bytes': 147695410, 'v7_bytes': 291526450, 'identical': False} prefix 32a7cd08000000001300000000000000626c6f636b302e6c61796572302e6c61 32576011000000001300000000000000626c6f636b302e6c61796572302e6c61
+10/WEIGHTS_CC_SMALL_FP8/1033 records 77 unchanged 9 doubled 4 all expanded finite bitdiff 2060489
+10/WEIGHTS_HT/1033 records 153 unchanged 9 doubled 16 all expanded finite bitdiff 8240618
+pure-matrix expansion samples [('block10.layer0.layer', True), ('block20.layer0.layer', True), ('block21.layer0.layer', True), ('block9.layer0.layer', True)]
+bit move exact candidates [('block10.layer0.layer', []), ('block20.layer0.layer', []), ('block21.layer0.layer', []), ('block9.layer0.layer', [])]

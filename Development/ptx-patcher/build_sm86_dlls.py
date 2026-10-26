@@ -2,6 +2,7 @@
 from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 import ctypes
+import os
 import hashlib
 from pathlib import Path
 import re
@@ -89,7 +90,7 @@ def fast_fp8_pair_to_half_lines(source: str, destination: str) -> list[str]:
   ]
 
 
-def fast_render_fp8_mma_run(
+def legacy_render_fp8_mma_run(
     matches,
     packed_sources: dict[str, tuple[str, str, int]],
 ) -> str:
@@ -189,6 +190,49 @@ def fast_render_fp8_mma_run(
     ])
   lines.append("}")
   return "\n".join(lines)
+
+
+def even_odd_decode_lines(register, first, second):
+  """Decode lane-local bytes 0/2 and 1/3, with no lane exchange or PRMT."""
+  return [
+      f"and.b32 dlssnr_fp8_abs, {register}, 0x007f007f;",
+      f"and.b32 dlssnr_fp8_sign, {register}, 0x00800080;",
+      f"mad.lo.u32 {first}, dlssnr_fp8_sign, 2, dlssnr_fp8_abs;",
+      f"shl.b32 {first}, {first}, 7;",
+      f"mul.rn.f16x2 {first}, {first}, dlssnr_fp8_scale;",
+      f"and.b32 dlssnr_fp8_abs, {register}, 0x7f007f00;",
+      f"and.b32 dlssnr_fp8_sign, {register}, 0x80008000;",
+      "shr.u32 dlssnr_fp8_abs, dlssnr_fp8_abs, 1;",
+      f"or.b32 {second}, dlssnr_fp8_abs, dlssnr_fp8_sign;",
+      f"mul.rn.f16x2 {second}, {second}, dlssnr_fp8_scale;",
+  ]
+
+
+def fast_render_fp8_mma_run(matches, packed_sources):
+  """Use the same K permutation for A/B; FP16 rounding order differs from legacy."""
+  operands=list(dict.fromkeys(m.group(n) for m in matches for n in ("a0","a1","a2","a3","b0","b1")))
+  names={r:(f"dlssnr_fp16_{i}_0",f"dlssnr_fp16_{i}_1") for i,r in enumerate(operands)}
+  from ptx_mapped import mapped_at
+  mapped=mapped_at(packed_sources,matches[0].start())
+  quant_lines,quant_names=dp.mapped_fp16_sources(mapped,operands)
+  encoded=any(r not in mapped for r in operands)
+  lines=["{", ".reg .b32 "+", ".join(n for pair in names.values() for n in pair)+";"]
+  if encoded:lines+=fast_fp8_conversion_declarations()+["mov.b32 dlssnr_fp8_scale, 0x5c005c00;"]
+  lines+=quant_lines
+  for r in operands:
+    first,second=names[r]
+    if r in mapped:
+      low,high,_=mapped[r];low,high=quant_names[low],quant_names[high]
+      lines += [f"prmt.b32 {first}, {low}, {high}, 0x5410;",f"prmt.b32 {second}, {low}, {high}, 0x7632;"]
+    else:lines+=even_odd_decode_lines(r,first,second)
+  for m in matches:
+    d0,d1=m.group("d0"),m.group("d1");c0,c1=m.group("c0"),m.group("c1")
+    for parity in [0,1]:
+      aa=[names[m.group(n)][parity] for n in ("a0","a1","a2","a3")]
+      bb=[names[m.group(n)][parity] for n in ("b0","b1")]
+      cc=[c0,c1] if parity==0 else [d0,d1]
+      lines.append(f"mma.sync.aligned.m16n8k16.row.col.f16.f16.f16.f16 {{{d0}, {d1}}}, {{{', '.join(aa)}}}, {{{', '.join(bb)}}}, {{{', '.join(cc)}}};")
+  return "\n".join(lines+["}"])
 
 
 def fast_half_conversion_declarations() -> list[str]:
@@ -316,6 +360,7 @@ def worker_compile_fatbin(args):
   allow_grow = bool(build_options and build_options[0])
   mapped_mode = build_options[1] if len(build_options)>1 else "multidef"
   quantize_mapped = bool(build_options[2]) if len(build_options)>2 else False
+  mma_layout = build_options[3] if len(build_options)>3 else "evenodd"
   t0 = time.time()
   libzstd = ctypes.CDLL("libzstd.so.1")
   libzstd.ZSTD_decompress.argtypes = [
@@ -353,7 +398,7 @@ def worker_compile_fatbin(args):
     dp.fp8_pair_to_half_lines = fast_fp8_pair_to_half_lines
     dp.half_conversion_declarations = fast_half_conversion_declarations
     dp.half_pair_to_fp8_lines = fast_half_pair_to_fp8_lines
-    dp.render_fp8_mma_run = fast_render_fp8_mma_run
+    dp.render_fp8_mma_run = fast_render_fp8_mma_run if mma_layout=="evenodd" else legacy_render_fp8_mma_run
     from functools import partial
     dp.fp8_pack_sources = partial(stock_pack_sources, local_only=mapped_mode=="strict")
     dp.mapped_fp16_sources = fast_mapped_fp16_sources if quantize_mapped else forward_mapped_fp16_sources
@@ -444,7 +489,9 @@ def worker_compile_fatbin(args):
     cubin = compile_cubin(4)
     new_fb = pack_single_elf_fatbin(blob, cubin, zstd_compress)
     if is_fast:
-      cache = Path("/tmp/dlss-sky-audit/safe-o4"); cache.mkdir(parents=True, exist_ok=True)
+      cache = Path(os.environ.get("DLSSNR_BUILD_CACHE", "/tmp/dlss-sky-audit/safe-o4")); cache.mkdir(parents=True, exist_ok=True)
+      (cache / f"fatbin{i:02d}.cubin").write_bytes(cubin)
+      (cache / f"fatbin{i:02d}.ptx").write_text(ptx_sm86)
       (cache / f"fatbin{i:02d}.bin").write_bytes(new_fb)
     if len(new_fb) > len(blob) and not allow_grow:
       used_opt = 1
@@ -474,7 +521,8 @@ def main():
   from pe_fatbins import assemble
   parser = argparse.ArgumentParser(description="Build all 15 sm_86 O4 fatbins with multi-definition-filtered mapped operands")
   parser.add_argument("--input", type=Path, default=Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll"))
-  parser.add_argument("--output", type=Path, default=Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll"))
+  parser.add_argument("--output", type=Path, default=Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v2.dll"))
+  parser.add_argument("--mma-layout", choices=("evenodd", "legacy"), default="evenodd", help="Legacy layout is a diagnostic control")
   parser.add_argument("--workers", type=int, default=3)
   parser.add_argument("--mapped-mode", choices=("strict", "multidef"), default="multidef")
   parser.add_argument("--quantize-mapped", action="store_true", help="Diagnostic: restore explicit E4M3 quantization on mapped sources")
@@ -487,7 +535,7 @@ def main():
   locs = dp.find_fatbins(data)
   assert len(locs) == 15, f"Expected 15 fatbins, found {len(locs)}"
   dp.apply_host_patches(data, (dp.AMPERE,))
-  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped) for i, l in enumerate(locs)]
+  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped, args.mma_layout) for i, l in enumerate(locs)]
   blobs = {}
   with ProcessPoolExecutor(max_workers=args.workers) as pool:
     futures = [pool.submit(worker_compile_fatbin, task) for task in tasks]

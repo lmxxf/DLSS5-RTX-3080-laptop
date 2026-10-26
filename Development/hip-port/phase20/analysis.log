@@ -1,0 +1,9 @@
+# Phase20 single joint candidate,50/80 ABBA
+
+PSNR peak1 on visible encoded RGB. Mean run medians are only a summary;all raw grouped stats stay in results.json/logs.
+
+| Width | A1 | B1 | B2 | A2 | Speed ratio | PSNR vsP19 | maxabs vsP19 | P19→candidate PSNR vsF32 | LOCAL0 |
+|---|---:|---:|---:|---:|---:|---:|---:|---|---|
+| 1280 | 13.490 | 13.400 | 13.423 | 13.573 | 1.0089× | 43.582691 | 0.050379157 | 43.577948→43.206459 | True |
+| 1600 | 22.762 | 22.552 | 22.615 | 22.871 | 1.0103× | 46.926900 | 0.036648065 | 46.975322→46.671080 | True |
+| 1920 | 30.576 | 30.326 | 30.366 | 30.780 | 1.0109× | 46.763612 | 0.040914565 | 46.100947→46.312321 | True |

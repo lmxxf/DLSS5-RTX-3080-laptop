@@ -22,6 +22,8 @@ PHASE18_C256_CAP = None
 PHASE18_QKV_MASK = 7
 from phase19_transform import transform as phase19_transform, version_ptx as phase19_version_ptx
 PHASE19_WAVE_HALF = 3
+from phase20_transform import transform as phase20_transform
+PHASE20_HALF_ACT = False
 from phase12_transform import pack_c32_av
 PHASE12_C32_AV = True
 PHASE10_CAPS = True
@@ -776,6 +778,7 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     key += str(PHASE12_C32_AV).encode()
     key += open(os.path.join(os.path.dirname(__file__), "phase14_transform.py"), "rb").read()
     key += str(PHASE14_ATTENTION_ABI).encode()
+    key += repr(PHASE20_HALF_ACT).encode()+open(os.path.join(source_dir,"phase20_transform.py"),"rb").read()
     key += repr(PHASE19_WAVE_HALF if name=="c64-wave2-fast" else 0).encode()
     key += open(os.path.join(source_dir,"phase19_transform.py"),"rb").read()
     key += repr((PHASE18_SITES.get(name,()),PHASE18_C256_CAP)).encode()
@@ -828,6 +831,8 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
         cu_src = phase18_pack_transform(cu_src, PHASE18_SITES[name])
     if PHASE19_WAVE_HALF and name=="c64-wave2-fast":
         cu_src=phase19_transform(cu_src,PHASE19_WAVE_HALF)
+    if PHASE20_HALF_ACT and name in ["c32-wave1-fast","c64-wave2-fast"]:
+        cu_src=phase20_transform(cu_src,name=="c32-wave1-fast")
     cu_src += "\n// build fingerprint: " + build_key + "\n"
 
 
@@ -944,6 +949,9 @@ def main():
     if passed != len(modules):
         sys.exit(1)
     open(os.path.join(out_dir,"AMPERE_WEIGHTS_V2"),"w").write("CPU Ampere FP8 tiles; paired Phase-2 modules\n")
+    act_marker=os.path.join(out_dir,"APPROXIMATE_ACTIVATION_F16X2")
+    if PHASE20_HALF_ACT:open(act_marker,"w").write("PHASE20_APPROXIMATE;not_bitwise_Phase19\n")
+    elif os.path.exists(act_marker):os.remove(act_marker)
     wave_marker=os.path.join(out_dir,"AMPERE_WEIGHTS_W19")
     if PHASE19_WAVE_HALF:open(wave_marker,"w").write(str(PHASE19_WAVE_HALF)+"\n")
     elif os.path.exists(wave_marker):os.remove(wave_marker)

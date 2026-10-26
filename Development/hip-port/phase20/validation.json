@@ -1,0 +1,21 @@
+{
+  "baseline": "Phase19 selected",
+  "joint_candidates": 1,
+  "formal_ABBA_runs": 12,
+  "quick_runs": 3,
+  "all_invalid": 0,
+  "all_first_last": 0,
+  "active_LMem0": 32,
+  "candidate_repeat_SHA_equal": true,
+  "finite_half_inputs": 63488,
+  "finite_changed_input_count": 182,
+  "max_finite_FP8_code_distance": 1,
+  "max_finite_output_value_difference": 32,
+  "default_promoted": false,
+  "default_retained": "Phase19",
+  "reason": "all relative PSNR below50dB;720p/900p F32gold PSNR declines;only0.9..1.1percent speed",
+  "PHASE20_HALF_ACT": false,
+  "external_v020_unchanged": true,
+  "deployment": false,
+  "push": false
+}

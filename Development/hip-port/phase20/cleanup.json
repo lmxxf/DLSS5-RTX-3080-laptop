@@ -1,0 +1,121 @@
+{
+  "removed_bytes": 232360937,
+  "files": [
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/candidate-quick-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "d02bd33d7cc9dcf4796cf2360249759ff7274b0325b3e536a66e20186dd3f72b",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/candidate-b2-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "d02bd33d7cc9dcf4796cf2360249759ff7274b0325b3e536a66e20186dd3f72b",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/baseline-a2-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "16e78e6361e928829727ad2f69ceafb456caeb1cea0fd28d8a5f6aed940a412b",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/baseline-a-1280.rgb32",
+      "bytes": 11796480,
+      "sha256": "16e78e6361e928829727ad2f69ceafb456caeb1cea0fd28d8a5f6aed940a412b",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/candidate-quick-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "7489f1bc9a4ba50f5e1c9766f76e37defa4b0f5977af71a00a5cf1551e30c33e",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/baseline-a-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/baseline-a2-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "25bcd90eba03d7617e61c7d470b32db54b84d907de1cc0375fa41330f87babf0",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/candidate-b2-1600.rgb32",
+      "bytes": 19660800,
+      "sha256": "7489f1bc9a4ba50f5e1c9766f76e37defa4b0f5977af71a00a5cf1551e30c33e",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/baseline-a-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/candidate-b2-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "57fcf072c8903dbd1f30969db83423e22d3012640cf1ffe1b0f76ed8e13a7264",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/baseline-a2-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "adc8e258474eb1cec6a91ce0b56e2942caa80c62b57a4bd557fcbbec7c6c5757",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/outputs/candidate-quick-1920.rgb32",
+      "bytes": 26542080,
+      "sha256": "57fcf072c8903dbd1f30969db83423e22d3012640cf1ffe1b0f76ed8e13a7264",
+      "action": "deduplicate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/probe/actprobe.hsaco",
+      "bytes": 8040,
+      "sha256": "ff63a6db0164c62cde76ceb275824873c9e40febaf1e657b98fdb00dcc68d832",
+      "action": "remove reproducible probe build"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/probe/actprobe.ptx",
+      "bytes": 27922,
+      "sha256": "dd44d0a0da87891c10755cc7b8be27c5f5c633f6a7e018b45e3bc3dd7baa33fc",
+      "action": "remove reproducible probe build"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/probe/actprobe.build-key",
+      "bytes": 64,
+      "sha256": "82c34720fe0f8a6bec14b22dc324799145156fe0c278781ae78225793d81835c",
+      "action": "remove reproducible probe build"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/probe/actprobe.phase1.cu",
+      "bytes": 3025,
+      "sha256": "71286803eab5bd01a4cd120ec0a8995880a3317e0d7dad397d0c43d99ea5e678",
+      "action": "remove reproducible probe build"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/probe/actprobe.generated.cu",
+      "bytes": 31943,
+      "sha256": "d8f16fb2ad8a54c450a4e089ab309e1cc2e507df12b8dbebeca658282e95d887",
+      "action": "remove reproducible probe build"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/candidate/modules/c32-wave1-fast.phase1.cu",
+      "bytes": 103172,
+      "sha256": "93a7d57359c30b7bab4668f0343c0a2d73baa8ed78ccf82712d3442976bef0ad",
+      "action": "remove compiler intermediate"
+    },
+    {
+      "file": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase20/artifacts/candidate/modules/c64-wave2-fast.phase1.cu",
+      "bytes": 189331,
+      "sha256": "808dfaa6028eac8a9d14cea00bf850cce8f2fc536e782f0fe2fea3e76e9da123",
+      "action": "remove compiler intermediate"
+    }
+  ],
+  "default": "Phase19 retained",
+  "candidate": "explicit diagnostic only"
+}

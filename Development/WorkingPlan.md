@@ -242,3 +242,14 @@ C256128cap两目标核各8B STACK；全量打包+128仍8B；fuse/pair+128各48B�
 实际4个W16缓冲总1476096→2213376B（+737280）；不把全部7核预算当覆盖范围。CPU旧前缀/新增half值偏移测试通过，解码器GPU证明沿用Phase17。最终仅Wave2 fast模块改变，39个保持Phase18；实际加载40/1918，默认源码重编与实测SHA相同，20项既有回归通过。新Host与W19模块必须配套。
 
 [收官回执](hip-port/phase19/README.md)、[两候选ABBA](hip-port/phase19/summary.md)、[验收](hip-port/phase19/validation.json)。默认PHASE19_WAVE_HALF=3；最终产物phase19/artifacts/selected/modules。清理临时重复产物，保留日志/遥测/SHA；外部v0.2.0 DLL/三ZIP保护性哈希未变，不部署、不push，立即独立commit。
+
+
+## 2026-10-27：hip-port Phase20，单候选half2激活探索，不入默认（闇）
+
+基线Phase19 selected，只有C32+Wave2一个联合候选，无组合扫描。Ampere累加器half位直接做clamp/abs/两次fma.rn.f16x2/mul，再half_pack+D→AB，避开激活处f32展开/标量编码；C32保-0、Wave2消-0，其它残差/归一化不变。GPU65536种half编码中63488有限，各182个有限输入（0.2867%）改变FP8输出，最大幅值编码差1ULP/数值差32；非有限变化0，按当前量化器语义记录。
+
+50/80三档ABBA A1/B1/B2/A2 median：720为13.490/13.400/13.423/13.573，900为22.762/22.552/22.615/22.871，1080为30.576/30.326/30.366/30.780。两个median均值13.5315→13.4115、22.8165→22.5835、30.6780→30.3460，速度比1.0089/1.0103/1.0109×。15次快验/正式运行invalid0/首末0/32LOCAL0，候选重复SHA一致；默认DVFS，分组min/median/Wall/独立profile与15核数据保留，不拼轮次。
+
+候选vsP19可见RGB peak1 PSNR43.582691/46.926900/46.763612dB，maxabs0.050379157/0.036648065/0.040914565；vsF32gold为43.206459/46.671080/46.312321（P19为43.577948/46.975322/46.100947），maxabs0.052299023/0.051891208/0.047206312。三档vsP19均未到50dB，720/900gold分数下降约0.37/0.30dB，不由极少原语边界差宣称图像几乎无损。
+
+裁决：仅约1%提速且质量条件未通过，PHASE20_HALF_ACT=False，保留Phase19严格默认；候选只作诊断并明确有损标记。没有把非0bit混入默认，没有再调参/扫描。[回执](hip-port/phase20/README.md)、[误差与核表](hip-port/phase20/results.md)、[验收](hip-port/phase20/validation.json)。20项既有回归通过，临时重复产物清理、证据保留。外部v0.2.0 DLL/三ZIP保护性哈希未变，不部署、不push，阶段独立commit。

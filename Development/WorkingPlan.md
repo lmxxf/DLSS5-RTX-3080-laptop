@@ -38,9 +38,42 @@
 
 ---
 
-## 3. 下一阶段深度优化路线图（Phase 16 ~ Phase 19，按确定性收益排序）
+## 3. 下一阶段深度优化路线图（双线并进：先摘 `ptx-patcher` 0-SHFL 核弹级果实，再推 `hip-port` Phase 17+）
 
-### Phase 16：ViT 四大核心 Epilogue 16B 向量化合并写（`TAIL_VEC` 全覆盖）+ `vit_stream_qkv` 访存瘦身（严格 `0 bit-diff`）
+### 紧急高优任务（路线 B `ptx-patcher` V2）：基于偶奇 K16 原位拆解恒等式的 **0-SHFL / 0-PRMT** 升级
+- **背景与逆向发现（2026-10-26，朱雀逆向 `/mnt/c/DLSS5-5090-dll/discord_v7/nvngx_dlssnr_309_v2i8_255_rtx2030_V7.dll`）**：
+  - 同机 `bench_sky.exe` 实测发现 Discord V7 DLL（510 MB）在 RTX 3080 Laptop 上跑出了 **720p `6.48 ms`、900p `9.62 ms`、1080p `12.16 ms`**（比我们 `v0.1.0` 的 `16.46 / 26.88 / 32.82 ms` 快 **2.54× ~ 2.79×**）。
+  - 经 `cuobjdump -sass / -res-usage` 与 `.rsrc` 二进制逆向，定位到我们 `v0.1.0` (`nvngx_dlssnr_sm86_fast.dll`) 慢的核心原因：
+    1. 在原版 `mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16` 中，每个线程 `t` 的 32-bit 寄存器持有同一行/列的 4 个 K 元素 `{byte0, byte1, byte2, byte3}`，且 **A 和 B 同一线程 `t` 持有的 4 个字节对应的 K 下标完全一致**；
+    2. 上游 `dlssnr-patcher`（及我们 `v0.1.0` 的 `build_sm86_dlls.py`）在将其拆成两条 `m16n8k16` 时，强行按 `{byte0, byte1}` 和 `{byte2, byte3}` 跨线程重组，导致每个 MMA 块都要声明 9 个洗牌辅助寄存器并执行大量 `shfl.sync.idx.b32`（`FB 00~03` 每个核高达 **`1,064 ~ 1,399` 条 `SHFL`**），且寄存器压力把 `FB 00/03/04/05/06` 挤出了 **`200 ~ 456 B` 的 `STACK`（Local Memory 栈溢出）**！
+    3. **偶奇 K16 原位拆解恒等式（0-SHFL、0-PRMT）**：
+       利用内积求和交换律 $\sum_{k=0}^{31} A_{i,k} B_{k,j} = \sum_{m=0}^{15} A_{i,2m} B_{2m,j} + \sum_{m=0}^{15} A_{i,2m+1} B_{2m+1,j}$：
+       - **第一条 `m16n8k16` 直接计算每个线程自身寄存器里的偶数字节对 `(byte0, byte2)`**（天然位于 `u32` 的 bit `0..7` 和 bit `16..23`，对齐在 `f16x2` 的两个 16-bit 槽位，**0 次 `shfl.sync`、0 次 `prmt.b32`**）：
+         ```ptx
+         and.b32 dlssnr_mag, REG, 0x007f007f;
+         and.b32 dlssnr_sgn, REG, 0x00800080;
+         mad.lo.u32 FIRST, dlssnr_sgn, 2, dlssnr_mag;
+         shl.b32 FIRST, FIRST, 7;
+         mul.rn.f16x2 FIRST, FIRST, dlssnr_fp8_scale; // 0x5c005c00
+         ```
+       - **第二条 `m16n8k16` 直接计算每个线程自身寄存器里的奇数字节对 `(byte1, byte3)`**（天然位于 bit `8..15` 和 bit `24..31`，**0 次 `shfl.sync`、0 次 `prmt.b32`**）：
+         ```ptx
+         and.b32 dlssnr_mag, REG, 0x7f007f00;
+         and.b32 dlssnr_sgn, REG, 0x80008000;
+         shr.u32 dlssnr_mag, dlssnr_mag, 1;
+         or.b32 SECOND, dlssnr_mag, dlssnr_sgn;
+         mul.rn.f16x2 SECOND, SECOND, dlssnr_fp8_scale; // 0x5c005c00
+         ```
+       - **对于 `mapped` 源 `(low, high)`（两个 `f16x2` 寄存器）**：
+         - 偶数对 `(val0, val2)` 直接用单条：`prmt.b32 FIRST, low, high, 0x5410;`
+         - 奇数对 `(val1, val3)` 直接用单条：`prmt.b32 SECOND, low, high, 0x7632;`
+         - **同样是 0 次 `shfl.sync`、0 次 `selp`！**
+- **实施方案（由闇执行）**：
+  1. 在 `Development/ptx-patcher/` 下基于上述偶奇 K16 原位拆解恒等式改写 `fast_render_fp8_mma_run`（保留 `multidef_nq` 安全 `mapped` 过滤），彻底移除 `render_fp8_mma_run` 中的 `dlssnr_lane / group / pair / source0 / source1 / parity / shuffle0 / shuffle1 / prmt_sel` 及所有 `shfl.sync`；
+  2. 编译生成新的 254 MB 原槽位 `O4` DLL，用 `cuobjdump -res-usage` 与 `-sass` 统计 FB 00~06 的 `SHFL` 数与 `STACK` 字节数变化；
+  3. 使用 `bench_sky.exe` 在 720p（天空）、900p、1080p 下同轮实测对比：① 旧 `nvngx_dlssnr_sm86_fast.dll`、② 新零洗牌 254 MB DLL、③ Discord V7 510 MB DLL 的耗时、相对原版 PSNR 与天空色带指标，并记录剩余差距（评估是否还需借鉴 V7 的 `.rsrc` 权重预解包）。
+
+### Phase 16（已完成，`585fda1`）：ViT 四大核心 Epilogue 16B 向量化合并写（`TAIL_VEC` 全覆盖）
 - **物理机制与源码证据**：
   1. 在 [`hip/deep_fast.hip`](hip/deep_fast.hip) 第 711~718 行中，`vit_expand_blocked_body_w16`（1080p 耗时 `1.132 ms`，`2,560` 个 block）默认走 `#else` 分支：每个 lane 发出 32 条跨 4096 字节步长的单字节 `st.global.u8` 散写，导致 L1/L2 写事务严重分裂。而第 711 行的 `#if VIT_EXPAND_TAIL_VEC` 利用 `1024 B` Shared Memory `t8[1024]` 将 `16×64` 字节在片上排成连续行，每个 lane 仅发出 **2 条 16 字节对齐的 `st.global.v4.u32` (`b128`) 合并写**，且 `vit_expand` 当前 `Shared = 0 B, Regs = 80, OccW = 16`，加 `1024 B` Shared 后 `OccW` 保持 `16` 不变！
   2. 同理，在 [`hip/deep_fast.hip`](hip/deep_fast.hip) 第 794 行的 `vit_contract_blocked_body`（`vit_stream_contract_frag_bstream_bout`，耗时 `1.207 ms`，已自带 4096 B `occ_pad` Shared Memory）和 [`hip/vit_stream.inc`](hip/vit_stream.inc) 第 66 行的 `vit_stream_project_tiles`（`vit_stream_project_n64_bb_bout`，耗时 `0.352 ms`）中，Epilogue 同样是每个 lane 发出 32 条跨 1024 字节步长的 `st.global.u8` 散写！直接复用/引入 `1024 B` Shared Memory `t8[1024]` 做与 `VIT_EXPAND_TAIL_VEC` 完全同构的 `16×64` 片上转置 + 2 条 `b128` 向量化合并写出。

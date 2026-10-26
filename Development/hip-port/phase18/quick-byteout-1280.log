@@ -1,0 +1,32 @@
+
+================================================================
+Running Case: 0.5x_Small_720p (31-block, 1280x768)
+================================================================
+model requested=0.5x effective=0.5x blocks=31 assets=/home/lmxxf/work/dlss5-assets/native-game-tiled-assets/small reason=small-ready
+multi_pass=1 multi_pass_predict=0 actual_network_passes=1
+vit_contract_byte_edge=1
+c32_norm900 scope=0 loaded=0 selected=c32-wave1-fast.hsaco processing=1280x768 fast_numeric=1 mp=1 graph=0 experimental=0
+DLSS5_FAST_NUMERIC=1: multihead-fast-padded-wave-packed-fast.hsaco missing, using multihead-fast-padded-wave-packed.hsaco
+pool64_byte_edge=1
+C32_HALF_WEIGHT key=block0-attention.f32@c32fp8 attention=1 old_bytes=32900 new_bytes=41104 appended_bytes=8204
+C32_HALF_WEIGHT key=block0-ffn.f32@c32fp8 attention=0 old_bytes=41088 new_bytes=60544 appended_bytes=19456
+C32_HALF_WEIGHT key=block1-attention.f32@c32fp8 attention=1 old_bytes=32900 new_bytes=41104 appended_bytes=8204
+C32_HALF_WEIGHT key=block1-ffn.f32@c32fp8 attention=0 old_bytes=41088 new_bytes=60544 appended_bytes=19456
+C32_HALF_WEIGHT key=block4-attention.f32@c32fp8 attention=1 old_bytes=32900 new_bytes=41104 appended_bytes=8204
+C32_HALF_WEIGHT key=block4-ffn.f32@c32fp8 attention=0 old_bytes=41088 new_bytes=60544 appended_bytes=19456
+CONTRACT_COMPACT key=block31-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block31-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block32-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block32-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block33-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block33-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block34-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block34-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block35-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block35-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block36-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block36-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block37-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block37-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0
+CONTRACT_COMPACT key=block38-contract.f32@vit-frag@compact-contract bytes=4198400 legacy_held=0
+PROJECTION_COMPACT key=block38-projection.f32@vit-proj-frag@compact-projection bytes=1052672 legacy_held=0

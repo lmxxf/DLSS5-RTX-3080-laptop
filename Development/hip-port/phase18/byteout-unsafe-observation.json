@@ -1,0 +1,8 @@
+{
+  "variant": "initial byteout",
+  "pid": 2365876,
+  "observed_seconds": 200,
+  "observation": "Prepare/prewarm did not finish;100percent GPU utilization;pack D-to-RDNA4 warp shuffle inside lane-divergent valid-pixel branch",
+  "action": "kill only owned benchmark process;move complete half packing to warp-uniform point before clipping",
+  "production_or_deployment_change": false
+}

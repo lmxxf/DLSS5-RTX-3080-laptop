@@ -1,0 +1,62 @@
+quick-contract 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+quick-contract 1280   GPU  (ms): mean=13.721 median=13.709 p90=13.790 p99=13.790 min=13.682 max=13.790
+quick-contract 1280   Wall (ms): mean=13.798 median=13.775 p90=13.865 p99=13.865 min=13.744 max=13.865
+quick-contract 1280 PROFILE_TOTAL 13.954048 kernels=32
+quick-contract 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+quick-contract 1600   GPU  (ms): mean=22.774 median=22.825 p90=23.158 p99=23.158 min=22.419 max=23.158
+quick-contract 1600   Wall (ms): mean=22.916 median=22.900 p90=23.405 p99=23.405 min=22.589 max=23.405
+quick-contract 1600 PROFILE_TOTAL 20.774944 kernels=32
+quick-contract 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+quick-contract 1920   GPU  (ms): mean=30.214 median=30.258 p90=30.469 p99=30.469 min=29.868 max=30.469
+quick-contract 1920   Wall (ms): mean=30.321 median=30.340 p90=30.600 p99=30.600 min=29.966 max=30.600
+quick-contract 1920 PROFILE_TOTAL 27.160576 kernels=32
+SITE contract numeric True LMem0 True
+quick-result 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+quick-result 1280   GPU  (ms): mean=13.996 median=13.624 p90=15.145 p99=15.145 min=13.540 max=15.145
+quick-result 1280   Wall (ms): mean=14.087 median=13.692 p90=15.249 p99=15.249 min=13.667 max=15.249
+quick-result 1280 PROFILE_TOTAL 13.590528 kernels=32
+quick-result 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+quick-result 1600   GPU  (ms): mean=22.871 median=22.917 p90=23.022 p99=23.022 min=22.598 max=23.022
+quick-result 1600   Wall (ms): mean=22.993 median=23.052 p90=23.126 p99=23.126 min=22.682 max=23.126
+quick-result 1600 PROFILE_TOTAL 20.790272 kernels=32
+quick-result 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+quick-result 1920   GPU  (ms): mean=30.538 median=30.309 p90=31.258 p99=31.258 min=30.131 max=31.258
+quick-result 1920   Wall (ms): mean=30.637 median=30.433 p90=31.344 p99=31.344 min=30.220 max=31.344
+quick-result 1920 PROFILE_TOTAL 27.467776 kernels=32
+SITE result numeric True LMem0 True
+quick-v 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+quick-v 1280   GPU  (ms): mean=14.022 median=13.913 p90=14.865 p99=14.865 min=13.506 max=14.865
+quick-v 1280   Wall (ms): mean=14.104 median=13.973 p90=14.937 p99=14.937 min=13.591 max=14.937
+quick-v 1280 PROFILE_TOTAL 12.994560 kernels=32
+quick-v 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+quick-v 1600   GPU  (ms): mean=23.178 median=23.175 p90=23.889 p99=23.889 min=22.632 max=23.889
+quick-v 1600   Wall (ms): mean=23.288 median=23.287 p90=24.003 p99=24.003 min=22.753 max=24.003
+quick-v 1600 PROFILE_TOTAL 22.173696 kernels=32
+quick-v 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+quick-v 1920   GPU  (ms): mean=30.449 median=30.326 p90=30.900 p99=30.900 min=30.249 max=30.900
+quick-v 1920   Wall (ms): mean=30.555 median=30.457 p90=30.996 p99=30.996 min=30.344 max=30.996
+quick-v 1920 PROFILE_TOTAL 27.233280 kernels=32
+SITE v numeric True LMem0 True
+quick-av 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+quick-av 1280   GPU  (ms): mean=13.594 median=13.584 p90=13.786 p99=13.786 min=13.380 max=13.786
+quick-av 1280   Wall (ms): mean=13.682 median=13.663 p90=13.887 p99=13.887 min=13.472 max=13.887
+quick-av 1280 PROFILE_TOTAL 12.979104 kernels=32
+quick-av 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+quick-av 1600   GPU  (ms): mean=23.055 median=23.130 p90=23.209 p99=23.209 min=22.761 max=23.209
+quick-av 1600   Wall (ms): mean=23.134 median=23.180 p90=23.320 p99=23.320 min=22.864 max=23.320
+quick-av 1600 PROFILE_TOTAL 20.860928 kernels=32
+quick-av 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+quick-av 1920   GPU  (ms): mean=30.538 median=30.530 p90=30.913 p99=30.913 min=30.310 max=30.913
+quick-av 1920   Wall (ms): mean=30.614 median=30.629 p90=30.989 p99=30.989 min=30.361 max=30.989
+quick-av 1920 PROFILE_TOTAL 27.237440 kernels=32
+SITE av numeric True LMem0 True
+Traceback (most recent call last):
+  File "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase18/bench.py", line 17, in <module>
+    (p/f'{a.variant}-{w}-run.json').write_text(json.dumps(row,indent=2)+'\n');assert ret.returncode==0,log
+AssertionError: /home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase18/quick-byteout-1280.log
+Traceback (most recent call last):
+  File "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase18/run_quicks.py", line 7, in <module>
+    subprocess.run(['python3',str(p/'bench.py'),'quick-'+site,'--modules',builds[site]['modules'],'--warmup','3','--iterations','5'],check=True)
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', '/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase18/bench.py', 'quick-byteout', '--modules', '/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase18/artifacts/byteout/modules', '--warmup', '3', '--iterations', '5']' returned non-zero exit status 1.

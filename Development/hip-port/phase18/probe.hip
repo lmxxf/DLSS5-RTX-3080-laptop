@@ -1,0 +1,12 @@
+using U=unsigned;
+SM86_DEV sm86_i2 scalar_pack(sm86_f8 f,U mode){U lo=0,hi=0;_Pragma("unroll") for(U e=0;e<8;e++){float x=f[e];
+ if(mode==0||mode==4){U raw=__builtin_bit_cast(U,x)&0xffffe000u;x=__builtin_bit_cast(float,raw);}
+ if(mode<=4&&mode!=2)asm("add.rn.f32 %0,%1,0f00000000;":"=f"(x):"f"(x));
+ if(mode==2)asm("fma.rn.f32 %0,%1,0f3f800000,0f00000000;":"=f"(x):"f"(x));
+ U q=sm86_f32_to_e4m3_byte(x);if(e<4)lo|=q<<(e*8);else hi|=q<<((e-4)*8);}return sm86_i2{int(lo),int(hi)};}
+SM86_DEV sm86_i2 new_pack(sm86_u4 d,U mode){
+ if(mode==4)return sm86_pack_ad_producer<true>(sm86_d_to_rdna4_half_bits(d));
+ return sm86_d_bytes_to_ab(mode<=4?sm86_pack_ad_producer<true>(d):sm86_pack_ad_producer<false>(d));
+}
+extern "C" __attribute__((global)) void producer(const U* in,U* out,U n,U mode){U w=__builtin_amdgcn_workgroup_id_x(),l=sm86_lane_id();if(w>=n)return;sm86_u4 d;_Pragma("unroll") for(U e=0;e<4;e++)d[e]=in[(w*32+l)*4+e];sm86_f8 f=__sm86_d_to_rdna4(d);sm86_i2 ref=scalar_pack(f,mode);if(mode!=4)ref=sm86_preshuffle_fp8(ref);sm86_i2 got=new_pack(d,mode);out[(w*32+l)*4]=ref[0];out[(w*32+l)*4+1]=ref[1];out[(w*32+l)*4+2]=got[0];out[(w*32+l)*4+3]=got[1];}
+extern "C" __attribute__((global)) void mma_producer(const U* a,const U* b,const U* c,U* out,U n,U mode,U steps){U w=__builtin_amdgcn_workgroup_id_x(),l=sm86_lane_id();if(w>=n)return;sm86_u4 x,y,d;_Pragma("unroll") for(U e=0;e<4;e++){x[e]=a[(w*32+l)*4+e];y[e]=b[(w*32+l)*4+e];d[e]=c[(w*32+l)*4+e];}for(U k=0;k<steps;k++)d=sm86_mma_prepared_core(x,y,d);sm86_i2 ref=scalar_pack(__sm86_d_to_rdna4(d),mode);if(mode!=4)ref=sm86_preshuffle_fp8(ref);sm86_i2 got=new_pack(d,mode);out[(w*32+l)*4]=ref[0];out[(w*32+l)*4+1]=ref[1];out[(w*32+l)*4+2]=got[0];out[(w*32+l)*4+3]=got[1];}

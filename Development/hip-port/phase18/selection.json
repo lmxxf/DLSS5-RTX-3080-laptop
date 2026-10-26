@@ -1,0 +1,16 @@
+{
+  "control": "fuse7",
+  "sites": {
+    "c64-wave2-fast": [
+      "byteout"
+    ],
+    "c32-wave1-fast": [
+      "c32-v"
+    ]
+  },
+  "C256_cap": null,
+  "QKV_mask": 7,
+  "reason": "C32 V and ByteOut positive across3tiers;Fuse7 strongest repeatable1080screen;128caps fail zero-spill;168no occupancy gain and no consistent added speed",
+  "adopted": true,
+  "final_comparison": "all6 paired medians faster;3tier mean ratios1.0132/1.0084/1.0070"
+}

@@ -1,0 +1,16 @@
+control-quick-all-cap168 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+control-quick-all-cap168 1280   GPU  (ms): mean=13.937 median=13.674 p90=14.612 p99=14.612 min=13.615 max=14.612
+control-quick-all-cap168 1280   Wall (ms): mean=14.026 median=13.737 p90=14.707 p99=14.707 min=13.678 max=14.707
+control-quick-all-cap168 1280 PROFILE_TOTAL 13.114368 kernels=32
+control-quick-all-cap168 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+control-quick-all-cap168 1600   GPU  (ms): mean=22.544 median=22.439 p90=22.963 p99=22.963 min=22.267 max=22.963
+control-quick-all-cap168 1600   Wall (ms): mean=22.647 median=22.510 p90=23.113 p99=23.113 min=22.339 max=23.113
+control-quick-all-cap168 1600 PROFILE_TOTAL 21.292064 kernels=32
+control-quick-all-cap168 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+control-quick-all-cap168 1920   GPU  (ms): mean=30.063 median=29.911 p90=30.841 p99=30.841 min=29.747 max=30.841
+control-quick-all-cap168 1920   Wall (ms): mean=30.149 median=30.024 p90=30.934 p99=30.934 min=29.811 max=30.934
+control-quick-all-cap168 1920 PROFILE_TOTAL 27.297792 kernels=32
+PASS_QUICK all-cap168
+REJECT_RESOURCE all-cap128 {'c256_wave2_bi_bo_w16': 8, 'c256_wave2_bi_w16': 8}
+REJECT_RESOURCE fuse7-cap128 {'c256_wave2_bi_bo_w16': 48, 'c256_wave2_bi_w16': 48}
+REJECT_RESOURCE pair15-cap128 {'c256_wave2_bi_bo_w16': 48, 'c256_wave2_bi_w16': 48}

@@ -1,0 +1,92 @@
+control-quick-pack2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+control-quick-pack2 1280   GPU  (ms): mean=13.778 median=13.788 p90=13.816 p99=13.816 min=13.744 max=13.816
+control-quick-pack2 1280   Wall (ms): mean=13.849 median=13.844 p90=13.884 p99=13.884 min=13.803 max=13.884
+control-quick-pack2 1280 PROFILE_TOTAL 13.897728 kernels=32
+control-quick-pack2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+control-quick-pack2 1600   GPU  (ms): mean=22.669 median=22.645 p90=22.855 p99=22.855 min=22.537 max=22.855
+control-quick-pack2 1600   Wall (ms): mean=22.772 median=22.703 p90=23.030 p99=23.030 min=22.619 max=23.030
+control-quick-pack2 1600 PROFILE_TOTAL 20.765728 kernels=32
+control-quick-pack2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+control-quick-pack2 1920   GPU  (ms): mean=30.578 median=29.948 p90=32.008 p99=32.008 min=29.807 max=32.008
+control-quick-pack2 1920   Wall (ms): mean=30.689 median=30.080 p90=32.101 p99=32.101 min=29.962 max=32.101
+control-quick-pack2 1920 PROFILE_TOTAL 27.163648 kernels=32
+PASS_QUICK pack2
+control-quick-pack-all 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+control-quick-pack-all 1280   GPU  (ms): mean=13.621 median=13.554 p90=13.751 p99=13.751 min=13.510 max=13.751
+control-quick-pack-all 1280   Wall (ms): mean=13.740 median=13.732 p90=13.947 p99=13.947 min=13.566 max=13.947
+control-quick-pack-all 1280 PROFILE_TOTAL 12.747776 kernels=32
+control-quick-pack-all 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+control-quick-pack-all 1600   GPU  (ms): mean=22.629 median=22.526 p90=22.899 p99=22.899 min=22.403 max=22.899
+control-quick-pack-all 1600   Wall (ms): mean=22.724 median=22.593 p90=23.053 p99=23.053 min=22.460 max=23.053
+control-quick-pack-all 1600 PROFILE_TOTAL 20.691968 kernels=32
+control-quick-pack-all 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+control-quick-pack-all 1920   GPU  (ms): mean=30.466 median=30.495 p90=31.152 p99=31.152 min=29.913 max=31.152
+control-quick-pack-all 1920   Wall (ms): mean=30.582 median=30.614 p90=31.229 p99=31.229 min=30.008 max=31.229
+control-quick-pack-all 1920 PROFILE_TOTAL 27.074560 kernels=32
+PASS_QUICK pack-all
+REJECT_RESOURCE cap128 {'c256_wave2_bi_bo_w16': 8, 'c256_wave2_bi_w16': 8}
+control-quick-cap168 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+control-quick-cap168 1280   GPU  (ms): mean=13.714 median=13.685 p90=13.996 p99=13.996 min=13.518 max=13.996
+control-quick-cap168 1280   Wall (ms): mean=13.822 median=13.751 p90=14.096 p99=14.096 min=13.635 max=14.096
+control-quick-cap168 1280 PROFILE_TOTAL 13.045760 kernels=32
+control-quick-cap168 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+control-quick-cap168 1600   GPU  (ms): mean=22.642 median=22.668 p90=22.753 p99=22.753 min=22.542 max=22.753
+control-quick-cap168 1600   Wall (ms): mean=22.752 median=22.743 p90=22.912 p99=22.912 min=22.623 max=22.912
+control-quick-cap168 1600 PROFILE_TOTAL 20.751360 kernels=32
+control-quick-cap168 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+control-quick-cap168 1920   GPU  (ms): mean=30.581 median=30.366 p90=31.767 p99=31.767 min=30.031 max=31.767
+control-quick-cap168 1920   Wall (ms): mean=30.691 median=30.537 p90=31.836 p99=31.836 min=30.099 max=31.836
+control-quick-cap168 1920 PROFILE_TOTAL 27.395072 kernels=32
+PASS_QUICK cap168
+control-quick-fuse7 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+control-quick-fuse7 1280   GPU  (ms): mean=13.682 median=13.541 p90=14.342 p99=14.342 min=13.397 max=14.342
+control-quick-fuse7 1280   Wall (ms): mean=13.781 median=13.615 p90=14.526 p99=14.526 min=13.479 max=14.526
+control-quick-fuse7 1280 PROFILE_TOTAL 12.992512 kernels=32
+control-quick-fuse7 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+control-quick-fuse7 1600   GPU  (ms): mean=22.819 median=22.789 p90=22.893 p99=22.893 min=22.759 max=22.893
+control-quick-fuse7 1600   Wall (ms): mean=22.904 median=22.908 p90=22.963 p99=22.963 min=22.835 max=22.963
+control-quick-fuse7 1600 PROFILE_TOTAL 20.869120 kernels=32
+control-quick-fuse7 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+control-quick-fuse7 1920   GPU  (ms): mean=30.724 median=30.966 p90=31.493 p99=31.493 min=29.836 max=31.493
+control-quick-fuse7 1920   Wall (ms): mean=30.825 median=31.083 p90=31.592 p99=31.592 min=29.904 max=31.592
+control-quick-fuse7 1920 PROFILE_TOTAL 26.901504 kernels=32
+PASS_QUICK fuse7
+control-quick-pair15 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+control-quick-pair15 1280   GPU  (ms): mean=13.526 median=13.531 p90=13.607 p99=13.607 min=13.429 max=13.607
+control-quick-pair15 1280   Wall (ms): mean=13.615 median=13.604 p90=13.689 p99=13.689 min=13.562 max=13.689
+control-quick-pair15 1280 PROFILE_TOTAL 13.007872 kernels=32
+control-quick-pair15 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+control-quick-pair15 1600   GPU  (ms): mean=22.744 median=22.772 p90=22.779 p99=22.779 min=22.674 max=22.779
+control-quick-pair15 1600   Wall (ms): mean=22.846 median=22.842 p90=22.941 p99=22.941 min=22.738 max=22.941
+control-quick-pair15 1600 PROFILE_TOTAL 20.674560 kernels=32
+control-quick-pair15 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+control-quick-pair15 1920   GPU  (ms): mean=30.463 median=30.358 p90=31.063 p99=31.063 min=30.167 max=31.063
+control-quick-pair15 1920   Wall (ms): mean=30.545 median=30.460 p90=31.149 p99=31.149 min=30.233 max=31.149
+control-quick-pair15 1920 PROFILE_TOTAL 26.989568 kernels=32
+PASS_QUICK pair15
+control-quick-fuse7-cap168 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+control-quick-fuse7-cap168 1280   GPU  (ms): mean=13.589 median=13.566 p90=13.656 p99=13.656 min=13.541 max=13.656
+control-quick-fuse7-cap168 1280   Wall (ms): mean=13.664 median=13.624 p90=13.774 p99=13.774 min=13.607 max=13.774
+control-quick-fuse7-cap168 1280 PROFILE_TOTAL 12.971008 kernels=32
+control-quick-fuse7-cap168 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+control-quick-fuse7-cap168 1600   GPU  (ms): mean=22.729 median=22.735 p90=22.789 p99=22.789 min=22.674 max=22.789
+control-quick-fuse7-cap168 1600   Wall (ms): mean=22.835 median=22.855 p90=22.884 p99=22.884 min=22.779 max=22.884
+control-quick-fuse7-cap168 1600 PROFILE_TOTAL 20.571136 kernels=32
+control-quick-fuse7-cap168 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+control-quick-fuse7-cap168 1920   GPU  (ms): mean=30.356 median=30.253 p90=31.024 p99=31.024 min=29.823 max=31.024
+control-quick-fuse7-cap168 1920   Wall (ms): mean=30.475 median=30.414 p90=31.136 p99=31.136 min=29.960 max=31.136
+control-quick-fuse7-cap168 1920 PROFILE_TOTAL 26.897440 kernels=32
+PASS_QUICK fuse7-cap168
+control-quick-pair15-cap168 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+control-quick-pair15-cap168 1280   GPU  (ms): mean=13.570 median=13.571 p90=13.692 p99=13.692 min=13.484 max=13.692
+control-quick-pair15-cap168 1280   Wall (ms): mean=13.657 median=13.703 p90=13.759 p99=13.759 min=13.544 max=13.759
+control-quick-pair15-cap168 1280 PROFILE_TOTAL 12.845056 kernels=32
+control-quick-pair15-cap168 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+control-quick-pair15-cap168 1600   GPU  (ms): mean=22.714 median=22.655 p90=22.917 p99=22.917 min=22.580 max=22.917
+control-quick-pair15-cap168 1600   Wall (ms): mean=22.808 median=22.727 p90=23.065 p99=23.065 min=22.649 max=23.065
+control-quick-pair15-cap168 1600 PROFILE_TOTAL 20.661248 kernels=32
+control-quick-pair15-cap168 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+control-quick-pair15-cap168 1920   GPU  (ms): mean=30.539 median=30.401 p90=31.363 p99=31.363 min=29.999 max=31.363
+control-quick-pair15-cap168 1920   Wall (ms): mean=30.643 median=30.497 p90=31.497 p99=31.497 min=30.063 max=31.497
+control-quick-pair15-cap168 1920 PROFILE_TOTAL 27.995136 kernels=32
+PASS_QUICK pair15-cap168

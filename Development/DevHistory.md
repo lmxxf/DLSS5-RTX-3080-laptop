@@ -824,3 +824,18 @@ Windows：三包Feature18 create/evaluate成功、全部finite；两个OptiScale
 实际12个C32缓冲443928→609888B（+165960），纯FP8矩阵82944B，新增FP16矩阵165888B，另72B对齐；不能把旧0.39MiB预算当纯矩阵数据。本机L2查询4194304B但ncu不可用，未采L1/L2命中率/DRAM计数，不宣称100%常驻。六核SASS HMUL2和PRMT均下降，仅作静态指令证据。初始memcpy读只做3/5快验，不充正式长测；单核fixture最初按half为raw输出多分配一倍，哨兵检查后按源码FP8输出修正，无生产数值修复。
 
 [Phase17回执](hip-port/phase17/README.md)、[ABBA与六核](hip-port/phase17/summary.md)、[全核资源/结果](hip-port/phase17/results.md)、[验收](hip-port/phase17/validation.json)。默认产物hip-port/phase17/artifacts/selected/modules（candidate的无重复别名），保留40模块/PTX/生成源与SHA，清理重复RGB/单核权重/中间产物。读取核对外部v0.2.0生产DLL与3ZIP哈希全部未变，不部署、不push，阶段独立commit。
+
+
+## 2026-10-27：hip-port Phase18，纯half生产者逐站验证＋C256控制（闇）
+
+以Phase17 selected为唯一基线。七候选contract/result/Wave2V/AV/ByteOut/C32Prefix/C32V分别65536种half×256位置、256单点布局穷举，含±0/NaNInf和实际MMA步数，全部0字节差。Wave2 AddZero=true，C32 false；Q/K归一化、float激活、RTZ/MMA顺序不动。ByteOut需D→RDNA4 half位重排，且必须在像素裁剪前全warp完成。首版放在裁剪内致预热挂起约200秒，只终止该进程；修正后再进入正式计时并加防回归，原失败无性能成绩。
+
+七站各三档50/80 ABBA共84次，均Phase17全幅0bit/invalid0/首末0/32LOCAL0；峰值REG/OccW没有逐站下降，不把省转换说成占用率提升。只保留方向稳定的ByteOut（720/900/1080均值差-0.0655/-0.0385/-0.0585ms）与C32V（-0.0630/-0.0325/-0.1100），其它站点混合/近零，不推广。完整7站4次数据与负结果保留。
+
+C256128cap两目标核各8B STACK；全量打包+128仍8B；fuse/pair+128各48B，违反门槛不计时。168cap可零spill、REG168，但256线程块仍OccW8，1080对pack2均值差+0.029ms，无可靠净收益，不采用。另7个资源通过控制1080做28次50/80 ABBA，fuse7对pack2-0.218ms最稳定；pair、全量、cap组合未优先。采用QKV mask7（保留原C64/128位1/2，加C256 bit4），不加pair8，不强压cap。
+
+最终默认仅C32V＋Wave2ByteOut＋QKVmask7；C256仍226regs/48KB/OccW8，**占用率未突破**。相对Phase17最终三档ABBA A1/B1/B2/A2 median(ms)：720为13.817/13.648/13.661/13.852，900为23.212/22.971/23.217/23.366，1080为31.091/30.916/31.037/31.294。两次median均值A→B为13.8345→13.6545、23.2890→23.0940、31.1925→30.9765，速度比1.0132/1.0084/1.0070×；六次配对都更快，采用小幅正收益默认。保留每次min/median/Wall/独立PROFILE_TOTAL、15个C32/Wave2核和原始遥测，不拼轮次/不作等频或气泡归因。
+
+169次成功快验/正式运行全部对Phase17全幅0bit、invalid0、首末0、32/32 LMem0；1次首版ByteOut未完成并排除。最终重建两个变化模块与实测SHA相同，38模块保留Phase17；实际加载40模块1918entry。20项Python/LLVM回归通过。默认产物phase18/artifacts/selected/modules，V3权重ABI和Phase17 Host不变。临时重复模块/输出清理，源/日志/资源/哈希保留。
+
+[Phase18回执](hip-port/phase18/README.md)、[逐站ABBA](hip-port/phase18/site-summary.md)、[C256控制](hip-port/phase18/screen-summary.md)、[最终三档与15核](hip-port/phase18/final-summary.md)、[验收](hip-port/phase18/validation.json)。外部v0.2.0主DLL与三ZIP保护性SHA核验未变，无共享assets/游戏/Magpie/发布包写入，不push，阶段独立commit。下一阶段不在本轮启动。

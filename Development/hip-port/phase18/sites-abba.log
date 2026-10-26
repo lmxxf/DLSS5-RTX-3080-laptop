@@ -1,0 +1,343 @@
+baseline-contract-a 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-contract-a 1280   GPU  (ms): mean=13.939 median=13.883 p90=14.322 p99=14.814 min=13.587 max=14.814
+baseline-contract-a 1280   Wall (ms): mean=14.025 median=13.954 p90=14.405 p99=14.899 min=13.650 max=14.899
+baseline-contract-a 1280 PROFILE_TOTAL 13.732864 kernels=32
+site-contract-b 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-contract-b 1280   GPU  (ms): mean=13.929 median=13.825 p90=14.340 p99=14.973 min=13.605 max=14.973
+site-contract-b 1280   Wall (ms): mean=14.023 median=13.932 p90=14.428 p99=15.067 min=13.684 max=15.067
+site-contract-b 1280 PROFILE_TOTAL 14.302208 kernels=32
+site-contract-b2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-contract-b2 1280   GPU  (ms): mean=13.897 median=13.804 p90=14.303 p99=14.763 min=13.609 max=14.763
+site-contract-b2 1280   Wall (ms): mean=13.979 median=13.906 p90=14.391 p99=14.830 min=13.668 max=14.830
+site-contract-b2 1280 PROFILE_TOTAL 13.206528 kernels=32
+baseline-contract-a2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-contract-a2 1280   GPU  (ms): mean=13.920 median=13.814 p90=14.344 p99=14.902 min=13.678 max=14.902
+baseline-contract-a2 1280   Wall (ms): mean=14.003 median=13.877 p90=14.423 p99=14.956 min=13.737 max=14.956
+baseline-contract-a2 1280 PROFILE_TOTAL 14.148608 kernels=32
+baseline-contract-a 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-contract-a 1600   GPU  (ms): mean=23.196 median=23.078 p90=23.593 p99=24.833 min=22.576 max=24.833
+baseline-contract-a 1600   Wall (ms): mean=23.287 median=23.157 p90=23.666 p99=24.910 min=22.747 max=24.910
+baseline-contract-a 1600 PROFILE_TOTAL 20.898848 kernels=32
+site-contract-b 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-contract-b 1600   GPU  (ms): mean=23.239 median=23.215 p90=23.495 p99=24.910 min=22.767 max=24.910
+site-contract-b 1600   Wall (ms): mean=23.326 median=23.294 p90=23.597 p99=24.994 min=22.847 max=24.994
+site-contract-b 1600 PROFILE_TOTAL 20.893696 kernels=32
+site-contract-b2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-contract-b2 1600   GPU  (ms): mean=23.284 median=23.184 p90=23.668 p99=25.184 min=22.588 max=25.184
+site-contract-b2 1600   Wall (ms): mean=23.377 median=23.282 p90=23.787 p99=25.278 min=22.740 max=25.278
+site-contract-b2 1600 PROFILE_TOTAL 20.918272 kernels=32
+baseline-contract-a2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-contract-a2 1600   GPU  (ms): mean=23.336 median=23.260 p90=23.612 p99=25.115 min=22.787 max=25.115
+baseline-contract-a2 1600   Wall (ms): mean=23.424 median=23.355 p90=23.683 p99=25.197 min=22.864 max=25.197
+baseline-contract-a2 1600 PROFILE_TOTAL 20.917120 kernels=32
+baseline-contract-a 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-contract-a 1920   GPU  (ms): mean=31.133 median=31.075 p90=31.638 p99=32.499 min=30.649 max=32.499
+baseline-contract-a 1920   Wall (ms): mean=31.234 median=31.154 p90=31.717 p99=32.584 min=30.745 max=32.584
+baseline-contract-a 1920 PROFILE_TOTAL 27.637760 kernels=32
+site-contract-b 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-contract-b 1920   GPU  (ms): mean=31.197 median=31.099 p90=31.688 p99=32.758 min=30.777 max=32.758
+site-contract-b 1920   Wall (ms): mean=31.305 median=31.204 p90=31.811 p99=32.843 min=30.865 max=32.843
+site-contract-b 1920 PROFILE_TOTAL 27.915264 kernels=32
+site-contract-b2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-contract-b2 1920   GPU  (ms): mean=31.250 median=31.177 p90=31.651 p99=32.743 min=30.710 max=32.743
+site-contract-b2 1920   Wall (ms): mean=31.374 median=31.297 p90=31.893 p99=32.844 min=30.814 max=32.844
+site-contract-b2 1920 PROFILE_TOTAL 28.350464 kernels=32
+baseline-contract-a2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-contract-a2 1920   GPU  (ms): mean=31.298 median=31.207 p90=31.862 p99=32.748 min=30.781 max=32.748
+baseline-contract-a2 1920   Wall (ms): mean=31.402 median=31.300 p90=32.203 p99=32.814 min=30.857 max=32.814
+baseline-contract-a2 1920 PROFILE_TOTAL 27.381760 kernels=32
+COMPLETE_SITE contract
+baseline-result-a 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-result-a 1280   GPU  (ms): mean=14.145 median=14.094 p90=14.410 p99=15.419 min=13.904 max=15.419
+baseline-result-a 1280   Wall (ms): mean=14.240 median=14.174 p90=14.515 p99=15.490 min=13.971 max=15.490
+baseline-result-a 1280 PROFILE_TOTAL 13.010944 kernels=32
+site-result-b 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-result-b 1280   GPU  (ms): mean=14.189 median=14.096 p90=14.490 p99=15.481 min=13.922 max=15.481
+site-result-b 1280   Wall (ms): mean=14.278 median=14.184 p90=14.572 p99=15.587 min=13.995 max=15.587
+site-result-b 1280 PROFILE_TOTAL 12.893216 kernels=32
+site-result-b2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-result-b2 1280   GPU  (ms): mean=14.176 median=14.088 p90=14.555 p99=15.130 min=13.813 max=15.130
+site-result-b2 1280   Wall (ms): mean=14.269 median=14.178 p90=14.652 p99=15.192 min=13.889 max=15.192
+site-result-b2 1280 PROFILE_TOTAL 13.228032 kernels=32
+baseline-result-a2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-result-a2 1280   GPU  (ms): mean=14.185 median=14.109 p90=14.578 p99=15.249 min=13.948 max=15.249
+baseline-result-a2 1280   Wall (ms): mean=14.274 median=14.192 p90=14.651 p99=15.307 min=14.025 max=15.307
+baseline-result-a2 1280 PROFILE_TOTAL 13.246464 kernels=32
+baseline-result-a 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-result-a 1600   GPU  (ms): mean=23.569 median=23.457 p90=24.283 p99=24.969 min=23.052 max=24.969
+baseline-result-a 1600   Wall (ms): mean=23.659 median=23.541 p90=24.374 p99=25.054 min=23.118 max=25.054
+baseline-result-a 1600 PROFILE_TOTAL 20.932608 kernels=32
+site-result-b 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-result-b 1600   GPU  (ms): mean=23.558 median=23.474 p90=24.105 p99=24.629 min=23.060 max=24.629
+site-result-b 1600   Wall (ms): mean=23.654 median=23.577 p90=24.206 p99=24.726 min=23.144 max=24.726
+site-result-b 1600 PROFILE_TOTAL 20.918272 kernels=32
+site-result-b2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-result-b2 1600   GPU  (ms): mean=23.598 median=23.603 p90=23.976 p99=24.236 min=23.185 max=24.236
+site-result-b2 1600   Wall (ms): mean=23.686 median=23.700 p90=24.056 p99=24.418 min=23.253 max=24.418
+site-result-b2 1600 PROFILE_TOTAL 20.929536 kernels=32
+baseline-result-a2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-result-a2 1600   GPU  (ms): mean=23.665 median=23.592 p90=24.071 p99=25.374 min=23.200 max=25.374
+baseline-result-a2 1600   Wall (ms): mean=23.758 median=23.707 p90=24.164 p99=25.479 min=23.284 max=25.479
+baseline-result-a2 1600 PROFILE_TOTAL 20.970496 kernels=32
+baseline-result-a 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-result-a 1920   GPU  (ms): mean=31.393 median=31.305 p90=31.854 p99=32.541 min=30.852 max=32.541
+baseline-result-a 1920   Wall (ms): mean=31.505 median=31.406 p90=31.982 p99=32.695 min=30.949 max=32.695
+baseline-result-a 1920 PROFILE_TOTAL 27.802624 kernels=32
+site-result-b 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-result-b 1920   GPU  (ms): mean=31.410 median=31.324 p90=31.724 p99=33.379 min=30.788 max=33.379
+site-result-b 1920   Wall (ms): mean=31.503 median=31.432 p90=31.803 p99=33.473 min=30.870 max=33.473
+site-result-b 1920 PROFILE_TOTAL 27.331584 kernels=32
+site-result-b2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-result-b2 1920   GPU  (ms): mean=31.506 median=31.460 p90=32.050 p99=32.992 min=30.902 max=32.992
+site-result-b2 1920   Wall (ms): mean=31.600 median=31.540 p90=32.129 p99=33.068 min=31.046 max=33.068
+site-result-b2 1920 PROFILE_TOTAL 27.575296 kernels=32
+baseline-result-a2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-result-a2 1920   GPU  (ms): mean=31.662 median=31.548 p90=32.266 p99=32.901 min=31.100 max=32.901
+baseline-result-a2 1920   Wall (ms): mean=31.766 median=31.645 p90=32.339 p99=32.986 min=31.179 max=32.986
+baseline-result-a2 1920 PROFILE_TOTAL 27.762688 kernels=32
+COMPLETE_SITE result
+baseline-v-a 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-v-a 1280   GPU  (ms): mean=14.323 median=14.226 p90=14.693 p99=16.022 min=13.998 max=16.022
+baseline-v-a 1280   Wall (ms): mean=14.409 median=14.314 p90=14.821 p99=16.120 min=14.076 max=16.120
+baseline-v-a 1280 PROFILE_TOTAL 12.972928 kernels=32
+site-v-b 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-v-b 1280   GPU  (ms): mean=14.284 median=14.207 p90=14.786 p99=15.470 min=13.936 max=15.470
+site-v-b 1280   Wall (ms): mean=14.373 median=14.299 p90=14.893 p99=15.560 min=14.021 max=15.560
+site-v-b 1280 PROFILE_TOTAL 12.958720 kernels=32
+site-v-b2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-v-b2 1280   GPU  (ms): mean=14.305 median=14.206 p90=14.633 p99=15.658 min=14.028 max=15.658
+site-v-b2 1280   Wall (ms): mean=14.387 median=14.289 p90=14.719 p99=15.767 min=14.109 max=15.767
+site-v-b2 1280 PROFILE_TOTAL 13.355008 kernels=32
+baseline-v-a2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-v-a2 1280   GPU  (ms): mean=14.323 median=14.228 p90=14.793 p99=15.284 min=13.940 max=15.284
+baseline-v-a2 1280   Wall (ms): mean=14.410 median=14.306 p90=14.876 p99=15.370 min=14.003 max=15.370
+baseline-v-a2 1280 PROFILE_TOTAL 13.006848 kernels=32
+baseline-v-a 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-v-a 1600   GPU  (ms): mean=23.779 median=23.664 p90=24.411 p99=25.511 min=23.214 max=25.511
+baseline-v-a 1600   Wall (ms): mean=23.864 median=23.740 p90=24.531 p99=25.593 min=23.276 max=25.593
+baseline-v-a 1600 PROFILE_TOTAL 21.007360 kernels=32
+site-v-b 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-v-b 1600   GPU  (ms): mean=23.767 median=23.637 p90=24.474 p99=25.190 min=23.169 max=25.190
+site-v-b 1600   Wall (ms): mean=23.859 median=23.725 p90=24.580 p99=25.270 min=23.258 max=25.270
+site-v-b 1600 PROFILE_TOTAL 20.966400 kernels=32
+site-v-b2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-v-b2 1600   GPU  (ms): mean=23.785 median=23.738 p90=24.346 p99=24.882 min=23.278 max=24.882
+site-v-b2 1600   Wall (ms): mean=23.876 median=23.826 p90=24.414 p99=24.960 min=23.341 max=24.960
+site-v-b2 1600 PROFILE_TOTAL 21.886976 kernels=32
+baseline-v-a2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-v-a2 1600   GPU  (ms): mean=23.809 median=23.711 p90=24.421 p99=25.016 min=23.201 max=25.016
+baseline-v-a2 1600   Wall (ms): mean=23.905 median=23.809 p90=24.535 p99=25.097 min=23.270 max=25.097
+baseline-v-a2 1600 PROFILE_TOTAL 21.051392 kernels=32
+baseline-v-a 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-v-a 1920   GPU  (ms): mean=31.761 median=31.628 p90=32.235 p99=33.355 min=31.239 max=33.355
+baseline-v-a 1920   Wall (ms): mean=31.877 median=31.757 p90=32.381 p99=33.457 min=31.295 max=33.457
+baseline-v-a 1920 PROFILE_TOTAL 27.865088 kernels=32
+site-v-b 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-v-b 1920   GPU  (ms): mean=31.726 median=31.641 p90=32.287 p99=33.327 min=31.092 max=33.327
+site-v-b 1920   Wall (ms): mean=31.829 median=31.735 p90=32.357 p99=33.504 min=31.195 max=33.504
+site-v-b 1920 PROFILE_TOTAL 27.942912 kernels=32
+site-v-b2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-v-b2 1920   GPU  (ms): mean=31.753 median=31.715 p90=32.061 p99=33.596 min=31.105 max=33.596
+site-v-b2 1920   Wall (ms): mean=31.861 median=31.820 p90=32.194 p99=33.666 min=31.209 max=33.666
+site-v-b2 1920 PROFILE_TOTAL 28.523520 kernels=32
+baseline-v-a2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-v-a2 1920   GPU  (ms): mean=31.807 median=31.716 p90=32.271 p99=33.227 min=31.359 max=33.227
+baseline-v-a2 1920   Wall (ms): mean=31.913 median=31.825 p90=32.340 p99=33.306 min=31.489 max=33.306
+baseline-v-a2 1920 PROFILE_TOTAL 27.731968 kernels=32
+COMPLETE_SITE v
+baseline-av-a 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-av-a 1280   GPU  (ms): mean=14.340 median=14.252 p90=14.692 p99=15.038 min=14.085 max=15.038
+baseline-av-a 1280   Wall (ms): mean=14.425 median=14.338 p90=14.801 p99=15.107 min=14.140 max=15.107
+baseline-av-a 1280 PROFILE_TOTAL 14.320640 kernels=32
+site-av-b 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-av-b 1280   GPU  (ms): mean=14.334 median=14.226 p90=14.798 p99=15.384 min=13.964 max=15.384
+site-av-b 1280   Wall (ms): mean=14.423 median=14.312 p90=14.895 p99=15.487 min=14.056 max=15.487
+site-av-b 1280 PROFILE_TOTAL 12.959744 kernels=32
+site-av-b2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-av-b2 1280   GPU  (ms): mean=14.387 median=14.254 p90=14.932 p99=15.521 min=14.104 max=15.521
+site-av-b2 1280   Wall (ms): mean=14.471 median=14.338 p90=15.010 p99=15.595 min=14.170 max=15.595
+site-av-b2 1280 PROFILE_TOTAL 13.086720 kernels=32
+baseline-av-a2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-av-a2 1280   GPU  (ms): mean=14.360 median=14.243 p90=14.727 p99=15.832 min=14.070 max=15.832
+baseline-av-a2 1280   Wall (ms): mean=14.444 median=14.343 p90=14.804 p99=15.943 min=14.135 max=15.943
+baseline-av-a2 1280 PROFILE_TOTAL 13.197312 kernels=32
+baseline-av-a 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-av-a 1600   GPU  (ms): mean=23.875 median=23.794 p90=24.472 p99=24.960 min=23.207 max=24.960
+baseline-av-a 1600   Wall (ms): mean=23.967 median=23.904 p90=24.561 p99=25.043 min=23.284 max=25.043
+baseline-av-a 1600 PROFILE_TOTAL 21.060608 kernels=32
+site-av-b 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-av-b 1600   GPU  (ms): mean=23.846 median=23.732 p90=24.500 p99=25.161 min=23.396 max=25.161
+site-av-b 1600   Wall (ms): mean=23.946 median=23.847 p90=24.589 p99=25.242 min=23.476 max=25.242
+site-av-b 1600 PROFILE_TOTAL 20.985888 kernels=32
+site-av-b2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-av-b2 1600   GPU  (ms): mean=23.844 median=23.741 p90=24.336 p99=25.022 min=23.328 max=25.022
+site-av-b2 1600   Wall (ms): mean=23.935 median=23.820 p90=24.452 p99=25.121 min=23.450 max=25.121
+site-av-b2 1600 PROFILE_TOTAL 21.021696 kernels=32
+baseline-av-a2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-av-a2 1600   GPU  (ms): mean=23.889 median=23.784 p90=24.562 p99=25.050 min=23.415 max=25.050
+baseline-av-a2 1600   Wall (ms): mean=23.983 median=23.876 p90=24.664 p99=25.154 min=23.486 max=25.154
+baseline-av-a2 1600 PROFILE_TOTAL 21.002240 kernels=32
+baseline-av-a 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-av-a 1920   GPU  (ms): mean=31.857 median=31.824 p90=32.492 p99=33.016 min=31.226 max=33.016
+baseline-av-a 1920   Wall (ms): mean=31.951 median=31.933 p90=32.616 p99=33.098 min=31.291 max=33.098
+baseline-av-a 1920 PROFILE_TOTAL 27.465600 kernels=32
+site-av-b 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-av-b 1920   GPU  (ms): mean=31.873 median=31.830 p90=32.390 p99=32.909 min=31.218 max=32.909
+site-av-b 1920   Wall (ms): mean=31.967 median=31.915 p90=32.480 p99=32.998 min=31.315 max=32.998
+site-av-b 1920 PROFILE_TOTAL 27.679776 kernels=32
+site-av-b2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-av-b2 1920   GPU  (ms): mean=31.890 median=31.816 p90=32.387 p99=33.257 min=30.977 max=33.257
+site-av-b2 1920   Wall (ms): mean=31.992 median=31.917 p90=32.556 p99=33.378 min=31.045 max=33.378
+site-av-b2 1920 PROFILE_TOTAL 27.438080 kernels=32
+baseline-av-a2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-av-a2 1920   GPU  (ms): mean=31.889 median=31.827 p90=32.466 p99=33.777 min=31.345 max=33.777
+baseline-av-a2 1920   Wall (ms): mean=31.990 median=31.938 p90=32.595 p99=33.847 min=31.448 max=33.847
+baseline-av-a2 1920 PROFILE_TOTAL 27.517952 kernels=32
+COMPLETE_SITE av
+baseline-byteout-a 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-byteout-a 1280   GPU  (ms): mean=14.411 median=14.339 p90=14.850 p99=15.363 min=14.083 max=15.363
+baseline-byteout-a 1280   Wall (ms): mean=14.496 median=14.408 p90=14.918 p99=15.429 min=14.143 max=15.429
+baseline-byteout-a 1280 PROFILE_TOTAL 13.571072 kernels=32
+site-byteout-b 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-byteout-b 1280   GPU  (ms): mean=14.361 median=14.252 p90=14.742 p99=15.240 min=14.060 max=15.240
+site-byteout-b 1280   Wall (ms): mean=14.445 median=14.374 p90=14.810 p99=15.367 min=14.120 max=15.367
+site-byteout-b 1280 PROFILE_TOTAL 13.339648 kernels=32
+site-byteout-b2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-byteout-b2 1280   GPU  (ms): mean=14.393 median=14.244 p90=14.903 p99=15.415 min=14.040 max=15.415
+site-byteout-b2 1280   Wall (ms): mean=14.484 median=14.362 p90=14.985 p99=15.551 min=14.107 max=15.551
+site-byteout-b2 1280 PROFILE_TOTAL 13.312000 kernels=32
+baseline-byteout-a2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-byteout-a2 1280   GPU  (ms): mean=14.393 median=14.288 p90=14.752 p99=15.911 min=14.109 max=15.911
+baseline-byteout-a2 1280   Wall (ms): mean=14.480 median=14.381 p90=14.880 p99=15.975 min=14.179 max=15.975
+baseline-byteout-a2 1280 PROFILE_TOTAL 13.400096 kernels=32
+baseline-byteout-a 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-byteout-a 1600   GPU  (ms): mean=23.918 median=23.894 p90=24.367 p99=25.219 min=23.416 max=25.219
+baseline-byteout-a 1600   Wall (ms): mean=24.015 median=23.976 p90=24.439 p99=25.294 min=23.516 max=25.294
+baseline-byteout-a 1600 PROFILE_TOTAL 21.040128 kernels=32
+site-byteout-b 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-byteout-b 1600   GPU  (ms): mean=23.943 median=23.834 p90=24.364 p99=25.384 min=23.426 max=25.384
+site-byteout-b 1600   Wall (ms): mean=24.031 median=23.917 p90=24.455 p99=25.469 min=23.545 max=25.469
+site-byteout-b 1600 PROFILE_TOTAL 21.608448 kernels=32
+site-byteout-b2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-byteout-b2 1600   GPU  (ms): mean=23.905 median=23.819 p90=24.278 p99=26.982 min=23.216 max=26.982
+site-byteout-b2 1600   Wall (ms): mean=24.004 median=23.909 p90=24.392 p99=27.083 min=23.296 max=27.083
+site-byteout-b2 1600 PROFILE_TOTAL 21.074944 kernels=32
+baseline-byteout-a2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-byteout-a2 1600   GPU  (ms): mean=23.944 median=23.836 p90=24.357 p99=25.767 min=23.427 max=25.767
+baseline-byteout-a2 1600   Wall (ms): mean=24.034 median=23.930 p90=24.437 p99=25.927 min=23.503 max=25.927
+baseline-byteout-a2 1600 PROFILE_TOTAL 21.089280 kernels=32
+baseline-byteout-a 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-byteout-a 1920   GPU  (ms): mean=31.942 median=31.880 p90=32.590 p99=33.113 min=31.132 max=33.113
+baseline-byteout-a 1920   Wall (ms): mean=32.044 median=31.995 p90=32.681 p99=33.205 min=31.297 max=33.205
+baseline-byteout-a 1920 PROFILE_TOTAL 27.980800 kernels=32
+site-byteout-b 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-byteout-b 1920   GPU  (ms): mean=31.895 median=31.806 p90=32.569 p99=33.587 min=31.173 max=33.587
+site-byteout-b 1920   Wall (ms): mean=31.995 median=31.884 p90=32.689 p99=33.686 min=31.288 max=33.686
+site-byteout-b 1920 PROFILE_TOTAL 27.518976 kernels=32
+site-byteout-b2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-byteout-b2 1920   GPU  (ms): mean=31.892 median=31.828 p90=32.358 p99=33.407 min=31.327 max=33.407
+site-byteout-b2 1920   Wall (ms): mean=31.994 median=31.932 p90=32.487 p99=33.488 min=31.412 max=33.488
+site-byteout-b2 1920 PROFILE_TOTAL 27.859968 kernels=32
+baseline-byteout-a2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-byteout-a2 1920   GPU  (ms): mean=31.972 median=31.871 p90=32.510 p99=33.314 min=31.374 max=33.314
+baseline-byteout-a2 1920   Wall (ms): mean=32.067 median=31.964 p90=32.629 p99=33.403 min=31.492 max=33.403
+baseline-byteout-a2 1920 PROFILE_TOTAL 27.652096 kernels=32
+COMPLETE_SITE byteout
+baseline-c32-prefix-a 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-c32-prefix-a 1280   GPU  (ms): mean=14.444 median=14.378 p90=14.745 p99=15.304 min=14.064 max=15.304
+baseline-c32-prefix-a 1280   Wall (ms): mean=14.527 median=14.456 p90=14.817 p99=15.370 min=14.157 max=15.370
+baseline-c32-prefix-a 1280 PROFILE_TOTAL 13.120448 kernels=32
+site-c32-prefix-b 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-c32-prefix-b 1280   GPU  (ms): mean=14.475 median=14.383 p90=14.791 p99=16.851 min=14.099 max=16.851
+site-c32-prefix-b 1280   Wall (ms): mean=14.564 median=14.471 p90=14.892 p99=16.925 min=14.180 max=16.925
+site-c32-prefix-b 1280 PROFILE_TOTAL 13.214720 kernels=32
+site-c32-prefix-b2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-c32-prefix-b2 1280   GPU  (ms): mean=14.464 median=14.364 p90=14.992 p99=15.460 min=14.098 max=15.460
+site-c32-prefix-b2 1280   Wall (ms): mean=14.552 median=14.444 p90=15.040 p99=15.532 min=14.191 max=15.532
+site-c32-prefix-b2 1280 PROFILE_TOTAL 12.995584 kernels=32
+baseline-c32-prefix-a2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-c32-prefix-a2 1280   GPU  (ms): mean=14.445 median=14.373 p90=14.742 p99=15.529 min=14.093 max=15.529
+baseline-c32-prefix-a2 1280   Wall (ms): mean=14.535 median=14.468 p90=14.829 p99=15.607 min=14.198 max=15.607
+baseline-c32-prefix-a2 1280 PROFILE_TOTAL 13.959168 kernels=32
+baseline-c32-prefix-a 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-c32-prefix-a 1600   GPU  (ms): mean=24.022 median=23.954 p90=24.468 p99=25.390 min=23.314 max=25.390
+baseline-c32-prefix-a 1600   Wall (ms): mean=24.115 median=24.039 p90=24.612 p99=25.479 min=23.416 max=25.479
+baseline-c32-prefix-a 1600 PROFILE_TOTAL 21.057536 kernels=32
+site-c32-prefix-b 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-c32-prefix-b 1600   GPU  (ms): mean=23.954 median=23.903 p90=24.498 p99=24.952 min=23.421 max=24.952
+site-c32-prefix-b 1600   Wall (ms): mean=24.052 median=24.002 p90=24.657 p99=25.029 min=23.512 max=25.029
+site-c32-prefix-b 1600 PROFILE_TOTAL 21.041152 kernels=32
+site-c32-prefix-b2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-c32-prefix-b2 1600   GPU  (ms): mean=24.014 median=23.907 p90=24.663 p99=25.563 min=23.379 max=25.563
+site-c32-prefix-b2 1600   Wall (ms): mean=24.103 median=24.008 p90=24.746 p99=25.686 min=23.473 max=25.686
+site-c32-prefix-b2 1600 PROFILE_TOTAL 21.065728 kernels=32
+baseline-c32-prefix-a2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-c32-prefix-a2 1600   GPU  (ms): mean=24.039 median=23.947 p90=24.554 p99=25.996 min=23.472 max=25.996
+baseline-c32-prefix-a2 1600   Wall (ms): mean=24.131 median=24.030 p90=24.688 p99=26.096 min=23.570 max=26.096
+baseline-c32-prefix-a2 1600 PROFILE_TOTAL 21.088256 kernels=32
+baseline-c32-prefix-a 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-c32-prefix-a 1920   GPU  (ms): mean=31.965 median=31.923 p90=32.587 p99=32.933 min=31.180 max=32.933
+baseline-c32-prefix-a 1920   Wall (ms): mean=32.087 median=32.003 p90=32.709 p99=33.655 min=31.490 max=33.655
+baseline-c32-prefix-a 1920 PROFILE_TOTAL 27.550720 kernels=32
+site-c32-prefix-b 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-c32-prefix-b 1920   GPU  (ms): mean=32.241 median=31.981 p90=33.207 p99=33.963 min=31.175 max=33.963
+site-c32-prefix-b 1920   Wall (ms): mean=32.369 median=32.099 p90=33.347 p99=34.063 min=31.251 max=34.063
+site-c32-prefix-b 1920 PROFILE_TOTAL 28.814368 kernels=32
+site-c32-prefix-b2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-c32-prefix-b2 1920   GPU  (ms): mean=31.958 median=31.859 p90=32.487 p99=33.547 min=31.238 max=33.547
+site-c32-prefix-b2 1920   Wall (ms): mean=32.069 median=31.970 p90=32.554 p99=33.649 min=31.343 max=33.649
+site-c32-prefix-b2 1920 PROFILE_TOTAL 27.813888 kernels=32
+baseline-c32-prefix-a2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-c32-prefix-a2 1920   GPU  (ms): mean=31.986 median=31.891 p90=32.486 p99=33.723 min=31.206 max=33.723
+baseline-c32-prefix-a2 1920   Wall (ms): mean=32.086 median=31.980 p90=32.603 p99=33.882 min=31.310 max=33.882
+baseline-c32-prefix-a2 1920 PROFILE_TOTAL 27.604992 kernels=32
+COMPLETE_SITE c32-prefix
+baseline-c32-v-a 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-c32-v-a 1280   GPU  (ms): mean=14.483 median=14.450 p90=14.843 p99=15.414 min=14.120 max=15.414
+baseline-c32-v-a 1280   Wall (ms): mean=14.566 median=14.541 p90=14.913 p99=15.488 min=14.197 max=15.488
+baseline-c32-v-a 1280 PROFILE_TOTAL 12.996608 kernels=32
+site-c32-v-b 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-c32-v-b 1280   GPU  (ms): mean=14.466 median=14.363 p90=14.841 p99=15.866 min=14.151 max=15.866
+site-c32-v-b 1280   Wall (ms): mean=14.559 median=14.449 p90=15.007 p99=15.942 min=14.214 max=15.942
+site-c32-v-b 1280 PROFILE_TOTAL 13.568000 kernels=32
+site-c32-v-b2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+site-c32-v-b2 1280   GPU  (ms): mean=14.409 median=14.334 p90=14.736 p99=15.354 min=14.102 max=15.354
+site-c32-v-b2 1280   Wall (ms): mean=14.492 median=14.412 p90=14.812 p99=15.474 min=14.161 max=15.474
+site-c32-v-b2 1280 PROFILE_TOTAL 13.261824 kernels=32
+baseline-c32-v-a2 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-c32-v-a2 1280   GPU  (ms): mean=14.454 median=14.373 p90=14.732 p99=15.562 min=14.197 max=15.562
+baseline-c32-v-a2 1280   Wall (ms): mean=14.557 median=14.484 p90=14.843 p99=15.686 min=14.263 max=15.686
+baseline-c32-v-a2 1280 PROFILE_TOTAL 13.043488 kernels=32
+baseline-c32-v-a 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-c32-v-a 1600   GPU  (ms): mean=24.022 median=23.941 p90=24.519 p99=25.571 min=23.436 max=25.571
+baseline-c32-v-a 1600   Wall (ms): mean=24.113 median=24.037 p90=24.667 p99=25.691 min=23.519 max=25.691
+baseline-c32-v-a 1600 PROFILE_TOTAL 21.073920 kernels=32
+site-c32-v-b 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-c32-v-b 1600   GPU  (ms): mean=23.961 median=23.884 p90=24.383 p99=25.846 min=23.395 max=25.846
+site-c32-v-b 1600   Wall (ms): mean=24.062 median=23.978 p90=24.474 p99=25.941 min=23.472 max=25.941
+site-c32-v-b 1600 PROFILE_TOTAL 20.981760 kernels=32
+site-c32-v-b2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+site-c32-v-b2 1600   GPU  (ms): mean=23.940 median=23.870 p90=24.503 p99=25.428 min=23.330 max=25.428
+site-c32-v-b2 1600   Wall (ms): mean=24.035 median=23.962 p90=24.581 p99=25.492 min=23.443 max=25.492
+site-c32-v-b2 1600 PROFILE_TOTAL 20.999168 kernels=32
+baseline-c32-v-a2 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-c32-v-a2 1600   GPU  (ms): mean=23.980 median=23.878 p90=24.570 p99=25.441 min=23.441 max=25.441
+baseline-c32-v-a2 1600   Wall (ms): mean=24.077 median=23.958 p90=24.686 p99=25.560 min=23.514 max=25.560
+baseline-c32-v-a2 1600 PROFILE_TOTAL 21.053440 kernels=32
+baseline-c32-v-a 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-c32-v-a 1920   GPU  (ms): mean=31.963 median=31.885 p90=32.480 p99=33.447 min=31.218 max=33.447
+baseline-c32-v-a 1920   Wall (ms): mean=32.070 median=32.003 p90=32.615 p99=33.535 min=31.404 max=33.535
+baseline-c32-v-a 1920 PROFILE_TOTAL 28.244992 kernels=32
+site-c32-v-b 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-c32-v-b 1920   GPU  (ms): mean=31.890 median=31.776 p90=32.419 p99=33.575 min=31.237 max=33.575
+site-c32-v-b 1920   Wall (ms): mean=31.988 median=31.882 p90=32.486 p99=33.690 min=31.386 max=33.690
+site-c32-v-b 1920 PROFILE_TOTAL 27.877376 kernels=32
+site-c32-v-b2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+site-c32-v-b2 1920   GPU  (ms): mean=31.907 median=31.807 p90=32.592 p99=33.182 min=31.264 max=33.182
+site-c32-v-b2 1920   Wall (ms): mean=32.012 median=31.919 p90=32.714 p99=33.335 min=31.359 max=33.335
+site-c32-v-b2 1920 PROFILE_TOTAL 27.944960 kernels=32
+baseline-c32-v-a2 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-c32-v-a2 1920   GPU  (ms): mean=31.969 median=31.918 p90=32.307 p99=34.153 min=31.357 max=34.153
+baseline-c32-v-a2 1920   Wall (ms): mean=32.074 median=32.020 p90=32.453 p99=34.217 min=31.432 max=34.217
+baseline-c32-v-a2 1920 PROFILE_TOTAL 27.523072 kernels=32
+COMPLETE_SITE c32-v

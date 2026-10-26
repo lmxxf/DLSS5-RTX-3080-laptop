@@ -1,0 +1,27 @@
+{
+  "default": "C32V+Wave2 ByteOut+QKV mask7, C256 cap unchanged",
+  "baseline": "Phase17 selected",
+  "accepted_run_count": 169,
+  "incomplete_rejected_runs": 1,
+  "per_site_formal_ABBA_runs": 84,
+  "1080_control_screen_runs": 28,
+  "final_three_tier_ABBA_runs": 12,
+  "all_accepted_bitdiff": 0,
+  "invalid": 0,
+  "first_last": 0,
+  "active_LMem0": 32,
+  "modules": 40,
+  "resolved_entries": 1918,
+  "changed_modules": [
+    "c32-wave1-fast.hsaco",
+    "c64-wave2-fast.hsaco"
+  ],
+  "source_rebuild_matches_measured": true,
+  "C256_final_regs": 226,
+  "C256_final_OccW": 8,
+  "C256_168": "zero stack but no stable added frame benefit,OccW8",
+  "C256_128": "8Bstack;fuse/pair12848Bstack;not timed",
+  "external_v020_protected": true,
+  "deployment": false,
+  "push": false
+}

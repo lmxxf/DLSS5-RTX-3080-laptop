@@ -16,6 +16,10 @@ from phase14_transform import fix_legacy_attention_abi
 PHASE14_ATTENTION_ABI = True
 from phase17_transform import transform as phase17_half_transform, version_ptx as phase17_version_ptx
 PHASE17_C32_HALF = True
+from phase18_transform import transform as phase18_pack_transform
+PHASE18_SITES = {'c32-wave1-fast':['c32-v'], 'c64-wave2-fast':['byteout']}
+PHASE18_C256_CAP = None
+PHASE18_QKV_MASK = 7
 from phase12_transform import pack_c32_av
 PHASE12_C32_AV = True
 PHASE10_CAPS = True
@@ -396,6 +400,8 @@ def assemble_module_source(mod, source_dir, compat_header_path):
     if mod["name"].endswith("-packed"):
         lines.append("#define HIP_PREPACKED_WEIGHTS 1")
     for d in mod["defines"] + mod["l23defines"]:
+        if mod["name"]=="c64-wave2-fast" and PHASE18_QKV_MASK is not None and d.startswith("W2_QKV_FUSE "):
+            d="W2_QKV_FUSE "+str(PHASE18_QKV_MASK)
         lines.append(f"#define {d}")
     if mod["name"] in {"deep_fast-packed", "deep_fast-packed-fast", "vit-stream-fast"}:
         lines += ["#define VIT_EXPAND_TAIL_VEC 1", "#define VIT_QKV_TAIL_VEC 1", "#define VIT_CONTRACT_TAIL_VEC 1", "#define VIT_PROJECT_TAIL_VEC 1"]
@@ -768,6 +774,8 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     key += str(PHASE12_C32_AV).encode()
     key += open(os.path.join(os.path.dirname(__file__), "phase14_transform.py"), "rb").read()
     key += str(PHASE14_ATTENTION_ABI).encode()
+    key += repr((PHASE18_SITES.get(name,()),PHASE18_C256_CAP)).encode()
+    key += open(os.path.join(source_dir,"phase18_transform.py"),"rb").read()
     key += str(PHASE17_C32_HALF and name == "c32-wave1-fast").encode()
     if PHASE17_C32_HALF and name == "c32-wave1-fast":
         key += open(os.path.join(source_dir,"phase17_transform.py"),"rb").read() + open(os.path.join(source_dir,"phase17_c32_half.h"),"rb").read()
@@ -812,6 +820,8 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
         helpers = open(os.path.join(source_dir,"phase17_c32_half.h")).read().replace("#pragma once", "").replace("SM86_DEV", "__attribute__((device,always_inline)) inline")
         assert cu_src.count("struct cw_i2_pair")==1
         cu_src = cu_src.replace("struct cw_i2_pair",helpers+"\nstruct cw_i2_pair",1)
+    if PHASE18_SITES.get(name):
+        cu_src = phase18_pack_transform(cu_src, PHASE18_SITES[name])
     cu_src += "\n// build fingerprint: " + build_key + "\n"
 
 
@@ -873,6 +883,10 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     ptx_txt = open(ptx_path, "r", encoding="utf-8").read()
     if PHASE10_CAPS:
         ptx_txt = apply_register_caps(ptx_txt)
+        open(ptx_path,"w",encoding="utf-8").write(ptx_txt)
+    if PHASE18_C256_CAP is not None and name == "c64-wave2-fast":
+        from phase18_transform import apply_c256_cap
+        ptx_txt = apply_c256_cap(ptx_txt,PHASE18_C256_CAP)
         open(ptx_path,"w",encoding="utf-8").write(ptx_txt)
     if PHASE17_C32_HALF and name == "c32-wave1-fast":
         ptx_txt = phase17_version_ptx(ptx_txt)

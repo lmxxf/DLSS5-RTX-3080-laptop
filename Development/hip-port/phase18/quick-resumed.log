@@ -1,0 +1,43 @@
+SITE contract numeric True LMem0 True
+SITE result numeric True LMem0 True
+SITE v numeric True LMem0 True
+SITE av numeric True LMem0 True
+quick2-byteout 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+quick2-byteout 1280   GPU  (ms): mean=13.617 median=13.613 p90=13.694 p99=13.694 min=13.526 max=13.694
+quick2-byteout 1280   Wall (ms): mean=13.732 median=13.733 p90=13.931 p99=13.931 min=13.587 max=13.931
+quick2-byteout 1280 PROFILE_TOTAL 12.790784 kernels=32
+quick2-byteout 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+quick2-byteout 1600   GPU  (ms): mean=22.575 median=22.557 p90=22.636 p99=22.636 min=22.547 max=22.636
+quick2-byteout 1600   Wall (ms): mean=22.713 median=22.707 p90=22.774 p99=22.774 min=22.643 max=22.774
+quick2-byteout 1600 PROFILE_TOTAL 20.764672 kernels=32
+quick2-byteout 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+quick2-byteout 1920   GPU  (ms): mean=30.452 median=30.231 p90=31.701 p99=31.701 min=29.794 max=31.701
+quick2-byteout 1920   Wall (ms): mean=30.570 median=30.336 p90=31.827 p99=31.827 min=29.878 max=31.827
+quick2-byteout 1920 PROFILE_TOTAL 27.334656 kernels=32
+SITE byteout numeric True LMem0 True
+quick-c32-prefix 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+quick-c32-prefix 1280   GPU  (ms): mean=13.768 median=13.769 p90=14.005 p99=14.005 min=13.559 max=14.005
+quick-c32-prefix 1280   Wall (ms): mean=13.872 median=13.859 p90=14.106 p99=14.106 min=13.734 max=14.106
+quick-c32-prefix 1280 PROFILE_TOTAL 13.030400 kernels=32
+quick-c32-prefix 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+quick-c32-prefix 1600   GPU  (ms): mean=22.792 median=22.727 p90=23.052 p99=23.052 min=22.570 max=23.052
+quick-c32-prefix 1600   Wall (ms): mean=22.888 median=22.822 p90=23.185 p99=23.185 min=22.650 max=23.185
+quick-c32-prefix 1600 PROFILE_TOTAL 20.895776 kernels=32
+quick-c32-prefix 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+quick-c32-prefix 1920   GPU  (ms): mean=30.873 median=30.860 p90=31.355 p99=31.355 min=30.578 max=31.355
+quick-c32-prefix 1920   Wall (ms): mean=31.016 median=30.984 p90=31.537 p99=31.537 min=30.722 max=31.537
+quick-c32-prefix 1920 PROFILE_TOTAL 28.447776 kernels=32
+SITE c32-prefix numeric True LMem0 True
+quick-c32-v 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+quick-c32-v 1280   GPU  (ms): mean=13.602 median=13.638 p90=13.650 p99=13.650 min=13.517 max=13.650
+quick-c32-v 1280   Wall (ms): mean=13.707 median=13.708 p90=13.776 p99=13.776 min=13.634 max=13.776
+quick-c32-v 1280 PROFILE_TOTAL 12.952576 kernels=32
+quick-c32-v 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+quick-c32-v 1600   GPU  (ms): mean=22.899 median=22.921 p90=22.999 p99=22.999 min=22.746 max=22.999
+quick-c32-v 1600   Wall (ms): mean=22.981 median=22.991 p90=23.084 p99=23.084 min=22.817 max=23.084
+quick-c32-v 1600 PROFILE_TOTAL 20.861952 kernels=32
+quick-c32-v 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+quick-c32-v 1920   GPU  (ms): mean=30.773 median=30.611 p90=31.745 p99=31.745 min=30.213 max=31.745
+quick-c32-v 1920   Wall (ms): mean=30.916 median=30.757 p90=31.916 p99=31.916 min=30.369 max=31.916
+quick-c32-v 1920 PROFILE_TOTAL 27.232256 kernels=32
+SITE c32-v numeric True LMem0 True

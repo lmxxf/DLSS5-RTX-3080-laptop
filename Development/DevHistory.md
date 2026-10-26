@@ -748,3 +748,9 @@ Phase15先把新720gold固化回归，再补真实帧/动态输入/Style1 HDR和
 按用户真实输入不足则暂停性能侧的条件，并保留新增质量门槛缺口，本轮无新C32性能实验或性能计时，不用正确性快验时长充50/80成绩。保留Phase14实现，既无新性能保留项也无性能负收益判断；下一步先恢复既有HDR/多帧档案、逐层定位43.436806压力项，不强行开Phase16、不要求Zero重进游戏。无共享assets/游戏/Magpie/发布包写入，无push/部署。
 
 [Phase15报告/一键入口](hip-port/phase15/README.md)、[56项逐输入精度](hip-port/phase15/image-results.md)、[质量门](hip-port/phase15/validation.json)、[真实性缺口](hip-port/phase15/input-audit.md)。所有原始来源SHA、参考模块与Native模块SHA、全幅动态日志、原语/CPU证据保留；只清理本轮重复大二进制与可再生编码输入，旧档案只读。
+
+### Phase15B：1024² codec-ramp 与 720p 质量差异根因闭环（2026-10-26，闇）
+
+- 针对 `1024² codec-ramp` (`43.44 dB`) 与 `720p` (`43.58 dB`) 略低于早期经验值 `45 dB` 的问题，完成全网逐阶段特征 NRMSE 追踪、F32 post 独立反事实重放、首个 ViT expand 65,536 个预激活值 CPU K8-FP16-RNE 逐位核验、8,126,464 个 ViT attention AV 字节 CPU 逐位核验及输出头逐位复算（详见 [`hip-port/phase15/DIAGNOSTIC15B.md`](hip-port/phase15/DIAGNOSTIC15B.md)）。
+- **核心结论**：**确认不存在算子索引、布局或预洗牌 Bug**。`43.44 ~ 43.58 dB` 纯粹源于 `.f16.f16.f16.f16` 硬件指令每 K8 步的 FP16 RNE 舍入与 FP8 量化边界在 31 层深网上的正常累积传播（且原版 NVIDIA PTX 本身即为 FP16 累加，真实《明末》截图在全部 7 种几何下 PSNR 高达 `57.0 ~ 60.9 dB`）。同时修正了旧诊断 tap 在 `PrepareForExternalInput()` 前提前触发截获全零预热帧的时序问题。
+- **主脑裁决（2026-10-26，朱雀）**：Phase 15 质量审计正式结案，**`Phase 14 selected` 确立为 100% 正确的黄金数值与性能基线**，解除“45 dB 暂停令”，全面重启 `hip-port` 性能优化主线（Phase 16+）。

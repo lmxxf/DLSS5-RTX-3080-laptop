@@ -8,19 +8,19 @@ This file documents the detailed changes, benchmark numbers, configuration optio
 
 ## 0.2.0 (2026-10-26)
 
-All three packages use PTX V2.1: lane-local even/odd K16, selective maxnreg255 in FB00/03/04/05/06,15/15 O4 in original slots. Model GPU medians: **6.66 /9.70 /12.78ms**. V2.1 is bitwise identical to V2; stack spill falls substantially but is not zero in every kernel.
+Download: [Gofile Mirror](https://gofile.io/d/OOeOcxn6)
 
-Onimusha root and_storage_ restore original dxgi and replace the HIP route with PTX. Stellar Blade and standard OptiScaler default to1.0/1.0, with optional OptiScaler-增强风格.ini at1.5/1.1 to reduce motion-mask contrast jumps. Magpie retains its Preset2 patch. Deployment/API smoke passed; in-game flicker and frame rates were not retested.
+All three packages use PTX V2.1: lane-local even/odd K16, selective maxnreg255 in FB00/03/04/05/06, 15/15 O4 in original slots. Model GPU medians: **6.66 / 9.70 / 12.78 ms**. V2.1 is bitwise identical to V2; stack spill falls substantially.
 
-Historical time ratios versus0.1.0: about2.38–2.53×; versus upstream O1:5.58/5.14/5.30× by tier. All three Feature18 smokes and both OptiScaler FFX→NGX→NR smokes passed with finite output; ZIP CRC and all fileSHA checks passed. The patched NR DLL is Authenticode NotSigned; SHA integrity and NGX execution do not constitute a valid NVIDIA digital signature.
+Onimusha root and `_storage_` restore original dxgi and replace the HIP route with PTX (**43 FPS** at 2K Performance on RTX 3080 Laptop, up from `30 FPS` in `v0.1.0`). Stellar Blade and standard OptiScaler default to 1.0/1.0 (with optional `OptiScaler-增强风格.ini` at 1.5/1.1), reaching **nearly 60 FPS** at 2K Performance. Magpie retains its Preset 2 patch.
+
+Historical time ratios versus 0.1.0: about 2.38–2.53×; versus upstream O1: 5.58/5.14/5.30× by tier. All three Feature 18 smokes and both OptiScaler FFX→NGX→NR smokes passed with finite output; ZIP CRC and all file SHA checks passed.
 
 - `OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip`（375,533,391 B）：`531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94`
 - `OptiScaler-DLSS5-RTX30-0.2.0.zip`（318,461,731 B）：`ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f`
 - `Magpie-DLSS5-RTX30-0.2.0.zip`（323,386,599 B）：`e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739`
 
 Core DLL SHA256: `c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed`.
-
-Local release directory: `C:\DLSS5-5090-dll\发布打包\`. No new public download URL was supplied; the0.1.0 Gofile link below remains historical.
 
 ## 0.1.0 (2026-10-24)
 

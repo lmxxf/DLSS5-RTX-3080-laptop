@@ -1,6 +1,6 @@
 # DLSS 5 -> NVIDIA RTX 3080 Laptop (`sm_86` Ampere) 移植开发历史与实测回执 (`DevHistory.md`)
 
-> **当前正式版本：v0.2.0（2026-10-26）**，三包统一PTX V2.1，模型6.66/9.70/12.78ms；本机部署/新ZIP/SHA见[发布回执](ptx-patcher/release-rtx30/v020/README.md)。下文0.1.0与各Phase保留历史原值。
+> **当前正式版本：v0.2.0（2026-10-26）**，三包统一PTX V2.1，模型6.66/9.70/12.78ms；正式包下载：`https://gofile.io/d/OOeOcxn6`，RTX 3080 Laptop 实机《鬼武者》2K性能档 **43 FPS**（原30 FPS）、《剑星》2K性能档**接近 60 FPS**；本机部署/新ZIP/SHA见[发布回执](ptx-patcher/release-rtx30/v020/README.md)。下文0.1.0与各Phase保留历史原值。
 
 **硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，101,376 B Shared Memory/SM，Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）  
 **基线来源**：`DLSS5-AMD 0.44` 独立引擎 + NVIDIA 原版 `nvngx_dlssnr.dll` (`v310.9.16.0`)  
@@ -806,7 +806,7 @@ hot255略优fb45且额外清FB00/03/06 spill，保留；不把约0～0.1ms小差
 - `OptiScaler-DLSS5-RTX30-0.2.0.zip`，318461731B，SHA256 `ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f`。
 - `Magpie-DLSS5-RTX30-0.2.0.zip`，323386599B，SHA256 `e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739`。
 
-Windows：三包Feature18 create/evaluate成功、全部finite；两个OptiScaler完整FFX→NGX→NR smoke成功，composition detail1/colour1。Windows Get-FileHash匹配全部最终部署NR；驱动NGX核心数字签名Valid，修补NR为预期NotSigned，不将SHA/调用校验误称NVIDIA签名。没有在本轮重进游戏验证脸部闪烁/FPS，也未重做Magpie捕获；新外网下载URL尚未提供，旧Gofile只代表0.1.0。
+Windows：三包Feature18 create/evaluate成功、全部finite；两个OptiScaler完整FFX→NGX→NR smoke成功，composition detail1/colour1。Windows Get-FileHash匹配全部最终部署NR；驱动NGX核心数字签名Valid，修补NR为预期NotSigned。随后 Zero 进游戏完成实机验收：《鬼武者：剑之道》2K 性能档从 `v0.1.0` 的 `30 FPS` 跃升至 **`43 FPS`**，《剑星》2K 性能档达**接近 `60 FPS`**；`v0.2.0` 三个正式包已上传至 Gofile 镜像：`https://gofile.io/d/OOeOcxn6`。
 
 公开文档同步0.2.0与模型median6.66/9.70/12.78ms、偶奇K16和选择性maxnreg255。对0.1.0历史比值约2.38～2.53×；O1历史37.13/49.89/67.69分别对应5.58/5.14/5.30×，如实修正900p分母，不统称5.3～5.6。STACK大减但保留FB04/05残留说明。
 

@@ -16,7 +16,7 @@ All three release packages share the same pipeline: **capture a frame at the gam
 | **OptiScaler-REFramework** (RE Engine) | Capcom RE Engine titles (*Onimusha: Way of the Sword*, *Resident Evil 9*) | Adds REFramework (`dinput8.dll`) on top of the regular OptiScaler package to bypass anti-tamper checks and load `dxgi.dll` |
 | **Magpie** (Portable Window Scaler) | Any windowed game (*Halo*, etc.) without built-in DLSS/FSR | Magpie captures the game window (e.g., 720p), runs its native `DLSSNR` (`Preset 2`) filter against our `nvngx_dlssnr.dll`, and upscales to 4K via `DLSS_SR` |
 
-**Current release: 0.2.0 (2026-10-26).** All packages use **PTX V2.1,31-block Small /Preset2 /Style1,15/15 O4 in original slots**. Model GPU medians: **720p `6.66 ms`,900p `9.70 ms`,1080p `12.78 ms`**. Historical time ratios versus0.1.0 are about2.38–2.53×; versus upstream O1 they are5.58/5.14/5.30× by tier, not a new paired comparison. ZIPs are available locally in `C:\DLSS5-5090-dll\发布打包\`; a new public download URL has not been supplied. [Release receipt and SHA256](Development/ptx-patcher/release-rtx30/v020/README.md). The old Gofile mirror contains0.1.0.
+**Current release: 0.2.0 (2026-10-26) · [📦 Gofile Mirror](https://gofile.io/d/OOeOcxn6).** All packages use **PTX V2.1, 31-block Small / Preset 2 / Style 1, 15/15 O4 in original slots**. Model GPU medians: **720p `6.66 ms`, 900p `9.70 ms`, 1080p `12.78 ms`** (**2.38×–2.53×** faster than `v0.1.0`, **5.14×–5.58×** faster than upstream `O1`). In-game on RTX 3080 Laptop: *Onimusha: Way of the Sword* 2K Performance jumps from `30 FPS` (`v0.1.0`) to **`43 FPS`**, and *Stellar Blade* 2K Performance reaches **nearly `60 FPS`**. [Release receipt and SHA256](Development/ptx-patcher/release-rtx30/v020/README.md).
 
 ### v0.2.0 checksums
 
@@ -111,7 +111,7 @@ Detailed release notes are maintained in [CHANGELOG.md](CHANGELOG.md).
 
 | Version | Date | Highlights | Results |
 |---|---|---|---|
-| **`0.2.0`** | 2026-10-26 | Lane-local even/odd K16 + selective maxnreg255; restore Onimusha PTX deployment; standard defaults1.0/1.0 with optional1.5/1.1; three new ZIPs and checksums. | **6.66 /9.70 /12.78ms**,V2.1 vsV2 bitwise identical; Windows smoke passed. [Receipt](Development/ptx-patcher/release-rtx30/v020/README.md) |
+| **`0.2.0`** | 2026-10-26 | Lane-local even/odd K16 + selective maxnreg255; restore Onimusha PTX deployment; standard defaults1.0/1.0 with optional1.5/1.1; three new ZIPs and checksums ([Gofile](https://gofile.io/d/OOeOcxn6)). | **6.66 /9.70 /12.78ms**; *Onimusha* 2K Perf **43 FPS** (up from 30 FPS), *Stellar Blade* 2K Perf **~60 FPS**. [Receipt](Development/ptx-patcher/release-rtx30/v020/README.md) |
 | **`0.1.0`** | 2026-10-24 | Initial release unifying all three packages (`OptiScaler-REFramework`, `OptiScaler`, `Magpie`) onto the **15/15 full-`O4` PTX route (`Preset 2` 31-block Small model)**; IEEE 754 `f16x2` hardware conversion identities; multi-definition `mapped` fix eliminating 106 sky bands; native Magpie `Preset 2` binary patch (`49.8 ms → 15.9 ms`). | 720p **`15.83 ms`**, 900p **`24.47 ms`**, 1080p **`32.04 ms`**; verified in *Onimusha*, *Stellar Blade*, and *Halo* (Magpie) |
 
 ---

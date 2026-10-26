@@ -4,7 +4,7 @@
 
 ## 正式ZIP
 
-目录：`C:\DLSS5-5090-dll\发布打包\`；每包有`.sha256`，`SHA256SUMS.txt`仅列本版三包。全部ZIP CRC、逐文件SHA及核心DLL哈希已核验。旧0.1.0 ZIP和清单归档在`archive/v0.1.0/`。本轮没有外网上传；旧Gofile链接仍是0.1.0，不能当成本版下载。
+目录：`C:\DLSS5-5090-dll\发布打包\`（已上传至 Gofile 镜像：`https://gofile.io/d/OOeOcxn6`）；每包有`.sha256`，`SHA256SUMS.txt`仅列本版三包。全部ZIP CRC、逐文件SHA及核心DLL哈希已核验。旧0.1.0 ZIP和清单归档在`archive/v0.1.0/`。Zero 实机验证：《鬼武者：剑之道》2K 性能档从 30 FPS 升至 **43 FPS**，《剑星》2K 性能档达**接近 60 FPS**。
 
 | ZIP | 字节数 | SHA256 |
 |---|---:|---|

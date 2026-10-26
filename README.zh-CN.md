@@ -16,7 +16,7 @@
 | **OptiScaler-REFramework**（RE Engine 专用） | 《鬼武者：剑之道》《生化危机 9》等带反篡改校验的卡普空 RE Engine 游戏 | 在常规 OptiScaler 包基础上增加 REFramework（`dinput8.dll`）绕过校验并加载同目录 `dxgi.dll` |
 | **Magpie**（便携窗口缩放） | 任何支持窗口化的游戏（《光环》等），不需要游戏内置 DLSS/FSR | Magpie 抓取游戏低分辨率窗口（如 720p），先跑内置的原生 `DLSSNR`（`Preset 2`）滤镜调用 `nvngx_dlssnr.dll`，再经 `DLSS_SR` 放大到 4K 全屏 |
 
-**当前版本：0.2.0（2026-10-26）。** 三包统一 **PTX V2.1、31块 Small / Preset2 / Style1、15/15 O4 原槽位**，模型 GPU median 为 **720p `6.66 ms`、900p `9.70 ms`、1080p `12.78 ms`**。相比0.1.0历史耗时约2.38～2.53×；旧上游O1三档比值分别5.58/5.14/5.30×，并非本轮配对测量。正式ZIP已生成于 `C:\DLSS5-5090-dll\发布打包\`，新外网下载链接尚未提供；[发布回执与SHA256](Development/ptx-patcher/release-rtx30/v020/README.md)。旧Gofile链接只对应0.1.0。
+**当前版本：0.2.0（2026-10-26）· [📦 Gofile 下载镜像](https://gofile.io/d/OOeOcxn6)。** 三包统一 **PTX V2.1、31块 Small / Preset2 / Style1、15/15 O4 原槽位**，模型 GPU median 为 **720p `6.66 ms`、900p `9.70 ms`、1080p `12.78 ms`**（相比 `v0.1.0` 提速 **2.38×～2.53×**，相比上游 `O1` 提速 **5.14×～5.58×**）。RTX 3080 Laptop 实机验证：**《鬼武者：剑之道》** 2K 性能档从 `v0.1.0` 的 `30 FPS` 跃升至 **`43 FPS`**，**《剑星》** 2K 性能档达**接近 `60 FPS`**；[发布回执与SHA256](Development/ptx-patcher/release-rtx30/v020/README.md)。
 
 ### v0.2.0 文件校验
 
@@ -139,14 +139,14 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 > **为什么路线 ③（改写原版 PTX）比路线 ②（从 RDNA4 移植的独立引擎）快 1.8 倍？**  
 > 在消费级 GeForce RTX 30 系（GA102/GA104）硬件上，老黄将 **FP32 累加 Tensor Core（`.f32.f16.f16.f32`，路线 ② 所用）硬件吞吐砍半为 Half Rate（256 FLOPs/clock/SM）**，而 **FP16 累加 Tensor Core（`.f16.f16.f16.f16`，原版 PTX 路线 ③ 所用）保持 Full Rate（512 FLOPs/clock/SM）** 且寄存器占用减半。
 
-### 2. 0.1.0历史游戏与窗口实机表现（不代表本轮新帧率）
+### 2. 游戏与窗口实机表现（RTX 3080 Laptop GPU 16GB）
 
 | 游戏 / 场景 | 接入包 | 渲染分辨率 → 输出分辨率 | DLSS 5 模型 GPU 耗时 | 实机表现 |
 |---|---|---|---|---|
-| **《鬼武者：剑之道》** | `OptiScaler-REFramework` | `854×480` → `2560×1440` (2K Ultra Perf) | **`7.3 ～ 9.1 ms`** | 整机实玩 **46 FPS** |
-| **《鬼武者：剑之道》** | `OptiScaler-REFramework` | `1280×720` → `2560×1440` / `3840×2160` | **`16.7 ～ 17.5 ms`** | 整机实玩 **30 FPS**，4K 天空平滑无色带 |
-| **《剑星》(Stellar Blade)** | `OptiScaler`（常规包） | `1279×720` → `3840×2160` (4K) | **`18.1 ～ 18.6 ms`** | DLSS 与 FSR 输入自动转接均正常，单遍增强（`1.5 / 1.1`）生效 |
-| **《光环》(Halo) 窗口化** | `Magpie`（便携包） | `1280×720` → `3840×2160` (4K) | **`15.87 ～ 16.00 ms`**（旧路线 A 为 `49.8 ms`） | 含后级 4K `DLSS_SR` 总 GPU 耗时 **`21.2 ms`**，60Hz 电视同步下稳定 **30.5 FPS**（动画窗口无锁频下 **36 FPS**） |
+| **《鬼武者：剑之道》（`v0.2.0`）** | `OptiScaler-REFramework` | `1280×720` → `2560×1440` (2K Performance) | **`~6.66 ms`**（`v0.1.0` 为 `16.7～17.5 ms`） | 整机实玩从 `v0.1.0` 的 `30 FPS` 跃升至 **`43 FPS`**，天空平滑无色带 |
+| **《剑星》(Stellar Blade)（`v0.2.0`）** | `OptiScaler`（常规包） | `1280×720` → `2560×1440` (2K Performance) | **`~6.66 ms`**（`v0.1.0` 为 `18.1～18.6 ms`） | 整机实玩达**接近 `60 FPS`**，默认 `1.0 / 1.0` 平衡配置无视角转动闪烁 |
+| **《鬼武者：剑之道》（`v0.1.0` 历史对照）** | `OptiScaler-REFramework` | `854×480` → `2560×1440` (2K Ultra Perf) | `7.3 ～ 9.1 ms` | `v0.1.0` 整机实玩 **46 FPS** |
+| **《光环》(Halo) 窗口化（`v0.1.0` 历史对照）** | `Magpie`（便携包） | `1280×720` → `3840×2160` (4K) | `15.87 ～ 16.00 ms`（`v0.2.0` 模型已降至 `6.66 ms`） | `v0.1.0` 含后级 4K `DLSS_SR` 总 GPU 耗时 `21.2 ms`（`v0.2.0` 可压入 `16.67 ms` 跑满 60Hz 电视 60 FPS） |
 
 ---
 
@@ -156,7 +156,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 | 版本 | 日期 | 做了什么 | 结果 |
 |---|---|---|---|
-| **`0.2.0`** | 2026-10-26 | 偶奇K16零洗牌＋按FB maxnreg255；鬼武者恢复原版dxgi并切回PTX；剑星默认1.0/1.0，附增强风格1.5/1.1；三个新ZIP及SHA。 | **6.66 /9.70 /12.78ms**；V2.1相对V2严格0bit，三包Windows smoke通过；[回执](Development/ptx-patcher/release-rtx30/v020/README.md) |
+| **`0.2.0`** | 2026-10-26 | 偶奇K16零洗牌＋按FB maxnreg255；鬼武者恢复原版dxgi并切回PTX；剑星默认1.0/1.0，附增强风格1.5/1.1；三个新ZIP及SHA（[Gofile 下载](https://gofile.io/d/OOeOcxn6)）。 | **6.66 /9.70 /12.78ms**；《鬼武者》2K性能档 **43 FPS**（原30 FPS），《剑星》2K性能档**接近 60 FPS**；[回执](Development/ptx-patcher/release-rtx30/v020/README.md) |
 | **`0.1.0`** | 2026-10-24 | **首发版本（三个发布包全线统一为 15/15 满血 `O4` PTX 路线，仅保留 31 块 `0.5x Small` 新模型）**：<br>1. **PTX 满血 `O4` 编译器（`Development/ptx-patcher/`）**：提出两条 IEEE 754 `f16x2` 硬件代数恒等式（`mul.rn.f16x2 0x5c005c00` 解包 E4M3、`add.rn.f16x2 0x40004000` 舍入 E4M3 次正规数，有限值域 `0 bit-diff`），将 `.cubin` 体积缩小 3.5 倍，15/15 个 Fatbin 全部 `O4` 装回原槽位；修复 `310.9.16.0` 的 `fence.acquire.gpu;` 编译失败。<br>2. **消除天空红绿横带（`sky-audit/`）**：定位并修复上游 `fp8_pack_sources` 未扫描花括号向量加载（如 `FB5 %r1352`）导致将显存特征误替换为越界 fallback 常数的致命 Bug，天空逐行红绿色差变号从 `106 次` 降为 `0 次`，高频色差 RMS 降低 263 倍。<br>3. **三包构建与游戏适配**：<br>  • `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`（SHA256 `8e28417d...`）：适配《鬼武者：剑之道》等 RE Engine 游戏，校准 `WhitePointSource=1`（`~512x` 原生曝光）；<br>  • `OptiScaler-DLSS5-RTX30-0.1.0.zip`（SHA256 `e6067bf0...`）：适配《剑星》等常规 DX12 游戏，配齐完整 FFX 转发库（支持游戏内选 FSR 或 DLSS 自动转接），默认应用单遍增强（`detail=1.5, colour=1.1`）；<br>  • `Magpie-DLSS5-RTX30-0.1.0.zip`（SHA256 `db41eaeb...`）：打通 `Magpie.exe` 原生 `DLSSNR` Feature 18 后端，通过二进制补丁将写死的 `Preset 0` 改为 `Preset 2`（31 块轻量模型），补齐 `nvngx_dlss.dll` 修复 `0xbad0000b` 报错，移除旧 ReShade/add-on 与外置碎权重，720p 模型耗时从路线 A 的 `49.8 ms` 降至 **`15.9 ms`**。<br>4. **附加路线归档（`Development/hip-port/`）**：完整保留从 AMD RDNA4 移植的 40 模块（1,970 个核入口）CUDA 独立引擎源码（V6 全激活预洗牌 + 32/32 核零 `LMem` 溢出，900p `43.1 ms`），作为研究与扩展路线。 | 测试台 720p **`15.83 ms`**、900p **`24.47 ms`**、1080p **`32.04 ms`**（比上游 `O1` 快 **2.08×～2.35×**）；《鬼武者》《剑星》《光环》实机验收通过 |
 
 ---

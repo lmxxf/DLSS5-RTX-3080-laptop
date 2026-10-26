@@ -20,6 +20,8 @@ from phase18_transform import transform as phase18_pack_transform
 PHASE18_SITES = {'c32-wave1-fast':['c32-v'], 'c64-wave2-fast':['byteout']}
 PHASE18_C256_CAP = None
 PHASE18_QKV_MASK = 7
+from phase19_transform import transform as phase19_transform, version_ptx as phase19_version_ptx
+PHASE19_WAVE_HALF = 3
 from phase12_transform import pack_c32_av
 PHASE12_C32_AV = True
 PHASE10_CAPS = True
@@ -774,6 +776,8 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     key += str(PHASE12_C32_AV).encode()
     key += open(os.path.join(os.path.dirname(__file__), "phase14_transform.py"), "rb").read()
     key += str(PHASE14_ATTENTION_ABI).encode()
+    key += repr(PHASE19_WAVE_HALF if name=="c64-wave2-fast" else 0).encode()
+    key += open(os.path.join(source_dir,"phase19_transform.py"),"rb").read()
     key += repr((PHASE18_SITES.get(name,()),PHASE18_C256_CAP)).encode()
     key += open(os.path.join(source_dir,"phase18_transform.py"),"rb").read()
     key += str(PHASE17_C32_HALF and name == "c32-wave1-fast").encode()
@@ -822,6 +826,8 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
         cu_src = cu_src.replace("struct cw_i2_pair",helpers+"\nstruct cw_i2_pair",1)
     if PHASE18_SITES.get(name):
         cu_src = phase18_pack_transform(cu_src, PHASE18_SITES[name])
+    if PHASE19_WAVE_HALF and name=="c64-wave2-fast":
+        cu_src=phase19_transform(cu_src,PHASE19_WAVE_HALF)
     cu_src += "\n// build fingerprint: " + build_key + "\n"
 
 
@@ -888,6 +894,9 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
         from phase18_transform import apply_c256_cap
         ptx_txt = apply_c256_cap(ptx_txt,PHASE18_C256_CAP)
         open(ptx_path,"w",encoding="utf-8").write(ptx_txt)
+    if PHASE19_WAVE_HALF and name=="c64-wave2-fast":
+        ptx_txt=phase19_version_ptx(ptx_txt,PHASE19_WAVE_HALF)
+        open(ptx_path,"w").write(ptx_txt)
     if PHASE17_C32_HALF and name == "c32-wave1-fast":
         ptx_txt = phase17_version_ptx(ptx_txt)
         open(ptx_path,"w",encoding="utf-8").write(ptx_txt)
@@ -935,6 +944,9 @@ def main():
     if passed != len(modules):
         sys.exit(1)
     open(os.path.join(out_dir,"AMPERE_WEIGHTS_V2"),"w").write("CPU Ampere FP8 tiles; paired Phase-2 modules\n")
+    wave_marker=os.path.join(out_dir,"AMPERE_WEIGHTS_W19")
+    if PHASE19_WAVE_HALF:open(wave_marker,"w").write(str(PHASE19_WAVE_HALF)+"\n")
+    elif os.path.exists(wave_marker):os.remove(wave_marker)
     v3_marker=os.path.join(out_dir,"AMPERE_WEIGHTS_V3")
     if PHASE17_C32_HALF:
         open(v3_marker,"w").write("C32_W16_F16_APPEND_V1\n")

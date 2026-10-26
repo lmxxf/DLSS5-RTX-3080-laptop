@@ -1,0 +1,31 @@
+{
+  "baseline": "Phase18 selected",
+  "candidates": 2,
+  "default_mask": 3,
+  "scope": "C64+C128 W16 FFN expand/contract/mix only;Frag8 Up/attention/diag unchanged",
+  "formal_ABBA_runs": 24,
+  "quick_runs": 6,
+  "all_bitdiff": 0,
+  "all_invalid": 0,
+  "active_LMem0": 32,
+  "C64_C128_regs_max": 168,
+  "C64_C128_OccW_min": 12,
+  "modules": 40,
+  "resolved_entries": 1918,
+  "source_rebuild_matches_measured": true,
+  "ABI_rejections": [
+    {
+      "case": "mismatch",
+      "returncode": 1,
+      "rejected": true
+    },
+    {
+      "case": "old-host",
+      "returncode": 1,
+      "rejected": true
+    }
+  ],
+  "external_v020_unchanged": true,
+  "deployment": false,
+  "push": false
+}

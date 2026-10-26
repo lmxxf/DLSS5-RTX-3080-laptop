@@ -118,4 +118,11 @@ inline void AppendC32AmpereHalfWeights(std::vector<float>&v,bool attention){
  v.resize((base+half.size()*2)/4,0.f);std::memcpy(reinterpret_cast<uint8_t*>(v.data())+base,half.data(),half.size()*2);
 }
 
+inline void AppendWaveW16Half(std::vector<float>&v,unsigned c){
+ const size_t cc=size_t(c)*c,base=(9*cc+c)*4;if((c!=64&&c!=128)||v.size()*4!=base)throw std::runtime_error("W19 weight shape");
+ const auto*src=reinterpret_cast<const uint8_t*>(v.data());std::vector<uint16_t>h;h.reserve(9*cc);
+ for(auto r:std::vector<std::pair<size_t,size_t>>{{0,4*cc},{16*cc,4*cc},{32*cc,cc}})for(size_t i=0;i<r.second;i++)h.push_back(AmpereFp8HalfBits(src[r.first+i]));
+ v.resize((base+h.size()*2)/4,0.f);std::memcpy(reinterpret_cast<uint8_t*>(v.data())+base,h.data(),h.size()*2);
+}
+
 }

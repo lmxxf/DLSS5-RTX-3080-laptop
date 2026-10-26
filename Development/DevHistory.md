@@ -839,3 +839,14 @@ C256128cap两目标核各8B STACK；全量打包+128仍8B；fuse/pair+128各48B�
 169次成功快验/正式运行全部对Phase17全幅0bit、invalid0、首末0、32/32 LMem0；1次首版ByteOut未完成并排除。最终重建两个变化模块与实测SHA相同，38模块保留Phase17；实际加载40模块1918entry。20项Python/LLVM回归通过。默认产物phase18/artifacts/selected/modules，V3权重ABI和Phase17 Host不变。临时重复模块/输出清理，源/日志/资源/哈希保留。
 
 [Phase18回执](hip-port/phase18/README.md)、[逐站ABBA](hip-port/phase18/site-summary.md)、[C256控制](hip-port/phase18/screen-summary.md)、[最终三档与15核](hip-port/phase18/final-summary.md)、[验收](hip-port/phase18/validation.json)。外部v0.2.0主DLL与三ZIP保护性SHA核验未变，无共享assets/游戏/Magpie/发布包写入，不push，阶段独立commit。下一阶段不在本轮启动。
+
+
+## 2026-10-27：hip-port Phase19收官，C64/C128 W16 FFN预解码（闇）
+
+严格仅mask1=C64与mask3=C64+C128两候选，Phase18 selected为基线；未做CW_FAST_NUM|4非0bit诊断。复用Phase17解码器和尾部追加，覆盖W16 FFN expand/contract/mix，旧偏移不变；Up/Frag8及attention/diag保留原路径。每MMA消费点NC16B读取，C256原路径不动。W19标记1/3与w19m1_/w19m3_命名空间配对，错标记及旧Host拒绝。
+
+两个候选各三档50/80 ABBA，共24正式+6快验均Phase18全幅0bit、invalid0、首末0、32/32 LMem0，活跃C64/C128≤168regs/OccW≥12。mask1均值A→B为13.6125→13.6095、22.9440→22.9090、30.9365→30.7665ms，但部分方向相反且1080 A2漂移，不单独宣称稳定收益。mask3 A1/B1/B2/A2：720为13.939/13.861/13.916/13.937，900为23.341/23.256/23.229/23.289，1080为31.208/31.069/31.116/31.214；六配对均快，均值13.9380→13.8885、23.3150→23.2425、31.2110→31.0925，约0.3～0.4%速度比，采用mask3默认。原始min/median/Wall/独立profile及遥测保留，默认DVFS不作等频/缓存常驻声明。
+
+实际4个W16缓冲总1476096→2213376B（+737280）；不把全部7核预算当覆盖范围。CPU旧前缀/新增half值偏移测试通过，解码器GPU证明沿用Phase17。最终仅Wave2 fast模块改变，39个保持Phase18；实际加载40/1918，默认源码重编与实测SHA相同，20项既有回归通过。新Host与W19模块必须配套。
+
+[收官回执](hip-port/phase19/README.md)、[两候选ABBA](hip-port/phase19/summary.md)、[验收](hip-port/phase19/validation.json)。默认PHASE19_WAVE_HALF=3；最终产物phase19/artifacts/selected/modules。清理临时重复产物，保留日志/遥测/SHA；外部v0.2.0 DLL/三ZIP保护性哈希未变，不部署、不push，立即独立commit。

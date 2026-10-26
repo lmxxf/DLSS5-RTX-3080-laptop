@@ -225,6 +225,7 @@ class Network {friend class D3D12Bridge;
  bool sp1440_ready=false;bool final_direct_compatible=false;bool pool64_byte_available=false;
  bool vit_contract_byte_edge=false; // paired exact representation of an already E4M3-valued edge
  bool free_geometry=false; /* DLSS5_NETWORK_FREE_RES geometry (FreeGeometry): generic ViT grid, no 640-token cap */
+ unsigned wave_half_mask=0;
  bool ampere_c32_half=false;
  bool wave_owned_active=false;bool c32_skip_byte=false;bool c32_pre_down_byte=false;bool c32_post_low_byte=false;bool c512_m32_active=false;bool vit_proj_n64_active=false;unsigned vit_stream_active=0;bool c32_norm900_loaded=false;bool fast_numeric=false; /* DLSS5_FAST_NUMERIC (cached at construction): load the lossy *-fast module twins where present */
  /* ---- programmatic-dependent-launch emulation (opt.pdl; results/pdl-chain-20260925) ----
@@ -394,7 +395,7 @@ class Network {friend class D3D12Bridge;
  void* PackedFusedMhWeightFrag(const std::string&name,U c){auto key=name+"@ffn-frag";auto it=weights.find(key);if(it==weights.end()){auto v=ReadWeights(opt.assets+"/"+name);if(v.size()!=WeightElements(name))throw std::runtime_error("fused FFN weight shape");if(opt.grouped_mh_contract)ValidateGroupedMhContract(v,c);size_t cc=size_t(c)*c;Fp8(v,{{0,4*cc},{4*cc,4*cc},{8*cc,cc}});FragmentPackedMatrix(v,0,4*c,c);FragmentPackedMatrix(v,4*cc,c,4*c);FragmentPackedMatrix(v,8*cc,c,c);it=weights.emplace(key,UploadWeight(v,key)).first;}return P(it->second);}
  // Attention weights with only the QKV rows as fragment tiles (the FFN/QKV kernel's aw); the projection region stays row-major.
  // C256 FFN in the wide fragment layout (W2_FFN_W16), consumed only by the _w16 exports (c256_wave2*_w16, sp_*256_w16).
- void* PackedFusedMhWeightFragW16(const std::string&name,U c){auto key=name+"@ffn-frag-w16";auto it=weights.find(key);if(it==weights.end()){auto v=ReadWeights(opt.assets+"/"+name);if(v.size()!=WeightElements(name))throw std::runtime_error("fused FFN weight shape");if(opt.grouped_mh_contract)ValidateGroupedMhContract(v,c);size_t cc=size_t(c)*c;Fp8(v,{{0,4*cc},{4*cc,4*cc},{8*cc,cc}});FragmentPackedMatrixW16(v,0,4*c,c);FragmentPackedMatrixW16(v,4*cc,c,4*c);FragmentPackedMatrixW16(v,8*cc,c,c);it=weights.emplace(key,UploadWeight(v,key)).first;}return P(it->second);}
+ void* PackedFusedMhWeightFragW16(const std::string&name,U c){auto key=name+"@ffn-frag-w16";auto it=weights.find(key);if(it==weights.end()){auto v=ReadWeights(opt.assets+"/"+name);if(v.size()!=WeightElements(name))throw std::runtime_error("fused FFN weight shape");if(opt.grouped_mh_contract)ValidateGroupedMhContract(v,c);size_t cc=size_t(c)*c;Fp8(v,{{0,4*cc},{4*cc,4*cc},{8*cc,cc}});FragmentPackedMatrixW16(v,0,4*c,c);FragmentPackedMatrixW16(v,4*cc,c,4*c);FragmentPackedMatrixW16(v,8*cc,c,c);if((c==64&&(wave_half_mask&1))||(c==128&&(wave_half_mask&2))){size_t before=v.size()*4;AppendWaveW16Half(v,c);std::fprintf(stderr,"W19_WEIGHT key=%s c=%u old=%zu new=%zu\n",key.c_str(),c,before,v.size()*4);}it=weights.emplace(key,UploadWeight(v,key)).first;}return P(it->second);}
  void* PackedMhWeightQkvFragOnly(const std::string&name,U c){auto key=name+"@qkv-frag-only";auto it=weights.find(key);if(it==weights.end()){auto v=ReadWeights(opt.assets+"/"+name);if(v.size()!=WeightElements(name))throw std::runtime_error("packed weight shape "+name);size_t cc=size_t(c)*c;Fp8(v,{{0,3*cc},{3*cc,cc}});FragmentPackedMatrix(v,0,3*size_t(c),c);it=weights.emplace(key,UploadWeight(v,key)).first;}return P(it->second);}
  void* PackedFusedMhWeight(const std::string&name,U c,bool force_tiled=false){
   if(!force_tiled&&(!opt.tiled_mh_ffn||c<TiledMin()))return PackedMhWeight(name,c,false);
@@ -551,7 +552,8 @@ class Network {friend class D3D12Bridge;
  }
 #endif
  /* Optional export probe: modules without the symbol keep the old launch shape. */
- bool HasFn(const std::string&m,const std::string&name){std::string key=m+":"+name;if(functions.count(key))return true;if(missing_functions.count(key))return false;auto mi=modules.find(m);if(mi==modules.end())return false;Handle f{};if(api.hipModuleGetFunction(&f,mi->second,(ampere_c32_half&&m=="c32_wave1"?"v3_"+name:name).c_str())){missing_functions.insert(key);return false;}functions.emplace(key,f);return true;} /* 2026-10-01 rebuild-baseline: misses are cached too -- per-frame probes (ViT _ks2, ...) otherwise call hipModuleGetFunction every frame (+0.01..0.02ms ABBA) */
+ std::string Symbol(const std::string&m,const std::string&n)const{if(m=="c64_wave2"&&wave_half_mask)return "w19m"+std::to_string(wave_half_mask)+"_"+n;return ampere_c32_half&&m=="c32_wave1"?"v3_"+n:n;}
+ bool HasFn(const std::string&m,const std::string&name){std::string key=m+":"+name;if(functions.count(key))return true;if(missing_functions.count(key))return false;auto mi=modules.find(m);if(mi==modules.end())return false;Handle f{};if(api.hipModuleGetFunction(&f,mi->second,Symbol(m,name).c_str())){missing_functions.insert(key);return false;}functions.emplace(key,f);return true;} /* 2026-10-01 rebuild-baseline: misses are cached too -- per-frame probes (ViT _ks2, ...) otherwise call hipModuleGetFunction every frame (+0.01..0.02ms ABBA) */
  bool C32Norm900Active()const{return c32_norm900_loaded&&fast_numeric&&W==1600&&H==960&&multi_pass==1&&!opt.experimental_temporal;}
  Handle Fn(const std::string&m,const std::string&name){
   static const std::string normkey="c32_norm900";
@@ -563,7 +565,7 @@ class Network {friend class D3D12Bridge;
    else ++c32_stock_calls;
   }
   std::string key=actual+":"+target;auto it=functions.find(key);if(it!=functions.end())return it->second;
-  Handle f{};api.Check(api.hipModuleGetFunction(&f,modules.at(actual),(ampere_c32_half&&actual=="c32_wave1"?"v3_"+target:target).c_str()),target.c_str());functions.emplace(key,f);return f;
+  Handle f{};api.Check(api.hipModuleGetFunction(&f,modules.at(actual),Symbol(actual,target).c_str()),target.c_str());functions.emplace(key,f);return f;
  }
  /* DLSS5_FAST_NUMERIC twin (2026-10-03 fast-vit-c512): <stem>.hsaco -> <stem>-fast.hsaco when the option is 1 and the file
     exists; missing twin falls back to the exact module with one stderr line (same contract as the C32/C64 swap). */
@@ -949,6 +951,7 @@ public:
  explicit Network(Options o):api(o.runtime),pulse_ops{int(o.device),&stream,api.hipSetDevice,api.hipEventCreate,api.hipEventRecord,api.hipStreamSynchronize,api.hipEventDestroy},pulse_lease(pulse_ops),opt(std::move(o)),W(opt.width),H(opt.height){api.style_feature=StyleFeatureFromEnvironment();{const char*v=std::getenv("DLSS5_OVERLAP");final_direct_compatible=HIP_FINAL_OUTPUT_DIRECT&&(!v||!*v||!std::strcmp(v,"0"));}if(AmpereStaticWeights()!=bool(std::ifstream(opt.modules+"/AMPERE_WEIGHTS_V2")))throw std::runtime_error("CPU/GPU static-weight layout mismatch: pair Phase-2 modules with DLSS5_AMPERE_WEIGHTS=1; old modules require =0");ampere_c32_half=bool(std::ifstream(opt.modules+"/AMPERE_WEIGHTS_V3"));
 if(ampere_c32_half){std::ifstream marker(opt.modules+"/AMPERE_WEIGHTS_V3");std::string v;std::getline(marker,v);if(v!="C32_W16_F16_APPEND_V1"||!AmpereStaticWeights())throw std::runtime_error("invalid C32 V3 marker/static layout");}
 if(const char*v=std::getenv("DLSS5_AMPERE_C32_F16")){if((std::strcmp(v,"0")!=0)!=ampere_c32_half)throw std::runtime_error("C32 V3 Host/module marker mismatch");}
+{std::ifstream f(opt.modules+"/AMPERE_WEIGHTS_W19");if(f){std::string v;std::getline(f,v);if(v!="1"&&v!="3")throw std::runtime_error("invalid W19 marker");wave_half_mask=unsigned(std::stoul(v));if(!AmpereStaticWeights())throw std::runtime_error("W19 requires Ampere static weights");}}
 assets_root=opt.assets;small_assets_ready=SmallAssetsAvailable(assets_root+"/small");SelectModel(dlss5_mode::Requested());multi_pass=MultiPassFromEnvironment();multi_predict=MultiPredictFromEnvironment();multi_skin=MultiSkinFromEnvironment();multi_skip=opt.integration.override_multi_pass_skip?opt.integration.multi_pass_skip:MultiPassSkipFromEnvironment();std::fprintf(stderr,"multi_pass=%u multi_pass_predict=%u actual_network_passes=%u\n",multi_pass,unsigned(multi_predict),multi_predict&&multi_pass==3?2:multi_pass);fast_numeric=FastNumericFromEnvironment();if(opt.experimental_temporal){
   const std::string tap=fast_numeric?"c32-wave1-temporal-fast":"c32-wave1-temporal";
   bool assets=std::ifstream(opt.modules+"/"+tap+".hsaco").good()&&std::ifstream(opt.modules+"/temporal-history.hsaco").good()&&std::ifstream(opt.assets+"/post70-history-head.f16").good()&&std::ifstream(opt.assets+"/native-temporal-sigmoid.f32").good();
@@ -974,6 +977,7 @@ if(wave_owned_active){
  for(auto&entry:extra)entry[1]=entry[0]==std::string("c32_wave1")&&opt.experimental_temporal?(fast_numeric?"c32-wave1-temporal-fast":"c32-wave1-temporal"):FastTwin(entry[1],entry[0]==std::string("c32_wave1")); /* c32: the rtz build of the fast C32 disassembles identically, so the twin stem is always c32-wave1 */
  for(auto&entry:extra){entry[1]+=".hsaco";Handle m{};
   api.Check(api.LoadModule(&m,(opt.modules+"/"+entry[1]).c_str()),entry[1].c_str());modules[entry[0]]=m;
+  if(entry[0]=="c64_wave2"){Handle f{};bool one=api.hipModuleGetFunction(&f,m,"w19m1_c64_wave2_bi_bo_w16")==0,three=api.hipModuleGetFunction(&f,m,"w19m3_c64_wave2_bi_bo_w16")==0;if((wave_half_mask==0&&(one||three))||(wave_half_mask==1&&!one)||(wave_half_mask==3&&!three))throw std::runtime_error("W19 Host/module ABI mismatch");}
   if(entry[0]=="c32_wave1"){
    Handle abi{};const bool module_v3=api.hipModuleGetFunction(&abi,m,"v3_c32_wave1_chain_w16")==0;
    if(module_v3!=ampere_c32_half)throw std::runtime_error("C32 V3 Host/module exported ABI mismatch");

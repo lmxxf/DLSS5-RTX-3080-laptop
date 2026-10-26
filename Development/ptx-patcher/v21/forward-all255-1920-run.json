@@ -1,0 +1,24 @@
+{
+  "tag": "forward",
+  "variant": "all255",
+  "width": 1920,
+  "height": 1080,
+  "warmup": 50,
+  "iterations": 80,
+  "begin": "2026-10-26T22:46:23.226717",
+  "end": "2026-10-26T22:46:26.101987",
+  "returncode": 0,
+  "args": [
+    "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+    "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+    "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_all255.dll",
+    "1920",
+    "1080",
+    "2",
+    "50",
+    "80",
+    "C:/DLSS5-5090-dll/ptx-v21-bench/forward-all255-1920.rgb32"
+  ],
+  "dll_sha256": "1a05511a7e24b193d9b42557400a4ebe05ced85fc320ea68dfabc8335f8a166a",
+  "output": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-all255-1920.rgb32"
+}

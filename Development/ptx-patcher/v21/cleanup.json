@@ -1,0 +1,702 @@
+{
+  "removed_bytes": 3282007038,
+  "files": [
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_c256-168.dll",
+      "bytes": 266414592,
+      "sha256": "4a12d2b999f0b7fec50140a4194f6cc6c2a3976d0e79f53069bd87fdcc235f0b",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_c256-255.dll",
+      "bytes": 266414592,
+      "sha256": "93bd691c7c0fd9ad9e85285ab33b928acb10fce8a1bc240d0cfafc6615fbae2d",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb00-255.dll",
+      "bytes": 266414592,
+      "sha256": "a1476d4fd42567ce957ad14d4cdbb783161438413e845d6b2f6ef9421b6eb9b7",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb04-255.dll",
+      "bytes": 266414592,
+      "sha256": "0035220361043c06bf67d249860e9041cdb159380b967349e2bea94b326ed4e0",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb05-255.dll",
+      "bytes": 266414592,
+      "sha256": "d21d43e04828f46517458d775052b9d656d104aa41e8418daf4b0236b4c5edc2",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb06-255.dll",
+      "bytes": 266414592,
+      "sha256": "8f19bdcd50ed0876ae0d0d88fff6c11e844dbdd3b0395bf375cdf12425b7f60e",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_hot255.dll",
+      "bytes": 266414592,
+      "sha256": "c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_all255.dll",
+      "bytes": 266414592,
+      "sha256": "1a05511a7e24b193d9b42557400a4ebe05ced85fc320ea68dfabc8335f8a166a",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb45.dll",
+      "bytes": 266414592,
+      "sha256": "cdfb4ee3ac7a4656f0b51a596089723944f913a0ddddd0351e5ae44b0ee280e5",
+      "reason": "temporary candidate; caps, SHA and control evidence retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-all255-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-all255-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "debb84190cb30e79f8925f5152e9623ccee22b26b69fa5d14668deb90464b518",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-all255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-baseline-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-baseline-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "debb84190cb30e79f8925f5152e9623ccee22b26b69fa5d14668deb90464b518",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-baseline-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-fb45-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-fb45-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "debb84190cb30e79f8925f5152e9623ccee22b26b69fa5d14668deb90464b518",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-fb45-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-hot255-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-hot255-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "debb84190cb30e79f8925f5152e9623ccee22b26b69fa5d14668deb90464b518",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/forward-hot255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-all255-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-all255-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "debb84190cb30e79f8925f5152e9623ccee22b26b69fa5d14668deb90464b518",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-all255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-baseline-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-baseline-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "debb84190cb30e79f8925f5152e9623ccee22b26b69fa5d14668deb90464b518",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-baseline-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-fb45-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-fb45-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "debb84190cb30e79f8925f5152e9623ccee22b26b69fa5d14668deb90464b518",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-fb45-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-hot255-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-hot255-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "debb84190cb30e79f8925f5152e9623ccee22b26b69fa5d14668deb90464b518",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-hot255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan00-baseline-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan01-c256-168-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan02-c256-255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan03-baseline-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan04-fb00-255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan05-fb04-255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan06-baseline-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan07-fb05-255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan08-fb06-255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan09-baseline-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan10-hot255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan11-all255-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan12-baseline-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94",
+      "reason": "output compared to V2 before cleanup; hashes/metrics retained"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb04-cap255/fatbin04.ptx",
+      "bytes": 6082964,
+      "sha256": "9b4fa5beac7e142a34b5cb9d2a9c3b8ed1b8c63c40cd7e3c2334011aea8dc165",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb04-cap255/fatbin04.cubin",
+      "bytes": 1526304,
+      "sha256": "0b5ef2fb8e3cb645ef108bdfcb4fffb45f245a48264165c35263fe684afab770",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb04-cap255/fatbin04.bin",
+      "bytes": 257808,
+      "sha256": "62b4edb4ef0505a54764a8bd29fa6fc62ca3b449bbb71f3cc1b6c058f13a5ed2",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin04.ptx",
+      "bytes": 6082964,
+      "sha256": "9b4fa5beac7e142a34b5cb9d2a9c3b8ed1b8c63c40cd7e3c2334011aea8dc165",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin06.cubin",
+      "bytes": 238944,
+      "sha256": "8613f03fa16444f0a27c03963d5f2c0ffb279618be81e599479bbed8e1c64b01",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin01.ptx",
+      "bytes": 8035361,
+      "sha256": "a6e6540f88a67afb9c0bac7637e6c9c8ccc6c03d23e9e18516ac50ff43d03806",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin00.ptx",
+      "bytes": 8528130,
+      "sha256": "5f677d3b2df96c2fb47bdee2b20cf5825fe623995cba94c94ba8f9ab0a8a7d94",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin05.ptx",
+      "bytes": 7987460,
+      "sha256": "e087ca491d051d2088fc1432e857f4f58fe0a586ed924025702bed65ad87310b",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin02.bin",
+      "bytes": 238512,
+      "sha256": "40c95f00c9de2d356bc08b7f700b2fd76f9fb938045e5cc52e278b74a3e70863",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin06.bin",
+      "bytes": 53176,
+      "sha256": "3366ec4c7c6d71fef3f1d38c315ce5f8a71fa96d779472fb18caf8971e4e5257",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin00.cubin",
+      "bytes": 1700960,
+      "sha256": "40e65126d9328ebe0707298793ced942895c3bf5dcf0aa772de6ee01c862ff1c",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin04.cubin",
+      "bytes": 1526304,
+      "sha256": "0b5ef2fb8e3cb645ef108bdfcb4fffb45f245a48264165c35263fe684afab770",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin02.cubin",
+      "bytes": 1896864,
+      "sha256": "03fe5682f18437211735b67ce71ccac19e06f6f5e76456eca4f259b38a9211ec",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin05.cubin",
+      "bytes": 2015776,
+      "sha256": "bc8d5454f4ebf8c2a942f92cc6453348463ad4cbf502b57427f5d8f7989c2546",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin03.cubin",
+      "bytes": 1887520,
+      "sha256": "29cc058a049653801046964912317db7b28f661a00cec36a3ab90cf0b4beb0db",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin03.bin",
+      "bytes": 298432,
+      "sha256": "0afd01d1df24c11abcc6703b60f104c23f79a5b5059f62632c2f246c6bcda050",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin03.ptx",
+      "bytes": 8786308,
+      "sha256": "413f7cbfcffe7495fb5bd460c0420e8582f555923eb6f5fefea2ed18086fb675",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin02.ptx",
+      "bytes": 8677036,
+      "sha256": "436a0c3a25bf8f5da1d5fb0f5489929b423893decd93bac5ae8da19bcb443182",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin04.bin",
+      "bytes": 257808,
+      "sha256": "62b4edb4ef0505a54764a8bd29fa6fc62ca3b449bbb71f3cc1b6c058f13a5ed2",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin06.ptx",
+      "bytes": 1087383,
+      "sha256": "95f9f245a7e9003c40a9e8a67cd57111aa5514ab88276d3df4f75e69f58bbdd9",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin01.cubin",
+      "bytes": 1714208,
+      "sha256": "ada06df3dccfc4b39bf06d704fbe411c8f69acf98ba2fc74c2a39b58ca54c384",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin00.bin",
+      "bytes": 350968,
+      "sha256": "bd88ec85cb0a5d6594545e80b49e16125e79ddc15631d771196fb1bbc3cc5e37",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin05.bin",
+      "bytes": 291176,
+      "sha256": "80c33c01213ad97e42f43375ed077b25480bd3c261f5e857b36878f95853872c",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/final/fatbin01.bin",
+      "bytes": 244560,
+      "sha256": "f73de7db91ebdaaa26b22e55e9467007df3d5cc86b9d4410101c28ac09224f03",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb00-cap255/fatbin00.ptx",
+      "bytes": 8528130,
+      "sha256": "5f677d3b2df96c2fb47bdee2b20cf5825fe623995cba94c94ba8f9ab0a8a7d94",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb00-cap255/fatbin00.cubin",
+      "bytes": 1700960,
+      "sha256": "40e65126d9328ebe0707298793ced942895c3bf5dcf0aa772de6ee01c862ff1c",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb00-cap255/fatbin00.bin",
+      "bytes": 350968,
+      "sha256": "bd88ec85cb0a5d6594545e80b49e16125e79ddc15631d771196fb1bbc3cc5e37",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb05-cap255/fatbin05.ptx",
+      "bytes": 7987460,
+      "sha256": "e087ca491d051d2088fc1432e857f4f58fe0a586ed924025702bed65ad87310b",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb05-cap255/fatbin05.cubin",
+      "bytes": 2015776,
+      "sha256": "bc8d5454f4ebf8c2a942f92cc6453348463ad4cbf502b57427f5d8f7989c2546",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb05-cap255/fatbin05.bin",
+      "bytes": 291176,
+      "sha256": "80c33c01213ad97e42f43375ed077b25480bd3c261f5e857b36878f95853872c",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb01-cap255/fatbin01.ptx",
+      "bytes": 8035361,
+      "sha256": "99b0b5b8cc2cc4f5c779adf6a279c2a072194be5a3cadf0873323a60157503ee",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb01-cap255/fatbin01.cubin",
+      "bytes": 1692832,
+      "sha256": "0afe0824cc058a3d407b0d239d0f1ebc63d23a893e9dbfe1713a76f8255cb599",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb01-cap255/fatbin01.bin",
+      "bytes": 311336,
+      "sha256": "1f2cf90a48ff4a513abda2f1fe8df632ee042c1960dd2737cb138aaaced9d4ef",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb03-cap255/fatbin03.cubin",
+      "bytes": 1887520,
+      "sha256": "29cc058a049653801046964912317db7b28f661a00cec36a3ab90cf0b4beb0db",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb03-cap255/fatbin03.bin",
+      "bytes": 298432,
+      "sha256": "0afd01d1df24c11abcc6703b60f104c23f79a5b5059f62632c2f246c6bcda050",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb03-cap255/fatbin03.ptx",
+      "bytes": 8786308,
+      "sha256": "413f7cbfcffe7495fb5bd460c0420e8582f555923eb6f5fefea2ed18086fb675",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb02-cap255/fatbin02.bin",
+      "bytes": 321472,
+      "sha256": "7de2a877f6b35e3273bf0240261896b8e5e8bb446f93bfaa6eee25e0ebd30cf3",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb02-cap255/fatbin02.cubin",
+      "bytes": 1888032,
+      "sha256": "9acd5dbad5a00435303c0a8a3f3273b1addb15ff5d9d6abde829c274f2db4b0f",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb02-cap255/fatbin02.ptx",
+      "bytes": 8677036,
+      "sha256": "c068dd14a5f92db32c221086e90d9fcbb5229eca03839a637df0760e16429244",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb03-cap168/fatbin03.cubin",
+      "bytes": 1902880,
+      "sha256": "da53b0723d2e36b56daccc1b429a634fcc682fbac3c4156c1c1f753ca0419b2b",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb03-cap168/fatbin03.bin",
+      "bytes": 223720,
+      "sha256": "b3c608bd5fe6d4521586c3b29f4de64429ed6525eb6e8734f5a7f5fd5defe5de",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb03-cap168/fatbin03.ptx",
+      "bytes": 8786308,
+      "sha256": "906f73030934cf06e76aab3d7acfe598f9182b4b60988cc7d31eb580d5b011f1",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb06-cap255/fatbin06.cubin",
+      "bytes": 238944,
+      "sha256": "8613f03fa16444f0a27c03963d5f2c0ffb279618be81e599479bbed8e1c64b01",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb06-cap255/fatbin06.bin",
+      "bytes": 53176,
+      "sha256": "3366ec4c7c6d71fef3f1d38c315ce5f8a71fa96d779472fb18caf8971e4e5257",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v21/artifacts/fb06-cap255/fatbin06.ptx",
+      "bytes": 1087383,
+      "sha256": "95f9f245a7e9003c40a9e8a67cd57111aa5514ab88276d3df4f75e69f58bbdd9",
+      "reason": "regenerable PTX/fatbin/cubin; final source rebuild identity proved"
+    }
+  ],
+  "retained": [
+    "V2 DLL",
+    "recommended V2.1 DLL",
+    "source DLL",
+    "cuobjdump resource reports",
+    "all benchmark/source/telemetry/SHA evidence"
+  ]
+}

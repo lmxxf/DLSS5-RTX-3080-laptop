@@ -40,6 +40,8 @@
 
 ## 3. 下一阶段深度优化路线图（双线并进：先摘 `ptx-patcher` 0-SHFL 核弹级果实，再推 `hip-port` Phase 17+）
 
+> 路线 B 当前推荐已更新为 **V2.1 hot255**（FB00/03/04/05/06→255），三档约6.66/9.70/12.78ms、相对V2严格0bit；本文件末尾有完整验收与构建入口。
+
 ### 紧急高优任务（路线 B `ptx-patcher` V2）：基于偶奇 K16 原位拆解恒等式的 **0-SHFL / 0-PRMT** 升级
 - **背景与逆向发现（2026-10-26，朱雀逆向 `/mnt/c/DLSS5-5090-dll/discord_v7/nvngx_dlssnr_309_v2i8_255_rtx2030_V7.dll`）**：
   - 同机 `bench_sky.exe` 实测发现 Discord V7 DLL（510 MB）在 RTX 3080 Laptop 上跑出了 **720p `6.48 ms`、900p `9.62 ms`、1080p `12.16 ms`**（比我们 `v0.1.0` 的 `16.46 / 26.88 / 32.82 ms` 快 **2.54× ~ 2.79×**）。
@@ -146,3 +148,16 @@ FB00～06全导出静态SHFL总计26300/16627/14195/12371/6563/4963/834→1274/7
 V7二进制分析：22Fatbin，新15～21为75/86/120网络，原00～06保留sm120；Small资源113893343→226693087B、HT147695410→291526450B。Small四个纯矩阵共2097152值，原FP8解码与V7 FP16位值多重集合全同但顺序不同，证实离线FP16预展开/重排；混合scale/metadata没有简单翻倍。FB18-sm86另有1040条IMMA.16832.S8.S8，位于五个C256非_fp8变体；未用运行时核追踪证明本次Small实际执行，不能把剩余1.6×全归INT8，也没有单因素消融分配预解码收益。
 
 [完整回执](ptx-patcher/v2/README.md)、[实测/PSNR](ptx-patcher/v2/bench-results.md)、[资源/栈表](ptx-patcher/v2/sass-summary.md)。临时PTX/cubin/SASS、全部本轮RGB和discord_v7旧RGB记录SHA后清理；保留新DLL、源码/原始日志/遥测/资源表/哈希/IMMA摘录。未改发布ZIP、游戏/Magpie，不push，阶段独立commit。V7权重ABI与进一步优化尚未移植。
+
+
+## 2026-10-26：路线 B V2.1，放宽maxnreg控制胜出（闇）
+
+以066aed5/V2为唯一基线，只改已有PTX maxnreg数字；8个编译控制规范化文本/SHA与V2完全一致，不改FP8图、权重、K分组或Host。先测C256128→168/255及各FB255，再比较fb45/hot255/all255。1080扫描C256单点20.315/20.386ms对穿插V2约20.14～20.38无可靠净收益；仅FB04为17.665、仅FB05为15.361，hot255组合12.761ms。
+
+最终推荐FB00/03/04/05/06→255，FB01/02保留。三档同轮正/反50warmup/80iter：V2 median720为10.227/10.209→V2.1 **6.662/6.668ms**；900为15.221/15.302→**9.697/9.761**；1080为20.378/20.418→**12.784/12.776**。同方向速度比约1.53/1.57/1.60×；完整min/median/Wall及默认DVFS遥测逐轮保留，不冒充锁频。全部13扫描+24正式对比共37次输出相对同档V2全幅0bit、invalid0，天空变号0/HF RMS0.000101989不变。
+
+hot255略优fb45且额外清FB00/03/06 spill，保留；不把约0～0.1ms小差异作固定独立贡献。all255额外改FB01/02反而慢（900p 9.897/9.910、1080p 13.074/13.054），未选。全导出静态max STACK：FB00 240→0、FB03 200→0、FB04 1032→80、FB05 480→8、FB06 168→0 B；对应LDL/STL为709/702→0/0、629/706→0/0、2169/2201→40/78、1027/1017→7/5、117/110→0/0。推荐仍有FB01原120B以及FB04/05少量栈，不能宣称全网零STACK；全导出计数不冒充动态实际访问。
+
+新推荐`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll`，266414592B，**15/15 O4、全部原槽位，无扩节**，SHA **c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed**。最终原源全量15重编/实际CUDA加载，SHA与获胜控制相同；V2原SHA保留。专用复测构建`python3 Development/ptx-patcher/v21/build_recommended.py`；通用构建器新增--maxnreg FB:LIMIT，无参数仍为V2。
+
+[回执](ptx-patcher/v21/README.md)、[正式两轮](ptx-patcher/v21/final-results.md)、[全控制](ptx-patcher/v21/results.md)、[资源/溢出](ptx-patcher/v21/resources.md)、[验收](ptx-patcher/v21/validation.json)。8项mapped、1项MMA生成、1项cap回归通过。候选DLL/RGB/临时PTX/cubin记录SHA后清理，保留推荐DLL、日志/遥测/资源/清单；不改发布ZIP或游戏/Magpie，不push，立即独立commit。本轮未改FP16图/离线权重/IMMA，不将这些机制混入收益。

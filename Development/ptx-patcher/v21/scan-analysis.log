@@ -1,0 +1,19 @@
+# V2.1 cap controls
+
+Preset2 / Style1, same bench_sky;50warmup/80iter, default DVFS. 720p sky,900p/1080p deterministic scene. Full output against same-tier fresh V2 baseline.
+
+| Tag | Variant | Width | GPU min /median ms | Wall median | bitdiff |
+|---|---|---:|---:|---:|---:|
+| scan00 | baseline | 1920 | 19.751 /20.140 | 20.528 | 0 |
+| scan01 | c256-168 | 1920 | 19.883 /20.315 | 21.024 | 0 |
+| scan02 | c256-255 | 1920 | 19.985 /20.386 | 20.973 | 0 |
+| scan03 | baseline | 1920 | 18.977 /20.328 | 20.760 | 0 |
+| scan04 | fb00-255 | 1920 | 20.040 /20.258 | 20.585 | 0 |
+| scan05 | fb04-255 | 1920 | 17.309 /17.665 | 18.080 | 0 |
+| scan06 | baseline | 1920 | 18.883 /20.294 | 20.778 | 0 |
+| scan07 | fb05-255 | 1920 | 14.985 /15.361 | 15.827 | 0 |
+| scan08 | fb06-255 | 1920 | 20.054 /20.285 | 20.871 | 0 |
+| scan09 | baseline | 1920 | 20.040 /20.379 | 20.925 | 0 |
+| scan10 | hot255 | 1920 | 12.530 /12.761 | 13.181 | 0 |
+| scan11 | all255 | 1920 | 12.789 /12.876 | 13.514 | 0 |
+| scan12 | baseline | 1920 | 20.044 /20.366 | 21.017 | 0 |

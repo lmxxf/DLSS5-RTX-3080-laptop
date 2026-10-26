@@ -1,0 +1,32 @@
+
+Resource usage:
+ Common:
+  GLOBAL:2
+ Function __cuda_sm70_shflsync_bfly:
+  REG:24 STACK:0 SHARED:0 LOCAL:0 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function __cuda_sm70_shflsync_idx_p:
+  REG:24 STACK:0 SHARED:0 LOCAL:0 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8:
+  REG:207 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8:
+  REG:242 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8:
+  REG:245 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8:
+  REG:244 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_upsample_fp8:
+  REG:207 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_outview_fp8:
+  REG:238 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_ds_fp8:
+  REG:246 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_inpview_fp8:
+  REG:242 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_chained_fp8:
+  REG:243 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_wait_fp8:
+  REG:241 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_tilesync_fp8:
+  REG:245 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0
+ Function cc_tinlayout_fused_swin_2h_64_2_fp8:
+  REG:241 STACK:0 SHARED:4096 LOCAL:0 CONSTANT[0]:440 TEXTURE:0 SURFACE:0 SAMPLER:0

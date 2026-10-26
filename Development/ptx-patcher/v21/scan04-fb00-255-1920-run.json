@@ -1,0 +1,24 @@
+{
+  "tag": "scan04",
+  "variant": "fb00-255",
+  "width": 1920,
+  "height": 1080,
+  "warmup": 50,
+  "iterations": 80,
+  "begin": "2026-10-26T22:43:11.665804",
+  "end": "2026-10-26T22:43:15.568563",
+  "returncode": 0,
+  "args": [
+    "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+    "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+    "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb00-255.dll",
+    "1920",
+    "1080",
+    "2",
+    "50",
+    "80",
+    "C:/DLSS5-5090-dll/ptx-v21-bench/scan04-fb00-255-1920.rgb32"
+  ],
+  "dll_sha256": "a1476d4fd42567ce957ad14d4cdbb783161438413e845d6b2f6ef9421b6eb9b7",
+  "output": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/scan04-fb00-255-1920.rgb32"
+}

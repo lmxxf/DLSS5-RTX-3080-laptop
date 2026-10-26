@@ -1,0 +1,24 @@
+{
+  "tag": "reverse",
+  "variant": "fb45",
+  "width": 1600,
+  "height": 900,
+  "warmup": 50,
+  "iterations": 80,
+  "begin": "2026-10-26T22:46:03.000060",
+  "end": "2026-10-26T22:46:05.305786",
+  "returncode": 0,
+  "args": [
+    "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+    "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+    "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb45.dll",
+    "1600",
+    "900",
+    "2",
+    "50",
+    "80",
+    "C:/DLSS5-5090-dll/ptx-v21-bench/reverse-fb45-1600.rgb32"
+  ],
+  "dll_sha256": "cdfb4ee3ac7a4656f0b51a596089723944f913a0ddddd0351e5ae44b0ee280e5",
+  "output": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-fb45-1600.rgb32"
+}

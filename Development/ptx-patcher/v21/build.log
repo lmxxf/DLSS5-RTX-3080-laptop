@@ -1,0 +1,16 @@
+3 255 ELF O4 (cubin=1887520 B -> fatbin=298432 / 586832 B) in 13.95s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+3 168 ELF O4 (cubin=1902880 B -> fatbin=223720 / 586832 B) in 14.64s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+0 255 ELF O4 (cubin=1700960 B -> fatbin=350968 / 841720 B) in 15.07s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+4 255 ELF O4 (cubin=1526304 B -> fatbin=257808 / 433184 B) in 8.29s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+1 255 ELF O4 (cubin=1692832 B -> fatbin=311336 / 557032 B) in 12.40s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, maxnreg_override=12
+2 255 ELF O4 (cubin=1888032 B -> fatbin=321472 / 506464 B) in 12.73s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+6 255 ELF O4 (cubin= 238944 B -> fatbin= 53176 /  70336 B) in 1.72s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+5 255 ELF O4 (cubin=2015776 B -> fatbin=291176 / 542960 B) in 9.76s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29
+c256-168 266414592 4a12d2b999f0b7fec50140a4194f6cc6c2a3976d0e79f53069bd87fdcc235f0b
+c256-255 266414592 93bd691c7c0fd9ad9e85285ab33b928acb10fce8a1bc240d0cfafc6615fbae2d
+fb00-255 266414592 a1476d4fd42567ce957ad14d4cdbb783161438413e845d6b2f6ef9421b6eb9b7
+fb04-255 266414592 0035220361043c06bf67d249860e9041cdb159380b967349e2bea94b326ed4e0
+fb05-255 266414592 d21d43e04828f46517458d775052b9d656d104aa41e8418daf4b0236b4c5edc2
+fb06-255 266414592 8f19bdcd50ed0876ae0d0d88fff6c11e844dbdd3b0395bf375cdf12425b7f60e
+hot255 266414592 c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed
+all255 266414592 1a05511a7e24b193d9b42557400a4ebe05ced85fc320ea68dfabc8335f8a166a

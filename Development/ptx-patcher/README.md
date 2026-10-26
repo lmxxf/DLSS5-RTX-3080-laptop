@@ -25,3 +25,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 ### 2026-10-26：V2 偶奇 K16 零洗牌默认
 
 `build_sm86_dlls.py` 现默认使用同lane偶/奇K拆解，仍为multidef_nq、15/15 O4。默认输出新名字 `nvngx_dlssnr_sm86_v2.dll`，保留旧fast；`--mma-layout legacy`可构建旧拆解对照。浮点累加顺序改变，不宣称旧输出逐位相同。三档正反实测约10.2/15.3/20.3ms，比旧版约1.56～1.61×；[完整回执与V7分析](v2/README.md)。
+
+### 2026-10-26：当前推荐 V2.1（maxnreg 控制胜出）
+
+新推荐为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll`：只将FB00/03/04/05/06的现有maxnreg升至255，保留V2图和权重；三档对V2严格0bit，同轮median约6.66/9.70/12.78ms。使用 `python3 Development/ptx-patcher/v21/build_recommended.py` 可按固定SHA全量重建。[完整回执](v21/README.md)。通用构建器无cap参数仍为V2基线；旧V2与正式发布包保留。

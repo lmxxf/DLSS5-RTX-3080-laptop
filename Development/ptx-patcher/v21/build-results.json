@@ -1,0 +1,269 @@
+{
+  "compiles": [
+    {
+      "FB": 3,
+      "limit": 255,
+      "message": "ELF O4 (cubin=1887520 B -> fatbin=298432 / 586832 B) in 13.95s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12"
+    },
+    {
+      "FB": 3,
+      "limit": 168,
+      "message": "ELF O4 (cubin=1902880 B -> fatbin=223720 / 586832 B) in 14.64s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12"
+    },
+    {
+      "FB": 0,
+      "limit": 255,
+      "message": "ELF O4 (cubin=1700960 B -> fatbin=350968 / 841720 B) in 15.07s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19"
+    },
+    {
+      "FB": 4,
+      "limit": 255,
+      "message": "ELF O4 (cubin=1526304 B -> fatbin=257808 / 433184 B) in 8.29s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23"
+    },
+    {
+      "FB": 1,
+      "limit": 255,
+      "message": "ELF O4 (cubin=1692832 B -> fatbin=311336 / 557032 B) in 12.40s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, maxnreg_override=12"
+    },
+    {
+      "FB": 2,
+      "limit": 255,
+      "message": "ELF O4 (cubin=1888032 B -> fatbin=321472 / 506464 B) in 12.73s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12"
+    },
+    {
+      "FB": 6,
+      "limit": 255,
+      "message": "ELF O4 (cubin= 238944 B -> fatbin= 53176 /  70336 B) in 1.72s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2"
+    },
+    {
+      "FB": 5,
+      "limit": 255,
+      "message": "ELF O4 (cubin=2015776 B -> fatbin=291176 / 542960 B) in 9.76s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29"
+    }
+  ],
+  "variants": {
+    "c256-168": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_c256-168.dll",
+      "caps": {
+        "3": 168
+      },
+      "bytes": 266414592,
+      "sha256": "4a12d2b999f0b7fec50140a4194f6cc6c2a3976d0e79f53069bd87fdcc235f0b",
+      "manifest": [
+        [
+          3,
+          "inline",
+          3012896,
+          223720
+        ]
+      ]
+    },
+    "c256-255": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_c256-255.dll",
+      "caps": {
+        "3": 255
+      },
+      "bytes": 266414592,
+      "sha256": "93bd691c7c0fd9ad9e85285ab33b928acb10fce8a1bc240d0cfafc6615fbae2d",
+      "manifest": [
+        [
+          3,
+          "inline",
+          3012896,
+          298432
+        ]
+      ]
+    },
+    "fb00-255": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb00-255.dll",
+      "caps": {
+        "0": 255
+      },
+      "bytes": 266414592,
+      "sha256": "a1476d4fd42567ce957ad14d4cdbb783161438413e845d6b2f6ef9421b6eb9b7",
+      "manifest": [
+        [
+          0,
+          "inline",
+          1107664,
+          350968
+        ]
+      ]
+    },
+    "fb04-255": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb04-255.dll",
+      "caps": {
+        "4": 255
+      },
+      "bytes": 266414592,
+      "sha256": "0035220361043c06bf67d249860e9041cdb159380b967349e2bea94b326ed4e0",
+      "manifest": [
+        [
+          4,
+          "inline",
+          3599728,
+          257808
+        ]
+      ]
+    },
+    "fb05-255": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb05-255.dll",
+      "caps": {
+        "5": 255
+      },
+      "bytes": 266414592,
+      "sha256": "d21d43e04828f46517458d775052b9d656d104aa41e8418daf4b0236b4c5edc2",
+      "manifest": [
+        [
+          5,
+          "inline",
+          4032912,
+          291176
+        ]
+      ]
+    },
+    "fb06-255": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb06-255.dll",
+      "caps": {
+        "6": 255
+      },
+      "bytes": 266414592,
+      "sha256": "8f19bdcd50ed0876ae0d0d88fff6c11e844dbdd3b0395bf375cdf12425b7f60e",
+      "manifest": [
+        [
+          6,
+          "inline",
+          4575872,
+          53176
+        ]
+      ]
+    },
+    "hot255": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_hot255.dll",
+      "caps": {
+        "0": 255,
+        "3": 255,
+        "4": 255,
+        "5": 255,
+        "6": 255
+      },
+      "bytes": 266414592,
+      "sha256": "c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed",
+      "manifest": [
+        [
+          0,
+          "inline",
+          1107664,
+          350968
+        ],
+        [
+          3,
+          "inline",
+          3012896,
+          298432
+        ],
+        [
+          4,
+          "inline",
+          3599728,
+          257808
+        ],
+        [
+          5,
+          "inline",
+          4032912,
+          291176
+        ],
+        [
+          6,
+          "inline",
+          4575872,
+          53176
+        ]
+      ]
+    },
+    "all255": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_all255.dll",
+      "caps": {
+        "0": 255,
+        "1": 255,
+        "2": 255,
+        "3": 255,
+        "4": 255,
+        "5": 255,
+        "6": 255
+      },
+      "bytes": 266414592,
+      "sha256": "1a05511a7e24b193d9b42557400a4ebe05ced85fc320ea68dfabc8335f8a166a",
+      "manifest": [
+        [
+          0,
+          "inline",
+          1107664,
+          350968
+        ],
+        [
+          1,
+          "inline",
+          1949392,
+          311336
+        ],
+        [
+          2,
+          "inline",
+          2506432,
+          321472
+        ],
+        [
+          3,
+          "inline",
+          3012896,
+          298432
+        ],
+        [
+          4,
+          "inline",
+          3599728,
+          257808
+        ],
+        [
+          5,
+          "inline",
+          4032912,
+          291176
+        ],
+        [
+          6,
+          "inline",
+          4575872,
+          53176
+        ]
+      ]
+    },
+    "fb45": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_fb45.dll",
+      "caps": {
+        "4": 255,
+        "5": 255
+      },
+      "bytes": 266414592,
+      "sha256": "cdfb4ee3ac7a4656f0b51a596089723944f913a0ddddd0351e5ae44b0ee280e5",
+      "manifest": [
+        [
+          4,
+          "inline",
+          3599728,
+          257808
+        ],
+        [
+          5,
+          "inline",
+          4032912,
+          291176
+        ]
+      ]
+    }
+  },
+  "baseline_sha256": "737af93c2843fe18462c39da36a0a482e4d410493bed0e178fecabf526880f74",
+  "unchanged_8_to14": "reuse V2 O4; controls only change indicated FB caps"
+}

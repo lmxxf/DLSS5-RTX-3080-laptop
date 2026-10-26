@@ -1,0 +1,24 @@
+{
+  "tag": "reverse",
+  "variant": "all255",
+  "width": 1600,
+  "height": 900,
+  "warmup": 50,
+  "iterations": 80,
+  "begin": "2026-10-26T22:45:56.245285",
+  "end": "2026-10-26T22:45:58.563729",
+  "returncode": 0,
+  "args": [
+    "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+    "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+    "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21_all255.dll",
+    "1600",
+    "900",
+    "2",
+    "50",
+    "80",
+    "C:/DLSS5-5090-dll/ptx-v21-bench/reverse-all255-1600.rgb32"
+  ],
+  "dll_sha256": "1a05511a7e24b193d9b42557400a4ebe05ced85fc320ea68dfabc8335f8a166a",
+  "output": "/mnt/c/DLSS5-5090-dll/ptx-v21-bench/reverse-all255-1600.rgb32"
+}

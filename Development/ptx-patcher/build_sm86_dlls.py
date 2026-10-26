@@ -355,12 +355,22 @@ def fast_update_pe_checksum(data: bytearray) -> int:
   return chk
 
 
+def override_maxnreg(text: str, limit: int | None) -> tuple[str, int]:
+  """Only change existing PTX caps; leave launch bounds and instruction order intact."""
+  if limit is None:
+    return text, 0
+  if not 1 <= limit <= 255:
+    raise ValueError("maxnreg must be in 1..255")
+  return re.subn(r"(?m)^(\s*\.maxnreg\s+)\d+", lambda m: m[1]+str(limit), text)
+
+
 def worker_compile_fatbin(args):
   i, blob, is_fast, *build_options = args
   allow_grow = bool(build_options and build_options[0])
   mapped_mode = build_options[1] if len(build_options)>1 else "multidef"
   quantize_mapped = bool(build_options[2]) if len(build_options)>2 else False
   mma_layout = build_options[3] if len(build_options)>3 else "evenodd"
+  maxnreg = build_options[4] if len(build_options)>4 else None
   t0 = time.time()
   libzstd = ctypes.CDLL("libzstd.so.1")
   libzstd.ZSTD_decompress.argtypes = [
@@ -438,6 +448,10 @@ def worker_compile_fatbin(args):
   raw_ptx = zstd_decompress(payload, uncomp_sz) if (flags & 0x8000) else payload
   txt = raw_ptx.decode("utf-8").rstrip("\x00")
   ptx_sm86, stats = dp.transform_ptx(txt, dp.AMPERE)
+  ptx_sm86, cap_count = override_maxnreg(ptx_sm86, maxnreg)
+  if maxnreg is not None:
+    assert cap_count, f"Fatbin {i}: no existing .maxnreg to override"
+    stats.add("maxnreg_override", cap_count)
 
   libcuda = ctypes.CDLL("/usr/lib/wsl/lib/libcuda.so.1")
   assert libcuda.cuInit(0) == 0
@@ -521,12 +535,21 @@ def main():
   from pe_fatbins import assemble
   parser = argparse.ArgumentParser(description="Build all 15 sm_86 O4 fatbins with multi-definition-filtered mapped operands")
   parser.add_argument("--input", type=Path, default=Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll"))
-  parser.add_argument("--output", type=Path, default=Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v2.dll"))
+  parser.add_argument("--output", type=Path, default=None)
   parser.add_argument("--mma-layout", choices=("evenodd", "legacy"), default="evenodd", help="Legacy layout is a diagnostic control")
+  parser.add_argument("--maxnreg", action="append", default=[], metavar="FB:LIMIT", help="Diagnostic per-fatbin existing .maxnreg override; e.g. 3:255")
   parser.add_argument("--workers", type=int, default=3)
   parser.add_argument("--mapped-mode", choices=("strict", "multidef"), default="multidef")
   parser.add_argument("--quantize-mapped", action="store_true", help="Diagnostic: restore explicit E4M3 quantization on mapped sources")
   args = parser.parse_args()
+  caps = {}
+  for spec in args.maxnreg:
+    fb, limit = map(int, spec.split(":"))
+    assert 0 <= fb < 15 and 1 <= limit <= 255, spec
+    assert fb not in caps, f"Duplicate maxnreg override for FB{fb}"
+    caps[fb] = limit
+  if args.output is None:
+    args.output = Path("/mnt/c/DLSS5-5090-dll/" + ("nvngx_dlssnr_sm86_v21.dll" if caps else "nvngx_dlssnr_sm86_v2.dll"))
   t0 = time.time()
   data = bytearray(args.input.read_bytes())
   expected_sha256 = "2bc19bc09a7b89dd44f73e2ac0108fcc586e2154bdd0830f242f4f040e28789f"
@@ -535,7 +558,7 @@ def main():
   locs = dp.find_fatbins(data)
   assert len(locs) == 15, f"Expected 15 fatbins, found {len(locs)}"
   dp.apply_host_patches(data, (dp.AMPERE,))
-  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped, args.mma_layout) for i, l in enumerate(locs)]
+  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped, args.mma_layout, caps.get(i)) for i, l in enumerate(locs)]
   blobs = {}
   with ProcessPoolExecutor(max_workers=args.workers) as pool:
     futures = [pool.submit(worker_compile_fatbin, task) for task in tasks]

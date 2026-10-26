@@ -38,11 +38,27 @@
 
 ---
 
-## 3. 下一阶段深度优化路线图（双线并进：先摘 `ptx-patcher` 0-SHFL 核弹级果实，再推 `hip-port` Phase 17+）
+## 3. 下一阶段深度优化路线图（双线并进：先完成 `v0.2.0` 部署打包，再推 `hip-port` Phase 17+）
 
 > 路线 B 当前推荐已更新为 **V2.1 hot255**（FB00/03/04/05/06→255），三档约6.66/9.70/12.78ms、相对V2严格0bit；本文件末尾有完整验收与构建入口。
 
-### 紧急高优任务（路线 B `ptx-patcher` V2）：基于偶奇 K16 原位拆解恒等式的 **0-SHFL / 0-PRMT** 升级
+### 当前立即执行任务：`ptx-patcher V2.1` 实机部署与 `v0.2.0` 正式打包发布
+- **核心产物**：`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll`（266,414,592 B，15/15 原槽位 `O4`，SHA256 `c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed`），实测 720p **`6.66 ms`**、900p **`9.70 ms`**、1080p **`12.78 ms`**（比 `v0.1.0` 快 **2.38×~2.53×**，比上游 `O1` 快 **5.3×~5.6×**）。
+- **执行步骤**：
+  1. **更新主生产 DLL**：将 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll` 同步复制覆盖到 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll`（保留 `v21.dll` 与 `v2.dll` 副本）。
+  2. **本机三大实机目录更新为路线 B V2.1**：
+     - **《鬼武者：剑之道》（`/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/`）**：从昨天测试的 `hip-port` 切回路线 B（PTX V2.1）——从 `C:\DLSS5-5090-dll\backups\Onimusha-ptx-0.1.0\` 恢复原版未改 `dxgi.dll`（SHA256 `aa3761f2...`，同步检查 `_storage_`）、恢复 PTX 版 `OptiScaler.ini`（`WhitePointSource=1, Preset=2, Style=1`）、放入 `nvngx.dll_dlssnr.dll` 与 V2.1 的 `nvngx_dlssnr.dll`（SHA256 `c7d4c8b6...`），清理掉 `DLSS5-AMD/`、`LmxxfNrRuntime.dll` 等路线 A 残留。
+     - **《剑星》（`/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/`）**：更新其中的 `nvngx_dlssnr.dll` 为 V2.1（`c7d4c8b6...`）。**同时解决网友反馈转动视角时主角脸部闪烁问题**：将《剑星》及常规 OptiScaler 包的默认 `OptiScaler.ini` 中的 `TransferStrength` 和 `ColourStrength` 改为 **`1.0 / 1.0`**（防止运动遮罩回退时 1.5 倍高强度重打光与原图反差过大导致脸部闪烁），并将 `1.5 / 1.1` 配置另存为 `OptiScaler-增强风格.ini`。
+     - **Magpie**：更新为 V2.1 的 `nvngx_dlssnr.dll`（`c7d4c8b6...`）。
+  3. **重新组装 `/mnt/c/DLSS5-5090-dll/发布打包/` 下的三个 `v0.2.0` 正式发布包**：
+     - `OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip`
+     - `OptiScaler-DLSS5-RTX30-0.2.0.zip`（默认 `OptiScaler.ini` 为 `1.0 / 1.0` 防闪烁版，附带 `OptiScaler-增强风格.ini`）
+     - `Magpie-DLSS5-RTX30-0.2.0.zip`
+     - 更新逐包 `.sha256` 与 `SHA256SUMS.txt`（清理旧 `0.1.0` ZIP 或移入备份），并跑 Windows smoke 测试验证。
+  4. **更新全仓文档并提交 Git**：
+     - 同步更新 `README.zh-CN.md`、`README.md`、`CHANGELOG.zh-CN.md`、`CHANGELOG.md`、`Development/doc/使用说明.md`、`Development/DevHistory.md` 与 `Development/WorkingPlan.md` 至 `v0.2.0`（含 6.66 / 9.70 / 12.78 ms 实测数据、偶奇 K16 零洗牌 + `.maxnreg 255` 技术说明、《剑星》1.0 默认防闪烁说明及新 SHA256），完成后立即 `git commit`（严禁加 `Co-Authored-By`），先不 push。
+
+### 已完成高优任务（路线 B `ptx-patcher` V2 / V2.1）：基于偶奇 K16 原位拆解恒等式的 **0-SHFL / 0-PRMT** 升级
 - **背景与逆向发现（2026-10-26，朱雀逆向 `/mnt/c/DLSS5-5090-dll/discord_v7/nvngx_dlssnr_309_v2i8_255_rtx2030_V7.dll`）**：
   - 同机 `bench_sky.exe` 实测发现 Discord V7 DLL（510 MB）在 RTX 3080 Laptop 上跑出了 **720p `6.48 ms`、900p `9.62 ms`、1080p `12.16 ms`**（比我们 `v0.1.0` 的 `16.46 / 26.88 / 32.82 ms` 快 **2.54× ~ 2.79×**）。
   - 经 `cuobjdump -sass / -res-usage` 与 `.rsrc` 二进制逆向，定位到我们 `v0.1.0` (`nvngx_dlssnr_sm86_fast.dll`) 慢的核心原因：

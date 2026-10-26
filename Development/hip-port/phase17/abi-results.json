@@ -1,0 +1,26 @@
+[
+  {
+    "case": "v2_with_v3_marker",
+    "returncode": 1,
+    "rejected": true,
+    "old_host": false
+  },
+  {
+    "case": "v3_without_marker",
+    "returncode": 1,
+    "rejected": true,
+    "old_host": false
+  },
+  {
+    "case": "v3_reject_w16h",
+    "returncode": 1,
+    "rejected": true,
+    "old_host": false
+  },
+  {
+    "case": "v3_old_host",
+    "returncode": 1,
+    "rejected": true,
+    "old_host": true
+  }
+]

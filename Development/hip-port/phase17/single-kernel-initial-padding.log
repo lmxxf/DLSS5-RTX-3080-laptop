@@ -1,0 +1,5 @@
+written-byte fractions: [('c32_wave1_mapped_b8', 129877, 262144), ('c32_wave1_prefix_b8d', 161824, 163840), ('c32_wave1_finish_dcrop_b8d', 162798, 163840), ('c32_wave1_finish_b8', 129424, 131072), ('c32_wave1_up_b8', 129271, 262144), ('c32_wave1_post_b8', 49033, 49152)]
+Traceback (most recent call last):
+  File "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/phase17/check_single_kernels.py", line 35, in <module>
+    assert all(x['changed_from_sentinel']>x['output_bytes']*.9 for x in rows)
+AssertionError

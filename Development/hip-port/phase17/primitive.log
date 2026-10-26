@@ -1,0 +1,3 @@
+append attention=0 old=41088 new=60544 half_elements=9728 old_bytes_unchanged=1
+append attention=1 old=32900 new=41104 half_elements=4096 old_bytes_unchanged=1
+PASS host append offsets/old bytes,GPU all byte decoder slots,two static MMA sides

@@ -1,0 +1,24 @@
+baseline-quick 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+baseline-quick 1280   GPU  (ms): mean=14.329 median=14.190 p90=14.886 p99=14.886 min=14.181 max=14.886
+baseline-quick 1280   Wall (ms): mean=14.437 median=14.320 p90=14.969 p99=14.969 min=14.260 max=14.969
+baseline-quick 1280 PROFILE_TOTAL 14.338048 kernels=32
+baseline-quick 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+baseline-quick 1600   GPU  (ms): mean=23.360 median=23.200 p90=24.096 p99=24.096 min=23.107 max=24.096
+baseline-quick 1600   Wall (ms): mean=23.490 median=23.256 p90=24.440 p99=24.440 min=23.195 max=24.440
+baseline-quick 1600 PROFILE_TOTAL 21.610496 kernels=32
+baseline-quick 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+baseline-quick 1920   GPU  (ms): mean=30.737 median=30.745 p90=30.855 p99=30.855 min=30.631 max=30.855
+baseline-quick 1920   Wall (ms): mean=30.838 median=30.816 p90=31.016 p99=31.016 min=30.706 max=31.016
+baseline-quick 1920 PROFILE_TOTAL 28.306528 kernels=32
+candidate-quick 1280   Validity : invalid=0 nonzero=2942101/2949120 bit_diff_first_last=0 fnv1a64=e478413a747085d4
+candidate-quick 1280   GPU  (ms): mean=13.802 median=13.774 p90=13.853 p99=13.853 min=13.765 max=13.853
+candidate-quick 1280   Wall (ms): mean=13.882 median=13.851 p90=13.990 p99=13.990 min=13.829 max=13.990
+candidate-quick 1280 PROFILE_TOTAL 12.961792 kernels=32
+candidate-quick 1600   Validity : invalid=0 nonzero=4913077/4915200 bit_diff_first_last=0 fnv1a64=b949727e624db210
+candidate-quick 1600   GPU  (ms): mean=23.097 median=23.087 p90=23.324 p99=23.324 min=22.927 max=23.324
+candidate-quick 1600   Wall (ms): mean=23.175 median=23.191 p90=23.395 p99=23.395 min=22.989 max=23.395
+candidate-quick 1600 PROFILE_TOTAL 21.128192 kernels=32
+candidate-quick 1920   Validity : invalid=0 nonzero=6633090/6635520 bit_diff_first_last=0 fnv1a64=a8365381a41f7f83
+candidate-quick 1920   GPU  (ms): mean=30.911 median=30.904 p90=31.613 p99=31.613 min=30.273 max=31.613
+candidate-quick 1920   Wall (ms): mean=31.003 median=31.030 p90=31.723 p99=31.723 min=30.339 max=31.723
+candidate-quick 1920 PROFILE_TOTAL 27.768832 kernels=32

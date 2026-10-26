@@ -1,0 +1,26 @@
+{
+  "baseline": "Phase16 selected (585fda1);Phase14 correct outputs unchanged",
+  "default": "V3 appended C32 FP16 enabled",
+  "modules": 40,
+  "resolved_entries": 1918,
+  "changed_modules": [
+    "c32-wave1-fast.hsaco"
+  ],
+  "unchanged_modules": 39,
+  "source_rebuild_matches_measured": true,
+  "formal_ABBA_runs": 12,
+  "warmup": 50,
+  "iterations": 80,
+  "all_formal_bitdiff": 0,
+  "all_formal_invalid": 0,
+  "all_formal_first_last": 0,
+  "active_kernels_LMem0": 32,
+  "nonUp_C32": "8KB /OccW11",
+  "Up_C32": "10KB /OccW9",
+  "isolated_C32_kernels_zero_byte_diff": 6,
+  "ABI_mismatch_rejections": 4,
+  "cache_counters": "not available;no cache-hit/residency claim",
+  "external_v020_hashes_unchanged": true,
+  "deployment": false,
+  "push": false
+}

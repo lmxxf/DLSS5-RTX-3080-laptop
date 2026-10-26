@@ -103,4 +103,19 @@ inline void TilePackedMatrix(std::vector<float>&v,size_t start,size_t rows,size_
  for(size_t n=0;n<rows;n++)for(size_t k=0;k<columns;k++)dst[((n/16)*(columns/32)+k/32)*512+(k%32)*16+n%16]=src[n*columns+k];
 }
 
+// Exact bit decoder matching sm86_unpack_e4m3x8, including its reserved-byte finite shortcut.
+inline uint16_t AmpereFp8HalfBits(uint8_t v){
+ const uint16_t sign=uint16_t(v&128u)<<8;const unsigned e=(v>>3)&15u,m=v&7u;
+ static constexpr uint16_t sub[8]={0,0x1800,0x1c00,0x1e00,0x2000,0x2100,0x2200,0x2300};
+ return uint16_t(sign|(e?((e+8u)<<10)|(m<<7):sub[m]));
+}
+inline void AppendC32AmpereHalfWeights(std::vector<float>&v,bool attention){
+ const size_t old_bytes=v.size()*4,base=attention?32912:41088;
+ if(old_bytes!=(attention?32900:41088))throw std::runtime_error("C32 V3 packed shape mismatch");
+ const std::vector<std::pair<size_t,size_t>> regions=attention?std::vector<std::pair<size_t,size_t>>{{0,4096}}:std::vector<std::pair<size_t,size_t>>{{2048,4096},{18432,4096},{34944,1536}};
+ std::vector<uint16_t> half;const auto*src=reinterpret_cast<const uint8_t*>(v.data());
+ for(auto region:regions)for(size_t j=0;j<region.second;j++)half.push_back(AmpereFp8HalfBits(src[region.first+j]));
+ v.resize((base+half.size()*2)/4,0.f);std::memcpy(reinterpret_cast<uint8_t*>(v.data())+base,half.data(),half.size()*2);
+}
+
 }

@@ -14,6 +14,8 @@ from phase11_transform import pack_ffn_half_features
 PHASE11_HALF_FEATURE_PACK = True
 from phase14_transform import fix_legacy_attention_abi
 PHASE14_ATTENTION_ABI = True
+from phase17_transform import transform as phase17_half_transform, version_ptx as phase17_version_ptx
+PHASE17_C32_HALF = True
 from phase12_transform import pack_c32_av
 PHASE12_C32_AV = True
 PHASE10_CAPS = True
@@ -766,6 +768,9 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     key += str(PHASE12_C32_AV).encode()
     key += open(os.path.join(os.path.dirname(__file__), "phase14_transform.py"), "rb").read()
     key += str(PHASE14_ATTENTION_ABI).encode()
+    key += str(PHASE17_C32_HALF and name == "c32-wave1-fast").encode()
+    if PHASE17_C32_HALF and name == "c32-wave1-fast":
+        key += open(os.path.join(source_dir,"phase17_transform.py"),"rb").read() + open(os.path.join(source_dir,"phase17_c32_half.h"),"rb").read()
     key += repr((PHASE10_CAPS, PHASE10_FP8)).encode()
     key += str(name in LOW_REGISTER_FP8_MODULES).encode()
     key += str(name in C32_LOCAL_FP8_POLICY_MODULES).encode()
@@ -802,6 +807,11 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
         cu_src = pack_ffn_half_features(cu_src)
     if PHASE12_C32_AV and name == "c32-wave1-fast":
         cu_src = pack_c32_av(cu_src)
+    if PHASE17_C32_HALF and name == "c32-wave1-fast":
+        cu_src = phase17_half_transform(cu_src)
+        helpers = open(os.path.join(source_dir,"phase17_c32_half.h")).read().replace("#pragma once", "").replace("SM86_DEV", "__attribute__((device,always_inline)) inline")
+        assert cu_src.count("struct cw_i2_pair")==1
+        cu_src = cu_src.replace("struct cw_i2_pair",helpers+"\nstruct cw_i2_pair",1)
     cu_src += "\n// build fingerprint: " + build_key + "\n"
 
 
@@ -864,6 +874,9 @@ def compile_one_module(mod, source_dir, out_dir, compat_header_path, ptx2cubin_b
     if PHASE10_CAPS:
         ptx_txt = apply_register_caps(ptx_txt)
         open(ptx_path,"w",encoding="utf-8").write(ptx_txt)
+    if PHASE17_C32_HALF and name == "c32-wave1-fast":
+        ptx_txt = phase17_version_ptx(ptx_txt)
+        open(ptx_path,"w",encoding="utf-8").write(ptx_txt)
     entries = re.findall(r"\.visible\s+\.entry\s+([a-zA-Z0-9_]+)\s*\(", ptx_txt)
 
     cmd_cubin = [ptx2cubin_bin, ptx_path, hsaco_path] + entries
@@ -908,6 +921,11 @@ def main():
     if passed != len(modules):
         sys.exit(1)
     open(os.path.join(out_dir,"AMPERE_WEIGHTS_V2"),"w").write("CPU Ampere FP8 tiles; paired Phase-2 modules\n")
+    v3_marker=os.path.join(out_dir,"AMPERE_WEIGHTS_V3")
+    if PHASE17_C32_HALF:
+        open(v3_marker,"w").write("C32_W16_F16_APPEND_V1\n")
+    elif os.path.exists(v3_marker):
+        os.remove(v3_marker)
 
 if __name__ == "__main__":
     main()

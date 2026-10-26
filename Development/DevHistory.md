@@ -811,3 +811,16 @@ Windows：三包Feature18 create/evaluate成功、全部finite；两个OptiScale
 公开文档同步0.2.0与模型median6.66/9.70/12.78ms、偶奇K16和选择性maxnreg255。对0.1.0历史比值约2.38～2.53×；O1历史37.13/49.89/67.69分别对应5.58/5.14/5.30×，如实修正900p分母，不统称5.3～5.6。STACK大减但保留FB04/05残留说明。
 
 [正式回执](ptx-patcher/release-rtx30/v020/README.md)、[部署/验证](ptx-patcher/release-rtx30/v020/validation.json)、[包SHA](ptx-patcher/release-rtx30/v020/packages.json)。临时stage/RGB清理，保留旧包和现场备份，完成后独立commit，无Co-Authored-By，不push。
+
+
+## 2026-10-27：hip-port Phase17，C32权重尾部追加FP16，采用新默认（闇）
+
+以Phase16 selected/585fda1为唯一性能基线。保留原权重/偏置/尺度所有偏移，FFN在41088、attention在32912字节追加Ampere布局精确FP16；覆盖expand/contract/diag/QKV/OutProj。CUDA仅c32-wave1-fast使用消费点ld.global.nc.v4.u32，地址描述符不跨循环预存sm86_u4。V3标记与v3_独立导出名交叉核验，新旧ABI拒绝混用；PHASE17_C32_HALF=True成为默认，V3限定fast_numeric/W16=1/非temporal，其它模式保留V2模块路径。
+
+原语32768解码位置覆盖全部字节模式，两侧静态MMA/非零C/4步65536输出元素0bit；6个完整C32单核用真实Small权重+相同合成整幅输入，各64CTA全部输出字节0diff。4项ABI/模式错配全部拒绝（含旧Phase16 Host）。三档快验与正式ABBA均对Phase16/14全幅0bit、invalid0、首末帧0bit、32/32 LMem0；非Up保持8KB/OccW11，Up10KB/OccW9。18项Python/LLVM回归通过。仅1个C32模块改变，39模块SHA保留；最终重编C32/Host与实测SHA一致，实际加载40/1918entry。
+
+50warmup/80iter、Small31/Style1、Graph off、默认DVFS，A1/B1/B2/A2 median(ms)：720为14.067/13.785/13.812/14.066，900为23.581/23.203/23.215/23.657，1080为31.608/31.094/31.131/31.828。两次median均值A→B为14.0665→13.7985、23.6190→23.2090、31.7180→31.1125，速度比1.0194/1.0177/1.0195×；三档两次候选均快，采用V3。完整min/median/Wall、六核4次插桩、独立PROFILE_TOTAL与遥测逐轮保留，不拼轮次、不作锁频等频或气泡归因。
+
+实际12个C32缓冲443928→609888B（+165960），纯FP8矩阵82944B，新增FP16矩阵165888B，另72B对齐；不能把旧0.39MiB预算当纯矩阵数据。本机L2查询4194304B但ncu不可用，未采L1/L2命中率/DRAM计数，不宣称100%常驻。六核SASS HMUL2和PRMT均下降，仅作静态指令证据。初始memcpy读只做3/5快验，不充正式长测；单核fixture最初按half为raw输出多分配一倍，哨兵检查后按源码FP8输出修正，无生产数值修复。
+
+[Phase17回执](hip-port/phase17/README.md)、[ABBA与六核](hip-port/phase17/summary.md)、[全核资源/结果](hip-port/phase17/results.md)、[验收](hip-port/phase17/validation.json)。默认产物hip-port/phase17/artifacts/selected/modules（candidate的无重复别名），保留40模块/PTX/生成源与SHA，清理重复RGB/单核权重/中间产物。读取核对外部v0.2.0生产DLL与3ZIP哈希全部未变，不部署、不push，阶段独立commit。

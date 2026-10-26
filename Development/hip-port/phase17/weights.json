@@ -1,0 +1,96 @@
+{
+  "weights": [
+    {
+      "key": "block0-attention.f32@c32fp8",
+      "attention": 1,
+      "old_bytes": 32900,
+      "new_bytes": 41104,
+      "appended_bytes": 8204
+    },
+    {
+      "key": "block0-ffn.f32@c32fp8",
+      "attention": 0,
+      "old_bytes": 41088,
+      "new_bytes": 60544,
+      "appended_bytes": 19456
+    },
+    {
+      "key": "block1-attention.f32@c32fp8",
+      "attention": 1,
+      "old_bytes": 32900,
+      "new_bytes": 41104,
+      "appended_bytes": 8204
+    },
+    {
+      "key": "block1-ffn.f32@c32fp8",
+      "attention": 0,
+      "old_bytes": 41088,
+      "new_bytes": 60544,
+      "appended_bytes": 19456
+    },
+    {
+      "key": "block4-attention.f32@c32fp8",
+      "attention": 1,
+      "old_bytes": 32900,
+      "new_bytes": 41104,
+      "appended_bytes": 8204
+    },
+    {
+      "key": "block4-ffn.f32@c32fp8",
+      "attention": 0,
+      "old_bytes": 41088,
+      "new_bytes": 60544,
+      "appended_bytes": 19456
+    },
+    {
+      "key": "block66-attention.f32@c32fp8",
+      "attention": 1,
+      "old_bytes": 32900,
+      "new_bytes": 41104,
+      "appended_bytes": 8204
+    },
+    {
+      "key": "block66-ffn.f32@c32fp8",
+      "attention": 0,
+      "old_bytes": 41088,
+      "new_bytes": 60544,
+      "appended_bytes": 19456
+    },
+    {
+      "key": "block69-attention.f32@c32fp8",
+      "attention": 1,
+      "old_bytes": 32900,
+      "new_bytes": 41104,
+      "appended_bytes": 8204
+    },
+    {
+      "key": "block69-ffn.f32@c32fp8",
+      "attention": 0,
+      "old_bytes": 41088,
+      "new_bytes": 60544,
+      "appended_bytes": 19456
+    },
+    {
+      "key": "post70-attention.f32@c32fp8",
+      "attention": 1,
+      "old_bytes": 32900,
+      "new_bytes": 41104,
+      "appended_bytes": 8204
+    },
+    {
+      "key": "post70-ffn.f32@c32fp8",
+      "attention": 0,
+      "old_bytes": 41088,
+      "new_bytes": 60544,
+      "appended_bytes": 19456
+    }
+  ],
+  "old_total_upload_bytes": 443928,
+  "new_total_upload_bytes": 609888,
+  "added_bytes": 165960,
+  "old_FP8_matrix_bytes": 82944,
+  "new_FP16_matrix_bytes": 165888,
+  "L2_capacity_bytes": 4194304,
+  "residency_and_cache_hits": "not measured; capacity fit does not prove100percent residency",
+  "all_weights_upload_summary": "C512_W16_SUMMARY mode=2 w16_blocks=532 stock_blocks=0 ffn_mode=1 ffn_w16_blocks=532 ffn_stock_blocks=0 c32_mode=1 c32_w16_calls=804 c32_stock_calls=0 vit_mode=7 vit_w16_calls=1064 vit_stock_calls=0 vit_contract_w16=1 vit_proj_w16=1 vit_inter_byte=15 vit_inter_byte_calls=1995 weights_count=92 weights_bytes=154959424"
+}

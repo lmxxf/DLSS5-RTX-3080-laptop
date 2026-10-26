@@ -225,6 +225,7 @@ class Network {friend class D3D12Bridge;
  bool sp1440_ready=false;bool final_direct_compatible=false;bool pool64_byte_available=false;
  bool vit_contract_byte_edge=false; // paired exact representation of an already E4M3-valued edge
  bool free_geometry=false; /* DLSS5_NETWORK_FREE_RES geometry (FreeGeometry): generic ViT grid, no 640-token cap */
+ bool ampere_c32_half=false;
  bool wave_owned_active=false;bool c32_skip_byte=false;bool c32_pre_down_byte=false;bool c32_post_low_byte=false;bool c512_m32_active=false;bool vit_proj_n64_active=false;unsigned vit_stream_active=0;bool c32_norm900_loaded=false;bool fast_numeric=false; /* DLSS5_FAST_NUMERIC (cached at construction): load the lossy *-fast module twins where present */
  /* ---- programmatic-dependent-launch emulation (opt.pdl; results/pdl-chain-20260925) ----
     C64/C128/C256 chain launches after the chain head go out with hipExtAnyOrderLaunch (no AQL barrier bit) and the _pdl
@@ -426,6 +427,11 @@ class Network {friend class D3D12Bridge;
     else if(w16==2){FragmentPackedMatrixW16(v,512,128,32);FragmentPackedMatrix(v,4608,32,128);AppendC32ResidualDiagonals(v);}
     else AppendC32ResidualDiagonals(v);
    }
+   if(ampere_c32_half){
+    if(w16!=1)throw std::runtime_error("C32 V3 requires W16 mode1");
+    const size_t before=v.size()*4;AppendC32AmpereHalfWeights(v,attention);
+    std::fprintf(stderr,"C32_HALF_WEIGHT key=%s attention=%u old_bytes=%zu new_bytes=%zu appended_bytes=%zu\n",key.c_str(),unsigned(attention),before,v.size()*4,v.size()*4-before);
+   }
    it=weights.emplace(key,UploadWeight(v,key)).first;
   }return P(it->second);
  }
@@ -545,7 +551,7 @@ class Network {friend class D3D12Bridge;
  }
 #endif
  /* Optional export probe: modules without the symbol keep the old launch shape. */
- bool HasFn(const std::string&m,const std::string&name){std::string key=m+":"+name;if(functions.count(key))return true;if(missing_functions.count(key))return false;auto mi=modules.find(m);if(mi==modules.end())return false;Handle f{};if(api.hipModuleGetFunction(&f,mi->second,name.c_str())){missing_functions.insert(key);return false;}functions.emplace(key,f);return true;} /* 2026-10-01 rebuild-baseline: misses are cached too -- per-frame probes (ViT _ks2, ...) otherwise call hipModuleGetFunction every frame (+0.01..0.02ms ABBA) */
+ bool HasFn(const std::string&m,const std::string&name){std::string key=m+":"+name;if(functions.count(key))return true;if(missing_functions.count(key))return false;auto mi=modules.find(m);if(mi==modules.end())return false;Handle f{};if(api.hipModuleGetFunction(&f,mi->second,(ampere_c32_half&&m=="c32_wave1"?"v3_"+name:name).c_str())){missing_functions.insert(key);return false;}functions.emplace(key,f);return true;} /* 2026-10-01 rebuild-baseline: misses are cached too -- per-frame probes (ViT _ks2, ...) otherwise call hipModuleGetFunction every frame (+0.01..0.02ms ABBA) */
  bool C32Norm900Active()const{return c32_norm900_loaded&&fast_numeric&&W==1600&&H==960&&multi_pass==1&&!opt.experimental_temporal;}
  Handle Fn(const std::string&m,const std::string&name){
   static const std::string normkey="c32_norm900";
@@ -557,7 +563,7 @@ class Network {friend class D3D12Bridge;
    else ++c32_stock_calls;
   }
   std::string key=actual+":"+target;auto it=functions.find(key);if(it!=functions.end())return it->second;
-  Handle f{};api.Check(api.hipModuleGetFunction(&f,modules.at(actual),target.c_str()),target.c_str());functions.emplace(key,f);return f;
+  Handle f{};api.Check(api.hipModuleGetFunction(&f,modules.at(actual),(ampere_c32_half&&actual=="c32_wave1"?"v3_"+target:target).c_str()),target.c_str());functions.emplace(key,f);return f;
  }
  /* DLSS5_FAST_NUMERIC twin (2026-10-03 fast-vit-c512): <stem>.hsaco -> <stem>-fast.hsaco when the option is 1 and the file
     exists; missing twin falls back to the exact module with one stderr line (same contract as the C32/C64 swap). */
@@ -940,7 +946,10 @@ class Network {friend class D3D12Bridge;
  static U Shift(U block){static constexpr U s[]={0,3,1,2,0,3,1,2,0,3,1,2,0,3,1,2,1,2,0,3,1,2,0,3,1,2,0,3,1,2};if(block<40||block>69)throw std::runtime_error("decoder shift");return s[block-40];}
 public:
  Network(const Network&)=delete;Network&operator=(const Network&)=delete;
- explicit Network(Options o):api(o.runtime),pulse_ops{int(o.device),&stream,api.hipSetDevice,api.hipEventCreate,api.hipEventRecord,api.hipStreamSynchronize,api.hipEventDestroy},pulse_lease(pulse_ops),opt(std::move(o)),W(opt.width),H(opt.height){api.style_feature=StyleFeatureFromEnvironment();{const char*v=std::getenv("DLSS5_OVERLAP");final_direct_compatible=HIP_FINAL_OUTPUT_DIRECT&&(!v||!*v||!std::strcmp(v,"0"));}if(AmpereStaticWeights()!=bool(std::ifstream(opt.modules+"/AMPERE_WEIGHTS_V2")))throw std::runtime_error("CPU/GPU static-weight layout mismatch: pair Phase-2 modules with DLSS5_AMPERE_WEIGHTS=1; old modules require =0");assets_root=opt.assets;small_assets_ready=SmallAssetsAvailable(assets_root+"/small");SelectModel(dlss5_mode::Requested());multi_pass=MultiPassFromEnvironment();multi_predict=MultiPredictFromEnvironment();multi_skin=MultiSkinFromEnvironment();multi_skip=opt.integration.override_multi_pass_skip?opt.integration.multi_pass_skip:MultiPassSkipFromEnvironment();std::fprintf(stderr,"multi_pass=%u multi_pass_predict=%u actual_network_passes=%u\n",multi_pass,unsigned(multi_predict),multi_predict&&multi_pass==3?2:multi_pass);fast_numeric=FastNumericFromEnvironment();if(opt.experimental_temporal){
+ explicit Network(Options o):api(o.runtime),pulse_ops{int(o.device),&stream,api.hipSetDevice,api.hipEventCreate,api.hipEventRecord,api.hipStreamSynchronize,api.hipEventDestroy},pulse_lease(pulse_ops),opt(std::move(o)),W(opt.width),H(opt.height){api.style_feature=StyleFeatureFromEnvironment();{const char*v=std::getenv("DLSS5_OVERLAP");final_direct_compatible=HIP_FINAL_OUTPUT_DIRECT&&(!v||!*v||!std::strcmp(v,"0"));}if(AmpereStaticWeights()!=bool(std::ifstream(opt.modules+"/AMPERE_WEIGHTS_V2")))throw std::runtime_error("CPU/GPU static-weight layout mismatch: pair Phase-2 modules with DLSS5_AMPERE_WEIGHTS=1; old modules require =0");ampere_c32_half=bool(std::ifstream(opt.modules+"/AMPERE_WEIGHTS_V3"));
+if(ampere_c32_half){std::ifstream marker(opt.modules+"/AMPERE_WEIGHTS_V3");std::string v;std::getline(marker,v);if(v!="C32_W16_F16_APPEND_V1"||!AmpereStaticWeights())throw std::runtime_error("invalid C32 V3 marker/static layout");}
+if(const char*v=std::getenv("DLSS5_AMPERE_C32_F16")){if((std::strcmp(v,"0")!=0)!=ampere_c32_half)throw std::runtime_error("C32 V3 Host/module marker mismatch");}
+assets_root=opt.assets;small_assets_ready=SmallAssetsAvailable(assets_root+"/small");SelectModel(dlss5_mode::Requested());multi_pass=MultiPassFromEnvironment();multi_predict=MultiPredictFromEnvironment();multi_skin=MultiSkinFromEnvironment();multi_skip=opt.integration.override_multi_pass_skip?opt.integration.multi_pass_skip:MultiPassSkipFromEnvironment();std::fprintf(stderr,"multi_pass=%u multi_pass_predict=%u actual_network_passes=%u\n",multi_pass,unsigned(multi_predict),multi_predict&&multi_pass==3?2:multi_pass);fast_numeric=FastNumericFromEnvironment();if(opt.experimental_temporal){
   const std::string tap=fast_numeric?"c32-wave1-temporal-fast":"c32-wave1-temporal";
   bool assets=std::ifstream(opt.modules+"/"+tap+".hsaco").good()&&std::ifstream(opt.modules+"/temporal-history.hsaco").good()&&std::ifstream(opt.assets+"/post70-history-head.f16").good()&&std::ifstream(opt.assets+"/native-temporal-sigmoid.f32").good();
   if(!NativeExperimentalTemporalCompatible()||!assets||opt.graph||multi_pass!=1||multi_skin||!opt.temporal_valid_height||opt.temporal_valid_height>H){opt.experimental_temporal=false;std::fprintf(stderr,"history_experiment requested=1 active=0 reason=incompatible_or_missing_assets\n");}
@@ -966,9 +975,12 @@ if(wave_owned_active){
  for(auto&entry:extra){entry[1]+=".hsaco";Handle m{};
   api.Check(api.LoadModule(&m,(opt.modules+"/"+entry[1]).c_str()),entry[1].c_str());modules[entry[0]]=m;
   if(entry[0]=="c32_wave1"){
+   Handle abi{};const bool module_v3=api.hipModuleGetFunction(&abi,m,"v3_c32_wave1_chain_w16")==0;
+   if(module_v3!=ampere_c32_half)throw std::runtime_error("C32 V3 Host/module exported ABI mismatch");
+   if(ampere_c32_half&&(!fast_numeric||opt.experimental_temporal||C32W16Mode()!=1))throw std::runtime_error("C32 V3 requires fast_numeric, W16=1 and non-temporal");
    const bool geometry=fast_numeric&&W==1600&&H==960&&!opt.experimental_temporal;
    const char*norm900="c32-wave1-fast-norm900.hsaco";Handle candidate{};
-   if(geometry&&std::ifstream(std::filesystem::u8path(opt.modules+"/"+norm900),std::ios::binary).good()){
+   if(!ampere_c32_half&&geometry&&std::ifstream(std::filesystem::u8path(opt.modules+"/"+norm900),std::ios::binary).good()){
     int ec=api.LoadModule(&candidate,(opt.modules+"/"+norm900).c_str());bool complete=!ec;const char*missing=nullptr;
     // Locked fast-numeric baseline/hoist ABI contains26 exports, including postfeatures.
     // Whole fallback on any missing legacy export; never partially select an old callee.

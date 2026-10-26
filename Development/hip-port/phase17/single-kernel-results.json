@@ -1,0 +1,73 @@
+{
+  "scope": "six isolated C32 W16 kernels,actual Small model weights,matched full synthetic inputs,64 CTAs per kernel,not game captures",
+  "results": [
+    {
+      "kernel": "c32_wave1_mapped_b8",
+      "block_weights": "block1",
+      "CTAs": 64,
+      "output_bytes": 131072,
+      "byte_diff": 0,
+      "changed_from_sentinel": 129877,
+      "output_sha256": [
+        "3b2c3bdd76d1a7c0cccaeeed8b25b1de6ee11feb2167088dc520ebfc6f4ab968"
+      ]
+    },
+    {
+      "kernel": "c32_wave1_prefix_b8d",
+      "block_weights": "block0",
+      "CTAs": 64,
+      "output_bytes": 163840,
+      "byte_diff": 0,
+      "changed_from_sentinel": 161824,
+      "output_sha256": [
+        "ebc28c859aefe91ec0507d54cde3d0d59bfe73973184f35a4f7badc60ecca0aa",
+        "30f374e382c2df4a63d5cd553dc2e521de1768af5f8b9a19d176bd5ae145f679"
+      ]
+    },
+    {
+      "kernel": "c32_wave1_finish_dcrop_b8d",
+      "block_weights": "block4",
+      "CTAs": 64,
+      "output_bytes": 163840,
+      "byte_diff": 0,
+      "changed_from_sentinel": 162798,
+      "output_sha256": [
+        "24826fef1dd7839c4bd39dfa1d9fd8e6af38177cf8a105fc977b13023b6cc432",
+        "d0fbde7cbd62ebf750cee503b1bac7a89d73b54104893c53d57e2d8bbcfb73ce"
+      ]
+    },
+    {
+      "kernel": "c32_wave1_finish_b8",
+      "block_weights": "block69",
+      "CTAs": 64,
+      "output_bytes": 131072,
+      "byte_diff": 0,
+      "changed_from_sentinel": 129424,
+      "output_sha256": [
+        "7a7d56ad64491ef3b1c8d789c298bf09f96c0e17e265661e51f738442d575cfe"
+      ]
+    },
+    {
+      "kernel": "c32_wave1_up_b8",
+      "block_weights": "block66",
+      "CTAs": 64,
+      "output_bytes": 131072,
+      "byte_diff": 0,
+      "changed_from_sentinel": 129271,
+      "output_sha256": [
+        "11b7c5ad29fb8f2e9280a3fcc3bb0df964c005cfbd10a7a500eff7e50f7e6a9b"
+      ]
+    },
+    {
+      "kernel": "c32_wave1_post_b8",
+      "block_weights": "post70",
+      "CTAs": 64,
+      "output_bytes": 49152,
+      "byte_diff": 0,
+      "changed_from_sentinel": 49033,
+      "output_sha256": [
+        "2c63d14df856be56b39b6e10c0774fe1f575a5e0c024742ec5d3f42e95959624"
+      ]
+    }
+  ]
+}

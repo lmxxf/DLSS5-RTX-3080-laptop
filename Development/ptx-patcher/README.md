@@ -29,3 +29,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 ### 2026-10-26：当前推荐 V2.1（maxnreg 控制胜出）
 
 新推荐为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll`：只将FB00/03/04/05/06的现有maxnreg升至255，保留V2图和权重；三档对V2严格0bit，同轮median约6.66/9.70/12.78ms。使用 `python3 Development/ptx-patcher/v21/build_recommended.py` 可按固定SHA全量重建。[完整回执](v21/README.md)。通用构建器无cap参数仍为V2基线；旧V2与正式发布包保留。
+
+### 2026-10-26：v0.2.0 已正式部署与本机打包
+
+主fast、鬼武者（含_storage_原版dxgi恢复）、剑星、Magpie已统一V2.1；常规包与剑星默认1.0/1.0，附OptiScaler-增强风格.ini。三个0.2.0 ZIP及SHA已生成，旧包归档，Windows smoke通过。[正式回执](release-rtx30/v020/README.md)。

@@ -16,7 +16,18 @@
 | **OptiScaler-REFramework**（RE Engine 专用） | 《鬼武者：剑之道》《生化危机 9》等带反篡改校验的卡普空 RE Engine 游戏 | 在常规 OptiScaler 包基础上增加 REFramework（`dinput8.dll`）绕过校验并加载同目录 `dxgi.dll` |
 | **Magpie**（便携窗口缩放） | 任何支持窗口化的游戏（《光环》等），不需要游戏内置 DLSS/FSR | Magpie 抓取游戏低分辨率窗口（如 720p），先跑内置的原生 `DLSSNR`（`Preset 2`）滤镜调用 `nvngx_dlssnr.dll`，再经 `DLSS_SR` 放大到 4K 全屏 |
 
-**当前版本：0.1.0（2026-10-24）。** 下载：[Gofile 镜像](https://gofile.io/d/s9cpHYH9)。首发版本：三个发布包全线统一为 **15/15 满血 `O4` PTX 改写路线（`Preset 2` 31 块新模型）**。修复上游 `dlssnr-patcher` 在 `310.9.16.0` 上的 `fence.acquire.gpu` 编译失败、消除 `O1` 性能腰斩、修复 `fp8_pack_sources` 多定义误判引发的 106 条天空红绿横带；在 RTX 3080 Laptop（132W）上 **720p 单帧模型耗时 `15.83 ms`、900p `24.47 ms`、1080p `32.04 ms`（480p 仅 `8.2 ms`）**。[完整说明与版本记录](CHANGELOG.zh-CN.md#010-2026-10-24)。
+**当前版本：0.2.0（2026-10-26）。** 三包统一 **PTX V2.1、31块 Small / Preset2 / Style1、15/15 O4 原槽位**，模型 GPU median 为 **720p `6.66 ms`、900p `9.70 ms`、1080p `12.78 ms`**。相比0.1.0历史耗时约2.38～2.53×；旧上游O1三档比值分别5.58/5.14/5.30×，并非本轮配对测量。正式ZIP已生成于 `C:\DLSS5-5090-dll\发布打包\`，新外网下载链接尚未提供；[发布回执与SHA256](Development/ptx-patcher/release-rtx30/v020/README.md)。旧Gofile链接只对应0.1.0。
+
+### v0.2.0 文件校验
+
+`nvngx_dlssnr.dll` SHA256: `c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed`
+
+| ZIP | SHA256 |
+|---|---|
+| `OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip` | `531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94` |
+| `OptiScaler-DLSS5-RTX30-0.2.0.zip` | `ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f` |
+| `Magpie-DLSS5-RTX30-0.2.0.zip` | `e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739` |
+
 
 ---
 
@@ -24,16 +35,16 @@
 
 - **硬件与驱动**：NVIDIA RTX 30 系显卡（Ampere `sm_86`，在 RTX 3080 Laptop GPU 16GB 上完成全套实测；桌面端 RTX 3060～3090 Ti 同属 `sm_86`）及支持 NGX 的 NVIDIA 正式版驱动（实测驱动 `616.92`）。无需安装 CUDA Toolkit、无需开启 Windows 开发人员模式。
 - **安装方法**：
-  1. **常规 DX12 游戏（`OptiScaler-DLSS5-RTX30-0.1.0.zip`）**：
+  1. **常规 DX12 游戏（`OptiScaler-DLSS5-RTX30-0.2.0.zip`）**：
      先退出游戏。将包内全部文件解压到游戏真正的 `.exe` 所在目录（例如《剑星》为 `StellarBlade\SB\Binaries\Win64\`，注意先备份原目录自带的 `amd_fidelityfx_dx12.dll`，不要只拷 4 个文件，必须把包内 26 KB 的 `amd_fidelityfx_dx12.dll` 加载器与 28 MB 的 `amd_fidelityfx_upscaler_dx12.dll` 等配套文件一起拷入）。进游戏开启 DLSS 或 FSR 超分即可生效。
-  2. **卡普空 RE Engine 游戏（`OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`）**：
+  2. **卡普空 RE Engine 游戏（`OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip`）**：
      将包内全部文件解压到游戏 `.exe` 同级目录（例如 Xbox 版《鬼武者：剑之道》为 `C:\XboxGames\Onimusha- Way of the Sword\Content\`）。进游戏开启 DLSS 超分即可生效。
-  3. **Magpie 窗口缩放（`Magpie-DLSS5-RTX30-0.1.0.zip`）**：
+  3. **Magpie 窗口缩放（`Magpie-DLSS5-RTX30-0.2.0.zip`）**：
      将包完整解压到任意独立目录，游戏设为窗口模式（如 `1280×720` 或 `1600×900`）。以管理员运行 `Magpie.exe`，选择默认的 **`DLSS5-RTX30-PTX`** 配置（`DLSSNR [Preset 2, Style 1] → DLSS_SR`），点击“3 秒后缩放”并切回游戏窗口（或按 `Alt+Shift+A`）。
 - **快捷键与调参**：
   - **`F6`**：在 OptiScaler 包中实时开关 DLSS 5 神经渲染对比。
   - **`Insert`**：呼出 OptiScaler 菜单，可在 `DLSS Neural Rendering` 面板调节 `Style`（`Standard` / `Natural` / `Cinematic`）、`Intensity`、`TransferStrength`（细节强度）和 `ColourStrength`（色彩强度）。
-  - **曝光白点注意**：《鬼武者》（RE Engine）线性 HDR 缓冲原始数值在 `0～512`，必须保持 `WhitePointSource=1`（读取游戏原生曝光，白点约 `512x`），切勿手动改成 `1.0x`（否则未归一化的高光进入 OkLab 会触发全屏发绿）；《剑星》（UE4）预曝光与游戏曝光比值天然为 `1.0x`，常规包已默认将 `TransferStrength` 设为 `1.5`、`ColourStrength` 设为 `1.1` 以增强重打光观感（包内另附 `OptiScaler-原始平衡.ini` 可恢复 `1.0 / 1.0`）。
+  - **曝光白点注意**：《鬼武者》（RE Engine）线性 HDR 缓冲原始数值在 `0～512`，必须保持 `WhitePointSource=1`（读取游戏原生曝光，白点约 `512x`），切勿手动改成 `1.0x`（否则未归一化的高光进入 OkLab 会触发全屏发绿）；《剑星》（UE4）预曝光比值约 `1.0x`。常规包默认 `TransferStrength=1.0 / ColourStrength=1.0`，减小转动视角时运动遮罩回退与原图的强度反差；另附 `OptiScaler-增强风格.ini`（1.5/1.1），供喜欢浓烈效果的用户选择。此轮完成配置与API smoke，未重新实玩验收闪烁。
 
 ---
 
@@ -48,7 +59,7 @@
 2. **48 行位运算膨胀导致被迫降级 `O1`（性能腰斩）**：它将每条 `cvt.rn.f16x2.e4m3x2` 和 `cvt.rn.satfinite.e4m3x2.f16x2` 展开为 45～48 行纯整数位运算 PTX，导致生成的 `.cubin` 膨胀到 `6.7～8.5 MB`，塞不进 PE 原始的 Fatbin 槽位，只能在全部主干网络（Fatbin 00～06）上回退到 `--opt-level=1`（`O1`，关闭指令调度、循环展开与窥孔优化），耗时翻倍；
 3. **`fp8_pack_sources`（`mapped` 捷径）多定义漏检导致 106 条天空红绿横带**：上游为了省去 `cvt.e4m3x2.f16x2 + mov.b32 pack`，只要看到某个寄存器 `%r` 在整个函数里只匹配过一次 `mov.b32 %r, {%rs1, %rs2}`，就直接拿 `%rs1, %rs2` 的源 FP16 寄存器喂给 `mma.sync`。但在 `cc_vit_attention_fp8` 等核里，`%r1352` 在正常分支由花括号向量加载指令 `ld.weak.global.ca.v4.u32 {%r1352, %r1353, %r1354, %r1355}, [%rd10]` 从显存读取真实特征，而在越界 fallback 分支才由 `mov.b32 %r1352, {%rs2, %rs2}` 填入常数。上游漏检了向量加载的多重定义，把 `mma.sync` 的操作数替换成了越界常数，在平滑天空上直接打出 106 条周期性红绿横带。
 
-### 2. 我们的三项核心改进（[`Development/ptx-patcher/build_sm86_dlls.py`](Development/ptx-patcher/build_sm86_dlls.py)）
+### 2. 我们的五项核心改进（[`Development/ptx-patcher/build_sm86_dlls.py`](Development/ptx-patcher/build_sm86_dlls.py)）
 
 1. **代数恒等式一（`E4M3x2 → FP16x2`，仅 4 条 SASS 指令，254/254 有限值 `0 bit-diff`）**：
    E4M3 的指数偏置是 $7$，FP16 的指数偏置是 $15$，相差 $15 - 7 = 8$。把两个 E4M3 字节通过 `prmt.b32` 摆到 32 位寄存器的高/低 16 位对应字节，分离符号位并将 7 位指数+尾数右移 1 位对齐到 FP16 的 `bit [13:7]`：
@@ -60,7 +71,10 @@
    因此对次正规数范围直接执行一条 **`add.rn.f16x2 sub2, sub_in, 0x40004000;`**，硬件加法器就会同时对两个通道完成精确的向偶舍入（Round-to-Nearest-Even），结果直接落在 `sub2` 的低字节中；正规数则通过无借位的 `bfe.u32` 提取并钳位至 `0x7e`（`448.0`）。
    这两条恒等式将编译后的 `.cubin` 体积从 `6.7～8.5 MB` 压回 `2.1～2.8 MB`，使 **15/15 个 Fatbin 全部在 `--opt-level=4`（满血 `O4`）下一次编译通过并原位装回 PE 槽位**。
 3. **全指令定义扫描与非法 `mapped` 剔除（红绿横带 `106 → 0`）**：
-   解析每个 PTX `.entry` 内所有指令的目的操作数（含 `{ %r1, %r2, %r3, %r4 }` 花括号向量加载、谓词指令与普通指令），一旦发现 `pack` 目标寄存器、FP8 中间寄存器或 FP16 源寄存器在函数内存在多重定义（如 `%r1352`），立即拒绝该 `mapped` 转发并回退到寄存器原地解包；真正单定义的本地 `mapped` 则保留 `shfl + shfl + selp` 零开销转发。修复后天空红绿变号从 **106 次降为 0 次**，高频色差 RMS 降低 **263 倍**。
+   解析每个 PTX `.entry` 内所有指令的目的操作数（含 `{ %r1, %r2, %r3, %r4 }` 花括号向量加载、谓词指令与普通指令），一旦发现 `pack` 目标寄存器、FP8 中间寄存器或 FP16 源寄存器在函数内存在多重定义（如 `%r1352`），立即拒绝该 `mapped` 转发并回退到寄存器原地解包；真正单定义的本地 `mapped` 则使用 `prmt 0x5410 / 0x7632` 转发，不做跨lane洗牌。修复后天空红绿变号从 **106 次降为 0 次**，高频色差 RMS 降低 **263 倍**。
+
+4. **偶奇 K16 原位拆解**：A/B在同lane使用相同K置换，先算byte0/2、再算byte1/3；编码操作数不再做跨lane SHFL或PRMT，合法mapped仅用5410/7632 PRMT。它改变FP16累加分组；V2.1相对V2输出严格0bit，不能宣称相对0.1.0也逐位相同。
+5. **按FB放宽寄存器上限**：仅FB00/03/04/05/06的`.maxnreg`升到255；FB01/02保持原值。FB00/03/06的STACK和LDL/STL归零，FB04/05仍有80/8B最大STACK，不是全DLL零spill。全部255的控制反而略慢，采用实测胜出的hot255组合。
 
 ### 3. PTX 修补与构建的完整 6 步流水线
 
@@ -78,12 +92,12 @@
   │
   ├─ [Step 3] FP8 Tensor Core 与转换重写：
   │    • 全函数单定义扫描过滤 fp8_pack_sources (剔除 %r1352 等向量加载多定义误判)
-  │    • mma.m16n8k32.e4m3 → 4-lane shuffle + 2 条 mma.m16n8k16.f16.f16.f16.f16 (Full Rate!)
+  │    • mma.m16n8k32.e4m3 → 同lane偶/奇K拆解 + 2 条 mma.m16n8k16.f16.f16.f16.f16 (Full Rate!)
   │    • cvt.f16x2.e4m3x2 → prmt.b32 + mul.rn.f16x2 0x5c005c00
   │    • cvt.e4m3x2.f16x2 → add.rn.f16x2 0x40004000 (次正规) + bfe.u32 (正规)
   │
   ├─ [Step 4] 多进程并行调用 libcuda.so.1 (cuModuleLoadDataEx, CU_JIT_OPTIMIZATION_LEVEL=4)
-  │    • 15/15 个 Fatbin 全部以满血 O4 编译为 sm_86 ELF cubin
+  │    • FB00/03/04/05/06 maxnreg→255；15/15 Fatbin O4 编译为 sm_86 ELF cubin
   │
   ├─ [Step 5] 调用 libzstd.so.1 (level 22) 压缩 cubin，封装回 Fatbin 槽位，尾部剩余字节填 0
   │
@@ -91,18 +105,18 @@
               剥离失效的 Authenticode 证书表，重算并写入 PE Checksum
   │
   ▼
-产出满血 O4 版 nvngx_dlssnr.dll (266,414,592 B, SHA256: 3f934a0a...)
+产出满血 O4 版 nvngx_dlssnr.dll (266,414,592 B, SHA256: c7d4c8b6...)
 ```
 
 ### 4. 每个发布文件从哪来与编译命令
 
 | 包里的核心文件 | 源码 / 工具位置 | 构建命令 |
 |---|---|---|
-| **`nvngx_dlssnr.dll`**（三个包共用，15/15 `O4` `sm_86` 修补版） | `Development/ptx-patcher/build_sm86_dlls.py` + `dlssnr_patcher.py` | `python3 Development/ptx-patcher/build_sm86_dlls.py --input /path/to/orig/nvngx_dlssnr.dll --output /path/to/out/nvngx_dlssnr.dll --workers 3` |
+| **`nvngx_dlssnr.dll`**（三个包共用，15/15 `O4` `sm_86` 修补版） | `Development/ptx-patcher/build_sm86_dlls.py` + `dlssnr_patcher.py` | `python3 Development/ptx-patcher/v21/build_recommended.py` |
 | **`nvngx.dll_dlssnr.dll`**（OptiScaler 两个包共用，NGX 调用名转发桥） | `Development/ptx-patcher/dlssnr_forwarder.cpp` | `x86_64-w64-mingw32-g++ -O2 -shared -static -o nvngx.dll_dlssnr.dll Development/ptx-patcher/dlssnr_forwarder.cpp` |
 | **`Magpie.exe`**（Magpie 包专用，将原生 `DLSSNR` 硬编码的 `Preset 0` 改为 `Preset 2`） | `Development/ptx-patcher/magpie-native/patch_preset2.py` | `python3 Development/ptx-patcher/magpie-native/patch_preset2.py --input /path/to/orig/Magpie.exe --output /path/to/out/Magpie.exe` |
 | **`bench.exe`**（独立 D3D12 NGX Feature 18 硬件计时测试台） | `Development/ptx-patcher/bench_nvngx.dll.cpp` | `x86_64-w64-mingw32-g++ -O3 -std=c++17 -static Development/ptx-patcher/bench_nvngx.dll.cpp -ld3d12 -ldxgi -o bench.exe` |
-| 三个 `v0.1.0` 发布包组装与校验脚本 | `Development/ptx-patcher/release-rtx30/` 与 `magpie-native/deploy_release.py` | 见对应目录下的打包与 SHA256 校验脚本 |
+| 三个 `v0.2.0` 发布包组装与校验脚本 | `Development/ptx-patcher/release-rtx30/` 与 `magpie-native/deploy_release.py` | 见对应目录下的打包与 SHA256 校验脚本 |
 
 单元测试与回归验证：
 ```bash
@@ -111,20 +125,21 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 ---
 
-## 实测性能对照（RTX 3080 Laptop GPU, 16GB, `sm_86`, 132W）
+## 实测性能对照（RTX 3080 Laptop GPU,16GB,`sm_86`，默认DVFS）
 
-### 1. 三种技术方案同机同口径对比（均为 31 块 `0.5x Small` 模型，`Preset 2`）
+### 1. 历史方案标尺与当前版本（均为 31 块 `0.5x Small` 模型，`Preset 2`）
 
 | 方案 | 编译器优化 | `1280×720` (720p) | `1600×900` (900p) | `1920×1080` (1080p) | 天空渐变红绿变号 | 相对上游提速 |
 |---|:---:|---:|---:|---:|---:|:---:|
 | ① 网上 `dlssnr-patcher` 原版位运算 (`stock`) | 主网络被迫回退 `O1` | `37.13 ms` | `49.89 ms` | `67.69 ms` | `106 次`（有色带） | `1.00×` |
 | ② 独立 CUDA 引擎（`Development/hip-port`） | `Clang O3 + PTX O4` | `~31.0 ms` | `43.10 ms` | `57.13 ms` | 无 | `1.18×` |
 | **③ 本项目 `ptx-patcher` (`v0.1.0`)** | **15/15 全部满血 `O4`** | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`0 次`（彻底消除）** | **`2.08× ～ 2.35×`** |
+| **④ 当前 `ptx-patcher` (`v0.2.0 /V2.1`)** | **15/15 O4** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **0** | **5.58× /5.14× /5.30×（历史耗时比）** |
 
 > **为什么路线 ③（改写原版 PTX）比路线 ②（从 RDNA4 移植的独立引擎）快 1.8 倍？**  
 > 在消费级 GeForce RTX 30 系（GA102/GA104）硬件上，老黄将 **FP32 累加 Tensor Core（`.f32.f16.f16.f32`，路线 ② 所用）硬件吞吐砍半为 Half Rate（256 FLOPs/clock/SM）**，而 **FP16 累加 Tensor Core（`.f16.f16.f16.f16`，原版 PTX 路线 ③ 所用）保持 Full Rate（512 FLOPs/clock/SM）** 且寄存器占用减半。
 
-### 2. 游戏与窗口实机表现
+### 2. 0.1.0历史游戏与窗口实机表现（不代表本轮新帧率）
 
 | 游戏 / 场景 | 接入包 | 渲染分辨率 → 输出分辨率 | DLSS 5 模型 GPU 耗时 | 实机表现 |
 |---|---|---|---|---|
@@ -141,6 +156,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 | 版本 | 日期 | 做了什么 | 结果 |
 |---|---|---|---|
+| **`0.2.0`** | 2026-10-26 | 偶奇K16零洗牌＋按FB maxnreg255；鬼武者恢复原版dxgi并切回PTX；剑星默认1.0/1.0，附增强风格1.5/1.1；三个新ZIP及SHA。 | **6.66 /9.70 /12.78ms**；V2.1相对V2严格0bit，三包Windows smoke通过；[回执](Development/ptx-patcher/release-rtx30/v020/README.md) |
 | **`0.1.0`** | 2026-10-24 | **首发版本（三个发布包全线统一为 15/15 满血 `O4` PTX 路线，仅保留 31 块 `0.5x Small` 新模型）**：<br>1. **PTX 满血 `O4` 编译器（`Development/ptx-patcher/`）**：提出两条 IEEE 754 `f16x2` 硬件代数恒等式（`mul.rn.f16x2 0x5c005c00` 解包 E4M3、`add.rn.f16x2 0x40004000` 舍入 E4M3 次正规数，有限值域 `0 bit-diff`），将 `.cubin` 体积缩小 3.5 倍，15/15 个 Fatbin 全部 `O4` 装回原槽位；修复 `310.9.16.0` 的 `fence.acquire.gpu;` 编译失败。<br>2. **消除天空红绿横带（`sky-audit/`）**：定位并修复上游 `fp8_pack_sources` 未扫描花括号向量加载（如 `FB5 %r1352`）导致将显存特征误替换为越界 fallback 常数的致命 Bug，天空逐行红绿色差变号从 `106 次` 降为 `0 次`，高频色差 RMS 降低 263 倍。<br>3. **三包构建与游戏适配**：<br>  • `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`（SHA256 `8e28417d...`）：适配《鬼武者：剑之道》等 RE Engine 游戏，校准 `WhitePointSource=1`（`~512x` 原生曝光）；<br>  • `OptiScaler-DLSS5-RTX30-0.1.0.zip`（SHA256 `e6067bf0...`）：适配《剑星》等常规 DX12 游戏，配齐完整 FFX 转发库（支持游戏内选 FSR 或 DLSS 自动转接），默认应用单遍增强（`detail=1.5, colour=1.1`）；<br>  • `Magpie-DLSS5-RTX30-0.1.0.zip`（SHA256 `db41eaeb...`）：打通 `Magpie.exe` 原生 `DLSSNR` Feature 18 后端，通过二进制补丁将写死的 `Preset 0` 改为 `Preset 2`（31 块轻量模型），补齐 `nvngx_dlss.dll` 修复 `0xbad0000b` 报错，移除旧 ReShade/add-on 与外置碎权重，720p 模型耗时从路线 A 的 `49.8 ms` 降至 **`15.9 ms`**。<br>4. **附加路线归档（`Development/hip-port/`）**：完整保留从 AMD RDNA4 移植的 40 模块（1,970 个核入口）CUDA 独立引擎源码（V6 全激活预洗牌 + 32/32 核零 `LMem` 溢出，900p `43.1 ms`），作为研究与扩展路线。 | 测试台 720p **`15.83 ms`**、900p **`24.47 ms`**、1080p **`32.04 ms`**（比上游 `O1` 快 **2.08×～2.35×**）；《鬼武者》《剑星》《光环》实机验收通过 |
 
 ---

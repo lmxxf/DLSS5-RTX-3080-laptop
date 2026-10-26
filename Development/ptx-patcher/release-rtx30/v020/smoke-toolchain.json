@@ -1,0 +1,38 @@
+{
+  "compiler": "x86_64-w64-mingw32-g++ (GCC) 10-win32 20220113",
+  "header_source_base": "https://raw.githubusercontent.com/GPUOpen-LibrariesAndSDKs/FidelityFX-SDK/main/Kits/FidelityFX/",
+  "header_paths": [
+    "api/include/ffx_api.h",
+    "api/include/ffx_api_types.h",
+    "api/include/dx12/ffx_api_dx12.h",
+    "upscalers/include/ffx_upscale.h"
+  ],
+  "headers": [
+    {
+      "file": "artifacts/sdk/api/include/ffx_api.h",
+      "sha256": "e1a9d1b559eaf75f4cb401f1c43a66e2f3dc9621abfeb58b9c6fac56443177fd"
+    },
+    {
+      "file": "artifacts/sdk/api/include/ffx_api_types.h",
+      "sha256": "cc0adc0ffc804dd7cd03c39c15581b575e416383177ffe95060201d52cc0fc49"
+    },
+    {
+      "file": "artifacts/sdk/api/include/dx12/ffx_api_dx12.h",
+      "sha256": "c9afbc3c4c673723e9e5369a666f0ff54560543b5a93537f8ff453bf1c3bf530"
+    },
+    {
+      "file": "artifacts/sdk/upscalers/include/ffx_upscale.h",
+      "sha256": "65be36d5653eb71c10379e0204f7bb7cd6a8aeec96e6f8cffc5f59ffeb1f89bf"
+    }
+  ],
+  "tools": {
+    "ffx_loader_smoke.exe": "6c674cc02e0fd9ca8a90d92913d943b0310498bd1bf6795d8dc980051ebe5984",
+    "ffx_nr_smoke.exe": "b60c8b8db76284b210788bb080a594c0e2a9978b6cddc6ee6292cd30654df004"
+  },
+  "build_flags": "-std=c++17 -O2 -municode -static; FFX NR links d3d12/dxgi/dxguid/uuid/user32; FFX loader includes initializer_list",
+  "sources": [
+    "../ffx_nr_smoke.cpp",
+    "../ffx_loader_smoke.cpp"
+  ],
+  "scope": "same retained API smoke source rebuilt; no game/UI automated control"
+}

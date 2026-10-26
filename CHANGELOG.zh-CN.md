@@ -6,6 +6,22 @@
 
 ---
 
+## 0.2.0 (2026-10-26)
+
+三个正式包统一PTX V2.1：偶奇K16原位拆解消除MMA操作数洗牌，FB00/03/04/05/06的maxnreg升255，15/15 O4原槽位。三档GPU median **6.66 /9.70 /12.78ms**；V2.1相对V2严格0bit，STACK大幅减少但不是全网零spill。
+
+《鬼武者》根目录和_storage_恢复原版dxgi（aa3761f2…），清理HIP运行时并切回PTX；《剑星》默认TransferStrength/ColourStrength=1.0/1.0、附OptiScaler-增强风格.ini（1.5/1.1）；Magpie保留Preset2补丁并升级DLL。针对脸部闪烁调整配置，本轮完成部署与API smoke，未重新实玩验收。
+
+相比0.1.0历史耗时约2.38～2.53×；上游O1三档历史比值为5.58/5.14/5.30×（900p是49.89/9.70=5.14×，不是5.3×）。三包Windows Feature18及两个OptiScaler FFX→NGX→NR smoke通过，输出finite；包CRC/逐文件SHA通过。修补DLL Authenticode为NotSigned，不能将SHA/NGX调用校验说成NVIDIA数字签名有效。
+
+- `OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip`（375,533,391 B）：`531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94`
+- `OptiScaler-DLSS5-RTX30-0.2.0.zip`（318,461,731 B）：`ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f`
+- `Magpie-DLSS5-RTX30-0.2.0.zip`（323,386,599 B）：`e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739`
+
+Core DLL SHA256: `c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed`.
+
+Local release directory: `C:\DLSS5-5090-dll\发布打包\`. No new public download URL was supplied; the0.1.0 Gofile link below remains historical.
+
 ## 0.1.0 (2026-10-24)
 
 下载：[Gofile 镜像](https://gofile.io/d/s9cpHYH9)

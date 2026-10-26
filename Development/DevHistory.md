@@ -1,5 +1,7 @@
 # DLSS 5 -> NVIDIA RTX 3080 Laptop (`sm_86` Ampere) 移植开发历史与实测回执 (`DevHistory.md`)
 
+> **当前正式版本：v0.2.0（2026-10-26）**，三包统一PTX V2.1，模型6.66/9.70/12.78ms；本机部署/新ZIP/SHA见[发布回执](ptx-patcher/release-rtx30/v020/README.md)。下文0.1.0与各Phase保留历史原值。
+
 **硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，101,376 B Shared Memory/SM，Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）  
 **基线来源**：`DLSS5-AMD 0.44` 独立引擎 + NVIDIA 原版 `nvngx_dlssnr.dll` (`v310.9.16.0`)  
 **模型范围**：RTX 30 系仅保留并维护 **31 块 `0.5x Small` 轻量新模型（`Preset 2`）**，不再折腾 71 块旧模型。  
@@ -793,3 +795,19 @@ hot255略优fb45且额外清FB00/03/06 spill，保留；不把约0～0.1ms小差
 新推荐`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll`，266414592B，**15/15 O4、全部原槽位，无扩节**，SHA **c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed**。最终原源全量15重编/实际CUDA加载，SHA与获胜控制相同；V2原SHA保留。专用复测构建`python3 Development/ptx-patcher/v21/build_recommended.py`；通用构建器新增--maxnreg FB:LIMIT，无参数仍为V2。
 
 [回执](ptx-patcher/v21/README.md)、[正式两轮](ptx-patcher/v21/final-results.md)、[全控制](ptx-patcher/v21/results.md)、[资源/溢出](ptx-patcher/v21/resources.md)、[验收](ptx-patcher/v21/validation.json)。8项mapped、1项MMA生成、1项cap回归通过。候选DLL/RGB/临时PTX/cubin记录SHA后清理，保留推荐DLL、日志/遥测/资源/清单；不改发布ZIP或游戏/Magpie，不push，立即独立commit。本轮未改FP16图/离线权重/IMMA，不将这些机制混入收益。
+
+
+## 2026-10-26：v0.2.0正式三包与本机PTX V2.1部署（闇）
+
+按9980783计划完成1～4步。主fast.dll已更新为V2.1（SHA c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed），v21/v2副本保留。鬼武者根及_storage_恢复原dxgi aa3761f2…、原PTX INI（nvidia/WhitePointSource1/Preset2/Style1），补齐配套库并移除活动HIP运行时/资产/add-on/shader至备份；两处转发桥与NR哈希已核。剑星NR更新，默认TransferStrength/ColourStrength=1.0/1.0，增强风格INI=1.5/1.1；Magpie目录升级0.2.0并保留Preset2补丁/config。旧现场在C:\DLSS5-5090-dll\backups\20261026-v020，剑星恢复清单及Live SHA同步，旧日志已归档。
+
+三个ZIP位于C:\DLSS5-5090-dll\发布打包；CRC、逐文件SHA、核心DLL、原宿主和INI默认/增强配置全部核验。旧0.1.0 ZIP与SHA归档archive/v0.1.0；总SHA256SUMS仅列新三包：
+- `OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip`，375533391B，SHA256 `531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94`。
+- `OptiScaler-DLSS5-RTX30-0.2.0.zip`，318461731B，SHA256 `ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f`。
+- `Magpie-DLSS5-RTX30-0.2.0.zip`，323386599B，SHA256 `e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739`。
+
+Windows：三包Feature18 create/evaluate成功、全部finite；两个OptiScaler完整FFX→NGX→NR smoke成功，composition detail1/colour1。Windows Get-FileHash匹配全部最终部署NR；驱动NGX核心数字签名Valid，修补NR为预期NotSigned，不将SHA/调用校验误称NVIDIA签名。没有在本轮重进游戏验证脸部闪烁/FPS，也未重做Magpie捕获；新外网下载URL尚未提供，旧Gofile只代表0.1.0。
+
+公开文档同步0.2.0与模型median6.66/9.70/12.78ms、偶奇K16和选择性maxnreg255。对0.1.0历史比值约2.38～2.53×；O1历史37.13/49.89/67.69分别对应5.58/5.14/5.30×，如实修正900p分母，不统称5.3～5.6。STACK大减但保留FB04/05残留说明。
+
+[正式回执](ptx-patcher/release-rtx30/v020/README.md)、[部署/验证](ptx-patcher/release-rtx30/v020/validation.json)、[包SHA](ptx-patcher/release-rtx30/v020/packages.json)。临时stage/RGB清理，保留旧包和现场备份，完成后独立commit，无Co-Authored-By，不push。

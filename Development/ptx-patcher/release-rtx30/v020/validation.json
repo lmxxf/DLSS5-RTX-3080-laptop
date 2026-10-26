@@ -1,0 +1,82 @@
+{
+  "version": "0.2.0",
+  "NR_sha256": "c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed",
+  "main_fast_updated": true,
+  "onimusha_root_storage_original_dxgi": true,
+  "onimusha_root_storage_PTX": true,
+  "active_route_a_leftovers": [],
+  "stellar_default": "1.0/1.0",
+  "stellar_optional": "OptiScaler-增强风格.ini=1.5/1.1",
+  "magpie_directory": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.2.0",
+  "package_checksums": {
+    "OptiScaler-REFramework": {
+      "files": 41,
+      "manifest_sha256": "e5b5c55b61625624c27b741b0d758d822f6ef5601a09dbaf27275575801181ba"
+    },
+    "OptiScaler": {
+      "files": 37,
+      "manifest_sha256": "13df12b45e93f5842c5d2b66580704760ffad1ddc8ec8d8a16c9e9f9e1e7f5c2"
+    },
+    "Magpie": {
+      "files": 217,
+      "manifest_sha256": "629d781e10a27a4ef970846d115f7a7803d53a3ba66082ea201ae6ae4bd347af"
+    }
+  },
+  "extra_onimusha_files_installed": 49,
+  "old_logs_archived": [
+    {
+      "from": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/OptiScaler.log",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/logs/onimusha/OptiScaler.log",
+      "sha256": "e4efa8fbf4660cdb2fd0a9267ed1a6b00c0533c6d5897d1e6fb6bcf69d787961"
+    },
+    {
+      "from": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/OptiScaler.log",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/logs/stellar/OptiScaler.log",
+      "sha256": "fcff13649c38f62c7301e794e84c7fc6febea343fa6c0635a32670b0a953d6af"
+    }
+  ],
+  "stellar_uninstall_manifest_refreshed": true,
+  "smoke_tests": [
+    {
+      "label": "OptiScaler-REFramework",
+      "test": "NGX Feature18 native DLL load/create/evaluate",
+      "returncode": 0,
+      "NR_sha256": "c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed",
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=6.999 gpu_mean_ms=7.256 gpu_min_ms=6.959 wall_median_ms=7.615 wall_mean_ms=7.718 wall_min_ms=5.319 nonfinite=0 mean_rgb=0.742439 range=[0.5869, 0.9126]"
+    },
+    {
+      "label": "OptiScaler-REFramework",
+      "test": "FFX loader plus actual FFX→NGX→NR composition",
+      "returncode": 0,
+      "default_strength": "1.0/1.0",
+      "NR_composition_observed": true,
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=7.824 gpu_mean_ms=20.086 gpu_min_ms=7.786 wall_median_ms=10.647 wall_mean_ms=22.808 wall_min_ms=9.342 nonfinite=0 mean_rgb=0.209924 range=[0.1715, 0.2434]"
+    },
+    {
+      "label": "OptiScaler",
+      "test": "NGX Feature18 native DLL load/create/evaluate",
+      "returncode": 0,
+      "NR_sha256": "c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed",
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=6.982 gpu_mean_ms=6.984 gpu_min_ms=6.970 wall_median_ms=5.933 wall_mean_ms=5.855 wall_min_ms=0.000 nonfinite=0 mean_rgb=0.742439 range=[0.5869, 0.9126]"
+    },
+    {
+      "label": "OptiScaler",
+      "test": "FFX loader plus actual FFX→NGX→NR composition",
+      "returncode": 0,
+      "default_strength": "1.0/1.0",
+      "NR_composition_observed": true,
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=33.646 gpu_mean_ms=32.860 gpu_min_ms=29.277 wall_median_ms=38.466 wall_mean_ms=37.003 wall_min_ms=33.525 nonfinite=0 mean_rgb=0.209924 range=[0.1715, 0.2434]"
+    },
+    {
+      "label": "Magpie",
+      "test": "NGX Feature18 native DLL load/create/evaluate",
+      "returncode": 0,
+      "NR_sha256": "c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed",
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=6.994 gpu_mean_ms=7.185 gpu_min_ms=6.952 wall_median_ms=7.011 wall_mean_ms=7.727 wall_min_ms=0.000 nonfinite=0 mean_rgb=0.742439 range=[0.5869, 0.9126]"
+    }
+  ],
+  "Authenticode": "driver NGX core Valid;patched NR NotSigned by design;all Windows SHA checks match",
+  "public_upload": "not performed;no new URL supplied",
+  "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020",
+  "in_game_visual_test": "not performed in this release turn"
+}

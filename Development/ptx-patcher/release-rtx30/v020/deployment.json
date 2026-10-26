@@ -1,0 +1,186 @@
+{
+  "version": "0.2.0",
+  "time": "2026-10-26T23:42:55.006978",
+  "NR_sha256": "c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed",
+  "original_dxgi_sha256": "aa3761f2cdb0d9a4653732bd430019ff421b3ce9471fe3697b553dc6d71714a2",
+  "forwarder_sha256": "4f088f382171b3b3af4e2b34cb71b162788c947a55eeefc6e81e36206c59a0c9",
+  "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020",
+  "profiles": [
+    {
+      "label": "OptiScaler-REFramework",
+      "name": "OptiScaler-REFramework-DLSS5-RTX30-0.2.0",
+      "stage": "/mnt/c/DLSS5-5090-dll/发布打包/.stage-v0.2.0/OptiScaler-REFramework-DLSS5-RTX30-0.2.0",
+      "source_zip": "/mnt/c/DLSS5-5090-dll/发布打包/OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip",
+      "source_zip_sha256": "8e28417d2420f11dd3e90044fadad78f3d1c53fbec1ebeb791acb62703285f67"
+    },
+    {
+      "label": "OptiScaler",
+      "name": "OptiScaler-DLSS5-RTX30-0.2.0",
+      "stage": "/mnt/c/DLSS5-5090-dll/发布打包/.stage-v0.2.0/OptiScaler-DLSS5-RTX30-0.2.0",
+      "source_zip": "/mnt/c/DLSS5-5090-dll/发布打包/OptiScaler-DLSS5-RTX30-0.1.0.zip",
+      "source_zip_sha256": "e6067bf09cf5e13ed010d5c90deff695302bbe39b631d7b7fe743ad7b502caac"
+    },
+    {
+      "label": "Magpie",
+      "name": "Magpie-DLSS5-RTX30-0.2.0",
+      "stage": "/mnt/c/DLSS5-5090-dll/发布打包/.stage-v0.2.0/Magpie-DLSS5-RTX30-0.2.0",
+      "source_zip": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0.zip",
+      "source_zip_sha256": "db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb"
+    }
+  ],
+  "backup_files": [
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll",
+      "old_sha256": "3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/production/nvngx_dlssnr_sm86_fast.dll"
+    },
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.manifest.json",
+      "old_sha256": "07e7376ae1adaac617b618e8d2597d53bbc6db9a12945907da17e36ea0d9b11a",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/production/old.manifest.json"
+    },
+    {
+      "target": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/dxgi.dll",
+      "old_sha256": "f3fe9bfbfd3b4add7460713521d4e16d6d95c6fa3bf90db27e7338b6d255f35d",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/onimusha/dxgi.dll"
+    },
+    {
+      "target": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/OptiScaler.ini",
+      "old_sha256": "93e5db535821c0771bf3ddefd866be7d68d33532e0a42c3b585e2b86a71e507e",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/onimusha/OptiScaler.ini"
+    },
+    {
+      "target": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/nvngx.dll_dlssnr.dll",
+      "old_sha256": null,
+      "backup": null
+    },
+    {
+      "target": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/nvngx_dlssnr.dll",
+      "old_sha256": null,
+      "backup": null
+    },
+    {
+      "target": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/_storage_/dxgi.dll",
+      "old_sha256": "f3fe9bfbfd3b4add7460713521d4e16d6d95c6fa3bf90db27e7338b6d255f35d",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/onimusha/_storage_/dxgi.dll"
+    },
+    {
+      "target": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/_storage_/OptiScaler.ini",
+      "old_sha256": null,
+      "backup": null
+    },
+    {
+      "target": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/_storage_/nvngx.dll_dlssnr.dll",
+      "old_sha256": null,
+      "backup": null
+    },
+    {
+      "target": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/_storage_/nvngx_dlssnr.dll",
+      "old_sha256": null,
+      "backup": null
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/nvngx_dlssnr.dll",
+      "old_sha256": "3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/stellar/nvngx_dlssnr.dll"
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/OptiScaler.ini",
+      "old_sha256": "496de2ff62cc4bf7ef28d5a8aee09c8a00052120bc780f0441692a3888572bfe",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/stellar/OptiScaler.ini"
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/OptiScaler-效果增强.ini",
+      "old_sha256": "496de2ff62cc4bf7ef28d5a8aee09c8a00052120bc780f0441692a3888572bfe",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/stellar/OptiScaler-效果增强.ini"
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/OptiScaler-增强风格.ini",
+      "old_sha256": null,
+      "backup": null
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/README.txt",
+      "old_sha256": "bcd43679885c4b6633c5bd419fd0342245c50a0b4a79209c83186d36e2c08ca1",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/stellar/README.txt"
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/README.en.txt",
+      "old_sha256": "b3b6ed0afff1e5e82d1e4c0eaaeaeb34b488a2c8c7e5db893f4ed0ccd7b8315a",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/stellar/README.en.txt"
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/release.json",
+      "old_sha256": "f8bd6479a0983c87dd2a0889eb8b247492cc7b7ca9ba2d7043a6f028e44b4d6e",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/stellar/release.json"
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/DLSS5-RTX30-VERSION.txt",
+      "old_sha256": "776dffa893856554037f16efa183e1fcb992cc566556bb462bcf4dcb519418e3",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/stellar/DLSS5-RTX30-VERSION.txt"
+    },
+    {
+      "target": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/SHA256SUMS.txt",
+      "old_sha256": "e11374e951e3aa1be488abf4cd6867a97d6a0eb2d88c9f4216a47036764e2d09",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/stellar/SHA256SUMS.txt"
+    },
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0/nvngx_dlssnr.dll",
+      "old_sha256": "3f934a0a9d2196e06e8a2cf772fca3d6da9686fd79a58261fc3b37d1a0ce051a",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/magpie/nvngx_dlssnr.dll"
+    },
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0/release.json",
+      "old_sha256": "9cff1d2abfe28493549571beb1d7bd4e9d74b62ca6aabb7af051f91375342767",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/magpie/release.json"
+    },
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0/README.txt",
+      "old_sha256": "b1ae1540ae7b5807533d224a43a2b32cecd5f66d73f95574fc2a67b474f36ac2",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/magpie/README.txt"
+    },
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0/README.en.txt",
+      "old_sha256": "c54fd88f9340932e22967176220d5e4ef48e54a2ab3ab2bc9583ffdf6ac71744",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/magpie/README.en.txt"
+    },
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0/DLSS5-RTX30-VERSION.txt",
+      "old_sha256": "940252edbf917a2d0fe7c5f9670358723a71aaab966341e6e9faf45a21da7bcd",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/magpie/DLSS5-RTX30-VERSION.txt"
+    },
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0/SHA256SUMS.txt",
+      "old_sha256": "c657a1d3f1f09b4cda596906c3906cfe2742a8cf4558e43150f73fcb9116dd4c",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/magpie/SHA256SUMS.txt"
+    },
+    {
+      "target": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0/config/config.json",
+      "old_sha256": "a69603ab4db442b51b24f94691bde203208eab822d50613abe10fd626e09729c",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/magpie/config/config.json"
+    }
+  ],
+  "route_a_removed": [
+    {
+      "from": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/DLSS5-AMD",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/route-a-removed/root/DLSS5-AMD"
+    },
+    {
+      "from": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/LmxxfNrRuntime.dll",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/route-a-removed/root/LmxxfNrRuntime.dll"
+    },
+    {
+      "from": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/shaders",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/route-a-removed/root/shaders"
+    },
+    {
+      "from": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/_storage_/LmxxfNrRuntime.dll",
+      "backup": "/mnt/c/DLSS5-5090-dll/backups/20261026-v020/route-a-removed/storage/LmxxfNrRuntime.dll"
+    }
+  ],
+  "magpie_rename": {
+    "from": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.1.0",
+    "to": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.2.0"
+  },
+  "onimusha_storage_both_updated": true
+}

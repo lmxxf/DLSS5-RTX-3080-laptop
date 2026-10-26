@@ -14,6 +14,9 @@
 #ifndef HIP_VIT_QKV_W5
 #define HIP_VIT_QKV_W5 0 /* 1: add export vit_stream_qkv_frag_hin_w5 (160 threads = 5 waves on one head, 5 token tiles; head weights staged once per group through LDS). Same per-wave WMMA chains/fragments/epilogue as vit_stream_qkv_frag_hin; grid = 96*ceil(tokens/80). */
 #endif
+#ifndef VIT_PROJECT_TAIL_VEC
+#define VIT_PROJECT_TAIL_VEC 0
+#endif
 #ifndef VIT_QKV_TAIL_VEC
 #define VIT_QKV_TAIL_VEC 0 /* 1: vit_stream_qkv_frag_hin_w5 byte tail transposed through the wave's LDS norm tile, one 16-byte store per lane; bytes unchanged (results/deep-tail-20260930) */
 #endif
@@ -62,6 +65,18 @@ DEV void vit_stream_project_tiles(const float*in,const float*w,const float*skip,
 #pragma unroll
    for(uint j=0;j<TN;j++)for(uint e=0;e<8;e++)total[t][j][e]=p?total[t][j][e]+a[t][j][e]:a[t][j][e];}
  }
+#if VIT_PROJECT_TAIL_VEC
+ if constexpr(ByteOut && TN==4){
+  __attribute__((shared)) unsigned char tb[1024];
+  for(uint t=0;t<TM;t++){if(t>=live)continue;
+   for(uint j=0;j<TN;j++)for(uint e=0;e<8;e++)tb[(gr()*8+e)*64+j*16+rc()]=byte_F(VIT_FAST_H(total[t][j][e]));
+   WG_FENCE(3);__builtin_amdgcn_wave_barrier();WG_FENCE(2);
+   uint lane=__builtin_amdgcn_workitem_id_x()%32u,r=lane>>1,h=lane&1u;
+   for(uint j=0;j<2;j++){w16_i4 q;__builtin_memcpy(&q,__builtin_assume_aligned(tb+r*64+h*32+j*16,16),16);__builtin_memcpy(__builtin_assume_aligned(reinterpret_cast<unsigned char*>(out)+size_t(first+t*16+r)*OUT+row+h*32+j*16,16),&q,16);}
+   __builtin_amdgcn_wave_barrier();
+  }
+ }else
+#endif
 #pragma unroll
  for(uint t=0;t<TM;t++){if(t>=live)continue;for(uint j=0;j<TN;j++)for(uint e=0;e<8;e++){if constexpr(ByteOut)reinterpret_cast<unsigned char*>(out)[(first+t*16+gr()*8+e)*OUT+row+j*16+rc()]=byte_F(VIT_FAST_H(total[t][j][e]));else out[(first+t*16+gr()*8+e)*OUT+row+j*16+rc()]=F(VIT_FAST_H(total[t][j][e]));}}
 }
@@ -259,8 +274,18 @@ KERNEL __attribute__((amdgpu_flat_work_group_size(160,160))) void vit_stream_qkv
   #pragma unroll
   for(uint e=0;e<8;e++){float inv=__builtin_amdgcn_rsqf(__builtin_fmaxf(sum[e],6.198883056640625e-5f))*scale;acc0[e]*=inv;acc1[e]*=inv;}
  }
+#if VIT_QKV_TAIL_VEC
+ {unsigned char*tb=reinterpret_cast<unsigned char*>(raw);
+  for(uint e=0;e<8;e++){tb[(gr()*8+e)*32+rc()]=byte_F(acc0[e]);tb[(gr()*8+e)*32+16+rc()]=byte_F(acc1[e]);}
+  WG_FENCE(3);__builtin_amdgcn_wave_barrier();WG_FENCE(2);
+  uint r=lane>>1,h=lane&1u;w16_i4 q;
+  __builtin_memcpy(&q,__builtin_assume_aligned(tb+r*32+h*16,16),16);
+  __builtin_memcpy(__builtin_assume_aligned(out+size_t(part*tokens+first+r)*1024+row+h*16,16),&q,16);
+ }
+#else
  #pragma unroll
  for(uint e=0;e<8;e++){out[(part*tokens+first+gr()*8+e)*1024+row+rc()]=byte_F(acc0[e]);out[(part*tokens+first+gr()*8+e)*1024+row+16+rc()]=byte_F(acc1[e]);}
+#endif
 }
 #endif
 #endif

@@ -1,0 +1,11 @@
+............../home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/hip/build_sm86_modules.py:29: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/hip/build-modules.ps1' mode='r' encoding='utf-8'>
+  txt = open(ps1_path, "r", encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/hip/build_sm86_modules.py:414: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/hip-port/hip/deep_fast.hip' mode='r' encoding='utf-8'>
+  text += open(os.path.join(source_dir, part), "r", encoding="utf-8").read() + "\n"
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+....
+----------------------------------------------------------------------
+Ran 18 tests in 0.192s
+
+OK

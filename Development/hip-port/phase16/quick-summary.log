@@ -1,0 +1,12 @@
+quick 1280   Validity : invalid=0 nonzero=2946644/2949120 bit_diff_first_last=0 fnv1a64=4268aba32fda5578
+quick 1280   GPU  (ms): mean=14.472 median=14.523 p90=14.578 p99=14.578 min=14.217 max=14.578
+quick 1280   Wall (ms): mean=14.555 median=14.608 p90=14.695 p99=14.695 min=14.295 max=14.695
+quick 1280 PROFILE_TOTAL 12.835936 kernels=32
+quick 1600   Validity : invalid=0 nonzero=4911540/4915200 bit_diff_first_last=0 fnv1a64=6cb318b2a39ad439
+quick 1600   GPU  (ms): mean=23.113 median=23.207 p90=23.309 p99=23.309 min=22.833 max=23.309
+quick 1600   Wall (ms): mean=23.205 median=23.286 p90=23.408 p99=23.408 min=22.904 max=23.408
+quick 1600 PROFILE_TOTAL 22.264832 kernels=32
+quick 1920   Validity : invalid=0 nonzero=6630401/6635520 bit_diff_first_last=0 fnv1a64=3c4dd9b8df26f48c
+quick 1920   GPU  (ms): mean=29.798 median=29.543 p90=30.851 p99=30.851 min=29.407 max=30.851
+quick 1920   Wall (ms): mean=29.895 median=29.626 p90=30.956 p99=30.956 min=29.534 max=30.956
+quick 1920 PROFILE_TOTAL 27.748352 kernels=32

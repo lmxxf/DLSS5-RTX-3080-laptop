@@ -754,3 +754,14 @@ Phase15先把新720gold固化回归，再补真实帧/动态输入/Style1 HDR和
 - 针对 `1024² codec-ramp` (`43.44 dB`) 与 `720p` (`43.58 dB`) 略低于早期经验值 `45 dB` 的问题，完成全网逐阶段特征 NRMSE 追踪、F32 post 独立反事实重放、首个 ViT expand 65,536 个预激活值 CPU K8-FP16-RNE 逐位核验、8,126,464 个 ViT attention AV 字节 CPU 逐位核验及输出头逐位复算（详见 [`hip-port/phase15/DIAGNOSTIC15B.md`](hip-port/phase15/DIAGNOSTIC15B.md)）。
 - **核心结论**：**确认不存在算子索引、布局或预洗牌 Bug**。`43.44 ~ 43.58 dB` 纯粹源于 `.f16.f16.f16.f16` 硬件指令每 K8 步的 FP16 RNE 舍入与 FP8 量化边界在 31 层深网上的正常累积传播（且原版 NVIDIA PTX 本身即为 FP16 累加，真实《明末》截图在全部 7 种几何下 PSNR 高达 `57.0 ~ 60.9 dB`）。同时修正了旧诊断 tap 在 `PrepareForExternalInput()` 前提前触发截获全零预热帧的时序问题。
 - **主脑裁决（2026-10-26，朱雀）**：Phase 15 质量审计正式结案，**`Phase 14 selected` 确立为 100% 正确的黄金数值与性能基线**，解除“45 dB 暂停令”，全面重启 `hip-port` 性能优化主线（Phase 16+）。
+
+
+## 2026-10-26：Phase16，ViT四核16B尾写全覆盖（闇）
+
+按815d096新裁决，以Phase14 selected三档输出作严格0bit基线，恢复性能线。三个CUDA模块开启EXPAND/QKV/CONTRACT/PROJECT TAIL_VEC；expand沿用1KB转置，contract复用4096B occ_pad，project新增1KB，QKV复用dead raw norm tile。实际compactw_w16入口PTX单字节global写32/32/32/16→0/0/0/0，v4.u32与SASS STG.128均为2/2/2/1；Regs分别80→85、106→102、101→103、119不变，OccW16/16/16/15不变。未做可选FP8 LDS子实验。
+
+仅3模块重编、37按SHA复用，40/40实际CUDA加载1918entry；最终源码重编SHA与实测集合全部相同。三档各两组ABBA、50warmup/80iter，共24次正式运行均相对Phase14完整输出0bit、invalid0、first-last0、32/32 LMem0。18项既有Python/LLVM及1项尾部还原顺序回归通过。首版contract被旧Phase2 pass把packed_total还原放到标量fallback，快验拦截，修复后再进入正式计时；失败日志保留。
+
+GPU median按A1/B1/B2/A2，单位ms：首组720为14.102/14.087/14.083/14.146，900为23.628/24.193/23.712/24.309，1080为32.091/31.915/32.402/32.326；确认组720为14.173/14.444/14.432/14.899，900为25.241/24.444/24.437/24.518，1080为32.538/32.606/32.463/32.592。两次median均值比较小幅正向，但默认DVFS/基线抖动与收益同量级，不宣称稳定百分比；第二组900不拿0.439ms作因果收益。四核独立插桩数据与整帧min/median/Wall/PROFILE_TOTAL逐轮完整保留，不能按静态写指令削减推算加速。
+
+按任务要求保留四处默认开启，数值/资源/向量化目标达成，整帧收益很小。详见[Phase16报告](hip-port/phase16/README.md)、[两组ABBA与四核](hip-port/phase16/summary.md)、[32核完整表](hip-port/phase16/results.md)、[验收](hip-port/phase16/validation.json)。最终40模块在phase16/artifacts/tail/modules；临时LLVM/失败输出已清理，正确输出按SHA去重，保留日志/遥测/SHA/生成源。未改共享assets、游戏/Magpie、PTX或发布ZIP，不push；本阶段独立commit，下一阶段Phase17未启动。

@@ -72,6 +72,9 @@ DEV float H(float x){return from_half(half_bits(x));}
 #else
 #define VIT_FAST_H(x) H(x)
 #endif
+#ifndef VIT_CONTRACT_TAIL_VEC
+#define VIT_CONTRACT_TAIL_VEC 0
+#endif
 #ifndef VIT_EXPAND_TAIL_VEC
 #define VIT_EXPAND_TAIL_VEC 0 /* 1: vit_expand_blocked_body hidden bytes staged in LDS, 2 x b128 per lane; bytes unchanged (results/deep-tail2-20260930) */
 #endif
@@ -791,7 +794,24 @@ DEV void vit_contract_blocked_body(const float*in,const float*w,const float*skip
    for(uint n=0;n<4;n++)for(uint e=0;e<8;e++){if constexpr(Partial)out[(part*tokens+first+gr()*8+e)*1024+col+n*16+rc()]=acc[n][e];else total[n][e]+=acc[n][e];}
   }
  }
- if constexpr(!Partial)for(uint n=0;n<4;n++)for(uint e=0;e<8;e++){uint i=(first+gr()*8+e)*1024+col+n*16+rc();if constexpr(ByteFOut)reinterpret_cast<unsigned char*>(out)[i]=vit_contract_F_byte(VIT_FAST_H(total[n][e]));else if constexpr(HalfOut)reinterpret_cast<_Float16*>(out)[i]=(_Float16)F(VIT_FAST_H(total[n][e]));else if constexpr(ByteStream)reinterpret_cast<unsigned char*>(out)[i]=byte_F(H(total[n][e]));else out[i]=F(H(total[n][e]));}
+ // Keep one outer !Partial tail: Phase2 inserts packed_total restoration before it.
+ if constexpr(!Partial){
+#if VIT_CONTRACT_TAIL_VEC
+ if constexpr(ByteFOut){
+#if VIT_CONTRACT_OCC_LDS >= 1024
+  unsigned char*tb=reinterpret_cast<unsigned char*>(const_cast<uint*>(occ_pad));
+#else
+  __attribute__((shared)) unsigned char tail_bytes[1024];
+  unsigned char*tb=tail_bytes;
+#endif
+  for(uint n=0;n<4;n++)for(uint e=0;e<8;e++)tb[(gr()*8+e)*64+n*16+rc()]=vit_contract_F_byte(VIT_FAST_H(total[n][e]));
+  WG_FENCE(3);__builtin_amdgcn_wave_barrier();WG_FENCE(2);
+  uint lane=__builtin_amdgcn_workitem_id_x()%32u,r=lane>>1,h=lane&1u;
+  for(uint j=0;j<2;j++){w16_i4 q;__builtin_memcpy(&q,__builtin_assume_aligned(tb+r*64+h*32+j*16,16),16);__builtin_memcpy(__builtin_assume_aligned(reinterpret_cast<unsigned char*>(out)+size_t(first+r)*1024+col+h*32+j*16,16),&q,16);}
+ }else
+#endif
+ for(uint n=0;n<4;n++)for(uint e=0;e<8;e++){uint i=(first+gr()*8+e)*1024+col+n*16+rc();if constexpr(ByteFOut)reinterpret_cast<unsigned char*>(out)[i]=vit_contract_F_byte(VIT_FAST_H(total[n][e]));else if constexpr(HalfOut)reinterpret_cast<_Float16*>(out)[i]=(_Float16)F(VIT_FAST_H(total[n][e]));else if constexpr(ByteStream)reinterpret_cast<unsigned char*>(out)[i]=byte_F(H(total[n][e]));else out[i]=F(H(total[n][e]));}
+ }
 }
 // Fragment-weight twin (host option vit_contract_frag): B from the FragmentPackedMatrix tiles (one contiguous 8-byte load) as the frag expand does.
 WAVE void vit_contract_blocked_fp8_frag(const float*in,const float*w,const float*skip,float*out,uint tokens,uint inputs,uint outputs,const uint*reuse_gate){if(reuse_gate&&reuse_gate[0])return;if(inputs==4096&&outputs==1024)vit_contract_blocked_body<false,false,false,false,true>(in,w,skip,out,tokens);}

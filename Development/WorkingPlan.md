@@ -87,3 +87,14 @@
 - **Phase 11 ~ 12（2026-10-25）**：C32 FFN feature (Site 2) 与 AV (Site 5) 直接 `half2 -> E4M3` 打包，65,536×256 全位模式 0 bit-diff。
 - **Phase 13 ~ 14（2026-10-25）**：定位并修复 `vit_attention_fused_256` 中通用预洗牌对 legacy attention 造成二次洗牌的 Bug，建立正确的 720p F32 Gold，默认切换 `<=256 token` 至等价且更快的 `400` 桶（**`Phase 14 selected`**：720p **`14.15 ms`** / 900p **`23.72 ms`** / 1080p **`31.83 ms`**）。
 - **Phase 15 ~ 15B（2026-10-26）**：建立 56 配置 × 7 几何动态回归套件（[`hip-port/phase15/README.md`](hip-port/phase15/README.md)），并通过逐层 NRMSE 与 CPU K8-FP16-RNE 逐位核验（[`hip-port/phase15/DIAGNOSTIC15B.md`](hip-port/phase15/DIAGNOSTIC15B.md)）证实 `43.44 ~ 43.58 dB` 为 FP16 累加的正常物理精度边界，正式结案并进入 Phase 16。
+
+
+## 2026-10-26：Phase16，ViT四核16B尾写全覆盖（闇）
+
+按815d096新裁决，以Phase14 selected三档输出作严格0bit基线，恢复性能线。三个CUDA模块开启EXPAND/QKV/CONTRACT/PROJECT TAIL_VEC；expand沿用1KB转置，contract复用4096B occ_pad，project新增1KB，QKV复用dead raw norm tile。实际compactw_w16入口PTX单字节global写32/32/32/16→0/0/0/0，v4.u32与SASS STG.128均为2/2/2/1；Regs分别80→85、106→102、101→103、119不变，OccW16/16/16/15不变。未做可选FP8 LDS子实验。
+
+仅3模块重编、37按SHA复用，40/40实际CUDA加载1918entry；最终源码重编SHA与实测集合全部相同。三档各两组ABBA、50warmup/80iter，共24次正式运行均相对Phase14完整输出0bit、invalid0、first-last0、32/32 LMem0。18项既有Python/LLVM及1项尾部还原顺序回归通过。首版contract被旧Phase2 pass把packed_total还原放到标量fallback，快验拦截，修复后再进入正式计时；失败日志保留。
+
+GPU median按A1/B1/B2/A2，单位ms：首组720为14.102/14.087/14.083/14.146，900为23.628/24.193/23.712/24.309，1080为32.091/31.915/32.402/32.326；确认组720为14.173/14.444/14.432/14.899，900为25.241/24.444/24.437/24.518，1080为32.538/32.606/32.463/32.592。两次median均值比较小幅正向，但默认DVFS/基线抖动与收益同量级，不宣称稳定百分比；第二组900不拿0.439ms作因果收益。四核独立插桩数据与整帧min/median/Wall/PROFILE_TOTAL逐轮完整保留，不能按静态写指令削减推算加速。
+
+按任务要求保留四处默认开启，数值/资源/向量化目标达成，整帧收益很小。详见[Phase16报告](hip-port/phase16/README.md)、[两组ABBA与四核](hip-port/phase16/summary.md)、[32核完整表](hip-port/phase16/results.md)、[验收](hip-port/phase16/validation.json)。最终40模块在phase16/artifacts/tail/modules；临时LLVM/失败输出已清理，正确输出按SHA去重，保留日志/遥测/SHA/生成源。未改共享assets、游戏/Magpie、PTX或发布ZIP，不push；本阶段独立commit，下一阶段Phase17未启动。

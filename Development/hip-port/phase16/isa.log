@@ -1,0 +1,62 @@
+{
+  "baseline": {
+    "vit_expand_blocked_fp8_frag_bytein_w16": {
+      "global_u8_stores": 32,
+      "global_v4_stores": 0,
+      "sass_STG128": 0,
+      "sass_STGU8": 32,
+      "sass_instructions": 1280
+    },
+    "vit_stream_contract_frag_bstream_bout_compactw_w16": {
+      "global_u8_stores": 32,
+      "global_v4_stores": 0,
+      "sass_STG128": 0,
+      "sass_STGU8": 32,
+      "sass_instructions": 1744
+    },
+    "vit_stream_project_n64_bb_bout_compactw_w16": {
+      "global_u8_stores": 32,
+      "global_v4_stores": 0,
+      "sass_STG128": 0,
+      "sass_STGU8": 32,
+      "sass_instructions": 1624
+    },
+    "vit_stream_qkv_frag_bin_w5f8": {
+      "global_u8_stores": 16,
+      "global_v4_stores": 0,
+      "sass_STG128": 0,
+      "sass_STGU8": 16,
+      "sass_instructions": 1944
+    }
+  },
+  "tail": {
+    "vit_expand_blocked_fp8_frag_bytein_w16": {
+      "global_u8_stores": 0,
+      "global_v4_stores": 2,
+      "sass_STG128": 2,
+      "sass_STGU8": 0,
+      "sass_instructions": 1296
+    },
+    "vit_stream_contract_frag_bstream_bout_compactw_w16": {
+      "global_u8_stores": 0,
+      "global_v4_stores": 2,
+      "sass_STG128": 2,
+      "sass_STGU8": 0,
+      "sass_instructions": 1728
+    },
+    "vit_stream_project_n64_bb_bout_compactw_w16": {
+      "global_u8_stores": 0,
+      "global_v4_stores": 2,
+      "sass_STG128": 2,
+      "sass_STGU8": 0,
+      "sass_instructions": 1632
+    },
+    "vit_stream_qkv_frag_bin_w5f8": {
+      "global_u8_stores": 0,
+      "global_v4_stores": 1,
+      "sass_STG128": 1,
+      "sass_STGU8": 0,
+      "sass_instructions": 1920
+    }
+  }
+}

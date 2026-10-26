@@ -1,0 +1,27 @@
+{
+  "module_count": 40,
+  "actual_loaded_entries": 1918,
+  "rebuilt_modules": [
+    "deep_fast-packed-fast.hsaco",
+    "deep_fast-packed.hsaco",
+    "vit-stream-fast.hsaco"
+  ],
+  "reused_modules": 37,
+  "final_source_rebuild_matches_measured": true,
+  "formal_runs": 24,
+  "tiers": [
+    1280,
+    1600,
+    1920
+  ],
+  "warmup": 50,
+  "iterations": 80,
+  "order": "ABBA twice per tier",
+  "all_formal_vs_Phase14_bitdiff": 0,
+  "invalid": 0,
+  "first_last": 0,
+  "active_kernels_local0": 32,
+  "ISA": "four actual entries u8 global stores zero; v4.u32 and SASS STG.128 2/2/2/1",
+  "optional_FP8_LDS_experiment": "not performed",
+  "external_deployment": false
+}

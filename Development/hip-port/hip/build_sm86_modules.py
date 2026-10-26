@@ -395,6 +395,8 @@ def assemble_module_source(mod, source_dir, compat_header_path):
         lines.append("#define HIP_PREPACKED_WEIGHTS 1")
     for d in mod["defines"] + mod["l23defines"]:
         lines.append(f"#define {d}")
+    if mod["name"] in {"deep_fast-packed", "deep_fast-packed-fast", "vit-stream-fast"}:
+        lines += ["#define VIT_EXPAND_TAIL_VEC 1", "#define VIT_QKV_TAIL_VEC 1", "#define VIT_CONTRACT_TAIL_VEC 1", "#define VIT_PROJECT_TAIL_VEC 1"]
     text = "\n".join(lines) + "\n"
     for part in mod["sources"]:
         if part == "@swin-persistent-types":

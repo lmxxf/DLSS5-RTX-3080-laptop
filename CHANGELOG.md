@@ -51,7 +51,4 @@ Initial public release for NVIDIA RTX 30 Series GPUs (Ampere `sm_86`), retaining
 - **`Magpie-DLSS5-RTX30-0.1.0.zip`** (`324,124,886 B`, SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`):
   - For windowed games (*Halo* 720p window → 4K fullscreen);
   - Uses Magpie's native `DLSSNR\DLSSNR_AI_Filter` (Feature 18) + `DLSS\DLSS_SR` pipeline with a binary-patched `Magpie.exe` (`Preset 2`, SHA256 `b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea`) and bundled `nvngx_dlss.dll`;
-  - Reduces 720p `DLSSNR` GPU time from `49.8 ms` (Route A) down to **`15.87–16.00 ms`** (`21.2 ms` total GPU time including 4K `DLSS_SR`).
-
-### 4. Additional Route Archive (`Development/hip-port/`)
-- Preserved the complete 40-module (1,970-kernel) standalone HIP/CUDA engine ported from AMD RDNA4 (`gfx1201`) to Ampere `sm_86` (V6 8-byte activation pre-shuffling + 32/32 zero-`LMem` kernels, achieving `43.10 ms` at 900p and `57.13 ms` at 1080p).
+  - 720p `DLSSNR` GPU time is **`15.87–16.00 ms`** (`21.2 ms` total GPU time including 4K `DLSS_SR`).

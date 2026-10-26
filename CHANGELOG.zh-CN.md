@@ -52,8 +52,5 @@ Core DLL SHA256: `c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1
 - **`Magpie-DLSS5-RTX30-0.1.0.zip`**（`324,124,886 B`，SHA256 `db41eaeb406622678dd4f79cc0f5204c13d9a719ea0b0d34f066f173507b5ffb`）：
   - 适用于任意窗口化游戏（如《光环》720p 窗口 → 4K 全屏）；
   - 启用 `Magpie.exe` 原生 `DLSSNR\DLSSNR_AI_Filter`（Feature 18）后端 + `DLSS\DLSS_SR` 超分，通过 `patch_preset2.py` 将 `Magpie.exe` 硬编码的 `Preset 0` 改为 `Preset 2`（SHA256 `b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea`）；
-  - 补齐 `nvngx_dlss.dll` 修复 `DLSS_SR` 的 `0xbad0000b` 初始化报错，移除旧 ReShade `dxgi.dll`、`dlss5-amd.addon64` 与 `DLSS5-AMD/` 外置碎权重；
-  - 720p 下 `DLSSNR` 模型 GPU 耗时从旧独立引擎路线 A 的 `49.8 ms` 暴降至 **`15.87～16.00 ms`**（含 4K `DLSS_SR` 总 GPU 耗时 `21.2 ms`）。
-
-### 4. 附加路线归档（`Development/hip-port/`）
-- 保留从 AMD RDNA4 (`gfx1201`) 全栈移植到 Ampere `sm_86` 的 40 模块（1,970 个核入口）HIP/CUDA 独立推理引擎源码（V6 8B 全激活预洗牌 + K32 消洗牌 + 32/32 核零 `LMem` 栈溢出，31 块 900p `43.10 ms`、1080p `57.13 ms`）。
+  - 补齐 `nvngx_dlss.dll` 修复 `DLSS_SR` 的 `0xbad0000b` 初始化报错；
+  - 720p 下 `DLSSNR` 模型 GPU 耗时 **`15.87～16.00 ms`**（含 4K `DLSS_SR` 总 GPU 耗时 `21.2 ms`）。

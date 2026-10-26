@@ -125,19 +125,15 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 ---
 
-## 实测性能对照（RTX 3080 Laptop GPU,16GB,`sm_86`，默认DVFS）
+## 实测性能对照（RTX 3080 Laptop GPU, 16GB, `sm_86`，默认 DVFS）
 
 ### 1. 历史方案标尺与当前版本（均为 31 块 `0.5x Small` 模型，`Preset 2`）
 
 | 方案 | 编译器优化 | `1280×720` (720p) | `1600×900` (900p) | `1920×1080` (1080p) | 天空渐变红绿变号 | 相对上游提速 |
 |---|:---:|---:|---:|---:|---:|:---:|
 | ① 网上 `dlssnr-patcher` 原版位运算 (`stock`) | 主网络被迫回退 `O1` | `37.13 ms` | `49.89 ms` | `67.69 ms` | `106 次`（有色带） | `1.00×` |
-| ② 独立 CUDA 引擎（`Development/hip-port`） | `Clang O3 + PTX O4` | `~31.0 ms` | `43.10 ms` | `57.13 ms` | 无 | `1.18×` |
-| **③ 本项目 `ptx-patcher` (`v0.1.0`)** | **15/15 全部满血 `O4`** | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`0 次`（彻底消除）** | **`2.08× ～ 2.35×`** |
-| **④ 当前 `ptx-patcher` (`v0.2.0 /V2.1`)** | **15/15 O4** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **0** | **5.58× /5.14× /5.30×（历史耗时比）** |
-
-> **为什么路线 ③（改写原版 PTX）比路线 ②（从 RDNA4 移植的独立引擎）快 1.8 倍？**  
-> 在消费级 GeForce RTX 30 系（GA102/GA104）硬件上，老黄将 **FP32 累加 Tensor Core（`.f32.f16.f16.f32`，路线 ② 所用）硬件吞吐砍半为 Half Rate（256 FLOPs/clock/SM）**，而 **FP16 累加 Tensor Core（`.f16.f16.f16.f16`，原版 PTX 路线 ③ 所用）保持 Full Rate（512 FLOPs/clock/SM）** 且寄存器占用减半。
+| **② 本项目 `ptx-patcher` (`v0.1.0`)** | **15/15 全部满血 `O4`** | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`0 次`（彻底消除）** | **`2.08× ～ 2.35×`** |
+| **③ 当前 `ptx-patcher` (`v0.2.0 / V2.1`)** | **15/15 满血 `O4` + 零洗牌 + `255` 寄存器** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **`0 次`（彻底消除）** | **`5.14× ～ 5.58×`** |
 
 ### 2. 游戏与窗口实机表现（RTX 3080 Laptop GPU 16GB）
 
@@ -156,8 +152,8 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 | 版本 | 日期 | 做了什么 | 结果 |
 |---|---|---|---|
-| **`0.2.0`** | 2026-10-26 | 偶奇K16零洗牌＋按FB maxnreg255；鬼武者恢复原版dxgi并切回PTX；剑星默认1.0/1.0，附增强风格1.5/1.1；三个新ZIP及SHA（[Gofile 下载](https://gofile.io/d/OOeOcxn6)）。 | **6.66 /9.70 /12.78ms**；《鬼武者》2K性能档 **43 FPS**（原30 FPS），《剑星》2K性能档**接近 60 FPS**；[回执](Development/ptx-patcher/release-rtx30/v020/README.md) |
-| **`0.1.0`** | 2026-10-24 | **首发版本（三个发布包全线统一为 15/15 满血 `O4` PTX 路线，仅保留 31 块 `0.5x Small` 新模型）**：<br>1. **PTX 满血 `O4` 编译器（`Development/ptx-patcher/`）**：提出两条 IEEE 754 `f16x2` 硬件代数恒等式（`mul.rn.f16x2 0x5c005c00` 解包 E4M3、`add.rn.f16x2 0x40004000` 舍入 E4M3 次正规数，有限值域 `0 bit-diff`），将 `.cubin` 体积缩小 3.5 倍，15/15 个 Fatbin 全部 `O4` 装回原槽位；修复 `310.9.16.0` 的 `fence.acquire.gpu;` 编译失败。<br>2. **消除天空红绿横带（`sky-audit/`）**：定位并修复上游 `fp8_pack_sources` 未扫描花括号向量加载（如 `FB5 %r1352`）导致将显存特征误替换为越界 fallback 常数的致命 Bug，天空逐行红绿色差变号从 `106 次` 降为 `0 次`，高频色差 RMS 降低 263 倍。<br>3. **三包构建与游戏适配**：<br>  • `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`（SHA256 `8e28417d...`）：适配《鬼武者：剑之道》等 RE Engine 游戏，校准 `WhitePointSource=1`（`~512x` 原生曝光）；<br>  • `OptiScaler-DLSS5-RTX30-0.1.0.zip`（SHA256 `e6067bf0...`）：适配《剑星》等常规 DX12 游戏，配齐完整 FFX 转发库（支持游戏内选 FSR 或 DLSS 自动转接），默认应用单遍增强（`detail=1.5, colour=1.1`）；<br>  • `Magpie-DLSS5-RTX30-0.1.0.zip`（SHA256 `db41eaeb...`）：打通 `Magpie.exe` 原生 `DLSSNR` Feature 18 后端，通过二进制补丁将写死的 `Preset 0` 改为 `Preset 2`（31 块轻量模型），补齐 `nvngx_dlss.dll` 修复 `0xbad0000b` 报错，移除旧 ReShade/add-on 与外置碎权重，720p 模型耗时从路线 A 的 `49.8 ms` 降至 **`15.9 ms`**。<br>4. **附加路线归档（`Development/hip-port/`）**：完整保留从 AMD RDNA4 移植的 40 模块（1,970 个核入口）CUDA 独立引擎源码（V6 全激活预洗牌 + 32/32 核零 `LMem` 溢出，900p `43.1 ms`），作为研究与扩展路线。 | 测试台 720p **`15.83 ms`**、900p **`24.47 ms`**、1080p **`32.04 ms`**（比上游 `O1` 快 **2.08×～2.35×**）；《鬼武者》《剑星》《光环》实机验收通过 |
+| **`0.2.0`** | 2026-10-26 | 偶奇K16零洗牌＋按FB maxnreg255；剑星默认1.0/1.0，附增强风格1.5/1.1；三个新ZIP及SHA（[Gofile 下载](https://gofile.io/d/OOeOcxn6)）。 | **6.66 /9.70 /12.78ms**；《鬼武者》2K性能档 **43 FPS**（原30 FPS），《剑星》2K性能档**接近 60 FPS**；[回执](Development/ptx-patcher/release-rtx30/v020/README.md) |
+| **`0.1.0`** | 2026-10-24 | **首发版本（三个发布包全线统一为 15/15 满血 `O4` PTX 路线，仅保留 31 块 `0.5x Small` 新模型）**：<br>1. **PTX 满血 `O4` 编译器（`Development/ptx-patcher/`）**：提出两条 IEEE 754 `f16x2` 硬件代数恒等式（`mul.rn.f16x2 0x5c005c00` 解包 E4M3、`add.rn.f16x2 0x40004000` 舍入 E4M3 次正规数，有限值域 `0 bit-diff`），将 `.cubin` 体积缩小 3.5 倍，15/15 个 Fatbin 全部 `O4` 装回原槽位；修复 `310.9.16.0` 的 `fence.acquire.gpu;` 编译失败。<br>2. **消除天空红绿横带（`sky-audit/`）**：定位并修复上游 `fp8_pack_sources` 未扫描花括号向量加载（如 `FB5 %r1352`）导致将显存特征误替换为越界 fallback 常数的致命 Bug，天空逐行红绿色差变号从 `106 次` 降为 `0 次`，高频色差 RMS 降低 263 倍。<br>3. **三包构建与游戏适配**：<br>  • `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`（SHA256 `8e28417d...`）：适配《鬼武者：剑之道》等 RE Engine 游戏，校准 `WhitePointSource=1`（`~512x` 原生曝光）；<br>  • `OptiScaler-DLSS5-RTX30-0.1.0.zip`（SHA256 `e6067bf0...`）：适配《剑星》等常规 DX12 游戏，配齐完整 FFX 转发库（支持游戏内选 FSR 或 DLSS 自动转接），默认应用单遍增强（`detail=1.5, colour=1.1`）；<br>  • `Magpie-DLSS5-RTX30-0.1.0.zip`（SHA256 `db41eaeb...`）：打通 `Magpie.exe` 原生 `DLSSNR` Feature 18 后端，通过二进制补丁将写死的 `Preset 0` 改为 `Preset 2`（31 块轻量模型），补齐 `nvngx_dlss.dll` 修复 `0xbad0000b` 报错，720p 模型耗时 **`15.9 ms`**。 | 测试台 720p **`15.83 ms`**、900p **`24.47 ms`**、1080p **`32.04 ms`**（比上游 `O1` 快 **2.08×～2.35×**）；《鬼武者》《剑星》《光环》实机验收通过 |
 
 ---
 
@@ -165,10 +161,10 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 | 目录 / 文件 | 内容 |
 |---|---|
-| `Development/ptx-patcher/` | **当前主推路线**：原版 `310.9.16.0` `nvngx_dlssnr.dll` 的 `sm_86` 满血 `O4` PTX 转换器（`build_sm86_dlls.py`、`dlssnr_patcher.py`）、NGX 调用转发桥（`dlssnr_forwarder.cpp`）、硬件计时测试台（`bench_nvngx.dll.cpp`）、天空色带排查回执（`sky-audit/`）、Magpie 原生 `Preset 2` 补丁（`magpie-native/`）及三包构建脚本（`release-rtx30/`） |
-| `Development/hip-port/` | **附加/实验路线**：从 AMD RDNA4 (`gfx1201`) 全栈移植到 Ampere `sm_86` 的独立 HIP/CUDA 推理引擎（40 个内核模块、`hip/sm86_compat.h`、V6 SSA 编译器优化管线 `hip/build_sm86_modules.py`、`LmxxfNrRuntime.dll` 与 `dlss5-amd.addon64` 源码） |
+| `Development/ptx-patcher/` | 原版 `310.9.16.0` `nvngx_dlssnr.dll` 的 `sm_86` 满血 `O4` PTX 转换器（`build_sm86_dlls.py`、`dlssnr_patcher.py`）、NGX 调用转发桥（`dlssnr_forwarder.cpp`）、硬件计时测试台（`bench_nvngx.dll.cpp`）、天空色带排查回执（`sky-audit/`）、偶奇 K16 零洗牌与寄存器调优（`v2/`、`v21/`）、Magpie 原生 `Preset 2` 补丁（`magpie-native/`）及三包构建脚本（`release-rtx30/`） |
+| `Development/doc/` | 用户使用说明与各版本改进详解（[`改进和使用说明_0.2.0.md`](Development/doc/改进和使用说明_0.2.0.md)、[`使用说明.md`](Development/doc/使用说明.md)） |
 | `Development/DevHistory.md` | 完整的开发流水账、对照实验数据、失败排查与每个阶段的文件 SHA256 回执 |
-| `Development/WorkingPlan.md` | 当前架构路线分工与后续工作计划 |
+| `Development/WorkingPlan.md` | 架构设计与优化路线图 |
 | `CHANGELOG.zh-CN.md` / `CHANGELOG.md` | 按版本展开的详细更新日志 |
 
 ---

@@ -94,14 +94,13 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 ---
 
-## Historical Benchmark References & Current Release (RTX 3080 Laptop GPU,16GB,`sm_86`)
+## Benchmark Comparison (RTX 3080 Laptop GPU, 16GB, `sm_86`)
 
 | Approach (31-Block `0.5x Small`, `Preset 2`) | Compiler Opt | `1280×720` (720p) | `1600×900` (900p) | `1920×1080` (1080p) | Sky R-G Sign Flips | Speedup vs. Upstream |
 |---|:---:|---:|---:|---:|---:|:---:|
 | ① Upstream `dlssnr-patcher` (`stock`) | Forced `O1` | `37.13 ms` | `49.89 ms` | `67.69 ms` | `106` (severe banding) | `1.00×` |
-| ② Standalone CUDA Engine (`hip-port`) | `Clang O3 + O4` | `~31.0 ms` | `43.10 ms` | `57.13 ms` | `0` | `1.18×` |
-| **③ Our `ptx-patcher` (`v0.1.0`)** | **15/15 Full `O4`** | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`0` (band-free)** | **`2.08× ～ 2.35×`** |
-| **④ Current `v0.2.0 /V2.1`** | **15/15 O4** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **0** | **5.58× /5.14× /5.30× historical time ratios** |
+| **② Our `ptx-patcher` (`v0.1.0`)** | **15/15 Full `O4`** | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`0` (band-free)** | **`2.08× ～ 2.35×`** |
+| **③ Current `ptx-patcher` (`v0.2.0 / V2.1`)** | **15/15 `O4` + 0-SHFL + `255` Regs** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **`0` (band-free)** | **`5.14× ～ 5.58×`** |
 
 ---
 
@@ -111,8 +110,8 @@ Detailed release notes are maintained in [CHANGELOG.md](CHANGELOG.md).
 
 | Version | Date | Highlights | Results |
 |---|---|---|---|
-| **`0.2.0`** | 2026-10-26 | Lane-local even/odd K16 + selective maxnreg255; restore Onimusha PTX deployment; standard defaults1.0/1.0 with optional1.5/1.1; three new ZIPs and checksums ([Gofile](https://gofile.io/d/OOeOcxn6)). | **6.66 /9.70 /12.78ms**; *Onimusha* 2K Perf **43 FPS** (up from 30 FPS), *Stellar Blade* 2K Perf **~60 FPS**. [Receipt](Development/ptx-patcher/release-rtx30/v020/README.md) |
-| **`0.1.0`** | 2026-10-24 | Initial release unifying all three packages (`OptiScaler-REFramework`, `OptiScaler`, `Magpie`) onto the **15/15 full-`O4` PTX route (`Preset 2` 31-block Small model)**; IEEE 754 `f16x2` hardware conversion identities; multi-definition `mapped` fix eliminating 106 sky bands; native Magpie `Preset 2` binary patch (`49.8 ms → 15.9 ms`). | 720p **`15.83 ms`**, 900p **`24.47 ms`**, 1080p **`32.04 ms`**; verified in *Onimusha*, *Stellar Blade*, and *Halo* (Magpie) |
+| **`0.2.0`** | 2026-10-26 | Lane-local even/odd K16 + selective maxnreg255; standard defaults 1.0/1.0 with optional 1.5/1.1; three new ZIPs and checksums ([Gofile](https://gofile.io/d/OOeOcxn6)). | **6.66 / 9.70 / 12.78 ms**; *Onimusha* 2K Perf **43 FPS** (up from 30 FPS), *Stellar Blade* 2K Perf **~60 FPS**. [Receipt](Development/ptx-patcher/release-rtx30/v020/README.md) |
+| **`0.1.0`** | 2026-10-24 | Initial release unifying all three packages (`OptiScaler-REFramework`, `OptiScaler`, `Magpie`) onto the **15/15 full-`O4` PTX route (`Preset 2` 31-block Small model)**; IEEE 754 `f16x2` hardware conversion identities; multi-definition `mapped` fix eliminating 106 sky bands; native Magpie `Preset 2` binary patch (`15.9 ms`). | 720p **`15.83 ms`**, 900p **`24.47 ms`**, 1080p **`32.04 ms`**; verified in *Onimusha*, *Stellar Blade*, and *Halo* (Magpie) |
 
 ---
 
@@ -120,8 +119,8 @@ Detailed release notes are maintained in [CHANGELOG.md](CHANGELOG.md).
 
 | Path | Description |
 |---|---|
-| `Development/ptx-patcher/` | **Primary Route (`v0.2.0 /V2.1`)**: Full-`O4` `sm_86` PTX patcher (`build_sm86_dlls.py`, `dlssnr_patcher.py`), NGX caller forwarder (`dlssnr_forwarder.cpp`), D3D12 NGX benchmark (`bench_nvngx.dll.cpp`), sky banding audit (`sky-audit/`), Magpie native `Preset 2` patcher (`magpie-native/`), and release packaging scripts (`release-rtx30/`) |
-| `Development/hip-port/` | **Additional / Experimental Route**: Standalone 40-module (1,970-kernel) HIP/CUDA inference engine ported from AMD RDNA4 (`gfx1201`) to Ampere `sm_86` (`hip/sm86_compat.h`, V6 SSA compiler pass `hip/build_sm86_modules.py`, `LmxxfNrRuntime.dll`, and `dlss5-amd.addon64`) |
+| `Development/ptx-patcher/` | Full-`O4` `sm_86` PTX patcher (`build_sm86_dlls.py`, `dlssnr_patcher.py`), NGX caller forwarder (`dlssnr_forwarder.cpp`), D3D12 NGX benchmark (`bench_nvngx.dll.cpp`), sky banding audit (`sky-audit/`), zero-shuffle & register tuning (`v2/`, `v21/`), Magpie native `Preset 2` patcher (`magpie-native/`), and release packaging scripts (`release-rtx30/`) |
+| `Development/doc/` | User guides and technical notes ([`改进和使用说明_0.2.0.md`](Development/doc/改进和使用说明_0.2.0.md), [`使用说明.md`](Development/doc/使用说明.md)) |
 | `Development/DevHistory.md` | Complete engineering log, ablation tables, and SHA256 receipts |
 | `Development/WorkingPlan.md` | Architecture overview and active roadmap |
 | `CHANGELOG.md` / `CHANGELOG.zh-CN.md` | Detailed per-release changelog |

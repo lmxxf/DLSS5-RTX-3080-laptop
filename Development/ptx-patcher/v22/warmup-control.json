@@ -1,0 +1,45 @@
+[
+  {
+    "name": "forward-async-0",
+    "variant": "baseline",
+    "width": 1280,
+    "height": 720,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T09:20:34.880722",
+    "end": "2026-10-27T09:20:36.896855",
+    "metrics": {
+      "W": 1280.0,
+      "H": 720.0,
+      "preset": 2.0,
+      "gpu_median_ms": 6.658,
+      "gpu_mean_ms": 6.672,
+      "gpu_min_ms": 6.584,
+      "wall_median_ms": 7.502,
+      "wall_mean_ms": 6.991,
+      "wall_min_ms": 0.0,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.742376
+    },
+    "quality": {
+      "bitdiff": 2052784,
+      "maxabs": 0.005859375,
+      "psnr_db": 61.78648390560299,
+      "sha256": "b14ae6b279bdf6bf7fe58bb9e46e40996b30abd653b6028e0675c99c106f8663",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.00010198914969805628
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll",
+      "1280",
+      "720",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/forward-async-0-baseline-1280.rgb32",
+      "sky"
+    ]
+  }
+]

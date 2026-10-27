@@ -1334,8 +1334,12 @@ def lower_turing_operations(text: str, stats: TransformStats) -> str:
 
 
 def transform_ptx(
-    source: str, target: Architecture = ADA
+    source: str, target: Architecture = ADA, *, bulk_completion: str = "immediate"
 ) -> tuple[str, TransformStats]:
+    if bulk_completion not in ("immediate", "mbarrier"):
+        raise PatchError("Unknown bulk completion mode")
+    if bulk_completion != "immediate" and target != AMPERE:
+        raise PatchError("Experimental mbarrier bulk lowering requires Ampere")
     # Keep these conversions narrow. If an instruction has an unknown form,
     # fail instead of producing PTX that may run incorrectly on the target.
     stats = TransformStats()
@@ -1477,8 +1481,8 @@ def transform_ptx(
             raise PatchError(f"Unsupported mbarrier arrival count {count}.")
 
     # The supported 512- and 1024-byte bulk forms become per-lane 16-byte
-    # copies. Targets with asynchronous copies wait for their normal copy group;
-    # Turing uses synchronous vector loads and stores instead.
+    # copies. Ampere can use immediate groups or balanced native mbarrier
+    # arrivals. Turing uses synchronous vector loads and stores instead.
     def replace_bulk(match: re.Match[str]) -> str:
         destination = match.group("destination")
         source_address = match.group("source")
@@ -1507,6 +1511,11 @@ def transform_ptx(
                 )
         declarations = ""
         completion = "cp.async.commit_group;\ncp.async.wait_group 0;\n"
+        if bulk_completion == "mbarrier":
+            # Preserve the original ntid arrival count. Each issuing lane adds
+            # one balanced async arrival; .noinc would undercount this barrier.
+            completion = ("cp.async.mbarrier.arrive.shared::cta.b64 "
+                          f"[{match.group('barrier')}];\n")
         if target == TURING:
             declarations = (
                 ".reg .b32 dlss5_copy0, dlss5_copy1, dlss5_copy2, "

@@ -1,0 +1,16 @@
+[01/14] ELF O4 (cubin=1432352 B -> fatbin=226976 / 557032 B) in 11.97s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832
+[02/14] ELF O4 (cubin=1531424 B -> fatbin=197456 / 506464 B) in 12.19s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+[00/14] ELF O4 (cubin=1595744 B -> fatbin=305752 / 841720 B) in 14.84s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+[04/14] ELF O4 (cubin=1288736 B -> fatbin=235536 / 433184 B) in 7.46s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+[06/14] ELF O4 (cubin= 183136 B -> fatbin= 39776 /  70336 B) in 1.62s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+[07/14] ELF O4 (cubin=   4392 B -> fatbin=  1448 /   8016 B) in 0.13s | ptx_version=1, target=1
+[08/14] ELF O4 (cubin=   5608 B -> fatbin=  1520 /  10904 B) in 0.12s | ptx_version=1, target=1
+[09/14] ELF O4 (cubin=   6248 B -> fatbin=  1608 /  11792 B) in 0.11s | ptx_version=1, target=1
+[10/14] ELF O4 (cubin=   5792 B -> fatbin=  1816 /  10560 B) in 0.11s | ptx_version=1, target=1
+[11/14] ELF O4 (cubin=   5672 B -> fatbin=  1536 /   9960 B) in 0.11s | ptx_version=1, target=1
+[12/14] ELF O4 (cubin=   3752 B -> fatbin=  1128 /   6552 B) in 0.11s | ptx_version=1, target=1
+[13/14] ELF O4 (cubin=  32672 B -> fatbin=  8888 /  54824 B) in 0.16s | ptx_version=1, target=1, min_relu=4
+[14/14] ELF O4 (cubin=   4008 B -> fatbin=  1240 /   6936 B) in 0.11s | ptx_version=1, target=1
+[03/14] ELF O4 (cubin=1525280 B -> fatbin=276688 / 586832 B) in 11.99s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+[05/14] ELF O4 (cubin=1629216 B -> fatbin=250232 / 542960 B) in 9.24s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29
+Done: 15/15 O4, 26.94s, SHA256=f518f1dbc4e912512b62f38aab2140ae377d6a4750dd5db4c4fb4c62b1ee3e08

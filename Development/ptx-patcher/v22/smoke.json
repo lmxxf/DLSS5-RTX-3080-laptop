@@ -1,0 +1,494 @@
+[
+  {
+    "name": "smoke",
+    "variant": "baseline",
+    "width": 1280,
+    "height": 720,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:04.428921",
+    "end": "2026-10-27T09:20:05.797393",
+    "metrics": {
+      "W": 1280.0,
+      "H": 720.0,
+      "preset": 2.0,
+      "gpu_median_ms": 6.957,
+      "gpu_mean_ms": 6.957,
+      "gpu_min_ms": 6.957,
+      "wall_median_ms": 10.016,
+      "wall_mean_ms": 10.016,
+      "wall_min_ms": 10.016,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.742405
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "7a2277809e35d1b8b9172b0526813508831f77fe81a7cdb9a014ac3a4303282b",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.00010403068881714717
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll",
+      "1280",
+      "720",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-baseline-1280.rgb32",
+      "sky"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "async",
+    "width": 1280,
+    "height": 720,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:05.798516",
+    "end": "2026-10-27T09:20:07.041886",
+    "metrics": {
+      "W": 1280.0,
+      "H": 720.0,
+      "preset": 2.0,
+      "gpu_median_ms": 6.957,
+      "gpu_mean_ms": 6.957,
+      "gpu_min_ms": 6.957,
+      "wall_median_ms": 7.822,
+      "wall_mean_ms": 7.822,
+      "wall_min_ms": 7.822,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.742405
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "7a2277809e35d1b8b9172b0526813508831f77fe81a7cdb9a014ac3a4303282b",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.00010403068881714717
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_async.dll",
+      "1280",
+      "720",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-async-1280.rgb32",
+      "sky"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "swar",
+    "width": 1280,
+    "height": 720,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:07.042589",
+    "end": "2026-10-27T09:20:08.223948",
+    "metrics": {
+      "W": 1280.0,
+      "H": 720.0,
+      "preset": 2.0,
+      "gpu_median_ms": 6.405,
+      "gpu_mean_ms": 6.405,
+      "gpu_min_ms": 6.405,
+      "wall_median_ms": 10.352,
+      "wall_mean_ms": 10.352,
+      "wall_min_ms": 10.352,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.742405
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "7a2277809e35d1b8b9172b0526813508831f77fe81a7cdb9a014ac3a4303282b",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.00010403068881714717
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_swar.dll",
+      "1280",
+      "720",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-swar-1280.rgb32",
+      "sky"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "combo",
+    "width": 1280,
+    "height": 720,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:08.225205",
+    "end": "2026-10-27T09:20:09.503929",
+    "metrics": {
+      "W": 1280.0,
+      "H": 720.0,
+      "preset": 2.0,
+      "gpu_median_ms": 6.383,
+      "gpu_mean_ms": 6.383,
+      "gpu_min_ms": 6.383,
+      "wall_median_ms": 0.0,
+      "wall_mean_ms": 0.0,
+      "wall_min_ms": 0.0,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.742405
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "7a2277809e35d1b8b9172b0526813508831f77fe81a7cdb9a014ac3a4303282b",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.00010403068881714717
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_combo.dll",
+      "1280",
+      "720",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-combo-1280.rgb32",
+      "sky"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "baseline",
+    "width": 1600,
+    "height": 900,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:09.504929",
+    "end": "2026-10-27T09:20:10.747195",
+    "metrics": {
+      "W": 1600.0,
+      "H": 900.0,
+      "preset": 2.0,
+      "gpu_median_ms": 9.837,
+      "gpu_mean_ms": 9.837,
+      "gpu_min_ms": 9.837,
+      "wall_median_ms": 9.348,
+      "wall_mean_ms": 9.348,
+      "wall_min_ms": 9.348,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.431089
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "e9a93241bf9fc1149199671d8c71c67af5efe3a4ac7dd4a5ece020edafc8110a"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll",
+      "1600",
+      "900",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-baseline-1600.rgb32"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "async",
+    "width": 1600,
+    "height": 900,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:10.748011",
+    "end": "2026-10-27T09:20:11.940820",
+    "metrics": {
+      "W": 1600.0,
+      "H": 900.0,
+      "preset": 2.0,
+      "gpu_median_ms": 10.192,
+      "gpu_mean_ms": 10.192,
+      "gpu_min_ms": 10.192,
+      "wall_median_ms": 11.563,
+      "wall_mean_ms": 11.563,
+      "wall_min_ms": 11.563,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.431089
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "e9a93241bf9fc1149199671d8c71c67af5efe3a4ac7dd4a5ece020edafc8110a"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_async.dll",
+      "1600",
+      "900",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-async-1600.rgb32"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "swar",
+    "width": 1600,
+    "height": 900,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:11.941771",
+    "end": "2026-10-27T09:20:13.117171",
+    "metrics": {
+      "W": 1600.0,
+      "H": 900.0,
+      "preset": 2.0,
+      "gpu_median_ms": 9.845,
+      "gpu_mean_ms": 9.845,
+      "gpu_min_ms": 9.845,
+      "wall_median_ms": 6.888,
+      "wall_mean_ms": 6.888,
+      "wall_min_ms": 6.888,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.431089
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "e9a93241bf9fc1149199671d8c71c67af5efe3a4ac7dd4a5ece020edafc8110a"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_swar.dll",
+      "1600",
+      "900",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-swar-1600.rgb32"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "combo",
+    "width": 1600,
+    "height": 900,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:13.118192",
+    "end": "2026-10-27T09:20:14.314234",
+    "metrics": {
+      "W": 1600.0,
+      "H": 900.0,
+      "preset": 2.0,
+      "gpu_median_ms": 9.269,
+      "gpu_mean_ms": 9.269,
+      "gpu_min_ms": 9.269,
+      "wall_median_ms": 9.603,
+      "wall_mean_ms": 9.603,
+      "wall_min_ms": 9.603,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.431089
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "e9a93241bf9fc1149199671d8c71c67af5efe3a4ac7dd4a5ece020edafc8110a"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_combo.dll",
+      "1600",
+      "900",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-combo-1600.rgb32"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "baseline",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:14.315207",
+    "end": "2026-10-27T09:20:15.724321",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 13.065,
+      "gpu_mean_ms": 13.065,
+      "gpu_min_ms": 13.065,
+      "wall_median_ms": 12.301,
+      "wall_mean_ms": 12.301,
+      "wall_min_ms": 12.301,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430684
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "3da032b284a6ec06bbb5db57fe067064ec6def5e0c126e708895372c31e522f8"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll",
+      "1920",
+      "1080",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-baseline-1920.rgb32"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "async",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:15.725388",
+    "end": "2026-10-27T09:20:17.144914",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 12.837,
+      "gpu_mean_ms": 12.837,
+      "gpu_min_ms": 12.837,
+      "wall_median_ms": 5.388,
+      "wall_mean_ms": 5.388,
+      "wall_min_ms": 5.388,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430684
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "3da032b284a6ec06bbb5db57fe067064ec6def5e0c126e708895372c31e522f8"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_async.dll",
+      "1920",
+      "1080",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-async-1920.rgb32"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "swar",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:17.148594",
+    "end": "2026-10-27T09:20:18.547253",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 12.045,
+      "gpu_mean_ms": 12.045,
+      "gpu_min_ms": 12.045,
+      "wall_median_ms": 10.057,
+      "wall_mean_ms": 10.057,
+      "wall_min_ms": 10.057,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430684
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "3da032b284a6ec06bbb5db57fe067064ec6def5e0c126e708895372c31e522f8"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_swar.dll",
+      "1920",
+      "1080",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-swar-1920.rgb32"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "combo",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-27T09:20:18.551856",
+    "end": "2026-10-27T09:20:19.887137",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.765,
+      "gpu_mean_ms": 11.765,
+      "gpu_min_ms": 11.765,
+      "wall_median_ms": 7.039,
+      "wall_mean_ms": 7.039,
+      "wall_min_ms": 7.039,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430684
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "3da032b284a6ec06bbb5db57fe067064ec6def5e0c126e708895372c31e522f8"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22_combo.dll",
+      "1920",
+      "1080",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v22-bench/smoke-combo-1920.rgb32"
+    ]
+  }
+]

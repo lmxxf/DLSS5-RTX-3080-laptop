@@ -1,0 +1,87 @@
+{
+  "variant": "combo",
+  "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll",
+  "sha256": "2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f",
+  "bytes": 266414592,
+  "half_pack": "swar",
+  "bulk_completion": "mbarrier",
+  "caps": {
+    "0": 255,
+    "3": 255,
+    "4": 255,
+    "5": 255,
+    "6": 255
+  },
+  "three_tiers": {
+    "1280": {
+      "baseline_median_ms": 6.739,
+      "candidate_median_ms": 6.2485,
+      "baseline_min_ms": 6.65275,
+      "candidate_min_ms": 6.13275,
+      "speed_ratio": 1.0784988397215332,
+      "gain_percent": 7.27852797150913,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 6.686,
+          "candidate_median_ms": 6.19,
+          "gain_percent": 7.418486389470525
+        },
+        "reverse": {
+          "baseline_median_ms": 6.792,
+          "candidate_median_ms": 6.307,
+          "gain_percent": 7.140753828032976
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    },
+    "1600": {
+      "baseline_median_ms": 9.7835,
+      "candidate_median_ms": 9.122250000000001,
+      "baseline_min_ms": 9.634,
+      "candidate_min_ms": 8.9475,
+      "speed_ratio": 1.072487599002439,
+      "gain_percent": 6.758828640057224,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 9.7365,
+          "candidate_median_ms": 9.067499999999999,
+          "gain_percent": 6.871052226159302
+        },
+        "reverse": {
+          "baseline_median_ms": 9.8305,
+          "candidate_median_ms": 9.177,
+          "gain_percent": 6.64767814455014
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    },
+    "1920": {
+      "baseline_median_ms": 12.77975,
+      "candidate_median_ms": 11.8595,
+      "baseline_min_ms": 12.62025,
+      "candidate_min_ms": 11.699250000000001,
+      "speed_ratio": 1.0775960200682997,
+      "gain_percent": 7.200845086953967,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 12.783999999999999,
+          "candidate_median_ms": 11.8355,
+          "gain_percent": 7.419430538172711
+        },
+        "reverse": {
+          "baseline_median_ms": 12.775500000000001,
+          "candidate_median_ms": 11.8835,
+          "gain_percent": 6.982114202966628
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    }
+  },
+  "reason": "Combination wins against paired V2.1 in both forward/reverse rounds at all tiers. Preserve V2.1 compatible CLI defaults; use build_recommended.py for V2.2."
+}

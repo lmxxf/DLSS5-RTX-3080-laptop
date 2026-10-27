@@ -1,0 +1,215 @@
+{
+  "async": {
+    "1280": {
+      "baseline_median_ms": 6.71075,
+      "candidate_median_ms": 6.74325,
+      "baseline_min_ms": 6.60775,
+      "candidate_min_ms": 6.62625,
+      "speed_ratio": 0.995180365550736,
+      "gain_percent": -0.48429758223744734,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 6.6175,
+          "candidate_median_ms": 6.663,
+          "gain_percent": -0.6875708349074472
+        },
+        "reverse": {
+          "baseline_median_ms": 6.804,
+          "candidate_median_ms": 6.8235,
+          "gain_percent": -0.2865961199294498
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    },
+    "1600": {
+      "baseline_median_ms": 9.753,
+      "candidate_median_ms": 9.691749999999999,
+      "baseline_min_ms": 9.59675,
+      "candidate_min_ms": 9.517,
+      "speed_ratio": 1.0063198080841955,
+      "gain_percent": 0.6280118937762813,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 9.691500000000001,
+          "candidate_median_ms": 9.6035,
+          "gain_percent": 0.9080121756178228
+        },
+        "reverse": {
+          "baseline_median_ms": 9.814499999999999,
+          "candidate_median_ms": 9.780000000000001,
+          "gain_percent": 0.3515207091547956
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    },
+    "1920": {
+      "baseline_median_ms": 12.75125,
+      "candidate_median_ms": 12.6055,
+      "baseline_min_ms": 12.589500000000001,
+      "candidate_min_ms": 12.416,
+      "speed_ratio": 1.0115624132323193,
+      "gain_percent": 1.1430251936084823,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 12.739,
+          "candidate_median_ms": 12.5855,
+          "gain_percent": 1.2049611429468698
+        },
+        "reverse": {
+          "baseline_median_ms": 12.7635,
+          "candidate_median_ms": 12.6255,
+          "gain_percent": 1.0812081325655143
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    }
+  },
+  "swar": {
+    "1280": {
+      "baseline_median_ms": 6.75,
+      "candidate_median_ms": 6.268000000000001,
+      "baseline_min_ms": 6.667,
+      "candidate_min_ms": 6.179,
+      "speed_ratio": 1.0768985322271856,
+      "gain_percent": 7.140740740740725,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 6.663,
+          "candidate_median_ms": 6.209,
+          "gain_percent": 6.813747561158645
+        },
+        "reverse": {
+          "baseline_median_ms": 6.837,
+          "candidate_median_ms": 6.327,
+          "gain_percent": 7.459412022817025
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    },
+    "1600": {
+      "baseline_median_ms": 9.756,
+      "candidate_median_ms": 9.190999999999999,
+      "baseline_min_ms": 9.6455,
+      "candidate_min_ms": 9.016250000000001,
+      "speed_ratio": 1.0614731802850617,
+      "gain_percent": 5.791307913079146,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 9.7005,
+          "candidate_median_ms": 9.120999999999999,
+          "gain_percent": 5.973918870161343
+        },
+        "reverse": {
+          "baseline_median_ms": 9.8115,
+          "candidate_median_ms": 9.261,
+          "gain_percent": 5.610762880293551
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    },
+    "1920": {
+      "baseline_median_ms": 12.772499999999999,
+      "candidate_median_ms": 12.00125,
+      "baseline_min_ms": 12.56025,
+      "candidate_min_ms": 11.76975,
+      "speed_ratio": 1.0642641391521714,
+      "gain_percent": 6.038363671951441,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 12.7495,
+          "candidate_median_ms": 11.964500000000001,
+          "gain_percent": 6.157104200164698
+        },
+        "reverse": {
+          "baseline_median_ms": 12.7955,
+          "candidate_median_ms": 12.038,
+          "gain_percent": 5.920050017584311
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    }
+  },
+  "combo": {
+    "1280": {
+      "baseline_median_ms": 6.739,
+      "candidate_median_ms": 6.2485,
+      "baseline_min_ms": 6.65275,
+      "candidate_min_ms": 6.13275,
+      "speed_ratio": 1.0784988397215332,
+      "gain_percent": 7.27852797150913,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 6.686,
+          "candidate_median_ms": 6.19,
+          "gain_percent": 7.418486389470525
+        },
+        "reverse": {
+          "baseline_median_ms": 6.792,
+          "candidate_median_ms": 6.307,
+          "gain_percent": 7.140753828032976
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    },
+    "1600": {
+      "baseline_median_ms": 9.7835,
+      "candidate_median_ms": 9.122250000000001,
+      "baseline_min_ms": 9.634,
+      "candidate_min_ms": 8.9475,
+      "speed_ratio": 1.072487599002439,
+      "gain_percent": 6.758828640057224,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 9.7365,
+          "candidate_median_ms": 9.067499999999999,
+          "gain_percent": 6.871052226159302
+        },
+        "reverse": {
+          "baseline_median_ms": 9.8305,
+          "candidate_median_ms": 9.177,
+          "gain_percent": 6.64767814455014
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    },
+    "1920": {
+      "baseline_median_ms": 12.77975,
+      "candidate_median_ms": 11.8595,
+      "baseline_min_ms": 12.62025,
+      "candidate_min_ms": 11.699250000000001,
+      "speed_ratio": 1.0775960200682997,
+      "gain_percent": 7.200845086953967,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 12.783999999999999,
+          "candidate_median_ms": 11.8355,
+          "gain_percent": 7.419430538172711
+        },
+        "reverse": {
+          "baseline_median_ms": 12.775500000000001,
+          "candidate_median_ms": 11.8835,
+          "gain_percent": 6.982114202966628
+        }
+      },
+      "bitdiff": 0,
+      "maxabs": 0,
+      "PSNR": "infinite (bit identical)"
+    }
+  }
+}

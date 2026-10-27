@@ -1,4 +1,4 @@
-# DLSS 5 (`310.9.16.0` 31-Block Small) — RTX 30 系 (`sm_86`) 独立引擎 (`hip-port`) 深度优化工作计划
+# DLSS 5 (`310.9.16.0` 31-Block Small) — RTX 30 系 (`sm_86`) 开发计划（当前主线 PTX）
 
 > **⚠️ 工程与 Git 提交铁律（必读）**：
 > 1. **阶段即提交**：每完成一个功能修改或一个优化阶段（Phase）并通过实测验证、更新 `DevHistory.md` 与本文件后，**必须立即执行一次 `git commit`（严禁添加 `Co-Authored-By` 尾巴）**，绝不允许跨多个阶段不提交。
@@ -38,9 +38,18 @@
 
 ---
 
-## 3. 下一阶段深度优化路线图（双线并进：`v0.2.0` 部署打包已完成，再推 `hip-port` Phase 17+）
+## 3. 当前主线：路线 B PTX 深度优化（hip-port Phase20 后收官）
 
-> 路线 B 当前推荐已更新为 **V2.1 hot255**（FB00/03/04/05/06→255），三档约6.66/9.70/12.78ms、相对V2严格0bit；本文件末尾有完整验收与构建入口。
+> **2026-10-27 最新裁决：hip-port 收官，全部转向 PTX。V2.2 组合版为新推荐；正式部署/发布包仍为 V2.1 v0.2.0，本轮不覆盖。** 第1～2节保留原阶段历史账本，不代表当前性能或路线优先级。
+
+### 已完成：PTX V2.2，SWAR 量化与原生异步 barrier
+
+- 唯一基线 V2.1 hot255，两个单因素＋组合，保持 multidef_nq、偶奇 K16 次序及原 cap。8,944 处 half2→FP8 从29行/8 b32＋2 pred缩至20行/5 b32；GPU 33,554,432组配对覆盖全部half位型，有限/非有限所测组合均0差异。
+- 316处 bulk 使用 **带默认计数增量** 的 `cp.async.mbarrier.arrive.shared::cta.b64` 绑定原目标，保留CTA线程数init和每线程arrive1，避免直接noinc破坏计数；移除对应当场commit/wait，4组非bulk等待保留。CFG回边审计见回执。
+- 三档同轮正反 ABBA/BAAB（50/80），组合配对V2.1→V2.2 GPU median均值：**6.7390→6.2485 / 9.7835→9.1223 / 12.7797→11.8595 ms**，耗时下降7.28%/6.76%/7.20%，两方向均胜出。异步单因素720p回退0.48%，900/1080收益0.63%/1.14%；SWAR单因素三档收益约5.8%～7.1%。
+- 12次快验＋72次正式全为同配置0bit/maxabs0/PSNR∞/nonfinite0，天空0变号、HF RMS相同。没有把1/1与50/80不同时间帧混比。STACK并未清零：组合FB01/02/04/05分别168/8/80/16B，FB01/02/05静态spill反而上升，如实保留。
+- 推荐 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll`，266,414,592B，15/15原槽位O4，无扩节。SHA256 `2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f`。`python3 Development/ptx-patcher/v22/build_recommended.py` 已重编验同SHA。兼容V2.1构建默认不变，用独立入口选V2.2。
+- [精简回执](ptx-patcher/v22/README.md)、[单因素/组合表](ptx-patcher/v22/results.md)、[验收](ptx-patcher/v22/validation.json)。清理重复大产物，保留证据与推荐DLL；主fast/V2.1及三个正式ZIP哈希未变。不部署、不push，立即独立commit（无Co-Authored-By）。
 
 ### 已完成任务：`ptx-patcher V2.1` 实机部署与 `v0.2.0` 正式打包发布
 

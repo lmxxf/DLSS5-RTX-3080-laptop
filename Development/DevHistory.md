@@ -861,3 +861,16 @@ C256128cap两目标核各8B STACK；全量打包+128仍8B；fuse/pair+128各48B�
 候选vsP19可见RGB peak1 PSNR43.582691/46.926900/46.763612dB，maxabs0.050379157/0.036648065/0.040914565；vsF32gold为43.206459/46.671080/46.312321（P19为43.577948/46.975322/46.100947），maxabs0.052299023/0.051891208/0.047206312。三档vsP19均未到50dB，720/900gold分数下降约0.37/0.30dB，不由极少原语边界差宣称图像几乎无损。
 
 裁决：仅约1%提速且质量条件未通过，PHASE20_HALF_ACT=False，保留Phase19严格默认；候选只作诊断并明确有损标记。没有把非0bit混入默认，没有再调参/扫描。[回执](hip-port/phase20/README.md)、[误差与核表](hip-port/phase20/results.md)、[验收](hip-port/phase20/validation.json)。20项既有回归通过，临时重复产物清理、证据保留。外部v0.2.0 DLL/三ZIP保护性哈希未变，不部署、不push，阶段独立commit。
+
+
+## 2026-10-27：PTX V2.2，SWAR双通道量化＋原生异步绑定，严格0bit（闇）
+
+Zero裁决hip-port收官，主推路线B。以V2.1 hot255为唯一基线，两个单因素与组合，共12次1/1初验＋72次50warmup/80iter正反ABBA/BAAB，无组合扫描。8,944处half2→E4M3x2由29行（8 b32＋2 pred）改20行（5 b32/0 pred），clamp448、双通道舍入偏置、half2比较mask＋lop3选择；GPU33,554,432组配对覆盖全部65,536half位型/63,488有限值、256种对侧位型与位置互换，所测有限和非有限组合均0差异。
+
+FB04/05/06共316处bulk（104/208/4）改用cp.async.mbarrier.arrive.shared::cta.b64，移除对应当场commit/wait。原barrier以ntid.x*ntid.y初始化，每线程arrive1，故绑定必须带默认增量使异步arrival自配平，不能直接.noinc。保留init/arrive/test_wait与控制流。CFG含回边，copy到下一arrive最短路径指令范围3～273/4～841/4～86；不把原316copy错误当成316个线性arrive（实际46/58/4）。4组FB04原有非bulk等待不动。语义来源与审计见回执。
+
+正式组合配对V2.1→V2.2 GPU median均值：720p(sky)6.7390→6.2485、900p(scene)9.7835→9.1223、1080p(scene)12.7797→11.8595ms，耗时下降7.28%/6.76%/7.20%，两方向均赢。异步单因素720p慢0.48%，900/1080快0.63%/1.14%；SWAR单因素三档均赢，耗时降7.14%/5.79%/6.04%。默认DVFS，保留每进程min/median/wall及部分轮次遥测，均值不冒充合并样本median。
+
+84次运行全部相对同配置V2.1严格0bit/maxabs0/PSNR∞/nonfinite0，天空0变号、HF RMS约0.000101989相同。初版脚本把1/1和50/80基线末帧比较而检出61.786dB时间帧差，已拆gold并重新完整运行，失败控制证据保留。静态O4反例：组合FB01 STACK120→168B、LDL+STL315→462；FB02 0→8B、0→2；FB04 80B/118不变；FB05 8→16B、12→18。其余FB00/03/06～14 STACK0；绝不宣称零spill，最终按净帧耗时推荐组合。
+
+推荐DLL `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll`，266,414,592B，15/15 O4原槽位，未扩节。SHA256 `2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f`，独立推荐入口全15重编相同SHA、CUDA加载通过，既有10项回归通过。兼容CLI默认保留V2.1，新增因子要求显式输出路径。[回执](ptx-patcher/v22/README.md)、[配对表](ptx-patcher/v22/results.md)、[验收](ptx-patcher/v22/validation.json)。清理重复DLL/RGB/PTX/cubin，保留推荐DLL及证据；主fast/V2.1/三正式v0.2.0ZIP保护性SHA未变。不部署、不push，立即独立commit，无Co-Authored-By。

@@ -1,0 +1,256 @@
+{
+  "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v26.dll",
+  "bytes": 266414592,
+  "sha256": "04b01f0c963061e24d1fd34f5097043d4eeddb001c846d9002e4e2bdc73ad788",
+  "args": [
+    "python3",
+    "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+    "--output",
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v26_lowhigh.dll",
+    "--half-pack",
+    "swar",
+    "--bulk-completion",
+    "mbarrier",
+    "--fp8-decode",
+    "lowhigh8",
+    "--mma-layout",
+    "lowhigh",
+    "--v24-mask",
+    "8",
+    "--maxnreg",
+    "0:255",
+    "--maxnreg",
+    "3:255",
+    "--maxnreg",
+    "4:255",
+    "--maxnreg",
+    "5:255",
+    "--maxnreg",
+    "6:255"
+  ],
+  "manifest": [
+    [
+      0,
+      "inline",
+      1107664,
+      264344
+    ],
+    [
+      1,
+      "inline",
+      1949392,
+      224072
+    ],
+    [
+      2,
+      "inline",
+      2506432,
+      184088
+    ],
+    [
+      3,
+      "inline",
+      3012896,
+      251824
+    ],
+    [
+      4,
+      "inline",
+      3599728,
+      230744
+    ],
+    [
+      5,
+      "inline",
+      4032912,
+      245608
+    ],
+    [
+      6,
+      "inline",
+      4575872,
+      39584
+    ],
+    [
+      7,
+      "inline",
+      4649280,
+      1448
+    ],
+    [
+      8,
+      "inline",
+      4657312,
+      1520
+    ],
+    [
+      9,
+      "inline",
+      4668224,
+      1608
+    ],
+    [
+      10,
+      "inline",
+      4680032,
+      1816
+    ],
+    [
+      11,
+      "inline",
+      4690608,
+      1536
+    ],
+    [
+      12,
+      "inline",
+      4700576,
+      1128
+    ],
+    [
+      13,
+      "inline",
+      4707136,
+      8888
+    ],
+    [
+      14,
+      "inline",
+      4761968,
+      1240
+    ]
+  ],
+  "baseline": "V2.4",
+  "V26_promoted": true,
+  "caps": {
+    "0": 255,
+    "3": 255,
+    "4": 255,
+    "5": 255,
+    "6": 255
+  },
+  "mask": 8,
+  "mma_layout": "lowhigh",
+  "fp8_decode": "lowhigh8",
+  "half_pack": "swar",
+  "bulk_completion": "mbarrier",
+  "performance": {
+    "1280": {
+      "baseline_median_ms": 6.0995,
+      "candidate_median_ms": 5.98,
+      "baseline_min_ms": 6.0280000000000005,
+      "candidate_min_ms": 5.91325,
+      "gain_percent": 1.9591769817198013,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 6.0405,
+          "candidate_median_ms": 5.9105,
+          "gain_percent": 2.15213972353282
+        },
+        "reverse": {
+          "baseline_median_ms": 6.1585,
+          "candidate_median_ms": 6.0495,
+          "gain_percent": 1.7699115044247815
+        }
+      },
+      "quality": {
+        "repeat": null,
+        "sha256": "031b0d14aa3008b4e35850ec522d567cf35d4243632e9b4210193dd2890c32a0",
+        "vs": {
+          "baseline": {
+            "bitdiff": 2071249,
+            "rmse": 0.0008110430891007256,
+            "maxabs": 0.0048828125,
+            "psnr_db": 61.81912143953607
+          },
+          "v1": {
+            "bitdiff": 2051832,
+            "rmse": 0.0007830374742393493,
+            "maxabs": 0.00439453125,
+            "psnr_db": 62.12434906367078
+          }
+        },
+        "sky_sign_changes": 0,
+        "sky_hf_rms": 0.00010274676606059074
+      },
+      "runs_per_version": 4
+    },
+    "1600": {
+      "baseline_median_ms": 8.92475,
+      "candidate_median_ms": 8.722,
+      "baseline_min_ms": 8.7125,
+      "candidate_min_ms": 8.523,
+      "gain_percent": 2.2717723185523453,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 8.861,
+          "candidate_median_ms": 8.6795,
+          "gain_percent": 2.0483015461008836
+        },
+        "reverse": {
+          "baseline_median_ms": 8.9885,
+          "candidate_median_ms": 8.7645,
+          "gain_percent": 2.4920732046503913
+        }
+      },
+      "quality": {
+        "repeat": null,
+        "sha256": "de9ba5470e9c913e4a61602864e6da1f6f314c657dce6f141161fd316b0dfdd3",
+        "vs": {
+          "baseline": {
+            "bitdiff": 3547208,
+            "rmse": 0.0008158977181228375,
+            "maxabs": 0.005615234375,
+            "psnr_db": 61.76728562980106
+          },
+          "v1": {
+            "bitdiff": 3539051,
+            "rmse": 0.0008077027496648145,
+            "maxabs": 0.006103515625,
+            "psnr_db": 61.8549687729238
+          }
+        }
+      },
+      "runs_per_version": 4
+    },
+    "1920": {
+      "baseline_median_ms": 11.73225,
+      "candidate_median_ms": 11.4625,
+      "baseline_min_ms": 11.4905,
+      "candidate_min_ms": 11.2255,
+      "gain_percent": 2.2992179675680346,
+      "directions": {
+        "forward": {
+          "baseline_median_ms": 11.693,
+          "candidate_median_ms": 11.471499999999999,
+          "gain_percent": 1.894295732489526
+        },
+        "reverse": {
+          "baseline_median_ms": 11.7715,
+          "candidate_median_ms": 11.4535,
+          "gain_percent": 2.7014399184470905
+        }
+      },
+      "quality": {
+        "repeat": null,
+        "sha256": "43010a2223370af591a7d268b83f4718b624a875857fd0ef0057c37997fd9a03",
+        "vs": {
+          "baseline": {
+            "bitdiff": 5398027,
+            "rmse": 0.0011993547098200774,
+            "maxabs": 0.009765625,
+            "psnr_db": 58.42104710140379
+          },
+          "v1": {
+            "bitdiff": 5207917,
+            "rmse": 0.0009031762677269231,
+            "maxabs": 0.00732421875,
+            "psnr_db": 60.88454965307568
+          }
+        }
+      },
+      "runs_per_version": 4
+    }
+  },
+  "quality_scope": "Finite PSNR to V2.4/V1, not bit exact and not absolute native-model quality; three deterministic bench inputs."
+}

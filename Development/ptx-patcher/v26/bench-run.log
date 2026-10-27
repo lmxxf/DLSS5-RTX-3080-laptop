@@ -1,0 +1,30 @@
+reference-forward v1 1280 15.949 {} sky 0
+forward-0 baseline 1280 6.019 {'v1': 62.5444} sky 0
+forward-1 lowhigh 1280 5.907 {'baseline': 61.8191, 'v1': 62.1243} sky 0
+forward-2 lowhigh 1280 5.914 {'baseline': 61.8191, 'v1': 62.1243} sky 0
+forward-3 baseline 1280 6.062 {'baseline': 'inf', 'v1': 62.5444} sky 0
+reference-forward v1 1600 24.596 {} sky None
+forward-0 baseline 1600 8.859 {'v1': 61.6635} sky None
+forward-1 lowhigh 1600 8.66 {'baseline': 61.7673, 'v1': 61.855} sky None
+forward-2 lowhigh 1600 8.699 {'baseline': 61.7673, 'v1': 61.855} sky None
+forward-3 baseline 1600 8.863 {'baseline': 'inf', 'v1': 61.6635} sky None
+reference-forward v1 1920 31.764 {} sky None
+forward-0 baseline 1920 11.684 {'v1': 58.4955} sky None
+forward-1 lowhigh 1920 11.417 {'baseline': 58.421, 'v1': 60.8845} sky None
+forward-2 lowhigh 1920 11.526 {'baseline': 58.421, 'v1': 60.8845} sky None
+forward-3 baseline 1920 11.702 {'baseline': 'inf', 'v1': 58.4955} sky None
+reverse-0 lowhigh 1920 11.455 {'baseline': 58.421, 'v1': 60.8845} sky None
+reverse-1 baseline 1920 11.78 {'baseline': 'inf', 'v1': 58.4955} sky None
+reverse-2 baseline 1920 11.763 {'baseline': 'inf', 'v1': 58.4955} sky None
+reverse-3 lowhigh 1920 11.452 {'baseline': 58.421, 'v1': 60.8845} sky None
+reference-reverse v1 1920 31.941 {'baseline': 58.4955, 'v1': 'inf'} sky None
+reverse-0 lowhigh 1600 8.767 {'baseline': 61.7673, 'v1': 61.855} sky None
+reverse-1 baseline 1600 8.984 {'baseline': 'inf', 'v1': 61.6635} sky None
+reverse-2 baseline 1600 8.993 {'baseline': 'inf', 'v1': 61.6635} sky None
+reverse-3 lowhigh 1600 8.762 {'baseline': 61.7673, 'v1': 61.855} sky None
+reference-reverse v1 1600 24.72 {'baseline': 61.6635, 'v1': 'inf'} sky None
+reverse-0 lowhigh 1280 6.053 {'baseline': 61.8191, 'v1': 62.1243} sky 0
+reverse-1 baseline 1280 6.16 {'baseline': 'inf', 'v1': 62.5444} sky 0
+reverse-2 baseline 1280 6.157 {'baseline': 'inf', 'v1': 62.5444} sky 0
+reverse-3 lowhigh 1280 6.046 {'baseline': 61.8191, 'v1': 62.1243} sky 0
+reference-reverse v1 1280 16.104 {'baseline': 62.5444, 'v1': 'inf'} sky 0

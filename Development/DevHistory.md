@@ -953,3 +953,18 @@ D修正占用率前提：C64活跃Shared4096B，CUDA occupancy API预测168cap�
 FB00 HMMA等价次数三档25,696,224/40,691,424/54,871,200；1080 decoder事件unmapped12,892,128、mapped30,109,220，后者占大头，只减非mapped一半PRMT使decoder PTX PRMT事件仅减约14.99%。这些PTX事件可被编译器折叠，不直接套SASS吞吐。静态Grid×Block账本和所谓2.104ms不能单独认证PRMT关键路径。
 
 [回执](ptx-patcher/v25/README.md)、[配对表](ptx-patcher/v25/results.md)、[运行时计数及模型](ptx-patcher/v25/dynamic-ledger.md)、[验收](ptx-patcher/v25/validation.json)。10项既有回归通过。保留V2.4推荐，失败/诊断产物只留源码、日志、参数、计数和SHA；大DLL/PTX/cubin/RGB/runner清理，主fast/V2.4与三ZIP收尾哈希未变。原用户任务单保留并追加实测。阶段独立commit，无Co-Authored-By，不部署、不push。
+
+
+## 2026-10-28：PTX V2.6 Low/High K16＋mapped零拷贝，三档净提速约2%（闇）
+
+唯一基线V2.4 1687087e。线程内K32的first取byte0/1、second取byte2/3，encoded用9180/b3a2双PRMT8；mapped直接填原native half2 low/high，未改SWAR/独立UP/mapped资格/图/权重/原hot255。数学K映射为2*j-(j&1)+2*phase，A/B共用同一置换且两相覆盖0..31；并非全局连续低/高16，也未证明原厂SM120内部累加顺序更接近。FP16结合次序变化，明确非0bit升级。
+
+零拷贝按半条MMA跟踪读写：首次d0/d1写坏源早于最后mapped读取时，才在首次写坏前mov备份；包含同一原K32内第一K16覆写第二K16要读high的风险，C累加器仍读当前值而非输入快照。非mapped保留首次使用/覆写前解码及死亡寄存器池。768槽位坐标证明、33,554,432组位型解码重排对照0bit；六源全部64种mapped掩码×16组整数矩阵，GPU两版与CPU矩阵积＋0.5全精确。5类128warp长run/别名用例与独立入口快照LowHigh参考全0bit，全mapped无覆写时0临时寄存器/0PRMT。随机FP8、混合FP16/FP8、全mapped FP16各256组，对float64积累后舍入float32参考的RMSE比值1.001/1.024/0.998，同量级但不宣称逐点误差均不增。
+
+三档未插桩bench_sky 50/80正反ABBA/BAAB，V2.4→V2.6 median均值6.09950→5.98000、8.92475→8.72200、11.73225→11.46250ms，耗时降1.959%/2.272%/2.299%，各档两个方向皆赢；GPU min均值6.02800→5.91325、8.71250→8.52300、11.49050→11.22550。默认DVFS，同轮比较，不用旧冷/热轮次估算成绩。V1备份经SHA3f934a0a核验，各档正反另作输出参考，不将其非配对时长当提速基准。
+
+正式三档相对V2.4 PSNR61.819121/61.767286/58.421047dB，maxabs0.0048828125/0.005615234375/0.009765625；相对V1为62.124349/61.854969/60.884550dB，maxabs0.00439453125/0.006103515625/0.00732421875。peak1、bench最终RGB域，是移植实现间距离，非原生sm120/整网FP32绝对质量gold。9快验＋24配对计时＋6V1参考共39次末帧全部finite，同版本同配置重复0bit，跨版非0bit；天空变号0，V2.6正式HF RMS0.000102746766。没有外推所有实机动态场景。
+
+全导出生成路径mapped PRMT减少21712条，真实模型备份mov0；对应旧V2.5 FB00/1080的60,218,440次mapped PTX事件在代码生成层消失，不当成同量硬件issued削减。40个唯一活跃核静态PRMT25483→19864、总SASS183651→178170、HMMA13188不变。FB00临时pool声明峰值40→24，其他FB最大值仍56/56/56/112/80/20，由encoded输入控制；不是全kernel临时为零。活跃C32 prefix REG234→196，inpview234→200，ds231→199，outview236→197，up229→212；post没有相同下降。全导出FB01最大STACK224→104B、LDL+STL507→381；活跃outview224→96、ds/inpview80→64，但up88→96回退。FB04/05仍88/16B，FB05LDL+STL18→16。资源复核后保留原cap，不宣称零spill或全局最优。
+
+推荐 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v26.dll`，266414592B、15/15 O4原槽位、无扩节；SHA256 `04b01f0c963061e24d1fd34f5097043d4eeddb001c846d9002e4e2bdc73ad788`。全15重编与实测候选SHA及PTX一致，10项既有回归通过。显式lowhigh布局/lowhigh8解码/mask8/SWAR/nonquantized mapped成对门控，兼容旧版默认保留。[回执](ptx-patcher/v26/README.md)、[正式表](ptx-patcher/v26/results.md)、[验收](ptx-patcher/v26/validation.json)。清理重复大产物，保留推荐DLL与文本证据；主fast/V2.4/V1备份/正式ZIP哈希未变。不部署、不push，阶段独立commit，无Co-Authored-By。

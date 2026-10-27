@@ -1,0 +1,986 @@
+{
+  "0": {
+    "max_old_pool_b32": 40,
+    "max_new_temporary_b32": 24,
+    "totals": {
+      "mma_sites": 4888,
+      "mapped_operands": 5144,
+      "encoded_operands": 2672,
+      "backup_moves": 0,
+      "runs": 327,
+      "old_mapped_PRMT": 10288
+    },
+    "kernels": {
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 304,
+        "encoded_operands": 104,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 608
+      },
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 304,
+        "encoded_operands": 104,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 608
+      },
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 304,
+        "encoded_operands": 104,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 608
+      },
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8_simple_blend": {
+        "mma_sites": 256,
+        "mapped_operands": 304,
+        "encoded_operands": 104,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 608
+      },
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8_simple_blend_full_rect": {
+        "mma_sites": 256,
+        "mapped_operands": 304,
+        "encoded_operands": 104,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 608
+      },
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8_control_mask": {
+        "mma_sites": 256,
+        "mapped_operands": 304,
+        "encoded_operands": 104,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 608
+      },
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8_control_mask_full_rect": {
+        "mma_sites": 256,
+        "mapped_operands": 304,
+        "encoded_operands": 104,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 608
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 240,
+        "encoded_operands": 168,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 480
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_tilesync_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 240,
+        "encoded_operands": 168,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 480
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_wait_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 240,
+        "encoded_operands": 168,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 480
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_chained_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 240,
+        "encoded_operands": 168,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 480
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 240,
+        "encoded_operands": 168,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 480
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_outview_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 240,
+        "encoded_operands": 168,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 480
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_ds_fp8": {
+        "mma_sites": 264,
+        "mapped_operands": 244,
+        "encoded_operands": 184,
+        "backup_moves": 0,
+        "runs": 18,
+        "old_mapped_PRMT": 488
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_fp8": {
+        "mma_sites": 260,
+        "mapped_operands": 304,
+        "encoded_operands": 116,
+        "backup_moves": 0,
+        "runs": 18,
+        "old_mapped_PRMT": 608
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 240,
+        "encoded_operands": 168,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 480
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": {
+        "mma_sites": 264,
+        "mapped_operands": 244,
+        "encoded_operands": 184,
+        "backup_moves": 0,
+        "runs": 18,
+        "old_mapped_PRMT": 488
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 240,
+        "encoded_operands": 168,
+        "backup_moves": 0,
+        "runs": 17,
+        "old_mapped_PRMT": 480
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": {
+        "mma_sites": 260,
+        "mapped_operands": 304,
+        "encoded_operands": 116,
+        "backup_moves": 0,
+        "runs": 18,
+        "old_mapped_PRMT": 608
+      }
+    },
+    "whole_generated_selector_5410_count": 1254,
+    "whole_generated_selector_7632_count": 0
+  },
+  "1": {
+    "max_old_pool_b32": 56,
+    "max_new_temporary_b32": 56,
+    "totals": {
+      "mma_sites": 3608,
+      "mapped_operands": 2416,
+      "encoded_operands": 3128,
+      "backup_moves": 0,
+      "runs": 266,
+      "old_mapped_PRMT": 4832
+    },
+    "kernels": {
+      "cc_tinlayout_fused_swin_2h_64_2_fp8": {
+        "mma_sites": 304,
+        "mapped_operands": 216,
+        "encoded_operands": 256,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_tilesync_fp8": {
+        "mma_sites": 304,
+        "mapped_operands": 216,
+        "encoded_operands": 256,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_wait_fp8": {
+        "mma_sites": 304,
+        "mapped_operands": 216,
+        "encoded_operands": 256,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_chained_fp8": {
+        "mma_sites": 304,
+        "mapped_operands": 216,
+        "encoded_operands": 256,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_fp8": {
+        "mma_sites": 304,
+        "mapped_operands": 216,
+        "encoded_operands": 256,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_ds_fp8": {
+        "mma_sites": 312,
+        "mapped_operands": 216,
+        "encoded_operands": 280,
+        "backup_moves": 0,
+        "runs": 25,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_outview_fp8": {
+        "mma_sites": 304,
+        "mapped_operands": 216,
+        "encoded_operands": 256,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_upsample_fp8": {
+        "mma_sites": 276,
+        "mapped_operands": 128,
+        "encoded_operands": 260,
+        "backup_moves": 0,
+        "runs": 16,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+        "mma_sites": 304,
+        "mapped_operands": 216,
+        "encoded_operands": 256,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+        "mma_sites": 312,
+        "mapped_operands": 216,
+        "encoded_operands": 280,
+        "backup_moves": 0,
+        "runs": 25,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": {
+        "mma_sites": 304,
+        "mapped_operands": 216,
+        "encoded_operands": 256,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 432
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": {
+        "mma_sites": 276,
+        "mapped_operands": 128,
+        "encoded_operands": 260,
+        "backup_moves": 0,
+        "runs": 16,
+        "old_mapped_PRMT": 256
+      }
+    },
+    "whole_generated_selector_5410_count": 792,
+    "whole_generated_selector_7632_count": 0
+  },
+  "2": {
+    "max_old_pool_b32": 56,
+    "max_new_temporary_b32": 56,
+    "totals": {
+      "mma_sites": 3304,
+      "mapped_operands": 1536,
+      "encoded_operands": 3672,
+      "backup_moves": 0,
+      "runs": 238,
+      "old_mapped_PRMT": 3072
+    },
+    "kernels": {
+      "cc_tinlayout_fused_swin_4h_128_4_fp8": {
+        "mma_sites": 272,
+        "mapped_operands": 128,
+        "encoded_operands": 296,
+        "backup_moves": 0,
+        "runs": 19,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_tilesync_fp8": {
+        "mma_sites": 272,
+        "mapped_operands": 128,
+        "encoded_operands": 296,
+        "backup_moves": 0,
+        "runs": 19,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_wait_fp8": {
+        "mma_sites": 272,
+        "mapped_operands": 128,
+        "encoded_operands": 296,
+        "backup_moves": 0,
+        "runs": 19,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_chained_fp8": {
+        "mma_sites": 272,
+        "mapped_operands": 128,
+        "encoded_operands": 296,
+        "backup_moves": 0,
+        "runs": 19,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_fp8": {
+        "mma_sites": 272,
+        "mapped_operands": 128,
+        "encoded_operands": 296,
+        "backup_moves": 0,
+        "runs": 19,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 128,
+        "encoded_operands": 344,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_fp8": {
+        "mma_sites": 272,
+        "mapped_operands": 128,
+        "encoded_operands": 296,
+        "backup_moves": 0,
+        "runs": 19,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_fp8": {
+        "mma_sites": 276,
+        "mapped_operands": 128,
+        "encoded_operands": 308,
+        "backup_moves": 0,
+        "runs": 20,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+        "mma_sites": 272,
+        "mapped_operands": 128,
+        "encoded_operands": 296,
+        "backup_moves": 0,
+        "runs": 19,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 128,
+        "encoded_operands": 344,
+        "backup_moves": 0,
+        "runs": 23,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "mma_sites": 272,
+        "mapped_operands": 128,
+        "encoded_operands": 296,
+        "backup_moves": 0,
+        "runs": 19,
+        "old_mapped_PRMT": 256
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "mma_sites": 276,
+        "mapped_operands": 128,
+        "encoded_operands": 308,
+        "backup_moves": 0,
+        "runs": 20,
+        "old_mapped_PRMT": 256
+      }
+    },
+    "whole_generated_selector_5410_count": 792,
+    "whole_generated_selector_7632_count": 0
+  },
+  "3": {
+    "max_old_pool_b32": 56,
+    "max_new_temporary_b32": 56,
+    "totals": {
+      "mma_sites": 3480,
+      "mapped_operands": 1152,
+      "encoded_operands": 3528,
+      "backup_moves": 0,
+      "runs": 174,
+      "old_mapped_PRMT": 2304
+    },
+    "kernels": {
+      "cc_tinlayout_fused_swin_8h_256_8_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 96,
+        "encoded_operands": 288,
+        "backup_moves": 0,
+        "runs": 14,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_tilesync_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 96,
+        "encoded_operands": 288,
+        "backup_moves": 0,
+        "runs": 14,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_wait_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 96,
+        "encoded_operands": 288,
+        "backup_moves": 0,
+        "runs": 14,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_chained_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 96,
+        "encoded_operands": 288,
+        "backup_moves": 0,
+        "runs": 14,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 96,
+        "encoded_operands": 288,
+        "backup_moves": 0,
+        "runs": 14,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_fp8": {
+        "mma_sites": 296,
+        "mapped_operands": 96,
+        "encoded_operands": 312,
+        "backup_moves": 0,
+        "runs": 16,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 96,
+        "encoded_operands": 288,
+        "backup_moves": 0,
+        "runs": 14,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_fp8": {
+        "mma_sites": 292,
+        "mapped_operands": 96,
+        "encoded_operands": 300,
+        "backup_moves": 0,
+        "runs": 15,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 96,
+        "encoded_operands": 288,
+        "backup_moves": 0,
+        "runs": 14,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "mma_sites": 296,
+        "mapped_operands": 96,
+        "encoded_operands": 312,
+        "backup_moves": 0,
+        "runs": 16,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "mma_sites": 288,
+        "mapped_operands": 96,
+        "encoded_operands": 288,
+        "backup_moves": 0,
+        "runs": 14,
+        "old_mapped_PRMT": 192
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "mma_sites": 292,
+        "mapped_operands": 96,
+        "encoded_operands": 300,
+        "backup_moves": 0,
+        "runs": 15,
+        "old_mapped_PRMT": 192
+      }
+    },
+    "whole_generated_selector_5410_count": 12,
+    "whole_generated_selector_7632_count": 0
+  },
+  "4": {
+    "max_old_pool_b32": 112,
+    "max_new_temporary_b32": 112,
+    "totals": {
+      "mma_sites": 2176,
+      "mapped_operands": 416,
+      "encoded_operands": 2144,
+      "backup_moves": 0,
+      "runs": 59,
+      "old_mapped_PRMT": 832
+    },
+    "kernels": {
+      "cc_split_swin_16h_ffwd_512_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 24,
+        "encoded_operands": 128,
+        "backup_moves": 0,
+        "runs": 5,
+        "old_mapped_PRMT": 48
+      },
+      "cc_split_swin_16h_ffwd_inpview_512_fp8": {
+        "mma_sites": 192,
+        "mapped_operands": 48,
+        "encoded_operands": 160,
+        "backup_moves": 0,
+        "runs": 5,
+        "old_mapped_PRMT": 96
+      },
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": {
+        "mma_sites": 192,
+        "mapped_operands": 48,
+        "encoded_operands": 160,
+        "backup_moves": 0,
+        "runs": 5,
+        "old_mapped_PRMT": 96
+      },
+      "cc_split_swin_16h_ffwd_512_wait_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 24,
+        "encoded_operands": 128,
+        "backup_moves": 0,
+        "runs": 5,
+        "old_mapped_PRMT": 48
+      },
+      "cc_split_swin_16h_ffwd_512_tilesync_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 24,
+        "encoded_operands": 128,
+        "backup_moves": 0,
+        "runs": 5,
+        "old_mapped_PRMT": 48
+      },
+      "cc_split_swin_16h_ffwd_512_chained_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 24,
+        "encoded_operands": 128,
+        "backup_moves": 0,
+        "runs": 5,
+        "old_mapped_PRMT": 48
+      },
+      "cc_split_swin_16h_ffwd_proj_512_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_ffwd_proj_512_wait_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_qkv_512_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 112,
+        "encoded_operands": 160,
+        "backup_moves": 0,
+        "runs": 6,
+        "old_mapped_PRMT": 224
+      },
+      "cc_split_swin_16h_qkv_512_chained_fp8": {
+        "mma_sites": 256,
+        "mapped_operands": 112,
+        "encoded_operands": 160,
+        "backup_moves": 0,
+        "runs": 6,
+        "old_mapped_PRMT": 224
+      },
+      "cc_split_swin_16h_proj_512_fp8": {
+        "mma_sites": 32,
+        "mapped_operands": 0,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_proj_512_tilesync_fp8": {
+        "mma_sites": 32,
+        "mapped_operands": 0,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_proj_512_wait_fp8": {
+        "mma_sites": 32,
+        "mapped_operands": 0,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "mma_sites": 32,
+        "mapped_operands": 0,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_proj_512_outview_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_proj_pool_512_fp8": {
+        "mma_sites": 128,
+        "mapped_operands": 0,
+        "encoded_operands": 128,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "mma_sites": 128,
+        "mapped_operands": 0,
+        "encoded_operands": 128,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_final_head_512_fp8": {
+        "mma_sites": 32,
+        "mapped_operands": 0,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_split_swin_16h_final_head_512_wait_fp8": {
+        "mma_sites": 32,
+        "mapped_operands": 0,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      }
+    },
+    "whole_generated_selector_5410_count": 132,
+    "whole_generated_selector_7632_count": 0
+  },
+  "5": {
+    "max_old_pool_b32": 80,
+    "max_new_temporary_b32": 80,
+    "totals": {
+      "mma_sites": 2144,
+      "mapped_operands": 192,
+      "encoded_operands": 1968,
+      "backup_moves": 0,
+      "runs": 55,
+      "old_mapped_PRMT": 384
+    },
+    "kernels": {
+      "cc_vit_ffn_expand_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_ffn_expand_wait_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_ffn_contract_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_qkv_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 0,
+        "encoded_operands": 80,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_attention_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 32,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 64
+      },
+      "cc_vit_projection_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_projection_tilesync_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_ffn_expand_tilesync_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_ffn_expand_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_ffn_contract_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_qkv_wait_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 0,
+        "encoded_operands": 80,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_qkv_chained_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 0,
+        "encoded_operands": 80,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_attention_tilesync_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 32,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 64
+      },
+      "cc_vit_attention_wait_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 32,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 64
+      },
+      "cc_vit_attention_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 32,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 64
+      },
+      "cc_vit_projection_wait_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_projection_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_ffn_expand_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_ffn_expand_publish_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_ffn_expand_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 1,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_ffn_contract_fp8": {
+        "mma_sites": 128,
+        "mapped_operands": 0,
+        "encoded_operands": 128,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_ffn_contract_chained_fp8": {
+        "mma_sites": 128,
+        "mapped_operands": 0,
+        "encoded_operands": 128,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_qkv_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 0,
+        "encoded_operands": 80,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_qkv_chained_fp8": {
+        "mma_sites": 96,
+        "mapped_operands": 0,
+        "encoded_operands": 80,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_attention_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 32,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 64
+      },
+      "cc_vit_1d_attention_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 32,
+        "encoded_operands": 48,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 64
+      },
+      "cc_vit_1d_projection_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_projection_wait_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_vit_1d_projection_chained_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 64,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      }
+    },
+    "whole_generated_selector_5410_count": 6,
+    "whole_generated_selector_7632_count": 0
+  },
+  "6": {
+    "max_old_pool_b32": 20,
+    "max_new_temporary_b32": 20,
+    "totals": {
+      "mma_sites": 128,
+      "mapped_operands": 0,
+      "encoded_operands": 288,
+      "backup_moves": 0,
+      "runs": 4,
+      "old_mapped_PRMT": 0
+    },
+    "kernels": {
+      "cc_dec_input_upsample_1024_512_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 144,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      },
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "mma_sites": 64,
+        "mapped_operands": 0,
+        "encoded_operands": 144,
+        "backup_moves": 0,
+        "runs": 2,
+        "old_mapped_PRMT": 0
+      }
+    },
+    "whole_generated_selector_5410_count": 0,
+    "whole_generated_selector_7632_count": 0
+  }
+}

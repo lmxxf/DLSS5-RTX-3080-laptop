@@ -383,6 +383,9 @@ def worker_compile_fatbin(args):
   if fp8_decode == "prmt8":
     from v23.decode import decode
     even_odd_decode_lines = decode
+  elif fp8_decode == "lowhigh8":
+    from v26.codegen import decode
+    even_odd_decode_lines = decode
   elif fp8_decode == "hybrid8":
     from v25.decode import decode
     even_odd_decode_lines = decode
@@ -423,7 +426,7 @@ def worker_compile_fatbin(args):
     dp.fp8_pair_to_half_lines = fast_fp8_pair_to_half_lines
     dp.half_conversion_declarations = fast_half_conversion_declarations
     dp.half_pair_to_fp8_lines = fast_half_pair_to_fp8_lines
-    dp.render_fp8_mma_run = fast_render_fp8_mma_run if mma_layout=="evenodd" else legacy_render_fp8_mma_run
+    dp.render_fp8_mma_run = legacy_render_fp8_mma_run if mma_layout=="legacy" else fast_render_fp8_mma_run
     from functools import partial
     dp.fp8_pack_sources = partial(stock_pack_sources, local_only=mapped_mode=="strict")
     dp.mapped_fp16_sources = fast_mapped_fp16_sources if quantize_mapped else forward_mapped_fp16_sources
@@ -444,6 +447,12 @@ def worker_compile_fatbin(args):
   if v24_mask:
     from v24.codegen import apply
     apply(sys.modules[__name__], v24_mask)
+  if mma_layout == "lowhigh":
+    if quantize_mapped:
+      raise ValueError("Low/high direct mapped rendering requires quantize_mapped=False")
+    from functools import partial
+    from v26.codegen import render
+    dp.render_fp8_mma_run = partial(render, builder=sys.modules[__name__])
   recs = dp.parse_fatbin_records(blob)
   ptx_rec = [r for r in recs if r.kind == 1][0]
   hdr = blob[ptx_rec.offset : ptx_rec.offset + ptx_rec.header_size]
@@ -559,18 +568,22 @@ def main():
   parser = argparse.ArgumentParser(description="Build all 15 sm_86 O4 fatbins with multi-definition-filtered mapped operands")
   parser.add_argument("--input", type=Path, default=Path("/mnt/c/DLSS5-5090-dll/nvngx_dlssnr.dll"))
   parser.add_argument("--output", type=Path, default=None)
-  parser.add_argument("--mma-layout", choices=("evenodd", "legacy"), default="evenodd", help="Legacy layout is a diagnostic control")
+  parser.add_argument("--mma-layout", choices=("evenodd", "legacy", "lowhigh"), default="evenodd", help="Legacy layout is a diagnostic control")
   parser.add_argument("--maxnreg", action="append", default=[], metavar="FB:LIMIT", help="Diagnostic per-fatbin existing .maxnreg override; e.g. 3:255")
   parser.add_argument("--workers", type=int, default=3)
   parser.add_argument("--mapped-mode", choices=("strict", "multidef"), default="multidef")
   parser.add_argument("--quantize-mapped", action="store_true", help="Diagnostic: restore explicit E4M3 quantization on mapped sources")
   parser.add_argument("--half-pack", choices=("legacy", "swar"), default="legacy")
   parser.add_argument("--bulk-completion", choices=("immediate", "mbarrier"), default="immediate")
-  parser.add_argument("--fp8-decode", choices=("legacy", "prmt8", "hybrid8"), default="legacy")
+  parser.add_argument("--fp8-decode", choices=("legacy", "prmt8", "hybrid8", "lowhigh8"), default="legacy")
   parser.add_argument("--v24-mask", type=int, default=0, help="Isolated factors: A=1, bias=2, quad=4, JIT pool=8")
   args = parser.parse_args()
   assert 0 <= args.v24_mask <= 15
-  if args.v24_mask and (args.half_pack != "swar" or args.fp8_decode not in ("prmt8", "hybrid8") or args.mma_layout != "evenodd" or args.quantize_mapped):
+  if (args.mma_layout == "lowhigh") != (args.fp8_decode == "lowhigh8"):
+    parser.error("lowhigh layout and lowhigh8 decoding must be selected together")
+  if args.mma_layout == "lowhigh" and (args.v24_mask != 8 or args.quantize_mapped or args.half_pack != "swar"):
+    parser.error("V2.6 requires mask8, SWAR and non-quantized mapped sources")
+  if args.v24_mask and (args.half_pack != "swar" or args.fp8_decode not in ("prmt8", "hybrid8", "lowhigh8") or args.mma_layout not in ("evenodd", "lowhigh") or args.quantize_mapped):
     parser.error("V2.4 factors require SWAR, PRMT8, evenodd and non-quantized mapped sources")
   if (args.half_pack != "legacy" or args.bulk_completion != "immediate" or args.fp8_decode != "legacy" or args.v24_mask) and args.output is None:
     parser.error("Experimental factors require an explicit --output path")

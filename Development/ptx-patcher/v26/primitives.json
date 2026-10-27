@@ -1,0 +1,71 @@
+{
+  "coordinate_slots": 768,
+  "original_K_from_K16": "2*j-(j&1)+2*phase; not contiguous global K halves",
+  "decode_pair_tests": 33554432,
+  "decode_permutation_bitdiff": 0,
+  "exact_integer_matrix_cases_per_mask": 16,
+  "mapped_masks_tested": 64,
+  "exact_matrix_mismatches": 0,
+  "random_effective_input_results": [
+    {
+      "mapped_mask": 0,
+      "matrix_cases": 256,
+      "FP32_gold": "FP16 effective inputs multiplied/summed in float64, rounded to float32; C=0.5",
+      "evenodd": {
+        "rmse": 0.0027707648692922664,
+        "mae": 0.0017800494097173214,
+        "p99_abs": 0.0101318359375,
+        "maxabs": 0.04883575439453125,
+        "nonfinite": 0
+      },
+      "lowhigh": {
+        "rmse": 0.0027734399166201374,
+        "mae": 0.0017888923175632954,
+        "p99_abs": 0.0102386474609375,
+        "maxabs": 0.02843475341796875,
+        "nonfinite": 0
+      },
+      "output_bitdiff": 15637
+    },
+    {
+      "mapped_mask": 15,
+      "matrix_cases": 256,
+      "FP32_gold": "FP16 effective inputs multiplied/summed in float64, rounded to float32; C=0.5",
+      "evenodd": {
+        "rmse": 0.0011215771731347022,
+        "mae": 0.0007732965920865809,
+        "p99_abs": 0.0038704848289489733,
+        "maxabs": 0.00832366943359375,
+        "nonfinite": 0
+      },
+      "lowhigh": {
+        "rmse": 0.0011488550723915436,
+        "mae": 0.000783015792507058,
+        "p99_abs": 0.003977894783019997,
+        "maxabs": 0.010718345642089844,
+        "nonfinite": 0
+      },
+      "output_bitdiff": 16656
+    },
+    {
+      "mapped_mask": 63,
+      "matrix_cases": 256,
+      "FP32_gold": "FP16 effective inputs multiplied/summed in float64, rounded to float32; C=0.5",
+      "evenodd": {
+        "rmse": 0.0005082520355860083,
+        "mae": 0.00035781031271042707,
+        "p99_abs": 0.0017016649246215775,
+        "maxabs": 0.004024028778076172,
+        "nonfinite": 0
+      },
+      "lowhigh": {
+        "rmse": 0.0005071912171102045,
+        "mae": 0.00035642474919583833,
+        "p99_abs": 0.0017046928405761719,
+        "maxabs": 0.003970623016357422,
+        "nonfinite": 0
+      },
+      "output_bitdiff": 17302
+    }
+  ]
+}

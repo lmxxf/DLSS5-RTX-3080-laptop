@@ -1,0 +1,58 @@
+{
+  "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_v23_sync_probe_DIAGNOSTIC.dll",
+  "sha256": "5779eec04253081a4c39a2b2214b2cefa86eab1fcc9fb524f882628e00d631da",
+  "stats": {
+    "0": "ELF O4 (cubin=1590112 B -> fatbin=257384 / 841720 B) in 14.62s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, diagnostic_ready_bypass=4, maxnreg_override=19",
+    "1": "ELF O4 (cubin=1427616 B -> fatbin=183008 / 557032 B) in 10.76s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, diagnostic_ready_bypass=4",
+    "2": "ELF O4 (cubin=1527072 B -> fatbin=145616 / 506464 B) in 10.91s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832, diagnostic_ready_bypass=4",
+    "3": "ELF O4 (cubin=1520672 B -> fatbin=191568 / 586832 B) in 11.45s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, diagnostic_ready_bypass=4, maxnreg_override=12",
+    "4": "ELF O4 (cubin=1290272 B -> fatbin=221520 / 433184 B) in 7.86s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, diagnostic_ready_bypass=25, maxnreg_override=23",
+    "5": "ELF O4 (cubin=1655840 B -> fatbin=208384 / 542960 B) in 9.06s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, diagnostic_ready_bypass=34, diagnostic_fence_remove=22, maxnreg_override=29",
+    "6": "ELF O4 (cubin= 184160 B -> fatbin= 40032 /  70336 B) in 0.58s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2"
+  },
+  "manifest": [
+    [
+      0,
+      "inline",
+      1107664,
+      257384
+    ],
+    [
+      1,
+      "inline",
+      1949392,
+      183008
+    ],
+    [
+      2,
+      "inline",
+      2506432,
+      145616
+    ],
+    [
+      3,
+      "inline",
+      3012896,
+      191568
+    ],
+    [
+      4,
+      "inline",
+      3599728,
+      221520
+    ],
+    [
+      5,
+      "inline",
+      4032912,
+      208384
+    ],
+    [
+      6,
+      "inline",
+      4575872,
+      40032
+    ]
+  ],
+  "diagnostic_only": true
+}

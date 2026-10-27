@@ -1,0 +1,10 @@
+from pathlib import Path
+import json,statistics as st
+p=Path(__file__).resolve().parent;primary=json.loads((p/'bench.json').read_text());confirm=json.loads((p/'confirm-1080.json').read_text());assert len(primary)==24 and len(confirm)==8
+rows=primary+confirm;assert all(r['quality']['bitdiff']==0 and r['metrics']['nonfinite']==0 for r in rows);result={};lines=['# V2.3 decode control','','Each process: 50 warmup / 80 measured iterations. Primary forward ABBA and reverse BAAB at all three tiers; additional 1080p forward/reverse block retained in full. Values are means of process medians/minima, not pooled-frame medians.','','| Group | Width | V2.2 median ms | PRMT8 median ms | V2.2 min ms | PRMT8 min ms | Time decrease |','|---|---:|---:|---:|---:|---:|---:|']
+for group,data in [('primary',primary),('confirm1080',confirm),('combined',rows)]:
+ result[group]={}
+ for w in sorted(set(r['width'] for r in data)):
+  a=[r for r in data if r['width']==w and r['variant']=='baseline'];b=[r for r in data if r['width']==w and r['variant']=='decode'];mean=lambda rs,k:st.mean(r['metrics'][k] for r in rs);am=mean(a,'gpu_median_ms');bm=mean(b,'gpu_median_ms');r={'baseline_median_ms':am,'candidate_median_ms':bm,'baseline_min_ms':mean(a,'gpu_min_ms'),'candidate_min_ms':mean(b,'gpu_min_ms'),'gain_percent':100*(1-bm/am),'runs_per_version':len(a),'bitdiff':0};result[group][str(w)]=r;lines.append(f'| {group} | {w} | {am:.5f} | {bm:.5f} | {r["baseline_min_ms"]:.5f} | {r["candidate_min_ms"]:.5f} | {r["gain_percent"]:.3f}% |')
+lines+=['Primary 1080p forward includes one 12.144 ms candidate run and is slower in that direction; the reverse block wins. The concern motivated one complete independent confirmation block, whose two directions both win. No sample was dropped. Combined 1080p contains eight runs per version.','', 'All 6 smoke and 32 timed outputs are bit identical to same-configuration V2.2 gold (maxabs=0 / PSNR=infinite / invalid=0).']
+(p/'summary.json').write_text(json.dumps(result,indent=2)+'\n');(p/'results.md').write_text('\n'.join(lines)+'\n');print('\n'.join(lines[:19]))

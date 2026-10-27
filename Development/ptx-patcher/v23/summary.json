@@ -1,0 +1,71 @@
+{
+  "primary": {
+    "1280": {
+      "baseline_median_ms": 6.2495,
+      "candidate_median_ms": 6.12575,
+      "baseline_min_ms": 6.1015,
+      "candidate_min_ms": 5.98025,
+      "gain_percent": 1.9801584126730165,
+      "runs_per_version": 4,
+      "bitdiff": 0
+    },
+    "1600": {
+      "baseline_median_ms": 9.12125,
+      "candidate_median_ms": 8.92525,
+      "baseline_min_ms": 8.86075,
+      "candidate_min_ms": 8.7235,
+      "gain_percent": 2.1488282855968155,
+      "runs_per_version": 4,
+      "bitdiff": 0
+    },
+    "1920": {
+      "baseline_median_ms": 11.877749999999999,
+      "candidate_median_ms": 11.807500000000001,
+      "baseline_min_ms": 11.54325,
+      "candidate_min_ms": 11.36075,
+      "gain_percent": 0.5914419818568106,
+      "runs_per_version": 4,
+      "bitdiff": 0
+    }
+  },
+  "confirm1080": {
+    "1920": {
+      "baseline_median_ms": 11.73375,
+      "candidate_median_ms": 11.5565,
+      "baseline_min_ms": 11.4825,
+      "candidate_min_ms": 11.286999999999999,
+      "gain_percent": 1.5105997656333248,
+      "runs_per_version": 4,
+      "bitdiff": 0
+    }
+  },
+  "combined": {
+    "1280": {
+      "baseline_median_ms": 6.2495,
+      "candidate_median_ms": 6.12575,
+      "baseline_min_ms": 6.1015,
+      "candidate_min_ms": 5.98025,
+      "gain_percent": 1.9801584126730165,
+      "runs_per_version": 4,
+      "bitdiff": 0
+    },
+    "1600": {
+      "baseline_median_ms": 9.12125,
+      "candidate_median_ms": 8.92525,
+      "baseline_min_ms": 8.86075,
+      "candidate_min_ms": 8.7235,
+      "gain_percent": 2.1488282855968155,
+      "runs_per_version": 4,
+      "bitdiff": 0
+    },
+    "1920": {
+      "baseline_median_ms": 11.80575,
+      "candidate_median_ms": 11.682,
+      "baseline_min_ms": 11.512875000000001,
+      "candidate_min_ms": 11.323875,
+      "gain_percent": 1.0482180293501009,
+      "runs_per_version": 8,
+      "bitdiff": 0
+    }
+  }
+}

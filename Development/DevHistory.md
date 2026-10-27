@@ -906,3 +906,18 @@ FB04/05/06共316处bulk（104/208/4）改用cp.async.mbarrier.arrive.shared::cta
   1. 在 `bench_sky.exe` 中拦截 `nvcuda.dll` 的 Kernel 发射接口（`cuLaunchKernel` / `cuLaunchKernelEx` / `cuGraphLaunch`），采集 `V2.2` 在 720p 与 1080p 下一帧实际发射的全部 Kernel 名称、Grid/Block 尺寸、调用次数与逐核硬件时间戳耗时排行榜（落盘于 `Development/ptx-patcher/v23/`）；
   2. 重点排查：① 实际执行的核是否走了带跨块原子自旋同步的 `*_tilesync_fp8` / `*_wait_fp8`（`fence.acq_rel.gpu;` + `nanosleep` 自旋等待开销）；② `FB07~FB14` 辅助核及与分辨率弱相关的固定开销；③ `even_odd_decode_lines`（每操作数 10 条指令）与 `multidef_nq` 保守回退的进一步瘦身空间；
   3. 对定位到的真实瓶颈实施 `V2.3` 优化并做三档正反 ABBA 实测验证。
+
+
+## 2026-10-27：PTX V2.3，真实NVAPI逐核账本、弱缩放定位与PRMT8推荐（闇）
+
+以19:12已部署的V2.2为唯一基线。公开nvcuda Module/Launch/Graph/GetProcAddress拦截没有发射记录，NVAPI QueryInterface证实NGX D3D12走CreateCuModule/CreateCuFunction/LaunchCuKernelChain。独立runner按原调用插D3D12硬件timestamp，50warmup/20iter与trace-only对照；稳态每帧82次、40个核名，每链1核，未拆链。83的初计包含一次初始化空链探测。720/1080真实Grid/Block、逐核/FB ledger、原始CSV归档[v23](ptx-patcher/v23/README.md)。两种捕获末帧0bit，插桩会扰动调度，不冒充硬件stall计数器。
+
+逐FB累加mean（720/1080ms）：00 1.86593/4.26317、01 0.53842/1.17612、02 0.46807/0.98586、03 0.50033/1.11677、04 0.63416/0.92662、05 1.99562/3.13231、06 0.03354/0.04413、13 0.05663/0.12662、14 0.03436/0.08909；07～12未发射。核合计mean6.12705/11.86068，核间间隙median0.0215/0.0241ms。按1080/2.25参照，720非线性额外0.856ms，其中04～06贡献约0.840ms；这是缩放账本，不是可回收预算。ViT主体96→160CTA、attention64→96，720小Grid利用率受限。C32首层168×96→240×144，边界扩张/取整，非可见像素窗口数；真实活跃prefix/post HMMA528/580而非统一512。Roofline静态辅助比与70%重叠仍待动态验证，不能把2.7～3.5ms估算差直接当作确定stall或“浪费”。未改外仓文章。
+
+两项同步控制均独立于解包：绕过匹配的ready轮询并去GPU fence，使720PSNR仅15.0～16.4dB、1080仅23.2～24.4dB，不合格，不拿错误输出速度算收益；仅去nanosleep保留全部轮询/fence，50/20 ABBA末帧0bit，720 6.1515→6.1520、1080 11.6585→11.6695ms，无净收益。两者均不进默认，原同步语义保留。真实活跃核mapped静态操作数使用39312次中13600已转发、25552其他编码源、仅160次直接pack_multidef回退（C32两个wait核各64、ViT attention32），不是已证明安全的160处机会，不放宽规则。
+
+PRMT符号复制0xa280/0xb391、mask0x017f017f再shl7/HMUL2，把偶奇解包10→8条。GPU33,554,432组，两parity完整字节对＋256干扰字节、含非有限，逐位0差异；MMA/K次序、图、权重、mapped不变。SASS prefix5456→5352、post5511→5407、ViT expand3289→3225、contract4194→4074，HMMA数不变。静态全导出STACK FB01 168→192B、FB04 80→96B、FB02 8→0B，FB05仍16B，实际C64四活跃核spill增长，C512活跃QKV仍80B；如实保留，不宣称零spill。
+
+三档50/80正反ABBA原轮24次，1080一方向有12.144ms慢样本，因此加完整正反8次确认，全部保留未删样本。原轮配对6.24950→6.12575、9.12125→8.92525、11.87775→11.80750ms；1080确认11.73375→11.55650ms，两方向均赢。原轮＋确认1080为11.80575→11.68200ms。最终三档耗时降1.98%/2.15%/1.05%，6快验＋32正式末帧全0bit/maxabs0/PSNR∞/invalid0。晚段遥测仅覆盖后段控制与确认，不冒充全程锁频实验。[配对表](ptx-patcher/v23/results.md)、[账本](ptx-patcher/v23/kernel-ledger.md)、[验收](ptx-patcher/v23/validation.json)。
+
+推荐独立DLL `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23.dll`，266414592B、15/15 O4原槽位；SHA256 `b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6`。全15重编SHA相同，10项既有回归通过；入口v23/build_recommended.py显式选prmt8，兼容构建默认保留。临时DLL/RGB/PTX/cubin清理，保留推荐DLL及文本证据；已部署V2.2主fast、V2.2副本及三个正式ZIP保护性SHA未变。本轮不部署、不push，立即独立commit，无Co-Authored-By。

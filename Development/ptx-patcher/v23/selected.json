@@ -1,0 +1,161 @@
+{
+  "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23.dll",
+  "bytes": 266414592,
+  "sha256": "b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6",
+  "args": [
+    "python3",
+    "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+    "--output",
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23_decode.dll",
+    "--half-pack",
+    "swar",
+    "--bulk-completion",
+    "mbarrier",
+    "--fp8-decode",
+    "prmt8",
+    "--maxnreg",
+    "0:255",
+    "--maxnreg",
+    "3:255",
+    "--maxnreg",
+    "4:255",
+    "--maxnreg",
+    "5:255",
+    "--maxnreg",
+    "6:255"
+  ],
+  "manifest": [
+    [
+      0,
+      "inline",
+      1107664,
+      301464
+    ],
+    [
+      1,
+      "inline",
+      1949392,
+      234144
+    ],
+    [
+      2,
+      "inline",
+      2506432,
+      165240
+    ],
+    [
+      3,
+      "inline",
+      3012896,
+      264064
+    ],
+    [
+      4,
+      "inline",
+      3599728,
+      235584
+    ],
+    [
+      5,
+      "inline",
+      4032912,
+      254720
+    ],
+    [
+      6,
+      "inline",
+      4575872,
+      35416
+    ],
+    [
+      7,
+      "inline",
+      4649280,
+      1448
+    ],
+    [
+      8,
+      "inline",
+      4657312,
+      1520
+    ],
+    [
+      9,
+      "inline",
+      4668224,
+      1608
+    ],
+    [
+      10,
+      "inline",
+      4680032,
+      1816
+    ],
+    [
+      11,
+      "inline",
+      4690608,
+      1536
+    ],
+    [
+      12,
+      "inline",
+      4700576,
+      1128
+    ],
+    [
+      13,
+      "inline",
+      4707136,
+      8888
+    ],
+    [
+      14,
+      "inline",
+      4761968,
+      1240
+    ]
+  ],
+  "variant": "prmt8",
+  "baseline": "V2.2",
+  "caps": {
+    "0": 255,
+    "3": 255,
+    "4": 255,
+    "5": 255,
+    "6": 255
+  },
+  "half_pack": "swar",
+  "bulk_completion": "mbarrier",
+  "fp8_decode": "prmt8",
+  "performance": {
+    "1280": {
+      "baseline_median_ms": 6.2495,
+      "candidate_median_ms": 6.12575,
+      "baseline_min_ms": 6.1015,
+      "candidate_min_ms": 5.98025,
+      "gain_percent": 1.9801584126730165,
+      "runs_per_version": 4,
+      "bitdiff": 0
+    },
+    "1600": {
+      "baseline_median_ms": 9.12125,
+      "candidate_median_ms": 8.92525,
+      "baseline_min_ms": 8.86075,
+      "candidate_min_ms": 8.7235,
+      "gain_percent": 2.1488282855968155,
+      "runs_per_version": 4,
+      "bitdiff": 0
+    },
+    "1920": {
+      "baseline_median_ms": 11.80575,
+      "candidate_median_ms": 11.682,
+      "baseline_min_ms": 11.512875000000001,
+      "candidate_min_ms": 11.323875,
+      "gain_percent": 1.0482180293501009,
+      "runs_per_version": 8,
+      "bitdiff": 0
+    }
+  },
+  "reason": "All primary+confirmation grouped tiers improve; 1080p forward concern retained and independently confirmed, no sample discarded; synchronization probes excluded."
+}

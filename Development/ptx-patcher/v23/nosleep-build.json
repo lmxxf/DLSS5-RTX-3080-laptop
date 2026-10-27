@@ -1,0 +1,58 @@
+{
+  "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_v23_nosleep_DIAGNOSTIC.dll",
+  "sha256": "9a24fca8826eda36fb08a609cb6c353832520b94a0a80a2264832b4183de52c3",
+  "stats": {
+    "0": "ELF O4 (cubin=1595360 B -> fatbin=305816 / 841720 B) in 13.91s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, diagnostic_nosleep=4, maxnreg_override=19",
+    "1": "ELF O4 (cubin=1431968 B -> fatbin=226784 / 557032 B) in 10.49s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, diagnostic_nosleep=4",
+    "2": "ELF O4 (cubin=1531168 B -> fatbin=197208 / 506464 B) in 11.03s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832, diagnostic_nosleep=4",
+    "3": "ELF O4 (cubin=1524896 B -> fatbin=276536 / 586832 B) in 11.81s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, diagnostic_nosleep=4, maxnreg_override=12",
+    "4": "ELF O4 (cubin=1312800 B -> fatbin=240784 / 433184 B) in 7.22s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, diagnostic_nosleep=25, maxnreg_override=23",
+    "5": "ELF O4 (cubin=1676832 B -> fatbin=257728 / 542960 B) in 8.91s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, diagnostic_nosleep=50, maxnreg_override=29",
+    "6": "ELF O4 (cubin= 184160 B -> fatbin= 40008 /  70336 B) in 1.50s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, diagnostic_nosleep=2, maxnreg_override=2"
+  },
+  "manifest": [
+    [
+      0,
+      "inline",
+      1107664,
+      305816
+    ],
+    [
+      1,
+      "inline",
+      1949392,
+      226784
+    ],
+    [
+      2,
+      "inline",
+      2506432,
+      197208
+    ],
+    [
+      3,
+      "inline",
+      3012896,
+      276536
+    ],
+    [
+      4,
+      "inline",
+      3599728,
+      240784
+    ],
+    [
+      5,
+      "inline",
+      4032912,
+      257728
+    ],
+    [
+      6,
+      "inline",
+      4575872,
+      40008
+    ]
+  ],
+  "diagnostic_only": true
+}

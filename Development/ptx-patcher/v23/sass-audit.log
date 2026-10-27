@@ -1,0 +1,15 @@
+cc_tinlayout_fused_post_block_swin_1h_32_fp8 5511 -> 5407 PRMT 604 -> 828 HMMA 580
+cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8 5456 -> 5352 PRMT 524 -> 732 HMMA 528
+cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8 5808 -> 5672 PRMT 547 -> 818 HMMA 528
+cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8 4684 -> 4564 PRMT 506 -> 746 HMMA 512
+cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8 4670 -> 4552 PRMT 516 -> 755 HMMA 512
+cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8 4756 -> 4636 PRMT 516 -> 748 HMMA 520
+cc_vit_1d_attention_chained_fp8 3481 -> 3433 PRMT 336 -> 432 HMMA 128
+cc_vit_1d_ffn_contract_chained_fp8 4194 -> 4074 PRMT 236 -> 492 HMMA 256
+cc_vit_1d_ffn_expand_chained_fp8 3289 -> 3225 PRMT 159 -> 287 HMMA 128
+cc_vit_1d_ffn_expand_publish_fp8 3191 -> 3127 PRMT 158 -> 287 HMMA 128
+cc_vit_1d_projection_chained_fp8 3149 -> 3085 PRMT 216 -> 344 HMMA 128
+cc_vit_1d_projection_wait_fp8 3141 -> 3077 PRMT 216 -> 344 HMMA 128
+cc_vit_1d_qkv_chained_fp8 3711 -> 3623 PRMT 168 -> 328 HMMA 192
+cc_vit_1d_repack_1d_to_2d_fp8 160 -> 160 PRMT 24 -> 24 HMMA 0
+cc_vit_1d_repack_2d_to_1d_fp8 216 -> 216 PRMT 38 -> 38 HMMA 0

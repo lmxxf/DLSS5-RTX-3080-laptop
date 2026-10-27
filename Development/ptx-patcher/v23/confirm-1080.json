@@ -1,0 +1,322 @@
+[
+  {
+    "name": "confirm-forward-0",
+    "variant": "baseline",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T19:28:09.521058",
+    "end": "2026-10-27T19:28:12.876844",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.704,
+      "gpu_mean_ms": 11.781,
+      "gpu_min_ms": 11.477,
+      "wall_median_ms": 11.949,
+      "wall_mean_ms": 12.339,
+      "wall_min_ms": 5.001,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430777
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll",
+      "1920",
+      "1080",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v23-bench/confirm-forward-0-baseline-1920.rgb32"
+    ]
+  },
+  {
+    "name": "confirm-forward-1",
+    "variant": "decode",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T19:28:12.878233",
+    "end": "2026-10-27T19:28:15.915109",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.506,
+      "gpu_mean_ms": 11.602,
+      "gpu_min_ms": 11.352,
+      "wall_median_ms": 11.526,
+      "wall_mean_ms": 12.267,
+      "wall_min_ms": 3.367,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430777
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23_decode.dll",
+      "1920",
+      "1080",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v23-bench/confirm-forward-1-decode-1920.rgb32"
+    ]
+  },
+  {
+    "name": "confirm-forward-2",
+    "variant": "decode",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T19:28:15.917607",
+    "end": "2026-10-27T19:28:18.963726",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.583,
+      "gpu_mean_ms": 11.816,
+      "gpu_min_ms": 11.241,
+      "wall_median_ms": 11.999,
+      "wall_mean_ms": 12.282,
+      "wall_min_ms": 2.588,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430777
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23_decode.dll",
+      "1920",
+      "1080",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v23-bench/confirm-forward-2-decode-1920.rgb32"
+    ]
+  },
+  {
+    "name": "confirm-forward-3",
+    "variant": "baseline",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T19:28:18.966303",
+    "end": "2026-10-27T19:28:22.011052",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.705,
+      "gpu_mean_ms": 11.806,
+      "gpu_min_ms": 11.48,
+      "wall_median_ms": 12.147,
+      "wall_mean_ms": 12.476,
+      "wall_min_ms": 4.429,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430777
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll",
+      "1920",
+      "1080",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v23-bench/confirm-forward-3-baseline-1920.rgb32"
+    ]
+  },
+  {
+    "name": "confirm-reverse-0",
+    "variant": "decode",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T19:28:22.013580",
+    "end": "2026-10-27T19:28:25.018516",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.524,
+      "gpu_mean_ms": 11.695,
+      "gpu_min_ms": 11.253,
+      "wall_median_ms": 11.921,
+      "wall_mean_ms": 12.286,
+      "wall_min_ms": 2.661,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430777
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23_decode.dll",
+      "1920",
+      "1080",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v23-bench/confirm-reverse-0-decode-1920.rgb32"
+    ]
+  },
+  {
+    "name": "confirm-reverse-1",
+    "variant": "baseline",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T19:28:25.021240",
+    "end": "2026-10-27T19:28:28.059481",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.696,
+      "gpu_mean_ms": 11.874,
+      "gpu_min_ms": 11.506,
+      "wall_median_ms": 12.171,
+      "wall_mean_ms": 12.243,
+      "wall_min_ms": 3.498,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430777
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll",
+      "1920",
+      "1080",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v23-bench/confirm-reverse-1-baseline-1920.rgb32"
+    ]
+  },
+  {
+    "name": "confirm-reverse-2",
+    "variant": "baseline",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T19:28:28.062255",
+    "end": "2026-10-27T19:28:31.162327",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.83,
+      "gpu_mean_ms": 11.93,
+      "gpu_min_ms": 11.467,
+      "wall_median_ms": 12.442,
+      "wall_mean_ms": 12.499,
+      "wall_min_ms": 3.599,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430777
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll",
+      "1920",
+      "1080",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v23-bench/confirm-reverse-2-baseline-1920.rgb32"
+    ]
+  },
+  {
+    "name": "confirm-reverse-3",
+    "variant": "decode",
+    "width": 1920,
+    "height": 1080,
+    "warmup": 50,
+    "iterations": 80,
+    "begin": "2026-10-27T19:28:31.164802",
+    "end": "2026-10-27T19:28:34.180326",
+    "metrics": {
+      "W": 1920.0,
+      "H": 1080.0,
+      "preset": 2.0,
+      "gpu_median_ms": 11.613,
+      "gpu_mean_ms": 11.728,
+      "gpu_min_ms": 11.302,
+      "wall_median_ms": 12.007,
+      "wall_mean_ms": 12.378,
+      "wall_min_ms": 3.836,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.430777
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "bb32f70f40bf858d12c27b801a0ad5d18769ea470e7c898003b5f3407f0b6f94"
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23_decode.dll",
+      "1920",
+      "1080",
+      "2",
+      "50",
+      "80",
+      "C:/DLSS5-5090-dll/ptx-v23-bench/confirm-reverse-3-decode-1920.rgb32"
+    ]
+  }
+]

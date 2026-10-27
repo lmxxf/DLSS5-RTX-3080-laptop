@@ -208,6 +208,8 @@ def even_odd_decode_lines(register, first, second):
   ]
 
 
+stock_even_odd_decode_lines = even_odd_decode_lines
+
 def fast_render_fp8_mma_run(matches, packed_sources):
   """Use the same K permutation for A/B; FP16 rounding order differs from legacy."""
   operands=list(dict.fromkeys(m.group(n) for m in matches for n in ("a0","a1","a2","a3","b0","b1")))
@@ -373,6 +375,12 @@ def worker_compile_fatbin(args):
   maxnreg = build_options[4] if len(build_options)>4 else None
   half_pack = build_options[5] if len(build_options)>5 else "legacy"
   bulk_completion = build_options[6] if len(build_options)>6 else "immediate"
+  fp8_decode = build_options[7] if len(build_options)>7 else "legacy"
+  global even_odd_decode_lines
+  even_odd_decode_lines = stock_even_odd_decode_lines
+  if fp8_decode == "prmt8":
+    from v23.decode import decode
+    even_odd_decode_lines = decode
   t0 = time.time()
   libzstd = ctypes.CDLL("libzstd.so.1")
   libzstd.ZSTD_decompress.argtypes = [
@@ -549,8 +557,9 @@ def main():
   parser.add_argument("--quantize-mapped", action="store_true", help="Diagnostic: restore explicit E4M3 quantization on mapped sources")
   parser.add_argument("--half-pack", choices=("legacy", "swar"), default="legacy")
   parser.add_argument("--bulk-completion", choices=("immediate", "mbarrier"), default="immediate")
+  parser.add_argument("--fp8-decode", choices=("legacy", "prmt8"), default="legacy")
   args = parser.parse_args()
-  if (args.half_pack != "legacy" or args.bulk_completion != "immediate") and args.output is None:
+  if (args.half_pack != "legacy" or args.bulk_completion != "immediate" or args.fp8_decode != "legacy") and args.output is None:
     parser.error("Experimental factors require an explicit --output path")
   caps = {}
   for spec in args.maxnreg:
@@ -568,7 +577,7 @@ def main():
   locs = dp.find_fatbins(data)
   assert len(locs) == 15, f"Expected 15 fatbins, found {len(locs)}"
   dp.apply_host_patches(data, (dp.AMPERE,))
-  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped, args.mma_layout, caps.get(i), args.half_pack, args.bulk_completion) for i, l in enumerate(locs)]
+  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped, args.mma_layout, caps.get(i), args.half_pack, args.bulk_completion, args.fp8_decode) for i, l in enumerate(locs)]
   blobs = {}
   with ProcessPoolExecutor(max_workers=args.workers) as pool:
     futures = [pool.submit(worker_compile_fatbin, task) for task in tasks]

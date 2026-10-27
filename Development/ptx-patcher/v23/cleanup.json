@@ -1,0 +1,80 @@
+{
+  "removed": [
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23_decode.dll",
+      "bytes": 266414592,
+      "sha256": "b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_v23_sync_probe_DIAGNOSTIC.dll",
+      "bytes": 266414592,
+      "sha256": "5779eec04253081a4c39a2b2214b2cefa86eab1fcc9fb524f882628e00d631da"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_v23_nosleep_DIAGNOSTIC.dll",
+      "bytes": 266414592,
+      "sha256": "9a24fca8826eda36fb08a609cb6c353832520b94a0a80a2264832b4183de52c3"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/v23-events-1280.rgb32",
+      "bytes": 11059200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/v23-events-1920.rgb32",
+      "bytes": 24883200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/v23-trace-1280.rgb32",
+      "bytes": 11059200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/v23-trace-1920.rgb32",
+      "bytes": 24883200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/v23-decode-events-1280.rgb32",
+      "bytes": 11059200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/v23-decode-events-1920.rgb32",
+      "bytes": 24883200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_profile.exe",
+      "bytes": 2775666,
+      "sha256": "3107bd4892e0e667448bf8b006825b5b69e283ac4e593548c9194b5b9e3c1a98"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v23-bench/gold-1-1-1280.rgb32",
+      "bytes": 11059200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v23-bench/gold-1-1-1600.rgb32",
+      "bytes": 17280000
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v23-bench/gold-1-1-1920.rgb32",
+      "bytes": 24883200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v23-bench/gold-50-80-1280.rgb32",
+      "bytes": 11059200
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v23-bench/gold-50-80-1600.rgb32",
+      "bytes": 17280000
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v23-bench/gold-50-80-1920.rgb32",
+      "bytes": 24883200
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v23/artifacts",
+      "files": 258,
+      "bytes": 241710711
+    }
+  ],
+  "removed_bytes": 1258002153,
+  "retained": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23.dll",
+  "retained_sha256": "b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6"
+}

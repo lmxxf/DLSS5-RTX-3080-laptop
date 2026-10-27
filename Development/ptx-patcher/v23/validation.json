@@ -1,0 +1,341 @@
+{
+  "selected": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23.dll",
+    "bytes": 266414592,
+    "sha256": "b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6",
+    "args": [
+      "python3",
+      "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+      "--output",
+      "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23_decode.dll",
+      "--half-pack",
+      "swar",
+      "--bulk-completion",
+      "mbarrier",
+      "--fp8-decode",
+      "prmt8",
+      "--maxnreg",
+      "0:255",
+      "--maxnreg",
+      "3:255",
+      "--maxnreg",
+      "4:255",
+      "--maxnreg",
+      "5:255",
+      "--maxnreg",
+      "6:255"
+    ],
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        301464
+      ],
+      [
+        1,
+        "inline",
+        1949392,
+        234144
+      ],
+      [
+        2,
+        "inline",
+        2506432,
+        165240
+      ],
+      [
+        3,
+        "inline",
+        3012896,
+        264064
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        235584
+      ],
+      [
+        5,
+        "inline",
+        4032912,
+        254720
+      ],
+      [
+        6,
+        "inline",
+        4575872,
+        35416
+      ],
+      [
+        7,
+        "inline",
+        4649280,
+        1448
+      ],
+      [
+        8,
+        "inline",
+        4657312,
+        1520
+      ],
+      [
+        9,
+        "inline",
+        4668224,
+        1608
+      ],
+      [
+        10,
+        "inline",
+        4680032,
+        1816
+      ],
+      [
+        11,
+        "inline",
+        4690608,
+        1536
+      ],
+      [
+        12,
+        "inline",
+        4700576,
+        1128
+      ],
+      [
+        13,
+        "inline",
+        4707136,
+        8888
+      ],
+      [
+        14,
+        "inline",
+        4761968,
+        1240
+      ]
+    ],
+    "variant": "prmt8",
+    "baseline": "V2.2",
+    "caps": {
+      "0": 255,
+      "3": 255,
+      "4": 255,
+      "5": 255,
+      "6": 255
+    },
+    "half_pack": "swar",
+    "bulk_completion": "mbarrier",
+    "fp8_decode": "prmt8",
+    "performance": {
+      "1280": {
+        "baseline_median_ms": 6.2495,
+        "candidate_median_ms": 6.12575,
+        "baseline_min_ms": 6.1015,
+        "candidate_min_ms": 5.98025,
+        "gain_percent": 1.9801584126730165,
+        "runs_per_version": 4,
+        "bitdiff": 0
+      },
+      "1600": {
+        "baseline_median_ms": 9.12125,
+        "candidate_median_ms": 8.92525,
+        "baseline_min_ms": 8.86075,
+        "candidate_min_ms": 8.7235,
+        "gain_percent": 2.1488282855968155,
+        "runs_per_version": 4,
+        "bitdiff": 0
+      },
+      "1920": {
+        "baseline_median_ms": 11.80575,
+        "candidate_median_ms": 11.682,
+        "baseline_min_ms": 11.512875000000001,
+        "candidate_min_ms": 11.323875,
+        "gain_percent": 1.0482180293501009,
+        "runs_per_version": 8,
+        "bitdiff": 0
+      }
+    },
+    "reason": "All primary+confirmation grouped tiers improve; 1080p forward concern retained and independently confirmed, no sample discarded; synchronization probes excluded."
+  },
+  "primitive": {
+    "pairs": 33554432,
+    "FP8_patterns_per_byte": 256,
+    "all_bitdiff": 0,
+    "old_PTX_lines": 10,
+    "new_PTX_lines": 8,
+    "including_nonfinite": true
+  },
+  "correct_smoke_timed_outputs": 38,
+  "profiles": {
+    "profile.json": {
+      "1280": {
+        "calls_per_frame": 82,
+        "unique_kernels": 40,
+        "event_vs_trace_bitdiff": 0,
+        "sum_kernel_mean_ms": 6.127052799999998,
+        "median_interkernel_gap_ms": 0.021504000000002854
+      },
+      "1920": {
+        "calls_per_frame": 82,
+        "unique_kernels": 40,
+        "event_vs_trace_bitdiff": 0,
+        "sum_kernel_mean_ms": 11.860684799999998,
+        "median_interkernel_gap_ms": 0.024064000000003638
+      }
+    },
+    "decode-profile.json": {
+      "1280": {
+        "calls_per_frame": 82,
+        "unique_kernels": 40,
+        "event_vs_trace_bitdiff": 0,
+        "sum_kernel_mean_ms": 6.071449599999999,
+        "median_interkernel_gap_ms": 0.0215039999999993
+      },
+      "1920": {
+        "calls_per_frame": 82,
+        "unique_kernels": 40,
+        "event_vs_trace_bitdiff": 0,
+        "sum_kernel_mean_ms": 11.497932800000001,
+        "median_interkernel_gap_ms": 0.02048000000000183
+      }
+    }
+  },
+  "selected_rebuild_PTX_equal": true,
+  "all15_O4_inline": true,
+  "size_growth": 0,
+  "PTX": {
+    "0": {
+      "sha256": "c6cadd158bd0d29a80828277c3067a3e136b3befba44f974fcd2d677b73be720",
+      "async_bindings": 0,
+      "prmt_even": 2672,
+      "prmt_odd": 2672,
+      "cap": [
+        255
+      ]
+    },
+    "1": {
+      "sha256": "8d019edc82bb978df5bc8a0ad99f2753bbd8299c7ad148d8ffad49a79fef418a",
+      "async_bindings": 0,
+      "prmt_even": 3128,
+      "prmt_odd": 3128,
+      "cap": [
+        168
+      ]
+    },
+    "2": {
+      "sha256": "a10294af50dbfcf29f065525159f518693a4c6f7d108e2fd54e1ac659a01ad57",
+      "async_bindings": 0,
+      "prmt_even": 3672,
+      "prmt_odd": 3672,
+      "cap": [
+        168
+      ]
+    },
+    "3": {
+      "sha256": "ccc03ccf454a2975b522567f254a8bf3a181f0abd9c006908d0764cfde2d8766",
+      "async_bindings": 0,
+      "prmt_even": 3528,
+      "prmt_odd": 3528,
+      "cap": [
+        255
+      ]
+    },
+    "4": {
+      "sha256": "f378eb39bacbc946ebbc28239d693e6fdc52d9d12a563d9f85fc5558bc3c842f",
+      "async_bindings": 104,
+      "prmt_even": 2144,
+      "prmt_odd": 2144,
+      "cap": [
+        255
+      ]
+    },
+    "5": {
+      "sha256": "c501ea9a7cf2b12ce2161c6f1e6d9c1788d044e26948a456867e0736c3631c3c",
+      "async_bindings": 208,
+      "prmt_even": 1968,
+      "prmt_odd": 1968,
+      "cap": [
+        255
+      ]
+    },
+    "6": {
+      "sha256": "13c96fd45ff9f5a19f78c72f1fccf70f4dc0252e292137afd78e7144abd07381",
+      "async_bindings": 4,
+      "prmt_even": 288,
+      "prmt_odd": 288,
+      "cap": [
+        255
+      ]
+    },
+    "7": {
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438",
+      "async_bindings": 0,
+      "prmt_even": 0,
+      "prmt_odd": 0,
+      "cap": []
+    },
+    "8": {
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88",
+      "async_bindings": 0,
+      "prmt_even": 0,
+      "prmt_odd": 0,
+      "cap": []
+    },
+    "9": {
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9",
+      "async_bindings": 0,
+      "prmt_even": 0,
+      "prmt_odd": 0,
+      "cap": []
+    },
+    "10": {
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88",
+      "async_bindings": 0,
+      "prmt_even": 0,
+      "prmt_odd": 0,
+      "cap": []
+    },
+    "11": {
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb",
+      "async_bindings": 0,
+      "prmt_even": 0,
+      "prmt_odd": 0,
+      "cap": []
+    },
+    "12": {
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9",
+      "async_bindings": 0,
+      "prmt_even": 0,
+      "prmt_odd": 0,
+      "cap": []
+    },
+    "13": {
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046",
+      "async_bindings": 0,
+      "prmt_even": 0,
+      "prmt_odd": 0,
+      "cap": []
+    },
+    "14": {
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9",
+      "async_bindings": 0,
+      "prmt_even": 0,
+      "prmt_odd": 0,
+      "cap": []
+    }
+  },
+  "protected_files": {
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll": "2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f",
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll": "2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f",
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip": "531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94",
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/OptiScaler-DLSS5-RTX30-0.2.0.zip": "ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f",
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/Magpie-DLSS5-RTX30-0.2.0.zip": "e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739"
+  },
+  "sync_bypass": "REJECTED: all probe outputs differ; cannot infer valid optimization savings",
+  "nosleep": "all bit identical, no net gain; not selected",
+  "regressions": 10,
+  "hardware_counter_limitation": "GPU timestamp intervals and static SASS are not dynamic stall or instruction counters; 70%-overlap roofline gap is not a measured recoverable loss."
+}

@@ -40,14 +40,20 @@
 
 ## 3. 当前主线：路线 B PTX 深度优化（hip-port Phase20 后收官）
 
-> **2026-10-27 19:12 最新状态快照**：
+> **2026-10-27 V2.3 完成状态（19:12 部署事实保留）**：
 > 1. `hip-port`（路线 A）已于 Phase 20 正式收官归档；全仓唯一主攻方向为 **路线 B（`Development/ptx-patcher/`）**。
 > 2. **`PTX V2.2`**（`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll`，SHA256 `2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f`）三档实测已达 **720p `6.25 ms` / 900p `9.12 ms` / 1080p `11.86 ms`**（与 `V2.1` 72 次运行严格 `0 bit-diff`），并已同步安装至本机《鬼武者》（含 `_storage_`）、《剑星》、Magpie 及主 `nvngx_dlssnr_sm86_fast.dll`，待 Zero 回家实机试玩。
-> 3. **硬件算力上限（Roofline）标尺已建立**（详见 `/home/lmxxf/work/ai-theorys-study/wechat/short/20261027/如何测算3080laptop的dlss5算力上限.md`）：720p / 900p / 1080p 理论合成下限为 **`3.54 / 5.92 / 8.33 ms`**（`V2.2` 达成率为 `56.6% / 64.9% / 70.2%`，仍有 `2.71 ~ 3.53 ms` 未解释损耗）。
-> 4. **当前正在执行（`PTX V2.3`，闇 `wE:p1` 执行中）**：拦截 `nvcuda.dll` 获取 `V2.2` 内部逐 Kernel 真实调用列表、Grid/Block 与微秒级 GPU 耗时分布，定位 `2.7 ~ 3.5 ms` 损耗根因（特别是 720p 达成率偏低的原因、`tilesync/wait` 跨块同步开销、`even_odd_decode_lines` 10 指令解包及 `mapped` 过滤）并推进 `V2.3`。
+> 3. **Roofline 估算参照**仍为 `3.54 / 5.92 / 8.33ms`，但 V2.3 已实测发现实际 Grid 边界扩张、活跃核 HMMA 差异及弱缩放；静态平均辅助指令比和70%重叠仍是假设。不能把估算差额直接当作已测 stall 或可回收收益。原计算文档路径不变，本轮未改外仓文章。
+> 4. **V2.3 已完成**：实际拦截 NVAPI D3D12 CuKernelChain，82次/帧、40个核名；PRMT8推荐三档约 **6.13 / 8.93 / 11.68ms**，相对同轮V2.2约快1.98%/2.15%/1.05%，38次快验/正式末帧全部0bit。新DLL另存，不改变第2点已部署的V2.2。
 
-### 正在执行：PTX V2.3 逐核耗时剖析与剩余损耗攻坚（以 Roofline `3.54 / 5.92 / 8.33 ms` 为标尺）
-- **目标**：不依赖外部包，直接根据 Roofline 理论下限与 `V2.2` 实测之间的差额（720p `2.71 ms`、900p `3.20 ms`、1080p `3.53 ms`），通过 CUDA Driver API 拦截获取 `nvngx_dlssnr.dll` 内部每次 Kernel 发射的真实耗时账本，找出真正的瓶颈核与指令 Stall 并实施 `V2.3` 优化（产物与报告归档于 `Development/ptx-patcher/v23/`）。
+### 已完成：PTX V2.3，真实逐核账本＋8条解包
+
+- **真发射路径**：独立诊断runner拦截 `NvAPI_D3D12_CreateCuModule/CreateCuFunction/LaunchCuKernelChain`，不是公开nvcuda launch。720/1080每帧82次、40个核名，每链1核；初计83含一次初始化空链。50/20硬件时间戳与trace-only输出一致，完整Grid/Block和82次逐核耗时见[账本](ptx-patcher/v23/kernel-ledger.md)。
+- **弱缩放定位**：720/1080逐FB累加mean：FB00 1.86593/4.26317ms、FB05 1.99562/3.13231ms、FB04 0.63416/0.92662ms；其余逐FB表见[回执](ptx-patcher/v23/README.md)。FB07～12不发射，13/14合计0.091/0.216ms；核间间隙median仅0.0215/0.0241ms。按1080/2.25线性参照，720总额外约0.856ms，其中FB04～06约0.840ms（缩放分解，不是可回收预算）。ViT主体96→160 CTA，attention64→96，不随像素2.25倍缩放。
+- **同步实测负结果**：ready轮询绕过＋去fence使PSNR掉至720约15～16dB/1080约23～24dB，不合格且不拿其时间差作收益。仅去nanosleep保持0bit，但720 6.1515→6.1520、1080 11.6585→11.6695ms，无净收益。同步语义保留；没有硬件计数器，不伪造动态stall分摊。
+- **保留优化**：符号复制PRMT 0xa280/0xb391＋0x017f017f mask，把偶奇解包10→8条，33,554,432组GPU原语（两parity穷举字节对及干扰字节、含非有限）0bit。mapped不放宽：真实活跃核静态操作数使用39312次，13600已转发；直接因pack_multidef拒绝的160次尚无安全性证明。[mapped/SASS审计](ptx-patcher/v23/mapped-sync-audit.json)
+- **32次正式50/80正反ABBA及1080独立确认**，配对V2.2→V2.3均值 **6.24950→6.12575 / 9.12125→8.92525 / 11.80575→11.68200ms**，收益1.98%/2.15%/1.05%；原轮1080一方向回退，确认两方向均赢，所有样本保留。6快验＋32正式末帧全0bit/maxabs0/PSNR∞/invalid0。[完整表](ptx-patcher/v23/results.md)
+- **限制与交付**：全导出STACK FB01 168→192B、FB04 80→96B，FB02 8→0B，FB05仍16B；不宣称零spill。推荐 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23.dll`，266414592B，15/15原槽位O4，SHA256 `b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6`。全15重建SHA一致，10项回归通过。[验收](ptx-patcher/v23/validation.json)；`python3 Development/ptx-patcher/v23/build_recommended.py`复现。清理重复大产物，保持已部署V2.2主fast及三ZIP哈希不变，不部署、不push，立即独立commit，无Co-Authored-By。
 
 ### 已完成：PTX V2.2，SWAR 量化与原生异步 barrier
 

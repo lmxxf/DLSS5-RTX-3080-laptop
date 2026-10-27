@@ -1,0 +1,43 @@
+{
+  "a_cap0": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_a_cap0.dll",
+    "sha256": "2daf1cb629391e1bf2d5b5f65004f5923de5a048cfa530f6739d85583944e7b2",
+    "bytes": 266414592,
+    "mask": 9,
+    "kernel_caps": {
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": 168,
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": 168,
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": 168,
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": 168
+    },
+    "base_DLL": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_a.dll",
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        279320
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1432288 B -> fatbin=279320 / 841720 B) in 12.50s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19"
+  },
+  "prefix168": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_prefix168.dll",
+    "sha256": "f47151a304c7f7ed11f4ae5344001b4c629c22bf719ee7e1f380fb91dc654432",
+    "bytes": 266414592,
+    "mask": 8,
+    "kernel_caps": {
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": 168
+    },
+    "base_DLL": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v26.dll",
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        268016
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1437536 B -> fatbin=268016 / 841720 B) in 12.03s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19"
+  }
+}

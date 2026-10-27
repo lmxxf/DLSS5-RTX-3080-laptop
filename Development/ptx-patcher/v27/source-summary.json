@@ -1,0 +1,226 @@
+{
+  "scope": "static unique operand per MMA run, before run execution; may-reaching defs, not dynamic per-frame instruction frequencies",
+  "FB_peaks": {
+    "0": {
+      "all_export_peak": 24,
+      "active_peak": 24
+    },
+    "1": {
+      "all_export_peak": 56,
+      "active_peak": 56
+    },
+    "2": {
+      "all_export_peak": 56,
+      "active_peak": 56
+    },
+    "3": {
+      "all_export_peak": 56,
+      "active_peak": 56
+    },
+    "4": {
+      "all_export_peak": 112,
+      "active_peak": 112
+    },
+    "5": {
+      "all_export_peak": 80,
+      "active_peak": 80
+    },
+    "6": {
+      "all_export_peak": 20,
+      "active_peak": 20
+    }
+  },
+  "fatbins": {
+    "0": {
+      "mapped_run_events": 1636,
+      "nonmapped_run_events": 844,
+      "root_categories": {
+        "ld.global": 648,
+        "multiple_reaching_defs": 196
+      },
+      "value_leaf_combinations": {
+        "global_load": 648,
+        "constant_or_special+global_load": 68,
+        "global_load+local_FP8_quantization": 128
+      },
+      "eligibility_reasons": {
+        "not_a_recognized_FP8_pack": 812,
+        "pack_multidef": 32
+      },
+      "first_peak_live_sources_in_FB_maximum_runs": {
+        "constant_or_special+global_load": 16,
+        "global_load": 96,
+        "global_load+local_FP8_quantization": 32
+      },
+      "shared_writer_leaf_kinds_by_static_store_site": {
+        "local_arithmetic:add.s32+local_arithmetic:cvt.rn.f16.f32+local_arithmetic:mul.f16": 1,
+        "local_arithmetic:cvt.rn.f16.f32+local_arithmetic:mul.f16": 1
+      },
+      "safe_same_BB_alias_duplicates": 0,
+      "eligibility_parser_delta_kernels": []
+    },
+    "1": {
+      "mapped_run_events": 776,
+      "nonmapped_run_events": 1052,
+      "root_categories": {
+        "ld.global": 720,
+        "ld.shared": 328,
+        "multiple_reaching_defs": 4
+      },
+      "value_leaf_combinations": {
+        "global_load": 720,
+        "shared_load": 328,
+        "constant_or_special+global_load": 4
+      },
+      "eligibility_reasons": {
+        "not_a_recognized_FP8_pack": 1052
+      },
+      "first_peak_live_sources_in_FB_maximum_runs": {
+        "shared_load": 32,
+        "global_load": 192
+      },
+      "shared_writer_leaf_kinds_by_static_store_site": {
+        "local_FP8_quantization": 41
+      },
+      "safe_same_BB_alias_duplicates": 0,
+      "eligibility_parser_delta_kernels": []
+    },
+    "2": {
+      "mapped_run_events": 512,
+      "nonmapped_run_events": 1244,
+      "root_categories": {
+        "ld.shared": 656,
+        "ld.global": 584,
+        "multiple_reaching_defs": 4
+      },
+      "value_leaf_combinations": {
+        "shared_load": 656,
+        "global_load": 584,
+        "constant_or_special+global_load": 4
+      },
+      "eligibility_reasons": {
+        "not_a_recognized_FP8_pack": 1244
+      },
+      "first_peak_live_sources_in_FB_maximum_runs": {
+        "shared_load": 16,
+        "global_load": 96
+      },
+      "shared_writer_leaf_kinds_by_static_store_site": {
+        "constant_or_special+global_load": 4,
+        "local_FP8_quantization": 53,
+        "global_load+local_FP8_quantization": 8
+      },
+      "safe_same_BB_alias_duplicates": 0,
+      "eligibility_parser_delta_kernels": []
+    },
+    "3": {
+      "mapped_run_events": 384,
+      "nonmapped_run_events": 1188,
+      "root_categories": {
+        "ld.shared": 712,
+        "ld.global": 472,
+        "multiple_reaching_defs": 4
+      },
+      "value_leaf_combinations": {
+        "shared_load": 712,
+        "global_load": 472,
+        "constant_or_special+global_load": 4
+      },
+      "eligibility_reasons": {
+        "not_a_recognized_FP8_pack": 1188
+      },
+      "first_peak_live_sources_in_FB_maximum_runs": {
+        "shared_load": 16,
+        "global_load": 96
+      },
+      "shared_writer_leaf_kinds_by_static_store_site": {
+        "constant_or_special+global_load": 4,
+        "local_FP8_quantization": 53,
+        "global_load+local_FP8_quantization": 8
+      },
+      "safe_same_BB_alias_duplicates": 0,
+      "eligibility_parser_delta_kernels": []
+    },
+    "4": {
+      "mapped_run_events": 184,
+      "nonmapped_run_events": 864,
+      "root_categories": {
+        "ld.shared": 352,
+        "multiple_reaching_defs": 304,
+        "ld.global": 208
+      },
+      "value_leaf_combinations": {
+        "shared_load": 352,
+        "global_load": 512
+      },
+      "eligibility_reasons": {
+        "not_a_recognized_FP8_pack": 864
+      },
+      "first_peak_live_sources_in_FB_maximum_runs": {
+        "global_load": 96,
+        "shared_load": 16
+      },
+      "shared_writer_leaf_kinds_by_static_store_site": {
+        "constant_or_special": 16,
+        "global_async_copy": 42,
+        "local_FP8_quantization": 42
+      },
+      "safe_same_BB_alias_duplicates": 0,
+      "eligibility_parser_delta_kernels": []
+    },
+    "5": {
+      "mapped_run_events": 32,
+      "nonmapped_run_events": 512,
+      "root_categories": {
+        "ld.shared": 256,
+        "multiple_reaching_defs": 168,
+        "ld.global": 88
+      },
+      "value_leaf_combinations": {
+        "shared_load": 256,
+        "global_load": 240,
+        "global_load+local_FP8_quantization": 16
+      },
+      "eligibility_reasons": {
+        "not_a_recognized_FP8_pack": 508,
+        "pack_multidef": 4
+      },
+      "first_peak_live_sources_in_FB_maximum_runs": {
+        "global_load": 128,
+        "shared_load": 32
+      },
+      "shared_writer_leaf_kinds_by_static_store_site": {
+        "global_async_copy": 76,
+        "local_FP8_quantization": 56
+      },
+      "safe_same_BB_alias_duplicates": 0,
+      "eligibility_parser_delta_kernels": []
+    },
+    "6": {
+      "mapped_run_events": 0,
+      "nonmapped_run_events": 144,
+      "root_categories": {
+        "ld.shared": 16,
+        "multiple_reaching_defs": 64,
+        "ld.global": 64
+      },
+      "value_leaf_combinations": {
+        "shared_load": 16,
+        "global_load": 128
+      },
+      "eligibility_reasons": {
+        "not_a_recognized_FP8_pack": 144
+      },
+      "first_peak_live_sources_in_FB_maximum_runs": {
+        "shared_load": 16,
+        "global_load": 4
+      },
+      "shared_writer_leaf_kinds_by_static_store_site": {
+        "global_async_copy": 2,
+        "local_FP8_quantization": 2
+      },
+      "safe_same_BB_alias_duplicates": 0,
+      "eligibility_parser_delta_kernels": []
+    }
+  }
+}

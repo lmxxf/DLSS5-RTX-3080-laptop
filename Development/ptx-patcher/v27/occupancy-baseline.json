@@ -1,0 +1,482 @@
+{
+  "device": {
+    "warp_size": 32,
+    "SM_count": 48,
+    "max_threads_per_SM": 1536,
+    "shared_bytes_per_SM": 102400,
+    "regs_per_SM": 65536,
+    "max_CTA_per_SM": 16
+  },
+  "cases": {
+    "baseline-fb0": {
+      "FB": 0,
+      "kernels": {
+        "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": {
+          "REG": 212,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 9
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": {
+          "REG": 197,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 10
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": {
+          "REG": 199,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 10
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": {
+          "REG": 200,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 10
+        },
+        "cc_tinlayout_fused_post_block_swin_1h_32_fp8": {
+          "REG": 242,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 8
+        },
+        "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": {
+          "REG": 196,
+          "STACK": 0,
+          "SHARED": 2048,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 10
+        }
+      }
+    },
+    "baseline-fb1": {
+      "FB": 1,
+      "kernels": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": {
+          "REG": 168,
+          "STACK": 96,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 6
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": {
+          "REG": 168,
+          "STACK": 96,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 6
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+          "REG": 168,
+          "STACK": 64,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 6
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+          "REG": 168,
+          "STACK": 64,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 6
+        }
+      }
+    },
+    "baseline-fb2": {
+      "FB": 2,
+      "kernels": {
+        "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+          "REG": 166,
+          "STACK": 0,
+          "SHARED": 8192,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 3,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 3
+        },
+        "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+          "REG": 168,
+          "STACK": 0,
+          "SHARED": 8192,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 3,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 3
+        },
+        "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+          "REG": 164,
+          "STACK": 0,
+          "SHARED": 8192,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 3,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 3
+        },
+        "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+          "REG": 164,
+          "STACK": 0,
+          "SHARED": 8192,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 3,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 3
+        }
+      }
+    },
+    "baseline-fb3": {
+      "FB": 3,
+      "kernels": {
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+          "REG": 202,
+          "STACK": 0,
+          "SHARED": 16384,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 1,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 1
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+          "REG": 190,
+          "STACK": 0,
+          "SHARED": 16384,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 1,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 1
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+          "REG": 196,
+          "STACK": 0,
+          "SHARED": 16384,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 1,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 1
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+          "REG": 198,
+          "STACK": 0,
+          "SHARED": 16384,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 1,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 1
+        }
+      }
+    },
+    "baseline-fb4": {
+      "FB": 4,
+      "kernels": {
+        "cc_split_swin_16h_final_head_512_wait_fp8": {
+          "REG": 136,
+          "STACK": 0,
+          "SHARED": 12312,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 1,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 1
+        },
+        "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+          "REG": 180,
+          "STACK": 0,
+          "SHARED": 8208,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+          "REG": 168,
+          "STACK": 0,
+          "SHARED": 12312,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 3,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 3
+        },
+        "cc_split_swin_16h_proj_512_chained_fp8": {
+          "REG": 141,
+          "STACK": 0,
+          "SHARED": 12312,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 1,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 1
+        },
+        "cc_split_swin_16h_qkv_512_chained_fp8": {
+          "REG": 255,
+          "STACK": 88,
+          "SHARED": 8208,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+          "REG": 205,
+          "STACK": 0,
+          "SHARED": 12312,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+          "REG": 204,
+          "STACK": 0,
+          "SHARED": 12312,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_split_swin_16h_ffwd_512_chained_fp8": {
+          "REG": 174,
+          "STACK": 0,
+          "SHARED": 8208,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 1,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 1
+        },
+        "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": {
+          "REG": 212,
+          "STACK": 0,
+          "SHARED": 8208,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        }
+      }
+    },
+    "baseline-fb5": {
+      "FB": 5,
+      "kernels": {
+        "cc_vit_1d_projection_chained_fp8": {
+          "REG": 145,
+          "STACK": 0,
+          "SHARED": 8208,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 3,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 3
+        },
+        "cc_vit_1d_projection_wait_fp8": {
+          "REG": 145,
+          "STACK": 0,
+          "SHARED": 8208,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 3,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 3
+        },
+        "cc_vit_1d_attention_chained_fp8": {
+          "REG": 255,
+          "STACK": 0,
+          "SHARED": 8208,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_vit_1d_qkv_chained_fp8": {
+          "REG": 197,
+          "STACK": 0,
+          "SHARED": 8208,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_vit_1d_ffn_contract_chained_fp8": {
+          "REG": 179,
+          "STACK": 0,
+          "SHARED": 16400,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_vit_1d_ffn_expand_chained_fp8": {
+          "REG": 204,
+          "STACK": 0,
+          "SHARED": 24600,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_vit_1d_ffn_expand_publish_fp8": {
+          "REG": 202,
+          "STACK": 0,
+          "SHARED": 24600,
+          "LOCAL": 0,
+          "threads": 128,
+          "resident_CTA_per_SM": 2,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 2
+        },
+        "cc_vit_1d_repack_1d_to_2d_fp8": {
+          "REG": 19,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 48,
+          "naive_total_reg_CTA_bound": 10
+        },
+        "cc_vit_1d_repack_2d_to_1d_fp8": {
+          "REG": 20,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 48,
+          "naive_total_reg_CTA_bound": 10
+        }
+      }
+    },
+    "baseline-fb6": {
+      "FB": 6,
+      "kernels": {
+        "cc_cb_clear": {
+          "REG": 8,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 48,
+          "naive_total_reg_CTA_bound": 32
+        },
+        "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+          "REG": 255,
+          "STACK": 0,
+          "SHARED": 2064,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 4
+        }
+      }
+    },
+    "baseline-fb7": {
+      "FB": 7,
+      "kernels": {}
+    },
+    "baseline-fb8": {
+      "FB": 8,
+      "kernels": {}
+    },
+    "baseline-fb9": {
+      "FB": 9,
+      "kernels": {}
+    },
+    "baseline-fb10": {
+      "FB": 10,
+      "kernels": {}
+    },
+    "baseline-fb11": {
+      "FB": 11,
+      "kernels": {}
+    },
+    "baseline-fb12": {
+      "FB": 12,
+      "kernels": {}
+    },
+    "baseline-fb13": {
+      "FB": 13,
+      "kernels": {
+        "cg2r_post_process_kernel": {
+          "REG": 39,
+          "STACK": 0,
+          "SHARED": 3468,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 48,
+          "naive_total_reg_CTA_bound": 6
+        }
+      }
+    },
+    "baseline-fb14": {
+      "FB": 14,
+      "kernels": {
+        "cg2r_copy_kernel": {
+          "REG": 13,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 256,
+          "resident_CTA_per_SM": 6,
+          "resident_warps_per_SM": 48,
+          "naive_total_reg_CTA_bound": 16
+        }
+      }
+    }
+  },
+  "scope": "CUDA API theoretical resident limit, not achieved dynamic occupancy"
+}

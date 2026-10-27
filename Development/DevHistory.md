@@ -968,3 +968,13 @@ FB00 HMMA等价次数三档25,696,224/40,691,424/54,871,200；1080 decoder事件
 全导出生成路径mapped PRMT减少21712条，真实模型备份mov0；对应旧V2.5 FB00/1080的60,218,440次mapped PTX事件在代码生成层消失，不当成同量硬件issued削减。40个唯一活跃核静态PRMT25483→19864、总SASS183651→178170、HMMA13188不变。FB00临时pool声明峰值40→24，其他FB最大值仍56/56/56/112/80/20，由encoded输入控制；不是全kernel临时为零。活跃C32 prefix REG234→196，inpview234→200，ds231→199，outview236→197，up229→212；post没有相同下降。全导出FB01最大STACK224→104B、LDL+STL507→381；活跃outview224→96、ds/inpview80→64，但up88→96回退。FB04/05仍88/16B，FB05LDL+STL18→16。资源复核后保留原cap，不宣称零spill或全局最优。
 
 推荐 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v26.dll`，266414592B、15/15 O4原槽位、无扩节；SHA256 `04b01f0c963061e24d1fd34f5097043d4eeddb001c846d9002e4e2bdc73ad788`。全15重编与实测候选SHA及PTX一致，10项既有回归通过。显式lowhigh布局/lowhigh8解码/mask8/SWAR/nonquantized mapped成对门控，兼容旧版默认保留。[回执](ptx-patcher/v26/README.md)、[正式表](ptx-patcher/v26/results.md)、[验收](ptx-patcher/v26/validation.json)。清理重复大产物，保留推荐DLL与文本证据；主fast/V2.4/V1备份/正式ZIP哈希未变。不部署、不push，阶段独立commit，无Co-Authored-By。
+
+## 2026-10-28：PTX V2.7 四个C32核cap168，小幅稳定收益与报告审计（闇）
+
+基线V2.6。CUDA Occupancy API推翻简单寄存器除法：六个C32原为8 warp/SM，prefix/inpview/ds_wait/outview四核cap168升至12，STACK为0/8/8/16B；post/up保持原配置。C64从168放宽至176就使12 warp降至8，减少spill不等于更快。A/B/AB、C64cap192、A叠加四核168均无全档稳定净收益；仅prefix168又比四核168慢，故推荐仅四核168。
+
+未插桩50/80正反ABBA，V2.6→V2.7三档median均值6.07900→6.02200 / 8.83875→8.77950 / 11.61700→11.50375ms，耗时下降0.938%/0.670%/0.975%，六个方向全部正收益。160正式＋10快验全部末帧相对V2.6严格0bit、maxabs0、invalid0，天空0变号。小收益不与异轮历史数相减。
+
+12次新NVAPI捕获补齐V22/V24/V26在720/1080的82次发射账本。非mapped逐run来源审计证明FB01～05峰值池主要由global/shared面板控制，但shared确有本地量化中间特征，不能一律当外部权重或直接绕过FP8舍入。修复PTX opcode正则漏识别`::`限定符，112入口mapped资格不变，V26重建SHA完全一致；13回归通过。
+
+推荐DLL `nvngx_dlssnr_sm86_v27.dll`，266414592B、15/15 O4原槽位，SHA256 `28150da4ea554258b660b610bf23168a266caeda1eb68521d195d2276f0b2969`。[阶段回执](ptx-patcher/v27/README.md)、[验收](ptx-patcher/v27/validation.json)、[独立审核](doc/性能评估20261028-0207-审核意见.md)。原报告保留，临时大产物清理，主fast与正式ZIP不变，不部署、不push。

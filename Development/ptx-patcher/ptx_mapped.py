@@ -1,7 +1,7 @@
 """Conservative PTX def/use and basic-block eligibility for mapped FP8 pairs."""
 import re,bisect,collections
 REG=re.compile(r'%[A-Za-z_]+\d+')
-INS=re.compile(r'(?m)(?:^|(?<=[\n{};]))\s*(?P<guard>@!?[\w%]+\s+)?(?P<op>[a-z][\w.]*)\s+(?P<args>[^;]+);')
+INS=re.compile(r'(?m)(?:^|(?<=[\n{};]))\s*(?P<guard>@!?[\w%]+\s+)?(?P<op>[a-z][\w.]*(?:::[\w.]+)*)\s+(?P<args>[^;]+);')
 def instructions(text):
  clean=re.sub(r'/\*.*?\*/|//[^\n]*',lambda m:re.sub(r'[^\n]',' ',m[0]),text,flags=re.S)
  result=[]

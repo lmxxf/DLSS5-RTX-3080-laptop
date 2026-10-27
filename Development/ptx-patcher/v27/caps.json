@@ -1,0 +1,125 @@
+{
+  "cap0-192": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_cap0-192.dll",
+    "sha256": "119b88bde25ae6e2f57783ba71bbe464ae9a45e6a4da86fa23bd186be9c0aa2d",
+    "bytes": 266414592,
+    "FB": 0,
+    "cap": 192,
+    "target_kernels": [
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8"
+    ],
+    "mask": 8,
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        281632
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1437664 B -> fatbin=281632 / 841720 B) in 14.39s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19"
+  },
+  "cap0-168": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_cap0-168.dll",
+    "sha256": "28150da4ea554258b660b610bf23168a266caeda1eb68521d195d2276f0b2969",
+    "bytes": 266414592,
+    "FB": 0,
+    "cap": 168,
+    "target_kernels": [
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8"
+    ],
+    "mask": 8,
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        282584
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1441504 B -> fatbin=282584 / 841720 B) in 14.48s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19"
+  },
+  "cap0-184": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_cap0-184.dll",
+    "sha256": "9aa3ffda843b902857cbafebc9de85d9d6a11c678fd974bad061ed0a178f3900",
+    "bytes": 266414592,
+    "FB": 0,
+    "cap": 184,
+    "target_kernels": [
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8"
+    ],
+    "mask": 8,
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        282632
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1439072 B -> fatbin=282632 / 841720 B) in 14.62s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19"
+  },
+  "cap1-176": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_cap1-176.dll",
+    "sha256": "ec06ab46a10728d62c6dd117ab0b32ba035e05bdfd54f72fc0f94d0e7c9844f5",
+    "bytes": 266414592,
+    "FB": 1,
+    "cap": 176,
+    "target_kernels": "all FB01 entries",
+    "mask": 8,
+    "manifest": [
+      [
+        1,
+        "inline",
+        1949392,
+        219504
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1323552 B -> fatbin=219504 / 557032 B) in 11.22s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, maxnreg_override=12"
+  },
+  "cap1-192": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_cap1-192.dll",
+    "sha256": "54b57e25cfa23387241ccef76dd7724b9533211265d6cebd2ea46e110ee1364c",
+    "bytes": 266414592,
+    "FB": 1,
+    "cap": 192,
+    "target_kernels": "all FB01 entries",
+    "mask": 8,
+    "manifest": [
+      [
+        1,
+        "inline",
+        1949392,
+        204208
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1315872 B -> fatbin=204208 / 557032 B) in 11.22s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, maxnreg_override=12"
+  },
+  "cap1-184": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27_cap1-184.dll",
+    "sha256": "454289f429a89318d721a90f9aa7fcd10267c677fd435d2cfac62224c16c55e1",
+    "bytes": 266414592,
+    "FB": 1,
+    "cap": 184,
+    "target_kernels": "all FB01 entries",
+    "mask": 8,
+    "manifest": [
+      [
+        1,
+        "inline",
+        1949392,
+        198760
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1324448 B -> fatbin=198760 / 557032 B) in 11.32s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, maxnreg_override=12"
+  }
+}

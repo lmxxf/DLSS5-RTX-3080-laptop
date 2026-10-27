@@ -581,8 +581,8 @@ def main():
   assert 0 <= args.v24_mask <= 15
   if (args.mma_layout == "lowhigh") != (args.fp8_decode == "lowhigh8"):
     parser.error("lowhigh layout and lowhigh8 decoding must be selected together")
-  if args.mma_layout == "lowhigh" and (args.v24_mask != 8 or args.quantize_mapped or args.half_pack != "swar"):
-    parser.error("V2.6 requires mask8, SWAR and non-quantized mapped sources")
+  if args.mma_layout == "lowhigh" and (not (args.v24_mask & 8) or args.quantize_mapped or args.half_pack != "swar"):
+    parser.error("Low/high requires the register-pool bit8, SWAR and non-quantized mapped sources")
   if args.v24_mask and (args.half_pack != "swar" or args.fp8_decode not in ("prmt8", "hybrid8", "lowhigh8") or args.mma_layout not in ("evenodd", "lowhigh") or args.quantize_mapped):
     parser.error("V2.4 factors require SWAR, PRMT8, evenodd and non-quantized mapped sources")
   if (args.half_pack != "legacy" or args.bulk_completion != "immediate" or args.fp8_decode != "legacy" or args.v24_mask) and args.output is None:

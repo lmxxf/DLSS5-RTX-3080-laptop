@@ -1,0 +1,343 @@
+{
+  "device": {
+    "warp_size": 32,
+    "SM_count": 48,
+    "max_threads_per_SM": 1536,
+    "shared_bytes_per_SM": 102400,
+    "regs_per_SM": 65536,
+    "max_CTA_per_SM": 16
+  },
+  "cases": {
+    "cap0-192-fb0": {
+      "FB": 0,
+      "kernels": {
+        "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": {
+          "REG": 212,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 9
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": {
+          "REG": 191,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 10
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": {
+          "REG": 192,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 10
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": {
+          "REG": 192,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 10
+        },
+        "cc_tinlayout_fused_post_block_swin_1h_32_fp8": {
+          "REG": 242,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 8
+        },
+        "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": {
+          "REG": 192,
+          "STACK": 0,
+          "SHARED": 2048,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 10
+        }
+      }
+    },
+    "cap0-168-fb0": {
+      "FB": 0,
+      "kernels": {
+        "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": {
+          "REG": 212,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 9
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": {
+          "REG": 168,
+          "STACK": 16,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 12,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 12
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": {
+          "REG": 168,
+          "STACK": 8,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 12,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 12
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": {
+          "REG": 168,
+          "STACK": 8,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 12,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 12
+        },
+        "cc_tinlayout_fused_post_block_swin_1h_32_fp8": {
+          "REG": 242,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 8
+        },
+        "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": {
+          "REG": 168,
+          "STACK": 0,
+          "SHARED": 2048,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 12,
+          "resident_warps_per_SM": 12,
+          "naive_total_reg_CTA_bound": 12
+        }
+      }
+    },
+    "cap0-184-fb0": {
+      "FB": 0,
+      "kernels": {
+        "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": {
+          "REG": 212,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 9
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": {
+          "REG": 184,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 11
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": {
+          "REG": 184,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 11
+        },
+        "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": {
+          "REG": 184,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 11
+        },
+        "cc_tinlayout_fused_post_block_swin_1h_32_fp8": {
+          "REG": 242,
+          "STACK": 0,
+          "SHARED": 0,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 8
+        },
+        "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": {
+          "REG": 184,
+          "STACK": 0,
+          "SHARED": 2048,
+          "LOCAL": 0,
+          "threads": 32,
+          "resident_CTA_per_SM": 8,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 11
+        }
+      }
+    },
+    "cap1-176-fb1": {
+      "FB": 1,
+      "kernels": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": {
+          "REG": 176,
+          "STACK": 72,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": {
+          "REG": 176,
+          "STACK": 48,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+          "REG": 176,
+          "STACK": 64,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+          "REG": 176,
+          "STACK": 40,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        }
+      }
+    },
+    "cap1-192-fb1": {
+      "FB": 1,
+      "kernels": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": {
+          "REG": 192,
+          "STACK": 48,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": {
+          "REG": 192,
+          "STACK": 24,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+          "REG": 192,
+          "STACK": 24,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+          "REG": 192,
+          "STACK": 16,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        }
+      }
+    },
+    "cap1-184-fb1": {
+      "FB": 1,
+      "kernels": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": {
+          "REG": 184,
+          "STACK": 56,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": {
+          "REG": 184,
+          "STACK": 56,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+          "REG": 184,
+          "STACK": 40,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        },
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+          "REG": 184,
+          "STACK": 32,
+          "SHARED": 4096,
+          "LOCAL": 0,
+          "threads": 64,
+          "resident_CTA_per_SM": 4,
+          "resident_warps_per_SM": 8,
+          "naive_total_reg_CTA_bound": 5
+        }
+      }
+    }
+  },
+  "scope": "CUDA API theoretical resident limit, not achieved dynamic occupancy"
+}

@@ -1,0 +1,35 @@
+0 cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8 104 {'ld.global': 104}
+0 cc_tinlayout_fused_post_block_swin_1h_32_fp8 104 {'ld.global': 104}
+0 cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8 168 {'multiple_reaching_defs': 64, 'ld.global': 104}
+0 cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8 184 {'multiple_reaching_defs': 64, 'ld.global': 120}
+0 cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8 168 {'multiple_reaching_defs': 64, 'ld.global': 104}
+0 cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8 116 {'multiple_reaching_defs': 4, 'ld.global': 112}
+1 cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8 256 {'ld.global': 192, 'ld.shared': 64}
+1 cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8 280 {'ld.global': 208, 'ld.shared': 72}
+1 cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8 256 {'ld.global': 192, 'ld.shared': 64}
+1 cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8 260 {'multiple_reaching_defs': 4, 'ld.global': 128, 'ld.shared': 128}
+2 cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8 296 {'ld.shared': 160, 'ld.global': 136}
+2 cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8 344 {'ld.shared': 176, 'ld.global': 168}
+2 cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8 296 {'ld.shared': 160, 'ld.global': 136}
+2 cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8 308 {'multiple_reaching_defs': 4, 'ld.global': 144, 'ld.shared': 160}
+3 cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8 288 {'ld.shared': 176, 'ld.global': 112}
+3 cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8 312 {'ld.shared': 184, 'ld.global': 128}
+3 cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8 288 {'ld.shared': 176, 'ld.global': 112}
+3 cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8 300 {'multiple_reaching_defs': 4, 'ld.global': 120, 'ld.shared': 176}
+4 cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8 160 {'ld.shared': 64, 'multiple_reaching_defs': 32, 'ld.global': 64}
+4 cc_split_swin_16h_ffwd_512_chained_fp8 128 {'ld.shared': 32, 'multiple_reaching_defs': 32, 'ld.global': 64}
+4 cc_split_swin_16h_ffwd_proj_512_chained_fp8 64 {'ld.shared': 32, 'multiple_reaching_defs': 32}
+4 cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8 64 {'ld.shared': 32, 'multiple_reaching_defs': 32}
+4 cc_split_swin_16h_qkv_512_chained_fp8 160 {'ld.shared': 64, 'multiple_reaching_defs': 48, 'ld.global': 48}
+4 cc_split_swin_16h_proj_512_chained_fp8 48 {'ld.shared': 16, 'multiple_reaching_defs': 32}
+4 cc_split_swin_16h_proj_512_outview_wait_fp8 64 {'ld.shared': 32, 'multiple_reaching_defs': 32}
+4 cc_split_swin_16h_proj_pool_512_chained_fp8 128 {'ld.shared': 64, 'multiple_reaching_defs': 32, 'ld.global': 32}
+4 cc_split_swin_16h_final_head_512_wait_fp8 48 {'ld.shared': 16, 'multiple_reaching_defs': 32}
+5 cc_vit_1d_ffn_expand_publish_fp8 64 {'ld.shared': 32, 'multiple_reaching_defs': 32}
+5 cc_vit_1d_ffn_expand_chained_fp8 64 {'ld.shared': 32, 'multiple_reaching_defs': 32}
+5 cc_vit_1d_ffn_contract_chained_fp8 128 {'ld.shared': 64, 'multiple_reaching_defs': 32, 'ld.global': 32}
+5 cc_vit_1d_qkv_chained_fp8 80 {'ld.shared': 32, 'multiple_reaching_defs': 24, 'ld.global': 24}
+5 cc_vit_1d_attention_chained_fp8 48 {'multiple_reaching_defs': 16, 'ld.shared': 32}
+5 cc_vit_1d_projection_wait_fp8 64 {'ld.shared': 32, 'multiple_reaching_defs': 16, 'ld.global': 16}
+5 cc_vit_1d_projection_chained_fp8 64 {'ld.shared': 32, 'multiple_reaching_defs': 16, 'ld.global': 16}
+6 cc_dec_input_upsample_1024_512_tilesync_fp8 144 {'ld.shared': 16, 'multiple_reaching_defs': 64, 'ld.global': 64}

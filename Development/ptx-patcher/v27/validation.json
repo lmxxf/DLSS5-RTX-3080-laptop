@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "selected_sha256": "28150da4ea554258b660b610bf23168a266caeda1eb68521d195d2276f0b2969",
+  "bytes": 266414592,
+  "O4_inline_fatbins": 15,
+  "uninstrumented_runs": 170,
+  "formal_50_80_runs": 160,
+  "all_endframe_bitdiff": 0,
+  "all_nonfinite": 0,
+  "profile_captures": 12,
+  "launches_per_frame": 82,
+  "parser_mapping_entries_unchanged": 112,
+  "regression_tests": 13,
+  "original_report_unchanged": true,
+  "protected_hashes_unchanged": {
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll": {
+      "bytes": 266414592,
+      "sha256": "04b01f0c963061e24d1fd34f5097043d4eeddb001c846d9002e4e2bdc73ad788"
+    },
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v26.dll": {
+      "bytes": 266414592,
+      "sha256": "04b01f0c963061e24d1fd34f5097043d4eeddb001c846d9002e4e2bdc73ad788"
+    },
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24.dll": {
+      "bytes": 266414592,
+      "sha256": "1687087ea3b4ae03cdacbd5c1f3cec5142f4b23d7d5c8ead95d502679f91d256"
+    },
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll": {
+      "bytes": 266414592,
+      "sha256": "2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f"
+    },
+    "/mnt/c/DLSS5-5090-dll/发布打包/OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip": {
+      "bytes": 375533391,
+      "sha256": "531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94"
+    },
+    "/mnt/c/DLSS5-5090-dll/发布打包/OptiScaler-DLSS5-RTX30-0.2.0.zip": {
+      "bytes": 318461731,
+      "sha256": "ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f"
+    },
+    "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.2.0.zip": {
+      "bytes": 323386599,
+      "sha256": "e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "entries": 112,
+  "mapping_deltas": {},
+  "legacy_parser_qualifier_blindspot": true,
+  "legacy_pattern": "(?m)(?:^|(?<=[\\n{};]))\\s*(?P<guard>@!?[\\w%]+\\s+)?(?P<op>[a-z][\\w.]*)\\s+(?P<args>[^;]+);",
+  "fixed_pattern": "(?m)(?:^|(?<=[\\n{};]))\\s*(?P<guard>@!?[\\w%]+\\s+)?(?P<op>[a-z][\\w.]*(?:::[\\w.]+)*)\\s+(?P<args>[^;]+);"
+}

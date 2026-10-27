@@ -23,6 +23,21 @@ class MappedSafety(unittest.TestCase):
         self.assertEqual(src.rejected['%r20'], 'pack_multidef')
         self.assertEqual(len(src.defs['%r20']), 2)
 
+    def test_lowercase_label_does_not_swallow_next_instruction(self):
+        src = scan('entry_label:\n' + BASE)
+        self.assertIn('%r20', src)
+        self.assertEqual(len(src.defs['%r10']), 1)
+
+    def test_cta_qualified_vector_load_is_a_definition(self):
+        src = scan('ld.shared::cta.v4.u32 {%r20,%r21,%r22,%r23},[%r70];\n' + BASE)
+        self.assertEqual(src.rejected['%r20'], 'pack_multidef')
+        self.assertEqual(len(src.defs['%r20']), 2)
+
+    def test_cache_qualified_source_write_is_not_ignored(self):
+        src = scan('ld.global.L1::no_allocate.b32 %r10,[%rd1];\n' + BASE)
+        self.assertEqual(src.rejected['%r20'], 'source_multidef')
+        self.assertEqual(len(src.defs['%r10']), 2)
+
     def test_inline_vector_destination(self):
         src = scan('{mov.b32 %r99, 0; ld.global.v2.u32 {%r10,%r11},[%rd1];}\n' + BASE)
         self.assertEqual(src.rejected['%r20'], 'source_multidef')

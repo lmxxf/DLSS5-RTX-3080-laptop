@@ -1,0 +1,43 @@
+cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8 MMA 272
+cc_tinlayout_fused_post_block_swin_1h_32_fp8 MMA 272
+cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8 MMA 256
+cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8 MMA 264
+cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8 MMA 256
+cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8 MMA 260
+$L__BB18_3 4 ['mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r5061, %r5060}, \n{%r5063, %r5064, %r5065, %r5066}, \n{%r145, %r146}, \n{%r5061, %r5060};', 'mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r5059, %r5058}, \n{%r5063, %r5064, %r5065, %r5066}, \n{%r147, %r148}, \n{%r5059, %r5058};', 'mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r5057, %r5056}, \n{%r5063, %r5064, %r5065, %r5066}, \n{%r149, %r150}, \n{%r5057, %r5056};', 'mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r5055, %r5054}, \n{%r5063, %r5064, %r5065, %r5066}, \n{%r151, %r152}, \n{%r5055, %r5054};', 'mov.b32 %r5062, 32;', 'mov.pred %p260, 0;', '@%p1 bra $L__BB18_3;']
+cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8 MMA 192
+$L__BB2_55 64 ['setp.lt.u32 %p198, %r1374, 384;', 'mov.b32 %r1374, %r55;', '@%p198 bra $L__BB2_55;']
+$L__BB2_107 64 ['mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1469, %r1470}, \n{%r1246, %r1247, %r1248, %r1249}, \n{%r1236, %r1237}, \n{%r1469, %r1470};', 'add.s32 %r74, %r1471, 32;', 'add.s64 %rd204, %rd204, 1024;', 'add.s64 %rd203, %rd203, 2048;', 'add.s64 %rd202, %rd202, 1024;', 'setp.lt.u32 %p199, %r1471, 224;', 'mov.b32 %r1471, %r74;', '@%p199 bra $L__BB2_107;']
+cc_split_swin_16h_ffwd_512_chained_fp8 MMA 96
+$L__BB5_28 32 ['setp.lt.u32 %p48, %r651, 384;', 'mov.b32 %r651, %r41;', '@%p48 bra $L__BB5_28;']
+$L__BB5_49 32 ['mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r717, %r718}, \n{%r578, %r579, %r580, %r581}, \n{%r576, %r577}, \n{%r717, %r718};', 'add.s32 %r46, %r719, 32;', 'add.s64 %rd114, %rd114, 1024;', 'add.s64 %rd113, %rd113, 2048;', 'add.s64 %rd112, %rd112, 1024;', 'setp.lt.u32 %p49, %r719, 224;', 'mov.b32 %r719, %r46;', '@%p49 bra $L__BB5_49;']
+cc_split_swin_16h_ffwd_proj_512_chained_fp8 MMA 64
+$L__BB8_109 64 ['setp.lt.u32 %p110, %r1585, 448;', 'add.s32 %r1585, %r1585, 64;', '@%p110 bra $L__BB8_109;']
+cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8 MMA 64
+$L__BB10_149 64 ['setp.lt.u32 %p613, %r2273, 448;', 'add.s32 %r2273, %r2273, 64;', '@%p613 bra $L__BB10_149;']
+cc_split_swin_16h_qkv_512_chained_fp8 MMA 256
+$L__BB12_38 96 ['add.s32 %r26, %r3001, 64;', 'setp.lt.u32 %p95, %r3001, 384;', 'mov.b32 %r3001, %r26;', '@%p95 bra $L__BB12_38;']
+cc_split_swin_16h_proj_512_chained_fp8 MMA 32
+$L__BB16_74 32 ['setp.lt.u32 %p68, %r867, 448;', 'add.s32 %r867, %r867, 64;', '@%p68 bra $L__BB16_74;']
+cc_split_swin_16h_proj_512_outview_wait_fp8 MMA 64
+$L__BB18_119 64 ['setp.lt.u32 %p116, %r2176, 448;', 'add.s32 %r2176, %r2176, 64;', '@%p116 bra $L__BB18_119;']
+cc_split_swin_16h_proj_pool_512_chained_fp8 MMA 128
+$L__BB20_61 64 ['setp.lt.u32 %p95, %r2115, 384;', 'mov.b32 %r2115, %r45;', '@%p95 bra $L__BB20_61;']
+cc_split_swin_16h_final_head_512_wait_fp8 MMA 32
+$L__BB22_50 32 ['setp.lt.u32 %p47, %r346, 448;', 'add.s32 %r346, %r346, 64;', '@%p47 bra $L__BB22_50;']
+cc_vit_1d_repack_2d_to_1d_fp8 MMA 0
+cc_vit_1d_repack_1d_to_2d_fp8 MMA 0
+cc_vit_1d_ffn_expand_publish_fp8 MMA 64
+$L__BB20_119 64 ['setp.lt.u32 %p117, %r1143, 960;', 'add.s32 %r1143, %r1143, 64;', '@%p117 bra $L__BB20_119;']
+cc_vit_1d_ffn_expand_chained_fp8 MMA 64
+$L__BB21_133 64 ['setp.lt.u32 %p123, %r1184, 960;', 'add.s32 %r1184, %r1184, 64;', '@%p123 bra $L__BB21_133;']
+cc_vit_1d_ffn_contract_chained_fp8 MMA 128
+$L__BB23_80 64 ['setp.lt.u32 %p79, %r1806, 896;', 'mov.b32 %r1806, %r33;', '@%p79 bra $L__BB23_80;']
+cc_vit_1d_qkv_chained_fp8 MMA 96
+$L__BB25_19 48 ['setp.lt.u32 %p24, %r1589, 448;', 'mov.b32 %r1589, %r27;', '@%p24 bra $L__BB25_19;']
+cc_vit_1d_attention_chained_fp8 MMA 64
+$L__BB27_45 64 ['setp.ne.b32 %p54, %r1457, %r1438;', '@%p54 bra $L__BB27_45;']
+cc_vit_1d_projection_wait_fp8 MMA 64
+$L__BB29_46 32 ['setp.lt.u32 %p34, %r1501, 192;', 'mov.b32 %r1501, %r28;', '@%p34 bra $L__BB29_46;']
+cc_vit_1d_projection_chained_fp8 MMA 64
+$L__BB30_46 32 ['setp.lt.u32 %p34, %r1502, 192;', 'mov.b32 %r1502, %r29;', '@%p34 bra $L__BB30_46;']

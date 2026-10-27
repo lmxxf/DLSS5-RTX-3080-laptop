@@ -936,3 +936,20 @@ A、bias、bias+quad、C、ABC五因素，每因素三档正反ABBA/BAAB 50/80�
 D修正占用率前提：C64活跃Shared4096B，CUDA occupancy API预测168cap最多12warps/SM，192/224/255为8，非免费扩容、也非动态occupancy计数。255清零活跃C64 spill却整帧慢0.759%；FB04 cap168活跃最大STACK640B、整帧慢6.723%，FB05 cap168虽提升部分理论驻留却STACK最高176B、慢4.219%。FB02 cap255仅0.087%微差且min变慢，其他有方向变号者也不默认保留，沿用原hot255。逐FB诊断FB01 cap255约1.316ms对ABC约1.221，FB04 cap168约1.880对ABC约0.922，FB05 cap168约3.575对ABC约3.207；非ABBA、插桩影响调度，仅作定位佐证。
 
 推荐 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24.dll`，266414592B，15/15 O4原槽位，SHA256 `1687087ea3b4ae03cdacbd5c1f3cec5142f4b23d7d5c8ead95d502679f91d256`；mask8，保留SWAR/PRMT8/multidef_nq与原caps。全15重建SHA/PTX均同实测候选。A/B保留可选开关，兼容构建默认不变。[回执](ptx-patcher/v24/README.md)、[因素与cap表](ptx-patcher/v24/results.md)、[逐FB表](ptx-patcher/v24/profile-results.md)、[验收](ptx-patcher/v24/validation.json)。清理临时大DLL/PTX/cubin/RGB与profile runner，保留推荐DLL和文本证据；主fast/V2.3副本仍b9c463be…，三正式ZIP保护性SHA未变。不部署、不push，阶段独立commit，无Co-Authored-By。
+
+
+## 2026-10-27：PTX V2.5 Hybrid负结果，实测循环/MMA账本补齐（闇）
+
+唯一基线V2.4 1687087e。奇半边and/shr/lop3 0xea/mul、偶半边PRMT保持，共8条、无新增解包临时变量，保留C池/SWAR/mapped/原caps。33,554,432组两parity完整字节对及干扰位GPU对照含非有限全0bit。15/15原槽位O4、266414592B，候选SHA2cd74bfc5aec61bbef4bc153237e5d26048af3471b5d7e6dfcbf6b82c9c0bfd7，仅为失败实验身份。
+
+全网三档50/80正反ABBA/BAAB：V2.4→Hybrid 6.17950→6.20500、8.93025→9.04750、11.72275→11.96775ms，增0.413%/1.313%/2.090%，各档两方向均慢。另做FB00-only：720 6.16425→6.15150ms，1080 11.70750→11.70525ms、正反变号且min变慢，无稳定收益。6快验＋24全网＋16单FB共46次末帧全0bit/maxabs0/PSNR∞/nonfinite0。按任务单条件不升级推荐，不生成正式v25.dll，继续V2.4。
+
+静态40活跃核PRMT25483→19774、IMAD.SHL12169→6456、LOP3 32370→38081、SHF.R6355→12067，总183651→183800；pre_block PRMT732→629、post828→716。非mapped模板减半不等于核总PRMT减半。FB01 STACK224→200B但LDL+STL507→529，不能由静态PRMT下降推断完美均衡。PRMT2cycles、INT0.5cycles仍是成本假设，本轮未测独占吞吐或硬件stall。NVIDIA管道资料也区分IMAD和普通ALU；不按错误单速管道叙事包装负结果。
+
+新增独立诊断DLL/runner，为FB00/04/05追加UAV指针参数，原布局不动，NVAPI专用runner扩展参数、每帧零填/屏障/readback，收敛MMA run由lane0累加：FP8 K32按2条HMMA.16816等价操作、原生F16 K16按1条；另计循环入口、MMA-decoder PTX PRMT/INT/HMUL2及mapped/unmapped事件。三档1/1诊断末帧与原V2.4严格0bit，82次Grid/Block与捕获帧50一致；参数捕获三对50/1参考也0bit。诊断耗时不用于性能。该工具测的是执行的MMA语义等价次数/循环/PTX事件，不冒充原二进制硬件issued计数。
+
+实测ViT expand16圈、contract15＋1尾、QKV15＋1、projection7＋1；attention按tokens288/448/640为5/7/10圈。FB04两个ffwd为7/8圈，多种projection/final_head8，qkv及proj_pool7圈＋循环外计算。720 FB04/05 HMMA等价次数4,694,016/20,185,088；900为7,155,712/27,000,832；1080为9,699,328/35,389,440。循环展开辅助SASS模型对应33,309,600/162,130,944、50,889,440/216,246,272、69,783,168/286,136,320；其HMMA逐核对计数全匹配，但辅助模型未测谓词/分歧、helper、同步重试，不是精确issued数，也不是任意重试上界。仅供循环修正后的可审计预算，频率1695/1605MHz为模型输入。
+
+FB00 HMMA等价次数三档25,696,224/40,691,424/54,871,200；1080 decoder事件unmapped12,892,128、mapped30,109,220，后者占大头，只减非mapped一半PRMT使decoder PTX PRMT事件仅减约14.99%。这些PTX事件可被编译器折叠，不直接套SASS吞吐。静态Grid×Block账本和所谓2.104ms不能单独认证PRMT关键路径。
+
+[回执](ptx-patcher/v25/README.md)、[配对表](ptx-patcher/v25/results.md)、[运行时计数及模型](ptx-patcher/v25/dynamic-ledger.md)、[验收](ptx-patcher/v25/validation.json)。10项既有回归通过。保留V2.4推荐，失败/诊断产物只留源码、日志、参数、计数和SHA；大DLL/PTX/cubin/RGB/runner清理，主fast/V2.4与三ZIP收尾哈希未变。原用户任务单保留并追加实测。阶段独立commit，无Co-Authored-By，不部署、不push。

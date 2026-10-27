@@ -1,0 +1,66 @@
+{
+  "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_v25_counter_DIAGNOSTIC.dll",
+  "sha256": "a64697914bd28bbed535031a7246ebf62f3ab01f99bb4c833216db11c77bc7d9",
+  "ids": {
+    "cc_split_swin_16h_ffwd_512_chained_fp8": 0,
+    "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": 1,
+    "cc_split_swin_16h_ffwd_proj_512_chained_fp8": 2,
+    "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": 3,
+    "cc_split_swin_16h_final_head_512_wait_fp8": 4,
+    "cc_split_swin_16h_proj_512_chained_fp8": 5,
+    "cc_split_swin_16h_proj_512_outview_wait_fp8": 6,
+    "cc_split_swin_16h_proj_pool_512_chained_fp8": 7,
+    "cc_split_swin_16h_qkv_512_chained_fp8": 8,
+    "cc_tinlayout_fused_post_block_swin_1h_32_fp8": 9,
+    "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": 10,
+    "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": 11,
+    "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": 12,
+    "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": 13,
+    "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": 14,
+    "cc_vit_1d_attention_chained_fp8": 15,
+    "cc_vit_1d_ffn_contract_chained_fp8": 16,
+    "cc_vit_1d_ffn_expand_chained_fp8": 17,
+    "cc_vit_1d_ffn_expand_publish_fp8": 18,
+    "cc_vit_1d_projection_chained_fp8": 19,
+    "cc_vit_1d_projection_wait_fp8": 20,
+    "cc_vit_1d_qkv_chained_fp8": 21,
+    "cc_vit_1d_repack_1d_to_2d_fp8": 22,
+    "cc_vit_1d_repack_2d_to_1d_fp8": 23
+  },
+  "counter_stride": 64,
+  "stats": {
+    "0": "ELF O4 (cubin=1638496 B -> fatbin=320848 / 841720 B) in 13.49s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19",
+    "4": "ELF O4 (cubin=1294432 B -> fatbin=245224 / 433184 B) in 2.86s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23",
+    "5": "ELF O4 (cubin=1656800 B -> fatbin=268080 / 542960 B) in 8.66s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29"
+  },
+  "manifest": [
+    [
+      0,
+      "inline",
+      1107664,
+      320848
+    ],
+    [
+      4,
+      "inline",
+      3599728,
+      245224
+    ],
+    [
+      5,
+      "inline",
+      4032912,
+      268080
+    ]
+  ],
+  "bins": {
+    "0": "executed HMMA.16816 semantic warp instructions",
+    "1/2": "natural compute-loop header warp visits",
+    "3": "MMA-decoder PTX PRMT warp operations",
+    "4": "MMA-decoder PTX integer and mov warp operations",
+    "5": "MMA-decoder f16x2 multiply warp operations",
+    "6": "unmapped operand-pair decode events",
+    "7": "mapped operand-pair forwarding events"
+  },
+  "diagnostic_only": true
+}

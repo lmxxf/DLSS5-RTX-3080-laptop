@@ -383,6 +383,9 @@ def worker_compile_fatbin(args):
   if fp8_decode == "prmt8":
     from v23.decode import decode
     even_odd_decode_lines = decode
+  elif fp8_decode == "hybrid8":
+    from v25.decode import decode
+    even_odd_decode_lines = decode
   t0 = time.time()
   libzstd = ctypes.CDLL("libzstd.so.1")
   libzstd.ZSTD_decompress.argtypes = [
@@ -563,11 +566,11 @@ def main():
   parser.add_argument("--quantize-mapped", action="store_true", help="Diagnostic: restore explicit E4M3 quantization on mapped sources")
   parser.add_argument("--half-pack", choices=("legacy", "swar"), default="legacy")
   parser.add_argument("--bulk-completion", choices=("immediate", "mbarrier"), default="immediate")
-  parser.add_argument("--fp8-decode", choices=("legacy", "prmt8"), default="legacy")
+  parser.add_argument("--fp8-decode", choices=("legacy", "prmt8", "hybrid8"), default="legacy")
   parser.add_argument("--v24-mask", type=int, default=0, help="Isolated factors: A=1, bias=2, quad=4, JIT pool=8")
   args = parser.parse_args()
   assert 0 <= args.v24_mask <= 15
-  if args.v24_mask and (args.half_pack != "swar" or args.fp8_decode != "prmt8" or args.mma_layout != "evenodd" or args.quantize_mapped):
+  if args.v24_mask and (args.half_pack != "swar" or args.fp8_decode not in ("prmt8", "hybrid8") or args.mma_layout != "evenodd" or args.quantize_mapped):
     parser.error("V2.4 factors require SWAR, PRMT8, evenodd and non-quantized mapped sources")
   if (args.half_pack != "legacy" or args.bulk_completion != "immediate" or args.fp8_decode != "legacy" or args.v24_mask) and args.output is None:
     parser.error("Experimental factors require an explicit --output path")

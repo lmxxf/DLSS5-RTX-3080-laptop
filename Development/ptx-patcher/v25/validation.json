@@ -1,0 +1,117 @@
+{
+  "selected": {
+    "recommendation": "retain V2.4",
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24.dll",
+    "sha256": "1687087ea3b4ae03cdacbd5c1f3cec5142f4b23d7d5c8ead95d502679f91d256",
+    "V25_promoted": false,
+    "reason": "Global Hybrid slower in both directions at every tier; FB00-only has no stable 1080p gain. Conditional promotion criteria were not met."
+  },
+  "primitive": {
+    "pairs": 33554432,
+    "FP8_patterns_per_byte": 256,
+    "all_bitdiff": 0,
+    "old_PTX_lines": 8,
+    "new_PTX_lines": 8,
+    "including_nonfinite": true
+  },
+  "strict_uninstrumented_runs": 46,
+  "timed_50_80_runs": 40,
+  "parameter_capture_reference_pairs": 3,
+  "runtime_counter_runs": 3,
+  "runtime_counter_output_bitdiff": 0,
+  "82_launch_shape_agreement": true,
+  "counter_build": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_v25_counter_DIAGNOSTIC.dll",
+    "sha256": "a64697914bd28bbed535031a7246ebf62f3ab01f99bb4c833216db11c77bc7d9",
+    "ids": {
+      "cc_split_swin_16h_ffwd_512_chained_fp8": 0,
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": 1,
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": 2,
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": 3,
+      "cc_split_swin_16h_final_head_512_wait_fp8": 4,
+      "cc_split_swin_16h_proj_512_chained_fp8": 5,
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": 6,
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": 7,
+      "cc_split_swin_16h_qkv_512_chained_fp8": 8,
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8": 9,
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": 10,
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": 11,
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": 12,
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": 13,
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": 14,
+      "cc_vit_1d_attention_chained_fp8": 15,
+      "cc_vit_1d_ffn_contract_chained_fp8": 16,
+      "cc_vit_1d_ffn_expand_chained_fp8": 17,
+      "cc_vit_1d_ffn_expand_publish_fp8": 18,
+      "cc_vit_1d_projection_chained_fp8": 19,
+      "cc_vit_1d_projection_wait_fp8": 20,
+      "cc_vit_1d_qkv_chained_fp8": 21,
+      "cc_vit_1d_repack_1d_to_2d_fp8": 22,
+      "cc_vit_1d_repack_2d_to_1d_fp8": 23
+    },
+    "counter_stride": 64,
+    "stats": {
+      "0": "ELF O4 (cubin=1638496 B -> fatbin=320848 / 841720 B) in 13.49s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19",
+      "4": "ELF O4 (cubin=1294432 B -> fatbin=245224 / 433184 B) in 2.86s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23",
+      "5": "ELF O4 (cubin=1656800 B -> fatbin=268080 / 542960 B) in 8.66s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29"
+    },
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        320848
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        245224
+      ],
+      [
+        5,
+        "inline",
+        4032912,
+        268080
+      ]
+    ],
+    "bins": {
+      "0": "executed HMMA.16816 semantic warp instructions",
+      "1/2": "natural compute-loop header warp visits",
+      "3": "MMA-decoder PTX PRMT warp operations",
+      "4": "MMA-decoder PTX integer and mov warp operations",
+      "5": "MMA-decoder f16x2 multiply warp operations",
+      "6": "unmapped operand-pair decode events",
+      "7": "mapped operand-pair forwarding events"
+    },
+    "diagnostic_only": true
+  },
+  "auxiliary_SASS_count_is_model_not_hardware_counter": true,
+  "all15_O4_inline_candidate": true,
+  "candidate_sha256": "2cd74bfc5aec61bbef4bc153237e5d26048af3471b5d7e6dfcbf6b82c9c0bfd7",
+  "candidate_promoted": false,
+  "protected_files": {
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll": {
+      "bytes": 266414592,
+      "sha256": "1687087ea3b4ae03cdacbd5c1f3cec5142f4b23d7d5c8ead95d502679f91d256"
+    },
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24.dll": {
+      "bytes": 266414592,
+      "sha256": "1687087ea3b4ae03cdacbd5c1f3cec5142f4b23d7d5c8ead95d502679f91d256"
+    },
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip": {
+      "bytes": 375533391,
+      "sha256": "531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94"
+    },
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/OptiScaler-DLSS5-RTX30-0.2.0.zip": {
+      "bytes": 318461731,
+      "sha256": "ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f"
+    },
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/Magpie-DLSS5-RTX30-0.2.0.zip": {
+      "bytes": 323386599,
+      "sha256": "e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739"
+    }
+  },
+  "regressions": 10,
+  "FB04_FB05_loop_expanded_HMMA_model_matches_semantic_counter": true
+}

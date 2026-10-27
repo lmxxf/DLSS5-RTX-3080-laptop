@@ -1,0 +1,26 @@
+static int counter_id(const std::string&n){
+if(n=="cc_split_swin_16h_ffwd_512_chained_fp8")return 0;
+if(n=="cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8")return 1;
+if(n=="cc_split_swin_16h_ffwd_proj_512_chained_fp8")return 2;
+if(n=="cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8")return 3;
+if(n=="cc_split_swin_16h_final_head_512_wait_fp8")return 4;
+if(n=="cc_split_swin_16h_proj_512_chained_fp8")return 5;
+if(n=="cc_split_swin_16h_proj_512_outview_wait_fp8")return 6;
+if(n=="cc_split_swin_16h_proj_pool_512_chained_fp8")return 7;
+if(n=="cc_split_swin_16h_qkv_512_chained_fp8")return 8;
+if(n=="cc_tinlayout_fused_post_block_swin_1h_32_fp8")return 9;
+if(n=="cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8")return 10;
+if(n=="cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8")return 11;
+if(n=="cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8")return 12;
+if(n=="cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8")return 13;
+if(n=="cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8")return 14;
+if(n=="cc_vit_1d_attention_chained_fp8")return 15;
+if(n=="cc_vit_1d_ffn_contract_chained_fp8")return 16;
+if(n=="cc_vit_1d_ffn_expand_chained_fp8")return 17;
+if(n=="cc_vit_1d_ffn_expand_publish_fp8")return 18;
+if(n=="cc_vit_1d_projection_chained_fp8")return 19;
+if(n=="cc_vit_1d_projection_wait_fp8")return 20;
+if(n=="cc_vit_1d_qkv_chained_fp8")return 21;
+if(n=="cc_vit_1d_repack_1d_to_2d_fp8")return 22;
+if(n=="cc_vit_1d_repack_2d_to_1d_fp8")return 23;
+return -1;}

@@ -1,0 +1,40 @@
+conditional-forward-0 c 1280 6.195 0
+conditional-forward-1 abc 1280 6.181 0
+conditional-forward-2 abc 1280 6.179 0
+conditional-forward-3 c 1280 6.209 0
+conditional-forward-0 c 1600 9.019 0
+conditional-forward-1 abc 1600 9.068 0
+conditional-forward-2 abc 1600 8.991 0
+conditional-forward-3 c 1600 9.324 0
+conditional-forward-0 c 1920 11.987 0
+conditional-forward-1 abc 1920 11.993 0
+conditional-forward-2 abc 1920 11.947 0
+conditional-forward-3 c 1920 12.442 0
+conditional-reverse-0 abc 1920 12.369 0
+conditional-reverse-1 c 1920 12.159 0
+conditional-reverse-2 c 1920 12.373 0
+conditional-reverse-3 abc 1920 12.396 0
+conditional-reverse-0 abc 1600 9.385 0
+conditional-reverse-1 c 1600 9.106 0
+conditional-reverse-2 c 1600 9.117 0
+conditional-reverse-3 abc 1600 9.048 0
+conditional-reverse-0 abc 1280 6.24 0
+conditional-reverse-1 c 1280 6.259 0
+conditional-reverse-2 c 1280 6.256 0
+conditional-reverse-3 abc 1280 6.23 0
+baseline {'1': 1.1632, '2': 1.0199, '4': 0.9465, '5': 3.2314}
+c {'1': 1.1689, '2': 1.0272, '4': 0.9506, '5': 3.128}
+abc {'1': 1.2209, '2': 1.0403, '4': 0.9217, '5': 3.2067}
+d1-192 {'1': 1.2716, '2': 0.9827, '4': 0.9558, '5': 3.1318}
+d1-224 {'1': 1.3764, '2': 1.0426, '4': 1.0407, '5': 3.4899}
+d1-255 {'1': 1.316, '2': 0.9976, '4': 0.9122, '5': 3.2042}
+d2-192 {'1': 1.1517, '2': 1.107, '4': 0.9822, '5': 3.248}
+d2-224 {'1': 1.1801, '2': 1.0929, '4': 0.9715, '5': 3.2121}
+d2-255 {'1': 1.1502, '2': 1.1055, '4': 0.9834, '5': 3.1307}
+d4-168 {'1': 1.1705, '2': 1.0198, '4': 1.8797, '5': 3.2009}
+d4-192 {'1': 1.181, '2': 0.976, '4': 0.9546, '5': 3.1988}
+d4-224 {'1': 1.2268, '2': 0.9841, '4': 0.965, '5': 3.278}
+d5-168 {'1': 1.2114, '2': 1.0042, '4': 0.9317, '5': 3.5751}
+d5-192 {'1': 1.1967, '2': 0.9845, '4': 0.9178, '5': 3.2451}
+d5-224 {'1': 1.1828, '2': 0.9787, '4': 0.9667, '5': 3.2109}
+abc-end {'1': 1.2177, '2': 1.0269, '4': 0.9495, '5': 3.2248}

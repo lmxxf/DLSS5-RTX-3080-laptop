@@ -70,6 +70,7 @@ stock_half_to_fp8 = dp.half_pair_to_fp8_lines
 stock_render_mma = dp.render_fp8_mma_run
 stock_mapped_sources = dp.mapped_fp16_sources
 stock_pack_sources = dp.fp8_pack_sources
+stock_lower_conversions = dp.lower_fp8_conversions
 
 
 def fast_fp8_conversion_declarations() -> list[str]:
@@ -376,6 +377,7 @@ def worker_compile_fatbin(args):
   half_pack = build_options[5] if len(build_options)>5 else "legacy"
   bulk_completion = build_options[6] if len(build_options)>6 else "immediate"
   fp8_decode = build_options[7] if len(build_options)>7 else "legacy"
+  v24_mask = build_options[8] if len(build_options)>8 else 0
   global even_odd_decode_lines
   even_odd_decode_lines = stock_even_odd_decode_lines
   if fp8_decode == "prmt8":
@@ -435,6 +437,10 @@ def worker_compile_fatbin(args):
     from v22.codegen import declarations, pack
     dp.half_conversion_declarations = declarations
     dp.half_pair_to_fp8_lines = pack
+  dp.lower_fp8_conversions = stock_lower_conversions
+  if v24_mask:
+    from v24.codegen import apply
+    apply(sys.modules[__name__], v24_mask)
   recs = dp.parse_fatbin_records(blob)
   ptx_rec = [r for r in recs if r.kind == 1][0]
   hdr = blob[ptx_rec.offset : ptx_rec.offset + ptx_rec.header_size]
@@ -558,8 +564,12 @@ def main():
   parser.add_argument("--half-pack", choices=("legacy", "swar"), default="legacy")
   parser.add_argument("--bulk-completion", choices=("immediate", "mbarrier"), default="immediate")
   parser.add_argument("--fp8-decode", choices=("legacy", "prmt8"), default="legacy")
+  parser.add_argument("--v24-mask", type=int, default=0, help="Isolated factors: A=1, bias=2, quad=4, JIT pool=8")
   args = parser.parse_args()
-  if (args.half_pack != "legacy" or args.bulk_completion != "immediate" or args.fp8_decode != "legacy") and args.output is None:
+  assert 0 <= args.v24_mask <= 15
+  if args.v24_mask and (args.half_pack != "swar" or args.fp8_decode != "prmt8" or args.mma_layout != "evenodd" or args.quantize_mapped):
+    parser.error("V2.4 factors require SWAR, PRMT8, evenodd and non-quantized mapped sources")
+  if (args.half_pack != "legacy" or args.bulk_completion != "immediate" or args.fp8_decode != "legacy" or args.v24_mask) and args.output is None:
     parser.error("Experimental factors require an explicit --output path")
   caps = {}
   for spec in args.maxnreg:
@@ -577,7 +587,7 @@ def main():
   locs = dp.find_fatbins(data)
   assert len(locs) == 15, f"Expected 15 fatbins, found {len(locs)}"
   dp.apply_host_patches(data, (dp.AMPERE,))
-  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped, args.mma_layout, caps.get(i), args.half_pack, args.bulk_completion, args.fp8_decode) for i, l in enumerate(locs)]
+  tasks = [(i, bytes(data[l.offset:l.offset+l.size]), True, True, args.mapped_mode, args.quantize_mapped, args.mma_layout, caps.get(i), args.half_pack, args.bulk_completion, args.fp8_decode, args.v24_mask) for i, l in enumerate(locs)]
   blobs = {}
   with ProcessPoolExecutor(max_workers=args.workers) as pool:
     futures = [pool.submit(worker_compile_fatbin, task) for task in tasks]

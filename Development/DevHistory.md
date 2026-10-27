@@ -921,3 +921,18 @@ PRMT符号复制0xa280/0xb391、mask0x017f017f再shl7/HMUL2，把偶奇解包10�
 三档50/80正反ABBA原轮24次，1080一方向有12.144ms慢样本，因此加完整正反8次确认，全部保留未删样本。原轮配对6.24950→6.12575、9.12125→8.92525、11.87775→11.80750ms；1080确认11.73375→11.55650ms，两方向均赢。原轮＋确认1080为11.80575→11.68200ms。最终三档耗时降1.98%/2.15%/1.05%，6快验＋32正式末帧全0bit/maxabs0/PSNR∞/invalid0。晚段遥测仅覆盖后段控制与确认，不冒充全程锁频实验。[配对表](ptx-patcher/v23/results.md)、[账本](ptx-patcher/v23/kernel-ledger.md)、[验收](ptx-patcher/v23/validation.json)。
 
 推荐独立DLL `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23.dll`，266414592B、15/15 O4原槽位；SHA256 `b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6`。全15重编SHA相同，10项既有回归通过；入口v23/build_recommended.py显式选prmt8，兼容构建默认保留。临时DLL/RGB/PTX/cubin清理，保留推荐DLL及文本证据；已部署V2.2主fast、V2.2副本及三个正式ZIP保护性SHA未变。本轮不部署、不push，立即独立commit，无Co-Authored-By。
+
+
+## 2026-10-27：PTX V2.4四靶子验证，仅C入推荐（闇）
+
+唯一基线V2.3 b9c463be，用户在启动前已修改WorkingPlan为20:15任务单；原文保留并追加结果。A实现全4,744处UP helper7→5条prmt9180解包，16,777,216组GPU穷举u16＋高位干扰、含非有限0bit。B偏置603f合并当前helper20→19条；bias/quad各33,554,432组全half两位置与干扰对照0bit。7,540个泛型mov拼接匹配不是7,540个合格quad，同基本块、单一定义与无其他消费者审计只融合1,688对（FB01 456、FB02/03各616），两源读取保持原位置，不跨分支或作用域。
+
+C预计算first/last_use，紧邻MMA按需解包，死亡pair归池；额外处理源或mapped别名在首次使用前被MMA覆写，提前保存，保持upfront读取run入口值语义。声明峰值FB00～06分别64→40、80→56、80→56、96→56、160→112、128→80、144→20。两个128warp/64-MMA GPU长run（普通及mapped累加器别名风险）0bit。物理spill反例保留：全导出FB01 STACK192→224B、LDL+STL477→507，FB04 96→88B、125→127，FB05仍16B；虚拟声明缩短不等于物理零spill。
+
+A、bias、bias+quad、C、ABC五因素，每因素三档正反ABBA/BAAB 50/80，共120次；12个单FB cap控制在ABC上各1080正反50/80，共96次；ABC对C条件增量三档正反另24次；加18次初验，258次末帧全部严格0bit/maxabs0/PSNR∞/nonfinite0。另16次50/20 NVAPI硬件时间戳诊断逐FB账本全部末帧0bit，保留测量帧CSV及原始全CSV SHA；不用插桩表代替未插桩净帧比较。10项既有回归通过。
+
+正式C对V2.3 median均值720 6.24900→6.20100、900 9.12850→9.09175、1080 12.20700→12.02650ms，降0.768%/0.403%/1.479%，各档两方向均赢。1080 GPU min均值11.72350→11.72300ms基本不变，属于小幅median收益；默认DVFS，不与历史6.13/8.93/11.68跨轮硬比。A单因素0.069%/-0.221%/2.283%，bias -0.080%/-0.337%/0.627%，bias+quad 0.024%/1.020%/0.093%，均非全档稳定。bias虽省PTX，40活跃核静态SASS总数仍183792；A为181914、B为182567、C为183651、ABC180635。ABC对V2.3虽三档两方向均赢，直接ABC对C时900/1080增量方向变号，所以最终只选C，不把其收益归给A/B。
+
+D修正占用率前提：C64活跃Shared4096B，CUDA occupancy API预测168cap最多12warps/SM，192/224/255为8，非免费扩容、也非动态occupancy计数。255清零活跃C64 spill却整帧慢0.759%；FB04 cap168活跃最大STACK640B、整帧慢6.723%，FB05 cap168虽提升部分理论驻留却STACK最高176B、慢4.219%。FB02 cap255仅0.087%微差且min变慢，其他有方向变号者也不默认保留，沿用原hot255。逐FB诊断FB01 cap255约1.316ms对ABC约1.221，FB04 cap168约1.880对ABC约0.922，FB05 cap168约3.575对ABC约3.207；非ABBA、插桩影响调度，仅作定位佐证。
+
+推荐 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24.dll`，266414592B，15/15 O4原槽位，SHA256 `1687087ea3b4ae03cdacbd5c1f3cec5142f4b23d7d5c8ead95d502679f91d256`；mask8，保留SWAR/PRMT8/multidef_nq与原caps。全15重建SHA/PTX均同实测候选。A/B保留可选开关，兼容构建默认不变。[回执](ptx-patcher/v24/README.md)、[因素与cap表](ptx-patcher/v24/results.md)、[逐FB表](ptx-patcher/v24/profile-results.md)、[验收](ptx-patcher/v24/validation.json)。清理临时大DLL/PTX/cubin/RGB与profile runner，保留推荐DLL和文本证据；主fast/V2.3副本仍b9c463be…，三正式ZIP保护性SHA未变。不部署、不push，阶段独立commit，无Co-Authored-By。

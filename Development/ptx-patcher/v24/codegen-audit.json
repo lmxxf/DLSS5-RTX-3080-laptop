@@ -1,0 +1,58 @@
+{
+  "0": {
+    "runs": 327,
+    "max_declared_decode_regs_upfront": 64,
+    "max_declared_decode_regs_pool": 40,
+    "remaining_downs": 548,
+    "remaining_packs": 714,
+    "quad_stats": "direct target conversion"
+  },
+  "1": {
+    "runs": 266,
+    "max_declared_decode_regs_upfront": 80,
+    "max_declared_decode_regs_pool": 56,
+    "remaining_downs": 1352,
+    "remaining_packs": 950,
+    "quad_stats": "fused_quad_pairs=456, fp16_to_fp8=912"
+  },
+  "2": {
+    "runs": 238,
+    "max_declared_decode_regs_upfront": 80,
+    "max_declared_decode_regs_pool": 56,
+    "remaining_downs": 1672,
+    "remaining_packs": 1110,
+    "quad_stats": "fused_quad_pairs=616, fp16_to_fp8=1232"
+  },
+  "3": {
+    "runs": 174,
+    "max_declared_decode_regs_upfront": 96,
+    "max_declared_decode_regs_pool": 56,
+    "remaining_downs": 1672,
+    "remaining_packs": 1878,
+    "quad_stats": "fused_quad_pairs=616, fp16_to_fp8=1232"
+  },
+  "4": {
+    "runs": 59,
+    "max_declared_decode_regs_upfront": 160,
+    "max_declared_decode_regs_pool": 112,
+    "remaining_downs": 1296,
+    "remaining_packs": 892,
+    "quad_stats": "direct target conversion"
+  },
+  "5": {
+    "runs": 55,
+    "max_declared_decode_regs_upfront": 128,
+    "max_declared_decode_regs_pool": 80,
+    "remaining_downs": 2112,
+    "remaining_packs": 1796,
+    "quad_stats": "direct target conversion"
+  },
+  "6": {
+    "runs": 4,
+    "max_declared_decode_regs_upfront": 144,
+    "max_declared_decode_regs_pool": 20,
+    "remaining_downs": 292,
+    "remaining_packs": 200,
+    "quad_stats": "direct target conversion"
+  }
+}

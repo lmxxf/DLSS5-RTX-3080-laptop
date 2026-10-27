@@ -1,0 +1,14 @@
+[
+  {
+    "mapped_accumulator_clobber_hazard": false,
+    "warps": 128,
+    "MMA_per_run": 64,
+    "word_bitdiff": 0
+  },
+  {
+    "mapped_accumulator_clobber_hazard": true,
+    "warps": 128,
+    "MMA_per_run": 64,
+    "word_bitdiff": 0
+  }
+]

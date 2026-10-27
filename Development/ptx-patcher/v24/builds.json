@@ -1,0 +1,647 @@
+{
+  "a": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_a.dll",
+    "bytes": 266414592,
+    "sha256": "5e091590304587e8fc88fced274c2eb7689cc9a1552482d40cfd3b039cc2108d",
+    "mask": 1,
+    "caps": {
+      "0": 255,
+      "3": 255,
+      "4": 255,
+      "5": 255,
+      "6": 255
+    },
+    "args": [
+      "python3",
+      "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+      "--output",
+      "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_a.dll",
+      "--half-pack",
+      "swar",
+      "--bulk-completion",
+      "mbarrier",
+      "--fp8-decode",
+      "prmt8",
+      "--v24-mask",
+      "1",
+      "--maxnreg",
+      "0:255",
+      "--maxnreg",
+      "3:255",
+      "--maxnreg",
+      "4:255",
+      "--maxnreg",
+      "5:255",
+      "--maxnreg",
+      "6:255"
+    ],
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        297240
+      ],
+      [
+        1,
+        "inline",
+        1949392,
+        225872
+      ],
+      [
+        2,
+        "inline",
+        2506432,
+        162296
+      ],
+      [
+        3,
+        "inline",
+        3012896,
+        250864
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        229048
+      ],
+      [
+        5,
+        "inline",
+        4032912,
+        253544
+      ],
+      [
+        6,
+        "inline",
+        4575872,
+        37080
+      ],
+      [
+        7,
+        "inline",
+        4649280,
+        1448
+      ],
+      [
+        8,
+        "inline",
+        4657312,
+        1520
+      ],
+      [
+        9,
+        "inline",
+        4668224,
+        1608
+      ],
+      [
+        10,
+        "inline",
+        4680032,
+        1816
+      ],
+      [
+        11,
+        "inline",
+        4690608,
+        1536
+      ],
+      [
+        12,
+        "inline",
+        4700576,
+        1128
+      ],
+      [
+        13,
+        "inline",
+        4707136,
+        8888
+      ],
+      [
+        14,
+        "inline",
+        4761968,
+        1240
+      ]
+    ]
+  },
+  "bias": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_bias.dll",
+    "bytes": 266414592,
+    "sha256": "b22ecbf6b4b7a30bd61b65d06acf7b1c6072d71bef6ffe336a1922c1c84488a1",
+    "mask": 2,
+    "caps": {
+      "0": 255,
+      "3": 255,
+      "4": 255,
+      "5": 255,
+      "6": 255
+    },
+    "args": [
+      "python3",
+      "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+      "--output",
+      "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_bias.dll",
+      "--half-pack",
+      "swar",
+      "--bulk-completion",
+      "mbarrier",
+      "--fp8-decode",
+      "prmt8",
+      "--v24-mask",
+      "2",
+      "--maxnreg",
+      "0:255",
+      "--maxnreg",
+      "3:255",
+      "--maxnreg",
+      "4:255",
+      "--maxnreg",
+      "5:255",
+      "--maxnreg",
+      "6:255"
+    ],
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        301344
+      ],
+      [
+        1,
+        "inline",
+        1949392,
+        233984
+      ],
+      [
+        2,
+        "inline",
+        2506432,
+        165152
+      ],
+      [
+        3,
+        "inline",
+        3012896,
+        264032
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        235568
+      ],
+      [
+        5,
+        "inline",
+        4032912,
+        254800
+      ],
+      [
+        6,
+        "inline",
+        4575872,
+        35288
+      ],
+      [
+        7,
+        "inline",
+        4649280,
+        1448
+      ],
+      [
+        8,
+        "inline",
+        4657312,
+        1520
+      ],
+      [
+        9,
+        "inline",
+        4668224,
+        1608
+      ],
+      [
+        10,
+        "inline",
+        4680032,
+        1816
+      ],
+      [
+        11,
+        "inline",
+        4690608,
+        1536
+      ],
+      [
+        12,
+        "inline",
+        4700576,
+        1128
+      ],
+      [
+        13,
+        "inline",
+        4707136,
+        8888
+      ],
+      [
+        14,
+        "inline",
+        4761968,
+        1240
+      ]
+    ]
+  },
+  "b": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_b.dll",
+    "bytes": 266414592,
+    "sha256": "f5f961472212d0da4b313faaadbb44cd6b7b04d722385eea94b2a70511e7e801",
+    "mask": 6,
+    "caps": {
+      "0": 255,
+      "3": 255,
+      "4": 255,
+      "5": 255,
+      "6": 255
+    },
+    "args": [
+      "python3",
+      "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+      "--output",
+      "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_b.dll",
+      "--half-pack",
+      "swar",
+      "--bulk-completion",
+      "mbarrier",
+      "--fp8-decode",
+      "prmt8",
+      "--v24-mask",
+      "6",
+      "--maxnreg",
+      "0:255",
+      "--maxnreg",
+      "3:255",
+      "--maxnreg",
+      "4:255",
+      "--maxnreg",
+      "5:255",
+      "--maxnreg",
+      "6:255"
+    ],
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        301344
+      ],
+      [
+        1,
+        "inline",
+        1949392,
+        238088
+      ],
+      [
+        2,
+        "inline",
+        2506432,
+        167152
+      ],
+      [
+        3,
+        "inline",
+        3012896,
+        251624
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        235568
+      ],
+      [
+        5,
+        "inline",
+        4032912,
+        254800
+      ],
+      [
+        6,
+        "inline",
+        4575872,
+        35288
+      ],
+      [
+        7,
+        "inline",
+        4649280,
+        1448
+      ],
+      [
+        8,
+        "inline",
+        4657312,
+        1520
+      ],
+      [
+        9,
+        "inline",
+        4668224,
+        1608
+      ],
+      [
+        10,
+        "inline",
+        4680032,
+        1816
+      ],
+      [
+        11,
+        "inline",
+        4690608,
+        1536
+      ],
+      [
+        12,
+        "inline",
+        4700576,
+        1128
+      ],
+      [
+        13,
+        "inline",
+        4707136,
+        8888
+      ],
+      [
+        14,
+        "inline",
+        4761968,
+        1240
+      ]
+    ]
+  },
+  "c": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_c.dll",
+    "bytes": 266414592,
+    "sha256": "1687087ea3b4ae03cdacbd5c1f3cec5142f4b23d7d5c8ead95d502679f91d256",
+    "mask": 8,
+    "caps": {
+      "0": 255,
+      "3": 255,
+      "4": 255,
+      "5": 255,
+      "6": 255
+    },
+    "args": [
+      "python3",
+      "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+      "--output",
+      "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_c.dll",
+      "--half-pack",
+      "swar",
+      "--bulk-completion",
+      "mbarrier",
+      "--fp8-decode",
+      "prmt8",
+      "--v24-mask",
+      "8",
+      "--maxnreg",
+      "0:255",
+      "--maxnreg",
+      "3:255",
+      "--maxnreg",
+      "4:255",
+      "--maxnreg",
+      "5:255",
+      "--maxnreg",
+      "6:255"
+    ],
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        300256
+      ],
+      [
+        1,
+        "inline",
+        1949392,
+        222632
+      ],
+      [
+        2,
+        "inline",
+        2506432,
+        200280
+      ],
+      [
+        3,
+        "inline",
+        3012896,
+        260656
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        234304
+      ],
+      [
+        5,
+        "inline",
+        4032912,
+        255936
+      ],
+      [
+        6,
+        "inline",
+        4575872,
+        39584
+      ],
+      [
+        7,
+        "inline",
+        4649280,
+        1448
+      ],
+      [
+        8,
+        "inline",
+        4657312,
+        1520
+      ],
+      [
+        9,
+        "inline",
+        4668224,
+        1608
+      ],
+      [
+        10,
+        "inline",
+        4680032,
+        1816
+      ],
+      [
+        11,
+        "inline",
+        4690608,
+        1536
+      ],
+      [
+        12,
+        "inline",
+        4700576,
+        1128
+      ],
+      [
+        13,
+        "inline",
+        4707136,
+        8888
+      ],
+      [
+        14,
+        "inline",
+        4761968,
+        1240
+      ]
+    ]
+  },
+  "abc": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_abc.dll",
+    "bytes": 266414592,
+    "sha256": "9883cbdb3ce5f22d342545b8272bbf98a45c6cfd79b7b719abeb34f60432c29a",
+    "mask": 15,
+    "caps": {
+      "0": 255,
+      "3": 255,
+      "4": 255,
+      "5": 255,
+      "6": 255
+    },
+    "args": [
+      "python3",
+      "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+      "--output",
+      "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_abc.dll",
+      "--half-pack",
+      "swar",
+      "--bulk-completion",
+      "mbarrier",
+      "--fp8-decode",
+      "prmt8",
+      "--v24-mask",
+      "15",
+      "--maxnreg",
+      "0:255",
+      "--maxnreg",
+      "3:255",
+      "--maxnreg",
+      "4:255",
+      "--maxnreg",
+      "5:255",
+      "--maxnreg",
+      "6:255"
+    ],
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        297600
+      ],
+      [
+        1,
+        "inline",
+        1949392,
+        218272
+      ],
+      [
+        2,
+        "inline",
+        2506432,
+        197520
+      ],
+      [
+        3,
+        "inline",
+        3012896,
+        243088
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        228376
+      ],
+      [
+        5,
+        "inline",
+        4032912,
+        255864
+      ],
+      [
+        6,
+        "inline",
+        4575872,
+        40048
+      ],
+      [
+        7,
+        "inline",
+        4649280,
+        1448
+      ],
+      [
+        8,
+        "inline",
+        4657312,
+        1520
+      ],
+      [
+        9,
+        "inline",
+        4668224,
+        1608
+      ],
+      [
+        10,
+        "inline",
+        4680032,
+        1816
+      ],
+      [
+        11,
+        "inline",
+        4690608,
+        1536
+      ],
+      [
+        12,
+        "inline",
+        4700576,
+        1128
+      ],
+      [
+        13,
+        "inline",
+        4707136,
+        8888
+      ],
+      [
+        14,
+        "inline",
+        4761968,
+        1240
+      ]
+    ]
+  }
+}

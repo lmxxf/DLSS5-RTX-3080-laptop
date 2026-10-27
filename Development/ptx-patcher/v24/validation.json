@@ -1,0 +1,383 @@
+{
+  "selected": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24.dll",
+    "bytes": 266414592,
+    "sha256": "1687087ea3b4ae03cdacbd5c1f3cec5142f4b23d7d5c8ead95d502679f91d256",
+    "mask": 8,
+    "caps": {
+      "0": 255,
+      "3": 255,
+      "4": 255,
+      "5": 255,
+      "6": 255
+    },
+    "args": [
+      "python3",
+      "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/build_sm86_dlls.py",
+      "--output",
+      "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v24_c.dll",
+      "--half-pack",
+      "swar",
+      "--bulk-completion",
+      "mbarrier",
+      "--fp8-decode",
+      "prmt8",
+      "--v24-mask",
+      "8",
+      "--maxnreg",
+      "0:255",
+      "--maxnreg",
+      "3:255",
+      "--maxnreg",
+      "4:255",
+      "--maxnreg",
+      "5:255",
+      "--maxnreg",
+      "6:255"
+    ],
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        300256
+      ],
+      [
+        1,
+        "inline",
+        1949392,
+        222632
+      ],
+      [
+        2,
+        "inline",
+        2506432,
+        200280
+      ],
+      [
+        3,
+        "inline",
+        3012896,
+        260656
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        234304
+      ],
+      [
+        5,
+        "inline",
+        4032912,
+        255936
+      ],
+      [
+        6,
+        "inline",
+        4575872,
+        39584
+      ],
+      [
+        7,
+        "inline",
+        4649280,
+        1448
+      ],
+      [
+        8,
+        "inline",
+        4657312,
+        1520
+      ],
+      [
+        9,
+        "inline",
+        4668224,
+        1608
+      ],
+      [
+        10,
+        "inline",
+        4680032,
+        1816
+      ],
+      [
+        11,
+        "inline",
+        4690608,
+        1536
+      ],
+      [
+        12,
+        "inline",
+        4700576,
+        1128
+      ],
+      [
+        13,
+        "inline",
+        4707136,
+        8888
+      ],
+      [
+        14,
+        "inline",
+        4761968,
+        1240
+      ]
+    ],
+    "variant": "C only: demand decode + dead-operand pool",
+    "fp8_decode": "prmt8",
+    "half_pack": "swar",
+    "bulk_completion": "mbarrier",
+    "performance": {
+      "1280": {
+        "runs_per_version": 4,
+        "baseline_median_ms": 6.2490000000000006,
+        "candidate_median_ms": 6.2010000000000005,
+        "baseline_min_ms": 6.1907499999999995,
+        "candidate_min_ms": 6.1325,
+        "gain_percent": 0.7681228996639478,
+        "directions": {
+          "forward": {
+            "baseline_median_ms": 6.1785,
+            "candidate_median_ms": 6.1365,
+            "gain_percent": 0.6797766448166986
+          },
+          "reverse": {
+            "baseline_median_ms": 6.3195,
+            "candidate_median_ms": 6.2655,
+            "gain_percent": 0.8544979824353094
+          }
+        }
+      },
+      "1600": {
+        "runs_per_version": 4,
+        "baseline_median_ms": 9.1285,
+        "candidate_median_ms": 9.091750000000001,
+        "baseline_min_ms": 8.97275,
+        "candidate_min_ms": 8.9415,
+        "gain_percent": 0.4025853097442078,
+        "directions": {
+          "forward": {
+            "baseline_median_ms": 9.0485,
+            "candidate_median_ms": 9.0235,
+            "gain_percent": 0.27628888766094706
+          },
+          "reverse": {
+            "baseline_median_ms": 9.2085,
+            "candidate_median_ms": 9.16,
+            "gain_percent": 0.5266872997773842
+          }
+        }
+      },
+      "1920": {
+        "runs_per_version": 4,
+        "baseline_median_ms": 12.207,
+        "candidate_median_ms": 12.0265,
+        "baseline_min_ms": 11.7235,
+        "candidate_min_ms": 11.723,
+        "gain_percent": 1.478659785369052,
+        "directions": {
+          "forward": {
+            "baseline_median_ms": 12.189,
+            "candidate_median_ms": 11.943999999999999,
+            "gain_percent": 2.0100090245303237
+          },
+          "reverse": {
+            "baseline_median_ms": 12.225000000000001,
+            "candidate_median_ms": 12.109,
+            "gain_percent": 0.9488752556237379
+          }
+        }
+      }
+    },
+    "decision": "C wins in both directions at all tiers. AB conditional addition reverses sign at 900/1080; cap controls show no reliable net win. A/B and cap probes remain opt-in, not selected."
+  },
+  "strict_output_runs": 258,
+  "timed_50_80_runs": 240,
+  "profile_runs": 16,
+  "all_bitdiff": 0,
+  "maxabs": 0,
+  "invalid": 0,
+  "primitive": {
+    "up_pairs": 16777216,
+    "up_bitdiff": 0,
+    "bias": [
+      {
+        "patterns": 16777216,
+        "rotate": false,
+        "all_bitdiff": 0
+      },
+      {
+        "patterns": 16777216,
+        "rotate": true,
+        "all_bitdiff": 0
+      }
+    ],
+    "quad": [
+      {
+        "patterns": 16777216,
+        "rotate": false,
+        "all_bitdiff": 0
+      },
+      {
+        "patterns": 16777216,
+        "rotate": true,
+        "all_bitdiff": 0
+      }
+    ]
+  },
+  "pool": [
+    {
+      "mapped_accumulator_clobber_hazard": false,
+      "warps": 128,
+      "MMA_per_run": 64,
+      "word_bitdiff": 0
+    },
+    {
+      "mapped_accumulator_clobber_hazard": true,
+      "warps": 128,
+      "MMA_per_run": 64,
+      "word_bitdiff": 0
+    }
+  ],
+  "all15_O4_original_slots": true,
+  "selected_rebuild_same_PTX_and_SHA": true,
+  "size_growth_bytes": 0,
+  "PTX": {
+    "0": {
+      "sha256": "a94e210573b807d36cdd0b1f25f63d1b02a02ff56ca62773e126abdadfc8f2ba",
+      "async_bindings": 0,
+      "pool_registers_present": true,
+      "cap": [
+        255
+      ]
+    },
+    "1": {
+      "sha256": "f77ac6e1c5cbb45b62290cf5f781f6184f578fcbcf83b1b378cc3b2956ec0671",
+      "async_bindings": 0,
+      "pool_registers_present": true,
+      "cap": [
+        168
+      ]
+    },
+    "2": {
+      "sha256": "9e5b47a1440f4df1dd17f7b7cbb2b082269f28bf8760cddb01140468172de85a",
+      "async_bindings": 0,
+      "pool_registers_present": true,
+      "cap": [
+        168
+      ]
+    },
+    "3": {
+      "sha256": "6498be57260102b4284225828f887941a62afbed5c3b719e530d1750f3f62975",
+      "async_bindings": 0,
+      "pool_registers_present": true,
+      "cap": [
+        255
+      ]
+    },
+    "4": {
+      "sha256": "b12f27442fdcb0fa6635ffe86d48cf1415d2e211f8d0ee24eebaaf4a51935ba8",
+      "async_bindings": 104,
+      "pool_registers_present": true,
+      "cap": [
+        255
+      ]
+    },
+    "5": {
+      "sha256": "3849c08b5f226288e6164409dd511ffb77168fa3f62a67df2d7c1a3ff91dfa12",
+      "async_bindings": 208,
+      "pool_registers_present": true,
+      "cap": [
+        255
+      ]
+    },
+    "6": {
+      "sha256": "d9e65485084d8375d20e57a82c45e71c34d890aa57c81bef7fa94071b2c39830",
+      "async_bindings": 4,
+      "pool_registers_present": true,
+      "cap": [
+        255
+      ]
+    },
+    "7": {
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438",
+      "async_bindings": 0,
+      "pool_registers_present": false,
+      "cap": []
+    },
+    "8": {
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88",
+      "async_bindings": 0,
+      "pool_registers_present": false,
+      "cap": []
+    },
+    "9": {
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9",
+      "async_bindings": 0,
+      "pool_registers_present": false,
+      "cap": []
+    },
+    "10": {
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88",
+      "async_bindings": 0,
+      "pool_registers_present": false,
+      "cap": []
+    },
+    "11": {
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb",
+      "async_bindings": 0,
+      "pool_registers_present": false,
+      "cap": []
+    },
+    "12": {
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9",
+      "async_bindings": 0,
+      "pool_registers_present": false,
+      "cap": []
+    },
+    "13": {
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046",
+      "async_bindings": 0,
+      "pool_registers_present": false,
+      "cap": []
+    },
+    "14": {
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9",
+      "async_bindings": 0,
+      "pool_registers_present": false,
+      "cap": []
+    }
+  },
+  "protected_files": {
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll": {
+      "sha256": "b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6",
+      "bytes": 266414592
+    },
+    "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v23.dll": {
+      "sha256": "b9c463beec6aba945beb2ce31aa96edd52fbae2933cb72cdb6f394b52bda9ca6",
+      "bytes": 266414592
+    },
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip": {
+      "sha256": "531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94",
+      "bytes": 375533391
+    },
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/OptiScaler-DLSS5-RTX30-0.2.0.zip": {
+      "sha256": "ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f",
+      "bytes": 318461731
+    },
+    "/mnt/c/DLSS5-5090-dll/\u53d1\u5e03\u6253\u5305/Magpie-DLSS5-RTX30-0.2.0.zip": {
+      "sha256": "e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739",
+      "bytes": 323386599
+    }
+  },
+  "regressions": 10,
+  "notes": [
+    "Predicted resident warps from CUDA occupancy API are not measured dynamic occupancy.",
+    "Virtual register declaration reduction does not imply elimination of physical spills.",
+    "Original WorkPlan was user-modified before execution; retained task and appended findings."
+  ]
+}

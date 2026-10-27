@@ -1,0 +1,297 @@
+vit_cq 5 [('cc_vit_1d_projection_chained_fp8', 145, 0, 3, 12), ('cc_vit_1d_projection_wait_fp8', 145, 0, 3, 12), ('cc_vit_1d_attention_chained_fp8', 255, 0, 2, 8), ('cc_vit_1d_qkv_chained_fp8', 168, 64, 3, 12), ('cc_vit_1d_ffn_contract_chained_fp8', 166, 0, 3, 12), ('cc_vit_1d_ffn_expand_chained_fp8', 204, 0, 2, 8), ('cc_vit_1d_ffn_expand_publish_fp8', 202, 0, 2, 8), ('cc_vit_1d_repack_1d_to_2d_fp8', 19, 0, 6, 48), ('cc_vit_1d_repack_2d_to_1d_fp8', 20, 0, 6, 48)]
+vit_cqe 5 [('cc_vit_1d_projection_chained_fp8', 145, 0, 3, 12), ('cc_vit_1d_projection_wait_fp8', 145, 0, 3, 12), ('cc_vit_1d_attention_chained_fp8', 255, 0, 2, 8), ('cc_vit_1d_qkv_chained_fp8', 168, 64, 3, 12), ('cc_vit_1d_ffn_contract_chained_fp8', 166, 0, 3, 12), ('cc_vit_1d_ffn_expand_chained_fp8', 168, 160, 3, 12), ('cc_vit_1d_ffn_expand_publish_fp8', 168, 168, 3, 12), ('cc_vit_1d_repack_1d_to_2d_fp8', 19, 0, 6, 48), ('cc_vit_1d_repack_2d_to_1d_fp8', 20, 0, 6, 48)]
+vit_contract 5 [('cc_vit_1d_projection_chained_fp8', 145, 0, 3, 12), ('cc_vit_1d_projection_wait_fp8', 145, 0, 3, 12), ('cc_vit_1d_attention_chained_fp8', 255, 0, 2, 8), ('cc_vit_1d_qkv_chained_fp8', 197, 0, 2, 8), ('cc_vit_1d_ffn_contract_chained_fp8', 166, 0, 3, 12), ('cc_vit_1d_ffn_expand_chained_fp8', 204, 0, 2, 8), ('cc_vit_1d_ffn_expand_publish_fp8', 202, 0, 2, 8), ('cc_vit_1d_repack_1d_to_2d_fp8', 19, 0, 6, 48), ('cc_vit_1d_repack_2d_to_1d_fp8', 20, 0, 6, 48)]
+head 4 [('cc_split_swin_16h_final_head_512_wait_fp8', 128, 136, 2, 16), ('cc_split_swin_16h_proj_pool_512_chained_fp8', 180, 0, 2, 8), ('cc_split_swin_16h_proj_512_outview_wait_fp8', 168, 0, 3, 12), ('cc_split_swin_16h_proj_512_chained_fp8', 141, 0, 1, 8), ('cc_split_swin_16h_qkv_512_chained_fp8', 255, 88, 2, 8), ('cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8', 205, 0, 2, 8), ('cc_split_swin_16h_ffwd_proj_512_chained_fp8', 204, 0, 2, 8), ('cc_split_swin_16h_ffwd_512_chained_fp8', 174, 0, 1, 8), ('cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8', 212, 0, 2, 8)]
+pool 4 [('cc_split_swin_16h_final_head_512_wait_fp8', 136, 0, 1, 8), ('cc_split_swin_16h_proj_pool_512_chained_fp8', 164, 0, 3, 12), ('cc_split_swin_16h_proj_512_outview_wait_fp8', 168, 0, 3, 12), ('cc_split_swin_16h_proj_512_chained_fp8', 141, 0, 1, 8), ('cc_split_swin_16h_qkv_512_chained_fp8', 255, 88, 2, 8), ('cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8', 205, 0, 2, 8), ('cc_split_swin_16h_ffwd_proj_512_chained_fp8', 204, 0, 2, 8), ('cc_split_swin_16h_ffwd_512_chained_fp8', 174, 0, 1, 8), ('cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8', 212, 0, 2, 8)]
+proj 4 [('cc_split_swin_16h_final_head_512_wait_fp8', 136, 0, 1, 8), ('cc_split_swin_16h_proj_pool_512_chained_fp8', 180, 0, 2, 8), ('cc_split_swin_16h_proj_512_outview_wait_fp8', 168, 0, 3, 12), ('cc_split_swin_16h_proj_512_chained_fp8', 128, 128, 2, 16), ('cc_split_swin_16h_qkv_512_chained_fp8', 255, 88, 2, 8), ('cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8', 205, 0, 2, 8), ('cc_split_swin_16h_ffwd_proj_512_chained_fp8', 204, 0, 2, 8), ('cc_split_swin_16h_ffwd_512_chained_fp8', 174, 0, 1, 8), ('cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8', 212, 0, 2, 8)]
+ffwd_proj 4 [('cc_split_swin_16h_final_head_512_wait_fp8', 136, 0, 1, 8), ('cc_split_swin_16h_proj_pool_512_chained_fp8', 180, 0, 2, 8), ('cc_split_swin_16h_proj_512_outview_wait_fp8', 168, 0, 3, 12), ('cc_split_swin_16h_proj_512_chained_fp8', 141, 0, 1, 8), ('cc_split_swin_16h_qkv_512_chained_fp8', 255, 88, 2, 8), ('cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8', 205, 0, 2, 8), ('cc_split_swin_16h_ffwd_proj_512_chained_fp8', 168, 208, 3, 12), ('cc_split_swin_16h_ffwd_512_chained_fp8', 174, 0, 1, 8), ('cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8', 212, 0, 2, 8)]
+ffwd_proj_inp 4 [('cc_split_swin_16h_final_head_512_wait_fp8', 136, 0, 1, 8), ('cc_split_swin_16h_proj_pool_512_chained_fp8', 180, 0, 2, 8), ('cc_split_swin_16h_proj_512_outview_wait_fp8', 168, 0, 3, 12), ('cc_split_swin_16h_proj_512_chained_fp8', 141, 0, 1, 8), ('cc_split_swin_16h_qkv_512_chained_fp8', 255, 88, 2, 8), ('cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8', 168, 208, 3, 12), ('cc_split_swin_16h_ffwd_proj_512_chained_fp8', 204, 0, 2, 8), ('cc_split_swin_16h_ffwd_512_chained_fp8', 174, 0, 1, 8), ('cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8', 212, 0, 2, 8)]
+ffwd_inp 4 [('cc_split_swin_16h_final_head_512_wait_fp8', 136, 0, 1, 8), ('cc_split_swin_16h_proj_pool_512_chained_fp8', 180, 0, 2, 8), ('cc_split_swin_16h_proj_512_outview_wait_fp8', 168, 0, 3, 12), ('cc_split_swin_16h_proj_512_chained_fp8', 141, 0, 1, 8), ('cc_split_swin_16h_qkv_512_chained_fp8', 255, 88, 2, 8), ('cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8', 205, 0, 2, 8), ('cc_split_swin_16h_ffwd_proj_512_chained_fp8', 204, 0, 2, 8), ('cc_split_swin_16h_ffwd_512_chained_fp8', 174, 0, 1, 8), ('cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8', 168, 120, 3, 12)]
+up 0 [('cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8', 168, 56, 12, 12), ('cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8', 168, 16, 12, 12), ('cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8', 168, 8, 12, 12), ('cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8', 168, 8, 12, 12), ('cc_tinlayout_fused_post_block_swin_1h_32_fp8', 242, 0, 8, 8), ('cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8', 168, 0, 12, 12)]
+smoke baseline 1280 6.03 0
+smoke vit_cq 1280 6.159 0
+smoke vit_cqe 1280 6.305 0
+smoke vit_contract 1280 6.345 0
+smoke head 1280 6.282 0
+smoke pool 1280 6.038 0
+smoke proj 1280 6.284 0
+smoke ffwd_proj 1280 6.314 0
+smoke ffwd_proj_inp 1280 6.05 0
+smoke ffwd_inp 1280 6.887 0
+smoke up 1280 6.014 0
+forward-vit_cq-0 baseline 1280 5.888 0
+forward-vit_cq-1 vit_cq 1280 6.01 0
+forward-vit_cq-2 vit_cq 1280 6.009 0
+forward-vit_cq-3 baseline 1280 5.894 0
+forward-vit_cqe-0 baseline 1280 5.899 0
+forward-vit_cqe-1 vit_cqe 1280 6.243 0
+forward-vit_cqe-2 vit_cqe 1280 6.249 0
+forward-vit_cqe-3 baseline 1280 5.934 0
+forward-vit_contract-0 baseline 1280 5.949 0
+forward-vit_contract-1 vit_contract 1280 6.001 0
+forward-vit_contract-2 vit_contract 1280 6.007 0
+forward-vit_contract-3 baseline 1280 5.95 0
+forward-head-0 baseline 1280 5.94 0
+forward-head-1 head 1280 5.966 0
+forward-head-2 head 1280 5.993 0
+forward-head-3 baseline 1280 6.007 0
+forward-pool-0 baseline 1280 5.949 0
+forward-pool-1 pool 1280 5.974 0
+forward-pool-2 pool 1280 5.985 0
+forward-pool-3 baseline 1280 5.979 0
+forward-proj-0 baseline 1280 5.981 0
+forward-proj-1 proj 1280 5.98 0
+forward-proj-2 proj 1280 5.954 0
+forward-proj-3 baseline 1280 6.006 0
+forward-ffwd_proj-0 baseline 1280 5.94 0
+forward-ffwd_proj-1 ffwd_proj 1280 5.991 0
+forward-ffwd_proj-2 ffwd_proj 1280 5.99 0
+forward-ffwd_proj-3 baseline 1280 5.979 0
+forward-ffwd_proj_inp-0 baseline 1280 5.982 0
+forward-ffwd_proj_inp-1 ffwd_proj_inp 1280 5.993 0
+forward-ffwd_proj_inp-2 ffwd_proj_inp 1280 6.014 0
+forward-ffwd_proj_inp-3 baseline 1280 5.981 0
+forward-ffwd_inp-0 baseline 1280 5.981 0
+forward-ffwd_inp-1 ffwd_inp 1280 5.993 0
+forward-ffwd_inp-2 ffwd_inp 1280 5.988 0
+forward-ffwd_inp-3 baseline 1280 6.002 0
+forward-up-0 baseline 1280 6.011 0
+forward-up-1 up 1280 5.999 0
+forward-up-2 up 1280 6.007 0
+forward-up-3 baseline 1280 6.014 0
+forward-vit_cq-0 baseline 1600 8.708 0
+forward-vit_cq-1 vit_cq 1600 8.721 0
+forward-vit_cq-2 vit_cq 1600 8.792 0
+forward-vit_cq-3 baseline 1600 8.714 0
+forward-vit_cqe-0 baseline 1600 8.742 0
+forward-vit_cqe-1 vit_cqe 1600 9.006 0
+forward-vit_cqe-2 vit_cqe 1600 9.015 0
+forward-vit_cqe-3 baseline 1600 8.748 0
+forward-vit_contract-0 baseline 1600 8.731 0
+forward-vit_contract-1 vit_contract 1600 8.7 0
+forward-vit_contract-2 vit_contract 1600 8.771 0
+forward-vit_contract-3 baseline 1600 8.797 0
+forward-head-0 baseline 1600 8.731 0
+forward-head-1 head 1600 8.731 0
+forward-head-2 head 1600 8.751 0
+forward-head-3 baseline 1600 8.727 0
+forward-pool-0 baseline 1600 8.788 0
+forward-pool-1 pool 1600 8.728 0
+forward-pool-2 pool 1600 8.736 0
+forward-pool-3 baseline 1600 8.731 0
+forward-proj-0 baseline 1600 8.773 0
+forward-proj-1 proj 1600 8.777 0
+forward-proj-2 proj 1600 8.718 0
+forward-proj-3 baseline 1600 8.737 0
+forward-ffwd_proj-0 baseline 1600 8.737 0
+forward-ffwd_proj-1 ffwd_proj 1600 8.774 0
+forward-ffwd_proj-2 ffwd_proj 1600 8.779 0
+forward-ffwd_proj-3 baseline 1600 8.753 0
+forward-ffwd_proj_inp-0 baseline 1600 8.728 0
+forward-ffwd_proj_inp-1 ffwd_proj_inp 1600 8.717 0
+forward-ffwd_proj_inp-2 ffwd_proj_inp 1600 8.793 0
+forward-ffwd_proj_inp-3 baseline 1600 8.729 0
+forward-ffwd_inp-0 baseline 1600 8.793 0
+forward-ffwd_inp-1 ffwd_inp 1600 8.808 0
+forward-ffwd_inp-2 ffwd_inp 1600 8.723 0
+forward-ffwd_inp-3 baseline 1600 8.806 0
+forward-up-0 baseline 1600 8.779 0
+forward-up-1 up 1600 8.771 0
+forward-up-2 up 1600 8.775 0
+forward-up-3 baseline 1600 8.739 0
+forward-vit_cq-0 baseline 1920 11.478 0
+forward-vit_cq-1 vit_cq 1920 11.524 0
+forward-vit_cq-2 vit_cq 1920 11.546 0
+forward-vit_cq-3 baseline 1920 11.49 0
+forward-vit_cqe-0 baseline 1920 11.5 0
+forward-vit_cqe-1 vit_cqe 1920 11.893 0
+forward-vit_cqe-2 vit_cqe 1920 11.903 0
+forward-vit_cqe-3 baseline 1920 11.493 0
+forward-vit_contract-0 baseline 1920 11.487 0
+forward-vit_contract-1 vit_contract 1920 11.442 0
+forward-vit_contract-2 vit_contract 1920 11.445 0
+forward-vit_contract-3 baseline 1920 11.507 0
+forward-head-0 baseline 1920 11.485 0
+forward-head-1 head 1920 11.507 0
+forward-head-2 head 1920 11.551 0
+forward-head-3 baseline 1920 11.49 0
+forward-pool-0 baseline 1920 11.515 0
+forward-pool-1 pool 1920 11.497 0
+forward-pool-2 pool 1920 11.492 0
+forward-pool-3 baseline 1920 11.591 0
+forward-proj-0 baseline 1920 11.525 0
+forward-proj-1 proj 1920 11.502 0
+forward-proj-2 proj 1920 11.562 0
+forward-proj-3 baseline 1920 11.481 0
+forward-ffwd_proj-0 baseline 1920 11.571 0
+forward-ffwd_proj-1 ffwd_proj 1920 11.509 0
+forward-ffwd_proj-2 ffwd_proj 1920 11.582 0
+forward-ffwd_proj-3 baseline 1920 11.596 0
+forward-ffwd_proj_inp-0 baseline 1920 11.578 0
+forward-ffwd_proj_inp-1 ffwd_proj_inp 1920 11.525 0
+forward-ffwd_proj_inp-2 ffwd_proj_inp 1920 11.632 0
+forward-ffwd_proj_inp-3 baseline 1920 11.594 0
+forward-ffwd_inp-0 baseline 1920 11.518 0
+forward-ffwd_inp-1 ffwd_inp 1920 11.537 0
+forward-ffwd_inp-2 ffwd_inp 1920 11.612 0
+forward-ffwd_inp-3 baseline 1920 11.519 0
+forward-up-0 baseline 1920 11.657 0
+forward-up-1 up 1920 11.519 0
+forward-up-2 up 1920 11.47 0
+forward-up-3 baseline 1920 11.509 0
+reverse-vit_cq-0 vit_cq 1920 11.524 0
+reverse-vit_cq-1 baseline 1920 11.491 0
+reverse-vit_cq-2 baseline 1920 11.519 0
+reverse-vit_cq-3 vit_cq 1920 11.576 0
+reverse-vit_cqe-0 vit_cqe 1920 11.884 0
+reverse-vit_cqe-1 baseline 1920 11.57 0
+reverse-vit_cqe-2 baseline 1920 11.491 0
+reverse-vit_cqe-3 vit_cqe 1920 11.912 0
+reverse-vit_contract-0 vit_contract 1920 11.483 0
+reverse-vit_contract-1 baseline 1920 11.503 0
+reverse-vit_contract-2 baseline 1920 11.505 0
+reverse-vit_contract-3 vit_contract 1920 11.532 0
+reverse-head-0 head 1920 11.557 0
+reverse-head-1 baseline 1920 11.523 0
+reverse-head-2 baseline 1920 11.49 0
+reverse-head-3 head 1920 11.597 0
+reverse-pool-0 pool 1920 11.491 0
+reverse-pool-1 baseline 1920 11.567 0
+reverse-pool-2 baseline 1920 11.526 0
+reverse-pool-3 pool 1920 11.52 0
+reverse-proj-0 proj 1920 11.494 0
+reverse-proj-1 baseline 1920 11.525 0
+reverse-proj-2 baseline 1920 11.549 0
+reverse-proj-3 proj 1920 11.505 0
+reverse-ffwd_proj-0 ffwd_proj 1920 11.638 0
+reverse-ffwd_proj-1 baseline 1920 11.582 0
+reverse-ffwd_proj-2 baseline 1920 11.505 0
+reverse-ffwd_proj-3 ffwd_proj 1920 11.626 0
+reverse-ffwd_proj_inp-0 ffwd_proj_inp 1920 11.596 0
+reverse-ffwd_proj_inp-1 baseline 1920 11.517 0
+reverse-ffwd_proj_inp-2 baseline 1920 11.592 0
+reverse-ffwd_proj_inp-3 ffwd_proj_inp 1920 11.6 0
+reverse-ffwd_inp-0 ffwd_inp 1920 11.599 0
+reverse-ffwd_inp-1 baseline 1920 11.591 0
+reverse-ffwd_inp-2 baseline 1920 11.626 0
+reverse-ffwd_inp-3 ffwd_inp 1920 11.614 0
+reverse-up-0 up 1920 11.616 0
+reverse-up-1 baseline 1920 11.601 0
+reverse-up-2 baseline 1920 11.695 0
+reverse-up-3 up 1920 11.577 0
+reverse-vit_cq-0 vit_cq 1600 8.867 0
+reverse-vit_cq-1 baseline 1600 8.796 0
+reverse-vit_cq-2 baseline 1600 8.783 0
+reverse-vit_cq-3 vit_cq 1600 8.799 0
+reverse-vit_cqe-0 vit_cqe 1600 9.025 0
+reverse-vit_cqe-1 baseline 1600 8.786 0
+reverse-vit_cqe-2 baseline 1600 8.796 0
+reverse-vit_cqe-3 vit_cqe 1600 9.043 0
+reverse-vit_contract-0 vit_contract 1600 8.806 0
+reverse-vit_contract-1 baseline 1600 8.776 0
+reverse-vit_contract-2 baseline 1600 8.816 0
+reverse-vit_contract-3 vit_contract 1600 8.775 0
+reverse-head-0 head 1600 8.851 0
+reverse-head-1 baseline 1600 8.782 0
+reverse-head-2 baseline 1600 8.75 0
+reverse-head-3 head 1600 8.857 0
+reverse-pool-0 pool 1600 8.804 0
+reverse-pool-1 baseline 1600 8.795 0
+reverse-pool-2 baseline 1600 8.803 0
+reverse-pool-3 pool 1600 8.769 0
+reverse-proj-0 proj 1600 8.799 0
+reverse-proj-1 baseline 1600 8.841 0
+reverse-proj-2 baseline 1600 8.785 0
+reverse-proj-3 proj 1600 8.771 0
+reverse-ffwd_proj-0 ffwd_proj 1600 8.85 0
+reverse-ffwd_proj-1 baseline 1600 8.819 0
+reverse-ffwd_proj-2 baseline 1600 8.839 0
+reverse-ffwd_proj-3 ffwd_proj 1600 8.849 0
+reverse-ffwd_proj_inp-0 ffwd_proj_inp 1600 8.793 0
+reverse-ffwd_proj_inp-1 baseline 1600 8.786 0
+reverse-ffwd_proj_inp-2 baseline 1600 8.769 0
+reverse-ffwd_proj_inp-3 ffwd_proj_inp 1600 8.886 0
+reverse-ffwd_inp-0 ffwd_inp 1600 8.81 0
+reverse-ffwd_inp-1 baseline 1600 8.777 0
+reverse-ffwd_inp-2 baseline 1600 8.77 0
+reverse-ffwd_inp-3 ffwd_inp 1600 8.775 0
+reverse-up-0 up 1600 8.842 0
+reverse-up-1 baseline 1600 8.771 0
+reverse-up-2 baseline 1600 8.803 0
+reverse-up-3 up 1600 8.798 0
+reverse-vit_cq-0 vit_cq 1280 6.167 0
+reverse-vit_cq-1 baseline 1280 6.056 0
+reverse-vit_cq-2 baseline 1280 6.051 0
+reverse-vit_cq-3 vit_cq 1280 6.168 0
+reverse-vit_cqe-0 vit_cqe 1280 6.368 0
+reverse-vit_cqe-1 baseline 1280 6.047 0
+reverse-vit_cqe-2 baseline 1280 6.047 0
+reverse-vit_cqe-3 vit_cqe 1280 6.382 0
+reverse-vit_contract-0 vit_contract 1280 6.121 0
+reverse-vit_contract-1 baseline 1280 6.039 0
+reverse-vit_contract-2 baseline 1280 6.087 0
+reverse-vit_contract-3 vit_contract 1280 6.108 0
+reverse-head-0 head 1280 6.046 0
+reverse-head-1 baseline 1280 6.047 0
+reverse-head-2 baseline 1280 6.051 0
+reverse-head-3 head 1280 6.054 0
+reverse-pool-0 pool 1280 6.072 0
+reverse-pool-1 baseline 1280 6.057 0
+reverse-pool-2 baseline 1280 6.039 0
+reverse-pool-3 pool 1280 6.041 0
+reverse-proj-0 proj 1280 6.051 0
+reverse-proj-1 baseline 1280 6.043 0
+reverse-proj-2 baseline 1280 6.04 0
+reverse-proj-3 proj 1280 6.054 0
+reverse-ffwd_proj-0 ffwd_proj 1280 6.104 0
+reverse-ffwd_proj-1 baseline 1280 6.035 0
+reverse-ffwd_proj-2 baseline 1280 6.034 0
+reverse-ffwd_proj-3 ffwd_proj 1280 6.09 0
+reverse-ffwd_proj_inp-0 ffwd_proj_inp 1280 6.047 0
+reverse-ffwd_proj_inp-1 baseline 1280 6.047 0
+reverse-ffwd_proj_inp-2 baseline 1280 6.059 0
+reverse-ffwd_proj_inp-3 ffwd_proj_inp 1280 6.052 0
+reverse-ffwd_inp-0 ffwd_inp 1280 6.05 0
+reverse-ffwd_inp-1 baseline 1280 6.039 0
+reverse-ffwd_inp-2 baseline 1280 6.04 0
+reverse-ffwd_inp-3 ffwd_inp 1280 6.067 0
+reverse-up-0 up 1280 6.051 0
+reverse-up-1 baseline 1280 6.039 0
+reverse-up-2 baseline 1280 6.067 0
+reverse-up-3 up 1280 6.042 0
+# V2.8 paired controls
+
+50 warmup / 80 iter, forward ABBA and reverse BAAB; mean of process GPU medians, paired V2.7 reference.
+
+|Candidate|Width|Baseline ms|Candidate ms|Decrease|Forward / reverse|
+|---|---:|---:|---:|---:|---:|
+|ffwd_inp|1280|6.01550|6.02450|-0.150%|0.017% / -0.315%|
+|ffwd_inp|1600|8.78650|8.77900|0.085%|0.386% / -0.217%|
+|ffwd_inp|1920|11.56350|11.59050|-0.233%|-0.486% / 0.017%|
+|ffwd_proj|1280|5.99700|6.04375|-0.780%|-0.520% / -1.036%|
+|ffwd_proj|1600|8.78700|8.81300|-0.296%|-0.360% / -0.232%|
+|ffwd_proj|1920|11.56350|11.58875|-0.218%|0.328% / -0.767%|
+|ffwd_proj_inp|1280|6.01725|6.02650|-0.154%|-0.368% / 0.058%|
+|ffwd_proj_inp|1600|8.75300|8.79725|-0.506%|-0.304% / -0.706%|
+|ffwd_proj_inp|1920|11.57025|11.58825|-0.156%|0.065% / -0.376%|
+|head|1280|6.01125|6.01475|-0.058%|-0.100% / -0.017%|
+|head|1600|8.74750|8.79750|-0.572%|-0.137% / -1.004%|
+|head|1920|11.49700|11.55300|-0.487%|-0.361% / -0.613%|
+|pool|1280|6.00600|6.01800|-0.200%|-0.260% / -0.141%|
+|pool|1600|8.77925|8.75925|0.228%|0.314% / 0.142%|
+|pool|1920|11.54975|11.50000|0.431%|0.506% / 0.355%|
+|proj|1280|6.01750|6.00975|0.129%|0.442% / -0.182%|
+|proj|1600|8.78400|8.76625|0.202%|0.086% / 0.318%|
+|proj|1920|11.52000|11.51575|0.037%|-0.252% / 0.325%|
+|up|1280|6.03275|6.02475|0.133%|0.158% / 0.107%|
+|up|1600|8.77300|8.79650|-0.268%|-0.160% / -0.376%|
+|up|1920|11.61550|11.54550|0.603%|0.764% / 0.442%|
+|vit_contract|1280|6.00625|6.05925|-0.882%|-0.916% / -0.849%|
+|vit_contract|1600|8.78000|8.76300|0.194%|0.325% / 0.063%|
+|vit_contract|1920|11.50050|11.47550|0.217%|0.465% / -0.030%|
+|vit_cq|1280|5.97225|6.08850|-1.947%|-2.012% / -1.883%|
+|vit_cq|1600|8.75025|8.79475|-0.509%|-0.522% / -0.495%|
+|vit_cq|1920|11.49450|11.54250|-0.418%|-0.444% / -0.391%|
+|vit_cqe|1280|5.98175|6.31050|-5.496%|-5.569% / -5.424%|
+|vit_cqe|1600|8.76800|9.02225|-2.900%|-3.036% / -2.764%|
+|vit_cqe|1920|11.51350|11.89800|-3.340%|-3.492% / -3.187%|

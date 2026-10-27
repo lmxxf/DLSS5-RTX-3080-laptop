@@ -1,37 +1,55 @@
-# WorkingPlan — 审核《性能评估20261028-0207.md》与 PTX V2.7 迭代攻坚（2026-10-28 02:10）
+# WorkingPlan — 审核《性能评估20261028-0335.md》与 PTX V2.8 Per-Kernel 精准驻留跃迁攻坚（2026-10-28 03:35）
 
 ## 0. 当前基线
-- 唯一基线：**`PTX V2.6`**（commit `f27e689`，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v26.dll`，SHA256 `04b01f0c963061e24d1fd34f5097043d4eeddb001c846d9002e4e2bdc73ad788`）
-  - 同轮配对 `V2.4` 实测（50 warmup / 80 iter，正反 ABBA/BAAB）：720p **`5.980 ms`**（min `5.913 ms`）、900p **`8.722 ms`**（min `8.523 ms`）、1080p **`11.463 ms`**（min `11.226 ms`）。
+- 唯一基线：**`PTX V2.7`**（commit `0329743`，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27.dll`，SHA256 `28150da4ea554258b660b610bf23168a266caeda1eb68521d195d2276f0b2969`）
+  - 同轮配对 `V2.6` 实测（50 warmup / 80 iter，正反 ABBA/BAAB）：720p `6.079 → 6.022 ms`（`-0.938%`）、900p `8.839 → 8.780 ms`（`-0.670%`）、1080p `11.617 → 11.504 ms`（`-0.975%`），170 次运行末帧全部相对 `V2.6` 严格 `0 bit-diff`。
 
 ---
 
-## 1. 任务一：严格审核 `Development/doc/性能评估20261028-0207.md`
-请以与上一轮相同的严苛标准，全面审核主脑刚撰写的 [性能评估20261028-0207.md](doc/性能评估20261028-0207.md)（commit `f704353`）：
-1. 核对文中所有数字、版本口径、PSNR 口径、SASS 与资源变化是否与仓内 JSON 证据 100% 吻合；
-2. 严厉挑出第二节“剩余算力缺口与三个待验证靶点”中任何不成立的前提、算错的驻留公式（例如 C32 单 Warp 核受每 SM 最大 CTA 数 `16` 或 Shared Memory 限制的真实理论最大驻留是多少？是否真能从 8 升到 10～12 Warps/SM？）、或被主脑遗漏的真瓶颈；
-3. 将审核结论与核验数据写入 `Development/doc/性能评估20261028-0207-审核意见.md`（及对应核验 JSON）。
+## 1. 任务一：严格审核 `Development/doc/性能评估20261028-0335.md`
+主脑已完全吸收上一轮 `0207` 审核意见，撰写了 [性能评估20261028-0335.md](doc/性能评估20261028-0335.md)。请继续以最严苛标准审核该报告：
+1. 核对一、二节所有数字、口径是否与 `v27` 证据 100% 吻合；
+2. 审查第三节提出的 **`FB05` / `FB04` / `FB00` Per-Kernel 独立 `.maxnreg` 跃迁靶点** 是否存在任何被忽视的限制（如动态 Shared Memory、编译器 spill 陡增、或 Grid 波次整除关系），输出 `Development/doc/性能评估20261028-0335-审核意见.md`（及对应核验 JSON）。
 
 ---
 
-## 2. 任务二：基于审核发现与 `V2.6` 新基线推进 `PTX V2.7` 实证与优化
-在完成书面审核的基础上，请直接动手用实验验证以下关键问题并尝试推进 **`PTX V2.7`**：
-1. **采集 `V2.6` 的最新 NVAPI 82 次发射逐 Fatbin 耗时账本**：
-   - 使用 NVAPI D3D12 时间戳工具测量 `V2.6` 在 720p 与 1080p 下的逐 FB 耗时（对比 `V2.2` 基线账本），看 `V2.6` 的 `-2.3%` 提速具体落在了哪些 FB 上，当前 `V2.6` 各 FB 的最新毫秒数是多少。
-2. **审计 `FB01 ~ FB05` 中非 `mapped` MMA 操作数的真实来源**：
-   - 为什么 `V2.6` 中 `FB01~FB05` 的最大临时寄存器池（`56 / 56 / 56 / 112 / 80`）完全未降？请用脚本精确分类 `FB00 ~ FB06` 全部活跃核中所有非 `mapped` MMA 操作数的定义来源（有多少是 `ld.shared / ld.global` 加载的外部 FP8 权重/特征，有多少是函数内 `mov.b32 {rs0, rs1}` 但因跨基本块/多定义被过滤，或是否有其他可安全直通/复用的模式）。
-3. **测试 `V2.6` 基线上的候选改进（`PTX V2.7`）**：
-   - 测试在 `V2.6`（`lowhigh` + `mask8`）基础上启用 **`B`（`+0x603f603f` 偏置合并 + `1,688` 对合格四字节 `prmt 0x6420` 融合打包，恰好集中在 `FB01/02/03`）** 与 **`A`（独立 `FP8_UP` 7→5）**，检查其能否进一步压低 `FB01` 仅剩的 `64~96 B` 活跃 `STACK` spill 并带来净帧提速；
-   - 结合 CUDA Occupancy API 对 `V2.6` 新寄存器数（C32 降至 `196~200` regs、C64 spill 减半）的真实驻留诊断，测试任何经审核确认有潜力的 `.maxnreg` 或代码生成改进。
-4. **交付纪律**：
-   - 将所有实验证据整理入 `Development/ptx-patcher/v27/README.md`；
-   - 若有稳定净提速，产出 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27.dll`；若无净提速则如实记录负结果并保持 `V2.6` 为推荐版；
-   - 更新 `Development/DevHistory.md` 与 `Development/WorkingPlan.md`，清理临时大二进制，立即 `git commit`（严禁加 `Co-Authored-By`），不 push。
+## 2. 任务二：执行 `PTX V2.8` Per-Kernel 精准 `.maxnreg` 驻留跃迁实验
 
-### PTX V2.7 执行回执（2026-10-28，闇）
+`V2.7` 揭示了核心规律：以前按整个 Fatbin 一刀切压 `.maxnreg 168` 之所以在 `FB04 / FB05` 上失败，是因为把 `FB04` 中 `255` 寄存器的 `qkv_512` 和 `FB05` 中 `255` 寄存器的 `attention_chained` 一起强行压到了 `168`（引发 `640 B / 176 B` 巨额 spill）！
+而根据 `v27/occupancy-baseline.json`，在保持 `qkv_512 (255)` 和 `attention_chained (255)` 为 `.maxnreg 255` 不动的前提下，`FB05`、`FB04` 和 `FB00` 中有一批距离硬件驻留台阶仅差 `8 ~ 36` 个寄存器的核：
 
-上述审核与探索已完成，原任务文字保留。[完整证据](ptx-patcher/v27/README.md)、[审核意见](doc/性能评估20261028-0207-审核意见.md)。推荐仅FB00 prefix/inpview_tilesync/ds_wait/outview_wait四核cap168（非整个FB00）；理论驻留8→12 warp，接受0/8/8/16B小spill。post/up及其他模块不变。A/B/AB、A叠加和C64放宽cap未入默认。
+### 候选组 1：`FB05 (ViT)` 非 `attention` 核的独立 `.maxnreg 168`（目标：`2 CTA / 8 Warps` → `3 CTA / 12 Warps/SM`，+50% 驻留）
+- 保持 `cc_vit_1d_attention_chained_fp8` (`REG=255`) 为 `255` 不动；
+- 用 CUDA Occupancy API + `ptxas` 编译实测以下核设为 `.maxnreg 168` 时的真实驻留（注意核实是否存在 `dynamic_shared` 限制 3 CTA 驻留！）与 `STACK` 字节数：
+  1. **`cc_vit_1d_ffn_contract_chained_fp8`**（现 `REG = 179`，仅差 `11` regs！每帧 8 次，每 Warp `2,048` HMMA）
+  2. **`cc_vit_1d_qkv_chained_fp8`**（现 `REG = 197`，每帧 8 次，每 Warp `1,536` HMMA）
+  3. **`cc_vit_1d_ffn_expand_publish_fp8` (`REG = 202`)** 与 **`cc_vit_1d_ffn_expand_chained_fp8` (`REG = 204`)**（共 8 次，每 Warp `2,048` HMMA）
+- 请分层测试：① 仅 `contract (179→168)`；② `contract + qkv (179/197→168)`；③ `contract + qkv + expand (→168)`。
 
-同轮50/80正反ABBA：V26→V27为6.07900→6.02200、8.83875→8.77950、11.61700→11.50375ms，下降0.938%/0.670%/0.975%，两个方向均赢。170次未插桩运行末帧全部0bit/invalid0；12次NVAPI捕获完成逐FB账本；非mapped来源和API驻留已实证，不再用简单寄存器除法估算真实CTA驻留。限定操作码解析修复不改变112入口mapped结果，V26重建字节相同，13回归通过。
+### 候选组 2：`FB04 (C512)` 轻/中型核的独立 `.maxnreg 128 / 168`
+- 保持 `cc_split_swin_16h_qkv_512_chained_fp8` (`REG=255`) 与 `ffwd_512` (`REG=174`, 256 threads) 为 `255` 不动；
+- 编译并查询以下核跨越台阶时的 `STACK` 与真实驻留（含 `dynamic_shared` 校验）：
+  1. 256 线程核压 `.maxnreg 128`（`1 CTA / 8 Warps` → `2 CTA / 16 Warps/SM`）：
+     - **`cc_split_swin_16h_final_head_512_wait_fp8`**（现 `REG = 136`，仅差 `8` regs！）
+     - **`cc_split_swin_16h_proj_512_chained_fp8`**（现 `REG = 141`，仅差 `13` regs！）
+  2. 128 线程核压 `.maxnreg 168`（`2 CTA / 8 Warps` → `3 CTA / 12 Warps/SM`）：
+     - **`cc_split_swin_16h_proj_pool_512_chained_fp8`**（现 `REG = 180`，仅差 `12` regs！）
+     - 以及检查 `ffwd_proj` (`204`) / `ffwd_proj_inpview` (`205`) / `ffwd_inpview` (`212`) 压 `168` 的 `STACK` 代价。
 
-V27完整重建15/15 O4原槽位266414592B，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v27.dll`，SHA256 `28150da4ea554258b660b610bf23168a266caeda1eb68521d195d2276f0b2969`。临时大文件清理，保留实验文本证据；主fast、游戏/Magpie及正式ZIP不覆盖，不push。
+### 候选组 3：`FB00 (C32)` 第 5 核 `upsample_tilesync` (`REG = 212 → 168`)
+- 在 `V2.7` 已选 4 核 `168` 基础上，测试将第 5 核 `cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8` (`REG = 212`) 也设为 `168`（升至 `12 Warps/SM`）时的 `STACK` 与整帧耗时变化。
+
+---
+
+## 3. 验收与交付纪律
+1. 所有候选必须相对 `V2.7` 保持 **严格 `0 bit-diff`（0 NaN/Inf）**。
+2. 在未插桩 `bench_sky.exe` 上完成 720p / 900p / 1080p 三档 50 warmup / 80 iter 正反 ABBA/BAAB 配对实测，只保留带来稳定净提速的组合晋升为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28.dll`（若均无稳定净收益则如实记录负结果并保持 `V2.7` 为推荐版）。
+3. 完整结果写入 `Development/ptx-patcher/v28/README.md`，更新 `DevHistory.md` 与 `WorkingPlan.md`，清理临时大二进制，立即 `git commit`（严禁加 `Co-Authored-By`），不 push。
+
+### V2.8 执行回执（2026-10-28，闇）
+
+两项任务完成，保留上述原任务。[独立审核](doc/性能评估20261028-0335-审核意见.md)及JSON已落盘，原报告未改；[全部实验](ptx-patcher/v28/README.md)。dynamic_shared两档全0、目标理论驻留全部跨台阶，但有限Grid与spill使整帧收益不能由台阶推出。旧全包回退也不是只有两个重核spill。
+
+十项单核/分层三档50/80正反ABBA共240次，无一满足三档双向净提速。pool900/1080快但720慢；up720/1080快但900慢；contract虽零spill，720仍慢0.882%。追加pool＋proj＋up组合24次，下降−0.175%/+0.360%/+0.037%，720方向变号，仍未通过。**本轮不晋升V28 DLL，保持生产推荐V2.7**（SHA256 `28150da4ea554258b660b610bf23168a266caeda1eb68521d195d2276f0b2969`）。
+
+264正式＋11快验，合计275次末帧相对V27严格0bit、maxabs0、invalid0。PTX仅cap变化、基线cubin重编字节一致，受保护核SASS一致，13回归通过。清理临时大文件，保留源码/日志/CSV/JSON；主fast及部署/正式ZIP不覆盖，不push。

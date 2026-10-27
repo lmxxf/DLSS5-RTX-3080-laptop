@@ -1,0 +1,28 @@
+{
+  "combo": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_combo.dll",
+    "sha256": "59b4ff103f928ffc63f96d5e73a0d97d03e20b7ce737e9d775ea50544d22edec",
+    "caps": {
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": 168,
+      "cc_split_swin_16h_proj_512_chained_fp8": 128,
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": 168
+    },
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        288536
+      ],
+      [
+        4,
+        "inline",
+        3599728,
+        235976
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1272864 B -> fatbin=235976 / 433184 B) in 7.14s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23",
+    "begin": "2026-10-28T03:56:02.313302",
+    "end": "2026-10-28T03:56:10.814713"
+  }
+}

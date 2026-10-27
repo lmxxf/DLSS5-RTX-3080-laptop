@@ -978,3 +978,13 @@ FB00 HMMA等价次数三档25,696,224/40,691,424/54,871,200；1080 decoder事件
 12次新NVAPI捕获补齐V22/V24/V26在720/1080的82次发射账本。非mapped逐run来源审计证明FB01～05峰值池主要由global/shared面板控制，但shared确有本地量化中间特征，不能一律当外部权重或直接绕过FP8舍入。修复PTX opcode正则漏识别`::`限定符，112入口mapped资格不变，V26重建SHA完全一致；13回归通过。
 
 推荐DLL `nvngx_dlssnr_sm86_v27.dll`，266414592B、15/15 O4原槽位，SHA256 `28150da4ea554258b660b610bf23168a266caeda1eb68521d195d2276f0b2969`。[阶段回执](ptx-patcher/v27/README.md)、[验收](ptx-patcher/v27/validation.json)、[独立审核](doc/性能评估20261028-0207-审核意见.md)。原报告保留，临时大产物清理，主fast与正式ZIP不变，不部署、不push。
+
+## 2026-10-28：PTX V2.8 单核cap驻留实验收负结果，保留V2.7（闇）
+
+严格审核0335报告：主性能/来源审计基本正确，两条合并行约1ns舍入偏差；170次包含10次快验。第三节“整包失败完全因为qkv/attention”被旧资源表否定（多个轻核也spill）。v23两档及v27四份V26捕获dynamic_shared全0，Shared不阻止目标驻留；但720p ViT96 CTA已在2CTA/SM×48容量内，head仅24/48CTA，不能把理论最大驻留+50%当实际并行+50%。
+
+十个单核/分层控制均O4原槽位：ViT contract/cq/cqe；C512 head128/proj128/pool168/ffwd_proj168/ffwd_proj_inp168/ffwd_inp168；C32 up168。API台阶全部成立。contract实际REG166、pool164均零STACK；qkv64B、expand168/160B、head136B、proj128B、两个ffwd_proj208B、ffwd_inp120B、up56B。qkv_512/attention等受保护核SASS未变；所有候选PTX仅maxnreg不同，FB00/04/05基线重编cubin与V27逐字节一致。
+
+240次未插桩50/80正反ABBA，十项均无三档双向净收益：contract720慢0.882%；ViT全组慢5.496%/2.900%/3.340%；pool为−0.200%/+0.228%/+0.431%，up为+0.133%/−0.268%/+0.603%（正为耗时下降）。额外pool+proj+up组合24次：6.01225→6.02275 / 8.75800→8.72650 / 11.48025→11.47600ms，下降−0.175%/+0.360%/+0.037%，720方向变号。故不晋升V28 DLL，仍推荐V27 SHA28150da4。
+
+264正式＋11快验共275次末帧对V27全部0bit、maxabs0、invalid0，720天空0变号。13回归通过。[完整回执](ptx-patcher/v28/README.md)、[审核意见](doc/性能评估20261028-0335-审核意见.md)、[验收](ptx-patcher/v28/validation.json)。保留原报告，清理临时大DLL/PTX/cubin/RGB；主fast/V27/旧参考/正式ZIP哈希不变，不部署、不push，无Co-Authored-By。

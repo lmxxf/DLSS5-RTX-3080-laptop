@@ -1,0 +1,176 @@
+{
+  "vit_cq": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_vit_cq.dll",
+    "sha256": "881f4b2e158f69d2f4977194acdf8859602e35650f45843fbacd3666d01894d1",
+    "FB": 5,
+    "caps": {
+      "cc_vit_1d_ffn_contract_chained_fp8": 168,
+      "cc_vit_1d_qkv_chained_fp8": 168
+    },
+    "manifest": [
+      [
+        5,
+        "inline",
+        4032912,
+        254496
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1644064 B -> fatbin=254496 / 542960 B) in 10.07s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29"
+  },
+  "vit_cqe": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_vit_cqe.dll",
+    "sha256": "8c9b95895f3f265cde611b4118df89995936594c7186bfcd8150830a4f32ae5d",
+    "FB": 5,
+    "caps": {
+      "cc_vit_1d_ffn_contract_chained_fp8": 168,
+      "cc_vit_1d_qkv_chained_fp8": 168,
+      "cc_vit_1d_ffn_expand_publish_fp8": 168,
+      "cc_vit_1d_ffn_expand_chained_fp8": 168
+    },
+    "manifest": [
+      [
+        5,
+        "inline",
+        4032912,
+        259208
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1650720 B -> fatbin=259208 / 542960 B) in 10.11s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29"
+  },
+  "vit_contract": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_vit_contract.dll",
+    "sha256": "195924bf60d89aa4ddfd982b09658caa7eec0f08a20027c2f78e3dacc3c6709c",
+    "FB": 5,
+    "caps": {
+      "cc_vit_1d_ffn_contract_chained_fp8": 168
+    },
+    "manifest": [
+      [
+        5,
+        "inline",
+        4032912,
+        249992
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1641504 B -> fatbin=249992 / 542960 B) in 10.17s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29"
+  },
+  "head": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_head.dll",
+    "sha256": "47ff5d4f74cbdce22bcc202319c02277fe81b8c09bbd50234a9e222d1caca740",
+    "FB": 4,
+    "caps": {
+      "cc_split_swin_16h_final_head_512_wait_fp8": 128
+    },
+    "manifest": [
+      [
+        4,
+        "inline",
+        3599728,
+        233640
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1270304 B -> fatbin=233640 / 433184 B) in 8.02s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23"
+  },
+  "pool": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_pool.dll",
+    "sha256": "a32d1451203cbb9b284981ddf57e4efe36aeecc40e0bcc97d2177d983232609e",
+    "FB": 4,
+    "caps": {
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": 168
+    },
+    "manifest": [
+      [
+        4,
+        "inline",
+        3599728,
+        234680
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1269792 B -> fatbin=234680 / 433184 B) in 7.95s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23"
+  },
+  "proj": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_proj.dll",
+    "sha256": "54eb02d8720216a4911ff9d9eb1679dd859aa1b3cdcfed8ea7a2664bc940001c",
+    "FB": 4,
+    "caps": {
+      "cc_split_swin_16h_proj_512_chained_fp8": 128
+    },
+    "manifest": [
+      [
+        4,
+        "inline",
+        3599728,
+        232072
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1270816 B -> fatbin=232072 / 433184 B) in 8.10s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23"
+  },
+  "ffwd_proj": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_ffwd_proj.dll",
+    "sha256": "d6087ed277ef1987ceb00a1dd011ae0a7b29a3dd90fcc0d30aa6d5659b8c5738",
+    "FB": 4,
+    "caps": {
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": 168
+    },
+    "manifest": [
+      [
+        4,
+        "inline",
+        3599728,
+        233936
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1271840 B -> fatbin=233936 / 433184 B) in 8.02s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23"
+  },
+  "ffwd_proj_inp": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_ffwd_proj_inp.dll",
+    "sha256": "f92c4e45af49bcc0f270f811dd86f5466bc72434596fd863d3dd25ccaf541d3a",
+    "FB": 4,
+    "caps": {
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": 168
+    },
+    "manifest": [
+      [
+        4,
+        "inline",
+        3599728,
+        232784
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1271840 B -> fatbin=232784 / 433184 B) in 8.08s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23"
+  },
+  "ffwd_inp": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_ffwd_inp.dll",
+    "sha256": "91e04473cdd1e1621a2f381cf2effa21a21ea2717df6ce1ffe5d6d053dee9812",
+    "FB": 4,
+    "caps": {
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": 168
+    },
+    "manifest": [
+      [
+        4,
+        "inline",
+        3599728,
+        233848
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1271328 B -> fatbin=233848 / 433184 B) in 8.06s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23"
+  },
+  "up": {
+    "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v28_up.dll",
+    "sha256": "9e5ee6b898cfb84f1511c55305d7116bad451c52250d5e3d437b5e91d3c498df",
+    "FB": 0,
+    "caps": {
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": 168
+    },
+    "manifest": [
+      [
+        0,
+        "inline",
+        1107664,
+        288536
+      ]
+    ],
+    "compile": "ELF O4 (cubin=1444960 B -> fatbin=288536 / 841720 B) in 12.74s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19"
+  }
+}

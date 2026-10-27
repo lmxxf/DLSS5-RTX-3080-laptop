@@ -1,0 +1,4 @@
+ELF O4 (cubin=1267744 B -> fatbin=230744 / 433184 B) in 3.69s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+ELF O4 (cubin=1640480 B -> fatbin=245608 / 542960 B) in 4.55s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29
+ELF O4 (cubin=1441504 B -> fatbin=282584 / 841720 B) in 5.62s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+PASS V27 baseline cubins identical; all ten candidates differ only in maxnreg

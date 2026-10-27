@@ -40,7 +40,14 @@
 
 ## 3. 当前主线：路线 B PTX 深度优化（hip-port Phase20 后收官）
 
-> **2026-10-27 最新裁决：hip-port 收官，全部转向 PTX。V2.2 组合版为新推荐；正式部署/发布包仍为 V2.1 v0.2.0，本轮不覆盖。** 第1～2节保留原阶段历史账本，不代表当前性能或路线优先级。
+> **2026-10-27 19:12 最新状态快照**：
+> 1. `hip-port`（路线 A）已于 Phase 20 正式收官归档；全仓唯一主攻方向为 **路线 B（`Development/ptx-patcher/`）**。
+> 2. **`PTX V2.2`**（`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll`，SHA256 `2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f`）三档实测已达 **720p `6.25 ms` / 900p `9.12 ms` / 1080p `11.86 ms`**（与 `V2.1` 72 次运行严格 `0 bit-diff`），并已同步安装至本机《鬼武者》（含 `_storage_`）、《剑星》、Magpie 及主 `nvngx_dlssnr_sm86_fast.dll`，待 Zero 回家实机试玩。
+> 3. **硬件算力上限（Roofline）标尺已建立**（详见 `/home/lmxxf/work/ai-theorys-study/wechat/short/20261027/如何测算3080laptop的dlss5算力上限.md`）：720p / 900p / 1080p 理论合成下限为 **`3.54 / 5.92 / 8.33 ms`**（`V2.2` 达成率为 `56.6% / 64.9% / 70.2%`，仍有 `2.71 ~ 3.53 ms` 未解释损耗）。
+> 4. **当前正在执行（`PTX V2.3`，闇 `wE:p1` 执行中）**：拦截 `nvcuda.dll` 获取 `V2.2` 内部逐 Kernel 真实调用列表、Grid/Block 与微秒级 GPU 耗时分布，定位 `2.7 ~ 3.5 ms` 损耗根因（特别是 720p 达成率偏低的原因、`tilesync/wait` 跨块同步开销、`even_odd_decode_lines` 10 指令解包及 `mapped` 过滤）并推进 `V2.3`。
+
+### 正在执行：PTX V2.3 逐核耗时剖析与剩余损耗攻坚（以 Roofline `3.54 / 5.92 / 8.33 ms` 为标尺）
+- **目标**：不依赖外部包，直接根据 Roofline 理论下限与 `V2.2` 实测之间的差额（720p `2.71 ms`、900p `3.20 ms`、1080p `3.53 ms`），通过 CUDA Driver API 拦截获取 `nvngx_dlssnr.dll` 内部每次 Kernel 发射的真实耗时账本，找出真正的瓶颈核与指令 Stall 并实施 `V2.3` 优化（产物与报告归档于 `Development/ptx-patcher/v23/`）。
 
 ### 已完成：PTX V2.2，SWAR 量化与原生异步 barrier
 

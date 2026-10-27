@@ -874,3 +874,35 @@ FB04/05/06共316处bulk（104/208/4）改用cp.async.mbarrier.arrive.shared::cta
 84次运行全部相对同配置V2.1严格0bit/maxabs0/PSNR∞/nonfinite0，天空0变号、HF RMS约0.000101989相同。初版脚本把1/1和50/80基线末帧比较而检出61.786dB时间帧差，已拆gold并重新完整运行，失败控制证据保留。静态O4反例：组合FB01 STACK120→168B、LDL+STL315→462；FB02 0→8B、0→2；FB04 80B/118不变；FB05 8→16B、12→18。其余FB00/03/06～14 STACK0；绝不宣称零spill，最终按净帧耗时推荐组合。
 
 推荐DLL `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v22.dll`，266,414,592B，15/15 O4原槽位，未扩节。SHA256 `2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f`，独立推荐入口全15重编相同SHA、CUDA加载通过，既有10项回归通过。兼容CLI默认保留V2.1，新增因子要求显式输出路径。[回执](ptx-patcher/v22/README.md)、[配对表](ptx-patcher/v22/results.md)、[验收](ptx-patcher/v22/validation.json)。清理重复DLL/RGB/PTX/cubin，保留推荐DLL及证据；主fast/V2.1/三正式v0.2.0ZIP保护性SHA未变。不部署、不push，立即独立commit，无Co-Authored-By。
+
+- **2026-10-27 09:49 本机游戏与 Magpie 同步更新为 `V2.2`（待 Zero 回家实机试玩）**：
+  已将 `nvngx_dlssnr_sm86_v22.dll`（SHA256 `2705462fc74ca20208ebb83c08cd0e75613ddc220a7834b1e80f4c9aeb0eb90f`）同步覆盖安装至以下 5 个位置并完成 SHA256 校验：
+  1. `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll`
+  2. `/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/nvngx_dlssnr.dll`
+  3. `/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/_storage_/nvngx_dlssnr.dll`
+  4. `/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/nvngx_dlssnr.dll`
+  5. `/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.2.0/nvngx_dlssnr.dll`
+
+---
+
+## 2026-10-27 19:12 时间节点快照：RTX 3080 Laptop 物理算力上限（Roofline）标尺与 `PTX V2.3` 主动剖析目标
+
+### 1. 硬件双管道算力账本与三档理论物理极限（Roofline）
+详见 `/home/lmxxf/work/ai-theorys-study/wechat/short/20261027/如何测算3080laptop的dlss5算力上限.md`：
+- **硬件参数（GA104，`48` SMs）**：1080p/900p 满载 `131~139.7 W` 下稳态频率 **`1605 MHz`**（全卡每毫秒 `7,704 万` SM 周期），720p 下 **`1695 MHz`**（每毫秒 `8,136 万` SM 周期）。
+  - **一号管道（FP16 Tensor Core，`.f16.f16.f16.f16`）**：每 SM 每周期 `512 FMA = 1,024 FLOPs`（`1605 MHz` 下 **`78.89 TFLOPS`**，`1695 MHz` 下 **`83.31 TFLOPS`**），每条 `HMMA.16816.F16`（`4,096 FLOPs`）耗时 **`4` 个 SM 周期**。
+  - **二号管道（INT32 位运算 / FP16x2 向量 / LSU 辅助管道）**：每 SM 每周期 `64` 个 INT32 操作（`2.0` 条 Warp 整数指令/周期/SM），负责软件 FP8 解包/打包、激活函数与访存，平均每周期每 SM 消化约 **`2.0` 条非 `HMMA` 辅助指令**。
+- **三档工作量、理论 Roofline 下限（按 70% 双管道重叠率 `max(T_tc, T_alu) + 0.3 * min(T_tc, T_alu)`）与 `V2.2` 实测差距**：
+
+| 分辨率档位 | 实测频率 | 动态 `HMMA` 总数 | 动态非 `HMMA` 辅助指令 | ① 纯矩阵乘下限 `T_tc` | ② 辅助指令下限 `T_alu` | **③ 理论合成极限 (Roofline)** | **④ `V2.2` 实测耗时** | **达成率 / 剩余损耗空间** |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **720p (`1280×720`)** | `1695 MHz` | `4,897 万` (`200.6 GF`) | `4.581 亿` | `2.41 ms` | `2.82 ms` | **`3.54 ms`** | **`6.25 ms`** | **56.6%**（差 **`2.71 ms`**） |
+| **900p (`1600×900`)** | `1605 MHz` | `7,751 万` (`317.5 GF`) | `7.254 亿` | `4.02 ms` | `4.71 ms` | **`5.92 ms`** | **`9.12 ms`** | **64.9%**（差 **`3.20 ms`**） |
+| **1080p (`1920×1080`)** | `1605 MHz` | `1.093 亿` (`447.6 GF`) | `10.211 亿` | `5.67 ms` | `6.63 ms` | **`8.33 ms`** | **`11.86 ms`** | **70.2%**（差 **`3.53 ms`**） |
+
+### 2. 当前正在执行的任务（`PTX V2.3` 主动剖析与优化，已派单给闇 `wE:p1`）
+- **核心问题**：为什么 720p 的 Roofline 达成率（`56.6%`，差 `2.71 ms`）明显低于 1080p（`70.2%`，差 `3.53 ms`）？这 `2.7 ~ 3.5 ms` 的未解释损耗具体花在哪些 Kernel 和哪些指令停顿（Stall）上？
+- **执行抓手**：
+  1. 在 `bench_sky.exe` 中拦截 `nvcuda.dll` 的 Kernel 发射接口（`cuLaunchKernel` / `cuLaunchKernelEx` / `cuGraphLaunch`），采集 `V2.2` 在 720p 与 1080p 下一帧实际发射的全部 Kernel 名称、Grid/Block 尺寸、调用次数与逐核硬件时间戳耗时排行榜（落盘于 `Development/ptx-patcher/v23/`）；
+  2. 重点排查：① 实际执行的核是否走了带跨块原子自旋同步的 `*_tilesync_fp8` / `*_wait_fp8`（`fence.acq_rel.gpu;` + `nanosleep` 自旋等待开销）；② `FB07~FB14` 辅助核及与分辨率弱相关的固定开销；③ `even_odd_decode_lines`（每操作数 10 条指令）与 `multidef_nq` 保守回退的进一步瘦身空间；
+  3. 对定位到的真实瓶颈实施 `V2.3` 优化并做三档正反 ABBA 实测验证。

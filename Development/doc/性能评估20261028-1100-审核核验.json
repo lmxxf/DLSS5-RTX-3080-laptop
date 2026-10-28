@@ -1,0 +1,175 @@
+{
+  "scope": "quick revision review, no GPU rerun",
+  "hashes": {
+    "性能评估20261028-1100.md": "d548ae79c04cdae35d3e694e686fc5c08560b6bdeac970e0b5f40e444d51e227",
+    "性能评估20261028-1100-实验数据.json": "80435bff502cb14be70276522beff85a4d02e7f7dc8ba83bd3d5aa7dccf38545",
+    "eval_20261028_probes.py": "600863f667654c5cccfae0671e8c1af4906875595cbba0b6f4f8097e054676d2",
+    "eval_20261028_bench.py": "8c1105391c198d88ed1b6974ed32365ffd39f3c8bae1791b89bab8ede6a2b8dd"
+  },
+  "whole": {
+    "1280": {
+      "v27": 5.90525,
+      "p0": 5.49075,
+      "p1": 5.329,
+      "p2": 5.3085,
+      "p3": 3.9362500000000002,
+      "pack_saving": 0.4144999999999994,
+      "decode_saving": 0.5762499999999999,
+      "saving_interaction": -0.394000000000001,
+      "per_pass": [
+        {
+          "pack_saving": 0.399,
+          "interaction": -0.363999999999999
+        },
+        {
+          "pack_saving": 0.41800000000000015,
+          "interaction": -0.42299999999999915
+        },
+        {
+          "pack_saving": 0.4189999999999996,
+          "interaction": -0.3520000000000003
+        },
+        {
+          "pack_saving": 0.4219999999999997,
+          "interaction": -0.4369999999999994
+        }
+      ]
+    },
+    "1600": {
+      "v27": 8.84675,
+      "p0": 8.2765,
+      "p1": 7.73825,
+      "p2": 7.82825,
+      "p3": 5.57025,
+      "pack_saving": 0.5702499999999997,
+      "decode_saving": 1.1085000000000003,
+      "saving_interaction": -0.6602500000000004,
+      "per_pass": [
+        {
+          "pack_saving": 0.41800000000000104,
+          "interaction": -0.5829999999999993
+        },
+        {
+          "pack_saving": 0.6059999999999999,
+          "interaction": -0.6760000000000002
+        },
+        {
+          "pack_saving": 0.4209999999999994,
+          "interaction": -0.557999999999998
+        },
+        {
+          "pack_saving": 0.8360000000000003,
+          "interaction": -0.8240000000000016
+        }
+      ]
+    },
+    "1920": {
+      "v27": 11.6715,
+      "p0": 11.09825,
+      "p1": 10.1365,
+      "p2": 10.37325,
+      "p3": 7.4075,
+      "pack_saving": 0.5732499999999998,
+      "decode_saving": 1.5350000000000001,
+      "saving_interaction": -0.8100000000000023,
+      "per_pass": [
+        {
+          "pack_saving": 0.5259999999999998,
+          "interaction": -0.9359999999999982
+        },
+        {
+          "pack_saving": 0.6230000000000011,
+          "interaction": -0.7140000000000004
+        },
+        {
+          "pack_saving": 0.6500000000000004,
+          "interaction": -0.9269999999999996
+        },
+        {
+          "pack_saving": 0.4939999999999998,
+          "interaction": -0.663000000000002
+        }
+      ]
+    }
+  },
+  "sass": {
+    "v27": {
+      "INSN": 175685,
+      "HMMA": 13188,
+      "PRMT": 19863,
+      "LDG": 1922,
+      "LDS": 714,
+      "STS": 330,
+      "LDGSTS": 156,
+      "STL": 109,
+      "LDL": 108
+    },
+    "p0_zeropack": {
+      "INSN": 136471,
+      "HMMA": 13188,
+      "PRMT": 17466,
+      "LDG": 1922,
+      "LDS": 714,
+      "STS": 330,
+      "LDGSTS": 156,
+      "STL": 81,
+      "LDL": 79
+    },
+    "p1_zerodecode": {
+      "INSN": 129771,
+      "HMMA": 13412,
+      "PRMT": 8435,
+      "LDG": 1936,
+      "LDS": 742,
+      "STS": 330,
+      "LDGSTS": 156,
+      "STL": 39,
+      "LDL": 28
+    },
+    "p2_zerodecode_zeropack": {
+      "INSN": 90551,
+      "HMMA": 13412,
+      "PRMT": 6053,
+      "LDG": 1936,
+      "LDS": 742,
+      "STS": 330,
+      "LDGSTS": 156,
+      "STL": 39,
+      "LDL": 28
+    },
+    "p3_zerodecode_1xhmma": {
+      "INSN": 125568,
+      "HMMA": 6724,
+      "PRMT": 8437,
+      "LDG": 1936,
+      "LDS": 742,
+      "STS": 330,
+      "LDGSTS": 156,
+      "STL": 44,
+      "LDL": 22
+    }
+  },
+  "HMMA_count_identity": true,
+  "P3_lop3_truth_table": [
+    {
+      "low": 0,
+      "high": 0,
+      "result": 0
+    },
+    {
+      "low": 0,
+      "high": 1,
+      "result": 1
+    },
+    {
+      "low": 1,
+      "high": 0,
+      "result": 0
+    },
+    {
+      "low": 1,
+      "high": 1,
+      "result": 1
+    }
+  ]
+}

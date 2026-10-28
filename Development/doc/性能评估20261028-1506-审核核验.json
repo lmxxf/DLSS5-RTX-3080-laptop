@@ -417,5 +417,49 @@
       }
     },
     "conclusion": "Promising conditional scheduling strategy; baseline mixing invalidates claimed new resource gains; correctness and timing not certified."
+  },
+  "e30210b_review": {
+    "runs": 51,
+    "formal": 48,
+    "all_endframe_zero_bitdiff_and_finite": true,
+    "recomputed": {
+      "v30_all": {
+        "1280": {
+          "baseline_ms": 5.81675,
+          "candidate_ms": 5.797000000000001,
+          "saving_pct": 0.3395366828555346
+        },
+        "1600": {
+          "baseline_ms": 8.6415,
+          "candidate_ms": 8.5905,
+          "saving_pct": 0.5901753167852797
+        },
+        "1920": {
+          "baseline_ms": 11.474499999999999,
+          "candidate_ms": 11.44425,
+          "saving_pct": 0.26362804479497237
+        }
+      },
+      "v30_fb14": {
+        "1280": {
+          "baseline_ms": 5.8305,
+          "candidate_ms": 5.824,
+          "saving_pct": 0.11148272017836858
+        },
+        "1600": {
+          "baseline_ms": 8.77825,
+          "candidate_ms": 8.74425,
+          "saving_pct": 0.3873209352661444
+        },
+        "1920": {
+          "baseline_ms": 11.36625,
+          "candidate_ms": 11.5815,
+          "saving_pct": -1.893764434180123
+        }
+      }
+    },
+    "report_sha256": "10b6ef924de1199a596a58291fd06d595ac7608014f10264b59f19cf9482a0d8",
+    "source_review": "orig_start fixed; mapped low/high expanded; conflicts ordered; backup/count assertions present",
+    "verdict": "No-promotion supported; causal split of decode instructions versus register pressure not identified"
   }
 }

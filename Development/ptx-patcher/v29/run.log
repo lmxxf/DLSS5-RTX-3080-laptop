@@ -1,0 +1,63 @@
+smoke baseline 1280 6.025 0
+smoke exact 1280 5.982 0
+smoke fast 1280 5.835 1909628
+forward-exact-0 baseline 1280 5.892 0
+forward-exact-1 exact 1280 5.856 0
+forward-exact-2 exact 1280 5.856 0
+forward-exact-3 baseline 1280 5.924 0
+forward-fast-0 baseline 1280 5.886 0
+forward-fast-1 fast 1280 5.786 2012940
+forward-fast-2 fast 1280 5.752 2012940
+forward-fast-3 baseline 1280 5.915 0
+forward-exact-0 baseline 1600 8.704 0
+forward-exact-1 exact 1600 8.761 0
+forward-exact-2 exact 1600 8.682 0
+forward-exact-3 baseline 1600 8.851 0
+forward-fast-0 baseline 1600 8.733 0
+forward-fast-1 fast 1600 8.467 3508135
+forward-fast-2 fast 1600 8.508 3508135
+forward-fast-3 baseline 1600 8.682 0
+forward-exact-0 baseline 1920 11.368 0
+forward-exact-1 exact 1920 11.557 0
+forward-exact-2 exact 1920 11.508 0
+forward-exact-3 baseline 1920 11.474 0
+forward-fast-0 baseline 1920 11.49 0
+forward-fast-1 fast 1920 11.242 5250289
+forward-fast-2 fast 1920 11.348 5250289
+forward-fast-3 baseline 1920 11.494 0
+reverse-exact-0 exact 1920 11.398 0
+reverse-exact-1 baseline 1920 11.491 0
+reverse-exact-2 baseline 1920 12.02 0
+reverse-exact-3 exact 1920 11.51 0
+reverse-fast-0 fast 1920 11.257 5250289
+reverse-fast-1 baseline 1920 11.498 0
+reverse-fast-2 baseline 1920 12.1 0
+reverse-fast-3 fast 1920 11.303 5250289
+reverse-exact-0 exact 1600 8.915 0
+reverse-exact-1 baseline 1600 8.812 0
+reverse-exact-2 baseline 1600 9.091 0
+reverse-exact-3 exact 1600 8.718 0
+reverse-fast-0 fast 1600 8.674 3508135
+reverse-fast-1 baseline 1600 9.037 0
+reverse-fast-2 baseline 1600 8.886 0
+reverse-fast-3 fast 1600 8.676 3508135
+reverse-exact-0 exact 1280 6.024 0
+reverse-exact-1 baseline 1280 6.076 0
+reverse-exact-2 baseline 1280 6.459 0
+reverse-exact-3 exact 1280 6.03 0
+reverse-fast-0 fast 1280 6.024 2012940
+reverse-fast-1 baseline 1280 6.274 0
+reverse-fast-2 baseline 1280 6.039 0
+reverse-fast-3 fast 1280 5.934 2012940
+# V2.9 paired controls
+
+50 warmup / 80 iter, forward ABBA and reverse BAAB; mean of process GPU medians, paired V2.7 reference.
+
+|Candidate|Width|Baseline ms|Candidate ms|Decrease|Forward / reverse|
+|---|---:|---:|---:|---:|---:|
+|exact|1280|6.08775|5.94150|2.402%|0.880% / 3.837%|
+|exact|1600|8.86450|8.76900|1.077%|0.638% / 1.508%|
+|exact|1920|11.58825|11.49325|0.820%|-0.976% / 2.565%|
+|fast|1280|6.02850|5.87400|2.563%|2.229% / 2.883%|
+|fast|1600|8.83450|8.58125|2.867%|2.527% / 3.197%|
+|fast|1920|11.64550|11.28750|3.074%|1.714% / 4.399%|

@@ -1,0 +1,234 @@
+{
+  "exact": [
+    {
+      "rotate": false,
+      "pairs": 16777216,
+      "mismatch_pairs": 16774912,
+      "examples": [
+        {
+          "input": "0x1010000",
+          "old": "0x0",
+          "new": "0x100"
+        },
+        {
+          "input": "0x2020000",
+          "old": "0x0",
+          "new": "0x200"
+        },
+        {
+          "input": "0x3030000",
+          "old": "0x0",
+          "new": "0x300"
+        },
+        {
+          "input": "0x4040000",
+          "old": "0x0",
+          "new": "0x400"
+        },
+        {
+          "input": "0x5050000",
+          "old": "0x0",
+          "new": "0x500"
+        },
+        {
+          "input": "0x6060000",
+          "old": "0x0",
+          "new": "0x600"
+        },
+        {
+          "input": "0x7070000",
+          "old": "0x0",
+          "new": "0x700"
+        },
+        {
+          "input": "0x8080000",
+          "old": "0x0",
+          "new": "0x800"
+        },
+        {
+          "input": "0x9090000",
+          "old": "0x0",
+          "new": "0x900"
+        },
+        {
+          "input": "0xa0a0000",
+          "old": "0x0",
+          "new": "0xa00"
+        }
+      ]
+    },
+    {
+      "rotate": true,
+      "pairs": 16777216,
+      "mismatch_pairs": 16774912,
+      "examples": [
+        {
+          "input": "0x101",
+          "old": "0x0",
+          "new": "0x1"
+        },
+        {
+          "input": "0x202",
+          "old": "0x0",
+          "new": "0x2"
+        },
+        {
+          "input": "0x303",
+          "old": "0x0",
+          "new": "0x3"
+        },
+        {
+          "input": "0x404",
+          "old": "0x0",
+          "new": "0x4"
+        },
+        {
+          "input": "0x505",
+          "old": "0x0",
+          "new": "0x5"
+        },
+        {
+          "input": "0x606",
+          "old": "0x0",
+          "new": "0x6"
+        },
+        {
+          "input": "0x707",
+          "old": "0x0",
+          "new": "0x7"
+        },
+        {
+          "input": "0x808",
+          "old": "0x0",
+          "new": "0x8"
+        },
+        {
+          "input": "0x909",
+          "old": "0x0",
+          "new": "0x9"
+        },
+        {
+          "input": "0xa0a",
+          "old": "0x0",
+          "new": "0xa"
+        }
+      ]
+    }
+  ],
+  "fast": [
+    {
+      "rotate": false,
+      "pairs": 16777216,
+      "mismatch_pairs": 16774912,
+      "examples": [
+        {
+          "input": "0x1010000",
+          "old": "0x0",
+          "new": "0x100"
+        },
+        {
+          "input": "0x2020000",
+          "old": "0x0",
+          "new": "0x200"
+        },
+        {
+          "input": "0x3030000",
+          "old": "0x0",
+          "new": "0x300"
+        },
+        {
+          "input": "0x4040000",
+          "old": "0x0",
+          "new": "0x400"
+        },
+        {
+          "input": "0x5050000",
+          "old": "0x0",
+          "new": "0x500"
+        },
+        {
+          "input": "0x6060000",
+          "old": "0x0",
+          "new": "0x600"
+        },
+        {
+          "input": "0x7070000",
+          "old": "0x0",
+          "new": "0x700"
+        },
+        {
+          "input": "0x8080000",
+          "old": "0x0",
+          "new": "0x800"
+        },
+        {
+          "input": "0x9090000",
+          "old": "0x0",
+          "new": "0x900"
+        },
+        {
+          "input": "0xa0a0000",
+          "old": "0x0",
+          "new": "0xa00"
+        }
+      ]
+    },
+    {
+      "rotate": true,
+      "pairs": 16777216,
+      "mismatch_pairs": 16774912,
+      "examples": [
+        {
+          "input": "0x101",
+          "old": "0x0",
+          "new": "0x1"
+        },
+        {
+          "input": "0x202",
+          "old": "0x0",
+          "new": "0x2"
+        },
+        {
+          "input": "0x303",
+          "old": "0x0",
+          "new": "0x3"
+        },
+        {
+          "input": "0x404",
+          "old": "0x0",
+          "new": "0x4"
+        },
+        {
+          "input": "0x505",
+          "old": "0x0",
+          "new": "0x5"
+        },
+        {
+          "input": "0x606",
+          "old": "0x0",
+          "new": "0x6"
+        },
+        {
+          "input": "0x707",
+          "old": "0x0",
+          "new": "0x7"
+        },
+        {
+          "input": "0x808",
+          "old": "0x0",
+          "new": "0x8"
+        },
+        {
+          "input": "0x909",
+          "old": "0x0",
+          "new": "0x9"
+        },
+        {
+          "input": "0xa0a",
+          "old": "0x0",
+          "new": "0xa"
+        }
+      ]
+    }
+  ]
+}

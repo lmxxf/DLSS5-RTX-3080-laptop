@@ -1,0 +1,223 @@
+{
+  "formal_runs": 96,
+  "smoke_runs": 3,
+  "all_finite": true,
+  "exact_all_bitdiff": 0,
+  "quality": {
+    "1280": {
+      "bitdiff": 2012940,
+      "maxabs": 0.00439453125,
+      "psnr_db": 62.608919809202625,
+      "sha256": "ebda945d25d03a1a2181f911159df5c9923cf8bb8caf267499d8869b9ea36c03",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.0001029861014103517
+    },
+    "1600": {
+      "bitdiff": 3508135,
+      "maxabs": 0.005615234375,
+      "psnr_db": 62.117131617365445,
+      "sha256": "c10ae5164c3331c3757eaa5f358b6930db58350b78979eb11b53cc6fa7845776"
+    },
+    "1920": {
+      "bitdiff": 5250289,
+      "maxabs": 0.0074462890625,
+      "psnr_db": 60.59468757938574,
+      "sha256": "187b8c9abe987dda51be18e9467b7fb793d7802154d3c60a943a00e2a94eee38"
+    }
+  },
+  "candidates": {
+    "exact": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v29_exact.dll",
+      "sha256": "7df8b48f691a5bdfed880571bfd108e539976cc6b9aedaa584cf068a5e46eef3",
+      "manifest": [
+        [
+          0,
+          "inline",
+          1107664,
+          282208
+        ],
+        [
+          1,
+          "inline",
+          1949392,
+          220904
+        ],
+        [
+          2,
+          "inline",
+          2506432,
+          195272
+        ],
+        [
+          3,
+          "inline",
+          3012896,
+          242784
+        ],
+        [
+          4,
+          "inline",
+          3599728,
+          224704
+        ],
+        [
+          5,
+          "inline",
+          4032912,
+          240248
+        ],
+        [
+          6,
+          "inline",
+          4575872,
+          37008
+        ],
+        [
+          7,
+          "inline",
+          4649280,
+          1448
+        ],
+        [
+          8,
+          "inline",
+          4657312,
+          1520
+        ],
+        [
+          9,
+          "inline",
+          4668224,
+          1608
+        ],
+        [
+          10,
+          "inline",
+          4680032,
+          1816
+        ],
+        [
+          11,
+          "inline",
+          4690608,
+          1536
+        ],
+        [
+          12,
+          "inline",
+          4700576,
+          1128
+        ],
+        [
+          13,
+          "inline",
+          4707136,
+          8888
+        ],
+        [
+          14,
+          "inline",
+          4761968,
+          1240
+        ]
+      ]
+    },
+    "fast": {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v29_fast.dll",
+      "sha256": "55b518762bbe4d43fbe71f838352e23584d719736d86dd45437f4f50fc135f5c",
+      "manifest": [
+        [
+          0,
+          "inline",
+          1107664,
+          286688
+        ],
+        [
+          1,
+          "inline",
+          1949392,
+          189808
+        ],
+        [
+          2,
+          "inline",
+          2506432,
+          170944
+        ],
+        [
+          3,
+          "inline",
+          3012896,
+          220928
+        ],
+        [
+          4,
+          "inline",
+          3599728,
+          197472
+        ],
+        [
+          5,
+          "inline",
+          4032912,
+          216336
+        ],
+        [
+          6,
+          "inline",
+          4575872,
+          34592
+        ],
+        [
+          7,
+          "inline",
+          4649280,
+          1448
+        ],
+        [
+          8,
+          "inline",
+          4657312,
+          1520
+        ],
+        [
+          9,
+          "inline",
+          4668224,
+          1608
+        ],
+        [
+          10,
+          "inline",
+          4680032,
+          1816
+        ],
+        [
+          11,
+          "inline",
+          4690608,
+          1536
+        ],
+        [
+          12,
+          "inline",
+          4700576,
+          1128
+        ],
+        [
+          13,
+          "inline",
+          4707136,
+          8888
+        ],
+        [
+          14,
+          "inline",
+          4761968,
+          1240
+        ]
+      ]
+    }
+  },
+  "recommendation": "Keep V2.7 strict default; exact gains not stable across directions; fast is an optional non-bit-exact experimental variant."
+}

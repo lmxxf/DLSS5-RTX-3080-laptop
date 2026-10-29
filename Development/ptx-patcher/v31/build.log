@@ -1,0 +1,45 @@
+pack8 2 ELF O4 (cubin=1301152 B -> fatbin=167480 / 506464 B) in 10.72s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+pack8 1 ELF O4 (cubin=1217824 B -> fatbin=188432 / 557032 B) in 11.05s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832
+pack8 0 ELF O4 (cubin=1400416 B -> fatbin=284400 / 841720 B) in 14.52s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+pack8 4 ELF O4 (cubin=1169952 B -> fatbin=194536 / 433184 B) in 7.55s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+pack8 6 ELF O4 (cubin= 158048 B -> fatbin= 34608 /  70336 B) in 1.39s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+pack8 7 ELF O4 (cubin=   4392 B -> fatbin=  1448 /   8016 B) in 0.11s | ptx_version=1, target=1
+pack8 8 ELF O4 (cubin=   5608 B -> fatbin=  1520 /  10904 B) in 0.12s | ptx_version=1, target=1
+pack8 9 ELF O4 (cubin=   6248 B -> fatbin=  1608 /  11792 B) in 0.12s | ptx_version=1, target=1
+pack8 10 ELF O4 (cubin=   5792 B -> fatbin=  1816 /  10560 B) in 0.11s | ptx_version=1, target=1
+pack8 11 ELF O4 (cubin=   5672 B -> fatbin=  1536 /   9960 B) in 0.11s | ptx_version=1, target=1
+pack8 12 ELF O4 (cubin=   3752 B -> fatbin=  1128 /   6552 B) in 0.11s | ptx_version=1, target=1
+pack8 13 ELF O4 (cubin=  32672 B -> fatbin=  8888 /  54824 B) in 0.15s | ptx_version=1, target=1, min_relu=4
+pack8 14 ELF O4 (cubin=   4008 B -> fatbin=  1240 /   6936 B) in 0.10s | ptx_version=1, target=1
+pack8 3 ELF O4 (cubin=1298336 B -> fatbin=216144 / 586832 B) in 11.57s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+pack8 5 ELF O4 (cubin=1481248 B -> fatbin=213192 / 542960 B) in 8.65s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29
+pack5 2 ELF O4 (cubin=1221152 B -> fatbin=158600 / 506464 B) in 10.17s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+pack5 1 ELF O4 (cubin=1152800 B -> fatbin=176512 / 557032 B) in 10.52s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832
+pack5 0 ELF O4 (cubin=1374176 B -> fatbin=281368 / 841720 B) in 14.08s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+pack5 4 ELF O4 (cubin=1108000 B -> fatbin=183472 / 433184 B) in 7.04s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+pack5 6 ELF O4 (cubin= 144224 B -> fatbin= 31672 /  70336 B) in 1.27s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+pack5 7 ELF O4 (cubin=   4392 B -> fatbin=  1448 /   8016 B) in 0.11s | ptx_version=1, target=1
+pack5 8 ELF O4 (cubin=   5608 B -> fatbin=  1520 /  10904 B) in 0.10s | ptx_version=1, target=1
+pack5 9 ELF O4 (cubin=   6248 B -> fatbin=  1608 /  11792 B) in 0.11s | ptx_version=1, target=1
+pack5 10 ELF O4 (cubin=   5792 B -> fatbin=  1816 /  10560 B) in 0.13s | ptx_version=1, target=1
+pack5 11 ELF O4 (cubin=   5672 B -> fatbin=  1536 /   9960 B) in 0.13s | ptx_version=1, target=1
+pack5 12 ELF O4 (cubin=   3752 B -> fatbin=  1128 /   6552 B) in 0.10s | ptx_version=1, target=1
+pack5 13 ELF O4 (cubin=  32672 B -> fatbin=  8888 /  54824 B) in 0.15s | ptx_version=1, target=1, min_relu=4
+pack5 14 ELF O4 (cubin=   4008 B -> fatbin=  1240 /   6936 B) in 0.11s | ptx_version=1, target=1
+pack5 3 ELF O4 (cubin=1218464 B -> fatbin=202624 / 586832 B) in 10.76s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+pack5 5 ELF O4 (cubin=1380896 B -> fatbin=196168 / 542960 B) in 8.00s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29
+pack5_quad 2 ELF O4 (cubin=1185184 B -> fatbin=157032 / 506464 B) in 10.76s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=616, fp16_to_fp8=1672, fp8_to_fp16=832
+pack5_quad 1 ELF O4 (cubin=1122848 B -> fatbin=173536 / 557032 B) in 10.77s | ptx_version=1, target=1, fp8_mma=3608, fused_quad_pairs=456, fp16_to_fp8=1352, fp8_to_fp16=832
+pack5_quad 0 ELF O4 (cubin=1364320 B -> fatbin=277192 / 841720 B) in 14.90s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+pack5_quad 4 ELF O4 (cubin=1094688 B -> fatbin=181936 / 433184 B) in 7.28s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+pack5_quad 6 ELF O4 (cubin= 140128 B -> fatbin= 31200 /  70336 B) in 1.31s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+pack5_quad 7 ELF O4 (cubin=   4392 B -> fatbin=  1448 /   8016 B) in 0.11s | ptx_version=1, target=1
+pack5_quad 8 ELF O4 (cubin=   5608 B -> fatbin=  1520 /  10904 B) in 0.11s | ptx_version=1, target=1
+pack5_quad 9 ELF O4 (cubin=   6248 B -> fatbin=  1608 /  11792 B) in 0.12s | ptx_version=1, target=1
+pack5_quad 10 ELF O4 (cubin=   5792 B -> fatbin=  1816 /  10560 B) in 0.11s | ptx_version=1, target=1
+pack5_quad 11 ELF O4 (cubin=   5672 B -> fatbin=  1536 /   9960 B) in 0.13s | ptx_version=1, target=1
+pack5_quad 12 ELF O4 (cubin=   3752 B -> fatbin=  1128 /   6552 B) in 0.12s | ptx_version=1, target=1
+pack5_quad 13 ELF O4 (cubin=  32672 B -> fatbin=  8888 /  54824 B) in 0.18s | ptx_version=1, target=1, min_relu=4
+pack5_quad 14 ELF O4 (cubin=   4008 B -> fatbin=  1240 /   6936 B) in 0.11s | ptx_version=1, target=1
+pack5_quad 3 ELF O4 (cubin=1184800 B -> fatbin=192240 / 586832 B) in 11.33s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=616, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+pack5_quad 5 ELF O4 (cubin=1364512 B -> fatbin=195680 / 542960 B) in 8.35s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29

@@ -1,0 +1,40 @@
+{
+  "pack8": [
+    {
+      "rotate": false,
+      "pairs": 16777216,
+      "mismatch_pairs": 0
+    },
+    {
+      "rotate": true,
+      "pairs": 16777216,
+      "mismatch_pairs": 0
+    }
+  ],
+  "pack5": [
+    {
+      "rotate": false,
+      "pairs": 16777216,
+      "mismatch_pairs": 105826,
+      "varying_half_mismatch_values": 158
+    },
+    {
+      "rotate": true,
+      "pairs": 16777216,
+      "mismatch_pairs": 105826,
+      "varying_half_mismatch_values": 158
+    }
+  ],
+  "pack5_quad": [
+    {
+      "rotate": false,
+      "pairs": 16777216,
+      "mismatch_pairs": 0
+    },
+    {
+      "rotate": true,
+      "pairs": 16777216,
+      "mismatch_pairs": 0
+    }
+  ]
+}

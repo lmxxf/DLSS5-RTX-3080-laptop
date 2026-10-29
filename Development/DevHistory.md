@@ -1056,3 +1056,8 @@ V2.9_fast SHA55b51876为基线。A abs折叠核心8SASS，33,554,432对原语及
 38活跃核非NOP SASS163944→161111(A)/152076(B)/148987(C)，HMMA13188不变；FB04/05 REG和STACK没有进一步下降，FB01最大STACK仍104B。[完整结果与SHA](ptx-patcher/v31/README.md)。三候选DLL保留，临时编译缓存/RGB清理；生产5处及ZIP不覆盖，不push。
 
 **部署回执（2026-10-29 19:27，鸠）**：已将两轮 12/12 正反方向全胜的 `nvngx_dlssnr_sm86_v31_pack5.dll`（`PTX V3.1_pack5`，5-SASS Unified Mul Pack，SHA256 `1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86`，在 `V2.9_fast` 基础上再快 `1.35% ~ 3.46%`、两轮均值快 `-1.82% / -1.91% / -2.44%`）正式同步覆盖部署至本机全部 5 个运行位置（`nvngx_dlssnr_sm86_fast.dll`、《鬼武者》根与 `_storage_`、《剑星》、`Magpie-DLSS5-RTX30-0.2.0`）并通过 SHA256 校验。
+
+**20:00 新基线正交消融与 CUDA Occupancy API 逐核审计（[性能评估20261029-2000.md](doc/性能评估20261029-2000.md)）**：以 `PTX V3.1_pack5` 为新原点构建 `P0_ZeroPack`、`P1_V31_NoDec`、`P2_Both` 连同 `V2.9_fast` 完成 60 次未插桩 + 30 次 NVAPI 正反对照，并对 38 个活跃核真实 cubin 调用 `cuOccupancyMaxActiveBlocksPerMultiprocessor` 完成 G1/G2/G3 认证（数据见 [2000 实验数据 JSON](doc/性能评估20261029-2000-实验数据.json)，独立审核见 [2000 审核意见](doc/性能评估20261029-2000-审核意见.md)）：
+- 同轮未插桩 12 个逐 pass 比较中 `V3.1_pack5` 再次 12/12 快于 `V2.9_fast`（四轮均值 `5.731→5.618 / 8.517→8.377 / 11.558→11.071 ms`）；
+- 在 `V3.1_pack5` 上去 Pack（`V31 − P0`）未插桩在 900p（`-0.114 ms`，2+/2- 变号）与 1080p（`-0.033 ms`，3+/1- 变号，中位 `+0.162 ms`）已不再呈现全 pass 同向正收益（720p 未插桩仍为 4/4 正 `+0.154 ms`，900p/1080p NVAPI 为 `+0.205 / +0.334 ms`）；
+- 去 Decode（`V31 − P1_V31`）在全部 12 个未插桩 pass（`+0.574 / +0.925 / +1.363 ms`）与 6 个 NVAPI pass（`+0.578 / +0.887 / +1.984 ms`）中 18/18 保持同向正敏感度，且经官方 CUDA Occupancy API 核实，其中 **`74.79% / 72.01% / 80.11%`** 的核内净敏感度集中在 30 个零静态 Spill 核（`G1` 23 个 API 驻留不变核 + `G2` 7 个 API 驻留跨阶核）中，确立后续优化重点由 Pack 转向 Decode。

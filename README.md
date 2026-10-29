@@ -16,17 +16,19 @@ All three release packages share the same pipeline: **capture a frame at the gam
 | **OptiScaler-REFramework** (RE Engine) | Capcom RE Engine titles (*Onimusha: Way of the Sword*, *Resident Evil 9*) | Adds REFramework (`dinput8.dll`) on top of the regular OptiScaler package to bypass anti-tamper checks and load `dxgi.dll` |
 | **Magpie** (Portable Window Scaler) | Any windowed game (*Halo*, etc.) without built-in DLSS/FSR | Magpie captures the game window (e.g., 720p), runs its native `DLSSNR` (`Preset 2`) filter against our `nvngx_dlssnr.dll`, and upscales to 4K via `DLSS_SR` |
 
-**Current release: 0.2.0 (2026-10-26) · [📦 Gofile Mirror](https://gofile.io/d/OOeOcxn6).** All packages use **PTX V2.1, 31-block Small / Preset 2 / Style 1, 15/15 O4 in original slots**. Model GPU medians: **720p `6.66 ms`, 900p `9.70 ms`, 1080p `12.78 ms`** (**2.38×–2.53×** faster than `v0.1.0`, **5.14×–5.58×** faster than upstream `O1`). In-game on RTX 3080 Laptop: *Onimusha: Way of the Sword* 2K Performance jumps from `30 FPS` (`v0.1.0`) to **`43 FPS`**, and *Stellar Blade* 2K Performance reaches **nearly `60 FPS`**. [Release receipt and SHA256](Development/ptx-patcher/release-rtx30/v020/README.md).
+**Current release: 0.3.0 (2026-10-29), PTX V3.1_pack5.** Three official ZIPs have been built and verified locally; a v0.3.0 public mirror has not been uploaded/verified in this release task. 31-block Small / Preset 2 / Style 1, 15/15 O4 in original slots, 266,414,592 bytes.
 
-### v0.2.0 checksums
+RTX 3080 Laptop model-only GPU medians (50 warmup / 80 iterations): **development paired rounds 5.75 / 8.42 / 11.35 ms** (1080p repeat: 11.12 ms); a separate cooler run measured **5.62 / 8.38 / 11.07 ms**. Historical v0.2.0: 6.66 / 9.70 / 12.78 ms. These are separate runs under DVFS, not game FPS or a new paired v0.2.0 speedup test. This release changes rounding: benchmark PSNR vs V2.9_fast is **61.738 / 60.821 / 59.645 dB**, not bit-exact. Default OptiScaler strengths remain **1.0/1.0**, with optional **1.5/1.1**. [Release receipt](Development/ptx-patcher/release-rtx30/v030/README.md).
 
-`nvngx_dlssnr.dll` SHA256: `c7d4c8b6cb5369061b93ce389963209145bc68a5cdfc3c3f0d339a931be3f1ed`
+### v0.3.0 checksums
+
+`nvngx_dlssnr.dll` SHA256: `1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86`
 
 | ZIP | SHA256 |
 |---|---|
-| `OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip` | `531179b60d55e7147262e488afa760f8fc6422b353882ee5b223c47db3022d94` |
-| `OptiScaler-DLSS5-RTX30-0.2.0.zip` | `ce7c18e05e286f17b93ee841d2ea9ae829f62cb0a5b3018b93500d3eb902509f` |
-| `Magpie-DLSS5-RTX30-0.2.0.zip` | `e88a6c86ee6803de64cf6cabb1d3d2af3ef37565c91822a77a5dd8a6ef347739` |
+| `OptiScaler-REFramework-DLSS5-RTX30-0.3.0.zip` | `5cd5b76df4287ab7a8c52a81f45fd701fcb053d81bc4b8c4a044afcb43cab470` |
+| `OptiScaler-DLSS5-RTX30-0.3.0.zip` | `cb36b3ebd4a4f5413ea814a3138302e5a71ddf4259dbdc0ff8b23f092f0ea573` |
+| `Magpie-DLSS5-RTX30-0.3.0.zip` | `46aff5aa9b64ec588779ac52aa7133acfd920a1f2656b786265344598abbb46e` |
 
 
 ---
@@ -35,11 +37,11 @@ All three release packages share the same pipeline: **capture a frame at the gam
 
 - **Hardware & Driver**: NVIDIA RTX 30 Series GPU (Ampere `sm_86`, tested on RTX 3080 Laptop GPU 16GB; desktop RTX 3060–3090 Ti share `sm_86`) and a standard NVIDIA driver with NGX support (tested on `616.92`). No CUDA Toolkit or Windows Developer Mode is required.
 - **Installation**:
-  1. **Standard DX12 Games (`OptiScaler-DLSS5-RTX30-0.2.0.zip`)**:
+  1. **Standard DX12 Games (`OptiScaler-DLSS5-RTX30-0.3.0.zip`)**:
      Close the game. Extract **all files** into the directory containing the actual game `.exe` (e.g., `StellarBlade\SB\Binaries\Win64\`; back up the game's original `amd_fidelityfx_dx12.dll` first, and make sure to extract all companion FFX/XeSS DLLs). Enable DLSS or FSR in game settings.
-  2. **Capcom RE Engine Games (`OptiScaler-REFramework-DLSS5-RTX30-0.2.0.zip`)**:
+  2. **Capcom RE Engine Games (`OptiScaler-REFramework-DLSS5-RTX30-0.3.0.zip`)**:
      Extract all files into the game `.exe` directory (e.g., `C:\XboxGames\Onimusha- Way of the Sword\Content\`). Enable DLSS in game settings.
-  3. **Magpie Window Scaling (`Magpie-DLSS5-RTX30-0.2.0.zip`)**:
+  3. **Magpie Window Scaling (`Magpie-DLSS5-RTX30-0.3.0.zip`)**:
      Extract to a standalone folder and run the game in windowed mode (e.g., `1280×720` or `1600×900`). Launch `Magpie.exe` as Administrator, select the default **`DLSS5-RTX30-PTX`** profile (`DLSSNR [Preset 2, Style 1] → DLSS_SR`), click "Scale after 3s", and focus the game window (or press `Alt+Shift+A`).
 - **Hotkeys & Tuning**:
   - **`F6`**: Toggle DLSS 5 Neural Rendering on/off in OptiScaler packages.
@@ -73,6 +75,12 @@ Upstream `dev-camo/dlssnr-patcher` suffers from three critical issues on `310.9.
 4. **Lane-local even/odd K16 split**: A/B use the same K permutation: bytes0/2 then1/3. Encoded operands need no lane SHFL or PRMT; valid mapped values use5410/7632 PRMT. FP16 accumulation grouping changes. V2.1 is bitwise identical to V2, not to0.1.0.
 5. **Selective register caps**: raise existing `.maxnreg` to255 only in FB00/03/04/05/06. Keep FB01/02 unchanged. STACK and LDL/STL reach zero in FB00/03/06; FB04/05 retain maximum80/8B STACK. The all255 control was slower, so the measured hot255 profile is released.
 
+### Current v0.3.0 implementation
+
+V2.2 added native `cp.async.mbarrier.arrive` completion and branchless SWAR pack. V2.3 introduced the 8-instruction even/odd PRMT decode; V2.6 switched to Low/High selectors **0x9180/0xb3a2** and direct mapped halves (21,712 generated mapped PRMT sites removed). V2.4 introduced just-in-time decode and dead temporary reuse. V2.7 caps only four C32 kernels at168 to increase theoretical residency from8 to12 warps/SM. V2.9→V3.1 unifies normal/subnormal alignment with half2 ×2^-8, folds abs into HMNMX2, and uses LEA rounding toward zero at ties: pair pack core13→9→5 SASS. The 38-active-kernel non-NOP total is152,076 (V2.9_fast163,944). This is a static count, not executed instructions per frame; remaining spill is not zero.
+
+Release-specific source and commands: [V3.1](Development/ptx-patcher/v31/README.md), [v0.3.0 packaging](Development/ptx-patcher/release-rtx30/v030/README.md). Generic commands below reproduce historical stages and do not implicitly select the current release.
+
 ### 3. Build Commands
 
 ```bash
@@ -100,7 +108,8 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 |---|:---:|---:|---:|---:|---:|:---:|
 | ① Upstream `dlssnr-patcher` (`stock`) | Forced `O1` | `37.13 ms` | `49.89 ms` | `67.69 ms` | `106` (severe banding) | `1.00×` |
 | **② Our `ptx-patcher` (`v0.1.0`)** | **15/15 Full `O4`** | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`0` (band-free)** | **`2.08× ～ 2.35×`** |
-| **③ Current `ptx-patcher` (`v0.2.0 / V2.1`)** | **15/15 `O4` + 0-SHFL + `255` Regs** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **`0` (band-free)** | **`5.14× ～ 5.58×`** |
+| **③ Historical `ptx-patcher` (`v0.2.0 / V2.1`)** | **15/15 `O4` + 0-SHFL + `255` Regs** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **`0` (band-free)** | **`5.14× ～ 5.58×`** |
+| **④ Current `v0.3.0 / V3.1_pack5`** | **15/15 O4, Low/High K16, 5-SASS pack** | **5.75 ms** | **8.42 ms** | **11.35 ms** | **0 (tested sky)** | Separate-run history; no new paired upstream claim |
 
 ---
 
@@ -110,6 +119,7 @@ Detailed release notes are maintained in [CHANGELOG.md](CHANGELOG.md).
 
 | Version | Date | Highlights | Results |
 |---|---|---|---|
+| **`0.3.0`** | 2026-10-29 | PTX V3.1_pack5; Low/High mapped forwarding, asynchronous completion, pooled decoding, four C32 caps, 5-SASS approximate pack. Local three-package validation complete. | Model medians **5.75 / 8.42 / 11.35 ms**, separate cooler run5.62/8.38/11.07. [Receipt](Development/ptx-patcher/release-rtx30/v030/README.md) |
 | **`0.2.0`** | 2026-10-26 | Lane-local even/odd K16 + selective maxnreg255; standard defaults 1.0/1.0 with optional 1.5/1.1; three new ZIPs and checksums ([Gofile](https://gofile.io/d/OOeOcxn6)). | **6.66 / 9.70 / 12.78 ms**; *Onimusha* 2K Perf **43 FPS** (up from 30 FPS), *Stellar Blade* 2K Perf **~60 FPS**. [Receipt](Development/ptx-patcher/release-rtx30/v020/README.md) |
 | **`0.1.0`** | 2026-10-24 | Initial release unifying all three packages (`OptiScaler-REFramework`, `OptiScaler`, `Magpie`) onto the **15/15 full-`O4` PTX route (`Preset 2` 31-block Small model)**; IEEE 754 `f16x2` hardware conversion identities; multi-definition `mapped` fix eliminating 106 sky bands; native Magpie `Preset 2` binary patch (`15.9 ms`). | 720p **`15.83 ms`**, 900p **`24.47 ms`**, 1080p **`32.04 ms`**; verified in *Onimusha*, *Stellar Blade*, and *Halo* (Magpie) |
 

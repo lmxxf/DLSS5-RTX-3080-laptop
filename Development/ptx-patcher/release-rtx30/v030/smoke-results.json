@@ -1,0 +1,39 @@
+[
+  {
+    "label": "OptiScaler-REFramework",
+    "test": "NGX Feature18 native DLL load/create/evaluate",
+    "returncode": 0,
+    "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+    "summary": "W=1280 H=720 preset=2 gpu_median_ms=5.731 gpu_mean_ms=5.886 gpu_min_ms=5.716 wall_median_ms=6.228 wall_mean_ms=6.254 wall_min_ms=0.000 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]"
+  },
+  {
+    "label": "OptiScaler-REFramework",
+    "test": "FFX loader plus actual FFX\u2192NGX\u2192NR composition",
+    "returncode": 0,
+    "default_strength": "1.0/1.0",
+    "NR_composition_observed": true,
+    "summary": "W=1280 H=720 preset=2 gpu_median_ms=26.142 gpu_mean_ms=20.306 gpu_min_ms=7.424 wall_median_ms=28.091 wall_mean_ms=24.311 wall_min_ms=8.017 nonfinite=0 mean_rgb=0.210131 range=[0.1716, 0.2429]"
+  },
+  {
+    "label": "OptiScaler",
+    "test": "NGX Feature18 native DLL load/create/evaluate",
+    "returncode": 0,
+    "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+    "summary": "W=1280 H=720 preset=2 gpu_median_ms=6.308 gpu_mean_ms=6.381 gpu_min_ms=6.274 wall_median_ms=6.066 wall_mean_ms=6.319 wall_min_ms=5.688 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]"
+  },
+  {
+    "label": "OptiScaler",
+    "test": "FFX loader plus actual FFX\u2192NGX\u2192NR composition",
+    "returncode": 0,
+    "default_strength": "1.0/1.0",
+    "NR_composition_observed": true,
+    "summary": "W=1280 H=720 preset=2 gpu_median_ms=35.317 gpu_mean_ms=33.433 gpu_min_ms=27.777 wall_median_ms=38.550 wall_mean_ms=36.850 wall_min_ms=26.493 nonfinite=0 mean_rgb=0.210131 range=[0.1716, 0.2429]"
+  },
+  {
+    "label": "Magpie",
+    "test": "NGX Feature18 native DLL load/create/evaluate",
+    "returncode": 0,
+    "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+    "summary": "W=1280 H=720 preset=2 gpu_median_ms=5.806 gpu_mean_ms=5.960 gpu_min_ms=5.701 wall_median_ms=6.053 wall_mean_ms=5.621 wall_min_ms=2.937 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]"
+  }
+]

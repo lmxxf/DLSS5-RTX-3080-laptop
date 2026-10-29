@@ -1,6 +1,8 @@
 # RTX 3080 Laptop PTX 修补
 
-当前默认：拒绝pack目标、两路FP8中间寄存器或FP16来源在entry内存在多定义的mapped（包含向量加载定义），允许单定义跨基本块转发；合法mapped保留原fast的shfl/shfl/selp，不额外量化。
+当前正式本机包 **v0.3.0 / PTX V3.1_pack5**，核心SHA256 `1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86`。模型GPU耗时研发标尺5.75/8.42/11.35ms，另轮低温5.62/8.38/11.07ms；非0bit升级，默认1.0/1.0及增强INI保留。[发布回执](release-rtx30/v030/README.md)。后文V2/V2.1为历史记录，通用构建命令不会自动选当前pack5。
+
+历史通用生成器默认（并非v0.3.0选择）：拒绝pack目标、两路FP8中间寄存器或FP16来源在entry内存在多定义的mapped（包含向量加载定义），允许单定义跨基本块转发；合法mapped保留原fast的shfl/shfl/selp，不额外量化。
 
 原版310.9.16.0有SHA256门控。需要WSL NVIDIA CUDA Driver、Python numpy、libzstd；不依赖/tmp源码。
 
@@ -26,7 +28,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 `build_sm86_dlls.py` 现默认使用同lane偶/奇K拆解，仍为multidef_nq、15/15 O4。默认输出新名字 `nvngx_dlssnr_sm86_v2.dll`，保留旧fast；`--mma-layout legacy`可构建旧拆解对照。浮点累加顺序改变，不宣称旧输出逐位相同。三档正反实测约10.2/15.3/20.3ms，比旧版约1.56～1.61×；[完整回执与V7分析](v2/README.md)。
 
-### 2026-10-26：当前推荐 V2.1（maxnreg 控制胜出）
+### 2026-10-26：历史推荐 V2.1（maxnreg 控制胜出）
 
 新推荐为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v21.dll`：只将FB00/03/04/05/06的现有maxnreg升至255，保留V2图和权重；三档对V2严格0bit，同轮median约6.66/9.70/12.78ms。使用 `python3 Development/ptx-patcher/v21/build_recommended.py` 可按固定SHA全量重建。[完整回执](v21/README.md)。通用构建器无cap参数仍为V2基线；旧V2与正式发布包保留。
 

@@ -6,6 +6,26 @@
 
 ---
 
+## 0.3.0 (2026-10-29)
+
+三个正式包统一升级为 **PTX V3.1_pack5**（31 块 Small / Preset 2 / Style 1，15/15 O4 原槽位，`266,414,592` B）：
+- **核心管线升级（`V2.2 → V3.1_pack5`）**：
+  - `V2.2`：原生 `cp.async.mbarrier.arrive` 异步完成绑定 + 无分支 SWAR `f16x2 → e4m3x2` 量化；
+  - `V2.3`：8 指令 `PRMT`（`0x9180 / 0xb3a2`）解包；
+  - `V2.4`：按需解码（JIT decode）与死亡临时寄存器池回收；
+  - `V2.6`：Low/High K16 布局 + `mapped` 操作数零拷贝直连转发（消除 21,712 处生成路径 `mapped PRMT`）；
+  - `V2.7`：C32 四个核 `maxnreg 168` 驻留优化（CUDA Occupancy API 驻留从 8 升至 12 warps/SM）；
+  - `V2.9_fast → V3.1_pack5`：利用 `mul.rn.f16x2 0x1c001c00`（$\times 2^{-8}$）统一 Normal/Subnormal 尾数对齐、将 `abs.f16x2` 免费折叠进 `HMNMX2 |R2|` 硬件绝对值修饰符，并用单条 `LEA 0x007f007f` 完成符号对称 Ties-toward-Zero 舍入，使单对打包核心 SASS 从 **13 条 → 9 条 → 5 条**，38 个活跃 FP8 核的非 NOP 静态 SASS 总数降至 **`152,076` 条**（对比 `V2.7` 的 `175,685` 条与 `V2.9_fast` 的 `163,944` 条）。
+- **RTX 3080 Laptop 模型 GPU Median 标尺（`bench_sky` 50 warmup / 80 iter）**：
+  - 研发两轮同轮配对均值（[`v31/README.md`](Development/ptx-patcher/v31/README.md)）：**720p `5.75 ms` / 900p `8.42 ms` / 1080p `11.35 ms`**（1080p 复测轮 `11.12 ms`）；
+  - 低温评估四轮均值（[`性能评估20261029-2000.md`](Development/doc/性能评估20261029-2000.md)，平均 `70.85 °C`）：**720p `5.62 ms` / 900p `8.38 ms` / 1080p `11.07 ms`**（对比 `v0.2.0` 历史标尺 `6.66 / 9.70 / 12.78 ms`）。
+  - 相对 `V2.9_fast` 三档 PSNR 为 **`61.738 / 60.821 / 59.645 dB`**（全部 finite，720p 天空测试 0 变号）。三个包 Windows Feature 18 与两个 OptiScaler 包 FFX→NGX→NR 端到端 smoke 全部通过（`nonfinite=0`）。
+- **正式三包与 SHA256（[`v030/README.md`](Development/ptx-patcher/release-rtx30/v030/README.md)）**：
+  - `OptiScaler-REFramework-DLSS5-RTX30-0.3.0.zip`（`375,029,334` B）：`5cd5b76df4287ab7a8c52a81f45fd701fcb053d81bc4b8c4a044afcb43cab470`
+  - `OptiScaler-DLSS5-RTX30-0.3.0.zip`（`317,957,671` B）：`cb36b3ebd4a4f5413ea814a3138302e5a71ddf4259dbdc0ff8b23f092f0ea573`
+  - `Magpie-DLSS5-RTX30-0.3.0.zip`（`322,882,553` B）：`46aff5aa9b64ec588779ac52aa7133acfd920a1f2656b786265344598abbb46e`
+  - 核心 DLL SHA256：`1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86`。
+
 ## 0.2.0 (2026-10-26)
 
 下载：[Gofile 镜像](https://gofile.io/d/OOeOcxn6)

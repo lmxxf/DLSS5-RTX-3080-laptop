@@ -6,6 +6,26 @@ This file documents the detailed changes, benchmark numbers, configuration optio
 
 ---
 
+## 0.3.0 (2026-10-29)
+
+All three packages use **PTX V3.1_pack5** (31-block Small / Preset 2 / Style 1, 15/15 O4 in original slots, `266,414,592` B):
+- **Core Pipeline Upgrades (`V2.2 → V3.1_pack5`)**:
+  - `V2.2`: Native `cp.async.mbarrier.arrive` completion binding + branchless SWAR `f16x2 → e4m3x2` quantization;
+  - `V2.3`: 8-instruction `PRMT` (`0x9180 / 0xb3a2`) unpack;
+  - `V2.4`: Just-in-time demand decoding + dead temporary register pool recycling;
+  - `V2.6`: Low/High K16 layout + zero-copy `mapped` FP16 operand forwarding (removing 21,712 generated `mapped PRMT` sites);
+  - `V2.7`: Selective `maxnreg 168` on four C32 kernels (increasing CUDA Occupancy API residency from 8 to 12 warps/SM);
+  - `V2.9_fast → V3.1_pack5`: Unified normal/subnormal alignment via `mul.rn.f16x2 0x1c001c00` ($\times 2^{-8}$), hardware `HMNMX2 |R2|` absolute-value modifier folding, and single-instruction `LEA 0x007f007f` symmetric ties-toward-zero rounding, shrinking pair pack core SASS from **13 → 9 → 5 instructions** and reducing non-NOP static SASS across the 38 active FP8 kernels to **`152,076` instructions** (down from `175,685` in `V2.7` and `163,944` in `V2.9_fast`).
+- **RTX 3080 Laptop Model GPU Medians (`bench_sky` 50 warmup / 80 iterations)**:
+  - Development paired rounds ([`v31/README.md`](Development/ptx-patcher/v31/README.md)): **720p `5.75 ms` / 900p `8.42 ms` / 1080p `11.35 ms`** (1080p repeat: `11.12 ms`);
+  - Cooler evaluation round ([`性能评估20261029-2000.md`](Development/doc/性能评估20261029-2000.md)): **720p `5.62 ms` / 900p `8.38 ms` / 1080p `11.07 ms`** (compared with historical `v0.2.0` `6.66 / 9.70 / 12.78 ms`).
+  - Benchmark PSNR vs `V2.9_fast`: **`61.738 / 60.821 / 59.645 dB`** (all finite, 0 sky sign flips). All three Windows Feature 18 smokes and both OptiScaler FFX→NGX→NR smokes passed (`nonfinite=0`).
+- **Release Packages & Checksums ([`v030/README.md`](Development/ptx-patcher/release-rtx30/v030/README.md))**:
+  - `OptiScaler-REFramework-DLSS5-RTX30-0.3.0.zip` (`375,029,334` B): `5cd5b76df4287ab7a8c52a81f45fd701fcb053d81bc4b8c4a044afcb43cab470`
+  - `OptiScaler-DLSS5-RTX30-0.3.0.zip` (`317,957,671` B): `cb36b3ebd4a4f5413ea814a3138302e5a71ddf4259dbdc0ff8b23f092f0ea573`
+  - `Magpie-DLSS5-RTX30-0.3.0.zip` (`322,882,553` B): `46aff5aa9b64ec588779ac52aa7133acfd920a1f2656b786265344598abbb46e`
+  - Core DLL SHA256: `1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86`.
+
 ## 0.2.0 (2026-10-26)
 
 Download: [Gofile Mirror](https://gofile.io/d/OOeOcxn6)

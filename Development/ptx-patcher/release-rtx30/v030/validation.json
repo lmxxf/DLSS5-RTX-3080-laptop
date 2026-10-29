@@ -1,0 +1,145 @@
+{
+  "version": "0.3.0",
+  "core_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+  "packages": [
+    {
+      "name": "OptiScaler-REFramework-DLSS5-RTX30-0.3.0.zip",
+      "path": "/mnt/c/DLSS5-5090-dll/发布打包/OptiScaler-REFramework-DLSS5-RTX30-0.3.0.zip",
+      "bytes": 375029334,
+      "sha256": "5cd5b76df4287ab7a8c52a81f45fd701fcb053d81bc4b8c4a044afcb43cab470",
+      "files": 42,
+      "unchanged_compressed_entries_reused": 36,
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86"
+    },
+    {
+      "name": "OptiScaler-DLSS5-RTX30-0.3.0.zip",
+      "path": "/mnt/c/DLSS5-5090-dll/发布打包/OptiScaler-DLSS5-RTX30-0.3.0.zip",
+      "bytes": 317957671,
+      "sha256": "cb36b3ebd4a4f5413ea814a3138302e5a71ddf4259dbdc0ff8b23f092f0ea573",
+      "files": 38,
+      "unchanged_compressed_entries_reused": 32,
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86"
+    },
+    {
+      "name": "Magpie-DLSS5-RTX30-0.3.0.zip",
+      "path": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.3.0.zip",
+      "bytes": 322882553,
+      "sha256": "46aff5aa9b64ec588779ac52aa7133acfd920a1f2656b786265344598abbb46e",
+      "files": 218,
+      "unchanged_compressed_entries_reused": 212,
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86"
+    }
+  ],
+  "live_sites": [
+    {
+      "label": "onimusha",
+      "path": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content",
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "preserved": {
+        "dxgi.dll": "aa3761f2cdb0d9a4653732bd430019ff421b3ce9471fe3697b553dc6d71714a2",
+        "nvngx.dll_dlssnr.dll": "4f088f382171b3b3af4e2b34cb71b162788c947a55eeefc6e81e36206c59a0c9",
+        "OptiScaler.ini": "de2459844b93f2c334cdd89dae1a3426c218bedc415409092de42045c2ab8714",
+        "OptiScaler-增强风格.ini": "b7c134daea6e58de768ef056a3faa3c32662377ac78e4e70abb85ba86030cc8e"
+      },
+      "checked_files": 42
+    },
+    {
+      "label": "onimusha-storage",
+      "path": "/mnt/c/XboxGames/Onimusha- Way of the Sword/Content/_storage_",
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "preserved": {
+        "dxgi.dll": "aa3761f2cdb0d9a4653732bd430019ff421b3ce9471fe3697b553dc6d71714a2",
+        "nvngx.dll_dlssnr.dll": "4f088f382171b3b3af4e2b34cb71b162788c947a55eeefc6e81e36206c59a0c9",
+        "OptiScaler.ini": "de2459844b93f2c334cdd89dae1a3426c218bedc415409092de42045c2ab8714",
+        "OptiScaler-增强风格.ini": "b7c134daea6e58de768ef056a3faa3c32662377ac78e4e70abb85ba86030cc8e"
+      },
+      "checked_files": 24
+    },
+    {
+      "label": "stellar",
+      "path": "/mnt/c/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64",
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "preserved": {
+        "dxgi.dll": "aa3761f2cdb0d9a4653732bd430019ff421b3ce9471fe3697b553dc6d71714a2",
+        "nvngx.dll_dlssnr.dll": "4f088f382171b3b3af4e2b34cb71b162788c947a55eeefc6e81e36206c59a0c9",
+        "OptiScaler.ini": "ccce1d2aad84e1b0870a0a435d9767ca2e25245f9f27f24f8b5b2c0d5757072f",
+        "OptiScaler-增强风格.ini": "496de2ff62cc4bf7ef28d5a8aee09c8a00052120bc780f0441692a3888572bfe"
+      },
+      "checked_files": 38
+    },
+    {
+      "label": "magpie",
+      "path": "/mnt/c/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.3.0",
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "preserved": {
+        "Magpie.exe": "b6f883f9fff78dd546b292ff6ef2d5444d1f931c8e73f96ad17622732d93b3ea"
+      },
+      "checked_files": 218
+    }
+  ],
+  "main_fast_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+  "smoke": [
+    {
+      "label": "OptiScaler-REFramework",
+      "test": "NGX Feature18 native DLL load/create/evaluate",
+      "returncode": 0,
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=5.731 gpu_mean_ms=5.886 gpu_min_ms=5.716 wall_median_ms=6.228 wall_mean_ms=6.254 wall_min_ms=0.000 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]"
+    },
+    {
+      "label": "OptiScaler-REFramework",
+      "test": "FFX loader plus actual FFX→NGX→NR composition",
+      "returncode": 0,
+      "default_strength": "1.0/1.0",
+      "NR_composition_observed": true,
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=26.142 gpu_mean_ms=20.306 gpu_min_ms=7.424 wall_median_ms=28.091 wall_mean_ms=24.311 wall_min_ms=8.017 nonfinite=0 mean_rgb=0.210131 range=[0.1716, 0.2429]"
+    },
+    {
+      "label": "OptiScaler",
+      "test": "NGX Feature18 native DLL load/create/evaluate",
+      "returncode": 0,
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=6.308 gpu_mean_ms=6.381 gpu_min_ms=6.274 wall_median_ms=6.066 wall_mean_ms=6.319 wall_min_ms=5.688 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]"
+    },
+    {
+      "label": "OptiScaler",
+      "test": "FFX loader plus actual FFX→NGX→NR composition",
+      "returncode": 0,
+      "default_strength": "1.0/1.0",
+      "NR_composition_observed": true,
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=35.317 gpu_mean_ms=33.433 gpu_min_ms=27.777 wall_median_ms=38.550 wall_mean_ms=36.850 wall_min_ms=26.493 nonfinite=0 mean_rgb=0.210131 range=[0.1716, 0.2429]"
+    },
+    {
+      "label": "Magpie",
+      "test": "NGX Feature18 native DLL load/create/evaluate",
+      "returncode": 0,
+      "NR_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "summary": "W=1280 H=720 preset=2 gpu_median_ms=5.806 gpu_mean_ms=5.960 gpu_min_ms=5.701 wall_median_ms=6.053 wall_mean_ms=5.621 wall_min_ms=2.937 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]"
+    }
+  ],
+  "windows_signatures": [
+    {
+      "Package": "OptiScaler-REFramework",
+      "SHA256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "Authenticode": "NotSigned"
+    },
+    {
+      "Package": "OptiScaler",
+      "SHA256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "Authenticode": "NotSigned"
+    },
+    {
+      "Package": "Magpie",
+      "SHA256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+      "Authenticode": "NotSigned"
+    },
+    {
+      "Package": "driver NGX core",
+      "Authenticode": "Valid"
+    }
+  ],
+  "old020_archived": true,
+  "configs_and_hosts_unchanged": true,
+  "public_upload": false,
+  "git_push": false
+}

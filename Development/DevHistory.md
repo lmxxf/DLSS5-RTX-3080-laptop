@@ -1061,3 +1061,13 @@ V2.9_fast SHA55b51876为基线。A abs折叠核心8SASS，33,554,432对原语及
 - 同轮未插桩 12 个逐 pass 比较中 `V3.1_pack5` 再次 12/12 快于 `V2.9_fast`（四轮均值 `5.731→5.618 / 8.517→8.377 / 11.558→11.071 ms`）；
 - 在 `V3.1_pack5` 上去 Pack（`V31 − P0`）未插桩在 900p（`-0.114 ms`，2+/2- 变号）与 1080p（`-0.033 ms`，3+/1- 变号，中位 `+0.162 ms`）已不再呈现全 pass 同向正收益（720p 未插桩仍为 4/4 正 `+0.154 ms`，900p/1080p NVAPI 为 `+0.205 / +0.334 ms`）；
 - 去 Decode（`V31 − P1_V31`）在全部 12 个未插桩 pass（`+0.574 / +0.925 / +1.363 ms`）与 6 个 NVAPI pass（`+0.578 / +0.887 / +1.984 ms`）中 18/18 保持同向正敏感度，且经官方 CUDA Occupancy API 核实，其中 **`74.79% / 72.01% / 80.11%`** 的核内净敏感度集中在 30 个零静态 Spill 核（`G1` 23 个 API 驻留不变核 + `G2` 7 个 API 驻留跨阶核）中，确立后续优化重点由 Pack 转向 Decode。
+
+## 2026-10-29：v0.3.0正式三包构建与本机元数据同步
+
+按Zero授权以PTX V3.1_pack5（266414592B，15/15 O4原槽位，SHA2561190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86）制作常规OptiScaler、REFramework、Magpie三个0.3.0 ZIP。以0.2.0正式包stage，仅替换NR及README/版本/release/校验清单；所有其他文件保持字节一致，包括原版dxgi、转发桥、Magpie.exe和默认1.0/1.0及增强1.5/1.1 INI。
+
+三包NGX Feature18创建/执行与两包FFX→NGX→NR组合链路Windows smoke共5项通过，全部nonfinite0；Windows SHA匹配，修补NR为NotSigned、驱动NGX core签名Valid。ZIP CRC、逐文件SHA、核心SHA全部验证。旧0.2.0 ZIP/.sha256/release JSON/清单归档archive/v0.2.0，archive/v0.1.0不动。
+
+主fast、鬼武者根/_storage_、剑星、Magpie五处NR均已为新SHA，核验后同步0.3.0元数据与manifest/校验清单，Magpie目录0.2.0→0.3.0，原安装配置/host不改。备份为backups/20261029-v030-metadata。根README、ptx-patcher README与发布回执同步；研发模型median5.75/8.42/11.35ms和独立低温5.62/8.38/11.07ms分开列，非同轮v0.2.0速度比，本版非0bit。技术说明区分V2.3偶奇PRMT与V2.6 Low/High9180/b3a2，不把183651静态计数冒标为V2.2。
+
+[发布回执与三包SHA](ptx-patcher/release-rtx30/v030/README.md)、[验收](ptx-patcher/release-rtx30/v030/validation.json)。只完成本机正式包，不上传新公网镜像、不push；临时stage和本轮smoke工具/输出清理，保留全部文本证据。

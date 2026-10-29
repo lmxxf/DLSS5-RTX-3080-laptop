@@ -1,0 +1,81 @@
+{
+  "source_hash": "c913cf33a7c4a74cc9c4500feb19183548fa9691e3829c647b804892ae456481",
+  "counts": {
+    "mapped_static_run_events": 3524,
+    "nonmapped_static_run_events": 5848
+  },
+  "same_spill_kernels": [
+    "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+    "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+    "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+    "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+    "cc_split_swin_16h_final_head_512_wait_fp8",
+    "cc_split_swin_16h_proj_pool_512_chained_fp8",
+    "cc_split_swin_16h_proj_512_outview_wait_fp8",
+    "cc_split_swin_16h_proj_512_chained_fp8",
+    "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+    "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+    "cc_split_swin_16h_ffwd_512_chained_fp8",
+    "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+    "cc_vit_1d_projection_chained_fp8",
+    "cc_vit_1d_projection_wait_fp8",
+    "cc_vit_1d_attention_chained_fp8",
+    "cc_vit_1d_qkv_chained_fp8",
+    "cc_vit_1d_ffn_contract_chained_fp8",
+    "cc_vit_1d_ffn_expand_chained_fp8",
+    "cc_vit_1d_ffn_expand_publish_fp8",
+    "cc_vit_1d_repack_1d_to_2d_fp8",
+    "cc_vit_1d_repack_2d_to_1d_fp8",
+    "cc_cb_clear",
+    "cc_dec_input_upsample_1024_512_tilesync_fp8"
+  ],
+  "changed_spill_kernels": [
+    "cc_split_swin_16h_qkv_512_chained_fp8",
+    "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8"
+  ],
+  "groups": {
+    "same": {
+      "count": 32,
+      "SASS_net_drop": 34866,
+      "pure_decode_PTX_count": 35744
+    },
+    "changed": {
+      "count": 6,
+      "SASS_net_drop": 11110,
+      "pure_decode_PTX_count": 11040
+    }
+  },
+  "timing": {
+    "1280": {
+      "total38_ms": 0.5961472000000001,
+      "same_ms": 0.44979199999999986,
+      "changed_ms": 0.1463552,
+      "same_percent": 75.44982178898094
+    },
+    "1600": {
+      "total38_ms": 1.2587008000000002,
+      "same_ms": 1.0465024,
+      "changed_ms": 0.21219840000000004,
+      "same_percent": 83.14147412951513
+    },
+    "1920": {
+      "total38_ms": 1.2012031999999997,
+      "same_ms": 1.0259199999999997,
+      "changed_ms": 0.17528319999999997,
+      "same_percent": 85.40769788159072
+    }
+  }
+}

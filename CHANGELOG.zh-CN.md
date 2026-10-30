@@ -8,6 +8,8 @@
 
 ## 0.3.0 (2026-10-29)
 
+下载：[夸克网盘](https://pan.quark.cn/s/1ace87045701) · [Gofile 镜像](https://gofile.io/d/oR1ZAEvO)
+
 三个正式包统一升级为 **PTX V3.1_pack5**（31 块 Small / Preset 2 / Style 1，15/15 O4 原槽位，`266,414,592` B）：
 - **核心管线升级（`V2.2 → V3.1_pack5`）**：
   - `V2.2`：原生 `cp.async.mbarrier.arrive` 异步完成绑定 + 无分支 SWAR `f16x2 → e4m3x2` 量化；

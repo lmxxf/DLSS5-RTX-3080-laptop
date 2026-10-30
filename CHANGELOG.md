@@ -8,6 +8,8 @@ This file documents the detailed changes, benchmark numbers, configuration optio
 
 ## 0.3.0 (2026-10-29)
 
+Download: [Quark](https://pan.quark.cn/s/1ace87045701) · [Gofile Mirror](https://gofile.io/d/oR1ZAEvO)
+
 All three packages use **PTX V3.1_pack5** (31-block Small / Preset 2 / Style 1, 15/15 O4 in original slots, `266,414,592` B):
 - **Core Pipeline Upgrades (`V2.2 → V3.1_pack5`)**:
   - `V2.2`: Native `cp.async.mbarrier.arrive` completion binding + branchless SWAR `f16x2 → e4m3x2` quantization;

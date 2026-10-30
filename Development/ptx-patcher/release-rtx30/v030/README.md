@@ -4,7 +4,7 @@
 
 ## 包与校验
 
-目录 `/mnt/c/DLSS5-5090-dll/发布打包/`。
+目录 `/mnt/c/DLSS5-5090-dll/发布打包/`（已上传至夸克网盘：`https://pan.quark.cn/s/1ace87045701` · Gofile 镜像：`https://gofile.io/d/oR1ZAEvO`）。
 
 | ZIP | SHA256 |
 |---|---|

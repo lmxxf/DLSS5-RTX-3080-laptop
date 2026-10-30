@@ -1,6 +1,6 @@
 # DLSS 5 -> NVIDIA RTX 3080 Laptop (`sm_86` Ampere) 移植开发历史与实测回执 (`DevHistory.md`)
 
-> **当前正式版本：v0.2.0（2026-10-26）**，三包统一PTX V2.1，模型6.66/9.70/12.78ms；正式包下载：`https://gofile.io/d/OOeOcxn6`，RTX 3080 Laptop 实机《鬼武者》2K性能档 **43 FPS**（原30 FPS）、《剑星》2K性能档**接近 60 FPS**；本机部署/新ZIP/SHA见[发布回执](ptx-patcher/release-rtx30/v020/README.md)。下文0.1.0与各Phase保留历史原值。
+> **当前正式版本：v0.3.0（2026-10-29）**，三包统一 `PTX V3.1_pack5`（5-SASS Pack），研发配对均值 5.75/8.42/11.35ms、低温评估 5.62/8.38/11.07ms；正式包下载：[夸克网盘](https://pan.quark.cn/s/1ace87045701) · [Gofile 镜像](https://gofile.io/d/oR1ZAEvO)（[v0.3.0 回执](ptx-patcher/release-rtx30/v030/README.md)）。历史版本：`v0.2.0`（2026-10-26，PTX V2.1，6.66/9.70/12.78ms，[Gofile](https://gofile.io/d/OOeOcxn6)，[v0.2.0 回执](ptx-patcher/release-rtx30/v020/README.md)）；`v0.1.0`（2026-10-24，PTX V1，15.83/24.47/32.04ms，[Gofile](https://gofile.io/d/s9cpHYH9)）。下文各阶段保留历史原值。
 
 **硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，101,376 B Shared Memory/SM，Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）  
 **基线来源**：`DLSS5-AMD 0.44` 独立引擎 + NVIDIA 原版 `nvngx_dlssnr.dll` (`v310.9.16.0`)  

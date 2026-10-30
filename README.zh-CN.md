@@ -2,7 +2,7 @@
 
 让 NVIDIA DLSS 5（`nvngx_dlssnr.dll` `310.9.16.0` 的 **31 块 Small 新模型**，"DLSSNR"）满血跑在 **NVIDIA GeForce RTX 3080 Laptop / RTX 30 系（Ampere `sm_86`）** 上。
 
-[English](README.md) · [**📖 完整使用说明（公众号版）**](Development/doc/使用说明.md) · [更新日志](CHANGELOG.zh-CN.md) · [工作计划](Development/WorkingPlan.md) · [开发记录](Development/DevHistory.md)
+[English](README.md) · [**📖 v0.3.0 改进与使用说明**](Development/doc/使用说明0.3.0.md) · [完整原理与使用说明](Development/doc/使用说明.md) · [更新日志](CHANGELOG.zh-CN.md) · [工作计划](Development/WorkingPlan.md) · [开发记录](Development/DevHistory.md)
 
 > 🔗 **AMD Radeon RX 9070 XT / RDNA 4（`gfx1201`/`gfx1200`）姊妹项目：[dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting)** —— 我们将 DLSS 5 从零逆向重做到 AMD RDNA 4 显卡上的原生 HIP 推理引擎（720p `2.99 ms`、900p `4.25 ms`、1080p `5.49 ms`）。
 
@@ -168,7 +168,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 | 目录 / 文件 | 内容 |
 |---|---|
 | `Development/ptx-patcher/` | 原版 `310.9.16.0` `nvngx_dlssnr.dll` 的 `sm_86` 满血 `O4` PTX 转换器（`build_sm86_dlls.py`、`dlssnr_patcher.py`）、NGX 调用转发桥（`dlssnr_forwarder.cpp`）、硬件计时测试台（`bench_nvngx.dll.cpp`）、天空色带排查回执（`sky-audit/`）、偶奇 K16 零洗牌与寄存器调优（`v2/`、`v21/`）、Magpie 原生 `Preset 2` 补丁（`magpie-native/`）及三包构建脚本（`release-rtx30/`） |
-| `Development/doc/` | 用户使用说明与各版本改进详解（[`改进和使用说明_0.2.0.md`](Development/doc/改进和使用说明_0.2.0.md)、[`使用说明.md`](Development/doc/使用说明.md)） |
+| `Development/doc/` | 用户使用说明与各版本改进详解（[`使用说明0.3.0.md`](Development/doc/使用说明0.3.0.md)、[`改进和使用说明_0.2.0.md`](Development/doc/改进和使用说明_0.2.0.md)、[`使用说明.md`](Development/doc/使用说明.md)） |
 | `Development/DevHistory.md` | 完整的开发流水账、对照实验数据、失败排查与每个阶段的文件 SHA256 回执 |
 | `Development/WorkingPlan.md` | 架构设计与优化路线图 |
 | `CHANGELOG.zh-CN.md` / `CHANGELOG.md` | 按版本展开的详细更新日志 |

@@ -1139,3 +1139,18 @@ Shared库存覆盖2320解码事件（FB01～05为2304，FB06附16），输出全
 分支4结算为Pruned n=3/3；其他三支保持Pruned3/3。本轮闭环是给定预设分支与质量门下的有限搜索结论，不将静态SASS计数或K=3当作全局物理极限证明。主脑可据此撰写交接报告供审阅。生产五处、原DLL与三ZIP九路径SHA不变，不部署、不push。清理临时大二进制，按构造/原语、跑分/硬件表、文档/分支状态分三次小提交，无Co-Authored-By。
 
 [回执](ptx-patcher/v35/README.md)、[配对汇总](ptx-patcher/v35/timing-summary.md)、[验收](ptx-patcher/v35/validation.json)。
+
+
+## 2026-11-01：PTX V3.6，新分支5/6/7的首轮构造验证与串行实测（闇）
+
+本轮无晋升，保持V3.1_pack5为唯一1.00×。 分支5 Open n=1/3；分支6 Open n=1/3；分支7 Open n=1/3。分支1～4保持原有Pruned3/3，不用新分支首轮失败宣称全局物理上限。
+
+分支5：对全部8944存活Pack做typed CFG范围、符号、NaN/负零与命名half作用域审计，证明680处可用pack3，其余保留通用或标记实证探索。Pack4/Pack3独立ptxas-O4核心数据依赖切片为4/3条，两个有界域各33554432对GPU原语零差异；不把地址LEA混入核心。pack_proven只用证明点；pack4_all/fbN实证候选的输出精度不当成所有中间值有界的证明。
+
+分支6：构造全字节可逆逆编码，保留旧解码对7f/ff的±480再无夹断编码，全33554432对包括保留字节的测试零差异。由此实施FB02/03原位2×exact、组合与fast。资源查询后固定零新增STACK/STL/LDL且CTA不降的入口，精确精选复用FB03，fast单列；另选择FB02一个可精确配对的局部交换阶段构造exact/fast。
+
+分支7：完成FB04/05全部Shared声明与发布周期审计，生产期均为异步或异步/回退混合，无独立纯Type-I周期。选定所有返回路径上的发布点，原cp.async及字节视图不变，等完成后CTA协作LDS+decode+STS+BAR生成独立half视图；FB04、FB05及组合完整模型实际测试，未证明的读取保留旧解码，超默认静态Shared48KiB入口未擅加Host opt-in。另用真实16B cp.async.cg跨warp原语完成构造性验证，不从微核推帧收益。
+
+计数{'smoke': 60, 'timed': 456}，精确成功运行351次末帧0bit/maxabs0/nonfinite0；近似运行165次按预先50dB/1/64/finite/sky0质量门检查。所有正式计时串行，首轮六方向全胜者补repeat。单次过程输出嵌入bench/repeat JSON，未生成或提交.log碎片。六个DLL路径与三个ZIP共九个保护路径SHA不变，不部署、不push。临时大产物清理，按代码/验证、汇总/硬件、文档/状态三小提交，无Co-Authored-By。
+
+[回执](ptx-patcher/v36/README.md)、[数据](ptx-patcher/v36/timing-summary.md)、[验收](ptx-patcher/v36/validation.json)。

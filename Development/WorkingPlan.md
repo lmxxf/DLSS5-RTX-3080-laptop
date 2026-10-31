@@ -1,17 +1,19 @@
-# WorkingPlan — PTX V4.2：站在 `PTX V4.0` 基线上发起分支 5 第 2 轮冲击（`n = 1/3 -> 2/3`：`FB00` 排除 `pre_block` 的 `Pack4`、`FB01` 降 Spill `Pack4` 与 7-SASS `Pack4_Quad`）（2026-11-01 04:53）
+# WorkingPlan — PTX V4.3：分支 5 第 3 次终极冲击（`n = 2/3 -> 3/3`：剔除 `FB00` 的 `FB01 Pack4 + FB02/03 7-SASS Quad` 强强联合与 `FB01 Pack4_Quad`）及 7 分支全表终极结算（2026-11-01 05:20）
 
 ## 0. 双智能体协作铁律与小颗粒度 Git 提交规程
 
-1. **`K-Search` 分支状态**：
+1. **`K-Search` 7 分支终极闭环纪律**：
    - 当前唯一 `1.00×` 对比基线为 **`PTX V4.0` (`joint_up_cfg_pack4_fb2356`)**，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v40.dll`（SHA256 `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`）。
-   - 分支 1~4、6、7 均已 `[Pruned, 3 / 3]`；`V4.1` 完成了分支 5 在 `V4.0` 基线上的第 1 轮增量尝试（分支 5 更新为 **`[Open ⚡, n = 1 / 3]`**）。
-   - 本轮 `PTX V4.2` 对分支 5 发起第 2 轮冲击（若晋升则重置 `n = 0` 并升格新 `1.00×` 基线；若未晋升则更新为 `n = 2 / 3`）。
+   - 分支 1~4、6、7 共 6 个分支均已 `[Pruned, 3 / 3]`；仅剩的 **分支 5** 在 `V4.0` 基线上已完成 `V4.1`（`n = 1/3`）与 `V4.2`（`n = 2/3`）两轮测试。
+   - 本轮 `PTX V4.3` 对分支 5 发起 **第 3 次（最后一次 `n = 2/3 -> 3/3`）终极冲击**：
+     - 若有候选通过首轮 + `repeat` 两轮三档六方向全胜及预设质量门，则封存晋升为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v43.dll` 并重置 `n = 0`；
+     - 若本轮候选仍未通过两轮三档六方向全胜门槛，则 **分支 5 正式达到 `n = 3 / 3` 并结算为 `[Pruned, 3/3]`，全表 7 大分支 100% 闭环（`Open = 0`）**！
 2. **⚠️ 最小颗粒度 Git 提交铁律（必须严格执行）**：
    - **严禁生成/提交任何单次运行 `.log` 碎文件**（进程输出直接内嵌于 `bench.json` / `repeat.json`）！
    - 拆分为 3 个干净的小颗粒度 `git commit`（严禁加 `Co-Authored-By`，不 push）：
-     - Commit 1：`V4.2` 候选构造、`pack4_quad` 7-SASS 原语测试与静态资源核验（`v42/*.py` + 验证 JSON）；
-     - Commit 2：相对 `V4.0` 基线的串行正反 ABBA 跑分汇总与四张硬件体检表（`v42/timing-summary.md`, `v42/bench.json`, `v42/hardware-*.md`）；
-     - Commit 3：更新 `v42/README.md`、`WorkingPlan.md` 与 `DevHistory.md` 完成本轮分支结算。
+     - Commit 1：`V4.3` 候选构造与静态资源/质量核验（`v43/*.py` + 验证 JSON）；
+     - Commit 2：相对 `V4.0` 基线的串行正反 ABBA 跑分汇总与四张硬件体检表（`v43/timing-summary.md`, `v43/bench.json`, `v43/hardware-*.md`）；
+     - Commit 3：更新 `v43/README.md`、`WorkingPlan.md` 与 `DevHistory.md` 完成 7 分支终极结算。
 
 ---
 
@@ -25,35 +27,31 @@
 | 分支编号 | 状态 | 连续未晋升 `n` | 优化分支假设与机制靶点 | 探针敏感度与历史/审稿依据 |
 | :--- | :---: | :---: | :--- | :--- |
 | **分支 1~4, 6, 7** | `[Pruned]` | `3 / 3` | 驻留跨阶 / 通用 Pack&Quad / 解码临时池 / 原表示转发与 Shared 2× 耦合 / Async 协同 | 前六分支已满 `K=3` 剪枝 |
-| **分支 5** | **`[Open]`** | **`2 / 3`** | **有界/常量生产者的转换特化（`FB00` 排除 `pre_block` Spill 核的 `Pack4`、`FB01` 降 Spill `Pack4` 与 7-SASS `Pack4_Quad`）** | `V4.1` 完成了 `FB04 pool / FB06 UP` 与 `FB02/03` 零折叠 (`n=1`)；本轮针对 `FB00 pre_block` 单核 Spill 隔离、`FB01` 降 Spill 与 7-SASS `pack4_quad` 发起第 2 轮冲击 (`n=1->2`)；V4.2结果见文末 |
+| **分支 5** | **`[Open ⚡]`** | **`2 / 3`** | **有界/常量生产者的转换特化（剔除 `FB00` 负向因子的 `FB01 Pack4 + FB02/03 7-SASS Pack4_Quad` 组合与 `FB01 Pack4_Quad`）** | `V4.2` 中 `pack4_fb1_clean` (`+0.262/+0.105/+0.039%`) 与 `pack4_quad_clean` (`+0.351/+0.174/+0.077%`) 三档均值全正，而 `joint_A_B_pack4_quad_clean` 因捆绑了 1080p 两向全负的 `A (pack4_fb0_nopre)` 在 900p 反向微差 `-0.097%`；本轮执行第 3 次终极冲击 (`n=2->3`) |
 
 ---
 
-## 2. 本轮派单任务（`PTX V4.2`：分支 5 第 2 轮冲击 `n = 1/3 -> 2/3`，由闇执行）
+## 2. 本轮派单任务（`PTX V4.3`：分支 5 第 3 次终极冲击 `n = 2/3 -> 3/3`，由闇执行）
 
-请严格以 **`PTX V4.0`**（SHA256 `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`）为唯一 `1.00×` 基线，在 `Development/ptx-patcher/v42/` 下执行以下实验：
+请严格以 **`PTX V4.0`**（SHA256 `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`）为唯一 `1.00×` 基线，在 `Development/ptx-patcher/v43/` 下执行以下终极实验：
 
-### 任务 5.1：`FB00` 排除 `pre_block` 后的零新增 Spill `Pack4`（`v42_pack4_fb0_nopre`）
-- 核查 `v36/resources.json` 发现，此前 `pack4_fb0` 在 `V3.6` 中之所以使全网 `STL/LDL` 从 `107/108` 升至 `110/111` 并在 900p 暴慢 `-0.994%`，**唯一罪魁祸首是 `FB00` 的 `cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8`（全网最大 Grid 核，1080p 达 `34,560 CTA`）在 `pack4` 下 `STACK` 从 `0 B → 16 B`（新增 `3/3 STL/LDL`）**！
-- 而在 `FB00` 的其余 5 个活跃核（`upsample_tilesync`, `outview_wait`, `ds_wait`, `inpview_tilesync`, `post_block`）上，`REG`、`STACK` 与 `STL/LDL` 100% 不增加，且非 NOP SASS 净减 `160` 条。
-- 请在 `V4.0` 基线上构建并测试 **`v42_pack4_fb0_nopre`**（对 `FB00` 排除 `pre_block` 后的 5 个活跃核启用 `pack4`，严格要求 `FB00` 各核 `STACK / STL / LDL` 不高于 `V4.0` 基线）。
+### 任务 5.1：剔除 `FB00` 负向因子的 `B + Quad_clean` 强强联合（`v43_fb1_pack4_fb23_quad`）
+- 在 `V4.2` 中：
+  - `fixed_A` (`pack4_fb0_nopre`) 在 1080p 正反两向均为负（`-0.118% / -0.173%`）；
+  - 而 `fixed_B` (`pack4_fb1_clean`：使 `FB01` 非 NOP SASS 净减 `488` 条、全网 `STL/LDL` 从 `99/100` 压降至 **`98/98`**) 与 `pack4_quad_clean`（在 `FB02+03` 的 8 个零 Spill 活跃核上融合 424 组 7-SASS `pack4_quad`，净减 `842` 条非 NOP SASS 与 `847` 条 `PRMT`）各自三档均值全部为正，且 `joint_A_B_pack4_quad_clean` 在 6 个方向中赢了 5 个（720p `+0.221%/+0.204%`、1080p `+0.145%/+0.404%`、900p 正向 `+0.834%`，仅 900p 反向 `-0.097%`）！
+- 请构建并测试完全不碰 `FB00`（`FB00` 保持 `V4.0` 原 cubin 逐字节不变）的 **`v43_fb1_pack4_fb23_quad`**（即仅组合 `pack4_fb1_clean` + `pack4_quad_clean`，38 活跃核非 NOP SASS 从 `145,461` 降至 **`144,131`**，净减 `1,330` 条 SASS，`PRMT` 净减 `847` 条，`STL/LDL` 降至 `98/98`）！
 
-### 任务 5.2：`FB01` 降 Spill 核的 `Pack4`（`v42_pack4_fb1_clean`）
-- 核查 `v36/resources.json` 发现，`pack4` 在 `FB01 (C64)` 上使 `upsample` 的 `STL/LDL` 从 `15/19 → 14/17`，使 `ds_wait` 的 `STACK` 从 `64 B → 56 B`（`STL/LDL` 从 `11/15 → 10/14`），使 `inpview` 的 `STACK` 从 `64 B → 56 B`（`STL/LDL` 从 `11/15 → 10/14`），合共削减 `474` 条 SASS 与 `3/4` 条 Spill。
-- 请在已开启 `UP-Pair` 的 `V4.0` 基线上构建 `FB01` 的 `pack4`，核查在 `V4.0` 上 `FB01` 4 个活跃核的 `STACK / STL / LDL` 变化，并测试仅保留 `STACK / STL / LDL` 不增核的 **`v42_pack4_fb1_clean`**。
+### 任务 5.2：`FB01` 降 Spill 三入口精选 + `FB02/03 Pack4_Quad`（`v43_fb1_spill3_fb23_quad`）
+- 在 `FB01` 的 4 个活跃入口中，`upsample`、`ds_wait`、`inpview` 三个入口在 `pack4` 下 `STL/LDL` 实质下降（从 `99/100 → 98/98`），而 `outview_wait` 保持 `104 B STACK (23/23 STL/LDL)` 不变。请构建并测试仅在 `FB01` 的这 3 个降 Spill 入口开启 `pack4` 并叠加 `FB02/03 pack4_quad_clean` 的 **`v43_fb1_spill3_fb23_quad`**。
 
-### 任务 5.3：7-SASS `Pack4_Quad` 双对融合（`v42_pack4_quad_fb23` 与 `v42_pack4_quad_clean`）
-- 此前 `V3.1 / V3.3 / V3.4` 测试的 `Quad` 均为基于 5-SASS `pack5` 的 9-SASS `pack5_quad`；而在 `V4.0` 中，`FB02` 与 `FB03` 已默认使用 4-SASS `pack4`。
-- 当把两条相邻的 `pack4` 与 `mov.b32 %dst, {%lo, %hi}` 融合为 **`pack4_quad`** 时，省去两条独立的 `prmt 0x4431` + `cvt.u16.u32` 并由末尾单条 `prmt.b32 %dst, vq_lo, vq_hi, 0x7531;` 一步拼出 32 位结果，**核心 SASS 从两次独立 `pack4` + 拼接的 9 条降至 7 条（`2 × HMUL2 |R| + 2 × LEA + 2 × LOP3 + 1 × PRMT`，平均每对仅 3.5 条 SASS，在 `FB02+FB03` 活跃核上本轮实际净减 `847` 条 `PRMT`）**！
-- 请用独立 `ptxas -O4` 验证 `pack4_quad` 的 7 条核心 SASS 与 33,554,432 对 GPU 原语 `0 mismatch`（相对两次独立 `pack4`），并在 `V4.0` 基线上测试 **`v42_pack4_quad_fb23`**（在 `FB02 + FB03` 启用 `pack4_quad`）及其无 Spill 增长子集 **`v42_pack4_quad_clean`**，以及与任务 5.1/5.2 的优选联合候选！
+### 任务 5.3：`FB01 + FB02 + FB03` 全部无 Spill 增长核启用 7-SASS `Pack4_Quad`（`v43_fb123_pack4_quad_clean`）
+- 在 `FB01` 启用 `pack4` 后，其内部的 `164` 对活跃 `Quad` 同样可融合为 7-SASS `pack4_quad`。请先查询 `FB01` 启用 `pack4_quad` 后的逐入口 `REG / STACK / STL / LDL`，筛选出 `STACK / STL / LDL` 不高于 `V4.0` 且 `CTA/SM` 不降的 `FB01` 入口与 `FB02/03 pack4_quad_clean` 组成 **`v43_fb123_pack4_quad_clean`** 进行实测。
 
 ---
 
-## 3. 验收、分支结算与小颗粒度 Git 提交纪律
+## 3. 验收、7 分支全表终极结算与小颗粒度 Git 提交纪律
 1. 所有候选以 **`PTX V4.0`**（SHA256 `749daadb...`）为唯一 `1.00×` 对照基线，所有计时进程严格串行执行（50 warmup / 80 iter，正反 ABBA/BAAB；首轮三档六方向全胜必须补跑 `repeat` 确认）。
-2. 若有任何候选通过两轮三档六方向全胜及预设质量门，封存晋升为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v42.dll` 并升格为新 `1.00×` 基线（重置分支 5 `n = 0`）；若未通过，则将分支 5 计数从 `n = 1 / 3` 更新为 `n = 2 / 3`。
+2. **7 分支全表终极结算**：
+   - 若有任何候选通过首轮 + `repeat` 两轮三档六方向全胜及预设质量门，封存晋升为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v43.dll` 并升格为新 `1.00×` 基线（重置分支 5 `n = 0`）；
+   - 若本轮候选仍未通过两轮三档六方向全胜门槛，则 **分支 5 正式达到 `n = 3 / 3` 并结算为 `[Pruned, 3/3]`**！至此，包含《0105 审核意见》第 4 节全部新增方向在内的 **7 大预设候选分支全部完成 `K = 3` 闭环（全表 `Open = 0`）**！
 3. **严格执行 3 个干净的小颗粒度 Git Commit（不留任何单次 `.log` 碎文件和临时大二进制，严禁加 `Co-Authored-By`，不 push）**。
-
-### V4.2 执行回执（2026-11-01）
-
-本轮无晋升，保留V4.0为唯一1.00×。 分支5 Open 2/3，其余六分支保持Pruned3/3，Open=1。独立O4确认7核心Quad，33554432对GPU零差异与14项结构测试通过；活跃入口424组融合，PRMT实际净减847、非NOP净减842。A/B/Quad clean均满足STACK/STL/LDL不增加，联合选择`joint_A_B_pack4_quad_clean`。所有首轮六向全胜均repeat，计数{'smoke': 24, 'timed': 120}。[回执](ptx-patcher/v42/README.md)、[计时](ptx-patcher/v42/timing-summary.md)、[验收清理](ptx-patcher/v42/validation.json)。十一保护路径不变，临时大二进制已清理，无.log碎文件，三个小提交，无Co-Authored-By、不push。

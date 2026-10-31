@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "clean_smoke_runs": 15,
+  "timing_candidates": [
+    "fb1_pack4_fb23_quad",
+    "fb1_spill3_fb23_quad",
+    "fb123_pack4_quad_clean"
+  ],
+  "diagnostic_not_timed": [
+    "fb123_quad_diagnostic"
+  ],
+  "all_candidates_FB00_byte_identical": true,
+  "candidate_1_active_nonNOP": 144131,
+  "FB01_quad_selected": [
+    "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8"
+  ],
+  "quad_diagnostic_FB01_active_fusions": 164,
+  "quad_core_SASS": 7,
+  "quad_GPU_cases": 33554432,
+  "reference_SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca"
+}

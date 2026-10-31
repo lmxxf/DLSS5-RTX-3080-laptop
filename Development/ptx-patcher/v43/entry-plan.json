@@ -1,0 +1,115 @@
+{
+  "FB1_all": [
+    "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8"
+  ],
+  "named_spill3": [
+    "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8"
+  ],
+  "FB23_quad": [
+    "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8"
+  ],
+  "baseline_to_V42_FB1_Pack4": {
+    "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": {
+      "REG": [
+        168,
+        168
+      ],
+      "STACK": [
+        80,
+        80
+      ],
+      "STL": [
+        15,
+        14
+      ],
+      "LDL": [
+        19,
+        17
+      ],
+      "INSN_NONOP": [
+        6372,
+        6199
+      ]
+    },
+    "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": {
+      "REG": [
+        168,
+        168
+      ],
+      "STACK": [
+        104,
+        104
+      ],
+      "STL": [
+        23,
+        23
+      ],
+      "LDL": [
+        23,
+        23
+      ],
+      "INSN_NONOP": [
+        5645,
+        5543
+      ]
+    },
+    "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+      "REG": [
+        168,
+        168
+      ],
+      "STACK": [
+        64,
+        64
+      ],
+      "STL": [
+        11,
+        11
+      ],
+      "LDL": [
+        15,
+        15
+      ],
+      "INSN_NONOP": [
+        6437,
+        6322
+      ]
+    },
+    "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+      "REG": [
+        168,
+        168
+      ],
+      "STACK": [
+        56,
+        56
+      ],
+      "STL": [
+        10,
+        10
+      ],
+      "LDL": [
+        14,
+        14
+      ],
+      "INSN_NONOP": [
+        5338,
+        5240
+      ]
+    }
+  },
+  "causal_note": "named spill3 is retained as requested; only upsample has an incremental Spill drop on V4.0; attributing the old joint regression solely to FB00 is not independently established",
+  "FB1_quad_clean_rule": "STACK/STL/LDL nonincrease and official API CTA/SM nondecrease; REG not excluded mechanically"
+}

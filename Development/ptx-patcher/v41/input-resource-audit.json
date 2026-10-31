@@ -1,0 +1,153 @@
+{
+  "reference_mode": "../v40/resources.json:joint_up_cfg_pack4_fb2356",
+  "V4.0_ledger": {
+    "INSN_NONOP": 145461,
+    "HMMA": 13188,
+    "PRMT": 18781,
+    "STL": 99,
+    "LDL": 100
+  },
+  "entries": {
+    "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+      "baseline": {
+        "REG": 180,
+        "STACK": 0,
+        "STL": 0,
+        "LDL": 0,
+        "INSN_NONOP": 6001,
+        "PRMT": 472,
+        "resident_CTA_per_SM": 2
+      },
+      "up_pair_cfg_all": {
+        "REG": 181,
+        "STACK": 0,
+        "STL": 0,
+        "LDL": 0,
+        "INSN_NONOP": 5841,
+        "PRMT": 440,
+        "resident_CTA_per_SM": 2
+      },
+      "joint_up_cfg_pack4_fb2356": {
+        "REG": 180,
+        "STACK": 0,
+        "STL": 0,
+        "LDL": 0,
+        "INSN_NONOP": 6001,
+        "PRMT": 472,
+        "resident_CTA_per_SM": 2
+      }
+    },
+    "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+      "baseline": {
+        "REG": 198,
+        "STACK": 0,
+        "STL": 0,
+        "LDL": 0,
+        "INSN_NONOP": 3988,
+        "PRMT": 672,
+        "resident_CTA_per_SM": 4
+      },
+      "up_pair_cfg_all": {
+        "REG": 200,
+        "STACK": 0,
+        "STL": 0,
+        "LDL": 0,
+        "INSN_NONOP": 3670,
+        "PRMT": 608,
+        "resident_CTA_per_SM": 4
+      },
+      "joint_up_cfg_pack4_fb2356": {
+        "REG": 203,
+        "STACK": 0,
+        "STL": 0,
+        "LDL": 0,
+        "INSN_NONOP": 3855,
+        "PRMT": 672,
+        "resident_CTA_per_SM": 4
+      }
+    }
+  },
+  "plan_144983_was_an_extrapolation": true,
+  "reference_resource_SHA256": "6edd50922bbeb68be5b0e2417df783ac45f35db6160a3e339583728795d7a319",
+  "observed_UP_keep_complete_recipe": {
+    "INSN_NONOP": 144979,
+    "entries": {
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "FB": 4,
+        "REG": 181,
+        "STACK": 0,
+        "SHARED": 8208,
+        "LOCAL": 0,
+        "threads": 128,
+        "dynamic_shared": 0,
+        "resident_CTA_per_SM": 2,
+        "resident_warps_per_SM": 8,
+        "grids": {
+          "1280": [
+            12,
+            3,
+            1
+          ],
+          "1920": [
+            16,
+            5,
+            1
+          ]
+        },
+        "INSN_WITH_NOP": 5863,
+        "INSN_NONOP": 5841,
+        "HMMA": 256,
+        "PRMT": 440,
+        "LDL": 0,
+        "STL": 0,
+        "SHF": 63,
+        "LOP3": 537,
+        "SHFL": 256,
+        "HMUL2": 480,
+        "LDGSTS": 4,
+        "BAR": 4,
+        "WARPSYNC": 5,
+        "CALL": 249,
+        "RET": 0
+      },
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "FB": 6,
+        "REG": 206,
+        "STACK": 0,
+        "SHARED": 2064,
+        "LOCAL": 0,
+        "threads": 64,
+        "dynamic_shared": 0,
+        "resident_CTA_per_SM": 4,
+        "resident_warps_per_SM": 8,
+        "grids": {
+          "1280": [
+            12,
+            3,
+            4
+          ],
+          "1920": [
+            16,
+            5,
+            4
+          ]
+        },
+        "INSN_WITH_NOP": 3549,
+        "INSN_NONOP": 3533,
+        "HMMA": 128,
+        "PRMT": 608,
+        "LDL": 0,
+        "STL": 0,
+        "SHF": 42,
+        "LOP3": 564,
+        "SHFL": 128,
+        "HMUL2": 544,
+        "LDGSTS": 2,
+        "BAR": 3,
+        "WARPSYNC": 3,
+        "CALL": 1,
+        "RET": 0
+      }
+    }
+  }
+}

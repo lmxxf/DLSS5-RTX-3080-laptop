@@ -1,0 +1,52 @@
+{
+  "scope": "compiled module counts; unchanged modules inherited V4.0 recipe",
+  "by_mode": {
+    "baseline": {
+      "compiled_UP_applied": 1288,
+      "compiled_cross_UP_applied": 522,
+      "compiled_splits_deleted": 644
+    },
+    "up_occ_keep": {
+      "compiled_UP_applied": 416,
+      "compiled_cross_UP_applied": 374,
+      "compiled_splits_deleted": 208
+    },
+    "up_add_fb6": {
+      "compiled_UP_applied": 128,
+      "compiled_cross_UP_applied": 120,
+      "compiled_splits_deleted": 64
+    },
+    "up_add_fb4pool": {
+      "compiled_UP_applied": 288,
+      "compiled_cross_UP_applied": 254,
+      "compiled_splits_deleted": 144
+    },
+    "zero_fb23456": {
+      "compiled_UP_applied": 576,
+      "compiled_cross_UP_applied": 48,
+      "compiled_splits_deleted": 288
+    },
+    "pack4_add_fb4_nospill": {
+      "compiled_UP_applied": 224,
+      "compiled_cross_UP_applied": 198,
+      "compiled_splits_deleted": 112
+    },
+    "joint_up_occ_keep_zero_pack4": {
+      "compiled_UP_applied": 992,
+      "compiled_cross_UP_applied": 422,
+      "compiled_splits_deleted": 496
+    },
+    "joint_up_add_fb6_zero_pack4": {
+      "compiled_UP_applied": 928,
+      "compiled_cross_UP_applied": 366,
+      "compiled_splits_deleted": 464
+    },
+    "joint_up_add_fb4pool_zero_pack4": {
+      "compiled_UP_applied": 864,
+      "compiled_cross_UP_applied": 302,
+      "compiled_splits_deleted": 432
+    }
+  },
+  "all_path_proof_reference": "../v40/cross-block-up-audit.json",
+  "proof_reference_SHA256": "bc44c4b7985c5edea1de4912d818091f22ade8cf3037b0b7f60ebee19b2eb000"
+}

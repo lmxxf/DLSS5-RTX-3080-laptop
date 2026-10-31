@@ -1,0 +1,632 @@
+{
+  "baseline": {
+    "totals": {
+      "INSN_NONOP": 145461,
+      "HMMA": 13188,
+      "PRMT": 18781,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {}
+  },
+  "up_occ_keep": {
+    "totals": {
+      "INSN_NONOP": 144979,
+      "HMMA": 13188,
+      "PRMT": 18685,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "REG": [
+          180,
+          181
+        ],
+        "INSN_NONOP": [
+          6001,
+          5841
+        ],
+        "PRMT": [
+          472,
+          440
+        ]
+      },
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "REG": [
+          203,
+          206
+        ],
+        "INSN_NONOP": [
+          3855,
+          3533
+        ],
+        "PRMT": [
+          672,
+          608
+        ]
+      }
+    }
+  },
+  "up_add_fb6": {
+    "totals": {
+      "INSN_NONOP": 145139,
+      "HMMA": 13188,
+      "PRMT": 18717,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "REG": [
+          203,
+          206
+        ],
+        "INSN_NONOP": [
+          3855,
+          3533
+        ],
+        "PRMT": [
+          672,
+          608
+        ]
+      }
+    }
+  },
+  "up_add_fb4pool": {
+    "totals": {
+      "INSN_NONOP": 145301,
+      "HMMA": 13188,
+      "PRMT": 18749,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "REG": [
+          180,
+          181
+        ],
+        "INSN_NONOP": [
+          6001,
+          5841
+        ],
+        "PRMT": [
+          472,
+          440
+        ]
+      }
+    }
+  },
+  "zero_fb23456": {
+    "totals": {
+      "INSN_NONOP": 145276,
+      "HMMA": 13188,
+      "PRMT": 18733,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6382,
+          6335
+        ],
+        "PRMT": [
+          1035,
+          1027
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5555,
+          5531
+        ],
+        "PRMT": [
+          883,
+          875
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6813,
+          6770
+        ],
+        "PRMT": [
+          1003,
+          995
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6442,
+          6419
+        ],
+        "PRMT": [
+          1057,
+          1049
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5593,
+          5569
+        ],
+        "PRMT": [
+          906,
+          898
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6659,
+          6635
+        ],
+        "PRMT": [
+          977,
+          969
+        ]
+      }
+    }
+  },
+  "pack4_add_fb4_nospill": {
+    "totals": {
+      "INSN_NONOP": 145030,
+      "HMMA": 13188,
+      "PRMT": 18781,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {
+      "cc_split_swin_16h_final_head_512_wait_fp8": {
+        "INSN_NONOP": [
+          1103,
+          1070
+        ]
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "INSN_NONOP": [
+          6001,
+          5923
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2685,
+          2621
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1434,
+          1402
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2576,
+          2512
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2210,
+          2146
+        ]
+      },
+      "cc_split_swin_16h_ffwd_512_chained_fp8": {
+        "INSN_NONOP": [
+          1933,
+          1901
+        ]
+      },
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": {
+        "INSN_NONOP": [
+          3209,
+          3145
+        ]
+      }
+    }
+  },
+  "joint_up_occ_keep_zero_pack4": {
+    "totals": {
+      "INSN_NONOP": 144364,
+      "HMMA": 13188,
+      "PRMT": 18637,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6382,
+          6335
+        ],
+        "PRMT": [
+          1035,
+          1027
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5555,
+          5531
+        ],
+        "PRMT": [
+          883,
+          875
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6813,
+          6770
+        ],
+        "PRMT": [
+          1003,
+          995
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6442,
+          6419
+        ],
+        "PRMT": [
+          1057,
+          1049
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5593,
+          5569
+        ],
+        "PRMT": [
+          906,
+          898
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6659,
+          6635
+        ],
+        "PRMT": [
+          977,
+          969
+        ]
+      },
+      "cc_split_swin_16h_final_head_512_wait_fp8": {
+        "INSN_NONOP": [
+          1103,
+          1070
+        ]
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "REG": [
+          180,
+          181
+        ],
+        "INSN_NONOP": [
+          6001,
+          5764
+        ],
+        "PRMT": [
+          472,
+          440
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2685,
+          2621
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1434,
+          1402
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2576,
+          2512
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2210,
+          2146
+        ]
+      },
+      "cc_split_swin_16h_ffwd_512_chained_fp8": {
+        "INSN_NONOP": [
+          1933,
+          1901
+        ]
+      },
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": {
+        "INSN_NONOP": [
+          3209,
+          3145
+        ]
+      },
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "REG": [
+          203,
+          206
+        ],
+        "INSN_NONOP": [
+          3855,
+          3533
+        ],
+        "PRMT": [
+          672,
+          608
+        ]
+      }
+    }
+  },
+  "joint_up_add_fb6_zero_pack4": {
+    "totals": {
+      "INSN_NONOP": 144523,
+      "HMMA": 13188,
+      "PRMT": 18669,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6382,
+          6335
+        ],
+        "PRMT": [
+          1035,
+          1027
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5555,
+          5531
+        ],
+        "PRMT": [
+          883,
+          875
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6813,
+          6770
+        ],
+        "PRMT": [
+          1003,
+          995
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6442,
+          6419
+        ],
+        "PRMT": [
+          1057,
+          1049
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5593,
+          5569
+        ],
+        "PRMT": [
+          906,
+          898
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6659,
+          6635
+        ],
+        "PRMT": [
+          977,
+          969
+        ]
+      },
+      "cc_split_swin_16h_final_head_512_wait_fp8": {
+        "INSN_NONOP": [
+          1103,
+          1070
+        ]
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "INSN_NONOP": [
+          6001,
+          5923
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2685,
+          2621
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1434,
+          1402
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2576,
+          2512
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2210,
+          2146
+        ]
+      },
+      "cc_split_swin_16h_ffwd_512_chained_fp8": {
+        "INSN_NONOP": [
+          1933,
+          1901
+        ]
+      },
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": {
+        "INSN_NONOP": [
+          3209,
+          3145
+        ]
+      },
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "REG": [
+          203,
+          206
+        ],
+        "INSN_NONOP": [
+          3855,
+          3533
+        ],
+        "PRMT": [
+          672,
+          608
+        ]
+      }
+    }
+  },
+  "joint_up_add_fb4pool_zero_pack4": {
+    "totals": {
+      "INSN_NONOP": 144686,
+      "HMMA": 13188,
+      "PRMT": 18701,
+      "STL": 99,
+      "LDL": 100
+    },
+    "changes": {
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6382,
+          6335
+        ],
+        "PRMT": [
+          1035,
+          1027
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5555,
+          5531
+        ],
+        "PRMT": [
+          883,
+          875
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6813,
+          6770
+        ],
+        "PRMT": [
+          1003,
+          995
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6442,
+          6419
+        ],
+        "PRMT": [
+          1057,
+          1049
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5593,
+          5569
+        ],
+        "PRMT": [
+          906,
+          898
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6659,
+          6635
+        ],
+        "PRMT": [
+          977,
+          969
+        ]
+      },
+      "cc_split_swin_16h_final_head_512_wait_fp8": {
+        "INSN_NONOP": [
+          1103,
+          1070
+        ]
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "REG": [
+          180,
+          181
+        ],
+        "INSN_NONOP": [
+          6001,
+          5764
+        ],
+        "PRMT": [
+          472,
+          440
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2685,
+          2621
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1434,
+          1402
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2576,
+          2512
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2210,
+          2146
+        ]
+      },
+      "cc_split_swin_16h_ffwd_512_chained_fp8": {
+        "INSN_NONOP": [
+          1933,
+          1901
+        ]
+      },
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": {
+        "INSN_NONOP": [
+          3209,
+          3145
+        ]
+      }
+    }
+  }
+}

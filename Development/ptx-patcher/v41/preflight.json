@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "clean_smoke_runs": 27,
+  "single_factor_timing_candidates": [
+    "up_occ_keep",
+    "up_add_fb6",
+    "up_add_fb4pool",
+    "zero_fb23456",
+    "pack4_add_fb4_nospill"
+  ],
+  "baseline_identical_not_timed": [],
+  "prebuilt_joint_candidates": [
+    "joint_up_occ_keep_zero_pack4",
+    "joint_up_add_fb6_zero_pack4",
+    "joint_up_add_fb4pool_zero_pack4"
+  ],
+  "UP_only_STACK_STL_LDL_nonincrease": true,
+  "UP_only_official_CTA_SM_nondecrease": true,
+  "strict_increment_quality": [
+    "up_occ_keep",
+    "up_add_fb6",
+    "up_add_fb4pool",
+    "zero_fb23456"
+  ],
+  "V4.0_reference_SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca"
+}

@@ -1,0 +1,617 @@
+{
+  "baseline": {
+    "fbs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "zero_fbs": [
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear"
+    ],
+    "cfg": true,
+    "branches": [],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": false
+  },
+  "up_occ_keep": {
+    "fbs": [
+      4,
+      6
+    ],
+    "zero_fbs": [
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear",
+      "cc_split_swin_16h_proj_pool_512_chained_fp8",
+      "cc_dec_input_upsample_1024_512_tilesync_fp8"
+    ],
+    "cfg": true,
+    "branches": [
+      5
+    ],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": false
+  },
+  "up_add_fb6": {
+    "fbs": [
+      6
+    ],
+    "zero_fbs": [
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear",
+      "cc_dec_input_upsample_1024_512_tilesync_fp8"
+    ],
+    "cfg": true,
+    "branches": [
+      5
+    ],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": false
+  },
+  "up_add_fb4pool": {
+    "fbs": [
+      4
+    ],
+    "zero_fbs": [
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear",
+      "cc_split_swin_16h_proj_pool_512_chained_fp8"
+    ],
+    "cfg": true,
+    "branches": [
+      5
+    ],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": false
+  },
+  "zero_fb23456": {
+    "fbs": [
+      2,
+      3
+    ],
+    "zero_fbs": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear"
+    ],
+    "cfg": true,
+    "branches": [
+      5
+    ],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": false
+  },
+  "pack4_add_fb4_nospill": {
+    "fbs": [
+      4
+    ],
+    "zero_fbs": [
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear"
+    ],
+    "cfg": true,
+    "branches": [
+      5
+    ],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": true,
+    "pack4_entries": [
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_pool_512_chained_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8"
+    ]
+  },
+  "joint_up_occ_keep_zero_pack4": {
+    "fbs": [
+      2,
+      3,
+      4,
+      6
+    ],
+    "zero_fbs": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear",
+      "cc_split_swin_16h_proj_pool_512_chained_fp8",
+      "cc_dec_input_upsample_1024_512_tilesync_fp8"
+    ],
+    "cfg": true,
+    "branches": [
+      5
+    ],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": true,
+    "pack4_entries": [
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_pool_512_chained_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8"
+    ],
+    "components": [
+      "up_occ_keep",
+      "zero_fb23456",
+      "pack4_add_fb4_nospill"
+    ]
+  },
+  "joint_up_add_fb6_zero_pack4": {
+    "fbs": [
+      2,
+      3,
+      4,
+      6
+    ],
+    "zero_fbs": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear",
+      "cc_dec_input_upsample_1024_512_tilesync_fp8"
+    ],
+    "cfg": true,
+    "branches": [
+      5
+    ],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": true,
+    "pack4_entries": [
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_pool_512_chained_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8"
+    ],
+    "components": [
+      "up_add_fb6",
+      "zero_fb23456",
+      "pack4_add_fb4_nospill"
+    ]
+  },
+  "joint_up_add_fb4pool_zero_pack4": {
+    "fbs": [
+      2,
+      3,
+      4
+    ],
+    "zero_fbs": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "up": true,
+    "up_entries": [
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+      "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8",
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_qkv_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+      "cc_vit_1d_projection_chained_fp8",
+      "cc_vit_1d_projection_wait_fp8",
+      "cc_vit_1d_attention_chained_fp8",
+      "cc_vit_1d_qkv_chained_fp8",
+      "cc_vit_1d_ffn_contract_chained_fp8",
+      "cc_vit_1d_ffn_expand_chained_fp8",
+      "cc_vit_1d_ffn_expand_publish_fp8",
+      "cc_vit_1d_repack_1d_to_2d_fp8",
+      "cc_vit_1d_repack_2d_to_1d_fp8",
+      "cc_cb_clear",
+      "cc_split_swin_16h_proj_pool_512_chained_fp8"
+    ],
+    "cfg": true,
+    "branches": [
+      5
+    ],
+    "pack4": [
+      2,
+      3,
+      5,
+      6
+    ],
+    "approximate": true,
+    "pack4_entries": [
+      "cc_split_swin_16h_final_head_512_wait_fp8",
+      "cc_split_swin_16h_proj_pool_512_chained_fp8",
+      "cc_split_swin_16h_proj_512_outview_wait_fp8",
+      "cc_split_swin_16h_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_512_chained_fp8",
+      "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8"
+    ],
+    "components": [
+      "up_add_fb4pool",
+      "zero_fb23456",
+      "pack4_add_fb4_nospill"
+    ]
+  }
+}

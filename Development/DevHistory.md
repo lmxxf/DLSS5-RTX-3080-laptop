@@ -1071,3 +1071,22 @@ V2.9_fast SHA55b51876为基线。A abs折叠核心8SASS，33,554,432对原语及
 主fast、鬼武者根/_storage_、剑星、Magpie五处NR均已为新SHA，核验后同步0.3.0元数据与manifest/校验清单，Magpie目录0.2.0→0.3.0，原安装配置/host不改。备份为backups/20261029-v030-metadata。根README、ptx-patcher README与发布回执同步；研发模型median5.75/8.42/11.35ms和独立低温5.62/8.38/11.07ms分开列，非同轮v0.2.0速度比，本版非0bit。技术说明区分V2.3偶奇PRMT与V2.6 Low/High9180/b3a2，不把183651静态计数冒标为V2.2。
 
 [发布回执与三包SHA](ptx-patcher/release-rtx30/v030/README.md)、[验收](ptx-patcher/release-rtx30/v030/validation.json)。只完成本机正式包，不上传新公网镜像、不push；临时stage和本轮smoke工具/输出清理，保留全部文本证据。
+
+
+## 2026-10-31：PTX V3.2，半步Decode池、独立UP、等价算术与G2临界核控制（闇）
+
+严格以V3.1_pack5 SHA1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86为唯一1.00×基线，重建15/15 O4原槽位SHA完全一致。先核38活跃核SASS/REG/STACK、官方CUDA Occupancy API及真实Grid表、原始ABBA、2×2与分支表，再生成文字报告。四表与全部机器数据归档v32；NCU未安装，循环信息明确沿用V2.5语义插桩，等待距离仅词法计数，未冒充硬件stall或动态occupancy。
+
+Phase-Split将encoded解码/释放细化至2*i+phase，并在原源被当前或更早MMA写坏前提前解码second；保留mapped隐式源备份和MMA顺序。7类128warp独立upfront-snapshot GPU别名测试全0bit。38核368个run、5848个encoded事件中240个单次使用；FB00..06池峰值24/56/56/56/112/80/20→24/56/56/56/112/80/18，部分C512 run72→70，但目标G2物理REG没有自然跨阶。
+
+独立UP仅mask8→9、不绑quad，4744处转换GPU33554432对全位0差；38核非NOP152076→150179，HMMA13188不变，STL/LDL107/108→108/110。解码直接packed立即数乘法被驱动JIT/ptxas拒绝，保留失败证据、不计时；另测严格等价先移位后掩码及其split+UP组合，33554432对GPU原语0差，SASS计数/资源未减但35核机器码字节变化，完整配对实测。
+
+在split+UP上另做publish/contract/expand/head/proj/pool六个单核cap控制，API均跨阶。publish/contract分别16/8B STACK，expand/head/proj分别152/136/144B；pool实际162regs、零STACK、3CTA/SM，但三档方向未全稳。每项均对同轮V3.1_pack5正反ABBA，不用静态池削减或理论驻留提升充整帧收益。
+
+原首轮72次因与驱动编译/资源查询重叠，全部保留为筛查且排除计时；串行补齐12次repair+60次clean。有效首轮72、cap144、算术48次，加条件repeat，共288次正式配对；所有严格候选连同筛查/3快验共363次成功运行末帧均对同配置基线0bit、maxabs0、nonfinite0，13项既有回归通过。split+UP首轮三档六方向全胜，补repeat后900p均值慢0.161%、正反均负，按固定门槛否决；完整结果见回执。
+
+新建并串行重跑48次2×2破坏性探针：Base−P1三档均值0.563500/0.992000/1.429500ms、12/12正；Base−P0为0.145500/0.102500/0.167250ms，也12/12正。旧20:00的Pack变号不能继续当见底依据，分支2保留阶段Closed历史状态但标记需主脑复核重开，未越权启动Pack新实现。交互项按355公式(Base−P0)+(Base−P1)−(Base−P2)，旧记录负号为相反定义；探针敏感度不当成可兑现预算。
+
+11个计时单因素/组合均未通过三档两轮正反全胜门槛，不晋升V3.2 DLL，保留V3.1_pack5；分支3保持Open、n=2/3，分支4保持Open、n=0/3。不将本批次负结果当作全网收官，不提前剪枝。生产五处、原DLL和三个v0.3.0 ZIP保护性SHA全部不变；不部署、不push。清理本轮临时DLL/RGB/PTX/cubin/fatbin缓存，仅保留文本证据与可能晋升的独立候选；完成后立即独立commit，无Co-Authored-By。
+
+[完整回执](ptx-patcher/v32/README.md)、[逐方向计时](ptx-patcher/v32/timing-summary.md)、[四表](ptx-patcher/v32/hardware-baseline.md)、[验收](ptx-patcher/v32/validation.json)、[新探针](ptx-patcher/v32/probe-summary.json)。

@@ -1,0 +1,12 @@
+{
+  "args": [
+    "/home/lmxxf/.local/lib/python3.10/site-packages/triton/backends/nvidia/bin/ptxas",
+    "-arch=sm_86",
+    "Development/ptx-patcher/v32/immediate-check.ptx",
+    "-o",
+    "Development/ptx-patcher/v32/immediate-check.cubin"
+  ],
+  "returncode": 255,
+  "reason": "packed f16x2 mul rejects this immediate operand; invalid candidate, no timing",
+  "driver_evidence": "build.log: cuLinkAddData failure with Arguments mismatch for mul"
+}

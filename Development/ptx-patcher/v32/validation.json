@@ -1,0 +1,32 @@
+{
+  "data_checks_pass": true,
+  "counts": {
+    "smoke": 3,
+    "bench": 72,
+    "repair": 12,
+    "clean": 60,
+    "caps": 144,
+    "arithmetic": 48,
+    "repeat": 24,
+    "probe-bench": 48
+  },
+  "strict_successful_runs": 363,
+  "probe_diagnostic_runs": 48,
+  "excluded_timing_runs": 72,
+  "repeat_eligible": [
+    "split_up"
+  ],
+  "winners": [],
+  "protected_paths": 9,
+  "all_protected_unchanged": true,
+  "exact_baseline_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+  "branch3_n_after": 2,
+  "branch3_state": "Open",
+  "branch4_state": "Open",
+  "branch2_pack_probe_reassessment_needed": true,
+  "review_order": "raw logs, hashes, resources and probes independently checked before narrative",
+  "scope": "finite/bitwise checks apply to tested final frames and primitive fixtures; occupancy is theoretical; destructive probes cannot promote",
+  "cleanup_complete": true,
+  "temporary_bytes_removed": 4604726758,
+  "production_hashes_verified_after_cleanup": true
+}

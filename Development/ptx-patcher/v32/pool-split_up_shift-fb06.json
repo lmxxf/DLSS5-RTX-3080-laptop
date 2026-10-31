@@ -1,0 +1,38 @@
+[
+  {
+    "mma_sites": 32,
+    "mapped_operands": 0,
+    "encoded_operands": 72,
+    "temporary_b32_peak": 18,
+    "backup_moves": 0,
+    "phase0_clobber_sources": [],
+    "kernel": "cc_dec_input_upsample_1024_512_fp8"
+  },
+  {
+    "mma_sites": 32,
+    "mapped_operands": 0,
+    "encoded_operands": 72,
+    "temporary_b32_peak": 18,
+    "backup_moves": 0,
+    "phase0_clobber_sources": [],
+    "kernel": "cc_dec_input_upsample_1024_512_fp8"
+  },
+  {
+    "mma_sites": 32,
+    "mapped_operands": 0,
+    "encoded_operands": 72,
+    "temporary_b32_peak": 18,
+    "backup_moves": 0,
+    "phase0_clobber_sources": [],
+    "kernel": "cc_dec_input_upsample_1024_512_tilesync_fp8"
+  },
+  {
+    "mma_sites": 32,
+    "mapped_operands": 0,
+    "encoded_operands": 72,
+    "temporary_b32_peak": 18,
+    "backup_moves": 0,
+    "phase0_clobber_sources": [],
+    "kernel": "cc_dec_input_upsample_1024_512_tilesync_fp8"
+  }
+]

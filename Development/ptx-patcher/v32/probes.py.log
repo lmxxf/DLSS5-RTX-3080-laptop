@@ -1,0 +1,21 @@
+p0 2 ELF O4 (cubin=1080096 B -> fatbin=136320 / 506464 B) in 3.81s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+p0 1 ELF O4 (cubin=1042080 B -> fatbin=158544 / 557032 B) in 3.84s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832
+p0 0 ELF O4 (cubin=1327328 B -> fatbin=272208 / 841720 B) in 5.28s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+p0 4 ELF O4 (cubin=1000480 B -> fatbin=163576 / 433184 B) in 2.82s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+p0 6 ELF O4 (cubin= 120672 B -> fatbin= 26640 /  70336 B) in 0.56s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+p0 3 ELF O4 (cubin=1083552 B -> fatbin=174640 / 586832 B) in 4.03s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+p0 5 ELF O4 (cubin=1200672 B -> fatbin=160736 / 542960 B) in 3.17s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29
+p1 1 ELF O4 (cubin= 732832 B -> fatbin=134104 / 557032 B) in 3.10s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832
+p1 2 ELF O4 (cubin= 745504 B -> fatbin=111128 / 506464 B) in 3.14s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+p1 0 ELF O4 (cubin=1084512 B -> fatbin=227464 / 841720 B) in 4.69s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+p1 4 ELF O4 (cubin= 838176 B -> fatbin=126888 / 433184 B) in 2.39s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+p1 6 ELF O4 (cubin= 107360 B -> fatbin= 24312 /  70336 B) in 0.49s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+p1 3 ELF O4 (cubin= 775328 B -> fatbin=153216 / 586832 B) in 3.35s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+p1 5 ELF O4 (cubin=1130528 B -> fatbin=169712 / 542960 B) in 2.92s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29
+p2 2 ELF O4 (cubin= 604704 B -> fatbin= 83552 / 506464 B) in 2.93s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+p2 1 ELF O4 (cubin= 621856 B -> fatbin=123992 / 557032 B) in 3.00s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832
+p2 0 ELF O4 (cubin=1039968 B -> fatbin=214456 / 841720 B) in 4.51s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+p2 4 ELF O4 (cubin= 729632 B -> fatbin=110784 / 433184 B) in 2.17s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+p2 6 ELF O4 (cubin=  83808 B -> fatbin= 20144 /  70336 B) in 0.45s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+p2 3 ELF O4 (cubin= 640416 B -> fatbin=120672 / 586832 B) in 3.08s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+p2 5 ELF O4 (cubin= 951328 B -> fatbin=131272 / 542960 B) in 2.58s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29

@@ -1,0 +1,131 @@
+[
+  {
+    "name": "smoke",
+    "variant": "baseline",
+    "width": 1280,
+    "height": 720,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-31T21:46:19.615180",
+    "end": "2026-10-31T21:46:21.586211",
+    "metrics": {
+      "W": 1280.0,
+      "H": 720.0,
+      "preset": 2.0,
+      "gpu_median_ms": 5.724,
+      "gpu_mean_ms": 5.724,
+      "gpu_min_ms": 5.724,
+      "wall_median_ms": 10.085,
+      "wall_mean_ms": 10.085,
+      "wall_min_ms": 10.085,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.742134
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "95d647a6f90786b76b1481a4d9b81c76305f4b1ddaccc2fda81e38004785ddd7",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.00010660108091542497
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v31_pack5.dll",
+      "1280",
+      "720",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v32-bench/smoke-baseline-1280.rgb32",
+      "sky"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "split",
+    "width": 1280,
+    "height": 720,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-31T21:46:21.587132",
+    "end": "2026-10-31T21:46:22.879939",
+    "metrics": {
+      "W": 1280.0,
+      "H": 720.0,
+      "preset": 2.0,
+      "gpu_median_ms": 5.74,
+      "gpu_mean_ms": 5.74,
+      "gpu_min_ms": 5.74,
+      "wall_median_ms": 10.102,
+      "wall_mean_ms": 10.102,
+      "wall_min_ms": 10.102,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.742134
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "95d647a6f90786b76b1481a4d9b81c76305f4b1ddaccc2fda81e38004785ddd7",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.00010660108091542497
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v32_split.dll",
+      "1280",
+      "720",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v32-bench/smoke-split-1280.rgb32",
+      "sky"
+    ]
+  },
+  {
+    "name": "smoke",
+    "variant": "up",
+    "width": 1280,
+    "height": 720,
+    "warmup": 1,
+    "iterations": 1,
+    "begin": "2026-10-31T21:46:22.880471",
+    "end": "2026-10-31T21:46:24.161996",
+    "metrics": {
+      "W": 1280.0,
+      "H": 720.0,
+      "preset": 2.0,
+      "gpu_median_ms": 5.688,
+      "gpu_mean_ms": 5.688,
+      "gpu_min_ms": 5.688,
+      "wall_median_ms": 6.799,
+      "wall_mean_ms": 6.799,
+      "wall_min_ms": 6.799,
+      "nonfinite": 0.0,
+      "mean_rgb": 0.742134
+    },
+    "quality": {
+      "bitdiff": 0,
+      "maxabs": 0.0,
+      "psnr_db": null,
+      "sha256": "95d647a6f90786b76b1481a4d9b81c76305f4b1ddaccc2fda81e38004785ddd7",
+      "sky_sign_changes": 0,
+      "sky_hf_rms": 0.00010660108091542497
+    },
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v32_up.dll",
+      "1280",
+      "720",
+      "2",
+      "1",
+      "1",
+      "C:/DLSS5-5090-dll/ptx-v32-bench/smoke-up-1280.rgb32",
+      "sky"
+    ]
+  }
+]

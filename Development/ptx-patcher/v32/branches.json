@@ -1,0 +1,26 @@
+[
+  {
+    "branch": 1,
+    "state": "Pruned",
+    "n": 3
+  },
+  {
+    "branch": 2,
+    "state": "Closed",
+    "n": 0,
+    "needs_reassessment": true,
+    "evidence": "new P0 12/12 positive; principal planner to reassess reopening"
+  },
+  {
+    "branch": 3,
+    "state": "Open",
+    "n": 2,
+    "K": 3
+  },
+  {
+    "branch": 4,
+    "state": "Open",
+    "n": 0,
+    "K": 3
+  }
+]

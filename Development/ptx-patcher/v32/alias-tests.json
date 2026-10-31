@@ -1,0 +1,107 @@
+[
+  {
+    "case": "same_K32_second_half",
+    "warps": 128,
+    "K32_MMA_per_run": 1,
+    "word_bitdiff_against_independent_upfront_lowhigh": 0,
+    "codegen": {
+      "mma_sites": 1,
+      "mapped_operands": 1,
+      "encoded_operands": 5,
+      "temporary_b32_peak": 6,
+      "backup_moves": 1,
+      "phase0_clobber_sources": [
+        "%r301"
+      ]
+    }
+  },
+  {
+    "case": "late_shared_sources",
+    "warps": 128,
+    "K32_MMA_per_run": 64,
+    "word_bitdiff_against_independent_upfront_lowhigh": 0,
+    "codegen": {
+      "mma_sites": 64,
+      "mapped_operands": 2,
+      "encoded_operands": 46,
+      "temporary_b32_peak": 72,
+      "backup_moves": 2,
+      "phase0_clobber_sources": [
+        "%r300",
+        "%r301"
+      ]
+    }
+  },
+  {
+    "case": "same_low_high_source",
+    "warps": 128,
+    "K32_MMA_per_run": 64,
+    "word_bitdiff_against_independent_upfront_lowhigh": 0,
+    "codegen": {
+      "mma_sites": 64,
+      "mapped_operands": 1,
+      "encoded_operands": 47,
+      "temporary_b32_peak": 72,
+      "backup_moves": 1,
+      "phase0_clobber_sources": [
+        "%r300"
+      ]
+    }
+  },
+  {
+    "case": "late_encoded_clobber",
+    "warps": 128,
+    "K32_MMA_per_run": 64,
+    "word_bitdiff_against_independent_upfront_lowhigh": 0,
+    "codegen": {
+      "mma_sites": 64,
+      "mapped_operands": 0,
+      "encoded_operands": 48,
+      "temporary_b32_peak": 72,
+      "backup_moves": 0,
+      "phase0_clobber_sources": []
+    }
+  },
+  {
+    "case": "encoded_same_half_clobber",
+    "warps": 128,
+    "K32_MMA_per_run": 1,
+    "word_bitdiff_against_independent_upfront_lowhigh": 0,
+    "codegen": {
+      "mma_sites": 1,
+      "mapped_operands": 0,
+      "encoded_operands": 6,
+      "temporary_b32_peak": 7,
+      "backup_moves": 0,
+      "phase0_clobber_sources": []
+    }
+  },
+  {
+    "case": "encoded_before_first_use",
+    "warps": 128,
+    "K32_MMA_per_run": 64,
+    "word_bitdiff_against_independent_upfront_lowhigh": 0,
+    "codegen": {
+      "mma_sites": 64,
+      "mapped_operands": 0,
+      "encoded_operands": 48,
+      "temporary_b32_peak": 72,
+      "backup_moves": 0,
+      "phase0_clobber_sources": []
+    }
+  },
+  {
+    "case": "all_mapped_no_clobber",
+    "warps": 128,
+    "K32_MMA_per_run": 64,
+    "word_bitdiff_against_independent_upfront_lowhigh": 0,
+    "codegen": {
+      "mma_sites": 64,
+      "mapped_operands": 48,
+      "encoded_operands": 0,
+      "temporary_b32_peak": 0,
+      "backup_moves": 0,
+      "phase0_clobber_sources": []
+    }
+  }
+]

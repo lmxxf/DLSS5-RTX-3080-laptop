@@ -1,0 +1,15 @@
+{
+  "task_A": [
+    "zero_const_fb26",
+    "zero_const_fb456",
+    "pack4_pure36",
+    "pack4_fb26_clean"
+  ],
+  "task_B": [
+    "fb3_inp_up_fast",
+    "fb3_inp_up_exact"
+  ],
+  "rule": "after complete single-factor first round, choose each task best by greatest minimum of all six directional gain_percent; mean gain breaks ties, then name; only predeclared quality-passing candidates; selected A+B+pool joint gets its own full first round and repeats if eligible",
+  "joint_build_before_measurement": true,
+  "prior_hypotheses_not_proven": "FB00 REG increase causing 900p regression and individual negative-entry attribution remain hypotheses; whole-frame data decides"
+}

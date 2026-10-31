@@ -1,0 +1,831 @@
+{
+  "passed": true,
+  "single_factor_deltas": {
+    "zero_const_fb26": {
+      "active_nonNOP_delta": -1619,
+      "resource_changes": {
+        "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+          "PRMT": [
+            1084,
+            1075
+          ],
+          "INSN_NONOP": [
+            6778,
+            6725
+          ]
+        },
+        "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+          "PRMT": [
+            915,
+            907
+          ],
+          "INSN_NONOP": [
+            5841,
+            5813
+          ]
+        },
+        "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+          "PRMT": [
+            1036,
+            1027
+          ],
+          "INSN_NONOP": [
+            7119,
+            7071
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+          "PRMT": [
+            1105,
+            1097
+          ],
+          "INSN_NONOP": [
+            6836,
+            6806
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+          "PRMT": [
+            938,
+            930
+          ],
+          "INSN_NONOP": [
+            5881,
+            5853
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+          "PRMT": [
+            1009,
+            1001
+          ],
+          "INSN_NONOP": [
+            6964,
+            6936
+          ]
+        },
+        "cc_split_swin_16h_final_head_512_wait_fp8": {
+          "PRMT": [
+            158,
+            150
+          ],
+          "INSN_NONOP": [
+            1139,
+            1103
+          ]
+        },
+        "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+          "PRMT": [
+            488,
+            472
+          ],
+          "INSN_NONOP": [
+            6073,
+            6001
+          ]
+        },
+        "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+          "PRMT": [
+            358,
+            326
+          ],
+          "INSN_NONOP": [
+            2973,
+            2844
+          ]
+        },
+        "cc_split_swin_16h_proj_512_chained_fp8": {
+          "PRMT": [
+            214,
+            198
+          ],
+          "INSN_NONOP": [
+            1578,
+            1514
+          ]
+        },
+        "cc_split_swin_16h_qkv_512_chained_fp8": {
+          "STL": [
+            40,
+            33
+          ],
+          "LDL": [
+            29,
+            22
+          ],
+          "PRMT": [
+            452,
+            444
+          ],
+          "INSN_NONOP": [
+            4515,
+            4462
+          ]
+        },
+        "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+          "PRMT": [
+            342,
+            326
+          ],
+          "INSN_NONOP": [
+            2756,
+            2682
+          ]
+        },
+        "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+          "REG": [
+            167,
+            168
+          ],
+          "PRMT": [
+            358,
+            326
+          ],
+          "INSN_NONOP": [
+            2500,
+            2369
+          ]
+        },
+        "cc_split_swin_16h_ffwd_512_chained_fp8": {
+          "PRMT": [
+            309,
+            305
+          ],
+          "INSN_NONOP": [
+            1951,
+            1933
+          ]
+        },
+        "cc_vit_1d_projection_chained_fp8": {
+          "PRMT": [
+            344,
+            320
+          ],
+          "INSN_NONOP": [
+            2490,
+            2398
+          ]
+        },
+        "cc_vit_1d_projection_wait_fp8": {
+          "PRMT": [
+            344,
+            320
+          ],
+          "INSN_NONOP": [
+            2479,
+            2387
+          ]
+        },
+        "cc_vit_1d_attention_chained_fp8": {
+          "PRMT": [
+            368,
+            352
+          ],
+          "INSN_NONOP": [
+            3032,
+            2968
+          ]
+        },
+        "cc_vit_1d_qkv_chained_fp8": {
+          "PRMT": [
+            328,
+            320
+          ],
+          "INSN_NONOP": [
+            2787,
+            2751
+          ]
+        },
+        "cc_vit_1d_ffn_contract_chained_fp8": {
+          "PRMT": [
+            492,
+            460
+          ],
+          "INSN_NONOP": [
+            3451,
+            3324
+          ]
+        },
+        "cc_vit_1d_ffn_expand_chained_fp8": {
+          "REG": [
+            180,
+            178
+          ],
+          "PRMT": [
+            287,
+            255
+          ],
+          "INSN_NONOP": [
+            2576,
+            2432
+          ]
+        },
+        "cc_vit_1d_ffn_expand_publish_fp8": {
+          "PRMT": [
+            287,
+            255
+          ],
+          "INSN_NONOP": [
+            2472,
+            2328
+          ]
+        },
+        "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+          "REG": [
+            214,
+            198
+          ],
+          "PRMT": [
+            708,
+            672
+          ],
+          "INSN_NONOP": [
+            4116,
+            3988
+          ]
+        }
+      }
+    },
+    "zero_const_fb456": {
+      "active_nonNOP_delta": -1404,
+      "resource_changes": {
+        "cc_split_swin_16h_final_head_512_wait_fp8": {
+          "PRMT": [
+            158,
+            150
+          ],
+          "INSN_NONOP": [
+            1139,
+            1103
+          ]
+        },
+        "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+          "PRMT": [
+            488,
+            472
+          ],
+          "INSN_NONOP": [
+            6073,
+            6001
+          ]
+        },
+        "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+          "PRMT": [
+            358,
+            326
+          ],
+          "INSN_NONOP": [
+            2973,
+            2844
+          ]
+        },
+        "cc_split_swin_16h_proj_512_chained_fp8": {
+          "PRMT": [
+            214,
+            198
+          ],
+          "INSN_NONOP": [
+            1578,
+            1514
+          ]
+        },
+        "cc_split_swin_16h_qkv_512_chained_fp8": {
+          "STL": [
+            40,
+            33
+          ],
+          "LDL": [
+            29,
+            22
+          ],
+          "PRMT": [
+            452,
+            444
+          ],
+          "INSN_NONOP": [
+            4515,
+            4462
+          ]
+        },
+        "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+          "PRMT": [
+            342,
+            326
+          ],
+          "INSN_NONOP": [
+            2756,
+            2682
+          ]
+        },
+        "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+          "REG": [
+            167,
+            168
+          ],
+          "PRMT": [
+            358,
+            326
+          ],
+          "INSN_NONOP": [
+            2500,
+            2369
+          ]
+        },
+        "cc_split_swin_16h_ffwd_512_chained_fp8": {
+          "PRMT": [
+            309,
+            305
+          ],
+          "INSN_NONOP": [
+            1951,
+            1933
+          ]
+        },
+        "cc_vit_1d_projection_chained_fp8": {
+          "PRMT": [
+            344,
+            320
+          ],
+          "INSN_NONOP": [
+            2490,
+            2398
+          ]
+        },
+        "cc_vit_1d_projection_wait_fp8": {
+          "PRMT": [
+            344,
+            320
+          ],
+          "INSN_NONOP": [
+            2479,
+            2387
+          ]
+        },
+        "cc_vit_1d_attention_chained_fp8": {
+          "PRMT": [
+            368,
+            352
+          ],
+          "INSN_NONOP": [
+            3032,
+            2968
+          ]
+        },
+        "cc_vit_1d_qkv_chained_fp8": {
+          "PRMT": [
+            328,
+            320
+          ],
+          "INSN_NONOP": [
+            2787,
+            2751
+          ]
+        },
+        "cc_vit_1d_ffn_contract_chained_fp8": {
+          "PRMT": [
+            492,
+            460
+          ],
+          "INSN_NONOP": [
+            3451,
+            3324
+          ]
+        },
+        "cc_vit_1d_ffn_expand_chained_fp8": {
+          "REG": [
+            180,
+            178
+          ],
+          "PRMT": [
+            287,
+            255
+          ],
+          "INSN_NONOP": [
+            2576,
+            2432
+          ]
+        },
+        "cc_vit_1d_ffn_expand_publish_fp8": {
+          "PRMT": [
+            287,
+            255
+          ],
+          "INSN_NONOP": [
+            2472,
+            2328
+          ]
+        },
+        "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+          "REG": [
+            214,
+            198
+          ],
+          "PRMT": [
+            708,
+            672
+          ],
+          "INSN_NONOP": [
+            4116,
+            3988
+          ]
+        }
+      }
+    },
+    "pack4_pure36": {
+      "active_nonNOP_delta": -719,
+      "resource_changes": {
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+          "INSN_NONOP": [
+            6836,
+            6675
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+          "INSN_NONOP": [
+            5881,
+            5753
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+          "INSN_NONOP": [
+            6964,
+            6816
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+          "INSN_NONOP": [
+            5861,
+            5733
+          ]
+        },
+        "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+          "REG": [
+            214,
+            207
+          ],
+          "INSN_NONOP": [
+            4116,
+            3962
+          ]
+        }
+      }
+    },
+    "pack4_fb26_clean": {
+      "active_nonNOP_delta": -2305,
+      "resource_changes": {
+        "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+          "PRMT": [
+            1084,
+            1075
+          ],
+          "INSN_NONOP": [
+            6778,
+            6725
+          ]
+        },
+        "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+          "PRMT": [
+            915,
+            907
+          ],
+          "INSN_NONOP": [
+            5841,
+            5813
+          ]
+        },
+        "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+          "PRMT": [
+            1036,
+            1027
+          ],
+          "INSN_NONOP": [
+            7119,
+            7071
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+          "PRMT": [
+            1105,
+            1097
+          ],
+          "INSN_NONOP": [
+            6836,
+            6649
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+          "PRMT": [
+            938,
+            930
+          ],
+          "INSN_NONOP": [
+            5881,
+            5729
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+          "PRMT": [
+            1009,
+            1001
+          ],
+          "INSN_NONOP": [
+            6964,
+            6792
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+          "INSN_NONOP": [
+            5861,
+            5733
+          ]
+        },
+        "cc_split_swin_16h_final_head_512_wait_fp8": {
+          "PRMT": [
+            158,
+            150
+          ],
+          "INSN_NONOP": [
+            1139,
+            1103
+          ]
+        },
+        "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+          "PRMT": [
+            488,
+            472
+          ],
+          "INSN_NONOP": [
+            6073,
+            6001
+          ]
+        },
+        "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+          "PRMT": [
+            358,
+            326
+          ],
+          "INSN_NONOP": [
+            2973,
+            2844
+          ]
+        },
+        "cc_split_swin_16h_proj_512_chained_fp8": {
+          "PRMT": [
+            214,
+            198
+          ],
+          "INSN_NONOP": [
+            1578,
+            1514
+          ]
+        },
+        "cc_split_swin_16h_qkv_512_chained_fp8": {
+          "STL": [
+            40,
+            33
+          ],
+          "LDL": [
+            29,
+            22
+          ],
+          "PRMT": [
+            452,
+            444
+          ],
+          "INSN_NONOP": [
+            4515,
+            4462
+          ]
+        },
+        "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+          "PRMT": [
+            342,
+            326
+          ],
+          "INSN_NONOP": [
+            2756,
+            2682
+          ]
+        },
+        "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+          "REG": [
+            167,
+            168
+          ],
+          "PRMT": [
+            358,
+            326
+          ],
+          "INSN_NONOP": [
+            2500,
+            2369
+          ]
+        },
+        "cc_split_swin_16h_ffwd_512_chained_fp8": {
+          "PRMT": [
+            309,
+            305
+          ],
+          "INSN_NONOP": [
+            1951,
+            1933
+          ]
+        },
+        "cc_vit_1d_projection_chained_fp8": {
+          "PRMT": [
+            344,
+            320
+          ],
+          "INSN_NONOP": [
+            2490,
+            2398
+          ]
+        },
+        "cc_vit_1d_projection_wait_fp8": {
+          "PRMT": [
+            344,
+            320
+          ],
+          "INSN_NONOP": [
+            2479,
+            2387
+          ]
+        },
+        "cc_vit_1d_attention_chained_fp8": {
+          "PRMT": [
+            368,
+            352
+          ],
+          "INSN_NONOP": [
+            3032,
+            2968
+          ]
+        },
+        "cc_vit_1d_qkv_chained_fp8": {
+          "PRMT": [
+            328,
+            320
+          ],
+          "INSN_NONOP": [
+            2787,
+            2751
+          ]
+        },
+        "cc_vit_1d_ffn_contract_chained_fp8": {
+          "PRMT": [
+            492,
+            460
+          ],
+          "INSN_NONOP": [
+            3451,
+            3324
+          ]
+        },
+        "cc_vit_1d_ffn_expand_chained_fp8": {
+          "REG": [
+            180,
+            178
+          ],
+          "PRMT": [
+            287,
+            255
+          ],
+          "INSN_NONOP": [
+            2576,
+            2432
+          ]
+        },
+        "cc_vit_1d_ffn_expand_publish_fp8": {
+          "PRMT": [
+            287,
+            255
+          ],
+          "INSN_NONOP": [
+            2472,
+            2328
+          ]
+        },
+        "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+          "REG": [
+            214,
+            203
+          ],
+          "PRMT": [
+            708,
+            672
+          ],
+          "INSN_NONOP": [
+            4116,
+            3855
+          ]
+        }
+      }
+    },
+    "fb3_inp_up_fast": {
+      "active_nonNOP_delta": -1283,
+      "resource_changes": {
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+          "REG": [
+            203,
+            202
+          ],
+          "SHARED": [
+            16384,
+            32768
+          ],
+          "PRMT": [
+            1105,
+            593
+          ],
+          "INSN_NONOP": [
+            6836,
+            6064
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+          "REG": [
+            198,
+            199
+          ],
+          "SHARED": [
+            16384,
+            32768
+          ],
+          "PRMT": [
+            929,
+            497
+          ],
+          "INSN_NONOP": [
+            5861,
+            5350
+          ]
+        }
+      }
+    },
+    "fb3_inp_up_exact": {
+      "active_nonNOP_delta": 388,
+      "resource_changes": {
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+          "REG": [
+            203,
+            202
+          ],
+          "SHARED": [
+            16384,
+            32768
+          ],
+          "PRMT": [
+            1105,
+            913
+          ],
+          "INSN_NONOP": [
+            6836,
+            7026
+          ]
+        },
+        "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+          "REG": [
+            198,
+            199
+          ],
+          "SHARED": [
+            16384,
+            32768
+          ],
+          "PRMT": [
+            929,
+            737
+          ],
+          "INSN_NONOP": [
+            5861,
+            6059
+          ]
+        }
+      }
+    },
+    "async_pool_only": {
+      "active_nonNOP_delta": -31,
+      "resource_changes": {
+        "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+          "REG": [
+            180,
+            208
+          ],
+          "SHARED": [
+            8208,
+            24592
+          ],
+          "PRMT": [
+            488,
+            368
+          ],
+          "INSN_NONOP": [
+            6073,
+            6042
+          ]
+        }
+      }
+    }
+  },
+  "static_counts_are_not_dynamic_timing": true
+}

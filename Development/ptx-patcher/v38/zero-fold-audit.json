@@ -1,0 +1,69 @@
+{
+  "fold_counts_by_mode_FB": {
+    "zero_const_fb26": {
+      "4": 176,
+      "2": 40,
+      "3": 40,
+      "6": 36,
+      "5": 288
+    },
+    "zero_const_fb456": {
+      "6": 36,
+      "4": 176,
+      "5": 288
+    },
+    "pack4_pure36": {},
+    "pack4_fb26_clean": {
+      "4": 176,
+      "2": 40,
+      "3": 40,
+      "6": 36,
+      "5": 288
+    },
+    "fb3_inp_up_fast": {},
+    "fb3_inp_up_exact": {},
+    "async_pool_only": {},
+    "joint_zero_const_fb26_fb3_inp_up_fast": {
+      "4": 176,
+      "3": 40,
+      "2": 40,
+      "5": 288,
+      "6": 36
+    },
+    "joint_zero_const_fb26_fb3_inp_up_exact": {
+      "4": 176,
+      "3": 40,
+      "2": 40,
+      "5": 288,
+      "6": 36
+    },
+    "joint_zero_const_fb456_fb3_inp_up_fast": {
+      "4": 176,
+      "5": 288,
+      "6": 36
+    },
+    "joint_zero_const_fb456_fb3_inp_up_exact": {
+      "4": 176,
+      "5": 288,
+      "6": 36
+    },
+    "joint_pack4_pure36_fb3_inp_up_fast": {},
+    "joint_pack4_pure36_fb3_inp_up_exact": {},
+    "joint_pack4_fb26_clean_fb3_inp_up_fast": {
+      "4": 176,
+      "3": 40,
+      "2": 40,
+      "5": 288,
+      "6": 36
+    },
+    "joint_pack4_fb26_clean_fb3_inp_up_exact": {
+      "4": 176,
+      "3": 40,
+      "2": 40,
+      "5": 288,
+      "6": 36
+    }
+  },
+  "bit_level_witness": "every replaced site independently rechecked by zero_check.py mov/cvt reaching chain to literal +0; pure pack4 does not fold zero sites",
+  "source_proof": "../v37/zero-fold-audit.json"
+}

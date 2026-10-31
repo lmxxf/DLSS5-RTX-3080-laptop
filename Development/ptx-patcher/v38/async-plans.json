@@ -1,0 +1,1542 @@
+{
+  "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+    "FB": 4,
+    "symbols": {
+      "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage": {
+        "align": 512,
+        "bytes": 8192
+      }
+    },
+    "shared_MMA_events": [
+      {
+        "run": 0,
+        "register": "%r1384",
+        "load_index": 1588,
+        "component": 0
+      },
+      {
+        "run": 0,
+        "register": "%r1385",
+        "load_index": 1588,
+        "component": 1
+      },
+      {
+        "run": 0,
+        "register": "%r1386",
+        "load_index": 1588,
+        "component": 2
+      },
+      {
+        "run": 0,
+        "register": "%r1387",
+        "load_index": 1588,
+        "component": 3
+      },
+      {
+        "run": 0,
+        "register": "%r1388",
+        "load_index": 1593,
+        "component": 0
+      },
+      {
+        "run": 0,
+        "register": "%r1389",
+        "load_index": 1593,
+        "component": 1
+      },
+      {
+        "run": 0,
+        "register": "%r1390",
+        "load_index": 1593,
+        "component": 2
+      },
+      {
+        "run": 0,
+        "register": "%r1391",
+        "load_index": 1593,
+        "component": 3
+      },
+      {
+        "run": 0,
+        "register": "%r1408",
+        "load_index": 1598,
+        "component": 0
+      },
+      {
+        "run": 0,
+        "register": "%r1409",
+        "load_index": 1598,
+        "component": 1
+      },
+      {
+        "run": 0,
+        "register": "%r1410",
+        "load_index": 1598,
+        "component": 2
+      },
+      {
+        "run": 0,
+        "register": "%r1411",
+        "load_index": 1598,
+        "component": 3
+      },
+      {
+        "run": 0,
+        "register": "%r1412",
+        "load_index": 1603,
+        "component": 0
+      },
+      {
+        "run": 0,
+        "register": "%r1413",
+        "load_index": 1603,
+        "component": 1
+      },
+      {
+        "run": 0,
+        "register": "%r1414",
+        "load_index": 1603,
+        "component": 2
+      },
+      {
+        "run": 0,
+        "register": "%r1415",
+        "load_index": 1603,
+        "component": 3
+      },
+      {
+        "run": 0,
+        "register": "%r1432",
+        "load_index": 1608,
+        "component": 0
+      },
+      {
+        "run": 0,
+        "register": "%r1433",
+        "load_index": 1608,
+        "component": 1
+      },
+      {
+        "run": 0,
+        "register": "%r1434",
+        "load_index": 1608,
+        "component": 2
+      },
+      {
+        "run": 0,
+        "register": "%r1435",
+        "load_index": 1608,
+        "component": 3
+      },
+      {
+        "run": 0,
+        "register": "%r1436",
+        "load_index": 1613,
+        "component": 0
+      },
+      {
+        "run": 0,
+        "register": "%r1437",
+        "load_index": 1613,
+        "component": 1
+      },
+      {
+        "run": 0,
+        "register": "%r1438",
+        "load_index": 1613,
+        "component": 2
+      },
+      {
+        "run": 0,
+        "register": "%r1439",
+        "load_index": 1613,
+        "component": 3
+      },
+      {
+        "run": 0,
+        "register": "%r1456",
+        "load_index": 1618,
+        "component": 0
+      },
+      {
+        "run": 0,
+        "register": "%r1457",
+        "load_index": 1618,
+        "component": 1
+      },
+      {
+        "run": 0,
+        "register": "%r1458",
+        "load_index": 1618,
+        "component": 2
+      },
+      {
+        "run": 0,
+        "register": "%r1459",
+        "load_index": 1618,
+        "component": 3
+      },
+      {
+        "run": 0,
+        "register": "%r1460",
+        "load_index": 1623,
+        "component": 0
+      },
+      {
+        "run": 0,
+        "register": "%r1461",
+        "load_index": 1623,
+        "component": 1
+      },
+      {
+        "run": 0,
+        "register": "%r1462",
+        "load_index": 1623,
+        "component": 2
+      },
+      {
+        "run": 0,
+        "register": "%r1463",
+        "load_index": 1623,
+        "component": 3
+      },
+      {
+        "run": 1,
+        "register": "%r1589",
+        "load_index": 1898,
+        "component": 0
+      },
+      {
+        "run": 1,
+        "register": "%r1590",
+        "load_index": 1898,
+        "component": 1
+      },
+      {
+        "run": 1,
+        "register": "%r1591",
+        "load_index": 1898,
+        "component": 2
+      },
+      {
+        "run": 1,
+        "register": "%r1592",
+        "load_index": 1898,
+        "component": 3
+      },
+      {
+        "run": 1,
+        "register": "%r1593",
+        "load_index": 1903,
+        "component": 0
+      },
+      {
+        "run": 1,
+        "register": "%r1594",
+        "load_index": 1903,
+        "component": 1
+      },
+      {
+        "run": 1,
+        "register": "%r1595",
+        "load_index": 1903,
+        "component": 2
+      },
+      {
+        "run": 1,
+        "register": "%r1596",
+        "load_index": 1903,
+        "component": 3
+      },
+      {
+        "run": 1,
+        "register": "%r1613",
+        "load_index": 1908,
+        "component": 0
+      },
+      {
+        "run": 1,
+        "register": "%r1614",
+        "load_index": 1908,
+        "component": 1
+      },
+      {
+        "run": 1,
+        "register": "%r1615",
+        "load_index": 1908,
+        "component": 2
+      },
+      {
+        "run": 1,
+        "register": "%r1616",
+        "load_index": 1908,
+        "component": 3
+      },
+      {
+        "run": 1,
+        "register": "%r1617",
+        "load_index": 1913,
+        "component": 0
+      },
+      {
+        "run": 1,
+        "register": "%r1618",
+        "load_index": 1913,
+        "component": 1
+      },
+      {
+        "run": 1,
+        "register": "%r1619",
+        "load_index": 1913,
+        "component": 2
+      },
+      {
+        "run": 1,
+        "register": "%r1620",
+        "load_index": 1913,
+        "component": 3
+      },
+      {
+        "run": 1,
+        "register": "%r1637",
+        "load_index": 1918,
+        "component": 0
+      },
+      {
+        "run": 1,
+        "register": "%r1638",
+        "load_index": 1918,
+        "component": 1
+      },
+      {
+        "run": 1,
+        "register": "%r1639",
+        "load_index": 1918,
+        "component": 2
+      },
+      {
+        "run": 1,
+        "register": "%r1640",
+        "load_index": 1918,
+        "component": 3
+      },
+      {
+        "run": 1,
+        "register": "%r1641",
+        "load_index": 1923,
+        "component": 0
+      },
+      {
+        "run": 1,
+        "register": "%r1642",
+        "load_index": 1923,
+        "component": 1
+      },
+      {
+        "run": 1,
+        "register": "%r1643",
+        "load_index": 1923,
+        "component": 2
+      },
+      {
+        "run": 1,
+        "register": "%r1644",
+        "load_index": 1923,
+        "component": 3
+      },
+      {
+        "run": 1,
+        "register": "%r1661",
+        "load_index": 1928,
+        "component": 0
+      },
+      {
+        "run": 1,
+        "register": "%r1662",
+        "load_index": 1928,
+        "component": 1
+      },
+      {
+        "run": 1,
+        "register": "%r1663",
+        "load_index": 1928,
+        "component": 2
+      },
+      {
+        "run": 1,
+        "register": "%r1664",
+        "load_index": 1928,
+        "component": 3
+      },
+      {
+        "run": 1,
+        "register": "%r1665",
+        "load_index": 1933,
+        "component": 0
+      },
+      {
+        "run": 1,
+        "register": "%r1666",
+        "load_index": 1933,
+        "component": 1
+      },
+      {
+        "run": 1,
+        "register": "%r1667",
+        "load_index": 1933,
+        "component": 2
+      },
+      {
+        "run": 1,
+        "register": "%r1668",
+        "load_index": 1933,
+        "component": 3
+      }
+    ],
+    "MMA_loads": [
+      {
+        "index": 1588,
+        "line": 2377,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1384",
+          "%r1385",
+          "%r1386",
+          "%r1387"
+        ],
+        "address": "[%r1369]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1384,%r1385,%r1386,%r1387},[%r1369];"
+      },
+      {
+        "index": 1593,
+        "line": 2386,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1388",
+          "%r1389",
+          "%r1390",
+          "%r1391"
+        ],
+        "address": "[%r1371]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1388,%r1389,%r1390,%r1391},[%r1371];"
+      },
+      {
+        "index": 1598,
+        "line": 2395,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1408",
+          "%r1409",
+          "%r1410",
+          "%r1411"
+        ],
+        "address": "[%r1373]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1408,%r1409,%r1410,%r1411},[%r1373];"
+      },
+      {
+        "index": 1603,
+        "line": 2404,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1412",
+          "%r1413",
+          "%r1414",
+          "%r1415"
+        ],
+        "address": "[%r1375]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1412,%r1413,%r1414,%r1415},[%r1375];"
+      },
+      {
+        "index": 1608,
+        "line": 2413,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1432",
+          "%r1433",
+          "%r1434",
+          "%r1435"
+        ],
+        "address": "[%r1377]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1432,%r1433,%r1434,%r1435},[%r1377];"
+      },
+      {
+        "index": 1613,
+        "line": 2422,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1436",
+          "%r1437",
+          "%r1438",
+          "%r1439"
+        ],
+        "address": "[%r1379]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1436,%r1437,%r1438,%r1439},[%r1379];"
+      },
+      {
+        "index": 1618,
+        "line": 2431,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1456",
+          "%r1457",
+          "%r1458",
+          "%r1459"
+        ],
+        "address": "[%r1381]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1456,%r1457,%r1458,%r1459},[%r1381];"
+      },
+      {
+        "index": 1623,
+        "line": 2440,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1460",
+          "%r1461",
+          "%r1462",
+          "%r1463"
+        ],
+        "address": "[%r1383]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1460,%r1461,%r1462,%r1463},[%r1383];"
+      },
+      {
+        "index": 1898,
+        "line": 3198,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1589",
+          "%r1590",
+          "%r1591",
+          "%r1592"
+        ],
+        "address": "[%r1574]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1589,%r1590,%r1591,%r1592},[%r1574];"
+      },
+      {
+        "index": 1903,
+        "line": 3207,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1593",
+          "%r1594",
+          "%r1595",
+          "%r1596"
+        ],
+        "address": "[%r1576]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1593,%r1594,%r1595,%r1596},[%r1576];"
+      },
+      {
+        "index": 1908,
+        "line": 3216,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1613",
+          "%r1614",
+          "%r1615",
+          "%r1616"
+        ],
+        "address": "[%r1578]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1613,%r1614,%r1615,%r1616},[%r1578];"
+      },
+      {
+        "index": 1913,
+        "line": 3225,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1617",
+          "%r1618",
+          "%r1619",
+          "%r1620"
+        ],
+        "address": "[%r1580]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1617,%r1618,%r1619,%r1620},[%r1580];"
+      },
+      {
+        "index": 1918,
+        "line": 3234,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1637",
+          "%r1638",
+          "%r1639",
+          "%r1640"
+        ],
+        "address": "[%r1582]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1637,%r1638,%r1639,%r1640},[%r1582];"
+      },
+      {
+        "index": 1923,
+        "line": 3243,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1641",
+          "%r1642",
+          "%r1643",
+          "%r1644"
+        ],
+        "address": "[%r1584]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1641,%r1642,%r1643,%r1644},[%r1584];"
+      },
+      {
+        "index": 1928,
+        "line": 3252,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1661",
+          "%r1662",
+          "%r1663",
+          "%r1664"
+        ],
+        "address": "[%r1586]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1661,%r1662,%r1663,%r1664},[%r1586];"
+      },
+      {
+        "index": 1933,
+        "line": 3261,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r1665",
+          "%r1666",
+          "%r1667",
+          "%r1668"
+        ],
+        "address": "[%r1588]",
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1665,%r1666,%r1667,%r1668},[%r1588];"
+      }
+    ],
+    "all_loads": [
+      {
+        "index": 1588,
+        "line": 2377,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1369]",
+        "destinations": [
+          "%r1384",
+          "%r1385",
+          "%r1386",
+          "%r1387"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1384,%r1385,%r1386,%r1387},[%r1369];",
+        "native": [
+          [
+            "v35_l1588_0_0",
+            "v35_l1588_0_1"
+          ],
+          [
+            "v35_l1588_1_0",
+            "v35_l1588_1_1"
+          ],
+          [
+            "v35_l1588_2_0",
+            "v35_l1588_2_1"
+          ],
+          [
+            "v35_l1588_3_0",
+            "v35_l1588_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1593,
+        "line": 2386,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1371]",
+        "destinations": [
+          "%r1388",
+          "%r1389",
+          "%r1390",
+          "%r1391"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1388,%r1389,%r1390,%r1391},[%r1371];",
+        "native": [
+          [
+            "v35_l1593_0_0",
+            "v35_l1593_0_1"
+          ],
+          [
+            "v35_l1593_1_0",
+            "v35_l1593_1_1"
+          ],
+          [
+            "v35_l1593_2_0",
+            "v35_l1593_2_1"
+          ],
+          [
+            "v35_l1593_3_0",
+            "v35_l1593_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1598,
+        "line": 2395,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1373]",
+        "destinations": [
+          "%r1408",
+          "%r1409",
+          "%r1410",
+          "%r1411"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1408,%r1409,%r1410,%r1411},[%r1373];",
+        "native": [
+          [
+            "v35_l1598_0_0",
+            "v35_l1598_0_1"
+          ],
+          [
+            "v35_l1598_1_0",
+            "v35_l1598_1_1"
+          ],
+          [
+            "v35_l1598_2_0",
+            "v35_l1598_2_1"
+          ],
+          [
+            "v35_l1598_3_0",
+            "v35_l1598_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1603,
+        "line": 2404,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1375]",
+        "destinations": [
+          "%r1412",
+          "%r1413",
+          "%r1414",
+          "%r1415"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1412,%r1413,%r1414,%r1415},[%r1375];",
+        "native": [
+          [
+            "v35_l1603_0_0",
+            "v35_l1603_0_1"
+          ],
+          [
+            "v35_l1603_1_0",
+            "v35_l1603_1_1"
+          ],
+          [
+            "v35_l1603_2_0",
+            "v35_l1603_2_1"
+          ],
+          [
+            "v35_l1603_3_0",
+            "v35_l1603_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1608,
+        "line": 2413,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1377]",
+        "destinations": [
+          "%r1432",
+          "%r1433",
+          "%r1434",
+          "%r1435"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1432,%r1433,%r1434,%r1435},[%r1377];",
+        "native": [
+          [
+            "v35_l1608_0_0",
+            "v35_l1608_0_1"
+          ],
+          [
+            "v35_l1608_1_0",
+            "v35_l1608_1_1"
+          ],
+          [
+            "v35_l1608_2_0",
+            "v35_l1608_2_1"
+          ],
+          [
+            "v35_l1608_3_0",
+            "v35_l1608_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1613,
+        "line": 2422,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1379]",
+        "destinations": [
+          "%r1436",
+          "%r1437",
+          "%r1438",
+          "%r1439"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1436,%r1437,%r1438,%r1439},[%r1379];",
+        "native": [
+          [
+            "v35_l1613_0_0",
+            "v35_l1613_0_1"
+          ],
+          [
+            "v35_l1613_1_0",
+            "v35_l1613_1_1"
+          ],
+          [
+            "v35_l1613_2_0",
+            "v35_l1613_2_1"
+          ],
+          [
+            "v35_l1613_3_0",
+            "v35_l1613_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1618,
+        "line": 2431,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1381]",
+        "destinations": [
+          "%r1456",
+          "%r1457",
+          "%r1458",
+          "%r1459"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1456,%r1457,%r1458,%r1459},[%r1381];",
+        "native": [
+          [
+            "v35_l1618_0_0",
+            "v35_l1618_0_1"
+          ],
+          [
+            "v35_l1618_1_0",
+            "v35_l1618_1_1"
+          ],
+          [
+            "v35_l1618_2_0",
+            "v35_l1618_2_1"
+          ],
+          [
+            "v35_l1618_3_0",
+            "v35_l1618_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1623,
+        "line": 2440,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1383]",
+        "destinations": [
+          "%r1460",
+          "%r1461",
+          "%r1462",
+          "%r1463"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1460,%r1461,%r1462,%r1463},[%r1383];",
+        "native": [
+          [
+            "v35_l1623_0_0",
+            "v35_l1623_0_1"
+          ],
+          [
+            "v35_l1623_1_0",
+            "v35_l1623_1_1"
+          ],
+          [
+            "v35_l1623_2_0",
+            "v35_l1623_2_1"
+          ],
+          [
+            "v35_l1623_3_0",
+            "v35_l1623_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1898,
+        "line": 3198,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1574]",
+        "destinations": [
+          "%r1589",
+          "%r1590",
+          "%r1591",
+          "%r1592"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1589,%r1590,%r1591,%r1592},[%r1574];",
+        "native": [
+          [
+            "v35_l1898_0_0",
+            "v35_l1898_0_1"
+          ],
+          [
+            "v35_l1898_1_0",
+            "v35_l1898_1_1"
+          ],
+          [
+            "v35_l1898_2_0",
+            "v35_l1898_2_1"
+          ],
+          [
+            "v35_l1898_3_0",
+            "v35_l1898_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1903,
+        "line": 3207,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1576]",
+        "destinations": [
+          "%r1593",
+          "%r1594",
+          "%r1595",
+          "%r1596"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1593,%r1594,%r1595,%r1596},[%r1576];",
+        "native": [
+          [
+            "v35_l1903_0_0",
+            "v35_l1903_0_1"
+          ],
+          [
+            "v35_l1903_1_0",
+            "v35_l1903_1_1"
+          ],
+          [
+            "v35_l1903_2_0",
+            "v35_l1903_2_1"
+          ],
+          [
+            "v35_l1903_3_0",
+            "v35_l1903_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1908,
+        "line": 3216,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1578]",
+        "destinations": [
+          "%r1613",
+          "%r1614",
+          "%r1615",
+          "%r1616"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1613,%r1614,%r1615,%r1616},[%r1578];",
+        "native": [
+          [
+            "v35_l1908_0_0",
+            "v35_l1908_0_1"
+          ],
+          [
+            "v35_l1908_1_0",
+            "v35_l1908_1_1"
+          ],
+          [
+            "v35_l1908_2_0",
+            "v35_l1908_2_1"
+          ],
+          [
+            "v35_l1908_3_0",
+            "v35_l1908_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1913,
+        "line": 3225,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1580]",
+        "destinations": [
+          "%r1617",
+          "%r1618",
+          "%r1619",
+          "%r1620"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1617,%r1618,%r1619,%r1620},[%r1580];",
+        "native": [
+          [
+            "v35_l1913_0_0",
+            "v35_l1913_0_1"
+          ],
+          [
+            "v35_l1913_1_0",
+            "v35_l1913_1_1"
+          ],
+          [
+            "v35_l1913_2_0",
+            "v35_l1913_2_1"
+          ],
+          [
+            "v35_l1913_3_0",
+            "v35_l1913_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1918,
+        "line": 3234,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1582]",
+        "destinations": [
+          "%r1637",
+          "%r1638",
+          "%r1639",
+          "%r1640"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1637,%r1638,%r1639,%r1640},[%r1582];",
+        "native": [
+          [
+            "v35_l1918_0_0",
+            "v35_l1918_0_1"
+          ],
+          [
+            "v35_l1918_1_0",
+            "v35_l1918_1_1"
+          ],
+          [
+            "v35_l1918_2_0",
+            "v35_l1918_2_1"
+          ],
+          [
+            "v35_l1918_3_0",
+            "v35_l1918_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1923,
+        "line": 3243,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1584]",
+        "destinations": [
+          "%r1641",
+          "%r1642",
+          "%r1643",
+          "%r1644"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1641,%r1642,%r1643,%r1644},[%r1584];",
+        "native": [
+          [
+            "v35_l1923_0_0",
+            "v35_l1923_0_1"
+          ],
+          [
+            "v35_l1923_1_0",
+            "v35_l1923_1_1"
+          ],
+          [
+            "v35_l1923_2_0",
+            "v35_l1923_2_1"
+          ],
+          [
+            "v35_l1923_3_0",
+            "v35_l1923_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1928,
+        "line": 3252,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1586]",
+        "destinations": [
+          "%r1661",
+          "%r1662",
+          "%r1663",
+          "%r1664"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1661,%r1662,%r1663,%r1664},[%r1586];",
+        "native": [
+          [
+            "v35_l1928_0_0",
+            "v35_l1928_0_1"
+          ],
+          [
+            "v35_l1928_1_0",
+            "v35_l1928_1_1"
+          ],
+          [
+            "v35_l1928_2_0",
+            "v35_l1928_2_1"
+          ],
+          [
+            "v35_l1928_3_0",
+            "v35_l1928_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 1933,
+        "line": 3261,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1588]",
+        "destinations": [
+          "%r1665",
+          "%r1666",
+          "%r1667",
+          "%r1668"
+        ],
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1665,%r1666,%r1667,%r1668},[%r1588];",
+        "native": [
+          [
+            "v35_l1933_0_0",
+            "v35_l1933_0_1"
+          ],
+          [
+            "v35_l1933_1_0",
+            "v35_l1933_1_1"
+          ],
+          [
+            "v35_l1933_2_0",
+            "v35_l1933_2_1"
+          ],
+          [
+            "v35_l1933_3_0",
+            "v35_l1933_3_1"
+          ]
+        ]
+      }
+    ],
+    "stores": [
+      {
+        "index": 229,
+        "line": 310,
+        "op": "st.shared::cta.v4.u32",
+        "address": "[%r437]",
+        "sources": [
+          "%r438",
+          "%r438",
+          "%r438",
+          "%r438"
+        ],
+        "bytes": 16,
+        "symbols": [
+          "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage"
+        ],
+        "origins": [
+          "local_FP8_quantization"
+        ],
+        "fast_native": [
+          [
+            "v35_w_r438_0",
+            "v35_w_r438_1"
+          ],
+          [
+            "v35_w_r438_0",
+            "v35_w_r438_1"
+          ],
+          [
+            "v35_w_r438_0",
+            "v35_w_r438_1"
+          ],
+          [
+            "v35_w_r438_0",
+            "v35_w_r438_1"
+          ]
+        ],
+        "finite_pack_derived": true
+      },
+      {
+        "index": 285,
+        "line": 388,
+        "op": "st.shared::cta.v4.u32",
+        "address": "[%r460]",
+        "sources": [
+          "%r461",
+          "%r461",
+          "%r461",
+          "%r461"
+        ],
+        "bytes": 16,
+        "symbols": [
+          "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage"
+        ],
+        "origins": [
+          "local_FP8_quantization"
+        ],
+        "fast_native": [
+          [
+            "v35_w_r461_0",
+            "v35_w_r461_1"
+          ],
+          [
+            "v35_w_r461_0",
+            "v35_w_r461_1"
+          ],
+          [
+            "v35_w_r461_0",
+            "v35_w_r461_1"
+          ],
+          [
+            "v35_w_r461_0",
+            "v35_w_r461_1"
+          ]
+        ],
+        "finite_pack_derived": true
+      },
+      {
+        "index": 1756,
+        "line": 2979,
+        "op": "st.shared::cta.v4.u32",
+        "address": "[%r1527]",
+        "sources": [
+          "%r1528",
+          "%r1528",
+          "%r1528",
+          "%r1528"
+        ],
+        "bytes": 16,
+        "symbols": [
+          "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage"
+        ],
+        "origins": [
+          "local_FP8_quantization"
+        ],
+        "fast_native": [
+          [
+            "v35_w_r1528_0",
+            "v35_w_r1528_1"
+          ],
+          [
+            "v35_w_r1528_0",
+            "v35_w_r1528_1"
+          ],
+          [
+            "v35_w_r1528_0",
+            "v35_w_r1528_1"
+          ],
+          [
+            "v35_w_r1528_0",
+            "v35_w_r1528_1"
+          ]
+        ],
+        "finite_pack_derived": true
+      },
+      {
+        "index": 1810,
+        "line": 3054,
+        "op": "st.shared::cta.v4.u32",
+        "address": "[%r1552]",
+        "sources": [
+          "%r1553",
+          "%r1553",
+          "%r1553",
+          "%r1553"
+        ],
+        "bytes": 16,
+        "symbols": [
+          "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage"
+        ],
+        "origins": [
+          "local_FP8_quantization"
+        ],
+        "fast_native": [
+          [
+            "v35_w_r1553_0",
+            "v35_w_r1553_1"
+          ],
+          [
+            "v35_w_r1553_0",
+            "v35_w_r1553_1"
+          ],
+          [
+            "v35_w_r1553_0",
+            "v35_w_r1553_1"
+          ],
+          [
+            "v35_w_r1553_0",
+            "v35_w_r1553_1"
+          ]
+        ],
+        "finite_pack_derived": true
+      }
+    ],
+    "cp_async_aliases": [
+      {
+        "line": 287,
+        "text": "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r27], [%rd38], %r442, [%r443];"
+      },
+      {
+        "line": 365,
+        "text": "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r30], [%rd41], %r465, [%r466];"
+      },
+      {
+        "line": 2955,
+        "text": "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1533], [%rd208], %r1534, [%r1560];"
+      },
+      {
+        "line": 3030,
+        "text": "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1558], [%rd210], %r1559, [%r1560];"
+      }
+    ],
+    "unsupported_writes": [],
+    "eligible_shadow": true,
+    "grain": "u32 words/vectors: each original byte maps to an independent FP16 element; original 16B vectors map to aligned 32B vectors",
+    "non_MMA_loads": 0,
+    "native_declarations": [
+      "v35_l1588_0_0",
+      "v35_l1588_0_1",
+      "v35_l1588_1_0",
+      "v35_l1588_1_1",
+      "v35_l1588_2_0",
+      "v35_l1588_2_1",
+      "v35_l1588_3_0",
+      "v35_l1588_3_1",
+      "v35_l1593_0_0",
+      "v35_l1593_0_1",
+      "v35_l1593_1_0",
+      "v35_l1593_1_1",
+      "v35_l1593_2_0",
+      "v35_l1593_2_1",
+      "v35_l1593_3_0",
+      "v35_l1593_3_1",
+      "v35_l1598_0_0",
+      "v35_l1598_0_1",
+      "v35_l1598_1_0",
+      "v35_l1598_1_1",
+      "v35_l1598_2_0",
+      "v35_l1598_2_1",
+      "v35_l1598_3_0",
+      "v35_l1598_3_1",
+      "v35_l1603_0_0",
+      "v35_l1603_0_1",
+      "v35_l1603_1_0",
+      "v35_l1603_1_1",
+      "v35_l1603_2_0",
+      "v35_l1603_2_1",
+      "v35_l1603_3_0",
+      "v35_l1603_3_1",
+      "v35_l1608_0_0",
+      "v35_l1608_0_1",
+      "v35_l1608_1_0",
+      "v35_l1608_1_1",
+      "v35_l1608_2_0",
+      "v35_l1608_2_1",
+      "v35_l1608_3_0",
+      "v35_l1608_3_1",
+      "v35_l1613_0_0",
+      "v35_l1613_0_1",
+      "v35_l1613_1_0",
+      "v35_l1613_1_1",
+      "v35_l1613_2_0",
+      "v35_l1613_2_1",
+      "v35_l1613_3_0",
+      "v35_l1613_3_1",
+      "v35_l1618_0_0",
+      "v35_l1618_0_1",
+      "v35_l1618_1_0",
+      "v35_l1618_1_1",
+      "v35_l1618_2_0",
+      "v35_l1618_2_1",
+      "v35_l1618_3_0",
+      "v35_l1618_3_1",
+      "v35_l1623_0_0",
+      "v35_l1623_0_1",
+      "v35_l1623_1_0",
+      "v35_l1623_1_1",
+      "v35_l1623_2_0",
+      "v35_l1623_2_1",
+      "v35_l1623_3_0",
+      "v35_l1623_3_1",
+      "v35_l1898_0_0",
+      "v35_l1898_0_1",
+      "v35_l1898_1_0",
+      "v35_l1898_1_1",
+      "v35_l1898_2_0",
+      "v35_l1898_2_1",
+      "v35_l1898_3_0",
+      "v35_l1898_3_1",
+      "v35_l1903_0_0",
+      "v35_l1903_0_1",
+      "v35_l1903_1_0",
+      "v35_l1903_1_1",
+      "v35_l1903_2_0",
+      "v35_l1903_2_1",
+      "v35_l1903_3_0",
+      "v35_l1903_3_1",
+      "v35_l1908_0_0",
+      "v35_l1908_0_1",
+      "v35_l1908_1_0",
+      "v35_l1908_1_1",
+      "v35_l1908_2_0",
+      "v35_l1908_2_1",
+      "v35_l1908_3_0",
+      "v35_l1908_3_1",
+      "v35_l1913_0_0",
+      "v35_l1913_0_1",
+      "v35_l1913_1_0",
+      "v35_l1913_1_1",
+      "v35_l1913_2_0",
+      "v35_l1913_2_1",
+      "v35_l1913_3_0",
+      "v35_l1913_3_1",
+      "v35_l1918_0_0",
+      "v35_l1918_0_1",
+      "v35_l1918_1_0",
+      "v35_l1918_1_1",
+      "v35_l1918_2_0",
+      "v35_l1918_2_1",
+      "v35_l1918_3_0",
+      "v35_l1918_3_1",
+      "v35_l1923_0_0",
+      "v35_l1923_0_1",
+      "v35_l1923_1_0",
+      "v35_l1923_1_1",
+      "v35_l1923_2_0",
+      "v35_l1923_2_1",
+      "v35_l1923_3_0",
+      "v35_l1923_3_1",
+      "v35_l1928_0_0",
+      "v35_l1928_0_1",
+      "v35_l1928_1_0",
+      "v35_l1928_1_1",
+      "v35_l1928_2_0",
+      "v35_l1928_2_1",
+      "v35_l1928_3_0",
+      "v35_l1928_3_1",
+      "v35_l1933_0_0",
+      "v35_l1933_0_1",
+      "v35_l1933_1_0",
+      "v35_l1933_1_1",
+      "v35_l1933_2_0",
+      "v35_l1933_2_1",
+      "v35_l1933_3_0",
+      "v35_l1933_3_1",
+      "v35_n_rs2",
+      "v35_n_rs4",
+      "v35_n_rs86",
+      "v35_n_rs88",
+      "v35_w_r1528_0",
+      "v35_w_r1528_1",
+      "v35_w_r1553_0",
+      "v35_w_r1553_1",
+      "v35_w_r438_0",
+      "v35_w_r438_1",
+      "v35_w_r461_0",
+      "v35_w_r461_1"
+    ],
+    "prefix": {
+      "224": [
+        [
+          "clamp",
+          "v35_n_rs2",
+          "%r435"
+        ]
+      ],
+      "225": [
+        [
+          "mov",
+          "v35_w_r438_0",
+          "v35_n_rs2"
+        ],
+        [
+          "mov",
+          "v35_w_r438_1",
+          "v35_n_rs2"
+        ]
+      ],
+      "280": [
+        [
+          "clamp",
+          "v35_n_rs4",
+          "%r458"
+        ]
+      ],
+      "281": [
+        [
+          "mov",
+          "v35_w_r461_0",
+          "v35_n_rs4"
+        ],
+        [
+          "mov",
+          "v35_w_r461_1",
+          "v35_n_rs4"
+        ]
+      ],
+      "1750": [
+        [
+          "clamp",
+          "v35_n_rs86",
+          "%r1525"
+        ]
+      ],
+      "1751": [
+        [
+          "mov",
+          "v35_w_r1528_0",
+          "v35_n_rs86"
+        ],
+        [
+          "mov",
+          "v35_w_r1528_1",
+          "v35_n_rs86"
+        ]
+      ],
+      "1804": [
+        [
+          "clamp",
+          "v35_n_rs88",
+          "%r1550"
+        ]
+      ],
+      "1805": [
+        [
+          "mov",
+          "v35_w_r1553_0",
+          "v35_n_rs88"
+        ],
+        [
+          "mov",
+          "v35_w_r1553_1",
+          "v35_n_rs88"
+        ]
+      ]
+    },
+    "inplace_finite_proved": true,
+    "fast_word_coverage": 16,
+    "store_word_count": 16,
+    "refresh_points": [
+      294,
+      1697,
+      1860,
+      3202
+    ]
+  }
+}

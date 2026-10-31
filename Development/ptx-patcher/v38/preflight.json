@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "clean_smoke_runs": 48,
+  "single_factor_candidates": [
+    "zero_const_fb26",
+    "zero_const_fb456",
+    "pack4_pure36",
+    "pack4_fb26_clean",
+    "fb3_inp_up_fast",
+    "fb3_inp_up_exact",
+    "async_pool_only"
+  ],
+  "prebuilt_joint_candidates": [
+    "joint_zero_const_fb26_fb3_inp_up_fast",
+    "joint_zero_const_fb26_fb3_inp_up_exact",
+    "joint_zero_const_fb456_fb3_inp_up_fast",
+    "joint_zero_const_fb456_fb3_inp_up_exact",
+    "joint_pack4_pure36_fb3_inp_up_fast",
+    "joint_pack4_pure36_fb3_inp_up_exact",
+    "joint_pack4_fb26_clean_fb3_inp_up_fast",
+    "joint_pack4_fb26_clean_fb3_inp_up_exact"
+  ],
+  "15_original_slots_O4": true,
+  "all_outputs_pass_quality": true,
+  "all_frontend_candidates_preserve_FB00_FB01": true,
+  "isolated_pool_other_entries_unchanged": 37,
+  "isolated_FB03_other_entries_unchanged": 36
+}

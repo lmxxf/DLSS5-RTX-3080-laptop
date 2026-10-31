@@ -1,0 +1,956 @@
+{
+  "baseline": {
+    "totals": {
+      "INSN_NONOP": 150672,
+      "HMMA": 13188,
+      "PRMT": 19525,
+      "STL": 100,
+      "LDL": 101
+    },
+    "resource_changes": {}
+  },
+  "up_pair_fb2345": {
+    "totals": {
+      "INSN_NONOP": 149233,
+      "HMMA": 13188,
+      "PRMT": 19232,
+      "STL": 100,
+      "LDL": 101
+    },
+    "resource_changes": {
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6778,
+          6602
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5841,
+          5687
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "INSN_NONOP": [
+          7119,
+          6965
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5810,
+          5653
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6836,
+          6662
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5881,
+          5723
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6964,
+          6805
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5861,
+          5701
+        ]
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "INSN_NONOP": [
+          6001,
+          5981
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2844,
+          2823
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1514,
+          1494
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2682,
+          2678
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2369,
+          2348
+        ]
+      },
+      "cc_vit_1d_projection_chained_fp8": {
+        "INSN_NONOP": [
+          2398,
+          2378
+        ]
+      },
+      "cc_vit_1d_projection_wait_fp8": {
+        "INSN_NONOP": [
+          2387,
+          2367
+        ]
+      },
+      "cc_vit_1d_ffn_contract_chained_fp8": {
+        "INSN_NONOP": [
+          3324,
+          3303
+        ]
+      }
+    }
+  },
+  "up_pair_fb1inp_2345": {
+    "totals": {
+      "INSN_NONOP": 149165,
+      "HMMA": 13188,
+      "PRMT": 19215,
+      "STL": 99,
+      "LDL": 100
+    },
+    "resource_changes": {
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+        "STACK": [
+          64,
+          56
+        ],
+        "STL": [
+          11,
+          10
+        ],
+        "LDL": [
+          15,
+          14
+        ],
+        "INSN_NONOP": [
+          5481,
+          5413
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6778,
+          6602
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5841,
+          5687
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "INSN_NONOP": [
+          7119,
+          6965
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5810,
+          5653
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6836,
+          6662
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5881,
+          5723
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6964,
+          6805
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5861,
+          5701
+        ]
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "INSN_NONOP": [
+          6001,
+          5981
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2844,
+          2823
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1514,
+          1494
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2682,
+          2678
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2369,
+          2348
+        ]
+      },
+      "cc_vit_1d_projection_chained_fp8": {
+        "INSN_NONOP": [
+          2398,
+          2378
+        ]
+      },
+      "cc_vit_1d_projection_wait_fp8": {
+        "INSN_NONOP": [
+          2387,
+          2367
+        ]
+      },
+      "cc_vit_1d_ffn_contract_chained_fp8": {
+        "INSN_NONOP": [
+          3324,
+          3303
+        ]
+      }
+    }
+  },
+  "up_pair_cfg_all": {
+    "totals": {
+      "INSN_NONOP": 146294,
+      "HMMA": 13188,
+      "PRMT": 18606,
+      "STL": 101,
+      "LDL": 101
+    },
+    "resource_changes": {
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          3978,
+          3895
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": {
+        "INSN_NONOP": [
+          3921,
+          3717
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": {
+        "INSN_NONOP": [
+          4948,
+          4750
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          3993,
+          3799
+        ]
+      },
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8": {
+        "INSN_NONOP": [
+          4903,
+          4805
+        ]
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": {
+        "STL": [
+          15,
+          16
+        ],
+        "INSN_NONOP": [
+          6372,
+          6149
+        ]
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": {
+        "STACK": [
+          104,
+          112
+        ],
+        "STL": [
+          23,
+          24
+        ],
+        "LDL": [
+          23,
+          24
+        ],
+        "INSN_NONOP": [
+          5645,
+          5447
+        ]
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6607,
+          6437
+        ]
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+        "STACK": [
+          64,
+          56
+        ],
+        "STL": [
+          11,
+          10
+        ],
+        "LDL": [
+          15,
+          14
+        ],
+        "INSN_NONOP": [
+          5481,
+          5338
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6778,
+          6547
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5841,
+          5687
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "INSN_NONOP": [
+          7119,
+          6965
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5810,
+          5653
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6836,
+          6604
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5881,
+          5723
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6964,
+          6805
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5861,
+          5701
+        ]
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "REG": [
+          180,
+          181
+        ],
+        "INSN_NONOP": [
+          6001,
+          5841
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2844,
+          2685
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1514,
+          1434
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2682,
+          2576
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2369,
+          2210
+        ]
+      },
+      "cc_vit_1d_projection_chained_fp8": {
+        "INSN_NONOP": [
+          2398,
+          2238
+        ]
+      },
+      "cc_vit_1d_projection_wait_fp8": {
+        "INSN_NONOP": [
+          2387,
+          2227
+        ]
+      },
+      "cc_vit_1d_ffn_contract_chained_fp8": {
+        "INSN_NONOP": [
+          3324,
+          3164
+        ]
+      },
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "REG": [
+          198,
+          200
+        ],
+        "INSN_NONOP": [
+          3988,
+          3670
+        ]
+      }
+    }
+  },
+  "up_pair_cfg_clean": {
+    "totals": {
+      "INSN_NONOP": 147193,
+      "HMMA": 13188,
+      "PRMT": 18782,
+      "STL": 99,
+      "LDL": 100
+    },
+    "resource_changes": {
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          3978,
+          3895
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": {
+        "INSN_NONOP": [
+          3921,
+          3717
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": {
+        "INSN_NONOP": [
+          4948,
+          4750
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          3993,
+          3799
+        ]
+      },
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8": {
+        "INSN_NONOP": [
+          4903,
+          4805
+        ]
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6607,
+          6437
+        ]
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+        "STACK": [
+          64,
+          56
+        ],
+        "STL": [
+          11,
+          10
+        ],
+        "LDL": [
+          15,
+          14
+        ],
+        "INSN_NONOP": [
+          5481,
+          5338
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6778,
+          6547
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5841,
+          5687
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "INSN_NONOP": [
+          7119,
+          6965
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5810,
+          5653
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6836,
+          6604
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5881,
+          5723
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6964,
+          6805
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5861,
+          5701
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2844,
+          2685
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1514,
+          1434
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2682,
+          2576
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2369,
+          2210
+        ]
+      },
+      "cc_vit_1d_projection_chained_fp8": {
+        "INSN_NONOP": [
+          2398,
+          2238
+        ]
+      },
+      "cc_vit_1d_projection_wait_fp8": {
+        "INSN_NONOP": [
+          2387,
+          2227
+        ]
+      },
+      "cc_vit_1d_ffn_contract_chained_fp8": {
+        "INSN_NONOP": [
+          3324,
+          3164
+        ]
+      }
+    }
+  },
+  "joint_up_fb2345_pack4_fb2356": {
+    "totals": {
+      "INSN_NONOP": 147494,
+      "HMMA": 13188,
+      "PRMT": 19230,
+      "STL": 100,
+      "LDL": 101
+    },
+    "resource_changes": {
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6778,
+          6437
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5841,
+          5555
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "REG": [
+          164,
+          166
+        ],
+        "INSN_NONOP": [
+          7119,
+          6813
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5810,
+          5522
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6836,
+          6493
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5881,
+          5593
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6964,
+          6659
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5861,
+          5573
+        ]
+      },
+      "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+        "INSN_NONOP": [
+          6001,
+          5981
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2844,
+          2823
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1514,
+          1494
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2682,
+          2678
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2369,
+          2348
+        ]
+      },
+      "cc_vit_1d_projection_chained_fp8": {
+        "REG": [
+          145,
+          148
+        ],
+        "INSN_NONOP": [
+          2398,
+          2312
+        ]
+      },
+      "cc_vit_1d_projection_wait_fp8": {
+        "REG": [
+          145,
+          146
+        ],
+        "INSN_NONOP": [
+          2387,
+          2311
+        ]
+      },
+      "cc_vit_1d_attention_chained_fp8": {
+        "INSN_NONOP": [
+          2968,
+          2936
+        ]
+      },
+      "cc_vit_1d_qkv_chained_fp8": {
+        "INSN_NONOP": [
+          2751,
+          2654
+        ]
+      },
+      "cc_vit_1d_ffn_contract_chained_fp8": {
+        "INSN_NONOP": [
+          3324,
+          3229
+        ]
+      },
+      "cc_vit_1d_ffn_expand_chained_fp8": {
+        "INSN_NONOP": [
+          2432,
+          2368
+        ]
+      },
+      "cc_vit_1d_ffn_expand_publish_fp8": {
+        "INSN_NONOP": [
+          2328,
+          2264
+        ]
+      },
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "REG": [
+          198,
+          203
+        ],
+        "INSN_NONOP": [
+          3988,
+          3855
+        ]
+      }
+    }
+  },
+  "joint_up_cfg_pack4_fb2356": {
+    "totals": {
+      "INSN_NONOP": 145461,
+      "HMMA": 13188,
+      "PRMT": 18781,
+      "STL": 99,
+      "LDL": 100
+    },
+    "resource_changes": {
+      "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          3978,
+          3895
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": {
+        "INSN_NONOP": [
+          3921,
+          3717
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": {
+        "INSN_NONOP": [
+          4948,
+          4750
+        ]
+      },
+      "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          3993,
+          3799
+        ]
+      },
+      "cc_tinlayout_fused_post_block_swin_1h_32_fp8": {
+        "INSN_NONOP": [
+          4903,
+          4805
+        ]
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6607,
+          6437
+        ]
+      },
+      "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+        "STACK": [
+          64,
+          56
+        ],
+        "STL": [
+          11,
+          10
+        ],
+        "LDL": [
+          15,
+          14
+        ],
+        "INSN_NONOP": [
+          5481,
+          5338
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6778,
+          6382
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5841,
+          5555
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+        "REG": [
+          164,
+          166
+        ],
+        "INSN_NONOP": [
+          7119,
+          6813
+        ]
+      },
+      "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5810,
+          5522
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+        "INSN_NONOP": [
+          6836,
+          6442
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+        "INSN_NONOP": [
+          5881,
+          5593
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+        "INSN_NONOP": [
+          6964,
+          6659
+        ]
+      },
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+        "INSN_NONOP": [
+          5861,
+          5573
+        ]
+      },
+      "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+        "INSN_NONOP": [
+          2844,
+          2685
+        ]
+      },
+      "cc_split_swin_16h_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          1514,
+          1434
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+        "INSN_NONOP": [
+          2682,
+          2576
+        ]
+      },
+      "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+        "INSN_NONOP": [
+          2369,
+          2210
+        ]
+      },
+      "cc_vit_1d_projection_chained_fp8": {
+        "REG": [
+          145,
+          148
+        ],
+        "INSN_NONOP": [
+          2398,
+          2172
+        ]
+      },
+      "cc_vit_1d_projection_wait_fp8": {
+        "REG": [
+          145,
+          146
+        ],
+        "INSN_NONOP": [
+          2387,
+          2171
+        ]
+      },
+      "cc_vit_1d_attention_chained_fp8": {
+        "INSN_NONOP": [
+          2968,
+          2936
+        ]
+      },
+      "cc_vit_1d_qkv_chained_fp8": {
+        "INSN_NONOP": [
+          2751,
+          2654
+        ]
+      },
+      "cc_vit_1d_ffn_contract_chained_fp8": {
+        "INSN_NONOP": [
+          3324,
+          3090
+        ]
+      },
+      "cc_vit_1d_ffn_expand_chained_fp8": {
+        "INSN_NONOP": [
+          2432,
+          2368
+        ]
+      },
+      "cc_vit_1d_ffn_expand_publish_fp8": {
+        "INSN_NONOP": [
+          2328,
+          2264
+        ]
+      },
+      "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+        "REG": [
+          198,
+          203
+        ],
+        "INSN_NONOP": [
+          3988,
+          3855
+        ]
+      }
+    }
+  }
+}

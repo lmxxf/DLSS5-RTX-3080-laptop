@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "clean_smoke_runs": 21,
+  "timing_candidates": [
+    "up_pair_fb2345",
+    "up_pair_fb1inp_2345",
+    "up_pair_cfg_clean",
+    "joint_up_fb2345_pack4_fb2356",
+    "joint_up_cfg_pack4_fb2356"
+  ],
+  "diagnostic_not_timed": [
+    "up_pair_cfg_all"
+  ],
+  "cross_UPs_proven": 2062,
+  "cross_pairs_proven": 1031,
+  "CFG_clean_selected_active_entries": 34,
+  "A_changed_active_entries": 16,
+  "A_nonNOP_delta": -1439,
+  "A_FB04_nonNOP_delta": -86,
+  "original_15_slots_O4": true,
+  "V3.8_reference_SHA256": "da27f34c5e10b884dd02b448eab424a4f44109ef08efc83e6a447100acd697c3"
+}

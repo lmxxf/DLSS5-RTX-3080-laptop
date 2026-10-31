@@ -1,0 +1,42 @@
+{
+  "all_UPs": 4744,
+  "original_cross_UPs": 2062,
+  "cross_pairs_proven": 1031,
+  "coverage_by_mode": {
+    "baseline": {
+      "UP_applied": 0,
+      "cross_block_applied": 0,
+      "splits_deleted": 0
+    },
+    "up_pair_fb2345": {
+      "UP_applied": 586,
+      "cross_block_applied": 0,
+      "splits_deleted": 293
+    },
+    "up_pair_fb1inp_2345": {
+      "UP_applied": 620,
+      "cross_block_applied": 0,
+      "splits_deleted": 310
+    },
+    "up_pair_cfg_all": {
+      "UP_applied": 4744,
+      "cross_block_applied": 2062,
+      "splits_deleted": 2372
+    },
+    "up_pair_cfg_clean": {
+      "UP_applied": 1288,
+      "cross_block_applied": 522,
+      "splits_deleted": 644
+    },
+    "joint_up_fb2345_pack4_fb2356": {
+      "UP_applied": 586,
+      "cross_block_applied": 0,
+      "splits_deleted": 293
+    },
+    "joint_up_cfg_pack4_fb2356": {
+      "UP_applied": 1288,
+      "cross_block_applied": 522,
+      "splits_deleted": 644
+    }
+  }
+}

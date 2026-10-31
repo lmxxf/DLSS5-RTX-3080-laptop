@@ -1,0 +1,16 @@
+{
+  "exact": {
+    "bitdiff": 0,
+    "maxabs": 0,
+    "nonfinite": 0
+  },
+  "approximate": {
+    "reference": "V3.1_pack5",
+    "PSNR_min_db": 50,
+    "maxabs_max": 0.015625,
+    "nonfinite": 0,
+    "sky_sign_changes": 0
+  },
+  "timing": "50/80, serial forward ABBA and reverse BAAB; repeat every first-round six-direction winner",
+  "no_production_deployment": true
+}

@@ -1,0 +1,1044 @@
+{
+  "device": {
+    "shared_per_sm": 102400,
+    "shared_per_block_default": 49152,
+    "shared_per_block_optin": 101376,
+    "driver_reserved_shared_per_block": 1024
+  },
+  "kernels": {
+    "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": {
+      "FB": 1,
+      "threads": 64,
+      "REG": 168,
+      "cubin_static_shared_bytes": 4096,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi64ELi32ELi4ELi8ELi8ELi2ELi8ELi8ELi32ELi32ELi32ELi2ELb1ELb0ELb1ELi128ELi4ELi4ELi64ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 4096,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 4096,
+      "hypothetical_total_shared_per_CTA": 8192,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": {
+      "FB": 1,
+      "threads": 64,
+      "REG": 168,
+      "cubin_static_shared_bytes": 4096,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d2HLayerINS_30CrazyCuckooFusedSwin2d2HConfigILi64ELi32ELi4ELi8ELi8ELi2ELi2ELi8ELi8ELi32ELi32ELi32ELi2ELb0ELb1ELb0ELi64ELi8ELi8ELi64ELb1ELb0ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb1ELi4ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 4096,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 4096,
+      "hypothetical_total_shared_per_CTA": 8192,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": {
+      "FB": 1,
+      "threads": 64,
+      "REG": 168,
+      "cubin_static_shared_bytes": 4096,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d2HLayerINS_30CrazyCuckooFusedSwin2d2HConfigILi64ELi32ELi4ELi8ELi8ELi2ELi2ELi8ELi8ELi32ELi32ELi32ELi2ELb0ELb1ELb0ELi64ELi8ELi8ELi64ELb1ELb0ELb1ELb1ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 4096,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 4096,
+      "hypothetical_total_shared_per_CTA": 8192,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": {
+      "FB": 1,
+      "threads": 64,
+      "REG": 168,
+      "cubin_static_shared_bytes": 4096,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d2HLayerINS_30CrazyCuckooFusedSwin2d2HConfigILi64ELi32ELi4ELi8ELi8ELi2ELi2ELi8ELi8ELi32ELi32ELi32ELi2ELb0ELb0ELb1ELi64ELi8ELi8ELi64ELb1ELb0ELb1ELb0ELb1ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 4096,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 4096,
+      "hypothetical_total_shared_per_CTA": 8192,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+      "FB": 2,
+      "threads": 128,
+      "REG": 166,
+      "cubin_static_shared_bytes": 8192,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 8192,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16384,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": {
+      "FB": 2,
+      "threads": 128,
+      "REG": 168,
+      "cubin_static_shared_bytes": 8192,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb0ELb1ELb0ELi128ELi8ELi8ELi128ELb1ELb0ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb1ELi4ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 8192,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16384,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": {
+      "FB": 2,
+      "threads": 128,
+      "REG": 164,
+      "cubin_static_shared_bytes": 8192,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb0ELb1ELb0ELi128ELi8ELi8ELi128ELb1ELb0ELb1ELb1ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 8192,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16384,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": {
+      "FB": 2,
+      "threads": 128,
+      "REG": 164,
+      "cubin_static_shared_bytes": 8192,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb0ELb0ELb1ELi128ELi8ELi8ELi128ELb1ELb0ELb1ELb0ELb1ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 8192,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16384,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+      "FB": 3,
+      "threads": 256,
+      "REG": 203,
+      "cubin_static_shared_bytes": 16384,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi256ELi32ELi4ELi8ELi8ELi8ELi8ELi8ELi32ELi32ELi32ELi8ELb1ELb0ELb1ELi512ELi4ELi4ELi256ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi8ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 16384,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 16384,
+      "hypothetical_total_shared_per_CTA": 32768,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+      "FB": 3,
+      "threads": 256,
+      "REG": 190,
+      "cubin_static_shared_bytes": 16384,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi256ELi32ELi4ELi8ELi8ELi8ELi8ELi8ELi32ELi32ELi32ELi8ELb0ELb1ELb0ELi256ELi8ELi8ELi256ELb1ELb0ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb1ELi8ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 16384,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 16384,
+      "hypothetical_total_shared_per_CTA": 32768,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+      "FB": 3,
+      "threads": 256,
+      "REG": 196,
+      "cubin_static_shared_bytes": 16384,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi256ELi32ELi4ELi8ELi8ELi8ELi8ELi8ELi32ELi32ELi32ELi8ELb0ELb1ELb0ELi256ELi8ELi8ELi256ELb1ELb0ELb1ELb1ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi8ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 16384,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 16384,
+      "hypothetical_total_shared_per_CTA": 32768,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+      "FB": 3,
+      "threads": 256,
+      "REG": 198,
+      "cubin_static_shared_bytes": 16384,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi256ELi32ELi4ELi8ELi8ELi8ELi8ELi8ELi32ELi32ELi32ELi8ELb0ELb0ELb1ELi256ELi8ELi8ELi256ELb1ELb0ELb1ELb0ELb1ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi8ELb0EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+          "bytes": 16384,
+          "payload": true
+        }
+      ],
+      "expanded_payload_extra_bytes": 16384,
+      "hypothetical_total_shared_per_CTA": 32768,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_final_head_512_wait_fp8": {
+      "FB": 4,
+      "threads": 256,
+      "REG": 136,
+      "cubin_static_shared_bytes": 12312,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi1024ELi512ELi8ELi8ELi256ELi64ELi2ELi4ELi1ELb0ELb1ELb0ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb0ELi4ELi4ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+          "bytes": 12288,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi1024ELi512ELi8ELi8ELi256ELi64ELi2ELi4ELi1ELb0ELb1ELb0ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb0ELi4ELi4ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+          "bytes": 24,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 12288,
+      "hypothetical_total_shared_per_CTA": 24600,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+      "FB": 4,
+      "threads": 128,
+      "REG": 180,
+      "cubin_static_shared_bytes": 8208,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+          "bytes": 8192,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16400,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+      "FB": 4,
+      "threads": 128,
+      "REG": 168,
+      "cubin_static_shared_bytes": 12312,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb0ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb1ENS8_ILi2ENS2_ILi2EJS5_S6_EEENS9_ILi2EJSC_SD_EEEEELb0ESG_Li3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSP_SP_PiSQ_SQ_SO_iiiiiiE20shared_input_storage",
+          "bytes": 12288,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb0ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb1ENS8_ILi2ENS2_ILi2EJS5_S6_EEENS9_ILi2EJSC_SD_EEEEELb0ESG_Li3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSP_SP_PiSQ_SQ_SO_iiiiiiE27shared_copy_barrier_storage",
+          "bytes": 24,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 12288,
+      "hypothetical_total_shared_per_CTA": 24600,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_proj_512_chained_fp8": {
+      "FB": 4,
+      "threads": 256,
+      "REG": 141,
+      "cubin_static_shared_bytes": 12312,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi2ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+          "bytes": 12288,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi2ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+          "bytes": 24,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 12288,
+      "hypothetical_total_shared_per_CTA": 24600,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_qkv_512_chained_fp8": {
+      "FB": 4,
+      "threads": 128,
+      "REG": 255,
+      "cubin_static_shared_bytes": 8208,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_118FusedSwin2dQKVAttnINS_24FusedSwin2dQKVAttnConfigILi512ELi8ELi8ELi16ELi4ELi64ELi4ELb1ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEEEELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSM_iE20shared_input_storage",
+          "bytes": 8192,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_118FusedSwin2dQKVAttnINS_24FusedSwin2dQKVAttnConfigILi512ELi8ELi8ELi16ELi4ELi64ELi4ELb1ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEEEELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSM_iE27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16400,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+      "FB": 4,
+      "threads": 128,
+      "REG": 166,
+      "cubin_static_shared_bytes": 12312,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb1ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+          "bytes": 12288,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb1ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+          "bytes": 24,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 12288,
+      "hypothetical_total_shared_per_CTA": 24600,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+      "FB": 4,
+      "threads": 128,
+      "REG": 167,
+      "cubin_static_shared_bytes": 12312,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+          "bytes": 12288,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+          "bytes": 24,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 12288,
+      "hypothetical_total_shared_per_CTA": 24600,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_ffwd_512_chained_fp8": {
+      "FB": 4,
+      "threads": 256,
+      "REG": 174,
+      "cubin_static_shared_bytes": 8208,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_115FusedSwin2dFfwdINS_21FusedSwin2dFfwdConfigILi512ELi64ELi4ELi8ELi8ELi2ELi4ELi64ELi32ELb1ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb0ENS2_ILi2EJS5_S6_EEELi32EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSP_iiiE20shared_input_storage",
+          "bytes": 8192,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_115FusedSwin2dFfwdINS_21FusedSwin2dFfwdConfigILi512ELi64ELi4ELi8ELi8ELi2ELi4ELi64ELi32ELb1ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb0ENS2_ILi2EJS5_S6_EEELi32EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSP_iiiE27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16400,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 1
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": {
+      "FB": 4,
+      "threads": 128,
+      "REG": 212,
+      "cubin_static_shared_bytes": 8208,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_115FusedSwin2dFfwdINS_21FusedSwin2dFfwdConfigILi512ELi64ELi4ELi8ELi8ELi1ELi4ELi64ELi32ELb0ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ENS2_ILi2EJS5_S6_EEELi32EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSP_iiiE20shared_input_storage",
+          "bytes": 8192,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_115FusedSwin2dFfwdINS_21FusedSwin2dFfwdConfigILi512ELi64ELi4ELi8ELi8ELi1ELi4ELi64ELi32ELb0ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ENS2_ILi2EJS5_S6_EEELi32EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSP_iiiE27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16400,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_projection_chained_fp8": {
+      "FB": 5,
+      "threads": 128,
+      "REG": 145,
+      "cubin_static_shared_bytes": 8208,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerINS_15Conv1d1x1ConfigILi1024ELi1024ELi128ELi128ELi32ELi2ELi2ELi4ELb1ELb1ELb1ELi32ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb1ELi128ELi2ELb0ELi2ELb0ELi2ELb0ELb0EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSK_PiSL_SL_SJ_PKvSN_E20shared_input_storage",
+          "bytes": 8192,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerINS_15Conv1d1x1ConfigILi1024ELi1024ELi128ELi128ELi32ELi2ELi2ELi4ELb1ELb1ELb1ELi32ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb1ELi128ELi2ELb0ELi2ELb0ELi2ELb0ELb0EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSK_PiSL_SL_SJ_PKvSN_E27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16400,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_projection_wait_fp8": {
+      "FB": 5,
+      "threads": 128,
+      "REG": 145,
+      "cubin_static_shared_bytes": 8208,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerINS_15Conv1d1x1ConfigILi1024ELi1024ELi128ELi128ELi32ELi2ELi2ELi4ELb1ELb1ELb0ELi32ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb1ELi128ELi2ELb0ELi2ELb0ELi2ELb0ELb0EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSK_PiSL_SL_SJ_PKvSN_E20shared_input_storage",
+          "bytes": 8192,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerINS_15Conv1d1x1ConfigILi1024ELi1024ELi128ELi128ELi32ELi2ELi2ELi4ELb1ELb1ELb0ELi32ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb1ELi128ELi2ELb0ELi2ELb0ELi2ELb0ELb0EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSK_PiSL_SL_SJ_PKvSN_E27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16400,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 3
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_attention_chained_fp8": {
+      "FB": 5,
+      "threads": 128,
+      "REG": 255,
+      "cubin_static_shared_bytes": 8208,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_116Attention1dLayerINS_17Attention1dConfigILi32ELi32ELi128ELi64ELi32ELi2ELb1ELb0ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELi2ELi2ELi2ELi8ELi8ELb0ELi3EEELNS_5DTypeE2EE7forwardEPKjSI_SI_PjiiPiSK_PKvSM_E18shared_key_storage",
+          "bytes": 4096,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_116Attention1dLayerINS_17Attention1dConfigILi32ELi32ELi128ELi64ELi32ELi2ELb1ELb0ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELi2ELi2ELi2ELi8ELi8ELb0ELi3EEELNS_5DTypeE2EE7forwardEPKjSI_SI_PjiiPiSK_PKvSM_E20shared_value_storage",
+          "bytes": 4096,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_116Attention1dLayerINS_17Attention1dConfigILi32ELi32ELi128ELi64ELi32ELi2ELb1ELb0ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELi2ELi2ELi2ELi8ELi8ELb0ELi3EEELNS_5DTypeE2EE7forwardEPKjSI_SI_PjiiPiSK_PKvSM_E30key_value_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16400,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_qkv_chained_fp8": {
+      "FB": 5,
+      "threads": 128,
+      "REG": 197,
+      "cubin_static_shared_bytes": 8208,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv1dQKVLayerINS_15Conv1dQKVConfigILi32ELi32ELi1024ELi128ELi32ELi2ELi2ELi2ELb1ELb0ELi128ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb0ELi2ELb0ELi2EEELNS_5DTypeE2EE12forward_implEPKjPjSJ_SJ_SJ_iiPiSK_SK_PKvSM_E20shared_input_storage",
+          "bytes": 8192,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv1dQKVLayerINS_15Conv1dQKVConfigILi32ELi32ELi1024ELi128ELi32ELi2ELi2ELi2ELb1ELb0ELi128ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb0ELi2ELb0ELi2EEELNS_5DTypeE2EE12forward_implEPKjPjSJ_SJ_SJ_iiPiSK_SK_PKvSM_E27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 8192,
+      "hypothetical_total_shared_per_CTA": 16400,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_ffn_contract_chained_fp8": {
+      "FB": 5,
+      "threads": 128,
+      "REG": 179,
+      "cubin_static_shared_bytes": 16400,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl22CCFfnContractConfigFP8ILb1ELb1EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSA_PiSB_SB_S9_PKvSD_E20shared_input_storage",
+          "bytes": 16384,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl22CCFfnContractConfigFP8ILb1ELb1EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSA_PiSB_SB_S9_PKvSD_E27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 16384,
+      "hypothetical_total_shared_per_CTA": 32784,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_ffn_expand_chained_fp8": {
+      "FB": 5,
+      "threads": 128,
+      "REG": 180,
+      "cubin_static_shared_bytes": 24600,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl20CCFfnExpandConfigF16ILi64ELb1ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSB_PiSC_SC_SA_PKvSE_E20shared_input_storage",
+          "bytes": 24576,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl20CCFfnExpandConfigF16ILi64ELb1ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSB_PiSC_SC_SA_PKvSE_E27shared_copy_barrier_storage",
+          "bytes": 24,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 24576,
+      "hypothetical_total_shared_per_CTA": 49176,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 0
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_ffn_expand_publish_fp8": {
+      "FB": 5,
+      "threads": 128,
+      "REG": 172,
+      "cubin_static_shared_bytes": 24600,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl20CCFfnExpandConfigF16ILi64ELb0ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSB_PiSC_SC_SA_PKvSE_E20shared_input_storage",
+          "bytes": 24576,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl20CCFfnExpandConfigF16ILi64ELb0ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSB_PiSC_SC_SA_PKvSE_E27shared_copy_barrier_storage",
+          "bytes": 24,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 24576,
+      "hypothetical_total_shared_per_CTA": 49176,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 0
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 2
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_repack_1d_to_2d_fp8": {
+      "FB": 5,
+      "threads": 256,
+      "REG": 19,
+      "cubin_static_shared_bytes": 0,
+      "declared_arrays": [],
+      "expanded_payload_extra_bytes": 0,
+      "hypothetical_total_shared_per_CTA": 0,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_vit_1d_repack_2d_to_1d_fp8": {
+      "FB": 5,
+      "threads": 256,
+      "REG": 20,
+      "cubin_static_shared_bytes": 0,
+      "declared_arrays": [],
+      "expanded_payload_extra_bytes": 0,
+      "hypothetical_total_shared_per_CTA": 0,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_cb_clear": {
+      "FB": 6,
+      "threads": 256,
+      "REG": 8,
+      "cubin_static_shared_bytes": 0,
+      "declared_arrays": [],
+      "expanded_payload_extra_bytes": 0,
+      "hypothetical_total_shared_per_CTA": 0,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 6
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    },
+    "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+      "FB": 6,
+      "threads": 64,
+      "REG": 214,
+      "cubin_static_shared_bytes": 2064,
+      "declared_arrays": [
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi1024ELi4ELi4ELi256ELi64ELi1ELi2ELi4ELb0ELb0ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi4ELi4ELb0ELb1ELb1ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+          "bytes": 2048,
+          "payload": true
+        },
+        {
+          "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi1024ELi4ELi4ELi256ELi64ELi1ELi2ELi4ELb0ELb0ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi4ELi4ELb0ELb1ELb1ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+          "bytes": 16,
+          "payload": false
+        }
+      ],
+      "expanded_payload_extra_bytes": 2048,
+      "hypothetical_total_shared_per_CTA": 4112,
+      "baseline": {
+        "returncode": 0,
+        "CTA_per_SM": 4
+      },
+      "double_payload_default_attribute": {
+        "returncode": 0,
+        "CTA_per_SM": 4
+      },
+      "set_max_dynamic_shared_returncode": 0,
+      "double_payload_optin": {
+        "returncode": 0,
+        "CTA_per_SM": 4
+      },
+      "current_residency_preserved_with_optin": true,
+      "scope": "counterfactual resource query: add payload bytes as dynamic Shared to actual baseline cubin, static registers and block kept fixed; no layout rewrite or speed claim"
+    }
+  },
+  "all_doubled_payload_fit_current_residency": true,
+  "scope": "includes FB06 appendix; CUDA API includes allocation/reserved resource constraints; not naive 101376/CTA division"
+}

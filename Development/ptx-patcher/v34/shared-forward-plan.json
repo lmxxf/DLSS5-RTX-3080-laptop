@@ -1,0 +1,853 @@
+{
+  "kernels": {
+    "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": [
+      {
+        "load_line": 4911,
+        "store_line": 3355,
+        "destinations": [
+          "%r2305",
+          "%r2306",
+          "%r2307",
+          "%r2308"
+        ],
+        "sources": [
+          "%r719",
+          "%r720",
+          "%r721",
+          "%r722"
+        ],
+        "address": "[%r2309]",
+        "shape": [
+          32,
+          2,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 4920,
+        "store_line": 3364,
+        "destinations": [
+          "%r2311",
+          "%r2312",
+          "%r2313",
+          "%r2314"
+        ],
+        "sources": [
+          "%r725",
+          "%r726",
+          "%r727",
+          "%r728"
+        ],
+        "address": "[%r2315]",
+        "shape": [
+          32,
+          2,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 4929,
+        "store_line": 3373,
+        "destinations": [
+          "%r2317",
+          "%r2318",
+          "%r2319",
+          "%r2320"
+        ],
+        "sources": [
+          "%r731",
+          "%r732",
+          "%r733",
+          "%r734"
+        ],
+        "address": "[%r2321]",
+        "shape": [
+          32,
+          2,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 4938,
+        "store_line": 3382,
+        "destinations": [
+          "%r2323",
+          "%r2324",
+          "%r2325",
+          "%r2326"
+        ],
+        "sources": [
+          "%r737",
+          "%r738",
+          "%r739",
+          "%r740"
+        ],
+        "address": "[%r2327]",
+        "shape": [
+          32,
+          2,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ],
+    "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": [
+      {
+        "load_line": 2742,
+        "store_line": 850,
+        "destinations": [
+          "%r1000",
+          "%r1001",
+          "%r1002",
+          "%r1003"
+        ],
+        "sources": [
+          "%r4384",
+          "%r4385",
+          "%r4386",
+          "%r4387"
+        ],
+        "address": "[%r1004]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2751,
+        "store_line": 859,
+        "destinations": [
+          "%r1006",
+          "%r1007",
+          "%r1008",
+          "%r1009"
+        ],
+        "sources": [
+          "%r4388",
+          "%r4389",
+          "%r4390",
+          "%r4391"
+        ],
+        "address": "[%r1010]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2760,
+        "store_line": 868,
+        "destinations": [
+          "%r1012",
+          "%r1013",
+          "%r1014",
+          "%r1015"
+        ],
+        "sources": [
+          "%r4392",
+          "%r4393",
+          "%r4394",
+          "%r4395"
+        ],
+        "address": "[%r1016]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2769,
+        "store_line": 877,
+        "destinations": [
+          "%r1018",
+          "%r1019",
+          "%r1020",
+          "%r1021"
+        ],
+        "sources": [
+          "%r4396",
+          "%r4397",
+          "%r4398",
+          "%r4399"
+        ],
+        "address": "[%r1022]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ],
+    "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": [
+      {
+        "load_line": 2241,
+        "store_line": 349,
+        "destinations": [
+          "%r752",
+          "%r753",
+          "%r754",
+          "%r755"
+        ],
+        "sources": [
+          "%r4719",
+          "%r4720",
+          "%r4721",
+          "%r4722"
+        ],
+        "address": "[%r756]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2250,
+        "store_line": 358,
+        "destinations": [
+          "%r758",
+          "%r759",
+          "%r760",
+          "%r761"
+        ],
+        "sources": [
+          "%r4724",
+          "%r4725",
+          "%r4726",
+          "%r4727"
+        ],
+        "address": "[%r762]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2259,
+        "store_line": 367,
+        "destinations": [
+          "%r764",
+          "%r765",
+          "%r766",
+          "%r767"
+        ],
+        "sources": [
+          "%r4729",
+          "%r4730",
+          "%r4731",
+          "%r4732"
+        ],
+        "address": "[%r768]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2268,
+        "store_line": 376,
+        "destinations": [
+          "%r770",
+          "%r771",
+          "%r772",
+          "%r773"
+        ],
+        "sources": [
+          "%r4734",
+          "%r4735",
+          "%r4736",
+          "%r4737"
+        ],
+        "address": "[%r774]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ],
+    "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": [
+      {
+        "load_line": 2240,
+        "store_line": 348,
+        "destinations": [
+          "%r739",
+          "%r740",
+          "%r741",
+          "%r742"
+        ],
+        "sources": [
+          "%r4391",
+          "%r4392",
+          "%r4393",
+          "%r4394"
+        ],
+        "address": "[%r743]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2249,
+        "store_line": 357,
+        "destinations": [
+          "%r745",
+          "%r746",
+          "%r747",
+          "%r748"
+        ],
+        "sources": [
+          "%r4396",
+          "%r4397",
+          "%r4398",
+          "%r4399"
+        ],
+        "address": "[%r749]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2258,
+        "store_line": 366,
+        "destinations": [
+          "%r751",
+          "%r752",
+          "%r753",
+          "%r754"
+        ],
+        "sources": [
+          "%r4401",
+          "%r4402",
+          "%r4403",
+          "%r4404"
+        ],
+        "address": "[%r755]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2267,
+        "store_line": 375,
+        "destinations": [
+          "%r757",
+          "%r758",
+          "%r759",
+          "%r760"
+        ],
+        "sources": [
+          "%r4406",
+          "%r4407",
+          "%r4408",
+          "%r4409"
+        ],
+        "address": "[%r761]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ],
+    "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": [
+      {
+        "load_line": 5239,
+        "store_line": 3355,
+        "destinations": [
+          "%r2455",
+          "%r2456",
+          "%r2457",
+          "%r2458"
+        ],
+        "sources": [
+          "%r726",
+          "%r727",
+          "%r728",
+          "%r729"
+        ],
+        "address": "[%r2459]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 5248,
+        "store_line": 3364,
+        "destinations": [
+          "%r2461",
+          "%r2462",
+          "%r2463",
+          "%r2464"
+        ],
+        "sources": [
+          "%r732",
+          "%r733",
+          "%r734",
+          "%r735"
+        ],
+        "address": "[%r2465]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 5257,
+        "store_line": 3373,
+        "destinations": [
+          "%r2467",
+          "%r2468",
+          "%r2469",
+          "%r2470"
+        ],
+        "sources": [
+          "%r738",
+          "%r739",
+          "%r740",
+          "%r741"
+        ],
+        "address": "[%r2471]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 5266,
+        "store_line": 3382,
+        "destinations": [
+          "%r2473",
+          "%r2474",
+          "%r2475",
+          "%r2476"
+        ],
+        "sources": [
+          "%r744",
+          "%r745",
+          "%r746",
+          "%r747"
+        ],
+        "address": "[%r2477]",
+        "shape": [
+          32,
+          4,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ],
+    "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": [
+      {
+        "load_line": 3405,
+        "store_line": 849,
+        "destinations": [
+          "%r1288",
+          "%r1289",
+          "%r1290",
+          "%r1291"
+        ],
+        "sources": [
+          "%r4406",
+          "%r4407",
+          "%r4408",
+          "%r4409"
+        ],
+        "address": "[%r1292]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 3414,
+        "store_line": 858,
+        "destinations": [
+          "%r1294",
+          "%r1295",
+          "%r1296",
+          "%r1297"
+        ],
+        "sources": [
+          "%r4410",
+          "%r4411",
+          "%r4412",
+          "%r4413"
+        ],
+        "address": "[%r1298]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 3423,
+        "store_line": 867,
+        "destinations": [
+          "%r1300",
+          "%r1301",
+          "%r1302",
+          "%r1303"
+        ],
+        "sources": [
+          "%r4414",
+          "%r4415",
+          "%r4416",
+          "%r4417"
+        ],
+        "address": "[%r1304]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 3432,
+        "store_line": 876,
+        "destinations": [
+          "%r1306",
+          "%r1307",
+          "%r1308",
+          "%r1309"
+        ],
+        "sources": [
+          "%r4418",
+          "%r4419",
+          "%r4420",
+          "%r4421"
+        ],
+        "address": "[%r1310]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ],
+    "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": [
+      {
+        "load_line": 2904,
+        "store_line": 348,
+        "destinations": [
+          "%r1044",
+          "%r1045",
+          "%r1046",
+          "%r1047"
+        ],
+        "sources": [
+          "%r4686",
+          "%r4687",
+          "%r4688",
+          "%r4689"
+        ],
+        "address": "[%r1048]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2913,
+        "store_line": 357,
+        "destinations": [
+          "%r1050",
+          "%r1051",
+          "%r1052",
+          "%r1053"
+        ],
+        "sources": [
+          "%r4691",
+          "%r4692",
+          "%r4693",
+          "%r4694"
+        ],
+        "address": "[%r1054]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2922,
+        "store_line": 366,
+        "destinations": [
+          "%r1056",
+          "%r1057",
+          "%r1058",
+          "%r1059"
+        ],
+        "sources": [
+          "%r4696",
+          "%r4697",
+          "%r4698",
+          "%r4699"
+        ],
+        "address": "[%r1060]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2931,
+        "store_line": 375,
+        "destinations": [
+          "%r1062",
+          "%r1063",
+          "%r1064",
+          "%r1065"
+        ],
+        "sources": [
+          "%r4701",
+          "%r4702",
+          "%r4703",
+          "%r4704"
+        ],
+        "address": "[%r1066]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ],
+    "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": [
+      {
+        "load_line": 2903,
+        "store_line": 347,
+        "destinations": [
+          "%r1027",
+          "%r1028",
+          "%r1029",
+          "%r1030"
+        ],
+        "sources": [
+          "%r4417",
+          "%r4418",
+          "%r4419",
+          "%r4420"
+        ],
+        "address": "[%r1031]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2912,
+        "store_line": 356,
+        "destinations": [
+          "%r1033",
+          "%r1034",
+          "%r1035",
+          "%r1036"
+        ],
+        "sources": [
+          "%r4422",
+          "%r4423",
+          "%r4424",
+          "%r4425"
+        ],
+        "address": "[%r1037]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2921,
+        "store_line": 365,
+        "destinations": [
+          "%r1039",
+          "%r1040",
+          "%r1041",
+          "%r1042"
+        ],
+        "sources": [
+          "%r4427",
+          "%r4428",
+          "%r4429",
+          "%r4430"
+        ],
+        "address": "[%r1043]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 2930,
+        "store_line": 374,
+        "destinations": [
+          "%r1045",
+          "%r1046",
+          "%r1047",
+          "%r1048"
+        ],
+        "sources": [
+          "%r4432",
+          "%r4433",
+          "%r4434",
+          "%r4435"
+        ],
+        "address": "[%r1049]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ],
+    "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": [
+      {
+        "load_line": 5907,
+        "store_line": 3355,
+        "destinations": [
+          "%r2745",
+          "%r2746",
+          "%r2747",
+          "%r2748"
+        ],
+        "sources": [
+          "%r715",
+          "%r716",
+          "%r717",
+          "%r718"
+        ],
+        "address": "[%r2749]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 5916,
+        "store_line": 3364,
+        "destinations": [
+          "%r2751",
+          "%r2752",
+          "%r2753",
+          "%r2754"
+        ],
+        "sources": [
+          "%r721",
+          "%r722",
+          "%r723",
+          "%r724"
+        ],
+        "address": "[%r2755]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 5925,
+        "store_line": 3373,
+        "destinations": [
+          "%r2757",
+          "%r2758",
+          "%r2759",
+          "%r2760"
+        ],
+        "sources": [
+          "%r727",
+          "%r728",
+          "%r729",
+          "%r730"
+        ],
+        "address": "[%r2761]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      },
+      {
+        "load_line": 5934,
+        "store_line": 3382,
+        "destinations": [
+          "%r2763",
+          "%r2764",
+          "%r2765",
+          "%r2766"
+        ],
+        "sources": [
+          "%r733",
+          "%r734",
+          "%r735",
+          "%r736"
+        ],
+        "address": "[%r2767]",
+        "shape": [
+          32,
+          8,
+          1
+        ],
+        "proof": "unguarded store dominates load; all reaching paths preserve source words; TID-only address dependency; unique fixed per-thread writer for all 16 bytes; unchanged source words; no intervening unknown memory effects; original quantized words preserved; runtime shape guard falls back otherwise"
+      }
+    ]
+  },
+  "accepted_load_vectors": 36,
+  "rejected": [],
+  "scope": "encoded word LDS elimination only; FP8 quantization and all Shared stores/barriers preserved; includes non-MMA Shared loads found by full inventory"
+}

@@ -1,0 +1,2170 @@
+{
+  "scope": "36 static rejected run/register events, original PTX entry-relative line numbers; CFG may-reaching definitions",
+  "event_count": 36,
+  "unique_pack_events": 0,
+  "definition_count_histogram": {
+    "2": 36
+  },
+  "records": [
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r4993",
+      "run": 0,
+      "consumer_line": 1067,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r310, %r322}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r296, %r297}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 114,
+          "line": 131,
+          "register": "%r4993",
+          "text": "ld.weak.global.cg.v4.u32 { %r4993,%r4994,%r4995,%r4996},[%rd17];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 10,
+          "predecessors": [
+            8
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 8,
+              "tail": [
+                "or.pred %p23, %p20, %p1;",
+                "and.pred %p24, %p23, %p328;",
+                "@%p24 bra $L__BB16_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 142,
+          "line": 175,
+          "register": "%r4993",
+          "text": "mov.b32 %r4993, {%rs18, %rs18};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 20,
+          "predecessors": [
+            9
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 9,
+              "tail": [
+                "bra.uni $L__BB16_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r4998",
+      "run": 0,
+      "consumer_line": 1067,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r310, %r322}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r296, %r297}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 175,
+          "line": 214,
+          "register": "%r4998",
+          "text": "ld.weak.global.cg.v4.u32 { %r4998,%r4999,%r5000,%r5001},[%rd21];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "or.pred %p32, %p29, %p2;",
+                "and.pred %p33, %p32, %p330;",
+                "@%p33 bra $L__BB16_21;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 181,
+          "line": 227,
+          "register": "%r4998",
+          "text": "mov.b32 %r4998, {%rs20, %rs20};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB16_20;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r5003",
+      "run": 0,
+      "consumer_line": 1067,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r310, %r322}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r296, %r297}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 211,
+          "line": 263,
+          "register": "%r5003",
+          "text": "ld.weak.global.cg.v4.u32 { %r5003,%r5004,%r5005,%r5006},[%rd25];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 31,
+          "predecessors": [
+            29
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 29,
+              "tail": [
+                "or.pred %p39, %p38, %p1;",
+                "and.pred %p40, %p39, %p332;",
+                "@%p40 bra $L__BB16_26;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 217,
+          "line": 276,
+          "register": "%r5003",
+          "text": "mov.b32 %r5003, {%rs22, %rs22};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 32,
+          "predecessors": [
+            30
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 30,
+              "tail": [
+                "bra.uni $L__BB16_25;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r5008",
+      "run": 0,
+      "consumer_line": 1067,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r310, %r322}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r296, %r297}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 247,
+          "line": 312,
+          "register": "%r5008",
+          "text": "ld.weak.global.cg.v4.u32 { %r5008,%r5009,%r5010,%r5011},[%rd29];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 37,
+          "predecessors": [
+            35
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 35,
+              "tail": [
+                "or.pred %p46, %p45, %p2;",
+                "and.pred %p47, %p46, %p334;",
+                "@%p47 bra $L__BB16_31;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 253,
+          "line": 325,
+          "register": "%r5008",
+          "text": "mov.b32 %r5008, {%rs24, %rs24};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 38,
+          "predecessors": [
+            36
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 36,
+              "tail": [
+                "bra.uni $L__BB16_30;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r4993",
+      "run": 2,
+      "consumer_line": 2338,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r639, %r646}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r630, %r631}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 114,
+          "line": 131,
+          "register": "%r4993",
+          "text": "ld.weak.global.cg.v4.u32 { %r4993,%r4994,%r4995,%r4996},[%rd17];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 10,
+          "predecessors": [
+            8
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 8,
+              "tail": [
+                "or.pred %p23, %p20, %p1;",
+                "and.pred %p24, %p23, %p328;",
+                "@%p24 bra $L__BB16_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 142,
+          "line": 175,
+          "register": "%r4993",
+          "text": "mov.b32 %r4993, {%rs18, %rs18};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 20,
+          "predecessors": [
+            9
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 9,
+              "tail": [
+                "bra.uni $L__BB16_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r4998",
+      "run": 2,
+      "consumer_line": 2338,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r639, %r646}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r630, %r631}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 175,
+          "line": 214,
+          "register": "%r4998",
+          "text": "ld.weak.global.cg.v4.u32 { %r4998,%r4999,%r5000,%r5001},[%rd21];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "or.pred %p32, %p29, %p2;",
+                "and.pred %p33, %p32, %p330;",
+                "@%p33 bra $L__BB16_21;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 181,
+          "line": 227,
+          "register": "%r4998",
+          "text": "mov.b32 %r4998, {%rs20, %rs20};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB16_20;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r5003",
+      "run": 2,
+      "consumer_line": 2338,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r639, %r646}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r630, %r631}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 211,
+          "line": 263,
+          "register": "%r5003",
+          "text": "ld.weak.global.cg.v4.u32 { %r5003,%r5004,%r5005,%r5006},[%rd25];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 31,
+          "predecessors": [
+            29
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 29,
+              "tail": [
+                "or.pred %p39, %p38, %p1;",
+                "and.pred %p40, %p39, %p332;",
+                "@%p40 bra $L__BB16_26;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 217,
+          "line": 276,
+          "register": "%r5003",
+          "text": "mov.b32 %r5003, {%rs22, %rs22};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 32,
+          "predecessors": [
+            30
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 30,
+              "tail": [
+                "bra.uni $L__BB16_25;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r5008",
+      "run": 2,
+      "consumer_line": 2338,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r639, %r646}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r630, %r631}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 247,
+          "line": 312,
+          "register": "%r5008",
+          "text": "ld.weak.global.cg.v4.u32 { %r5008,%r5009,%r5010,%r5011},[%rd29];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 37,
+          "predecessors": [
+            35
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 35,
+              "tail": [
+                "or.pred %p46, %p45, %p2;",
+                "and.pred %p47, %p46, %p334;",
+                "@%p47 bra $L__BB16_31;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 253,
+          "line": 325,
+          "register": "%r5008",
+          "text": "mov.b32 %r5008, {%rs24, %rs24};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 38,
+          "predecessors": [
+            36
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 36,
+              "tail": [
+                "bra.uni $L__BB16_30;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r4993",
+      "run": 4,
+      "consumer_line": 3574,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r963, %r970}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r954, %r955}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 114,
+          "line": 131,
+          "register": "%r4993",
+          "text": "ld.weak.global.cg.v4.u32 { %r4993,%r4994,%r4995,%r4996},[%rd17];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 10,
+          "predecessors": [
+            8
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 8,
+              "tail": [
+                "or.pred %p23, %p20, %p1;",
+                "and.pred %p24, %p23, %p328;",
+                "@%p24 bra $L__BB16_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 142,
+          "line": 175,
+          "register": "%r4993",
+          "text": "mov.b32 %r4993, {%rs18, %rs18};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 20,
+          "predecessors": [
+            9
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 9,
+              "tail": [
+                "bra.uni $L__BB16_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r4998",
+      "run": 4,
+      "consumer_line": 3574,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r963, %r970}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r954, %r955}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 175,
+          "line": 214,
+          "register": "%r4998",
+          "text": "ld.weak.global.cg.v4.u32 { %r4998,%r4999,%r5000,%r5001},[%rd21];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "or.pred %p32, %p29, %p2;",
+                "and.pred %p33, %p32, %p330;",
+                "@%p33 bra $L__BB16_21;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 181,
+          "line": 227,
+          "register": "%r4998",
+          "text": "mov.b32 %r4998, {%rs20, %rs20};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB16_20;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r5003",
+      "run": 4,
+      "consumer_line": 3574,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r963, %r970}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r954, %r955}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 211,
+          "line": 263,
+          "register": "%r5003",
+          "text": "ld.weak.global.cg.v4.u32 { %r5003,%r5004,%r5005,%r5006},[%rd25];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 31,
+          "predecessors": [
+            29
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 29,
+              "tail": [
+                "or.pred %p39, %p38, %p1;",
+                "and.pred %p40, %p39, %p332;",
+                "@%p40 bra $L__BB16_26;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 217,
+          "line": 276,
+          "register": "%r5003",
+          "text": "mov.b32 %r5003, {%rs22, %rs22};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 32,
+          "predecessors": [
+            30
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 30,
+              "tail": [
+                "bra.uni $L__BB16_25;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r5008",
+      "run": 4,
+      "consumer_line": 3574,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r963, %r970}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r954, %r955}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 247,
+          "line": 312,
+          "register": "%r5008",
+          "text": "ld.weak.global.cg.v4.u32 { %r5008,%r5009,%r5010,%r5011},[%rd29];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 37,
+          "predecessors": [
+            35
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 35,
+              "tail": [
+                "or.pred %p46, %p45, %p2;",
+                "and.pred %p47, %p46, %p334;",
+                "@%p47 bra $L__BB16_31;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 253,
+          "line": 325,
+          "register": "%r5008",
+          "text": "mov.b32 %r5008, {%rs24, %rs24};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 38,
+          "predecessors": [
+            36
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 36,
+              "tail": [
+                "bra.uni $L__BB16_30;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r4993",
+      "run": 6,
+      "consumer_line": 4810,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1287, %r1294}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r1278, %r1279}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 114,
+          "line": 131,
+          "register": "%r4993",
+          "text": "ld.weak.global.cg.v4.u32 { %r4993,%r4994,%r4995,%r4996},[%rd17];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 10,
+          "predecessors": [
+            8
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 8,
+              "tail": [
+                "or.pred %p23, %p20, %p1;",
+                "and.pred %p24, %p23, %p328;",
+                "@%p24 bra $L__BB16_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 142,
+          "line": 175,
+          "register": "%r4993",
+          "text": "mov.b32 %r4993, {%rs18, %rs18};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 20,
+          "predecessors": [
+            9
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 9,
+              "tail": [
+                "bra.uni $L__BB16_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r4998",
+      "run": 6,
+      "consumer_line": 4810,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1287, %r1294}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r1278, %r1279}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 175,
+          "line": 214,
+          "register": "%r4998",
+          "text": "ld.weak.global.cg.v4.u32 { %r4998,%r4999,%r5000,%r5001},[%rd21];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "or.pred %p32, %p29, %p2;",
+                "and.pred %p33, %p32, %p330;",
+                "@%p33 bra $L__BB16_21;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 181,
+          "line": 227,
+          "register": "%r4998",
+          "text": "mov.b32 %r4998, {%rs20, %rs20};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB16_20;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r5003",
+      "run": 6,
+      "consumer_line": 4810,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1287, %r1294}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r1278, %r1279}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 211,
+          "line": 263,
+          "register": "%r5003",
+          "text": "ld.weak.global.cg.v4.u32 { %r5003,%r5004,%r5005,%r5006},[%rd25];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 31,
+          "predecessors": [
+            29
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 29,
+              "tail": [
+                "or.pred %p39, %p38, %p1;",
+                "and.pred %p40, %p39, %p332;",
+                "@%p40 bra $L__BB16_26;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 217,
+          "line": 276,
+          "register": "%r5003",
+          "text": "mov.b32 %r5003, {%rs22, %rs22};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 32,
+          "predecessors": [
+            30
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 30,
+              "tail": [
+                "bra.uni $L__BB16_25;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+      "register": "%r5008",
+      "run": 6,
+      "consumer_line": 4810,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1287, %r1294}, \n{%r4993, %r4994, %r4995, %r4996}, \n{%r1278, %r1279}, \n{%r4501, %r4501};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 247,
+          "line": 312,
+          "register": "%r5008",
+          "text": "ld.weak.global.cg.v4.u32 { %r5008,%r5009,%r5010,%r5011},[%rd29];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 37,
+          "predecessors": [
+            35
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 35,
+              "tail": [
+                "or.pred %p46, %p45, %p2;",
+                "and.pred %p47, %p46, %p334;",
+                "@%p47 bra $L__BB16_31;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 253,
+          "line": 325,
+          "register": "%r5008",
+          "text": "mov.b32 %r5008, {%rs24, %rs24};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 38,
+          "predecessors": [
+            36
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 36,
+              "tail": [
+                "bra.uni $L__BB16_30;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4656",
+      "run": 0,
+      "consumer_line": 1067,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r286, %r298}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r272, %r273}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 113,
+          "line": 130,
+          "register": "%r4656",
+          "text": "ld.weak.global.cg.v4.u32 { %r4656,%r4657,%r4658,%r4659},[%rd8];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 10,
+          "predecessors": [
+            8
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 8,
+              "tail": [
+                "or.pred %p21, %p18, %p1;",
+                "and.pred %p22, %p21, %p241;",
+                "@%p22 bra $L__BB17_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 141,
+          "line": 174,
+          "register": "%r4656",
+          "text": "mov.b32 %r4656, {%rs34, %rs34};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 20,
+          "predecessors": [
+            9
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 9,
+              "tail": [
+                "bra.uni $L__BB17_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4661",
+      "run": 0,
+      "consumer_line": 1067,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r286, %r298}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r272, %r273}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 174,
+          "line": 213,
+          "register": "%r4661",
+          "text": "ld.weak.global.cg.v4.u32 { %r4661,%r4662,%r4663,%r4664},[%rd12];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "or.pred %p30, %p27, %p2;",
+                "and.pred %p31, %p30, %p243;",
+                "@%p31 bra $L__BB17_21;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 180,
+          "line": 226,
+          "register": "%r4661",
+          "text": "mov.b32 %r4661, {%rs36, %rs36};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB17_20;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4666",
+      "run": 0,
+      "consumer_line": 1067,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r286, %r298}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r272, %r273}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 210,
+          "line": 262,
+          "register": "%r4666",
+          "text": "ld.weak.global.cg.v4.u32 { %r4666,%r4667,%r4668,%r4669},[%rd16];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 31,
+          "predecessors": [
+            29
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 29,
+              "tail": [
+                "or.pred %p37, %p36, %p1;",
+                "and.pred %p38, %p37, %p245;",
+                "@%p38 bra $L__BB17_26;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 216,
+          "line": 275,
+          "register": "%r4666",
+          "text": "mov.b32 %r4666, {%rs38, %rs38};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 32,
+          "predecessors": [
+            30
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 30,
+              "tail": [
+                "bra.uni $L__BB17_25;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4671",
+      "run": 0,
+      "consumer_line": 1067,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r286, %r298}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r272, %r273}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 246,
+          "line": 311,
+          "register": "%r4671",
+          "text": "ld.weak.global.cg.v4.u32 { %r4671,%r4672,%r4673,%r4674},[%rd20];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 37,
+          "predecessors": [
+            35
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 35,
+              "tail": [
+                "or.pred %p44, %p43, %p2;",
+                "and.pred %p45, %p44, %p247;",
+                "@%p45 bra $L__BB17_31;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 252,
+          "line": 324,
+          "register": "%r4671",
+          "text": "mov.b32 %r4671, {%rs40, %rs40};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 38,
+          "predecessors": [
+            36
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 36,
+              "tail": [
+                "bra.uni $L__BB17_30;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4656",
+      "run": 2,
+      "consumer_line": 2338,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r615, %r622}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r606, %r607}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 113,
+          "line": 130,
+          "register": "%r4656",
+          "text": "ld.weak.global.cg.v4.u32 { %r4656,%r4657,%r4658,%r4659},[%rd8];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 10,
+          "predecessors": [
+            8
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 8,
+              "tail": [
+                "or.pred %p21, %p18, %p1;",
+                "and.pred %p22, %p21, %p241;",
+                "@%p22 bra $L__BB17_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 141,
+          "line": 174,
+          "register": "%r4656",
+          "text": "mov.b32 %r4656, {%rs34, %rs34};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 20,
+          "predecessors": [
+            9
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 9,
+              "tail": [
+                "bra.uni $L__BB17_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4661",
+      "run": 2,
+      "consumer_line": 2338,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r615, %r622}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r606, %r607}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 174,
+          "line": 213,
+          "register": "%r4661",
+          "text": "ld.weak.global.cg.v4.u32 { %r4661,%r4662,%r4663,%r4664},[%rd12];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "or.pred %p30, %p27, %p2;",
+                "and.pred %p31, %p30, %p243;",
+                "@%p31 bra $L__BB17_21;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 180,
+          "line": 226,
+          "register": "%r4661",
+          "text": "mov.b32 %r4661, {%rs36, %rs36};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB17_20;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4666",
+      "run": 2,
+      "consumer_line": 2338,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r615, %r622}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r606, %r607}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 210,
+          "line": 262,
+          "register": "%r4666",
+          "text": "ld.weak.global.cg.v4.u32 { %r4666,%r4667,%r4668,%r4669},[%rd16];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 31,
+          "predecessors": [
+            29
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 29,
+              "tail": [
+                "or.pred %p37, %p36, %p1;",
+                "and.pred %p38, %p37, %p245;",
+                "@%p38 bra $L__BB17_26;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 216,
+          "line": 275,
+          "register": "%r4666",
+          "text": "mov.b32 %r4666, {%rs38, %rs38};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 32,
+          "predecessors": [
+            30
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 30,
+              "tail": [
+                "bra.uni $L__BB17_25;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4671",
+      "run": 2,
+      "consumer_line": 2338,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r615, %r622}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r606, %r607}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 246,
+          "line": 311,
+          "register": "%r4671",
+          "text": "ld.weak.global.cg.v4.u32 { %r4671,%r4672,%r4673,%r4674},[%rd20];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 37,
+          "predecessors": [
+            35
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 35,
+              "tail": [
+                "or.pred %p44, %p43, %p2;",
+                "and.pred %p45, %p44, %p247;",
+                "@%p45 bra $L__BB17_31;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 252,
+          "line": 324,
+          "register": "%r4671",
+          "text": "mov.b32 %r4671, {%rs40, %rs40};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 38,
+          "predecessors": [
+            36
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 36,
+              "tail": [
+                "bra.uni $L__BB17_30;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4656",
+      "run": 4,
+      "consumer_line": 3574,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r939, %r946}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r930, %r931}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 113,
+          "line": 130,
+          "register": "%r4656",
+          "text": "ld.weak.global.cg.v4.u32 { %r4656,%r4657,%r4658,%r4659},[%rd8];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 10,
+          "predecessors": [
+            8
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 8,
+              "tail": [
+                "or.pred %p21, %p18, %p1;",
+                "and.pred %p22, %p21, %p241;",
+                "@%p22 bra $L__BB17_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 141,
+          "line": 174,
+          "register": "%r4656",
+          "text": "mov.b32 %r4656, {%rs34, %rs34};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 20,
+          "predecessors": [
+            9
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 9,
+              "tail": [
+                "bra.uni $L__BB17_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4661",
+      "run": 4,
+      "consumer_line": 3574,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r939, %r946}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r930, %r931}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 174,
+          "line": 213,
+          "register": "%r4661",
+          "text": "ld.weak.global.cg.v4.u32 { %r4661,%r4662,%r4663,%r4664},[%rd12];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "or.pred %p30, %p27, %p2;",
+                "and.pred %p31, %p30, %p243;",
+                "@%p31 bra $L__BB17_21;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 180,
+          "line": 226,
+          "register": "%r4661",
+          "text": "mov.b32 %r4661, {%rs36, %rs36};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB17_20;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4666",
+      "run": 4,
+      "consumer_line": 3574,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r939, %r946}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r930, %r931}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 210,
+          "line": 262,
+          "register": "%r4666",
+          "text": "ld.weak.global.cg.v4.u32 { %r4666,%r4667,%r4668,%r4669},[%rd16];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 31,
+          "predecessors": [
+            29
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 29,
+              "tail": [
+                "or.pred %p37, %p36, %p1;",
+                "and.pred %p38, %p37, %p245;",
+                "@%p38 bra $L__BB17_26;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 216,
+          "line": 275,
+          "register": "%r4666",
+          "text": "mov.b32 %r4666, {%rs38, %rs38};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 32,
+          "predecessors": [
+            30
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 30,
+              "tail": [
+                "bra.uni $L__BB17_25;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4671",
+      "run": 4,
+      "consumer_line": 3574,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r939, %r946}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r930, %r931}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 246,
+          "line": 311,
+          "register": "%r4671",
+          "text": "ld.weak.global.cg.v4.u32 { %r4671,%r4672,%r4673,%r4674},[%rd20];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 37,
+          "predecessors": [
+            35
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 35,
+              "tail": [
+                "or.pred %p44, %p43, %p2;",
+                "and.pred %p45, %p44, %p247;",
+                "@%p45 bra $L__BB17_31;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 252,
+          "line": 324,
+          "register": "%r4671",
+          "text": "mov.b32 %r4671, {%rs40, %rs40};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 38,
+          "predecessors": [
+            36
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 36,
+              "tail": [
+                "bra.uni $L__BB17_30;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4656",
+      "run": 6,
+      "consumer_line": 4810,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1263, %r1270}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r1254, %r1255}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 113,
+          "line": 130,
+          "register": "%r4656",
+          "text": "ld.weak.global.cg.v4.u32 { %r4656,%r4657,%r4658,%r4659},[%rd8];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 10,
+          "predecessors": [
+            8
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 8,
+              "tail": [
+                "or.pred %p21, %p18, %p1;",
+                "and.pred %p22, %p21, %p241;",
+                "@%p22 bra $L__BB17_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 141,
+          "line": 174,
+          "register": "%r4656",
+          "text": "mov.b32 %r4656, {%rs34, %rs34};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 20,
+          "predecessors": [
+            9
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 9,
+              "tail": [
+                "bra.uni $L__BB17_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4661",
+      "run": 6,
+      "consumer_line": 4810,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1263, %r1270}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r1254, %r1255}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 174,
+          "line": 213,
+          "register": "%r4661",
+          "text": "ld.weak.global.cg.v4.u32 { %r4661,%r4662,%r4663,%r4664},[%rd12];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "or.pred %p30, %p27, %p2;",
+                "and.pred %p31, %p30, %p243;",
+                "@%p31 bra $L__BB17_21;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 180,
+          "line": 226,
+          "register": "%r4661",
+          "text": "mov.b32 %r4661, {%rs36, %rs36};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB17_20;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4666",
+      "run": 6,
+      "consumer_line": 4810,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1263, %r1270}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r1254, %r1255}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 210,
+          "line": 262,
+          "register": "%r4666",
+          "text": "ld.weak.global.cg.v4.u32 { %r4666,%r4667,%r4668,%r4669},[%rd16];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 31,
+          "predecessors": [
+            29
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 29,
+              "tail": [
+                "or.pred %p37, %p36, %p1;",
+                "and.pred %p38, %p37, %p245;",
+                "@%p38 bra $L__BB17_26;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 216,
+          "line": 275,
+          "register": "%r4666",
+          "text": "mov.b32 %r4666, {%rs38, %rs38};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 32,
+          "predecessors": [
+            30
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 30,
+              "tail": [
+                "bra.uni $L__BB17_25;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 0,
+      "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+      "register": "%r4671",
+      "run": 6,
+      "consumer_line": 4810,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r1263, %r1270}, \n{%r4656, %r4657, %r4658, %r4659}, \n{%r1254, %r1255}, \n{%r4219, %r4219};",
+      "consumer_block": 39,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 246,
+          "line": 311,
+          "register": "%r4671",
+          "text": "ld.weak.global.cg.v4.u32 { %r4671,%r4672,%r4673,%r4674},[%rd20];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 37,
+          "predecessors": [
+            35
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 35,
+              "tail": [
+                "or.pred %p44, %p43, %p2;",
+                "and.pred %p45, %p44, %p247;",
+                "@%p45 bra $L__BB17_31;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 252,
+          "line": 324,
+          "register": "%r4671",
+          "text": "mov.b32 %r4671, {%rs40, %rs40};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 38,
+          "predecessors": [
+            36
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 36,
+              "tail": [
+                "bra.uni $L__BB17_30;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 5,
+      "kernel": "cc_vit_1d_attention_chained_fp8",
+      "register": "%r1440",
+      "run": 0,
+      "consumer_line": 557,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r196, %r205}, \n{%r1440, %r1441, %r1442, %r1443}, \n{%r175, %r176}, \n{%r927, %r927};",
+      "consumer_block": 51,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 99,
+          "line": 136,
+          "register": "%r1440",
+          "text": "ld.weak.global.ca.v4.u32 { %r1440,%r1441,%r1442,%r1443},[%rd19];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 17,
+          "predecessors": [
+            15
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 15,
+              "tail": [
+                "add.s32 %r15, %r91, %r92;",
+                "setp.lt.s32 %p8, %r15, %r6;",
+                "@%p8 bra $L__BB27_16;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 105,
+          "line": 149,
+          "register": "%r1440",
+          "text": "mov.b32 %r1440, {%rs2, %rs2};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 18,
+          "predecessors": [
+            16
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 16,
+              "tail": [
+                "bra.uni $L__BB27_15;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 5,
+      "kernel": "cc_vit_1d_attention_chained_fp8",
+      "register": "%r1444",
+      "run": 0,
+      "consumer_line": 557,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r196, %r205}, \n{%r1440, %r1441, %r1442, %r1443}, \n{%r175, %r176}, \n{%r927, %r927};",
+      "consumer_block": 51,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 121,
+          "line": 170,
+          "register": "%r1444",
+          "text": "ld.weak.global.ca.v4.u32 { %r1444,%r1445,%r1446,%r1447},[%rd23];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 21,
+          "predecessors": [
+            19
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 19,
+              "tail": [
+                "add.s32 %r16, %r15, 1;",
+                "setp.lt.s32 %p9, %r16, %r6;",
+                "@%p9 bra $L__BB27_19;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 127,
+          "line": 183,
+          "register": "%r1444",
+          "text": "mov.b32 %r1444, {%rs4, %rs4};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 22,
+          "predecessors": [
+            20
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 20,
+              "tail": [
+                "bra.uni $L__BB27_18;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 5,
+      "kernel": "cc_vit_1d_attention_chained_fp8",
+      "register": "%r1448",
+      "run": 0,
+      "consumer_line": 557,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r196, %r205}, \n{%r1440, %r1441, %r1442, %r1443}, \n{%r175, %r176}, \n{%r927, %r927};",
+      "consumer_block": 51,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 143,
+          "line": 204,
+          "register": "%r1448",
+          "text": "ld.weak.global.ca.v4.u32 { %r1448,%r1449,%r1450,%r1451},[%rd27];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 25,
+          "predecessors": [
+            23
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 23,
+              "tail": [
+                "add.s32 %r17, %r16, 1;",
+                "setp.lt.s32 %p10, %r17, %r6;",
+                "@%p10 bra $L__BB27_22;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 149,
+          "line": 217,
+          "register": "%r1448",
+          "text": "mov.b32 %r1448, {%rs6, %rs6};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 26,
+          "predecessors": [
+            24
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 24,
+              "tail": [
+                "bra.uni $L__BB27_21;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    },
+    {
+      "FB": 5,
+      "kernel": "cc_vit_1d_attention_chained_fp8",
+      "register": "%r1452",
+      "run": 0,
+      "consumer_line": 557,
+      "consumer_text": "mma.sync.aligned.m16n8k32.row.col.f16.e4m3.e4m3.f16 {%r196, %r205}, \n{%r1440, %r1441, %r1442, %r1443}, \n{%r175, %r176}, \n{%r927, %r927};",
+      "consumer_block": 51,
+      "reaching_definition_count": 2,
+      "leaf_categories": [
+        "global_load",
+        "local_FP8_quantization"
+      ],
+      "definitions": [
+        {
+          "index": 165,
+          "line": 238,
+          "register": "%r1452",
+          "text": "ld.weak.global.ca.v4.u32 { %r1452,%r1453,%r1454,%r1455},[%rd31];",
+          "guard": "",
+          "root_kind": "ld.global",
+          "block": 29,
+          "predecessors": [
+            27
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 27,
+              "tail": [
+                "add.s32 %r18, %r16, 2;",
+                "setp.lt.s32 %p11, %r18, %r6;",
+                "@%p11 bra $L__BB27_25;"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 171,
+          "line": 251,
+          "register": "%r1452",
+          "text": "mov.b32 %r1452, {%rs8, %rs8};",
+          "guard": "",
+          "root_kind": "mov.pack16",
+          "block": 30,
+          "predecessors": [
+            28
+          ],
+          "predecessor_terminators": [
+            {
+              "block": 28,
+              "tail": [
+                "bra.uni $L__BB27_24;"
+              ]
+            }
+          ]
+        }
+      ],
+      "unique_pack_definition": false,
+      "decision": "multiple possible definitions; cannot unconditionally replace memory-path data with fallback native half"
+    }
+  ]
+}

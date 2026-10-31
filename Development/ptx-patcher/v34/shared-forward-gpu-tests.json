@@ -1,0 +1,62 @@
+[
+  {
+    "version": "baseline",
+    "block": [
+      32,
+      2,
+      1
+    ],
+    "runtime_fast_path": false,
+    "word_bitdiff": 0
+  },
+  {
+    "version": "baseline",
+    "block": [
+      32,
+      1,
+      1
+    ],
+    "runtime_fast_path": false,
+    "word_bitdiff": 0
+  },
+  {
+    "version": "baseline",
+    "block": [
+      16,
+      2,
+      1
+    ],
+    "runtime_fast_path": false,
+    "word_bitdiff": 0
+  },
+  {
+    "version": "forwarded",
+    "block": [
+      32,
+      2,
+      1
+    ],
+    "runtime_fast_path": true,
+    "word_bitdiff": 0
+  },
+  {
+    "version": "forwarded",
+    "block": [
+      32,
+      1,
+      1
+    ],
+    "runtime_fast_path": false,
+    "word_bitdiff": 0
+  },
+  {
+    "version": "forwarded",
+    "block": [
+      16,
+      2,
+      1
+    ],
+    "runtime_fast_path": false,
+    "word_bitdiff": 0
+  }
+]

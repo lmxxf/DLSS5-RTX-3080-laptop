@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "clean_smoke_runs": 24,
+  "timing_candidates": [
+    "pack4_fb0_nopre",
+    "pack4_quad_fb23",
+    "pack4_fb1_clean",
+    "pack4_quad_clean"
+  ],
+  "baseline_identical_not_timed": [],
+  "quad_core_SASS": 7,
+  "quad_cases": 33554432,
+  "quad_active_fused_pairs": 424,
+  "quad_active_PRMT_delta": -847,
+  "resource_policy": "STACK/STL/LDL nonincrease for A/B/quad-clean; no mechanical REG exclusion",
+  "baseline_SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca"
+}

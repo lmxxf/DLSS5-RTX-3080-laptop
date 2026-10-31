@@ -1,0 +1,19 @@
+{
+  "FB00_pack4_entries": [
+    "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+    "cc_tinlayout_fused_post_block_swin_1h_32_fp8"
+  ],
+  "FB00_excluded_pre": "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+  "FB01_diagnostic_entries": [
+    "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8"
+  ],
+  "spill_rule": "STACK/STL/LDL nonincrease; no REG gate; official occupancy recorded",
+  "quad_clean_rule": "same STACK/STL/LDL rule, only measured active entries; unprofiled entries stay baseline",
+  "joint_rule": "A + FB1 clean + best of quad_fb23/quad_clean by minimum six-direction gain, then mean, then name; both joints prebuilt before timing"
+}

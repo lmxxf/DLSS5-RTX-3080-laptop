@@ -1,0 +1,190 @@
+[
+  {
+    "tag": "test_quad.py",
+    "args": [
+      "test_quad.py"
+    ],
+    "begin": "2026-11-01T05:20:59.853918",
+    "end": "2026-11-01T05:21:00.043270",
+    "returncode": 0,
+    "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.004s\n\nOK\n"
+  },
+  {
+    "tag": "build.py baseline",
+    "args": [
+      "build.py",
+      "baseline"
+    ],
+    "begin": "2026-11-01T05:21:00.065085",
+    "end": "2026-11-01T05:21:17.687895",
+    "returncode": 0,
+    "output": "baseline 1 ELF O4 (cubin=1147680 B -> fatbin=181808 / 557032 B) in 6.57s | ptx_version=1, target=1, fp8_mma=3608, fp8_to_fp16=832, up_pair_deleted_splits=64, fp16_to_fp8=1352\nbaseline 2 ELF O4 (cubin=1182624 B -> fatbin=161968 / 506464 B) in 6.58s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\nbaseline 0 ELF O4 (cubin=1361632 B -> fatbin=278520 / 841720 B) in 8.54s | ptx_version=1, target=1, fp8_mma=4888, fp8_to_fp16=584, up_pair_deleted_splits=84, fp16_to_fp8=548, maxnreg_override=19\nbaseline 4 ELF O4 (cubin=1077280 B -> fatbin=178104 / 433184 B) in 4.77s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, zero_constant_folds=176, fp8_to_fp16=704, up_pair_deleted_splits=112, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23\nbaseline 6 ELF O4 (cubin= 136032 B -> fatbin= 30584 /  70336 B) in 1.00s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, zero_constant_folds=36, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2\nbaseline 7 ELF O4 (cubin=   4392 B -> fatbin=  1448 /   8016 B) in 0.11s | ptx_version=1, target=1\nbaseline 8 ELF O4 (cubin=   5608 B -> fatbin=  1520 /  10904 B) in 0.11s | ptx_version=1, target=1\nbaseline 9 ELF O4 (cubin=   6248 B -> fatbin=  1608 /  11792 B) in 0.11s | ptx_version=1, target=1\nbaseline 10 ELF O4 (cubin=   5792 B -> fatbin=  1816 /  10560 B) in 0.11s | ptx_version=1, target=1\nbaseline 11 ELF O4 (cubin=   5672 B -> fatbin=  1536 /   9960 B) in 0.12s | ptx_version=1, target=1\nbaseline 12 ELF O4 (cubin=   3752 B -> fatbin=  1128 /   6552 B) in 0.11s | ptx_version=1, target=1\nbaseline 13 ELF O4 (cubin=  32672 B -> fatbin=  8888 /  54824 B) in 0.22s | ptx_version=1, target=1, min_relu=4\nbaseline 14 ELF O4 (cubin=   4008 B -> fatbin=  1240 /   6936 B) in 0.11s | ptx_version=1, target=1\nbaseline 3 ELF O4 (cubin=1180192 B -> fatbin=199104 / 586832 B) in 7.02s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\nbaseline 5 ELF O4 (cubin=1306656 B -> fatbin=184936 / 542960 B) in 5.81s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, zero_constant_folds=288, fp8_to_fp16=704, up_pair_deleted_splits=96, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29\n"
+  },
+  {
+    "tag": "quad_primitive.py",
+    "args": [
+      "quad_primitive.py"
+    ],
+    "begin": "2026-11-01T05:21:58.313199",
+    "end": "2026-11-01T05:21:59.435291",
+    "returncode": 0,
+    "output": "{'rotate': False, 'quad_cases': 16777216, 'mismatches': 0, 'domain': 'all 65536 low-half bit patterns x256 opposite-half poison patterns, xor-related second half2 input, rotated second pass; finite, subnormal, +/-0, Inf, NaN included'}\n{'rotate': True, 'quad_cases': 16777216, 'mismatches': 0, 'domain': 'all 65536 low-half bit patterns x256 opposite-half poison patterns, xor-related second half2 input, rotated second pass; finite, subnormal, +/-0, Inf, NaN included'}\ncore counts {'two_pack4_join': 9, 'pack4_quad': 7}\n"
+  },
+  {
+    "tag": "build.py fb1_pack4_fb23_quad fb1_spill3_fb23_quad fb123_quad_diagnostic",
+    "args": [
+      "build.py",
+      "fb1_pack4_fb23_quad",
+      "fb1_spill3_fb23_quad",
+      "fb123_quad_diagnostic"
+    ],
+    "begin": "2026-11-01T05:21:59.435708",
+    "end": "2026-11-01T05:22:40.485470",
+    "returncode": 0,
+    "output": "fb1_pack4_fb23_quad 1 ELF O4 (cubin=1139872 B -> fatbin=195056 / 557032 B) in 7.26s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, up_pair_deleted_splits=64\nfb1_pack4_fb23_quad 2 ELF O4 (cubin=1175968 B -> fatbin=162360 / 506464 B) in 7.96s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\nfb1_pack4_fb23_quad 3 ELF O4 (cubin=1173408 B -> fatbin=198104 / 586832 B) in 8.56s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\nfb1_spill3_fb23_quad 2 ELF O4 (cubin=1175968 B -> fatbin=162360 / 506464 B) in 7.92s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\nfb1_spill3_fb23_quad 3 ELF O4 (cubin=1173408 B -> fatbin=198104 / 586832 B) in 8.39s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\nfb1_spill3_fb23_quad 1 ELF O4 (cubin=1141664 B -> fatbin=194040 / 557032 B) in 12.47s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, up_pair_deleted_splits=64\nfb123_quad_diagnostic 2 ELF O4 (cubin=1175968 B -> fatbin=162360 / 506464 B) in 8.20s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\nfb123_quad_diagnostic 3 ELF O4 (cubin=1173408 B -> fatbin=198104 / 586832 B) in 8.61s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\nfb123_quad_diagnostic 1 ELF O4 (cubin=1134880 B -> fatbin=195672 / 557032 B) in 13.41s | ptx_version=1, target=1, fp8_mma=3608, fused_quad_pairs=164, fp16_to_fp8=1352, fp8_to_fp16=832, up_pair_deleted_splits=64\n"
+  },
+  {
+    "tag": "audit.py",
+    "args": [
+      "audit.py"
+    ],
+    "begin": "2026-11-01T05:22:40.485897",
+    "end": "2026-11-01T05:23:08.296756",
+    "returncode": 0,
+    "output": "baseline {'INSN_NONOP': 145461, 'HMMA': 13188, 'PRMT': 18781, 'STL': 99, 'LDL': 100, 'SHFL': 1672}\nfb1_pack4_fb23_quad {'INSN_NONOP': 144131, 'HMMA': 13188, 'PRMT': 17934, 'STL': 98, 'LDL': 98, 'SHFL': 1672}\nfb1_spill3_fb23_quad {'INSN_NONOP': 144233, 'HMMA': 13188, 'PRMT': 17934, 'STL': 98, 'LDL': 98, 'SHFL': 1672}\nfb123_quad_diagnostic {'INSN_NONOP': 143815, 'HMMA': 13188, 'PRMT': 17605, 'STL': 95, 'LDL': 95, 'SHFL': 1672}\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "select_clean.py",
+    "args": [
+      "select_clean.py"
+    ],
+    "begin": "2026-11-01T05:23:08.297160",
+    "end": "2026-11-01T05:23:08.317655",
+    "returncode": 0,
+    "output": "FB01 selected ['cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8', 'cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8', 'cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8'] rejected {'cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8': ['STL', 'LDL']}\n"
+  },
+  {
+    "tag": "build.py fb123_pack4_quad_clean",
+    "args": [
+      "build.py",
+      "fb123_pack4_quad_clean"
+    ],
+    "begin": "2026-11-01T05:23:08.318032",
+    "end": "2026-11-01T05:23:25.073330",
+    "returncode": 0,
+    "output": "fb123_pack4_quad_clean 2 ELF O4 (cubin=1175968 B -> fatbin=162360 / 506464 B) in 7.78s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\nfb123_pack4_quad_clean 3 ELF O4 (cubin=1173408 B -> fatbin=198104 / 586832 B) in 8.39s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\nfb123_pack4_quad_clean 1 ELF O4 (cubin=1137824 B -> fatbin=194936 / 557032 B) in 13.00s | ptx_version=1, target=1, fp8_mma=3608, fused_quad_pairs=132, fp16_to_fp8=1352, fp8_to_fp16=832, up_pair_deleted_splits=64\n"
+  },
+  {
+    "tag": "audit.py fb123_pack4_quad_clean",
+    "args": [
+      "audit.py",
+      "fb123_pack4_quad_clean"
+    ],
+    "begin": "2026-11-01T05:23:25.073753",
+    "end": "2026-11-01T05:23:32.328903",
+    "returncode": 0,
+    "output": "fb123_pack4_quad_clean {'INSN_NONOP': 143992, 'HMMA': 13188, 'PRMT': 17669, 'STL': 94, 'LDL': 94, 'SHFL': 1672}\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "tables.py",
+    "args": [
+      "tables.py"
+    ],
+    "begin": "2026-11-01T05:23:32.329343",
+    "end": "2026-11-01T05:23:33.312962",
+    "returncode": 0,
+    "output": "tables 5\n"
+  },
+  {
+    "tag": "bench.py smoke",
+    "args": [
+      "bench.py",
+      "smoke"
+    ],
+    "begin": "2026-11-01T05:23:33.313372",
+    "end": "2026-11-01T05:24:06.589603",
+    "returncode": 0,
+    "output": "smoke smoke baseline 1280 5.613 0 None\nsmoke smoke fb1_pack4_fb23_quad 1280 6.235 0 None\nsmoke smoke fb1_spill3_fb23_quad 1280 5.615 0 None\nsmoke smoke fb123_quad_diagnostic 1280 5.624 0 None\nsmoke smoke fb123_pack4_quad_clean 1280 5.605 0 None\nsmoke smoke baseline 1600 8.013 0 None\nsmoke smoke fb1_pack4_fb23_quad 1600 7.944 0 None\nsmoke smoke fb1_spill3_fb23_quad 1600 7.978 0 None\nsmoke smoke fb123_quad_diagnostic 1600 7.967 0 None\nsmoke smoke fb123_pack4_quad_clean 1600 7.948 0 None\nsmoke smoke baseline 1920 10.33 0 None\nsmoke smoke fb1_pack4_fb23_quad 1920 10.318 0 None\nsmoke smoke fb1_spill3_fb23_quad 1920 10.925 0 None\nsmoke smoke fb123_quad_diagnostic 1920 10.318 0 None\nsmoke smoke fb123_pack4_quad_clean 1920 10.316 0 None\n"
+  },
+  {
+    "tag": "preflight.py",
+    "args": [
+      "preflight.py"
+    ],
+    "begin": "2026-11-01T05:24:06.590058",
+    "end": "2026-11-01T05:24:18.511912",
+    "returncode": 0,
+    "output": "PASS 3 timing candidates; FB01 quad selected ['cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8', 'cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8', 'cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8']\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "resource_check.py",
+    "args": [
+      "resource_check.py"
+    ],
+    "begin": "2026-11-01T05:26:50.135119",
+    "end": "2026-11-01T05:26:50.154674",
+    "returncode": 0,
+    "output": "{'baseline': {'INSN_NONOP': 145461, 'HMMA': 13188, 'PRMT': 18781, 'STL': 99, 'LDL': 100}, 'fb1_pack4_fb23_quad': {'INSN_NONOP': 144131, 'HMMA': 13188, 'PRMT': 17934, 'STL': 98, 'LDL': 98}, 'fb1_spill3_fb23_quad': {'INSN_NONOP': 144233, 'HMMA': 13188, 'PRMT': 17934, 'STL': 98, 'LDL': 98}, 'fb123_quad_diagnostic': {'INSN_NONOP': 143815, 'HMMA': 13188, 'PRMT': 17605, 'STL': 95, 'LDL': 95}, 'fb123_pack4_quad_clean': {'INSN_NONOP': 143992, 'HMMA': 13188, 'PRMT': 17669, 'STL': 94, 'LDL': 94}}\n"
+  },
+  {
+    "tag": "bench.py timed",
+    "args": [
+      "bench.py",
+      "timed"
+    ],
+    "begin": "2026-11-01T05:26:51.432440",
+    "end": "2026-11-01T05:30:53.516952",
+    "returncode": 0,
+    "output": "timed forward-fb1_pack4_fb23_quad-0 baseline 1280 5.528 0 None\ntimed forward-fb1_pack4_fb23_quad-1 fb1_pack4_fb23_quad 1280 5.531 0 None\ntimed forward-fb1_pack4_fb23_quad-2 fb1_pack4_fb23_quad 1280 5.532 0 None\ntimed forward-fb1_pack4_fb23_quad-3 baseline 1280 5.539 0 None\ntimed forward-fb1_spill3_fb23_quad-0 baseline 1280 5.542 0 None\ntimed forward-fb1_spill3_fb23_quad-1 fb1_spill3_fb23_quad 1280 5.531 0 None\ntimed forward-fb1_spill3_fb23_quad-2 fb1_spill3_fb23_quad 1280 5.542 0 None\ntimed forward-fb1_spill3_fb23_quad-3 baseline 1280 5.552 0 None\ntimed forward-fb123_pack4_quad_clean-0 baseline 1280 5.569 0 None\ntimed forward-fb123_pack4_quad_clean-1 fb123_pack4_quad_clean 1280 5.56 0 None\ntimed forward-fb123_pack4_quad_clean-2 fb123_pack4_quad_clean 1280 5.574 0 None\ntimed forward-fb123_pack4_quad_clean-3 baseline 1280 5.59 0 None\ntimed forward-fb1_pack4_fb23_quad-0 baseline 1600 8.212 0 None\ntimed forward-fb1_pack4_fb23_quad-1 fb1_pack4_fb23_quad 1600 8.157 0 None\ntimed forward-fb1_pack4_fb23_quad-2 fb1_pack4_fb23_quad 1600 8.193 0 None\ntimed forward-fb1_pack4_fb23_quad-3 baseline 1600 8.252 0 None\ntimed forward-fb1_spill3_fb23_quad-0 baseline 1600 8.279 0 None\ntimed forward-fb1_spill3_fb23_quad-1 fb1_spill3_fb23_quad 1600 8.265 0 None\ntimed forward-fb1_spill3_fb23_quad-2 fb1_spill3_fb23_quad 1600 8.21 0 None\ntimed forward-fb1_spill3_fb23_quad-3 baseline 1600 8.205 0 None\ntimed forward-fb123_pack4_quad_clean-0 baseline 1600 8.281 0 None\ntimed forward-fb123_pack4_quad_clean-1 fb123_pack4_quad_clean 1600 8.28 0 None\ntimed forward-fb123_pack4_quad_clean-2 fb123_pack4_quad_clean 1600 8.222 0 None\ntimed forward-fb123_pack4_quad_clean-3 baseline 1600 8.273 0 None\ntimed forward-fb1_pack4_fb23_quad-0 baseline 1920 10.925 0 None\ntimed forward-fb1_pack4_fb23_quad-1 fb1_pack4_fb23_quad 1920 10.986 0 None\ntimed forward-fb1_pack4_fb23_quad-2 fb1_pack4_fb23_quad 1920 10.909 0 None\ntimed forward-fb1_pack4_fb23_quad-3 baseline 1920 10.929 0 None\ntimed forward-fb1_spill3_fb23_quad-0 baseline 1920 10.93 0 None\ntimed forward-fb1_spill3_fb23_quad-1 fb1_spill3_fb23_quad 1920 10.99 0 None\ntimed forward-fb1_spill3_fb23_quad-2 fb1_spill3_fb23_quad 1920 10.915 0 None\ntimed forward-fb1_spill3_fb23_quad-3 baseline 1920 10.951 0 None\ntimed forward-fb123_pack4_quad_clean-0 baseline 1920 10.926 0 None\ntimed forward-fb123_pack4_quad_clean-1 fb123_pack4_quad_clean 1920 10.892 0 None\ntimed forward-fb123_pack4_quad_clean-2 fb123_pack4_quad_clean 1920 10.979 0 None\ntimed forward-fb123_pack4_quad_clean-3 baseline 1920 11.003 0 None\ntimed reverse-fb1_pack4_fb23_quad-0 fb1_pack4_fb23_quad 1920 10.985 0 None\ntimed reverse-fb1_pack4_fb23_quad-1 baseline 1920 10.988 0 None\ntimed reverse-fb1_pack4_fb23_quad-2 baseline 1920 11.017 0 None\ntimed reverse-fb1_pack4_fb23_quad-3 fb1_pack4_fb23_quad 1920 10.993 0 None\ntimed reverse-fb1_spill3_fb23_quad-0 fb1_spill3_fb23_quad 1920 10.992 0 None\ntimed reverse-fb1_spill3_fb23_quad-1 baseline 1920 10.929 0 None\ntimed reverse-fb1_spill3_fb23_quad-2 baseline 1920 11.014 0 None\ntimed reverse-fb1_spill3_fb23_quad-3 fb1_spill3_fb23_quad 1920 10.992 0 None\ntimed reverse-fb123_pack4_quad_clean-0 fb123_pack4_quad_clean 1920 10.997 0 None\ntimed reverse-fb123_pack4_quad_clean-1 baseline 1920 10.99 0 None\ntimed reverse-fb123_pack4_quad_clean-2 baseline 1920 10.961 0 None\ntimed reverse-fb123_pack4_quad_clean-3 fb123_pack4_quad_clean 1920 10.994 0 None\ntimed reverse-fb1_pack4_fb23_quad-0 fb1_pack4_fb23_quad 1600 8.317 0 None\ntimed reverse-fb1_pack4_fb23_quad-1 baseline 1600 8.332 0 None\ntimed reverse-fb1_pack4_fb23_quad-2 baseline 1600 8.342 0 None\ntimed reverse-fb1_pack4_fb23_quad-3 fb1_pack4_fb23_quad 1600 8.326 0 None\ntimed reverse-fb1_spill3_fb23_quad-0 fb1_spill3_fb23_quad 1600 8.219 0 None\ntimed reverse-fb1_spill3_fb23_quad-1 baseline 1600 8.291 0 None\ntimed reverse-fb1_spill3_fb23_quad-2 baseline 1600 8.342 0 None\ntimed reverse-fb1_spill3_fb23_quad-3 fb1_spill3_fb23_quad 1600 8.337 0 None\ntimed reverse-fb123_pack4_quad_clean-0 fb123_pack4_quad_clean 1600 8.275 0 None\ntimed reverse-fb123_pack4_quad_clean-1 baseline 1600 8.298 0 None\ntimed reverse-fb123_pack4_quad_clean-2 baseline 1600 8.339 0 None\ntimed reverse-fb123_pack4_quad_clean-3 fb123_pack4_quad_clean 1600 8.221 0 None\ntimed reverse-fb1_pack4_fb23_quad-0 fb1_pack4_fb23_quad 1280 5.65 0 None\ntimed reverse-fb1_pack4_fb23_quad-1 baseline 1280 5.662 0 None\ntimed reverse-fb1_pack4_fb23_quad-2 baseline 1280 5.656 0 None\ntimed reverse-fb1_pack4_fb23_quad-3 fb1_pack4_fb23_quad 1280 5.652 0 None\ntimed reverse-fb1_spill3_fb23_quad-0 fb1_spill3_fb23_quad 1280 5.634 0 None\ntimed reverse-fb1_spill3_fb23_quad-1 baseline 1280 5.621 0 None\ntimed reverse-fb1_spill3_fb23_quad-2 baseline 1280 5.645 0 None\ntimed reverse-fb1_spill3_fb23_quad-3 fb1_spill3_fb23_quad 1280 5.612 0 None\ntimed reverse-fb123_pack4_quad_clean-0 fb123_pack4_quad_clean 1280 5.614 0 None\ntimed reverse-fb123_pack4_quad_clean-1 baseline 1280 5.661 0 None\ntimed reverse-fb123_pack4_quad_clean-2 baseline 1280 5.633 0 None\ntimed reverse-fb123_pack4_quad_clean-3 fb123_pack4_quad_clean 1280 5.641 0 None\n"
+  },
+  {
+    "tag": "summarize.py",
+    "args": [
+      "summarize.py"
+    ],
+    "begin": "2026-11-01T05:30:53.517439",
+    "end": "2026-11-01T05:30:53.540652",
+    "returncode": 0,
+    "output": "repeat eligible []\n"
+  },
+  {
+    "tag": "validate.py",
+    "args": [
+      "validate.py"
+    ],
+    "begin": "2026-11-01T05:30:53.541117",
+    "end": "2026-11-01T05:31:11.387352",
+    "returncode": 0,
+    "output": "{\n  \"passed\": true,\n  \"counts\": {\n    \"smoke\": 15,\n    \"timed\": 72\n  },\n  \"exact_runs\": 39,\n  \"approximate_runs\": 48,\n  \"all_measurements_serial\": true,\n  \"construction_and_GPU_queries_before_clean_measurements\": true,\n  \"repeat_eligible\": [],\n  \"winners\": [],\n  \"all_seven_branches_pruned\": true,\n  \"open_branch_count\": 0,\n  \"branches\": {\n    \"5\": {\n      \"state\": \"Pruned\",\n      \"n\": 3\n    }\n  },\n  \"protected_paths\": 11,\n  \"protected_unchanged\": true,\n  \"no_production_deployment\": true,\n  \"scope\": \"fixed V4.0 baseline, three deterministic inputs; FB00 unchanged; Quad is bit-equivalent to two Pack4 operations under verified binding/source/liveness rules; newly introduced FB01 Pack4 uses empirical quality gates, not universal activation bounds\"\n}\n"
+  },
+  {
+    "tag": "quality_summary.py",
+    "args": [
+      "quality_summary.py"
+    ],
+    "begin": "2026-11-01T05:31:11.388000",
+    "end": "2026-11-01T05:31:11.406540",
+    "returncode": 0,
+    "output": "quality summary 87 runs\n"
+  },
+  {
+    "tag": "finalize.py",
+    "args": [
+      "finalize.py"
+    ],
+    "begin": "2026-11-01T05:31:36.871394",
+    "end": "2026-11-01T05:31:36.898024",
+    "returncode": 0,
+    "output": "\u672c\u8f6e\u65e0\u664b\u5347\uff0c\u4fdd\u7559V4.0\u4e3a\u552f\u4e001.00\u00d7\uff1b\u5206\u652f5\u6b63\u5f0fPruned3/3\uff0c\u4e03\u4e2a\u9884\u8bbe\u5206\u652f\u5168\u90e8Pruned3/3\uff0cOpen=0\u3002\n"
+  },
+  {
+    "tag": "cleanup.py",
+    "args": [
+      "cleanup.py"
+    ],
+    "begin": "2026-11-01T05:31:36.922175",
+    "end": "2026-11-01T05:31:59.981172",
+    "returncode": 0,
+    "output": "cleanup 251 files; log fragments 0\n"
+  }
+]

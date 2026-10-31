@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "counts": {
+    "smoke": 15,
+    "timed": 72
+  },
+  "exact_runs": 39,
+  "approximate_runs": 48,
+  "all_measurements_serial": true,
+  "construction_and_GPU_queries_before_clean_measurements": true,
+  "repeat_eligible": [],
+  "winners": [],
+  "all_seven_branches_pruned": true,
+  "open_branch_count": 0,
+  "branches": {
+    "5": {
+      "state": "Pruned",
+      "n": 3
+    }
+  },
+  "protected_paths": 11,
+  "protected_unchanged": true,
+  "no_production_deployment": true,
+  "scope": "fixed V4.0 baseline, three deterministic inputs; FB00 unchanged; Quad is bit-equivalent to two Pack4 operations under verified binding/source/liveness rules; newly introduced FB01 Pack4 uses empirical quality gates, not universal activation bounds",
+  "cleanup_complete": true,
+  "protected_unchanged_after_cleanup": true
+}

@@ -2,10 +2,10 @@
 
 > **当前正式版本：v0.3.0（2026-10-29）**，三包统一 `PTX V3.1_pack5`（5-SASS Pack），研发配对均值 5.75/8.42/11.35ms、低温评估 5.62/8.38/11.07ms；正式包下载：[夸克网盘](https://pan.quark.cn/s/1ace87045701) · [Gofile 镜像](https://gofile.io/d/oR1ZAEvO)（[v0.3.0 回执](ptx-patcher/release-rtx30/v030/README.md)）。历史版本：`v0.2.0`（2026-10-26，PTX V2.1，6.66/9.70/12.78ms，[Gofile](https://gofile.io/d/OOeOcxn6)，[v0.2.0 回执](ptx-patcher/release-rtx30/v020/README.md)）；`v0.1.0`（2026-10-24，PTX V1，15.83/24.47/32.04ms，[Gofile](https://gofile.io/d/s9cpHYH9)）。下文各阶段保留历史原值。
 
-**硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，101,376 B Shared Memory/SM，Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）  
+**硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，102,400 B Shared Memory/SM（block opt-in 101,376 B；驱动每 CTA 保留 1,024 B），Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）<br>
 **基线来源**：`DLSS5-AMD 0.44` 独立引擎 + NVIDIA 原版 `nvngx_dlssnr.dll` (`v310.9.16.0`)  
 **模型范围**：RTX 30 系仅保留并维护 **31 块 `0.5x Small` 轻量新模型（`Preset 2`）**，不再折腾 71 块旧模型。  
-**⚠️ Git 提交铁律（必须严格执行）**：**每完成一个功能或一个优化阶段并通过实测验证后，必须立即清理临时二进制大文件（`*.rgb32`, `*.hsaco`, `*.cubin`, `*.ptx`, `artifacts/` 等不进 Git 的构建产物）并执行一次 `git commit`（严禁加 `Co-Authored-By`）**，绝不能攒好几个阶段一宿不提交！朱雀每次派单给闇时必须在 prompt 中显式附带此提交要求。
+**⚠️ Git 提交铁律（必须严格执行）**：**每完成一个独立子任务、单个功能模块或单个文档更新后，必须立即清理临时二进制大文件及碎日志（`*.rgb32`, `*.hsaco`, `*.cubin`, `*.ptx`, `artifacts/`, 数百个单次运行 `.log` 等）并按最小颗粒度拆分执行 `git commit`（严禁加 `Co-Authored-By`）**——严禁把七八个不同修改或几百个碎文件攒成一个巨型 commit！朱雀每次派单给闇时必须在单子颗粒度和 prompt 中显式执行此要求。
 
 ---
 
@@ -1107,3 +1107,20 @@ Phase-Split将encoded解码/释放细化至2*i+phase，并在原源被当前或�
 本轮不晋升V3.3 DLL，继续以V3.1_pack5为唯一1.00×。 分支2 Open n=2/3；分支3 Pruned n=3/3；分支4 Open n=1/3。K=3剪枝只结算该批机制，不是物理极限证明；剩余Open节点仍保留。核心/生产五处/三ZIP保护性SHA全部不变，不部署、不push。清理临时大二进制，保留文本证据及独立晋升DLL（若有），立即独立commit，无Co-Authored-By。
 
 [完整回执](ptx-patcher/v33/README.md)、[逐方向计时](ptx-patcher/v33/timing-summary.md)、[探针汇总](ptx-patcher/v33/probe-summary.json)、[CFG反证](ptx-patcher/v33/forwarding-audit.json)、[验收](ptx-patcher/v33/validation.json)。
+
+
+## 2026-11-01：PTX V3.4，FB01独立Quad、Local Quad与Shared闭环前提反证（闇，10月31日晚启动）
+
+V3.4无晋升候选，保留V3.1_pack5 SHA1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86为唯一1.00×。 首轮120次正式配对中仅quad_fb1三档六方向全胜；repeat24次的720/1080均值回退0.166%/0.111%，900均值虽快0.006%但正反变号，按预先门槛否决。另三档18次快验，共162次成功运行末帧对同配置V3.1严格0bit/maxabs0/nonfinite0。计时全部串行，所有构建/GPU原语/资源查询先完成，无排除样本。最终独立核验原始SUMMARY、输出SHA与时序；修正shared_forward名称被旧子串汇总器误作forward方向的问题，原始数据与晋升裁决不变。
+
+FB01独立纯Quad仅mask12，其余14个cubin逐字节不变。实现寄存器声明绑定、同基本块最近定义及全CFG路径dead-after检查；14项结构/作用域/谓词/回边测试、6×65536 GPU融合/拒绝控制通过。Local仍只融合456/616/616共1688对，新增0：大量剩余mov是已编码字的拆分/反序拼接（如mov.b32{%rs380,%rs381},%r2099），或当前块没有两个cvt定义，并非全局计数/深度限制遗漏了大量量化对。按REG/STACK下降且无回退选出的Local模块只有FB01，等价于已测quad_fb0145，未制造重复精选候选。
+
+36项pack_multidef逐项CFG审计全部为两条可达定义，唯一可达pack为0，保留行号/定义集/前驱分支反证，不放宽生产mapped。
+
+Shared库存覆盖2320解码事件（FB01～05为2304，FB06附16），输出全部Shared符号、st/ld/cp.async、地址DAG、写端来源、跨线程见证和未解析发布epoch。另发现9入口36个非MMA同线程向量返读，通过store支配、各到达路径源词不变、TID-only地址、别名/内存写入检查，构建shared_forward及quad_fb1_shared；只转发已量化整数词，保留store/barrier与FP8量化，其他block形状走原LDS。快路/两个回退形状GPU逐位一致，正式首轮均未全档胜。直接转发量化前half不安全：GPU反例1.0625经pack5+UP为1.0。
+
+**容量反证：设备Shared为102400B/SM、默认49152B/block、opt-in101376B/block，驱动每block保留1024B。早期把101376B写作SM总量不准确。** 对实际baseline cubin加入等于payload大小的dynamic Shared并设置必要opt-in，官方Occupancy API显示FB01～05全部保持当前CTA/SM（FB01 4096→8192B仍6CTA；FB05静态24600B额外24576B仍2CTA）。这只是原REG/线程数下的容量反事实，不是已实现FP16布局改写或性能收益；但足以否定“扩容必然降驻留”。
+
+因此分支2按K=3结算Pruned3/3，分支1与3维持Pruned3/3；**分支4仍Open2/3**（本批次一次未晋升），完整耦合的保留量化FP16 Shared表示/读写/异步拷贝方向未被排除，任务单“无剩余静态路径”的终局条件未成立。不能把Open强推到0，也不移交“物理极限”终局报告。生产五处、原DLL与三ZIP九个保护路径SHA不变；清理临时大二进制，保留文本证据，立即独立commit，无Co-Authored-By，不push。
+
+[完整回执](ptx-patcher/v34/README.md)、[逐方向计时](ptx-patcher/v34/timing-summary.md)、[36项CFG](ptx-patcher/v34/multidef36-audit.json)、[Shared布局](ptx-patcher/v34/shared-layout-audit.json)、[容量API](ptx-patcher/v34/shared-capacity-api.json)、[验收](ptx-patcher/v34/validation.json)。

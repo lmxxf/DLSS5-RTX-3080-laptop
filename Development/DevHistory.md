@@ -1165,3 +1165,14 @@ Shared库存覆盖2320解码事件（FB01～05为2304，FB06附16），输出全
 运行计数{'smoke': 42, 'timed': 312, 'repeat': 24}，精确（含基线）216次0bit，近似/实证162次保留质量门结果。计时严格串行50/80、正反ABBA/BAAB，首轮六方向全胜全部repeat；资源静态削减不冒充动态净收益。九个保护路径SHA不变，清理临时大二进制及帧，无单次.log，三个职责提交，无Co-Authored-By、不push。
 
 [实验回执](ptx-patcher/v37/README.md)、[配对数据](ptx-patcher/v37/timing-summary.md)、[验收](ptx-patcher/v37/validation.json)。
+
+
+## 2026-11-01：PTX V3.8，七分支K=3末轮精准冲击与结算（闇）
+
+晋升zero_const_fb456为独立V3.8，SHA `da27f34c5e10b884dd02b448eab424a4f44109ef08efc83e6a447100acd697c3`，下一轮唯一1.00×，不覆盖生产。 分支5 Open 0/3；分支6 Pruned 3/3；分支7 Pruned 3/3，分支1～4维持Pruned3/3。
+
+A：仅FB02..06/FB04..06正零折叠、纯FB03+06 Pack4、fb26正零+Pack4；位点独立mov/cvt正零证明，排除FB00/01及其他指定模块的PTX/cubin/bin逐字节一致。B：仅FB03 inpview+upsample双入口exact/fast，其余36活跃入口相同。C：pool单核异步half视图，其余37入口相同。8个A×B+pool联合版本预先构造与冒烟，按预注册最弱方向收益优先规则，从本轮7个单因素数据选出`joint_zero_const_fb456_fb3_inp_up_fast`再独立计时，无计时中编译或查询。
+
+运行计数{'smoke': 48, 'timed': 192, 'repeat': 48}，精确（含基线）201次0bit，近似/实证87次按预设质量门验收。全部正式计时50/80串行、正反ABBA/BAAB，首轮六向全胜全部repeat；逐次输出嵌入JSON，无单次.log。九保护路径不变，临时大二进制与帧清理，三个独立提交，无Co-Authored-By、不push。结算基于有限七分支K=3预算，不把静态资源削减或有限负样本当作数学物理下限。
+
+[回执](ptx-patcher/v38/README.md)、[跑分](ptx-patcher/v38/timing-summary.md)、[验收](ptx-patcher/v38/validation.json)。

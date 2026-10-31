@@ -1,0 +1,3324 @@
+{
+  "status": "complete",
+  "removed_files": 663,
+  "logical_bytes": 4409138283,
+  "files": [
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/zero.ptx",
+      "bytes": 200,
+      "sha256": "b270aed52b58fb9db50e747b53ec3f526bbc58882647cfd92947131a1bb981cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/primitive.ptx",
+      "bytes": 840,
+      "sha256": "6987172780aa29815635391995fb49ed257c60361a9a507d69f7983f652727ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/telemetry-pid.json",
+      "bytes": 16,
+      "sha256": "0973c248acf5df2e4f02c1a912e7cd0e353985384bb798855cbd20aa8537cf68"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/telemetry.csv",
+      "bytes": 425568,
+      "sha256": "ffc39df03c767704e12baad38ecd8edb368e17022b427f4fe5c95b3703971a35"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/build-records-full.json",
+      "bytes": 18152787,
+      "sha256": "5d400a99fa2b7ee3289c4d3e66225d204411f432b87134a6d45fb86ffb1b55ca"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/zero.cubin",
+      "bytes": 2600,
+      "sha256": "ca1bc76557a47c446f144f5fc07f4011256d8d171a9a49f0553965ea89a82fe4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin04.ptx",
+      "bytes": 3549443,
+      "sha256": "b1c470728e3b6aa2d75e7010dd05d21169bbf4c5be65800a704a274a9f7bd706"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin04.cubin",
+      "bytes": 1108000,
+      "sha256": "d1d0601c8b5a7cbf81a82df6b28bf9d4c45b54c01a72f713d033dc413c3a7123"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin03.cubin",
+      "bytes": 1211424,
+      "sha256": "cbf32ac9a061834850849b10bc5295ff79acb3890d663750f4ab760b46230dae"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin03.bin",
+      "bytes": 210336,
+      "sha256": "d987b4448010b2aaa07a59637b3c2ab840c6a2e0bb643c987214562053f4290b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin03.ptx",
+      "bytes": 5317751,
+      "sha256": "57c472fc619c4eca54f47064c1079e2eaf64e47490adf83093abf53be6e39855"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin04.bin",
+      "bytes": 183472,
+      "sha256": "5646dff2282f63f57c1c1e90594d5823c4291daa773e7e79c2572d8317647993"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_ds_wait_fast_inplace/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin04.ptx",
+      "bytes": 3513708,
+      "sha256": "1f5a4d1cf84666c494693fe8ac728580b0be6a6f0f37f55c3676d963e3de961e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin06.cubin",
+      "bytes": 140128,
+      "sha256": "9f6d56f37481aa297458d66a6d7965dfe5d4d057154538533a8023ec055d52fa"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin01.ptx",
+      "bytes": 4731241,
+      "sha256": "501a7db5472b9a9909e5b2f670a3351cc3e9b033d8ac2f4bc9765775a6e99031"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin00.ptx",
+      "bytes": 5876733,
+      "sha256": "d26fab211c0320ddbfcf4c4cc560e3111ad9e54db1f9d419f65be37dd89e43d3"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin05.ptx",
+      "bytes": 4327108,
+      "sha256": "059429e589df8f5dcac6b4946fbfbf3e17bc96706470a3fafbbefcedf4428c16"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin02.bin",
+      "bytes": 155536,
+      "sha256": "33c2237e03941bdf47a6b384d4cbdc135b39b97eb880b6bbe645711e5b7a748f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin06.bin",
+      "bytes": 30520,
+      "sha256": "536e4f6e6dd6e958270b3373d070fa903c8fae26ad0bfc758bac7b6044696bf9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin00.cubin",
+      "bytes": 1365728,
+      "sha256": "87f01416419a15ff2e4f91163850b4f0b9b34a7a55c3d4743c050e7d932b8361"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin04.cubin",
+      "bytes": 1073568,
+      "sha256": "c9faccea1f2754c564d8929a6d702e8238ea119f0632eb247b6fc360e30a93f0"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin02.cubin",
+      "bytes": 1211552,
+      "sha256": "e008c29e3894857a0e27f8143a74096f4231adb4199d5ff7315468b3326ae86f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin05.cubin",
+      "bytes": 1343520,
+      "sha256": "703a0287e263b608b72e25b9a33629d4e3f2a3c9c2def5eeec50512b74f2b695"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin03.cubin",
+      "bytes": 1187104,
+      "sha256": "6fb2931514fd67d4cb09b258465705382e73af822a04aacbd9dc5624f0912b84"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin03.bin",
+      "bytes": 217504,
+      "sha256": "c08fb3149a54aa45f1f05cffc06d2f449a29dfb23f09c94f00d82727373cb818"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin03.ptx",
+      "bytes": 5648581,
+      "sha256": "445a8033097fd7fd4f1b81eb0ca32d608afa5a199a16518d6343b76159ca6262"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin02.ptx",
+      "bytes": 4960622,
+      "sha256": "20b4a2213771e0ed68c31fda36632acff30cbae34faedb8c0752bacf471f4561"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin04.bin",
+      "bytes": 179576,
+      "sha256": "2ceb8166641eaca652a89af5cb59187a99daf777508eac38c0900b398306e233"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin06.ptx",
+      "bytes": 600334,
+      "sha256": "bd0fd4a72b44e176536f15f08b6a4e3d1f0cc19bc2d8614dd75a23a70b8e033f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin01.cubin",
+      "bytes": 1146144,
+      "sha256": "0a2a96678ad390ec974e2a1d344c15b0b6b320bdf5400609a67a1ddfeff3ae96"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin00.bin",
+      "bytes": 279848,
+      "sha256": "d518c36778148d195e21ba8a9c33c68cb32f10b67e715842d43a7706a5b3635f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin05.bin",
+      "bytes": 192616,
+      "sha256": "7d0b4fdc68e34cf2b218cc88157aeaaff92060c97334ba84211014f031865b8d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_noinp/fatbin01.bin",
+      "bytes": 174272,
+      "sha256": "5622b7342d452349ba2ae77622c75d03b203f0c2ff06f5436d372b6823516168"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin04.ptx",
+      "bytes": 3570046,
+      "sha256": "abb09faa8daf7952be8eb0ed2c52945d496808b98141a5c20a8b7c99bef8dc9b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin04.cubin",
+      "bytes": 1096096,
+      "sha256": "151e95802f28ffdf24b92cd2feb62ac29a92edd18ecfec00c5674a2f14033260"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin03.cubin",
+      "bytes": 1218464,
+      "sha256": "bef7cc5468bfc72629e6227553bdbdaf51c3a26a1ed0acf3fc90e0ce5ce4987b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin03.bin",
+      "bytes": 202624,
+      "sha256": "f3e26f4f11fc8eaa0c238e4882d9c95425b36c5d374447acad78922b76fbf5b2"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin03.ptx",
+      "bytes": 5135554,
+      "sha256": "6ae4fbd3e8b175f81eff0b0d2d7921809a336bb96002fa217b34539a09c1d754"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin04.bin",
+      "bytes": 184216,
+      "sha256": "2c9d5f9ab2ddf20bbf88adf82e5f3eeb67cb57a41f2ff4d7a3f65efa2003f6ae"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_unrolled/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin04.ptx",
+      "bytes": 3549443,
+      "sha256": "b1c470728e3b6aa2d75e7010dd05d21169bbf4c5be65800a704a274a9f7bd706"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin04.cubin",
+      "bytes": 1108000,
+      "sha256": "d1d0601c8b5a7cbf81a82df6b28bf9d4c45b54c01a72f713d033dc413c3a7123"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin03.cubin",
+      "bytes": 1218464,
+      "sha256": "bef7cc5468bfc72629e6227553bdbdaf51c3a26a1ed0acf3fc90e0ce5ce4987b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin03.bin",
+      "bytes": 202624,
+      "sha256": "f3e26f4f11fc8eaa0c238e4882d9c95425b36c5d374447acad78922b76fbf5b2"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin03.ptx",
+      "bytes": 5135554,
+      "sha256": "6ae4fbd3e8b175f81eff0b0d2d7921809a336bb96002fa217b34539a09c1d754"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin04.bin",
+      "bytes": 183472,
+      "sha256": "5646dff2282f63f57c1c1e90594d5823c4291daa773e7e79c2572d8317647993"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/baseline/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin04.ptx",
+      "bytes": 3513708,
+      "sha256": "1f5a4d1cf84666c494693fe8ac728580b0be6a6f0f37f55c3676d963e3de961e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin06.cubin",
+      "bytes": 140128,
+      "sha256": "9f6d56f37481aa297458d66a6d7965dfe5d4d057154538533a8023ec055d52fa"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin01.ptx",
+      "bytes": 4731241,
+      "sha256": "501a7db5472b9a9909e5b2f670a3351cc3e9b033d8ac2f4bc9765775a6e99031"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin00.ptx",
+      "bytes": 5876733,
+      "sha256": "d26fab211c0320ddbfcf4c4cc560e3111ad9e54db1f9d419f65be37dd89e43d3"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin05.ptx",
+      "bytes": 4327108,
+      "sha256": "059429e589df8f5dcac6b4946fbfbf3e17bc96706470a3fafbbefcedf4428c16"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin02.bin",
+      "bytes": 155536,
+      "sha256": "33c2237e03941bdf47a6b384d4cbdc135b39b97eb880b6bbe645711e5b7a748f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin06.bin",
+      "bytes": 30520,
+      "sha256": "536e4f6e6dd6e958270b3373d070fa903c8fae26ad0bfc758bac7b6044696bf9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin00.cubin",
+      "bytes": 1365728,
+      "sha256": "87f01416419a15ff2e4f91163850b4f0b9b34a7a55c3d4743c050e7d932b8361"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin04.cubin",
+      "bytes": 1073568,
+      "sha256": "c9faccea1f2754c564d8929a6d702e8238ea119f0632eb247b6fc360e30a93f0"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin02.cubin",
+      "bytes": 1211552,
+      "sha256": "e008c29e3894857a0e27f8143a74096f4231adb4199d5ff7315468b3326ae86f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin05.cubin",
+      "bytes": 1343520,
+      "sha256": "703a0287e263b608b72e25b9a33629d4e3f2a3c9c2def5eeec50512b74f2b695"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin03.cubin",
+      "bytes": 1194400,
+      "sha256": "f6c19bb55480e7aea519ed15a0000f217215800ccba11d354ef5b383b8d573b6"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin03.bin",
+      "bytes": 214536,
+      "sha256": "4d804b9d735eee5ab79890432c3362f86c117bf88683bbf85f3036fef99e78cf"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin03.ptx",
+      "bytes": 5472493,
+      "sha256": "a13c1b92b6624503f5a454232328f607879cdae43a4eb5d101ed3bc467ddc365"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin02.ptx",
+      "bytes": 4960622,
+      "sha256": "20b4a2213771e0ed68c31fda36632acff30cbae34faedb8c0752bacf471f4561"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin04.bin",
+      "bytes": 179576,
+      "sha256": "2ceb8166641eaca652a89af5cb59187a99daf777508eac38c0900b398306e233"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin06.ptx",
+      "bytes": 600334,
+      "sha256": "bd0fd4a72b44e176536f15f08b6a4e3d1f0cc19bc2d8614dd75a23a70b8e033f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin01.cubin",
+      "bytes": 1146144,
+      "sha256": "0a2a96678ad390ec974e2a1d344c15b0b6b320bdf5400609a67a1ddfeff3ae96"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin00.bin",
+      "bytes": 279848,
+      "sha256": "d518c36778148d195e21ba8a9c33c68cb32f10b67e715842d43a7706a5b3635f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin05.bin",
+      "bytes": 192616,
+      "sha256": "7d0b4fdc68e34cf2b218cc88157aeaaff92060c97334ba84211014f031865b8d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/joint_regdown/fatbin01.bin",
+      "bytes": 174272,
+      "sha256": "5622b7342d452349ba2ae77622c75d03b203f0c2ff06f5436d372b6823516168"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin04.ptx",
+      "bytes": 3549443,
+      "sha256": "b1c470728e3b6aa2d75e7010dd05d21169bbf4c5be65800a704a274a9f7bd706"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin04.cubin",
+      "bytes": 1108000,
+      "sha256": "d1d0601c8b5a7cbf81a82df6b28bf9d4c45b54c01a72f713d033dc413c3a7123"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin03.cubin",
+      "bytes": 1199008,
+      "sha256": "c9e4dd5739d7c16a3b20947ac048f4ea71b974ed7f9df02b7aef56b51a4c8b92"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin03.bin",
+      "bytes": 215584,
+      "sha256": "5b03f17d05a25c69090a2fc33f5aa60683152711a9008953e90324bf69cf98dd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin03.ptx",
+      "bytes": 5485267,
+      "sha256": "8e569707b24e97a32d65fb6c0e3b642687172081f3ce1b04827a5a8053fd4fd3"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin04.bin",
+      "bytes": 183472,
+      "sha256": "5646dff2282f63f57c1c1e90594d5823c4291daa773e7e79c2572d8317647993"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_regdown_fast_inplace/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin04.ptx",
+      "bytes": 3549443,
+      "sha256": "b1c470728e3b6aa2d75e7010dd05d21169bbf4c5be65800a704a274a9f7bd706"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin04.cubin",
+      "bytes": 1108000,
+      "sha256": "d1d0601c8b5a7cbf81a82df6b28bf9d4c45b54c01a72f713d033dc413c3a7123"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin03.cubin",
+      "bytes": 1191584,
+      "sha256": "180de9b295b1ca829b8d5e19921cec10476e1b5c9a5e296068e070ee5b91d683"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin03.bin",
+      "bytes": 218608,
+      "sha256": "e4c435b2919ad7d308eae9f94bdea97607a85da0b91d2ec50fd1760aa199f196"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin03.ptx",
+      "bytes": 5661355,
+      "sha256": "bc81e51310d21a078647e1559401ffc112c9e3a08f16c98690bec9381dd3c762"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin04.bin",
+      "bytes": 183472,
+      "sha256": "5646dff2282f63f57c1c1e90594d5823c4291daa773e7e79c2572d8317647993"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_noinp_fast_inplace/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin04.ptx",
+      "bytes": 3549443,
+      "sha256": "b1c470728e3b6aa2d75e7010dd05d21169bbf4c5be65800a704a274a9f7bd706"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin04.cubin",
+      "bytes": 1108000,
+      "sha256": "d1d0601c8b5a7cbf81a82df6b28bf9d4c45b54c01a72f713d033dc413c3a7123"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin03.cubin",
+      "bytes": 1211040,
+      "sha256": "7b2e91242694d7d4fe75a6cb58fea280a9fef06cf368f9c2dd14a750d2066e36"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin03.bin",
+      "bytes": 208432,
+      "sha256": "36b41862e6e01d1f5f878931918480a9354641b4eec46d200b07798ff7831d84"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin03.ptx",
+      "bytes": 5311642,
+      "sha256": "a4b51c80514395d6ffc66f501d42c663d1a41ba8f57fe145fbad087f6174a6e1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin04.bin",
+      "bytes": 183472,
+      "sha256": "5646dff2282f63f57c1c1e90594d5823c4291daa773e7e79c2572d8317647993"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_outview_fast_inplace/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin04.ptx",
+      "bytes": 3493105,
+      "sha256": "f80416896a7264ec514b6b00b80cf958e5a2b47948e85a673b7fbc30180c6087"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin06.cubin",
+      "bytes": 136032,
+      "sha256": "c2596853a30b9639ac77aea7d3771e996f2ca9821a32a1c94460cf92377d606a"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin01.ptx",
+      "bytes": 4731241,
+      "sha256": "501a7db5472b9a9909e5b2f670a3351cc3e9b033d8ac2f4bc9765775a6e99031"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin00.ptx",
+      "bytes": 5876733,
+      "sha256": "d26fab211c0320ddbfcf4c4cc560e3111ad9e54db1f9d419f65be37dd89e43d3"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin05.ptx",
+      "bytes": 4327108,
+      "sha256": "059429e589df8f5dcac6b4946fbfbf3e17bc96706470a3fafbbefcedf4428c16"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin02.bin",
+      "bytes": 155536,
+      "sha256": "33c2237e03941bdf47a6b384d4cbdc135b39b97eb880b6bbe645711e5b7a748f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin06.bin",
+      "bytes": 30584,
+      "sha256": "e4202b62cd265c9d0ea10287b35bd9d7b2642e1ea529b8abada4b03e4b9e3881"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin00.cubin",
+      "bytes": 1365728,
+      "sha256": "87f01416419a15ff2e4f91163850b4f0b9b34a7a55c3d4743c050e7d932b8361"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin04.cubin",
+      "bytes": 1084960,
+      "sha256": "0400a6b13423ded2ae6968741d2f26a6e645f3e10a0a05cc036da8335e59ce1c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin02.cubin",
+      "bytes": 1211552,
+      "sha256": "e008c29e3894857a0e27f8143a74096f4231adb4199d5ff7315468b3326ae86f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin05.cubin",
+      "bytes": 1343520,
+      "sha256": "703a0287e263b608b72e25b9a33629d4e3f2a3c9c2def5eeec50512b74f2b695"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin03.cubin",
+      "bytes": 1187744,
+      "sha256": "17189b79511efbf4e5877e6303673103dd44cf1529c40f5a098b20c22a2a9f6d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin03.bin",
+      "bytes": 196872,
+      "sha256": "59db0911e9f6be1db6a5ea8ba8e81a0d4d5d012e08c856c76b02d3aa2630b34c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin03.ptx",
+      "bytes": 5002012,
+      "sha256": "56350cfa2248cd1a40402c2fff4ed6ac1af00cb6eaa79bd71111759550c7d8d1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin02.ptx",
+      "bytes": 4960622,
+      "sha256": "20b4a2213771e0ed68c31fda36632acff30cbae34faedb8c0752bacf471f4561"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin04.bin",
+      "bytes": 177976,
+      "sha256": "e893c79ee8946bb042ee9c3bcd125a083e21cb2df4a0a9a7b0c64590a65144aa"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin06.ptx",
+      "bytes": 581390,
+      "sha256": "8e5468e4e7b702cc4f582867e9537058947f896b73c469a9c9854ab06ad9552e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin01.cubin",
+      "bytes": 1146144,
+      "sha256": "0a2a96678ad390ec974e2a1d344c15b0b6b320bdf5400609a67a1ddfeff3ae96"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin00.bin",
+      "bytes": 279848,
+      "sha256": "d518c36778148d195e21ba8a9c33c68cb32f10b67e715842d43a7706a5b3635f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin05.bin",
+      "bytes": 192616,
+      "sha256": "7d0b4fdc68e34cf2b218cc88157aeaaff92060c97334ba84211014f031865b8d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean36/fatbin01.bin",
+      "bytes": 174272,
+      "sha256": "5622b7342d452349ba2ae77622c75d03b203f0c2ff06f5436d372b6823516168"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin04.ptx",
+      "bytes": 3554446,
+      "sha256": "7edadbf04dc6dba7c3b17fb2f39b1f45f4e751324fde9c7df186f5a8f288c19b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin04.cubin",
+      "bytes": 1089440,
+      "sha256": "8a1cee97e441e9e5c616f47a1ef8b6fa72c3f67ad72fe0dd4a22c5f72a0f86a6"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin03.cubin",
+      "bytes": 1218464,
+      "sha256": "bef7cc5468bfc72629e6227553bdbdaf51c3a26a1ed0acf3fc90e0ce5ce4987b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin03.bin",
+      "bytes": 202624,
+      "sha256": "f3e26f4f11fc8eaa0c238e4882d9c95425b36c5d374447acad78922b76fbf5b2"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin03.ptx",
+      "bytes": 5135554,
+      "sha256": "6ae4fbd3e8b175f81eff0b0d2d7921809a336bb96002fa217b34539a09c1d754"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin04.bin",
+      "bytes": 184024,
+      "sha256": "ec6c915d2b7cb0d5716478115340163e1acf0df02eb0b833fb6e40e50a07a286"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/async_qkv_only/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin04.ptx",
+      "bytes": 3493105,
+      "sha256": "f80416896a7264ec514b6b00b80cf958e5a2b47948e85a673b7fbc30180c6087"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin06.cubin",
+      "bytes": 140128,
+      "sha256": "9f6d56f37481aa297458d66a6d7965dfe5d4d057154538533a8023ec055d52fa"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin01.ptx",
+      "bytes": 4731241,
+      "sha256": "501a7db5472b9a9909e5b2f670a3351cc3e9b033d8ac2f4bc9765775a6e99031"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin00.ptx",
+      "bytes": 5876733,
+      "sha256": "d26fab211c0320ddbfcf4c4cc560e3111ad9e54db1f9d419f65be37dd89e43d3"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin05.ptx",
+      "bytes": 4327108,
+      "sha256": "059429e589df8f5dcac6b4946fbfbf3e17bc96706470a3fafbbefcedf4428c16"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin02.bin",
+      "bytes": 155536,
+      "sha256": "33c2237e03941bdf47a6b384d4cbdc135b39b97eb880b6bbe645711e5b7a748f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin06.bin",
+      "bytes": 30520,
+      "sha256": "536e4f6e6dd6e958270b3373d070fa903c8fae26ad0bfc758bac7b6044696bf9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin00.cubin",
+      "bytes": 1365728,
+      "sha256": "87f01416419a15ff2e4f91163850b4f0b9b34a7a55c3d4743c050e7d932b8361"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin04.cubin",
+      "bytes": 1084960,
+      "sha256": "0400a6b13423ded2ae6968741d2f26a6e645f3e10a0a05cc036da8335e59ce1c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin02.cubin",
+      "bytes": 1211552,
+      "sha256": "e008c29e3894857a0e27f8143a74096f4231adb4199d5ff7315468b3326ae86f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin05.cubin",
+      "bytes": 1343520,
+      "sha256": "703a0287e263b608b72e25b9a33629d4e3f2a3c9c2def5eeec50512b74f2b695"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin03.cubin",
+      "bytes": 1213728,
+      "sha256": "d41ac4bbe7444bd960edf2d2089cbda6443b0684024d4b8eb34e9cb54b6f2cdb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin03.bin",
+      "bytes": 202192,
+      "sha256": "de7f871c409d840d6cf767ca5be7a0736101fbbcaf8995969526591adf4980d8"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin03.ptx",
+      "bytes": 5122780,
+      "sha256": "ef622a6267a670610ebc84fd5e923586e765fc4924a35ff9c9a4d58c11182e73"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin02.ptx",
+      "bytes": 4960622,
+      "sha256": "20b4a2213771e0ed68c31fda36632acff30cbae34faedb8c0752bacf471f4561"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin04.bin",
+      "bytes": 177976,
+      "sha256": "e893c79ee8946bb042ee9c3bcd125a083e21cb2df4a0a9a7b0c64590a65144aa"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin06.ptx",
+      "bytes": 600334,
+      "sha256": "bd0fd4a72b44e176536f15f08b6a4e3d1f0cc19bc2d8614dd75a23a70b8e033f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin01.cubin",
+      "bytes": 1146144,
+      "sha256": "0a2a96678ad390ec974e2a1d344c15b0b6b320bdf5400609a67a1ddfeff3ae96"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin00.bin",
+      "bytes": 279848,
+      "sha256": "d518c36778148d195e21ba8a9c33c68cb32f10b67e715842d43a7706a5b3635f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin05.bin",
+      "bytes": 192616,
+      "sha256": "7d0b4fdc68e34cf2b218cc88157aeaaff92060c97334ba84211014f031865b8d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack_zero_const/fatbin01.bin",
+      "bytes": 174272,
+      "sha256": "5622b7342d452349ba2ae77622c75d03b203f0c2ff06f5436d372b6823516168"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin04.ptx",
+      "bytes": 3549443,
+      "sha256": "b1c470728e3b6aa2d75e7010dd05d21169bbf4c5be65800a704a274a9f7bd706"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin04.cubin",
+      "bytes": 1108000,
+      "sha256": "d1d0601c8b5a7cbf81a82df6b28bf9d4c45b54c01a72f713d033dc413c3a7123"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin03.cubin",
+      "bytes": 1206048,
+      "sha256": "892979c1820ccb1f53ad0c525f2324e99f94097165e40cb559625edb68527574"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin03.bin",
+      "bytes": 210328,
+      "sha256": "fd79917e8e6aae3156fff8f09545b8ba8d63a23832f87d2be2ea6b6f11715704"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin03.ptx",
+      "bytes": 5303070,
+      "sha256": "5b50d615d44f14a7b02d8bc5d671e33f96a10915d52971902f2427ba04bb5c62"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin04.bin",
+      "bytes": 183472,
+      "sha256": "5646dff2282f63f57c1c1e90594d5823c4291daa773e7e79c2572d8317647993"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_upsample_fast_inplace/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/raw/fb04.ptx",
+      "bytes": 1902401,
+      "sha256": "8b814123372e84671dc292b9322b367d214ad34c8664d0a5f46c2725dffaca4d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/raw/fb05.ptx",
+      "bytes": 2542299,
+      "sha256": "5ed9db6353cc59412e05b4d5ae856c2b7a673a8880d9f59e2d171aea84499bd5"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/raw/fb01.ptx",
+      "bytes": 2703523,
+      "sha256": "736a4fd242061624c6a9bcd91e2347fdababac064db402514ef22b1ee73e94c8"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/raw/fb00.ptx",
+      "bytes": 4416786,
+      "sha256": "1e8653104cbbe75935dd53cae4589746ffccf10f45c24411efeb72a7bb9e693c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/raw/fb02.ptx",
+      "bytes": 2666045,
+      "sha256": "f0e631ef6e8b2ffb9eee41306efb5437fe14c40dec33dcc08affcb8e63b6461e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/raw/fb03.ptx",
+      "bytes": 2864614,
+      "sha256": "5dad18f16b580a59a8d30e5c79eadabbceee5a44aef6ef80c6ccd2470d697a02"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/raw/fb06.ptx",
+      "bytes": 309618,
+      "sha256": "e0a4a58e943b57b26db64d4d5f0a5bcbada624c54af474a6d94bf2613d5a59e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin04.ptx",
+      "bytes": 3493105,
+      "sha256": "f80416896a7264ec514b6b00b80cf958e5a2b47948e85a673b7fbc30180c6087"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin06.cubin",
+      "bytes": 136032,
+      "sha256": "c2596853a30b9639ac77aea7d3771e996f2ca9821a32a1c94460cf92377d606a"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin01.ptx",
+      "bytes": 4731241,
+      "sha256": "501a7db5472b9a9909e5b2f670a3351cc3e9b033d8ac2f4bc9765775a6e99031"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin00.ptx",
+      "bytes": 5876733,
+      "sha256": "d26fab211c0320ddbfcf4c4cc560e3111ad9e54db1f9d419f65be37dd89e43d3"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin05.ptx",
+      "bytes": 4192132,
+      "sha256": "b49f6f0a8bef1440c1ac357a796fb62c19720077c6b46013d3cd607097036165"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin02.bin",
+      "bytes": 151128,
+      "sha256": "8cf6b480359a15803b9de9b20aa4d8abbe65227d6bd6908cf44140e89060b46d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin06.bin",
+      "bytes": 30584,
+      "sha256": "e4202b62cd265c9d0ea10287b35bd9d7b2642e1ea529b8abada4b03e4b9e3881"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin00.cubin",
+      "bytes": 1365728,
+      "sha256": "87f01416419a15ff2e4f91163850b4f0b9b34a7a55c3d4743c050e7d932b8361"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin04.cubin",
+      "bytes": 1084960,
+      "sha256": "0400a6b13423ded2ae6968741d2f26a6e645f3e10a0a05cc036da8335e59ce1c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin02.cubin",
+      "bytes": 1184800,
+      "sha256": "da9187c1d982cd0dca5f19efb949c251cbbde92208b6103b747dbb5acf7ad5ca"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin05.cubin",
+      "bytes": 1314336,
+      "sha256": "f31c54c6aa1b06a9c8b5d4b3f0fd03f5478e373b94171b10c27345a55c8b0c79"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin03.cubin",
+      "bytes": 1187744,
+      "sha256": "17189b79511efbf4e5877e6303673103dd44cf1529c40f5a098b20c22a2a9f6d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin03.bin",
+      "bytes": 196872,
+      "sha256": "59db0911e9f6be1db6a5ea8ba8e81a0d4d5d012e08c856c76b02d3aa2630b34c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin03.ptx",
+      "bytes": 5002012,
+      "sha256": "56350cfa2248cd1a40402c2fff4ed6ac1af00cb6eaa79bd71111759550c7d8d1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin02.ptx",
+      "bytes": 4839854,
+      "sha256": "070a32e5baecdd34122989bb1dc483739e748d2ca329b6b2b8b805462633b764"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin04.bin",
+      "bytes": 177976,
+      "sha256": "e893c79ee8946bb042ee9c3bcd125a083e21cb2df4a0a9a7b0c64590a65144aa"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin06.ptx",
+      "bytes": 581390,
+      "sha256": "8e5468e4e7b702cc4f582867e9537058947f896b73c469a9c9854ab06ad9552e"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin01.cubin",
+      "bytes": 1146144,
+      "sha256": "0a2a96678ad390ec974e2a1d344c15b0b6b320bdf5400609a67a1ddfeff3ae96"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin00.bin",
+      "bytes": 279848,
+      "sha256": "d518c36778148d195e21ba8a9c33c68cb32f10b67e715842d43a7706a5b3635f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin05.bin",
+      "bytes": 183936,
+      "sha256": "daeb8ba01f5c8a6614bf9e75fd7f6af56f472c114f2f5d5205a91400f75f258c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/pack4_clean2356/fatbin01.bin",
+      "bytes": 174272,
+      "sha256": "5622b7342d452349ba2ae77622c75d03b203f0c2ff06f5436d372b6823516168"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin04.ptx",
+      "bytes": 3549443,
+      "sha256": "b1c470728e3b6aa2d75e7010dd05d21169bbf4c5be65800a704a274a9f7bd706"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin13.bin",
+      "bytes": 8888,
+      "sha256": "1c857c3189763aa3339dd0f446990f4855845b96060ddd60ad2901c6b464cf03"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin06.cubin",
+      "bytes": 144224,
+      "sha256": "590973aa26c5f5d1153538483e3db8be1ae9a444c9beba0cb88619ca361f499b"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin01.ptx",
+      "bytes": 4744015,
+      "sha256": "48720749a06a2980b8ba0ebea1dd0dc73df1d45172337866a45eee4ea9bc36bc"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin10.ptx",
+      "bytes": 5136,
+      "sha256": "598b3ba95c543d3f13375a9fd53eded42fe2b794cd676828d19ec272f43fde88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin00.ptx",
+      "bytes": 5895893,
+      "sha256": "b2d22bce71012fbdc3b561ddb8cc92975b134bb8b868f9cd123270fc0e26216d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin11.cubin",
+      "bytes": 5672,
+      "sha256": "6f0a7dd223f886f2669b81d091fd95f8d6cb6d43fa351229266644a07c66e369"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin12.cubin",
+      "bytes": 3752,
+      "sha256": "d381278bfcbebcf9ffb58592ff73aa73578365980a5abad633b5905aed7b051d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin13.cubin",
+      "bytes": 32672,
+      "sha256": "14461115119d381c09cb4df313f500783f29e1a61c0eced7d09259b70d07118d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin10.cubin",
+      "bytes": 5792,
+      "sha256": "e4589e831583fa90eed5d99e977eb6f1b84a2da64d74e5c1df1708d6a87be1ee"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin05.ptx",
+      "bytes": 4419284,
+      "sha256": "9b9b0f749c8c9a3add80ec41503184f8425ce5821e916706bafdb2dc7d92a3c7"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin14.cubin",
+      "bytes": 4008,
+      "sha256": "58c6e866724bbf423831e53b0e9ca5f27a5fcbf96c7c2924f312d718695c9d81"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin12.ptx",
+      "bytes": 1005,
+      "sha256": "9d2dba5c1a9e098bcf005463e2f2e8453122b020c0becec9f9321061b3dc03e9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin11.bin",
+      "bytes": 1536,
+      "sha256": "bc1593fab96f66715343afdcc3a732cfa3ead371af57bc199b2f29d0c3b2441f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin02.bin",
+      "bytes": 158600,
+      "sha256": "3c354cadfe1117b36e273093a2f106834d912e6a660dbed4b5235b38a2050819"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin09.cubin",
+      "bytes": 6248,
+      "sha256": "0f03da4a318b094214f0aa8d38f053664cf6a974b30f129c2634f6efc09ce81c"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin10.bin",
+      "bytes": 1816,
+      "sha256": "60f457721e3af2b1ebae676fa6ec078c7e6d7289462d89e77f3fb25087ab09ff"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin07.bin",
+      "bytes": 1448,
+      "sha256": "f3d4638f1c574eee41c44363bdb9949fd7ee0b25fa0048bd94f26feef12a1ef1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin06.bin",
+      "bytes": 31672,
+      "sha256": "14c6cb6f327aee00491d5291acab070cdd163b0caa94e93cad2c6ecb832dbb99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin00.cubin",
+      "bytes": 1374176,
+      "sha256": "a5591ae845be9ba190b8161e8c0759c565991dd0e4b9a2ae864bc887c8dc5d52"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin13.ptx",
+      "bytes": 72376,
+      "sha256": "02864fa3a879b05c445a08c713e8d87952eef684b494a1e4f72bcb91908d2046"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin04.cubin",
+      "bytes": 1108000,
+      "sha256": "d1d0601c8b5a7cbf81a82df6b28bf9d4c45b54c01a72f713d033dc413c3a7123"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin11.ptx",
+      "bytes": 4095,
+      "sha256": "35f12669c0b75dd3801fa4c05f211042f930eccc61a59e67de5a45454cfd88fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin02.cubin",
+      "bytes": 1221152,
+      "sha256": "001e1b0fe08d96c91d9a125fb9a93233987abc0db6792a08bc060bfcb504b2fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin05.cubin",
+      "bytes": 1380896,
+      "sha256": "0b59ee97bc1f564e5df07e795715e402ea202e76d938163ac97032c5fd9e5d1f"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin03.cubin",
+      "bytes": 1210144,
+      "sha256": "be1e9e6394786dc7faba5821a87661975555365f7c6ed3921026a0f24e39f9fb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin03.bin",
+      "bytes": 212104,
+      "sha256": "1c7dda0a3f3e43ef53d71b3f5f93079a6b19e996f5917ba1e25d81eef5dd3298"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin03.ptx",
+      "bytes": 5309439,
+      "sha256": "98e5d6ed7baa2b17b8f23e0df04c3536d34137f82c299291fd22b4a99db093d1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin08.ptx",
+      "bytes": 3942,
+      "sha256": "589d003fbe1a0f591e019421f94e8056f89a1a5feee21d85f4af24e95c6ade88"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin09.ptx",
+      "bytes": 4718,
+      "sha256": "453ca7d30582be510df8720b2830d5ec41dd5297a4d0863c09343b3b38c2bfb9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin14.bin",
+      "bytes": 1240,
+      "sha256": "9c67866238c0a2b3aca8b136210108ce3e9702fec46b297b4d32011907649ddb"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin12.bin",
+      "bytes": 1128,
+      "sha256": "5028c144caf72359de475598cbbe48212bf81f4d9c4ff06087caf0bd03b8b6be"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin14.ptx",
+      "bytes": 1564,
+      "sha256": "2de19310aed0c17660be0e227fd41123c8cfd05915b28aa22d141f27f58ba8a9"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin02.ptx",
+      "bytes": 4973402,
+      "sha256": "9efc1307ad336c1653b28645db271bdd3ad3ad12f2d67588543818b36edca6cd"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin07.cubin",
+      "bytes": 4392,
+      "sha256": "afb9f2be12daea3d90de1e63fb19865295a63161c7d8b948938e2beec591c587"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin08.cubin",
+      "bytes": 5608,
+      "sha256": "8b032e4c6853750eb3345aba2826656879c80ca62c312e41bd792ed7a093809d"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin04.bin",
+      "bytes": 183472,
+      "sha256": "5646dff2282f63f57c1c1e90594d5823c4291daa773e7e79c2572d8317647993"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin06.ptx",
+      "bytes": 611850,
+      "sha256": "458bcf2a33660202b941a725a3aa8b920ff041ce5480504d8872acfd5b203c99"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin01.cubin",
+      "bytes": 1152800,
+      "sha256": "5fabfb6f8352f64fd11f8ae6f36026f055c8cf66bb0786fca758afca8c98ebf1"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin00.bin",
+      "bytes": 281368,
+      "sha256": "6ad7c28c6db9043e808bcfde46331f49fa594450eda2bb3ae74b7e4023430ec4"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin05.bin",
+      "bytes": 196168,
+      "sha256": "87c924a8c335127af1c27ca89d5a6ae201843995571add6a9c11dcea262b1fda"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin07.ptx",
+      "bytes": 2610,
+      "sha256": "6e281013013387382a3abf6ffb0d822f20f74ab6964271e61ef41e1730d08438"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin08.bin",
+      "bytes": 1520,
+      "sha256": "d44af453c4cc7dffe8f09f0592b37849ca32819106cbae51144f431b99aac641"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin09.bin",
+      "bytes": 1608,
+      "sha256": "b23b36fd511c8d7a85920b494a65a69e4e61034fa7a3904e7ef135d3961bdd60"
+    },
+    {
+      "path": "/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v37/artifacts/fb3_inpview_fast_inplace/fatbin01.bin",
+      "bytes": 176512,
+      "sha256": "6aeb477b1001f21a0b9c59a36fd3d4ca43e0e5565025db179c2cc0108000246e"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v37-bench/gold-1-1-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "95d647a6f90786b76b1481a4d9b81c76305f4b1ddaccc2fda81e38004785ddd7"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v37-bench/gold-1-1-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "9b418a89cb07cd3391e135d07fd91167f58a47acf5fc5e324cce9140c1b2398f"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v37-bench/gold-1-1-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "8062d30a9d6c29d659eaeb17095f21a5ddc81abed073655ca9e0967fcf7f60f4"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v37-bench/gold-50-80-1280.rgb32",
+      "bytes": 11059200,
+      "sha256": "39f1f7a07e71de113190c5f1d0b310c522b381399a0365a9d639444fdf1c4ae4"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v37-bench/gold-50-80-1600.rgb32",
+      "bytes": 17280000,
+      "sha256": "258996c2b851c8e7af6188f555d9687c00c4785fb39203ad9938a279ebbefb6c"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/ptx-v37-bench/gold-50-80-1920.rgb32",
+      "bytes": 24883200,
+      "sha256": "d2a553133ea0efad5fbb700325588eabea0f55fb79bcbad727e6258594b890a9"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_baseline.dll",
+      "bytes": 266414592,
+      "sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_async_qkv_only.dll",
+      "bytes": 266414592,
+      "sha256": "4b274c4417b45fec96a9943adf40d85231bc6d63099d8d8e85613a01aaffc301"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_async_qkv_unrolled.dll",
+      "bytes": 266414592,
+      "sha256": "e656a1fe71ada2764d25ebe9584f8e677ad90c965fe2b8129e0736ea83bc2ae5"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_pack_zero_const.dll",
+      "bytes": 266414592,
+      "sha256": "0cc319fe349fb382f3d9b15b670c28c44304bcf08f3228741c8db4950ee7db86"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_pack4_clean2356.dll",
+      "bytes": 266414592,
+      "sha256": "d8be4b554fcefc556928014255351317e49b1347076749be4a6a8edc85272491"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_pack4_clean36.dll",
+      "bytes": 266414592,
+      "sha256": "d8f17e5ba0f276c5123436e8aa4ada5ee95bc4454eda288dad99da00c1c11cde"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_fb3_ds_wait_fast_inplace.dll",
+      "bytes": 266414592,
+      "sha256": "d9c6bbc4f2e0f67722d2bcd6865bcf6fe834ca7a1353f6297cf436e864da6dc6"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_fb3_inpview_fast_inplace.dll",
+      "bytes": 266414592,
+      "sha256": "c74e66396a5b48984a7715847a8713861c96ad8ff5d69b9e4f9226844bb75a2b"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_fb3_outview_fast_inplace.dll",
+      "bytes": 266414592,
+      "sha256": "6659569df9f87b3fbb1bee1fd1c701744c85faf468b44088a7fea1dc8060e701"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_fb3_upsample_fast_inplace.dll",
+      "bytes": 266414592,
+      "sha256": "07a555d88c9445b57a656e0209d2d6a7be8e5b061139e2f0c00dd28547899589"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_fb3_regdown_fast_inplace.dll",
+      "bytes": 266414592,
+      "sha256": "be0317d20e589a0d8639b1e7651424c54eaf0a522d3cc0c0be5789c9ecd34711"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_joint_regdown.dll",
+      "bytes": 266414592,
+      "sha256": "e96022d315b8b180336b17b69695174676f05675217a4e5e7a68e1150b2d8c70"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_fb3_noinp_fast_inplace.dll",
+      "bytes": 266414592,
+      "sha256": "58bec64e366144d1b9326bc2c0400d27f16e6daca7cdca09bbd3e061089edc97"
+    },
+    {
+      "path": "/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v37_joint_noinp.dll",
+      "bytes": 266414592,
+      "sha256": "a5918db51258e04ab776c2d60a4e4a3d1f5c03a2f43b68137899383880d53c4f"
+    }
+  ],
+  "per_run_log_fragments_remaining": 0,
+  "protected_unchanged": true
+}

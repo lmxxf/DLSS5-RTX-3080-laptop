@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "counts": {
+    "smoke": 42,
+    "timed": 312,
+    "repeat": 24
+  },
+  "exact_runs": 216,
+  "approximate_runs": 162,
+  "all_measurements_serial": true,
+  "construction_and_GPU_queries_before_clean_measurements": true,
+  "repeat_eligible": [
+    "pack4_clean36"
+  ],
+  "winners": [],
+  "branches": {
+    "5": {
+      "state": "Open",
+      "n": 2
+    },
+    "6": {
+      "state": "Open",
+      "n": 2
+    },
+    "7": {
+      "state": "Open",
+      "n": 2
+    }
+  },
+  "protected_paths": 9,
+  "protected_unchanged": true,
+  "no_production_deployment": true,
+  "scope": "fixed V3.1 baseline, three deterministic benchmark inputs; empirical Pack4 is not a static activation bound; async cases only publication-certified selected loads",
+  "cleanup_complete": true,
+  "protected_unchanged_after_cleanup": true
+}

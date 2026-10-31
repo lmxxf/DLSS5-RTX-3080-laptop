@@ -1,0 +1,11 @@
+[
+  {
+    "FB": 2,
+    "kernel": "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8",
+    "epoch_instruction": 5981,
+    "MMA_static_events": 32,
+    "producer_store_sites": 2,
+    "load_sites": 8,
+    "selection": "largest fully mapped same-basic-block local publication segment per FB, before timing; old view retained elsewhere"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "test": "pack4",
+    "domain_half_count": 48642,
+    "pairs": 16777216,
+    "rotate": false,
+    "mismatches": 0
+  },
+  {
+    "test": "pack4",
+    "domain_half_count": 48642,
+    "pairs": 16777216,
+    "rotate": true,
+    "mismatches": 0
+  },
+  {
+    "test": "pack3",
+    "domain_half_count": 24321,
+    "pairs": 16777216,
+    "rotate": false,
+    "mismatches": 0
+  },
+  {
+    "test": "pack3",
+    "domain_half_count": 24321,
+    "pairs": 16777216,
+    "rotate": true,
+    "mismatches": 0
+  },
+  {
+    "test": "all-byte inverse including reserved codes",
+    "pairs": 16777216,
+    "rotate": false,
+    "mismatches": 0
+  },
+  {
+    "test": "all-byte inverse including reserved codes",
+    "pairs": 16777216,
+    "rotate": true,
+    "mismatches": 0
+  }
+]

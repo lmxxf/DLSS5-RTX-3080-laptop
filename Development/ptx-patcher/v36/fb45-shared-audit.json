@@ -1,0 +1,3571 @@
+{
+  "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_115FusedSwin2dFfwdINS_21FusedSwin2dFfwdConfigILi512ELi64ELi4ELi8ELi8ELi1ELi4ELi64ELi32ELb0ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ENS2_ILi2EJS5_S6_EEELi32EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSP_iiiE20shared_input_storage",
+        "bytes": 8192,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_115FusedSwin2dFfwdINS_21FusedSwin2dFfwdConfigILi512ELi64ELi4ELi8ELi8ELi1ELi4ELi64ELi32ELb0ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ENS2_ILi2EJS5_S6_EEELi32EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSP_iiiE27shared_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 18,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 32,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 54,
+        "publication_index": 585,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 9,
+        "st_shared_sites": 8,
+        "cp_text": [
+          "cp.async.ca.shared.global [%r142], [%rd186], 4;",
+          "cp.async.ca.shared.global [%r178], [%rd187], 4;",
+          "cp.async.ca.shared.global [%r216], [%rd188], 4;",
+          "cp.async.ca.shared.global [%r252], [%rd189], 4;",
+          "cp.async.ca.shared.global [%r284], [%rd190], 4;",
+          "cp.async.ca.shared.global [%r318], [%rd191], 4;",
+          "cp.async.ca.shared.global [%r348], [%rd192], 4;",
+          "cp.async.ca.shared.global [%r374], [%rd193], 4;",
+          "cp.async.wait_group 0;"
+        ],
+        "store_text": [
+          "st.shared.u32 [%r143], %r144;",
+          "st.shared.u32 [%r179], %r180;",
+          "st.shared.u32 [%r217], %r218;",
+          "st.shared.u32 [%r253], %r254;",
+          "st.shared.u32 [%r285], %r286;",
+          "st.shared.u32 [%r319], %r320;",
+          "st.shared.u32 [%r349], %r350;",
+          "st.shared.u32 [%r375], %r376;"
+        ]
+      },
+      {
+        "begin_line": 734,
+        "publication_index": 1225,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 9,
+        "st_shared_sites": 8,
+        "cp_text": [
+          "cp.async.ca.shared.global [%r451], [%rd194], 4;",
+          "cp.async.ca.shared.global [%r459], [%rd195], 4;",
+          "cp.async.ca.shared.global [%r471], [%rd196], 4;",
+          "cp.async.ca.shared.global [%r481], [%rd197], 4;",
+          "cp.async.ca.shared.global [%r490], [%rd198], 4;",
+          "cp.async.ca.shared.global [%r500], [%rd199], 4;",
+          "cp.async.ca.shared.global [%r509], [%rd200], 4;",
+          "cp.async.ca.shared.global [%r522], [%rd201], 4;",
+          "cp.async.wait_group 0;"
+        ],
+        "store_text": [
+          "st.shared.u32 [%r449], %r450;",
+          "st.shared.u32 [%r457], %r458;",
+          "st.shared.u32 [%r469], %r470;",
+          "st.shared.u32 [%r479], %r480;",
+          "st.shared.u32 [%r488], %r489;",
+          "st.shared.u32 [%r498], %r499;",
+          "st.shared.u32 [%r507], %r508;",
+          "st.shared.u32 [%r520], %r521;"
+        ]
+      },
+      {
+        "begin_line": 1908,
+        "publication_index": 2083,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4607,
+        "publication_index": 2094,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 32,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 54,
+        "publication_index": 585,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 9,
+        "st_shared_sites": 8,
+        "cp_text": [
+          "cp.async.ca.shared.global [%r142], [%rd186], 4;",
+          "cp.async.ca.shared.global [%r178], [%rd187], 4;",
+          "cp.async.ca.shared.global [%r216], [%rd188], 4;",
+          "cp.async.ca.shared.global [%r252], [%rd189], 4;",
+          "cp.async.ca.shared.global [%r284], [%rd190], 4;",
+          "cp.async.ca.shared.global [%r318], [%rd191], 4;",
+          "cp.async.ca.shared.global [%r348], [%rd192], 4;",
+          "cp.async.ca.shared.global [%r374], [%rd193], 4;",
+          "cp.async.wait_group 0;"
+        ],
+        "store_text": [
+          "st.shared.u32 [%r143], %r144;",
+          "st.shared.u32 [%r179], %r180;",
+          "st.shared.u32 [%r217], %r218;",
+          "st.shared.u32 [%r253], %r254;",
+          "st.shared.u32 [%r285], %r286;",
+          "st.shared.u32 [%r319], %r320;",
+          "st.shared.u32 [%r349], %r350;",
+          "st.shared.u32 [%r375], %r376;"
+        ]
+      },
+      {
+        "begin_line": 734,
+        "publication_index": 1225,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 9,
+        "st_shared_sites": 8,
+        "cp_text": [
+          "cp.async.ca.shared.global [%r451], [%rd194], 4;",
+          "cp.async.ca.shared.global [%r459], [%rd195], 4;",
+          "cp.async.ca.shared.global [%r471], [%rd196], 4;",
+          "cp.async.ca.shared.global [%r481], [%rd197], 4;",
+          "cp.async.ca.shared.global [%r490], [%rd198], 4;",
+          "cp.async.ca.shared.global [%r500], [%rd199], 4;",
+          "cp.async.ca.shared.global [%r509], [%rd200], 4;",
+          "cp.async.ca.shared.global [%r522], [%rd201], 4;",
+          "cp.async.wait_group 0;"
+        ],
+        "store_text": [
+          "st.shared.u32 [%r449], %r450;",
+          "st.shared.u32 [%r457], %r458;",
+          "st.shared.u32 [%r469], %r470;",
+          "st.shared.u32 [%r479], %r480;",
+          "st.shared.u32 [%r488], %r489;",
+          "st.shared.u32 [%r498], %r499;",
+          "st.shared.u32 [%r507], %r508;",
+          "st.shared.u32 [%r520], %r521;"
+        ]
+      },
+      {
+        "begin_line": 1908,
+        "publication_index": 2083,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4607,
+        "publication_index": 2094,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 585,
+        "line": 733
+      },
+      {
+        "index": 1225,
+        "line": 1907
+      },
+      {
+        "index": 2083,
+        "line": 4606
+      }
+    ],
+    "MMA_shared_loads": 16,
+    "clean_loads": 8,
+    "original_static_shared": 8208,
+    "extra_shadow_bytes": 16384,
+    "total_static_shared": 24592,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": true,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_split_swin_16h_ffwd_512_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_115FusedSwin2dFfwdINS_21FusedSwin2dFfwdConfigILi512ELi64ELi4ELi8ELi8ELi2ELi4ELi64ELi32ELb1ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb0ENS2_ILi2EJS5_S6_EEELi32EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSP_iiiE20shared_input_storage",
+        "bytes": 8192,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_115FusedSwin2dFfwdINS_21FusedSwin2dFfwdConfigILi512ELi64ELi4ELi8ELi8ELi2ELi4ELi64ELi32ELb1ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb0ENS2_ILi2EJS5_S6_EEELi32EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSP_iiiE27shared_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 2,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 66,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 90,
+        "publication_index": 169,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 237,
+        "publication_index": 238,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r127], [%rd38], %r128, [%r129];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r122], { %r123,%r123,%r123,%r123};"
+        ]
+      },
+      {
+        "begin_line": 335,
+        "publication_index": 309,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 410,
+        "publication_index": 470,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r178], [%rd44], %r179, [%r180];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r172], { %r173,%r173,%r173,%r173};"
+        ]
+      },
+      {
+        "begin_line": 839,
+        "publication_index": 960,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2287,
+        "publication_index": 971,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 66,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 90,
+        "publication_index": 169,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 237,
+        "publication_index": 238,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r127], [%rd38], %r128, [%r129];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r122], { %r123,%r123,%r123,%r123};"
+        ]
+      },
+      {
+        "begin_line": 335,
+        "publication_index": 309,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 410,
+        "publication_index": 470,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r178], [%rd44], %r179, [%r180];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r172], { %r173,%r173,%r173,%r173};"
+        ]
+      },
+      {
+        "begin_line": 839,
+        "publication_index": 960,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2287,
+        "publication_index": 971,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 238,
+        "line": 334
+      },
+      {
+        "index": 470,
+        "line": 838
+      },
+      {
+        "index": 960,
+        "line": 2286
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 4,
+    "original_static_shared": 8208,
+    "extra_shadow_bytes": 16384,
+    "total_static_shared": 24592,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": true,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_split_swin_16h_ffwd_proj_512_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "bytes": 12288,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+        "bytes": 24,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 8,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 66,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 89,
+        "publication_index": 169,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 234,
+        "publication_index": 494,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 6,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r29], [%rd37], %r147, [%r148];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r32], [%rd39], %r170, [%r171];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r188], [%rd41], %r189, [%r190];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r208], [%rd43], %r209, [%r210];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r228], [%rd45], %r229, [%r230];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r248], [%rd47], %r249, [%r250];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r142], { %r143,%r143,%r143,%r143};",
+          "st.shared::cta.v4.u32 [%r165], { %r166,%r166,%r166,%r166};",
+          "st.shared::cta.v4.u32 [%r182], { %r183,%r183,%r183,%r183};",
+          "st.shared::cta.v4.u32 [%r202], { %r203,%r203,%r203,%r203};",
+          "st.shared::cta.v4.u32 [%r222], { %r223,%r223,%r223,%r223};",
+          "st.shared::cta.v4.u32 [%r242], { %r243,%r243,%r243,%r243};"
+        ]
+      },
+      {
+        "begin_line": 705,
+        "publication_index": 1954,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3295,
+        "publication_index": 1976,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3319,
+        "publication_index": 2348,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1366], [%rd239], %r1367, [%r1414];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1412], [%rd241], %r1413, [%r1414];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1356], { %r1357,%r1357,%r1357,%r1357};",
+          "st.shared::cta.v4.u32 [%r1399], { %r1400,%r1400,%r1400,%r1400};"
+        ]
+      },
+      {
+        "begin_line": 3900,
+        "publication_index": 2356,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 66,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 89,
+        "publication_index": 169,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 234,
+        "publication_index": 494,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 6,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r29], [%rd37], %r147, [%r148];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r32], [%rd39], %r170, [%r171];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r188], [%rd41], %r189, [%r190];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r208], [%rd43], %r209, [%r210];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r228], [%rd45], %r229, [%r230];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r248], [%rd47], %r249, [%r250];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r142], { %r143,%r143,%r143,%r143};",
+          "st.shared::cta.v4.u32 [%r165], { %r166,%r166,%r166,%r166};",
+          "st.shared::cta.v4.u32 [%r182], { %r183,%r183,%r183,%r183};",
+          "st.shared::cta.v4.u32 [%r202], { %r203,%r203,%r203,%r203};",
+          "st.shared::cta.v4.u32 [%r222], { %r223,%r223,%r223,%r223};",
+          "st.shared::cta.v4.u32 [%r242], { %r243,%r243,%r243,%r243};"
+        ]
+      },
+      {
+        "begin_line": 705,
+        "publication_index": 1954,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3295,
+        "publication_index": 1976,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3319,
+        "publication_index": 2348,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1366], [%rd239], %r1367, [%r1414];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1412], [%rd241], %r1413, [%r1414];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1356], { %r1357,%r1357,%r1357,%r1357};",
+          "st.shared::cta.v4.u32 [%r1399], { %r1400,%r1400,%r1400,%r1400};"
+        ]
+      },
+      {
+        "begin_line": 3900,
+        "publication_index": 2356,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 494,
+        "line": 704
+      },
+      {
+        "index": 1954,
+        "line": 3295
+      },
+      {
+        "index": 2348,
+        "line": 3899
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 0,
+    "original_static_shared": 12312,
+    "extra_shadow_bytes": 24576,
+    "total_static_shared": 36888,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb1ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "bytes": 12288,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb1ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+        "bytes": 24,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 8,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 71,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 94,
+        "publication_index": 170,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 235,
+        "publication_index": 495,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 6,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r28], [%rd38], %r209, [%r210];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r31], [%rd40], %r232, [%r233];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r250], [%rd42], %r251, [%r252];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r270], [%rd44], %r271, [%r272];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r290], [%rd46], %r291, [%r292];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r310], [%rd48], %r311, [%r312];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r204], { %r205,%r205,%r205,%r205};",
+          "st.shared::cta.v4.u32 [%r227], { %r228,%r228,%r228,%r228};",
+          "st.shared::cta.v4.u32 [%r244], { %r245,%r245,%r245,%r245};",
+          "st.shared::cta.v4.u32 [%r264], { %r265,%r265,%r265,%r265};",
+          "st.shared::cta.v4.u32 [%r284], { %r285,%r285,%r285,%r285};",
+          "st.shared::cta.v4.u32 [%r304], { %r305,%r305,%r305,%r305};"
+        ]
+      },
+      {
+        "begin_line": 706,
+        "publication_index": 3204,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4545,
+        "publication_index": 3213,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4556,
+        "publication_index": 3590,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r2060], [%rd272], %r2061, [%r2102];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r2100], [%rd274], %r2101, [%r2102];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r2050], { %r2051,%r2051,%r2051,%r2051};",
+          "st.shared::cta.v4.u32 [%r2087], { %r2088,%r2088,%r2088,%r2088};"
+        ]
+      },
+      {
+        "begin_line": 5144,
+        "publication_index": 3598,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 71,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 94,
+        "publication_index": 170,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 235,
+        "publication_index": 495,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 6,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r28], [%rd38], %r209, [%r210];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r31], [%rd40], %r232, [%r233];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r250], [%rd42], %r251, [%r252];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r270], [%rd44], %r271, [%r272];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r290], [%rd46], %r291, [%r292];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r310], [%rd48], %r311, [%r312];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r204], { %r205,%r205,%r205,%r205};",
+          "st.shared::cta.v4.u32 [%r227], { %r228,%r228,%r228,%r228};",
+          "st.shared::cta.v4.u32 [%r244], { %r245,%r245,%r245,%r245};",
+          "st.shared::cta.v4.u32 [%r264], { %r265,%r265,%r265,%r265};",
+          "st.shared::cta.v4.u32 [%r284], { %r285,%r285,%r285,%r285};",
+          "st.shared::cta.v4.u32 [%r304], { %r305,%r305,%r305,%r305};"
+        ]
+      },
+      {
+        "begin_line": 706,
+        "publication_index": 3204,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4545,
+        "publication_index": 3213,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4556,
+        "publication_index": 3590,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r2060], [%rd272], %r2061, [%r2102];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r2100], [%rd274], %r2101, [%r2102];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r2050], { %r2051,%r2051,%r2051,%r2051};",
+          "st.shared::cta.v4.u32 [%r2087], { %r2088,%r2088,%r2088,%r2088};"
+        ]
+      },
+      {
+        "begin_line": 5144,
+        "publication_index": 3598,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 495,
+        "line": 705
+      },
+      {
+        "index": 3204,
+        "line": 4545
+      },
+      {
+        "index": 3590,
+        "line": 5143
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 0,
+    "original_static_shared": 12312,
+    "extra_shadow_bytes": 24576,
+    "total_static_shared": 36888,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_split_swin_16h_qkv_512_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_118FusedSwin2dQKVAttnINS_24FusedSwin2dQKVAttnConfigILi512ELi8ELi8ELi16ELi4ELi64ELi4ELb1ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEEEELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSM_iE20shared_input_storage",
+        "bytes": 8192,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_118FusedSwin2dQKVAttnINS_24FusedSwin2dQKVAttnConfigILi512ELi8ELi8ELi16ELi4ELi64ELi4ELb1ELb1ELi256ELi8ELi8ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEEEELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSM_iE27shared_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 4,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 72,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 96,
+        "publication_index": 192,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 276,
+        "publication_index": 332,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r21], [%rd53], %r130, [%r131];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r24], [%rd57], %r150, [%r151];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r125], { %r126,%r126,%r126,%r126};",
+          "st.shared::cta.v4.u32 [%r145], { %r146,%r146,%r146,%r146};"
+        ]
+      },
+      {
+        "begin_line": 470,
+        "publication_index": 512,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 663,
+        "publication_index": 954,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r240], [%rd63], %r241, [%r242];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r303], [%rd66], %r304, [%r305];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r227], { %r228,%r228,%r228,%r228};",
+          "st.shared::cta.v4.u32 [%r284], { %r285,%r285,%r285,%r285};"
+        ]
+      },
+      {
+        "begin_line": 1810,
+        "publication_index": 3547,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 8869,
+        "publication_index": 3557,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 72,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 96,
+        "publication_index": 192,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 276,
+        "publication_index": 332,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r21], [%rd53], %r130, [%r131];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r24], [%rd57], %r150, [%r151];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r125], { %r126,%r126,%r126,%r126};",
+          "st.shared::cta.v4.u32 [%r145], { %r146,%r146,%r146,%r146};"
+        ]
+      },
+      {
+        "begin_line": 470,
+        "publication_index": 512,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 663,
+        "publication_index": 954,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r240], [%rd63], %r241, [%r242];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r303], [%rd66], %r304, [%r305];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r227], { %r228,%r228,%r228,%r228};",
+          "st.shared::cta.v4.u32 [%r284], { %r285,%r285,%r285,%r285};"
+        ]
+      },
+      {
+        "begin_line": 1810,
+        "publication_index": 3547,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 8869,
+        "publication_index": 3557,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 332,
+        "line": 469
+      },
+      {
+        "index": 954,
+        "line": 1809
+      },
+      {
+        "index": 3547,
+        "line": 8868
+      }
+    ],
+    "MMA_shared_loads": 16,
+    "clean_loads": 8,
+    "original_static_shared": 8208,
+    "extra_shadow_bytes": 16384,
+    "total_static_shared": 24592,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": true,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_split_swin_16h_proj_512_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi2ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "bytes": 12288,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi2ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+        "bytes": 24,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 4,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 66,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 89,
+        "publication_index": 171,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 236,
+        "publication_index": 339,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r143], [%rd36], %r144, [%r145];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r161], [%rd38], %r162, [%r163];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r138], { %r139,%r139,%r139,%r139};",
+          "st.shared::cta.v4.u32 [%r155], { %r156,%r156,%r156,%r156};"
+        ]
+      },
+      {
+        "begin_line": 460,
+        "publication_index": 394,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r200], [%rd42], %r201, [%r202];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r194], { %r195,%r195,%r195,%r195};"
+        ]
+      },
+      {
+        "begin_line": 546,
+        "publication_index": 1179,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1917,
+        "publication_index": 1187,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1927,
+        "publication_index": 1346,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r775], [%rd154], %r776, [%r777];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r769], { %r770,%r770,%r770,%r770};"
+        ]
+      },
+      {
+        "begin_line": 2197,
+        "publication_index": 1356,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 66,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 89,
+        "publication_index": 171,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 236,
+        "publication_index": 339,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r143], [%rd36], %r144, [%r145];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r161], [%rd38], %r162, [%r163];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r138], { %r139,%r139,%r139,%r139};",
+          "st.shared::cta.v4.u32 [%r155], { %r156,%r156,%r156,%r156};"
+        ]
+      },
+      {
+        "begin_line": 460,
+        "publication_index": 394,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r200], [%rd42], %r201, [%r202];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r194], { %r195,%r195,%r195,%r195};"
+        ]
+      },
+      {
+        "begin_line": 546,
+        "publication_index": 1179,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1917,
+        "publication_index": 1187,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1927,
+        "publication_index": 1346,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r775], [%rd154], %r776, [%r777];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r769], { %r770,%r770,%r770,%r770};"
+        ]
+      },
+      {
+        "begin_line": 2197,
+        "publication_index": 1356,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 339,
+        "line": 459
+      },
+      {
+        "index": 394,
+        "line": 545
+      },
+      {
+        "index": 1179,
+        "line": 1917
+      },
+      {
+        "index": 1346,
+        "line": 2196
+      }
+    ],
+    "MMA_shared_loads": 4,
+    "clean_loads": 0,
+    "original_static_shared": 12312,
+    "extra_shadow_bytes": 24576,
+    "total_static_shared": 36888,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_split_swin_16h_proj_512_outview_wait_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb0ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb1ENS8_ILi2ENS2_ILi2EJS5_S6_EEENS9_ILi2EJSC_SD_EEEEELb0ESG_Li3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSP_SP_PiSQ_SQ_SO_iiiiiiE20shared_input_storage",
+        "bytes": 12288,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb0ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb0ELb0ELb0ELb1ENS8_ILi2ENS2_ILi2EJS5_S6_EEENS9_ILi2EJSC_SD_EEEEELb0ESG_Li3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSP_SP_PiSQ_SQ_SO_iiiiiiE27shared_copy_barrier_storage",
+        "bytes": 24,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 8,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 69,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 92,
+        "publication_index": 169,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 234,
+        "publication_index": 441,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 4,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r29], [%rd35], %r219, [%r220];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r32], [%rd37], %r242, [%r243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r260], [%rd39], %r261, [%r262];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r280], [%rd41], %r281, [%r282];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r214], { %r215,%r215,%r215,%r215};",
+          "st.shared::cta.v4.u32 [%r237], { %r238,%r238,%r238,%r238};",
+          "st.shared::cta.v4.u32 [%r254], { %r255,%r255,%r255,%r255};",
+          "st.shared::cta.v4.u32 [%r274], { %r275,%r275,%r275,%r275};"
+        ]
+      },
+      {
+        "begin_line": 608,
+        "publication_index": 545,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r318], [%rd45], %r319, [%r320];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r338], [%rd47], %r339, [%r340];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r312], { %r313,%r313,%r313,%r313};",
+          "st.shared::cta.v4.u32 [%r332], { %r333,%r333,%r333,%r333};"
+        ]
+      },
+      {
+        "begin_line": 766,
+        "publication_index": 1947,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3298,
+        "publication_index": 1968,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3321,
+        "publication_index": 3226,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1399], [%rd239], %r1400, [%r1440];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1438], [%rd241], %r1439, [%r1440];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1392], { %r1393,%r1393,%r1393,%r1393};",
+          "st.shared::cta.v4.u32 [%r1425], { %r1426,%r1426,%r1426,%r1426};"
+        ]
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 69,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 92,
+        "publication_index": 169,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 234,
+        "publication_index": 441,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 4,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r29], [%rd35], %r219, [%r220];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r32], [%rd37], %r242, [%r243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r260], [%rd39], %r261, [%r262];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r280], [%rd41], %r281, [%r282];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r214], { %r215,%r215,%r215,%r215};",
+          "st.shared::cta.v4.u32 [%r237], { %r238,%r238,%r238,%r238};",
+          "st.shared::cta.v4.u32 [%r254], { %r255,%r255,%r255,%r255};",
+          "st.shared::cta.v4.u32 [%r274], { %r275,%r275,%r275,%r275};"
+        ]
+      },
+      {
+        "begin_line": 608,
+        "publication_index": 545,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r318], [%rd45], %r319, [%r320];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r338], [%rd47], %r339, [%r340];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r312], { %r313,%r313,%r313,%r313};",
+          "st.shared::cta.v4.u32 [%r332], { %r333,%r333,%r333,%r333};"
+        ]
+      },
+      {
+        "begin_line": 766,
+        "publication_index": 1947,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3298,
+        "publication_index": 1968,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3321,
+        "publication_index": 3226,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1399], [%rd239], %r1400, [%r1440];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1438], [%rd241], %r1439, [%r1440];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1392], { %r1393,%r1393,%r1393,%r1393};",
+          "st.shared::cta.v4.u32 [%r1425], { %r1426,%r1426,%r1426,%r1426};"
+        ]
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 441,
+        "line": 607
+      },
+      {
+        "index": 545,
+        "line": 765
+      },
+      {
+        "index": 1947,
+        "line": 3298
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 0,
+    "original_static_shared": 12312,
+    "extra_shadow_bytes": 24576,
+    "total_static_shared": 36888,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_split_swin_16h_proj_pool_512_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "bytes": 8192,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi512ELi512ELi8ELi8ELi256ELi64ELi1ELi4ELi1ELb1ELb1ELb1ELi128ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb1ELi8ELi8ELb1ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi2EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 4,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 65,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 86,
+        "publication_index": 168,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 231,
+        "publication_index": 294,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r27], [%rd38], %r442, [%r443];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r30], [%rd41], %r465, [%r466];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r437], { %r438,%r438,%r438,%r438};",
+          "st.shared::cta.v4.u32 [%r460], { %r461,%r461,%r461,%r461};"
+        ]
+      },
+      {
+        "begin_line": 409,
+        "publication_index": 1697,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2903,
+        "publication_index": 1860,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1533], [%rd208], %r1534, [%r1560];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1558], [%rd210], %r1559, [%r1560];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1527], { %r1528,%r1528,%r1528,%r1528};",
+          "st.shared::cta.v4.u32 [%r1552], { %r1553,%r1553,%r1553,%r1553};"
+        ]
+      },
+      {
+        "begin_line": 3148,
+        "publication_index": 3202,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 5403,
+        "publication_index": 3209,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 65,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 86,
+        "publication_index": 168,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 231,
+        "publication_index": 294,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r27], [%rd38], %r442, [%r443];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r30], [%rd41], %r465, [%r466];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r437], { %r438,%r438,%r438,%r438};",
+          "st.shared::cta.v4.u32 [%r460], { %r461,%r461,%r461,%r461};"
+        ]
+      },
+      {
+        "begin_line": 409,
+        "publication_index": 1697,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2903,
+        "publication_index": 1860,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1533], [%rd208], %r1534, [%r1560];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1558], [%rd210], %r1559, [%r1560];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1527], { %r1528,%r1528,%r1528,%r1528};",
+          "st.shared::cta.v4.u32 [%r1552], { %r1553,%r1553,%r1553,%r1553};"
+        ]
+      },
+      {
+        "begin_line": 3148,
+        "publication_index": 3202,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 5403,
+        "publication_index": 3209,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 294,
+        "line": 408
+      },
+      {
+        "index": 1697,
+        "line": 2903
+      },
+      {
+        "index": 1860,
+        "line": 3147
+      },
+      {
+        "index": 3202,
+        "line": 5402
+      }
+    ],
+    "MMA_shared_loads": 16,
+    "clean_loads": 16,
+    "original_static_shared": 8208,
+    "extra_shadow_bytes": 16384,
+    "total_static_shared": 24592,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": true,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_split_swin_16h_final_head_512_wait_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi1024ELi512ELi8ELi8ELi256ELi64ELi2ELi4ELi1ELb0ELb1ELb0ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb0ELi4ELi4ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE20shared_input_storage",
+        "bytes": 12288,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv2d1x1LayerINS_15Conv2d1x1ConfigILi1024ELi512ELi8ELi8ELi256ELi64ELi2ELi4ELi1ELb0ELb1ELb0ELi256ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSA_ILi1ELSB_0EEEEEEEELb0ELi4ELi4ELb0ELb0ELb0ELb0ENS8_ILi2ENS2_ILi2EJEEENS9_ILi2EJEEEEELb0ENS2_ILi2EJS5_S6_EEELi3EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSQ_SQ_PiSR_SR_SP_iiiiiiE27shared_copy_barrier_storage",
+        "bytes": 24,
+        "align": 8
+      }
+    ],
+    "FB": 4,
+    "source_cp_async_total": 4,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 55,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 79,
+        "publication_index": 148,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 216,
+        "publication_index": 318,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 3,
+        "st_shared_sites": 3,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r120], [%rd34], %r121, [%r122];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r138], [%rd36], %r139, [%r140];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r157], [%rd38], %r158, [%r159];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r115], { %r116,%r116,%r116,%r116};",
+          "st.shared::cta.v4.u32 [%r132], { %r133,%r133,%r133,%r133};",
+          "st.shared::cta.v4.u32 [%r151], { %r152,%r152,%r152,%r152};"
+        ]
+      },
+      {
+        "begin_line": 463,
+        "publication_index": 491,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 886,
+        "publication_index": 499,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 896,
+        "publication_index": 668,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r277], [%rd69], %r278, [%r279];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r271], { %r272,%r272,%r272,%r272};"
+        ]
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 55,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 79,
+        "publication_index": 148,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 216,
+        "publication_index": 318,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 3,
+        "st_shared_sites": 3,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r120], [%rd34], %r121, [%r122];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r138], [%rd36], %r139, [%r140];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r157], [%rd38], %r158, [%r159];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r115], { %r116,%r116,%r116,%r116};",
+          "st.shared::cta.v4.u32 [%r132], { %r133,%r133,%r133,%r133};",
+          "st.shared::cta.v4.u32 [%r151], { %r152,%r152,%r152,%r152};"
+        ]
+      },
+      {
+        "begin_line": 463,
+        "publication_index": 491,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 886,
+        "publication_index": 499,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 896,
+        "publication_index": 668,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 1,
+        "st_shared_sites": 1,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r277], [%rd69], %r278, [%r279];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r271], { %r272,%r272,%r272,%r272};"
+        ]
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 318,
+        "line": 462
+      },
+      {
+        "index": 491,
+        "line": 886
+      }
+    ],
+    "MMA_shared_loads": 4,
+    "clean_loads": 0,
+    "original_static_shared": 12312,
+    "extra_shadow_bytes": 24576,
+    "total_static_shared": 36888,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_vit_1d_ffn_expand_publish_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl20CCFfnExpandConfigF16ILi64ELb0ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSB_PiSC_SC_SA_PKvSE_E20shared_input_storage",
+        "bytes": 24576,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl20CCFfnExpandConfigF16ILi64ELb0ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSB_PiSC_SC_SA_PKvSE_E27shared_copy_barrier_storage",
+        "bytes": 24,
+        "align": 8
+      }
+    ],
+    "FB": 5,
+    "source_cp_async_total": 24,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 37,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 60,
+        "publication_index": 768,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 18,
+        "st_shared_sites": 12,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r95], [%rd40], %r96, [%r97];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd43], %r108, [%r109];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r122], [%rd45], %r123, [%r124];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r131], [%rd47], %r132, [%r133];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r145], [%rd50], %r146, [%r147];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r165], [%rd52], %r166, [%r167];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r179], [%rd54], %r180, [%r181];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r194], [%rd57], %r195, [%r196];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r210], [%rd59], %r211, [%r212];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r221], [%rd61], %r222, [%r223];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r236], [%rd64], %r237, [%r238];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r252], [%rd66], %r253, [%r254];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r263], [%rd68], %r264, [%r265];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r278], [%rd71], %r279, [%r280];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r294], [%rd73], %r295, [%r296];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r305], [%rd75], %r306, [%r307];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r320], [%rd78], %r321, [%r322];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r336], [%rd80], %r337, [%r338];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r103], { %r104,%r104,%r104,%r104};",
+          "st.shared::cta.v4.u32 [%r116], { %r117,%r117,%r117,%r117};",
+          "st.shared::cta.v4.u32 [%r137], { %r138,%r138,%r138,%r138};",
+          "st.shared::cta.v4.u32 [%r156], { %r157,%r157,%r157,%r157};",
+          "st.shared::cta.v4.u32 [%r188], { %r189,%r189,%r189,%r189};",
+          "st.shared::cta.v4.u32 [%r204], { %r205,%r205,%r205,%r205};",
+          "st.shared::cta.v4.u32 [%r230], { %r231,%r231,%r231,%r231};",
+          "st.shared::cta.v4.u32 [%r246], { %r247,%r247,%r247,%r247};",
+          "st.shared::cta.v4.u32 [%r272], { %r273,%r273,%r273,%r273};",
+          "st.shared::cta.v4.u32 [%r288], { %r289,%r289,%r289,%r289};",
+          "st.shared::cta.v4.u32 [%r314], { %r315,%r315,%r315,%r315};",
+          "st.shared::cta.v4.u32 [%r330], { %r331,%r331,%r331,%r331};"
+        ]
+      },
+      {
+        "begin_line": 1157,
+        "publication_index": 1022,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1869,
+        "publication_index": 1849,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r507], [%rd112], %r508, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r45], [%rd115], %r518, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r529], [%rd117], %r530, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r534], [%rd119], %r535, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r49], [%rd122], %r545, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r556], [%rd124], %r557, [%r44];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r513], { %r514,%r514,%r514,%r514};",
+          "st.shared::cta.v4.u32 [%r523], { %r524,%r524,%r524,%r524};",
+          "st.shared::cta.v4.u32 [%r540], { %r541,%r541,%r541,%r541};",
+          "st.shared::cta.v4.u32 [%r550], { %r551,%r551,%r551,%r551};"
+        ]
+      },
+      {
+        "begin_line": 4261,
+        "publication_index": 1860,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 37,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 60,
+        "publication_index": 768,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 18,
+        "st_shared_sites": 12,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r95], [%rd40], %r96, [%r97];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r15], [%rd43], %r108, [%r109];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r122], [%rd45], %r123, [%r124];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r131], [%rd47], %r132, [%r133];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r145], [%rd50], %r146, [%r147];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r165], [%rd52], %r166, [%r167];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r179], [%rd54], %r180, [%r181];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r194], [%rd57], %r195, [%r196];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r210], [%rd59], %r211, [%r212];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r221], [%rd61], %r222, [%r223];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r236], [%rd64], %r237, [%r238];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r252], [%rd66], %r253, [%r254];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r263], [%rd68], %r264, [%r265];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r278], [%rd71], %r279, [%r280];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r294], [%rd73], %r295, [%r296];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r305], [%rd75], %r306, [%r307];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r320], [%rd78], %r321, [%r322];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r336], [%rd80], %r337, [%r338];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r103], { %r104,%r104,%r104,%r104};",
+          "st.shared::cta.v4.u32 [%r116], { %r117,%r117,%r117,%r117};",
+          "st.shared::cta.v4.u32 [%r137], { %r138,%r138,%r138,%r138};",
+          "st.shared::cta.v4.u32 [%r156], { %r157,%r157,%r157,%r157};",
+          "st.shared::cta.v4.u32 [%r188], { %r189,%r189,%r189,%r189};",
+          "st.shared::cta.v4.u32 [%r204], { %r205,%r205,%r205,%r205};",
+          "st.shared::cta.v4.u32 [%r230], { %r231,%r231,%r231,%r231};",
+          "st.shared::cta.v4.u32 [%r246], { %r247,%r247,%r247,%r247};",
+          "st.shared::cta.v4.u32 [%r272], { %r273,%r273,%r273,%r273};",
+          "st.shared::cta.v4.u32 [%r288], { %r289,%r289,%r289,%r289};",
+          "st.shared::cta.v4.u32 [%r314], { %r315,%r315,%r315,%r315};",
+          "st.shared::cta.v4.u32 [%r330], { %r331,%r331,%r331,%r331};"
+        ]
+      },
+      {
+        "begin_line": 1157,
+        "publication_index": 1022,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1869,
+        "publication_index": 1849,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r507], [%rd112], %r508, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r45], [%rd115], %r518, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r529], [%rd117], %r530, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r534], [%rd119], %r535, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r49], [%rd122], %r545, [%r44];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r556], [%rd124], %r557, [%r44];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r513], { %r514,%r514,%r514,%r514};",
+          "st.shared::cta.v4.u32 [%r523], { %r524,%r524,%r524,%r524};",
+          "st.shared::cta.v4.u32 [%r540], { %r541,%r541,%r541,%r541};",
+          "st.shared::cta.v4.u32 [%r550], { %r551,%r551,%r551,%r551};"
+        ]
+      },
+      {
+        "begin_line": 4261,
+        "publication_index": 1860,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 768,
+        "line": 1156
+      },
+      {
+        "index": 1022,
+        "line": 1869
+      },
+      {
+        "index": 1849,
+        "line": 4260
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 0,
+    "original_static_shared": 24600,
+    "extra_shadow_bytes": 49152,
+    "total_static_shared": 73752,
+    "fits_default_static_48KiB": false,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_vit_1d_ffn_expand_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl20CCFfnExpandConfigF16ILi64ELb1ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSB_PiSC_SC_SA_PKvSE_E20shared_input_storage",
+        "bytes": 24576,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl20CCFfnExpandConfigF16ILi64ELb1ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSB_PiSC_SC_SA_PKvSE_E27shared_copy_barrier_storage",
+        "bytes": 24,
+        "align": 8
+      }
+    ],
+    "FB": 5,
+    "source_cp_async_total": 24,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 40,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 63,
+        "publication_index": 122,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 190,
+        "publication_index": 603,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 12,
+        "st_shared_sites": 8,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r113], [%rd43], %r114, [%r115];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r21], [%rd46], %r126, [%r127];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r140], [%rd48], %r141, [%r142];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r149], [%rd50], %r150, [%r151];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r163], [%rd53], %r164, [%r165];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r183], [%rd55], %r184, [%r185];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r196], [%rd57], %r197, [%r198];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r211], [%rd60], %r212, [%r213];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r227], [%rd62], %r228, [%r229];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r238], [%rd64], %r239, [%r240];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r253], [%rd67], %r254, [%r255];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r269], [%rd69], %r270, [%r271];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r121], { %r122,%r122,%r122,%r122};",
+          "st.shared::cta.v4.u32 [%r134], { %r135,%r135,%r135,%r135};",
+          "st.shared::cta.v4.u32 [%r155], { %r156,%r156,%r156,%r156};",
+          "st.shared::cta.v4.u32 [%r174], { %r175,%r175,%r175,%r175};",
+          "st.shared::cta.v4.u32 [%r205], { %r206,%r206,%r206,%r206};",
+          "st.shared::cta.v4.u32 [%r221], { %r222,%r222,%r222,%r222};",
+          "st.shared::cta.v4.u32 [%r247], { %r248,%r248,%r248,%r248};",
+          "st.shared::cta.v4.u32 [%r263], { %r264,%r264,%r264,%r264};"
+        ]
+      },
+      {
+        "begin_line": 898,
+        "publication_index": 829,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r290], [%rd73], %r291, [%r292];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r305], [%rd76], %r306, [%r307];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r321], [%rd78], %r322, [%r323];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r332], [%rd80], %r333, [%r334];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r347], [%rd83], %r348, [%r349];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r363], [%rd85], %r364, [%r365];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r299], { %r300,%r300,%r300,%r300};",
+          "st.shared::cta.v4.u32 [%r315], { %r316,%r316,%r316,%r316};",
+          "st.shared::cta.v4.u32 [%r341], { %r342,%r342,%r342,%r342};",
+          "st.shared::cta.v4.u32 [%r357], { %r358,%r358,%r358,%r358};"
+        ]
+      },
+      {
+        "begin_line": 1240,
+        "publication_index": 1092,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1961,
+        "publication_index": 1100,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1974,
+        "publication_index": 1935,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r546], [%rd119], %r547, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r55], [%rd122], %r557, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r568], [%rd124], %r569, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r573], [%rd126], %r574, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r59], [%rd129], %r584, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r595], [%rd131], %r596, [%r54];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r552], { %r553,%r553,%r553,%r553};",
+          "st.shared::cta.v4.u32 [%r562], { %r563,%r563,%r563,%r563};",
+          "st.shared::cta.v4.u32 [%r579], { %r580,%r580,%r580,%r580};",
+          "st.shared::cta.v4.u32 [%r589], { %r590,%r590,%r590,%r590};"
+        ]
+      },
+      {
+        "begin_line": 4382,
+        "publication_index": 1946,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 40,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 63,
+        "publication_index": 122,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 190,
+        "publication_index": 603,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 12,
+        "st_shared_sites": 8,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r113], [%rd43], %r114, [%r115];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r21], [%rd46], %r126, [%r127];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r140], [%rd48], %r141, [%r142];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r149], [%rd50], %r150, [%r151];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r163], [%rd53], %r164, [%r165];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r183], [%rd55], %r184, [%r185];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r196], [%rd57], %r197, [%r198];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r211], [%rd60], %r212, [%r213];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r227], [%rd62], %r228, [%r229];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r238], [%rd64], %r239, [%r240];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r253], [%rd67], %r254, [%r255];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r269], [%rd69], %r270, [%r271];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r121], { %r122,%r122,%r122,%r122};",
+          "st.shared::cta.v4.u32 [%r134], { %r135,%r135,%r135,%r135};",
+          "st.shared::cta.v4.u32 [%r155], { %r156,%r156,%r156,%r156};",
+          "st.shared::cta.v4.u32 [%r174], { %r175,%r175,%r175,%r175};",
+          "st.shared::cta.v4.u32 [%r205], { %r206,%r206,%r206,%r206};",
+          "st.shared::cta.v4.u32 [%r221], { %r222,%r222,%r222,%r222};",
+          "st.shared::cta.v4.u32 [%r247], { %r248,%r248,%r248,%r248};",
+          "st.shared::cta.v4.u32 [%r263], { %r264,%r264,%r264,%r264};"
+        ]
+      },
+      {
+        "begin_line": 898,
+        "publication_index": 829,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r290], [%rd73], %r291, [%r292];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r305], [%rd76], %r306, [%r307];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r321], [%rd78], %r322, [%r323];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r332], [%rd80], %r333, [%r334];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r347], [%rd83], %r348, [%r349];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r363], [%rd85], %r364, [%r365];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r299], { %r300,%r300,%r300,%r300};",
+          "st.shared::cta.v4.u32 [%r315], { %r316,%r316,%r316,%r316};",
+          "st.shared::cta.v4.u32 [%r341], { %r342,%r342,%r342,%r342};",
+          "st.shared::cta.v4.u32 [%r357], { %r358,%r358,%r358,%r358};"
+        ]
+      },
+      {
+        "begin_line": 1240,
+        "publication_index": 1092,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1961,
+        "publication_index": 1100,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1974,
+        "publication_index": 1935,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r546], [%rd119], %r547, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r55], [%rd122], %r557, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r568], [%rd124], %r569, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r573], [%rd126], %r574, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r59], [%rd129], %r584, [%r54];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r595], [%rd131], %r596, [%r54];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r552], { %r553,%r553,%r553,%r553};",
+          "st.shared::cta.v4.u32 [%r562], { %r563,%r563,%r563,%r563};",
+          "st.shared::cta.v4.u32 [%r579], { %r580,%r580,%r580,%r580};",
+          "st.shared::cta.v4.u32 [%r589], { %r590,%r590,%r590,%r590};"
+        ]
+      },
+      {
+        "begin_line": 4382,
+        "publication_index": 1946,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 603,
+        "line": 896
+      },
+      {
+        "index": 829,
+        "line": 1239
+      },
+      {
+        "index": 1092,
+        "line": 1961
+      },
+      {
+        "index": 1935,
+        "line": 4381
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 0,
+    "original_static_shared": 24600,
+    "extra_shadow_bytes": 49152,
+    "total_static_shared": 73752,
+    "fits_default_static_48KiB": false,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_vit_1d_ffn_contract_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl22CCFfnContractConfigFP8ILb1ELb1EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSA_PiSB_SB_S9_PKvSD_E20shared_input_storage",
+        "bytes": 16384,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerIN7HNetCpp14cc_vit_1d_impl22CCFfnContractConfigFP8ILb1ELb1EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSA_PiSB_SB_S9_PKvSD_E27shared_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 5,
+    "source_cp_async_total": 12,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 41,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 62,
+        "publication_index": 123,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 189,
+        "publication_index": 357,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r108], [%rd64], %r109, [%r110];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd67], %r121, [%r122];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r133], [%rd69], %r134, [%r135];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r140], [%rd71], %r141, [%r142];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r154], [%rd74], %r155, [%r156];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r172], [%rd76], %r173, [%r174];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r116], { %r117,%r117,%r117,%r117};",
+          "st.shared::cta.v4.u32 [%r127], { %r128,%r128,%r128,%r128};",
+          "st.shared::cta.v4.u32 [%r146], { %r147,%r147,%r147,%r147};",
+          "st.shared::cta.v4.u32 [%r163], { %r164,%r164,%r164,%r164};"
+        ]
+      },
+      {
+        "begin_line": 541,
+        "publication_index": 1759,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3038,
+        "publication_index": 2024,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1194], [%rd238], %r1195, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r40], [%rd241], %r1204, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1215], [%rd243], %r1216, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1220], [%rd245], %r1221, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r44], [%rd248], %r1230, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1241], [%rd250], %r1242, [%r1243];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1199], { %r1200,%r1200,%r1200,%r1200};",
+          "st.shared::cta.v4.u32 [%r1209], { %r1210,%r1210,%r1210,%r1210};",
+          "st.shared::cta.v4.u32 [%r1225], { %r1226,%r1226,%r1226,%r1226};",
+          "st.shared::cta.v4.u32 [%r1235], { %r1236,%r1236,%r1236,%r1236};"
+        ]
+      },
+      {
+        "begin_line": 3459,
+        "publication_index": 2144,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3999,
+        "publication_index": 2869,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 5402,
+        "publication_index": 2887,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 41,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 62,
+        "publication_index": 123,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 189,
+        "publication_index": 357,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r108], [%rd64], %r109, [%r110];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r16], [%rd67], %r121, [%r122];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r133], [%rd69], %r134, [%r135];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r140], [%rd71], %r141, [%r142];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r154], [%rd74], %r155, [%r156];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r172], [%rd76], %r173, [%r174];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r116], { %r117,%r117,%r117,%r117};",
+          "st.shared::cta.v4.u32 [%r127], { %r128,%r128,%r128,%r128};",
+          "st.shared::cta.v4.u32 [%r146], { %r147,%r147,%r147,%r147};",
+          "st.shared::cta.v4.u32 [%r163], { %r164,%r164,%r164,%r164};"
+        ]
+      },
+      {
+        "begin_line": 541,
+        "publication_index": 1759,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3038,
+        "publication_index": 2024,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 6,
+        "st_shared_sites": 4,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1194], [%rd238], %r1195, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r40], [%rd241], %r1204, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1215], [%rd243], %r1216, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1220], [%rd245], %r1221, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r44], [%rd248], %r1230, [%r1243];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1241], [%rd250], %r1242, [%r1243];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1199], { %r1200,%r1200,%r1200,%r1200};",
+          "st.shared::cta.v4.u32 [%r1209], { %r1210,%r1210,%r1210,%r1210};",
+          "st.shared::cta.v4.u32 [%r1225], { %r1226,%r1226,%r1226,%r1226};",
+          "st.shared::cta.v4.u32 [%r1235], { %r1236,%r1236,%r1236,%r1236};"
+        ]
+      },
+      {
+        "begin_line": 3459,
+        "publication_index": 2144,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 3999,
+        "publication_index": 2869,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 5402,
+        "publication_index": 2887,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 357,
+        "line": 540
+      },
+      {
+        "index": 1759,
+        "line": 3038
+      },
+      {
+        "index": 2024,
+        "line": 3458
+      },
+      {
+        "index": 2869,
+        "line": 5401
+      }
+    ],
+    "MMA_shared_loads": 16,
+    "clean_loads": 16,
+    "original_static_shared": 16400,
+    "extra_shadow_bytes": 32768,
+    "total_static_shared": 49168,
+    "fits_default_static_48KiB": false,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_vit_1d_qkv_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv1dQKVLayerINS_15Conv1dQKVConfigILi32ELi32ELi1024ELi128ELi32ELi2ELi2ELi2ELb1ELb0ELi128ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb0ELi2ELb0ELi2EEELNS_5DTypeE2EE12forward_implEPKjPjSJ_SJ_SJ_iiPiSK_SK_PKvSM_E20shared_input_storage",
+        "bytes": 8192,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv1dQKVLayerINS_15Conv1dQKVConfigILi32ELi32ELi1024ELi128ELi32ELi2ELi2ELi2ELb1ELb0ELi128ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb0ELi2ELb0ELi2EEELNS_5DTypeE2EE12forward_implEPKjPjSJ_SJ_SJ_iiPiSK_SK_PKvSM_E27shared_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 5,
+    "source_cp_async_total": 4,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 48,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 70,
+        "publication_index": 127,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 179,
+        "publication_index": 198,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r121], [%rd78], %r122, [%r123];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r134], [%rd81], %r135, [%r136];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r116], { %r117,%r117,%r117,%r117};",
+          "st.shared::cta.v4.u32 [%r128], { %r129,%r129,%r129,%r129};"
+        ]
+      },
+      {
+        "begin_line": 298,
+        "publication_index": 387,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 797,
+        "publication_index": 509,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r32], [%rd87], %r201, [%r214];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r212], [%rd89], %r213, [%r214];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r196], { %r197,%r197,%r197,%r197};",
+          "st.shared::cta.v4.u32 [%r206], { %r207,%r207,%r207,%r207};"
+        ]
+      },
+      {
+        "begin_line": 991,
+        "publication_index": 622,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1419,
+        "publication_index": 2456,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 6055,
+        "publication_index": 2468,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 6073,
+        "publication_index": 2487,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 48,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 70,
+        "publication_index": 127,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 179,
+        "publication_index": 198,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r121], [%rd78], %r122, [%r123];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r134], [%rd81], %r135, [%r136];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r116], { %r117,%r117,%r117,%r117};",
+          "st.shared::cta.v4.u32 [%r128], { %r129,%r129,%r129,%r129};"
+        ]
+      },
+      {
+        "begin_line": 298,
+        "publication_index": 387,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 797,
+        "publication_index": 509,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r32], [%rd87], %r201, [%r214];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r212], [%rd89], %r213, [%r214];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r196], { %r197,%r197,%r197,%r197};",
+          "st.shared::cta.v4.u32 [%r206], { %r207,%r207,%r207,%r207};"
+        ]
+      },
+      {
+        "begin_line": 991,
+        "publication_index": 622,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 1419,
+        "publication_index": 2456,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 6055,
+        "publication_index": 2468,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 6073,
+        "publication_index": 2487,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 198,
+        "line": 297
+      },
+      {
+        "index": 387,
+        "line": 797
+      },
+      {
+        "index": 509,
+        "line": 990
+      },
+      {
+        "index": 2456,
+        "line": 6054
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 8,
+    "original_static_shared": 8208,
+    "extra_shadow_bytes": 16384,
+    "total_static_shared": 24592,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": true,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_vit_1d_attention_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_116Attention1dLayerINS_17Attention1dConfigILi32ELi32ELi128ELi64ELi32ELi2ELb1ELb0ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELi2ELi2ELi2ELi8ELi8ELb0ELi3EEELNS_5DTypeE2EE7forwardEPKjSI_SI_PjiiPiSK_PKvSM_E18shared_key_storage",
+        "bytes": 4096,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_116Attention1dLayerINS_17Attention1dConfigILi32ELi32ELi128ELi64ELi32ELi2ELb1ELb0ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELi2ELi2ELi2ELi8ELi8ELb0ELi3EEELNS_5DTypeE2EE7forwardEPKjSI_SI_PjiiPiSK_PKvSM_E20shared_value_storage",
+        "bytes": 4096,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_116Attention1dLayerINS_17Attention1dConfigILi32ELi32ELi128ELi64ELi32ELi2ELb1ELb0ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELi2ELi2ELi2ELi8ELi8ELb0ELi3EEELNS_5DTypeE2EE7forwardEPKjSI_SI_PjiiPiSK_PKvSM_E30key_value_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 5,
+    "source_cp_async_total": 4,
+    "epochs": [
+      {
+        "begin_line": 15,
+        "publication_index": 58,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 82,
+        "publication_index": 84,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 119,
+        "publication_index": 215,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 313,
+        "publication_index": 294,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r142], [%rd38], %r143, [%r160];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r158], [%rd41], %r159, [%r160];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r136], { %r137,%r137,%r137,%r137};",
+          "st.shared::cta.v4.u32 [%r152], { %r153,%r153,%r153,%r153};"
+        ]
+      },
+      {
+        "begin_line": 440,
+        "publication_index": 1116,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2735,
+        "publication_index": 1129,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2752,
+        "publication_index": 1938,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r900], [%rd48], %r901, [%r920];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r918], [%rd51], %r919, [%r920];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r893], { %r894,%r894,%r894,%r894};",
+          "st.shared::cta.v4.u32 [%r911], { %r912,%r912,%r912,%r912};"
+        ]
+      },
+      {
+        "begin_line": 3920,
+        "publication_index": 2093,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4078,
+        "publication_index": 2202,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 15,
+        "publication_index": 58,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 82,
+        "publication_index": 84,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 119,
+        "publication_index": 215,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 313,
+        "publication_index": 294,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r142], [%rd38], %r143, [%r160];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r158], [%rd41], %r159, [%r160];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r136], { %r137,%r137,%r137,%r137};",
+          "st.shared::cta.v4.u32 [%r152], { %r153,%r153,%r153,%r153};"
+        ]
+      },
+      {
+        "begin_line": 440,
+        "publication_index": 1116,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2735,
+        "publication_index": 1129,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2752,
+        "publication_index": 1938,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r900], [%rd48], %r901, [%r920];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r918], [%rd51], %r919, [%r920];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r893], { %r894,%r894,%r894,%r894};",
+          "st.shared::cta.v4.u32 [%r911], { %r912,%r912,%r912,%r912};"
+        ]
+      },
+      {
+        "begin_line": 3920,
+        "publication_index": 2093,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4078,
+        "publication_index": 2202,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 294,
+        "line": 439
+      },
+      {
+        "index": 2093,
+        "line": 4077
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 0,
+    "original_static_shared": 8208,
+    "extra_shadow_bytes": 16384,
+    "total_static_shared": 24592,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": false,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_vit_1d_projection_wait_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerINS_15Conv1d1x1ConfigILi1024ELi1024ELi128ELi128ELi32ELi2ELi2ELi4ELb1ELb1ELb0ELi32ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb1ELi128ELi2ELb0ELi2ELb0ELi2ELb0ELb0EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSK_PiSL_SL_SJ_PKvSN_E20shared_input_storage",
+        "bytes": 8192,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerINS_15Conv1d1x1ConfigILi1024ELi1024ELi128ELi128ELi32ELi2ELi2ELi4ELb1ELb1ELb0ELi32ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb1ELi128ELi2ELb0ELi2ELb0ELi2ELb0ELb0EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSK_PiSL_SL_SJ_PKvSN_E27shared_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 5,
+    "source_cp_async_total": 4,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 39,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 60,
+        "publication_index": 101,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 151,
+        "publication_index": 172,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r95], [%rd46], %r96, [%r97];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r108], [%rd49], %r109, [%r110];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r90], { %r91,%r91,%r91,%r91};",
+          "st.shared::cta.v4.u32 [%r102], { %r103,%r103,%r103,%r103};"
+        ]
+      },
+      {
+        "begin_line": 270,
+        "publication_index": 1512,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2496,
+        "publication_index": 1616,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r33], [%rd208], %r1030, [%r1043];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1041], [%rd210], %r1042, [%r1043];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1025], { %r1026,%r1026,%r1026,%r1026};",
+          "st.shared::cta.v4.u32 [%r1035], { %r1036,%r1036,%r1036,%r1036};"
+        ]
+      },
+      {
+        "begin_line": 2672,
+        "publication_index": 1684,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2952,
+        "publication_index": 2410,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4356,
+        "publication_index": 2423,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 39,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 60,
+        "publication_index": 101,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 151,
+        "publication_index": 172,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r95], [%rd46], %r96, [%r97];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r108], [%rd49], %r109, [%r110];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r90], { %r91,%r91,%r91,%r91};",
+          "st.shared::cta.v4.u32 [%r102], { %r103,%r103,%r103,%r103};"
+        ]
+      },
+      {
+        "begin_line": 270,
+        "publication_index": 1512,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2496,
+        "publication_index": 1616,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r33], [%rd208], %r1030, [%r1043];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1041], [%rd210], %r1042, [%r1043];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1025], { %r1026,%r1026,%r1026,%r1026};",
+          "st.shared::cta.v4.u32 [%r1035], { %r1036,%r1036,%r1036,%r1036};"
+        ]
+      },
+      {
+        "begin_line": 2672,
+        "publication_index": 1684,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2952,
+        "publication_index": 2410,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4356,
+        "publication_index": 2423,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 172,
+        "line": 269
+      },
+      {
+        "index": 1512,
+        "line": 2494
+      },
+      {
+        "index": 1616,
+        "line": 2671
+      },
+      {
+        "index": 2410,
+        "line": 4355
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 8,
+    "original_static_shared": 8208,
+    "extra_shadow_bytes": 16384,
+    "total_static_shared": 24592,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": true,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  },
+  "cc_vit_1d_projection_chained_fp8": {
+    "all_shared_declarations": [
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerINS_15Conv1d1x1ConfigILi1024ELi1024ELi128ELi128ELi32ELi2ELi2ELi4ELb1ELb1ELb1ELi32ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb1ELi128ELi2ELb0ELi2ELb0ELi2ELb0ELb0EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSK_PiSL_SL_SJ_PKvSN_E20shared_input_storage",
+        "bytes": 8192,
+        "align": 512
+      },
+      {
+        "symbol": "_ZZNK6tin3_114Conv1d1x1LayerINS_15Conv1d1x1ConfigILi1024ELi1024ELi128ELi128ELi32ELi2ELi2ELi4ELb1ELb1ELb1ELi32ENS_10OOBRdByDimILi3EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEEEEENS_14LayerOutputOOBILi3ES6_NS_10OOBWrByDimILi3EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEEEEEEELb1ELi128ELi2ELb0ELi2ELb0ELi2ELb0ELb0EEENS_12NoActivationELNS_5DTypeE2EE12forward_implEPKjPjiiSK_PiSL_SL_SJ_PKvSN_E27shared_copy_barrier_storage",
+        "bytes": 16,
+        "align": 8
+      }
+    ],
+    "FB": 5,
+    "source_cp_async_total": 4,
+    "epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 41,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 62,
+        "publication_index": 103,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 153,
+        "publication_index": 174,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r96], [%rd47], %r97, [%r98];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r109], [%rd50], %r110, [%r111];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r91], { %r92,%r92,%r92,%r92};",
+          "st.shared::cta.v4.u32 [%r103], { %r104,%r104,%r104,%r104};"
+        ]
+      },
+      {
+        "begin_line": 272,
+        "publication_index": 1514,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2498,
+        "publication_index": 1618,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r34], [%rd209], %r1031, [%r1044];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1042], [%rd211], %r1043, [%r1044];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1026], { %r1027,%r1027,%r1027,%r1027};",
+          "st.shared::cta.v4.u32 [%r1036], { %r1037,%r1037,%r1037,%r1037};"
+        ]
+      },
+      {
+        "begin_line": 2674,
+        "publication_index": 1685,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2953,
+        "publication_index": 2410,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4356,
+        "publication_index": 2428,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "all_publication_epochs": [
+      {
+        "begin_line": 13,
+        "publication_index": 41,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 62,
+        "publication_index": 103,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 153,
+        "publication_index": 174,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r96], [%rd47], %r97, [%r98];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r109], [%rd50], %r110, [%r111];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r91], { %r92,%r92,%r92,%r92};",
+          "st.shared::cta.v4.u32 [%r103], { %r104,%r104,%r104,%r104};"
+        ]
+      },
+      {
+        "begin_line": 272,
+        "publication_index": 1514,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2498,
+        "publication_index": 1618,
+        "type": "II_async_or_mixed",
+        "cp_async_sites": 2,
+        "st_shared_sites": 2,
+        "cp_text": [
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r34], [%rd209], %r1031, [%r1044];",
+          "cp.async.bulk.shared::cta.global.mbarrier::complete_tx::bytes [%r1042], [%rd211], %r1043, [%r1044];"
+        ],
+        "store_text": [
+          "st.shared::cta.v4.u32 [%r1026], { %r1027,%r1027,%r1027,%r1027};",
+          "st.shared::cta.v4.u32 [%r1036], { %r1037,%r1037,%r1037,%r1037};"
+        ]
+      },
+      {
+        "begin_line": 2674,
+        "publication_index": 1685,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 2953,
+        "publication_index": 2410,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      },
+      {
+        "begin_line": 4356,
+        "publication_index": 2428,
+        "type": "no_payload_producer",
+        "cp_async_sites": 0,
+        "st_shared_sites": 0,
+        "cp_text": [],
+        "store_text": []
+      }
+    ],
+    "epoch_scope": "all raw full-CTA bar and mbar-wait retry exits; candidate injection points are a certified subset",
+    "publication_points": [
+      {
+        "index": 174,
+        "line": 271
+      },
+      {
+        "index": 1514,
+        "line": 2496
+      },
+      {
+        "index": 1618,
+        "line": 2673
+      },
+      {
+        "index": 2410,
+        "line": 4355
+      }
+    ],
+    "MMA_shared_loads": 8,
+    "clean_loads": 8,
+    "original_static_shared": 8208,
+    "extra_shadow_bytes": 16384,
+    "total_static_shared": 24592,
+    "fits_default_static_48KiB": true,
+    "eligible_constructive_candidate": true,
+    "publication_blocks_postdominate_entry": true,
+    "model": "separate view refreshed by cooperative byte decode after waits/barriers; old cp.async address/count and old byte view remain unchanged",
+    "instruction_cost_per_original_4B_word": {
+      "LDS_u32": 1,
+      "decode_PTX": 8,
+      "STS_v2_u32": 1
+    },
+    "additional_BAR_per_refresh": 1,
+    "scope": "epoch classification includes mixed async/fallback alternatives; full-loop timing still required"
+  }
+}

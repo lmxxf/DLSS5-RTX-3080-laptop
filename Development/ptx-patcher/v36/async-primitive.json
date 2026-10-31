@@ -1,0 +1,18 @@
+{
+  "threads": 65536,
+  "block": [
+    32,
+    2,
+    1
+  ],
+  "arbitrary_u32_input_words": 262144,
+  "word_mismatches": 0,
+  "old_copy": "real cp.async.cg.shared.global 16B, commit/wait + CTA barrier",
+  "extra_per_thread_16B_chunk": {
+    "LDS_v4": 1,
+    "decode_PTX": 32,
+    "STS_v4": 2
+  },
+  "additional_BAR_per_CTA": 1,
+  "scope": "constructive real-copy cross-warp correctness, not end-to-end latency prediction"
+}

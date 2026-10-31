@@ -1,0 +1,4251 @@
+{
+  "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": {
+    "FB": 2,
+    "symbols": {
+      "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage": {
+        "align": 16,
+        "bytes": 8192
+      }
+    },
+    "shared_MMA_events": [
+      {
+        "run": 10,
+        "register": "%r4250",
+        "load_index": 5998,
+        "component": 0
+      },
+      {
+        "run": 10,
+        "register": "%r4251",
+        "load_index": 5998,
+        "component": 1
+      },
+      {
+        "run": 10,
+        "register": "%r4252",
+        "load_index": 5998,
+        "component": 2
+      },
+      {
+        "run": 10,
+        "register": "%r4253",
+        "load_index": 5998,
+        "component": 3
+      },
+      {
+        "run": 10,
+        "register": "%r4270",
+        "load_index": 6003,
+        "component": 0
+      },
+      {
+        "run": 10,
+        "register": "%r4271",
+        "load_index": 6003,
+        "component": 1
+      },
+      {
+        "run": 10,
+        "register": "%r4272",
+        "load_index": 6003,
+        "component": 2
+      },
+      {
+        "run": 10,
+        "register": "%r4273",
+        "load_index": 6003,
+        "component": 3
+      },
+      {
+        "run": 11,
+        "register": "%r4288",
+        "load_index": 6026,
+        "component": 0
+      },
+      {
+        "run": 11,
+        "register": "%r4289",
+        "load_index": 6026,
+        "component": 1
+      },
+      {
+        "run": 11,
+        "register": "%r4290",
+        "load_index": 6026,
+        "component": 2
+      },
+      {
+        "run": 11,
+        "register": "%r4291",
+        "load_index": 6026,
+        "component": 3
+      },
+      {
+        "run": 11,
+        "register": "%r4308",
+        "load_index": 6031,
+        "component": 0
+      },
+      {
+        "run": 11,
+        "register": "%r4309",
+        "load_index": 6031,
+        "component": 1
+      },
+      {
+        "run": 11,
+        "register": "%r4310",
+        "load_index": 6031,
+        "component": 2
+      },
+      {
+        "run": 11,
+        "register": "%r4311",
+        "load_index": 6031,
+        "component": 3
+      },
+      {
+        "run": 12,
+        "register": "%r4326",
+        "load_index": 6054,
+        "component": 0
+      },
+      {
+        "run": 12,
+        "register": "%r4327",
+        "load_index": 6054,
+        "component": 1
+      },
+      {
+        "run": 12,
+        "register": "%r4328",
+        "load_index": 6054,
+        "component": 2
+      },
+      {
+        "run": 12,
+        "register": "%r4329",
+        "load_index": 6054,
+        "component": 3
+      },
+      {
+        "run": 12,
+        "register": "%r4346",
+        "load_index": 6059,
+        "component": 0
+      },
+      {
+        "run": 12,
+        "register": "%r4347",
+        "load_index": 6059,
+        "component": 1
+      },
+      {
+        "run": 12,
+        "register": "%r4348",
+        "load_index": 6059,
+        "component": 2
+      },
+      {
+        "run": 12,
+        "register": "%r4349",
+        "load_index": 6059,
+        "component": 3
+      },
+      {
+        "run": 13,
+        "register": "%r4364",
+        "load_index": 6082,
+        "component": 0
+      },
+      {
+        "run": 13,
+        "register": "%r4365",
+        "load_index": 6082,
+        "component": 1
+      },
+      {
+        "run": 13,
+        "register": "%r4366",
+        "load_index": 6082,
+        "component": 2
+      },
+      {
+        "run": 13,
+        "register": "%r4367",
+        "load_index": 6082,
+        "component": 3
+      },
+      {
+        "run": 13,
+        "register": "%r4384",
+        "load_index": 6087,
+        "component": 0
+      },
+      {
+        "run": 13,
+        "register": "%r4385",
+        "load_index": 6087,
+        "component": 1
+      },
+      {
+        "run": 13,
+        "register": "%r4386",
+        "load_index": 6087,
+        "component": 2
+      },
+      {
+        "run": 13,
+        "register": "%r4387",
+        "load_index": 6087,
+        "component": 3
+      }
+    ],
+    "MMA_loads": [
+      {
+        "index": 5998,
+        "line": 11988,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r4250",
+          "%r4251",
+          "%r4252",
+          "%r4253"
+        ],
+        "address": "[%r4247]",
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4250,%r4251,%r4252,%r4253},[%r4247];"
+      },
+      {
+        "index": 6003,
+        "line": 11997,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r4270",
+          "%r4271",
+          "%r4272",
+          "%r4273"
+        ],
+        "address": "[%r4249]",
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4270,%r4271,%r4272,%r4273},[%r4249];"
+      },
+      {
+        "index": 6026,
+        "line": 12080,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r4288",
+          "%r4289",
+          "%r4290",
+          "%r4291"
+        ],
+        "address": "[%r4285]",
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4288,%r4289,%r4290,%r4291},[%r4285];"
+      },
+      {
+        "index": 6031,
+        "line": 12089,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r4308",
+          "%r4309",
+          "%r4310",
+          "%r4311"
+        ],
+        "address": "[%r4287]",
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4308,%r4309,%r4310,%r4311},[%r4287];"
+      },
+      {
+        "index": 6054,
+        "line": 12172,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r4326",
+          "%r4327",
+          "%r4328",
+          "%r4329"
+        ],
+        "address": "[%r4323]",
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4326,%r4327,%r4328,%r4329},[%r4323];"
+      },
+      {
+        "index": 6059,
+        "line": 12181,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r4346",
+          "%r4347",
+          "%r4348",
+          "%r4349"
+        ],
+        "address": "[%r4325]",
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4346,%r4347,%r4348,%r4349},[%r4325];"
+      },
+      {
+        "index": 6082,
+        "line": 12264,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r4364",
+          "%r4365",
+          "%r4366",
+          "%r4367"
+        ],
+        "address": "[%r4361]",
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4364,%r4365,%r4366,%r4367},[%r4361];"
+      },
+      {
+        "index": 6087,
+        "line": 12273,
+        "op": "ld.shared::cta.v4.u32",
+        "destinations": [
+          "%r4384",
+          "%r4385",
+          "%r4386",
+          "%r4387"
+        ],
+        "address": "[%r4363]",
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4384,%r4385,%r4386,%r4387},[%r4363];"
+      }
+    ],
+    "all_loads": [
+      {
+        "index": 2705,
+        "line": 3429,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1899]",
+        "destinations": [
+          "%r1908",
+          "%r1909",
+          "%r1910",
+          "%r1911"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1908,%r1909,%r1910,%r1911},[%r1899];",
+        "native": [
+          [
+            "v35_l2705_0_0",
+            "v35_l2705_0_1"
+          ],
+          [
+            "v35_l2705_1_0",
+            "v35_l2705_1_1"
+          ],
+          [
+            "v35_l2705_2_0",
+            "v35_l2705_2_1"
+          ],
+          [
+            "v35_l2705_3_0",
+            "v35_l2705_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2710,
+        "line": 3438,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1901]",
+        "destinations": [
+          "%r1920",
+          "%r1921",
+          "%r1922",
+          "%r1923"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1920,%r1921,%r1922,%r1923},[%r1901];",
+        "native": [
+          [
+            "v35_l2710_0_0",
+            "v35_l2710_0_1"
+          ],
+          [
+            "v35_l2710_1_0",
+            "v35_l2710_1_1"
+          ],
+          [
+            "v35_l2710_2_0",
+            "v35_l2710_2_1"
+          ],
+          [
+            "v35_l2710_3_0",
+            "v35_l2710_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2715,
+        "line": 3447,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1903]",
+        "destinations": [
+          "%r1924",
+          "%r1925",
+          "%r1926",
+          "%r1927"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1924,%r1925,%r1926,%r1927},[%r1903];",
+        "native": [
+          [
+            "v35_l2715_0_0",
+            "v35_l2715_0_1"
+          ],
+          [
+            "v35_l2715_1_0",
+            "v35_l2715_1_1"
+          ],
+          [
+            "v35_l2715_2_0",
+            "v35_l2715_2_1"
+          ],
+          [
+            "v35_l2715_3_0",
+            "v35_l2715_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2720,
+        "line": 3456,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1905]",
+        "destinations": [
+          "%r1928",
+          "%r1929",
+          "%r1930",
+          "%r1931"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1928,%r1929,%r1930,%r1931},[%r1905];",
+        "native": [
+          [
+            "v35_l2720_0_0",
+            "v35_l2720_0_1"
+          ],
+          [
+            "v35_l2720_1_0",
+            "v35_l2720_1_1"
+          ],
+          [
+            "v35_l2720_2_0",
+            "v35_l2720_2_1"
+          ],
+          [
+            "v35_l2720_3_0",
+            "v35_l2720_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2751,
+        "line": 3595,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1933]",
+        "destinations": [
+          "%r1942",
+          "%r1943",
+          "%r1944",
+          "%r1945"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1942,%r1943,%r1944,%r1945},[%r1933];",
+        "native": [
+          [
+            "v35_l2751_0_0",
+            "v35_l2751_0_1"
+          ],
+          [
+            "v35_l2751_1_0",
+            "v35_l2751_1_1"
+          ],
+          [
+            "v35_l2751_2_0",
+            "v35_l2751_2_1"
+          ],
+          [
+            "v35_l2751_3_0",
+            "v35_l2751_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2756,
+        "line": 3604,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1935]",
+        "destinations": [
+          "%r1962",
+          "%r1963",
+          "%r1964",
+          "%r1965"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1962,%r1963,%r1964,%r1965},[%r1935];",
+        "native": [
+          [
+            "v35_l2756_0_0",
+            "v35_l2756_0_1"
+          ],
+          [
+            "v35_l2756_1_0",
+            "v35_l2756_1_1"
+          ],
+          [
+            "v35_l2756_2_0",
+            "v35_l2756_2_1"
+          ],
+          [
+            "v35_l2756_3_0",
+            "v35_l2756_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2761,
+        "line": 3613,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1937]",
+        "destinations": [
+          "%r1974",
+          "%r1975",
+          "%r1976",
+          "%r1977"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1974,%r1975,%r1976,%r1977},[%r1937];",
+        "native": [
+          [
+            "v35_l2761_0_0",
+            "v35_l2761_0_1"
+          ],
+          [
+            "v35_l2761_1_0",
+            "v35_l2761_1_1"
+          ],
+          [
+            "v35_l2761_2_0",
+            "v35_l2761_2_1"
+          ],
+          [
+            "v35_l2761_3_0",
+            "v35_l2761_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2766,
+        "line": 3622,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1939]",
+        "destinations": [
+          "%r1986",
+          "%r1987",
+          "%r1988",
+          "%r1989"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r1986,%r1987,%r1988,%r1989},[%r1939];",
+        "native": [
+          [
+            "v35_l2766_0_0",
+            "v35_l2766_0_1"
+          ],
+          [
+            "v35_l2766_1_0",
+            "v35_l2766_1_1"
+          ],
+          [
+            "v35_l2766_2_0",
+            "v35_l2766_2_1"
+          ],
+          [
+            "v35_l2766_3_0",
+            "v35_l2766_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2797,
+        "line": 3761,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r1999]",
+        "destinations": [
+          "%r2008",
+          "%r2009",
+          "%r2010",
+          "%r2011"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2008,%r2009,%r2010,%r2011},[%r1999];",
+        "native": [
+          [
+            "v35_l2797_0_0",
+            "v35_l2797_0_1"
+          ],
+          [
+            "v35_l2797_1_0",
+            "v35_l2797_1_1"
+          ],
+          [
+            "v35_l2797_2_0",
+            "v35_l2797_2_1"
+          ],
+          [
+            "v35_l2797_3_0",
+            "v35_l2797_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2802,
+        "line": 3770,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2001]",
+        "destinations": [
+          "%r2028",
+          "%r2029",
+          "%r2030",
+          "%r2031"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2028,%r2029,%r2030,%r2031},[%r2001];",
+        "native": [
+          [
+            "v35_l2802_0_0",
+            "v35_l2802_0_1"
+          ],
+          [
+            "v35_l2802_1_0",
+            "v35_l2802_1_1"
+          ],
+          [
+            "v35_l2802_2_0",
+            "v35_l2802_2_1"
+          ],
+          [
+            "v35_l2802_3_0",
+            "v35_l2802_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2807,
+        "line": 3779,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2003]",
+        "destinations": [
+          "%r2040",
+          "%r2041",
+          "%r2042",
+          "%r2043"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2040,%r2041,%r2042,%r2043},[%r2003];",
+        "native": [
+          [
+            "v35_l2807_0_0",
+            "v35_l2807_0_1"
+          ],
+          [
+            "v35_l2807_1_0",
+            "v35_l2807_1_1"
+          ],
+          [
+            "v35_l2807_2_0",
+            "v35_l2807_2_1"
+          ],
+          [
+            "v35_l2807_3_0",
+            "v35_l2807_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2812,
+        "line": 3788,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2005]",
+        "destinations": [
+          "%r2052",
+          "%r2053",
+          "%r2054",
+          "%r2055"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2052,%r2053,%r2054,%r2055},[%r2005];",
+        "native": [
+          [
+            "v35_l2812_0_0",
+            "v35_l2812_0_1"
+          ],
+          [
+            "v35_l2812_1_0",
+            "v35_l2812_1_1"
+          ],
+          [
+            "v35_l2812_2_0",
+            "v35_l2812_2_1"
+          ],
+          [
+            "v35_l2812_3_0",
+            "v35_l2812_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2843,
+        "line": 3927,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2065]",
+        "destinations": [
+          "%r2074",
+          "%r2075",
+          "%r2076",
+          "%r2077"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2074,%r2075,%r2076,%r2077},[%r2065];",
+        "native": [
+          [
+            "v35_l2843_0_0",
+            "v35_l2843_0_1"
+          ],
+          [
+            "v35_l2843_1_0",
+            "v35_l2843_1_1"
+          ],
+          [
+            "v35_l2843_2_0",
+            "v35_l2843_2_1"
+          ],
+          [
+            "v35_l2843_3_0",
+            "v35_l2843_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2848,
+        "line": 3936,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2067]",
+        "destinations": [
+          "%r2094",
+          "%r2095",
+          "%r2096",
+          "%r2097"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2094,%r2095,%r2096,%r2097},[%r2067];",
+        "native": [
+          [
+            "v35_l2848_0_0",
+            "v35_l2848_0_1"
+          ],
+          [
+            "v35_l2848_1_0",
+            "v35_l2848_1_1"
+          ],
+          [
+            "v35_l2848_2_0",
+            "v35_l2848_2_1"
+          ],
+          [
+            "v35_l2848_3_0",
+            "v35_l2848_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2853,
+        "line": 3945,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2069]",
+        "destinations": [
+          "%r2106",
+          "%r2107",
+          "%r2108",
+          "%r2109"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2106,%r2107,%r2108,%r2109},[%r2069];",
+        "native": [
+          [
+            "v35_l2853_0_0",
+            "v35_l2853_0_1"
+          ],
+          [
+            "v35_l2853_1_0",
+            "v35_l2853_1_1"
+          ],
+          [
+            "v35_l2853_2_0",
+            "v35_l2853_2_1"
+          ],
+          [
+            "v35_l2853_3_0",
+            "v35_l2853_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 2858,
+        "line": 3954,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2071]",
+        "destinations": [
+          "%r2118",
+          "%r2119",
+          "%r2120",
+          "%r2121"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2118,%r2119,%r2120,%r2121},[%r2071];",
+        "native": [
+          [
+            "v35_l2858_0_0",
+            "v35_l2858_0_1"
+          ],
+          [
+            "v35_l2858_1_0",
+            "v35_l2858_1_1"
+          ],
+          [
+            "v35_l2858_2_0",
+            "v35_l2858_2_1"
+          ],
+          [
+            "v35_l2858_3_0",
+            "v35_l2858_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3207,
+        "line": 5239,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2459]",
+        "destinations": [
+          "%r2455",
+          "%r2456",
+          "%r2457",
+          "%r2458"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2455,%r2456,%r2457,%r2458},[%r2459];",
+        "native": [
+          [
+            "v35_l3207_0_0",
+            "v35_l3207_0_1"
+          ],
+          [
+            "v35_l3207_1_0",
+            "v35_l3207_1_1"
+          ],
+          [
+            "v35_l3207_2_0",
+            "v35_l3207_2_1"
+          ],
+          [
+            "v35_l3207_3_0",
+            "v35_l3207_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3212,
+        "line": 5248,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2465]",
+        "destinations": [
+          "%r2461",
+          "%r2462",
+          "%r2463",
+          "%r2464"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2461,%r2462,%r2463,%r2464},[%r2465];",
+        "native": [
+          [
+            "v35_l3212_0_0",
+            "v35_l3212_0_1"
+          ],
+          [
+            "v35_l3212_1_0",
+            "v35_l3212_1_1"
+          ],
+          [
+            "v35_l3212_2_0",
+            "v35_l3212_2_1"
+          ],
+          [
+            "v35_l3212_3_0",
+            "v35_l3212_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3217,
+        "line": 5257,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2471]",
+        "destinations": [
+          "%r2467",
+          "%r2468",
+          "%r2469",
+          "%r2470"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2467,%r2468,%r2469,%r2470},[%r2471];",
+        "native": [
+          [
+            "v35_l3217_0_0",
+            "v35_l3217_0_1"
+          ],
+          [
+            "v35_l3217_1_0",
+            "v35_l3217_1_1"
+          ],
+          [
+            "v35_l3217_2_0",
+            "v35_l3217_2_1"
+          ],
+          [
+            "v35_l3217_3_0",
+            "v35_l3217_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3222,
+        "line": 5266,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2477]",
+        "destinations": [
+          "%r2473",
+          "%r2474",
+          "%r2475",
+          "%r2476"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2473,%r2474,%r2475,%r2476},[%r2477];",
+        "native": [
+          [
+            "v35_l3222_0_0",
+            "v35_l3222_0_1"
+          ],
+          [
+            "v35_l3222_1_0",
+            "v35_l3222_1_1"
+          ],
+          [
+            "v35_l3222_2_0",
+            "v35_l3222_2_1"
+          ],
+          [
+            "v35_l3222_3_0",
+            "v35_l3222_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3755,
+        "line": 6180,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2855]",
+        "destinations": [
+          "%r2862",
+          "%r2863",
+          "%r2864",
+          "%r2865"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2862,%r2863,%r2864,%r2865},[%r2855];",
+        "native": [
+          [
+            "v35_l3755_0_0",
+            "v35_l3755_0_1"
+          ],
+          [
+            "v35_l3755_1_0",
+            "v35_l3755_1_1"
+          ],
+          [
+            "v35_l3755_2_0",
+            "v35_l3755_2_1"
+          ],
+          [
+            "v35_l3755_3_0",
+            "v35_l3755_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3760,
+        "line": 6189,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2857]",
+        "destinations": [
+          "%r2874",
+          "%r2875",
+          "%r2876",
+          "%r2877"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2874,%r2875,%r2876,%r2877},[%r2857];",
+        "native": [
+          [
+            "v35_l3760_0_0",
+            "v35_l3760_0_1"
+          ],
+          [
+            "v35_l3760_1_0",
+            "v35_l3760_1_1"
+          ],
+          [
+            "v35_l3760_2_0",
+            "v35_l3760_2_1"
+          ],
+          [
+            "v35_l3760_3_0",
+            "v35_l3760_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3765,
+        "line": 6198,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2859]",
+        "destinations": [
+          "%r2878",
+          "%r2879",
+          "%r2880",
+          "%r2881"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2878,%r2879,%r2880,%r2881},[%r2859];",
+        "native": [
+          [
+            "v35_l3765_0_0",
+            "v35_l3765_0_1"
+          ],
+          [
+            "v35_l3765_1_0",
+            "v35_l3765_1_1"
+          ],
+          [
+            "v35_l3765_2_0",
+            "v35_l3765_2_1"
+          ],
+          [
+            "v35_l3765_3_0",
+            "v35_l3765_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3770,
+        "line": 6207,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2861]",
+        "destinations": [
+          "%r2882",
+          "%r2883",
+          "%r2884",
+          "%r2885"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2882,%r2883,%r2884,%r2885},[%r2861];",
+        "native": [
+          [
+            "v35_l3770_0_0",
+            "v35_l3770_0_1"
+          ],
+          [
+            "v35_l3770_1_0",
+            "v35_l3770_1_1"
+          ],
+          [
+            "v35_l3770_2_0",
+            "v35_l3770_2_1"
+          ],
+          [
+            "v35_l3770_3_0",
+            "v35_l3770_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3966,
+        "line": 6584,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2925]",
+        "destinations": [
+          "%r2938",
+          "%r2939",
+          "%r2940",
+          "%r2941"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2938,%r2939,%r2940,%r2941},[%r2925];",
+        "native": [
+          [
+            "v35_l3966_0_0",
+            "v35_l3966_0_1"
+          ],
+          [
+            "v35_l3966_1_0",
+            "v35_l3966_1_1"
+          ],
+          [
+            "v35_l3966_2_0",
+            "v35_l3966_2_1"
+          ],
+          [
+            "v35_l3966_3_0",
+            "v35_l3966_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3971,
+        "line": 6593,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2927]",
+        "destinations": [
+          "%r2966",
+          "%r2967",
+          "%r2968",
+          "%r2969"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2966,%r2967,%r2968,%r2969},[%r2927];",
+        "native": [
+          [
+            "v35_l3971_0_0",
+            "v35_l3971_0_1"
+          ],
+          [
+            "v35_l3971_1_0",
+            "v35_l3971_1_1"
+          ],
+          [
+            "v35_l3971_2_0",
+            "v35_l3971_2_1"
+          ],
+          [
+            "v35_l3971_3_0",
+            "v35_l3971_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3976,
+        "line": 6602,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2929]",
+        "destinations": [
+          "%r2970",
+          "%r2971",
+          "%r2972",
+          "%r2973"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2970,%r2971,%r2972,%r2973},[%r2929];",
+        "native": [
+          [
+            "v35_l3976_0_0",
+            "v35_l3976_0_1"
+          ],
+          [
+            "v35_l3976_1_0",
+            "v35_l3976_1_1"
+          ],
+          [
+            "v35_l3976_2_0",
+            "v35_l3976_2_1"
+          ],
+          [
+            "v35_l3976_3_0",
+            "v35_l3976_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 3981,
+        "line": 6611,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r2931]",
+        "destinations": [
+          "%r2974",
+          "%r2975",
+          "%r2976",
+          "%r2977"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r2974,%r2975,%r2976,%r2977},[%r2931];",
+        "native": [
+          [
+            "v35_l3981_0_0",
+            "v35_l3981_0_1"
+          ],
+          [
+            "v35_l3981_1_0",
+            "v35_l3981_1_1"
+          ],
+          [
+            "v35_l3981_2_0",
+            "v35_l3981_2_1"
+          ],
+          [
+            "v35_l3981_3_0",
+            "v35_l3981_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 5713,
+        "line": 11503,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4145]",
+        "destinations": [
+          "%r4141",
+          "%r4142",
+          "%r4143",
+          "%r4144"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4141,%r4142,%r4143,%r4144},[%r4145];",
+        "native": [
+          [
+            "v35_l5713_0_0",
+            "v35_l5713_0_1"
+          ],
+          [
+            "v35_l5713_1_0",
+            "v35_l5713_1_1"
+          ],
+          [
+            "v35_l5713_2_0",
+            "v35_l5713_2_1"
+          ],
+          [
+            "v35_l5713_3_0",
+            "v35_l5713_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 5718,
+        "line": 11512,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4151]",
+        "destinations": [
+          "%r4147",
+          "%r4148",
+          "%r4149",
+          "%r4150"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4147,%r4148,%r4149,%r4150},[%r4151];",
+        "native": [
+          [
+            "v35_l5718_0_0",
+            "v35_l5718_0_1"
+          ],
+          [
+            "v35_l5718_1_0",
+            "v35_l5718_1_1"
+          ],
+          [
+            "v35_l5718_2_0",
+            "v35_l5718_2_1"
+          ],
+          [
+            "v35_l5718_3_0",
+            "v35_l5718_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 5998,
+        "line": 11988,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4247]",
+        "destinations": [
+          "%r4250",
+          "%r4251",
+          "%r4252",
+          "%r4253"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4250,%r4251,%r4252,%r4253},[%r4247];",
+        "native": [
+          [
+            "v35_l5998_0_0",
+            "v35_l5998_0_1"
+          ],
+          [
+            "v35_l5998_1_0",
+            "v35_l5998_1_1"
+          ],
+          [
+            "v35_l5998_2_0",
+            "v35_l5998_2_1"
+          ],
+          [
+            "v35_l5998_3_0",
+            "v35_l5998_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6003,
+        "line": 11997,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4249]",
+        "destinations": [
+          "%r4270",
+          "%r4271",
+          "%r4272",
+          "%r4273"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4270,%r4271,%r4272,%r4273},[%r4249];",
+        "native": [
+          [
+            "v35_l6003_0_0",
+            "v35_l6003_0_1"
+          ],
+          [
+            "v35_l6003_1_0",
+            "v35_l6003_1_1"
+          ],
+          [
+            "v35_l6003_2_0",
+            "v35_l6003_2_1"
+          ],
+          [
+            "v35_l6003_3_0",
+            "v35_l6003_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6026,
+        "line": 12080,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4285]",
+        "destinations": [
+          "%r4288",
+          "%r4289",
+          "%r4290",
+          "%r4291"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4288,%r4289,%r4290,%r4291},[%r4285];",
+        "native": [
+          [
+            "v35_l6026_0_0",
+            "v35_l6026_0_1"
+          ],
+          [
+            "v35_l6026_1_0",
+            "v35_l6026_1_1"
+          ],
+          [
+            "v35_l6026_2_0",
+            "v35_l6026_2_1"
+          ],
+          [
+            "v35_l6026_3_0",
+            "v35_l6026_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6031,
+        "line": 12089,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4287]",
+        "destinations": [
+          "%r4308",
+          "%r4309",
+          "%r4310",
+          "%r4311"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4308,%r4309,%r4310,%r4311},[%r4287];",
+        "native": [
+          [
+            "v35_l6031_0_0",
+            "v35_l6031_0_1"
+          ],
+          [
+            "v35_l6031_1_0",
+            "v35_l6031_1_1"
+          ],
+          [
+            "v35_l6031_2_0",
+            "v35_l6031_2_1"
+          ],
+          [
+            "v35_l6031_3_0",
+            "v35_l6031_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6054,
+        "line": 12172,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4323]",
+        "destinations": [
+          "%r4326",
+          "%r4327",
+          "%r4328",
+          "%r4329"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4326,%r4327,%r4328,%r4329},[%r4323];",
+        "native": [
+          [
+            "v35_l6054_0_0",
+            "v35_l6054_0_1"
+          ],
+          [
+            "v35_l6054_1_0",
+            "v35_l6054_1_1"
+          ],
+          [
+            "v35_l6054_2_0",
+            "v35_l6054_2_1"
+          ],
+          [
+            "v35_l6054_3_0",
+            "v35_l6054_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6059,
+        "line": 12181,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4325]",
+        "destinations": [
+          "%r4346",
+          "%r4347",
+          "%r4348",
+          "%r4349"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4346,%r4347,%r4348,%r4349},[%r4325];",
+        "native": [
+          [
+            "v35_l6059_0_0",
+            "v35_l6059_0_1"
+          ],
+          [
+            "v35_l6059_1_0",
+            "v35_l6059_1_1"
+          ],
+          [
+            "v35_l6059_2_0",
+            "v35_l6059_2_1"
+          ],
+          [
+            "v35_l6059_3_0",
+            "v35_l6059_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6082,
+        "line": 12264,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4361]",
+        "destinations": [
+          "%r4364",
+          "%r4365",
+          "%r4366",
+          "%r4367"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4364,%r4365,%r4366,%r4367},[%r4361];",
+        "native": [
+          [
+            "v35_l6082_0_0",
+            "v35_l6082_0_1"
+          ],
+          [
+            "v35_l6082_1_0",
+            "v35_l6082_1_1"
+          ],
+          [
+            "v35_l6082_2_0",
+            "v35_l6082_2_1"
+          ],
+          [
+            "v35_l6082_3_0",
+            "v35_l6082_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6087,
+        "line": 12273,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r4363]",
+        "destinations": [
+          "%r4384",
+          "%r4385",
+          "%r4386",
+          "%r4387"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r4384,%r4385,%r4386,%r4387},[%r4363];",
+        "native": [
+          [
+            "v35_l6087_0_0",
+            "v35_l6087_0_1"
+          ],
+          [
+            "v35_l6087_1_0",
+            "v35_l6087_1_1"
+          ],
+          [
+            "v35_l6087_2_0",
+            "v35_l6087_2_1"
+          ],
+          [
+            "v35_l6087_3_0",
+            "v35_l6087_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6818,
+        "line": 14022,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5195]",
+        "destinations": [
+          "%r5191",
+          "%r5192",
+          "%r5193",
+          "%r5194"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5191,%r5192,%r5193,%r5194},[%r5195];",
+        "native": [
+          [
+            "v35_l6818_0_0",
+            "v35_l6818_0_1"
+          ],
+          [
+            "v35_l6818_1_0",
+            "v35_l6818_1_1"
+          ],
+          [
+            "v35_l6818_2_0",
+            "v35_l6818_2_1"
+          ],
+          [
+            "v35_l6818_3_0",
+            "v35_l6818_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 6823,
+        "line": 14031,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5201]",
+        "destinations": [
+          "%r5197",
+          "%r5198",
+          "%r5199",
+          "%r5200"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5197,%r5198,%r5199,%r5200},[%r5201];",
+        "native": [
+          [
+            "v35_l6823_0_0",
+            "v35_l6823_0_1"
+          ],
+          [
+            "v35_l6823_1_0",
+            "v35_l6823_1_1"
+          ],
+          [
+            "v35_l6823_2_0",
+            "v35_l6823_2_1"
+          ],
+          [
+            "v35_l6823_3_0",
+            "v35_l6823_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 7096,
+        "line": 14500,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5297]",
+        "destinations": [
+          "%r5300",
+          "%r5301",
+          "%r5302",
+          "%r5303"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5300,%r5301,%r5302,%r5303},[%r5297];",
+        "native": [
+          [
+            "v35_l7096_0_0",
+            "v35_l7096_0_1"
+          ],
+          [
+            "v35_l7096_1_0",
+            "v35_l7096_1_1"
+          ],
+          [
+            "v35_l7096_2_0",
+            "v35_l7096_2_1"
+          ],
+          [
+            "v35_l7096_3_0",
+            "v35_l7096_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 7101,
+        "line": 14509,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5299]",
+        "destinations": [
+          "%r5320",
+          "%r5321",
+          "%r5322",
+          "%r5323"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5320,%r5321,%r5322,%r5323},[%r5299];",
+        "native": [
+          [
+            "v35_l7101_0_0",
+            "v35_l7101_0_1"
+          ],
+          [
+            "v35_l7101_1_0",
+            "v35_l7101_1_1"
+          ],
+          [
+            "v35_l7101_2_0",
+            "v35_l7101_2_1"
+          ],
+          [
+            "v35_l7101_3_0",
+            "v35_l7101_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 7124,
+        "line": 14592,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5335]",
+        "destinations": [
+          "%r5338",
+          "%r5339",
+          "%r5340",
+          "%r5341"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5338,%r5339,%r5340,%r5341},[%r5335];",
+        "native": [
+          [
+            "v35_l7124_0_0",
+            "v35_l7124_0_1"
+          ],
+          [
+            "v35_l7124_1_0",
+            "v35_l7124_1_1"
+          ],
+          [
+            "v35_l7124_2_0",
+            "v35_l7124_2_1"
+          ],
+          [
+            "v35_l7124_3_0",
+            "v35_l7124_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 7129,
+        "line": 14601,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5337]",
+        "destinations": [
+          "%r5358",
+          "%r5359",
+          "%r5360",
+          "%r5361"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5358,%r5359,%r5360,%r5361},[%r5337];",
+        "native": [
+          [
+            "v35_l7129_0_0",
+            "v35_l7129_0_1"
+          ],
+          [
+            "v35_l7129_1_0",
+            "v35_l7129_1_1"
+          ],
+          [
+            "v35_l7129_2_0",
+            "v35_l7129_2_1"
+          ],
+          [
+            "v35_l7129_3_0",
+            "v35_l7129_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 7152,
+        "line": 14684,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5373]",
+        "destinations": [
+          "%r5376",
+          "%r5377",
+          "%r5378",
+          "%r5379"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5376,%r5377,%r5378,%r5379},[%r5373];",
+        "native": [
+          [
+            "v35_l7152_0_0",
+            "v35_l7152_0_1"
+          ],
+          [
+            "v35_l7152_1_0",
+            "v35_l7152_1_1"
+          ],
+          [
+            "v35_l7152_2_0",
+            "v35_l7152_2_1"
+          ],
+          [
+            "v35_l7152_3_0",
+            "v35_l7152_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 7157,
+        "line": 14693,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5375]",
+        "destinations": [
+          "%r5396",
+          "%r5397",
+          "%r5398",
+          "%r5399"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5396,%r5397,%r5398,%r5399},[%r5375];",
+        "native": [
+          [
+            "v35_l7157_0_0",
+            "v35_l7157_0_1"
+          ],
+          [
+            "v35_l7157_1_0",
+            "v35_l7157_1_1"
+          ],
+          [
+            "v35_l7157_2_0",
+            "v35_l7157_2_1"
+          ],
+          [
+            "v35_l7157_3_0",
+            "v35_l7157_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 7180,
+        "line": 14776,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5411]",
+        "destinations": [
+          "%r5414",
+          "%r5415",
+          "%r5416",
+          "%r5417"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5414,%r5415,%r5416,%r5417},[%r5411];",
+        "native": [
+          [
+            "v35_l7180_0_0",
+            "v35_l7180_0_1"
+          ],
+          [
+            "v35_l7180_1_0",
+            "v35_l7180_1_1"
+          ],
+          [
+            "v35_l7180_2_0",
+            "v35_l7180_2_1"
+          ],
+          [
+            "v35_l7180_3_0",
+            "v35_l7180_3_1"
+          ]
+        ]
+      },
+      {
+        "index": 7185,
+        "line": 14785,
+        "op": "ld.shared::cta.v4.u32",
+        "address": "[%r5413]",
+        "destinations": [
+          "%r5434",
+          "%r5435",
+          "%r5436",
+          "%r5437"
+        ],
+        "symbol": "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage",
+        "text": "ld.shared::cta.v4.u32 { %r5434,%r5435,%r5436,%r5437},[%r5413];",
+        "native": [
+          [
+            "v35_l7185_0_0",
+            "v35_l7185_0_1"
+          ],
+          [
+            "v35_l7185_1_0",
+            "v35_l7185_1_1"
+          ],
+          [
+            "v35_l7185_2_0",
+            "v35_l7185_2_1"
+          ],
+          [
+            "v35_l7185_3_0",
+            "v35_l7185_3_1"
+          ]
+        ]
+      }
+    ],
+    "stores": [
+      {
+        "index": 5975,
+        "line": 11949,
+        "op": "st.shared::cta.v4.u32",
+        "address": "[%r4233]",
+        "sources": [
+          "%r4234",
+          "%r4235",
+          "%r4236",
+          "%r4237"
+        ],
+        "bytes": 16,
+        "symbols": [
+          "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage"
+        ],
+        "origins": [
+          "local_FP8_quantization"
+        ],
+        "fast_native": [
+          [
+            "v35_w_r4234_0",
+            "v35_w_r4234_1"
+          ],
+          [
+            "v35_w_r4235_0",
+            "v35_w_r4235_1"
+          ],
+          [
+            "v35_w_r4236_0",
+            "v35_w_r4236_1"
+          ],
+          [
+            "v35_w_r4237_0",
+            "v35_w_r4237_1"
+          ]
+        ],
+        "finite_pack_derived": true
+      },
+      {
+        "index": 5980,
+        "line": 11958,
+        "op": "st.shared::cta.v4.u32",
+        "address": "[%r4239]",
+        "sources": [
+          "%r4240",
+          "%r4241",
+          "%r4242",
+          "%r4243"
+        ],
+        "bytes": 16,
+        "symbols": [
+          "_ZZNK6tin3_129CrazyCuckooFusedSwin2d4HLayerINS_30CrazyCuckooFusedSwin2d4HConfigILi128ELi32ELi4ELi8ELi8ELi4ELi8ELi8ELi32ELi32ELi32ELi4ELb1ELb0ELb1ELi256ELi4ELi4ELi128ELb1ELb1ELb1ELb0ELb0ENS_10OOBRdByDimILi4EJNS_8DimOOBRdILi0ELNS_19OutOfBoundsPolicyRdE2EEENS3_ILi1ELS4_2EEEEEENS2_ILi2EJS5_S6_EEENS_14LayerOutputOOBILi4ES7_NS_10OOBWrByDimILi4EJNS_8DimOOBWrILi0ELNS_19OutOfBoundsPolicyWrE0EEENSB_ILi1ELSC_0EEEEEEEENSA_ILi2EJSD_SE_EEELb0ELi4ELb1EEENS_10cc_samples21MpCubicSiluActivationELNS_5DTypeE2EE7forwardEPKjPjiiiiPiiiSQ_SO_SP_iiiE14shared_storage"
+        ],
+        "origins": [
+          "local_FP8_quantization"
+        ],
+        "fast_native": [
+          [
+            "v35_w_r4240_0",
+            "v35_w_r4240_1"
+          ],
+          [
+            "v35_w_r4241_0",
+            "v35_w_r4241_1"
+          ],
+          [
+            "v35_w_r4242_0",
+            "v35_w_r4242_1"
+          ],
+          [
+            "v35_w_r4243_0",
+            "v35_w_r4243_1"
+          ]
+        ],
+        "finite_pack_derived": true
+      }
+    ],
+    "cp_async_aliases": [],
+    "unsupported_writes": [],
+    "eligible_shadow": true,
+    "grain": "u32 words/vectors: each original byte maps to an independent FP16 element; original 16B vectors map to aligned 32B vectors",
+    "non_MMA_loads": 8,
+    "native_declarations": [
+      "v35_l2705_0_0",
+      "v35_l2705_0_1",
+      "v35_l2705_1_0",
+      "v35_l2705_1_1",
+      "v35_l2705_2_0",
+      "v35_l2705_2_1",
+      "v35_l2705_3_0",
+      "v35_l2705_3_1",
+      "v35_l2710_0_0",
+      "v35_l2710_0_1",
+      "v35_l2710_1_0",
+      "v35_l2710_1_1",
+      "v35_l2710_2_0",
+      "v35_l2710_2_1",
+      "v35_l2710_3_0",
+      "v35_l2710_3_1",
+      "v35_l2715_0_0",
+      "v35_l2715_0_1",
+      "v35_l2715_1_0",
+      "v35_l2715_1_1",
+      "v35_l2715_2_0",
+      "v35_l2715_2_1",
+      "v35_l2715_3_0",
+      "v35_l2715_3_1",
+      "v35_l2720_0_0",
+      "v35_l2720_0_1",
+      "v35_l2720_1_0",
+      "v35_l2720_1_1",
+      "v35_l2720_2_0",
+      "v35_l2720_2_1",
+      "v35_l2720_3_0",
+      "v35_l2720_3_1",
+      "v35_l2751_0_0",
+      "v35_l2751_0_1",
+      "v35_l2751_1_0",
+      "v35_l2751_1_1",
+      "v35_l2751_2_0",
+      "v35_l2751_2_1",
+      "v35_l2751_3_0",
+      "v35_l2751_3_1",
+      "v35_l2756_0_0",
+      "v35_l2756_0_1",
+      "v35_l2756_1_0",
+      "v35_l2756_1_1",
+      "v35_l2756_2_0",
+      "v35_l2756_2_1",
+      "v35_l2756_3_0",
+      "v35_l2756_3_1",
+      "v35_l2761_0_0",
+      "v35_l2761_0_1",
+      "v35_l2761_1_0",
+      "v35_l2761_1_1",
+      "v35_l2761_2_0",
+      "v35_l2761_2_1",
+      "v35_l2761_3_0",
+      "v35_l2761_3_1",
+      "v35_l2766_0_0",
+      "v35_l2766_0_1",
+      "v35_l2766_1_0",
+      "v35_l2766_1_1",
+      "v35_l2766_2_0",
+      "v35_l2766_2_1",
+      "v35_l2766_3_0",
+      "v35_l2766_3_1",
+      "v35_l2797_0_0",
+      "v35_l2797_0_1",
+      "v35_l2797_1_0",
+      "v35_l2797_1_1",
+      "v35_l2797_2_0",
+      "v35_l2797_2_1",
+      "v35_l2797_3_0",
+      "v35_l2797_3_1",
+      "v35_l2802_0_0",
+      "v35_l2802_0_1",
+      "v35_l2802_1_0",
+      "v35_l2802_1_1",
+      "v35_l2802_2_0",
+      "v35_l2802_2_1",
+      "v35_l2802_3_0",
+      "v35_l2802_3_1",
+      "v35_l2807_0_0",
+      "v35_l2807_0_1",
+      "v35_l2807_1_0",
+      "v35_l2807_1_1",
+      "v35_l2807_2_0",
+      "v35_l2807_2_1",
+      "v35_l2807_3_0",
+      "v35_l2807_3_1",
+      "v35_l2812_0_0",
+      "v35_l2812_0_1",
+      "v35_l2812_1_0",
+      "v35_l2812_1_1",
+      "v35_l2812_2_0",
+      "v35_l2812_2_1",
+      "v35_l2812_3_0",
+      "v35_l2812_3_1",
+      "v35_l2843_0_0",
+      "v35_l2843_0_1",
+      "v35_l2843_1_0",
+      "v35_l2843_1_1",
+      "v35_l2843_2_0",
+      "v35_l2843_2_1",
+      "v35_l2843_3_0",
+      "v35_l2843_3_1",
+      "v35_l2848_0_0",
+      "v35_l2848_0_1",
+      "v35_l2848_1_0",
+      "v35_l2848_1_1",
+      "v35_l2848_2_0",
+      "v35_l2848_2_1",
+      "v35_l2848_3_0",
+      "v35_l2848_3_1",
+      "v35_l2853_0_0",
+      "v35_l2853_0_1",
+      "v35_l2853_1_0",
+      "v35_l2853_1_1",
+      "v35_l2853_2_0",
+      "v35_l2853_2_1",
+      "v35_l2853_3_0",
+      "v35_l2853_3_1",
+      "v35_l2858_0_0",
+      "v35_l2858_0_1",
+      "v35_l2858_1_0",
+      "v35_l2858_1_1",
+      "v35_l2858_2_0",
+      "v35_l2858_2_1",
+      "v35_l2858_3_0",
+      "v35_l2858_3_1",
+      "v35_l3207_0_0",
+      "v35_l3207_0_1",
+      "v35_l3207_1_0",
+      "v35_l3207_1_1",
+      "v35_l3207_2_0",
+      "v35_l3207_2_1",
+      "v35_l3207_3_0",
+      "v35_l3207_3_1",
+      "v35_l3212_0_0",
+      "v35_l3212_0_1",
+      "v35_l3212_1_0",
+      "v35_l3212_1_1",
+      "v35_l3212_2_0",
+      "v35_l3212_2_1",
+      "v35_l3212_3_0",
+      "v35_l3212_3_1",
+      "v35_l3217_0_0",
+      "v35_l3217_0_1",
+      "v35_l3217_1_0",
+      "v35_l3217_1_1",
+      "v35_l3217_2_0",
+      "v35_l3217_2_1",
+      "v35_l3217_3_0",
+      "v35_l3217_3_1",
+      "v35_l3222_0_0",
+      "v35_l3222_0_1",
+      "v35_l3222_1_0",
+      "v35_l3222_1_1",
+      "v35_l3222_2_0",
+      "v35_l3222_2_1",
+      "v35_l3222_3_0",
+      "v35_l3222_3_1",
+      "v35_l3755_0_0",
+      "v35_l3755_0_1",
+      "v35_l3755_1_0",
+      "v35_l3755_1_1",
+      "v35_l3755_2_0",
+      "v35_l3755_2_1",
+      "v35_l3755_3_0",
+      "v35_l3755_3_1",
+      "v35_l3760_0_0",
+      "v35_l3760_0_1",
+      "v35_l3760_1_0",
+      "v35_l3760_1_1",
+      "v35_l3760_2_0",
+      "v35_l3760_2_1",
+      "v35_l3760_3_0",
+      "v35_l3760_3_1",
+      "v35_l3765_0_0",
+      "v35_l3765_0_1",
+      "v35_l3765_1_0",
+      "v35_l3765_1_1",
+      "v35_l3765_2_0",
+      "v35_l3765_2_1",
+      "v35_l3765_3_0",
+      "v35_l3765_3_1",
+      "v35_l3770_0_0",
+      "v35_l3770_0_1",
+      "v35_l3770_1_0",
+      "v35_l3770_1_1",
+      "v35_l3770_2_0",
+      "v35_l3770_2_1",
+      "v35_l3770_3_0",
+      "v35_l3770_3_1",
+      "v35_l3966_0_0",
+      "v35_l3966_0_1",
+      "v35_l3966_1_0",
+      "v35_l3966_1_1",
+      "v35_l3966_2_0",
+      "v35_l3966_2_1",
+      "v35_l3966_3_0",
+      "v35_l3966_3_1",
+      "v35_l3971_0_0",
+      "v35_l3971_0_1",
+      "v35_l3971_1_0",
+      "v35_l3971_1_1",
+      "v35_l3971_2_0",
+      "v35_l3971_2_1",
+      "v35_l3971_3_0",
+      "v35_l3971_3_1",
+      "v35_l3976_0_0",
+      "v35_l3976_0_1",
+      "v35_l3976_1_0",
+      "v35_l3976_1_1",
+      "v35_l3976_2_0",
+      "v35_l3976_2_1",
+      "v35_l3976_3_0",
+      "v35_l3976_3_1",
+      "v35_l3981_0_0",
+      "v35_l3981_0_1",
+      "v35_l3981_1_0",
+      "v35_l3981_1_1",
+      "v35_l3981_2_0",
+      "v35_l3981_2_1",
+      "v35_l3981_3_0",
+      "v35_l3981_3_1",
+      "v35_l5713_0_0",
+      "v35_l5713_0_1",
+      "v35_l5713_1_0",
+      "v35_l5713_1_1",
+      "v35_l5713_2_0",
+      "v35_l5713_2_1",
+      "v35_l5713_3_0",
+      "v35_l5713_3_1",
+      "v35_l5718_0_0",
+      "v35_l5718_0_1",
+      "v35_l5718_1_0",
+      "v35_l5718_1_1",
+      "v35_l5718_2_0",
+      "v35_l5718_2_1",
+      "v35_l5718_3_0",
+      "v35_l5718_3_1",
+      "v35_l5998_0_0",
+      "v35_l5998_0_1",
+      "v35_l5998_1_0",
+      "v35_l5998_1_1",
+      "v35_l5998_2_0",
+      "v35_l5998_2_1",
+      "v35_l5998_3_0",
+      "v35_l5998_3_1",
+      "v35_l6003_0_0",
+      "v35_l6003_0_1",
+      "v35_l6003_1_0",
+      "v35_l6003_1_1",
+      "v35_l6003_2_0",
+      "v35_l6003_2_1",
+      "v35_l6003_3_0",
+      "v35_l6003_3_1",
+      "v35_l6026_0_0",
+      "v35_l6026_0_1",
+      "v35_l6026_1_0",
+      "v35_l6026_1_1",
+      "v35_l6026_2_0",
+      "v35_l6026_2_1",
+      "v35_l6026_3_0",
+      "v35_l6026_3_1",
+      "v35_l6031_0_0",
+      "v35_l6031_0_1",
+      "v35_l6031_1_0",
+      "v35_l6031_1_1",
+      "v35_l6031_2_0",
+      "v35_l6031_2_1",
+      "v35_l6031_3_0",
+      "v35_l6031_3_1",
+      "v35_l6054_0_0",
+      "v35_l6054_0_1",
+      "v35_l6054_1_0",
+      "v35_l6054_1_1",
+      "v35_l6054_2_0",
+      "v35_l6054_2_1",
+      "v35_l6054_3_0",
+      "v35_l6054_3_1",
+      "v35_l6059_0_0",
+      "v35_l6059_0_1",
+      "v35_l6059_1_0",
+      "v35_l6059_1_1",
+      "v35_l6059_2_0",
+      "v35_l6059_2_1",
+      "v35_l6059_3_0",
+      "v35_l6059_3_1",
+      "v35_l6082_0_0",
+      "v35_l6082_0_1",
+      "v35_l6082_1_0",
+      "v35_l6082_1_1",
+      "v35_l6082_2_0",
+      "v35_l6082_2_1",
+      "v35_l6082_3_0",
+      "v35_l6082_3_1",
+      "v35_l6087_0_0",
+      "v35_l6087_0_1",
+      "v35_l6087_1_0",
+      "v35_l6087_1_1",
+      "v35_l6087_2_0",
+      "v35_l6087_2_1",
+      "v35_l6087_3_0",
+      "v35_l6087_3_1",
+      "v35_l6818_0_0",
+      "v35_l6818_0_1",
+      "v35_l6818_1_0",
+      "v35_l6818_1_1",
+      "v35_l6818_2_0",
+      "v35_l6818_2_1",
+      "v35_l6818_3_0",
+      "v35_l6818_3_1",
+      "v35_l6823_0_0",
+      "v35_l6823_0_1",
+      "v35_l6823_1_0",
+      "v35_l6823_1_1",
+      "v35_l6823_2_0",
+      "v35_l6823_2_1",
+      "v35_l6823_3_0",
+      "v35_l6823_3_1",
+      "v35_l7096_0_0",
+      "v35_l7096_0_1",
+      "v35_l7096_1_0",
+      "v35_l7096_1_1",
+      "v35_l7096_2_0",
+      "v35_l7096_2_1",
+      "v35_l7096_3_0",
+      "v35_l7096_3_1",
+      "v35_l7101_0_0",
+      "v35_l7101_0_1",
+      "v35_l7101_1_0",
+      "v35_l7101_1_1",
+      "v35_l7101_2_0",
+      "v35_l7101_2_1",
+      "v35_l7101_3_0",
+      "v35_l7101_3_1",
+      "v35_l7124_0_0",
+      "v35_l7124_0_1",
+      "v35_l7124_1_0",
+      "v35_l7124_1_1",
+      "v35_l7124_2_0",
+      "v35_l7124_2_1",
+      "v35_l7124_3_0",
+      "v35_l7124_3_1",
+      "v35_l7129_0_0",
+      "v35_l7129_0_1",
+      "v35_l7129_1_0",
+      "v35_l7129_1_1",
+      "v35_l7129_2_0",
+      "v35_l7129_2_1",
+      "v35_l7129_3_0",
+      "v35_l7129_3_1",
+      "v35_l7152_0_0",
+      "v35_l7152_0_1",
+      "v35_l7152_1_0",
+      "v35_l7152_1_1",
+      "v35_l7152_2_0",
+      "v35_l7152_2_1",
+      "v35_l7152_3_0",
+      "v35_l7152_3_1",
+      "v35_l7157_0_0",
+      "v35_l7157_0_1",
+      "v35_l7157_1_0",
+      "v35_l7157_1_1",
+      "v35_l7157_2_0",
+      "v35_l7157_2_1",
+      "v35_l7157_3_0",
+      "v35_l7157_3_1",
+      "v35_l7180_0_0",
+      "v35_l7180_0_1",
+      "v35_l7180_1_0",
+      "v35_l7180_1_1",
+      "v35_l7180_2_0",
+      "v35_l7180_2_1",
+      "v35_l7180_3_0",
+      "v35_l7180_3_1",
+      "v35_l7185_0_0",
+      "v35_l7185_0_1",
+      "v35_l7185_1_0",
+      "v35_l7185_1_1",
+      "v35_l7185_2_0",
+      "v35_l7185_2_1",
+      "v35_l7185_3_0",
+      "v35_l7185_3_1",
+      "v35_n_rs41",
+      "v35_n_rs42",
+      "v35_n_rs425",
+      "v35_n_rs426",
+      "v35_n_rs427",
+      "v35_n_rs428",
+      "v35_n_rs429",
+      "v35_n_rs43",
+      "v35_n_rs430",
+      "v35_n_rs431",
+      "v35_n_rs432",
+      "v35_n_rs433",
+      "v35_n_rs434",
+      "v35_n_rs435",
+      "v35_n_rs436",
+      "v35_n_rs437",
+      "v35_n_rs438",
+      "v35_n_rs439",
+      "v35_n_rs44",
+      "v35_n_rs440",
+      "v35_n_rs441",
+      "v35_n_rs442",
+      "v35_n_rs443",
+      "v35_n_rs444",
+      "v35_n_rs445",
+      "v35_n_rs446",
+      "v35_n_rs447",
+      "v35_n_rs448",
+      "v35_n_rs449",
+      "v35_n_rs45",
+      "v35_n_rs450",
+      "v35_n_rs451",
+      "v35_n_rs452",
+      "v35_n_rs453",
+      "v35_n_rs454",
+      "v35_n_rs455",
+      "v35_n_rs456",
+      "v35_n_rs457",
+      "v35_n_rs458",
+      "v35_n_rs459",
+      "v35_n_rs46",
+      "v35_n_rs460",
+      "v35_n_rs461",
+      "v35_n_rs462",
+      "v35_n_rs463",
+      "v35_n_rs464",
+      "v35_n_rs465",
+      "v35_n_rs466",
+      "v35_n_rs467",
+      "v35_n_rs468",
+      "v35_n_rs469",
+      "v35_n_rs47",
+      "v35_n_rs470",
+      "v35_n_rs471",
+      "v35_n_rs472",
+      "v35_n_rs473",
+      "v35_n_rs474",
+      "v35_n_rs475",
+      "v35_n_rs476",
+      "v35_n_rs477",
+      "v35_n_rs478",
+      "v35_n_rs479",
+      "v35_n_rs48",
+      "v35_n_rs480",
+      "v35_n_rs481",
+      "v35_n_rs482",
+      "v35_n_rs483",
+      "v35_n_rs484",
+      "v35_n_rs485",
+      "v35_n_rs486",
+      "v35_n_rs487",
+      "v35_n_rs488",
+      "v35_n_rs49",
+      "v35_n_rs50",
+      "v35_n_rs51",
+      "v35_n_rs52",
+      "v35_n_rs53",
+      "v35_n_rs54",
+      "v35_n_rs55",
+      "v35_n_rs56",
+      "v35_n_rs57",
+      "v35_n_rs58",
+      "v35_n_rs59",
+      "v35_n_rs60",
+      "v35_n_rs61",
+      "v35_n_rs62",
+      "v35_n_rs63",
+      "v35_n_rs634",
+      "v35_n_rs635",
+      "v35_n_rs636",
+      "v35_n_rs637",
+      "v35_n_rs638",
+      "v35_n_rs639",
+      "v35_n_rs64",
+      "v35_n_rs640",
+      "v35_n_rs641",
+      "v35_n_rs642",
+      "v35_n_rs643",
+      "v35_n_rs644",
+      "v35_n_rs645",
+      "v35_n_rs646",
+      "v35_n_rs647",
+      "v35_n_rs648",
+      "v35_n_rs649",
+      "v35_n_rs65",
+      "v35_n_rs66",
+      "v35_n_rs67",
+      "v35_n_rs68",
+      "v35_n_rs69",
+      "v35_n_rs70",
+      "v35_n_rs71",
+      "v35_n_rs72",
+      "v35_n_rs752",
+      "v35_n_rs753",
+      "v35_n_rs754",
+      "v35_n_rs755",
+      "v35_n_rs756",
+      "v35_n_rs757",
+      "v35_n_rs758",
+      "v35_n_rs759",
+      "v35_n_rs760",
+      "v35_n_rs761",
+      "v35_n_rs762",
+      "v35_n_rs763",
+      "v35_n_rs764",
+      "v35_n_rs765",
+      "v35_n_rs766",
+      "v35_n_rs767",
+      "v35_w_r2608_0",
+      "v35_w_r2608_1",
+      "v35_w_r2609_0",
+      "v35_w_r2609_1",
+      "v35_w_r2610_0",
+      "v35_w_r2610_1",
+      "v35_w_r2611_0",
+      "v35_w_r2611_1",
+      "v35_w_r2614_0",
+      "v35_w_r2614_1",
+      "v35_w_r2615_0",
+      "v35_w_r2615_1",
+      "v35_w_r2616_0",
+      "v35_w_r2616_1",
+      "v35_w_r2617_0",
+      "v35_w_r2617_1",
+      "v35_w_r2620_0",
+      "v35_w_r2620_1",
+      "v35_w_r2621_0",
+      "v35_w_r2621_1",
+      "v35_w_r2622_0",
+      "v35_w_r2622_1",
+      "v35_w_r2623_0",
+      "v35_w_r2623_1",
+      "v35_w_r2626_0",
+      "v35_w_r2626_1",
+      "v35_w_r2627_0",
+      "v35_w_r2627_1",
+      "v35_w_r2628_0",
+      "v35_w_r2628_1",
+      "v35_w_r2629_0",
+      "v35_w_r2629_1",
+      "v35_w_r2895_0",
+      "v35_w_r2895_1",
+      "v35_w_r2896_0",
+      "v35_w_r2896_1",
+      "v35_w_r2897_0",
+      "v35_w_r2897_1",
+      "v35_w_r2898_0",
+      "v35_w_r2898_1",
+      "v35_w_r2901_0",
+      "v35_w_r2901_1",
+      "v35_w_r2902_0",
+      "v35_w_r2902_1",
+      "v35_w_r2903_0",
+      "v35_w_r2903_1",
+      "v35_w_r2904_0",
+      "v35_w_r2904_1",
+      "v35_w_r2907_0",
+      "v35_w_r2907_1",
+      "v35_w_r2908_0",
+      "v35_w_r2908_1",
+      "v35_w_r2909_0",
+      "v35_w_r2909_1",
+      "v35_w_r2910_0",
+      "v35_w_r2910_1",
+      "v35_w_r2913_0",
+      "v35_w_r2913_1",
+      "v35_w_r2914_0",
+      "v35_w_r2914_1",
+      "v35_w_r2915_0",
+      "v35_w_r2915_1",
+      "v35_w_r2916_0",
+      "v35_w_r2916_1",
+      "v35_w_r4234_0",
+      "v35_w_r4234_1",
+      "v35_w_r4235_0",
+      "v35_w_r4235_1",
+      "v35_w_r4236_0",
+      "v35_w_r4236_1",
+      "v35_w_r4237_0",
+      "v35_w_r4237_1",
+      "v35_w_r4240_0",
+      "v35_w_r4240_1",
+      "v35_w_r4241_0",
+      "v35_w_r4241_1",
+      "v35_w_r4242_0",
+      "v35_w_r4242_1",
+      "v35_w_r4243_0",
+      "v35_w_r4243_1",
+      "v35_w_r5284_0",
+      "v35_w_r5284_1",
+      "v35_w_r5285_0",
+      "v35_w_r5285_1",
+      "v35_w_r5286_0",
+      "v35_w_r5286_1",
+      "v35_w_r5287_0",
+      "v35_w_r5287_1",
+      "v35_w_r5290_0",
+      "v35_w_r5290_1",
+      "v35_w_r5291_0",
+      "v35_w_r5291_1",
+      "v35_w_r5292_0",
+      "v35_w_r5292_1",
+      "v35_w_r5293_0",
+      "v35_w_r5293_1",
+      "v35_w_r726_0",
+      "v35_w_r726_1",
+      "v35_w_r727_0",
+      "v35_w_r727_1",
+      "v35_w_r728_0",
+      "v35_w_r728_1",
+      "v35_w_r729_0",
+      "v35_w_r729_1",
+      "v35_w_r732_0",
+      "v35_w_r732_1",
+      "v35_w_r733_0",
+      "v35_w_r733_1",
+      "v35_w_r734_0",
+      "v35_w_r734_1",
+      "v35_w_r735_0",
+      "v35_w_r735_1",
+      "v35_w_r738_0",
+      "v35_w_r738_1",
+      "v35_w_r739_0",
+      "v35_w_r739_1",
+      "v35_w_r740_0",
+      "v35_w_r740_1",
+      "v35_w_r741_0",
+      "v35_w_r741_1",
+      "v35_w_r744_0",
+      "v35_w_r744_1",
+      "v35_w_r745_0",
+      "v35_w_r745_1",
+      "v35_w_r746_0",
+      "v35_w_r746_1",
+      "v35_w_r747_0",
+      "v35_w_r747_1"
+    ],
+    "prefix": {
+      "2594": [
+        [
+          "clamp",
+          "v35_n_rs41",
+          "%r692"
+        ]
+      ],
+      "2595": [
+        [
+          "clamp",
+          "v35_n_rs42",
+          "%r693"
+        ]
+      ],
+      "2596": [
+        [
+          "mov",
+          "v35_w_r726_0",
+          "v35_n_rs41"
+        ],
+        [
+          "mov",
+          "v35_w_r726_1",
+          "v35_n_rs42"
+        ]
+      ],
+      "2597": [
+        [
+          "clamp",
+          "v35_n_rs43",
+          "%r694"
+        ]
+      ],
+      "2598": [
+        [
+          "clamp",
+          "v35_n_rs44",
+          "%r695"
+        ]
+      ],
+      "2599": [
+        [
+          "mov",
+          "v35_w_r727_0",
+          "v35_n_rs43"
+        ],
+        [
+          "mov",
+          "v35_w_r727_1",
+          "v35_n_rs44"
+        ]
+      ],
+      "2600": [
+        [
+          "clamp",
+          "v35_n_rs45",
+          "%r696"
+        ]
+      ],
+      "2601": [
+        [
+          "clamp",
+          "v35_n_rs46",
+          "%r697"
+        ]
+      ],
+      "2602": [
+        [
+          "mov",
+          "v35_w_r728_0",
+          "v35_n_rs45"
+        ],
+        [
+          "mov",
+          "v35_w_r728_1",
+          "v35_n_rs46"
+        ]
+      ],
+      "2603": [
+        [
+          "clamp",
+          "v35_n_rs47",
+          "%r698"
+        ]
+      ],
+      "2604": [
+        [
+          "clamp",
+          "v35_n_rs48",
+          "%r699"
+        ]
+      ],
+      "2605": [
+        [
+          "mov",
+          "v35_w_r729_0",
+          "v35_n_rs47"
+        ],
+        [
+          "mov",
+          "v35_w_r729_1",
+          "v35_n_rs48"
+        ]
+      ],
+      "2606": [
+        [
+          "clamp",
+          "v35_n_rs49",
+          "%r700"
+        ]
+      ],
+      "2607": [
+        [
+          "clamp",
+          "v35_n_rs50",
+          "%r701"
+        ]
+      ],
+      "2608": [
+        [
+          "mov",
+          "v35_w_r732_0",
+          "v35_n_rs49"
+        ],
+        [
+          "mov",
+          "v35_w_r732_1",
+          "v35_n_rs50"
+        ]
+      ],
+      "2609": [
+        [
+          "clamp",
+          "v35_n_rs51",
+          "%r702"
+        ]
+      ],
+      "2610": [
+        [
+          "clamp",
+          "v35_n_rs52",
+          "%r703"
+        ]
+      ],
+      "2611": [
+        [
+          "mov",
+          "v35_w_r733_0",
+          "v35_n_rs51"
+        ],
+        [
+          "mov",
+          "v35_w_r733_1",
+          "v35_n_rs52"
+        ]
+      ],
+      "2612": [
+        [
+          "clamp",
+          "v35_n_rs53",
+          "%r704"
+        ]
+      ],
+      "2613": [
+        [
+          "clamp",
+          "v35_n_rs54",
+          "%r705"
+        ]
+      ],
+      "2614": [
+        [
+          "mov",
+          "v35_w_r734_0",
+          "v35_n_rs53"
+        ],
+        [
+          "mov",
+          "v35_w_r734_1",
+          "v35_n_rs54"
+        ]
+      ],
+      "2615": [
+        [
+          "clamp",
+          "v35_n_rs55",
+          "%r706"
+        ]
+      ],
+      "2616": [
+        [
+          "clamp",
+          "v35_n_rs56",
+          "%r707"
+        ]
+      ],
+      "2617": [
+        [
+          "mov",
+          "v35_w_r735_0",
+          "v35_n_rs55"
+        ],
+        [
+          "mov",
+          "v35_w_r735_1",
+          "v35_n_rs56"
+        ]
+      ],
+      "2618": [
+        [
+          "clamp",
+          "v35_n_rs57",
+          "%r708"
+        ]
+      ],
+      "2619": [
+        [
+          "clamp",
+          "v35_n_rs58",
+          "%r709"
+        ]
+      ],
+      "2620": [
+        [
+          "mov",
+          "v35_w_r738_0",
+          "v35_n_rs57"
+        ],
+        [
+          "mov",
+          "v35_w_r738_1",
+          "v35_n_rs58"
+        ]
+      ],
+      "2621": [
+        [
+          "clamp",
+          "v35_n_rs59",
+          "%r710"
+        ]
+      ],
+      "2622": [
+        [
+          "clamp",
+          "v35_n_rs60",
+          "%r711"
+        ]
+      ],
+      "2623": [
+        [
+          "mov",
+          "v35_w_r739_0",
+          "v35_n_rs59"
+        ],
+        [
+          "mov",
+          "v35_w_r739_1",
+          "v35_n_rs60"
+        ]
+      ],
+      "2624": [
+        [
+          "clamp",
+          "v35_n_rs61",
+          "%r712"
+        ]
+      ],
+      "2625": [
+        [
+          "clamp",
+          "v35_n_rs62",
+          "%r713"
+        ]
+      ],
+      "2626": [
+        [
+          "mov",
+          "v35_w_r740_0",
+          "v35_n_rs61"
+        ],
+        [
+          "mov",
+          "v35_w_r740_1",
+          "v35_n_rs62"
+        ]
+      ],
+      "2627": [
+        [
+          "clamp",
+          "v35_n_rs63",
+          "%r714"
+        ]
+      ],
+      "2628": [
+        [
+          "clamp",
+          "v35_n_rs64",
+          "%r715"
+        ]
+      ],
+      "2629": [
+        [
+          "mov",
+          "v35_w_r741_0",
+          "v35_n_rs63"
+        ],
+        [
+          "mov",
+          "v35_w_r741_1",
+          "v35_n_rs64"
+        ]
+      ],
+      "2630": [
+        [
+          "clamp",
+          "v35_n_rs65",
+          "%r716"
+        ]
+      ],
+      "2631": [
+        [
+          "clamp",
+          "v35_n_rs66",
+          "%r717"
+        ]
+      ],
+      "2632": [
+        [
+          "mov",
+          "v35_w_r744_0",
+          "v35_n_rs65"
+        ],
+        [
+          "mov",
+          "v35_w_r744_1",
+          "v35_n_rs66"
+        ]
+      ],
+      "2633": [
+        [
+          "clamp",
+          "v35_n_rs67",
+          "%r718"
+        ]
+      ],
+      "2634": [
+        [
+          "clamp",
+          "v35_n_rs68",
+          "%r719"
+        ]
+      ],
+      "2635": [
+        [
+          "mov",
+          "v35_w_r745_0",
+          "v35_n_rs67"
+        ],
+        [
+          "mov",
+          "v35_w_r745_1",
+          "v35_n_rs68"
+        ]
+      ],
+      "2636": [
+        [
+          "clamp",
+          "v35_n_rs69",
+          "%r720"
+        ]
+      ],
+      "2637": [
+        [
+          "clamp",
+          "v35_n_rs70",
+          "%r721"
+        ]
+      ],
+      "2638": [
+        [
+          "mov",
+          "v35_w_r746_0",
+          "v35_n_rs69"
+        ],
+        [
+          "mov",
+          "v35_w_r746_1",
+          "v35_n_rs70"
+        ]
+      ],
+      "2639": [
+        [
+          "clamp",
+          "v35_n_rs71",
+          "%r722"
+        ]
+      ],
+      "2640": [
+        [
+          "clamp",
+          "v35_n_rs72",
+          "%r723"
+        ]
+      ],
+      "2641": [
+        [
+          "mov",
+          "v35_w_r747_0",
+          "v35_n_rs71"
+        ],
+        [
+          "mov",
+          "v35_w_r747_1",
+          "v35_n_rs72"
+        ]
+      ],
+      "3672": [
+        [
+          "clamp",
+          "v35_n_rs425",
+          "%r5889"
+        ]
+      ],
+      "3673": [
+        [
+          "clamp",
+          "v35_n_rs426",
+          "%r5887"
+        ]
+      ],
+      "3674": [
+        [
+          "mov",
+          "v35_w_r2608_0",
+          "v35_n_rs425"
+        ],
+        [
+          "mov",
+          "v35_w_r2608_1",
+          "v35_n_rs426"
+        ]
+      ],
+      "3675": [
+        [
+          "clamp",
+          "v35_n_rs427",
+          "%r5888"
+        ]
+      ],
+      "3676": [
+        [
+          "clamp",
+          "v35_n_rs428",
+          "%r5886"
+        ]
+      ],
+      "3677": [
+        [
+          "mov",
+          "v35_w_r2609_0",
+          "v35_n_rs427"
+        ],
+        [
+          "mov",
+          "v35_w_r2609_1",
+          "v35_n_rs428"
+        ]
+      ],
+      "3678": [
+        [
+          "clamp",
+          "v35_n_rs429",
+          "%r5885"
+        ]
+      ],
+      "3679": [
+        [
+          "clamp",
+          "v35_n_rs430",
+          "%r5883"
+        ]
+      ],
+      "3680": [
+        [
+          "mov",
+          "v35_w_r2610_0",
+          "v35_n_rs429"
+        ],
+        [
+          "mov",
+          "v35_w_r2610_1",
+          "v35_n_rs430"
+        ]
+      ],
+      "3681": [
+        [
+          "clamp",
+          "v35_n_rs431",
+          "%r5884"
+        ]
+      ],
+      "3682": [
+        [
+          "clamp",
+          "v35_n_rs432",
+          "%r5882"
+        ]
+      ],
+      "3683": [
+        [
+          "mov",
+          "v35_w_r2611_0",
+          "v35_n_rs431"
+        ],
+        [
+          "mov",
+          "v35_w_r2611_1",
+          "v35_n_rs432"
+        ]
+      ],
+      "3684": [
+        [
+          "clamp",
+          "v35_n_rs433",
+          "%r5881"
+        ]
+      ],
+      "3685": [
+        [
+          "clamp",
+          "v35_n_rs434",
+          "%r5879"
+        ]
+      ],
+      "3686": [
+        [
+          "mov",
+          "v35_w_r2614_0",
+          "v35_n_rs433"
+        ],
+        [
+          "mov",
+          "v35_w_r2614_1",
+          "v35_n_rs434"
+        ]
+      ],
+      "3687": [
+        [
+          "clamp",
+          "v35_n_rs435",
+          "%r5880"
+        ]
+      ],
+      "3688": [
+        [
+          "clamp",
+          "v35_n_rs436",
+          "%r5878"
+        ]
+      ],
+      "3689": [
+        [
+          "mov",
+          "v35_w_r2615_0",
+          "v35_n_rs435"
+        ],
+        [
+          "mov",
+          "v35_w_r2615_1",
+          "v35_n_rs436"
+        ]
+      ],
+      "3690": [
+        [
+          "clamp",
+          "v35_n_rs437",
+          "%r5877"
+        ]
+      ],
+      "3691": [
+        [
+          "clamp",
+          "v35_n_rs438",
+          "%r5875"
+        ]
+      ],
+      "3692": [
+        [
+          "mov",
+          "v35_w_r2616_0",
+          "v35_n_rs437"
+        ],
+        [
+          "mov",
+          "v35_w_r2616_1",
+          "v35_n_rs438"
+        ]
+      ],
+      "3693": [
+        [
+          "clamp",
+          "v35_n_rs439",
+          "%r5876"
+        ]
+      ],
+      "3694": [
+        [
+          "clamp",
+          "v35_n_rs440",
+          "%r5874"
+        ]
+      ],
+      "3695": [
+        [
+          "mov",
+          "v35_w_r2617_0",
+          "v35_n_rs439"
+        ],
+        [
+          "mov",
+          "v35_w_r2617_1",
+          "v35_n_rs440"
+        ]
+      ],
+      "3696": [
+        [
+          "clamp",
+          "v35_n_rs441",
+          "%r5873"
+        ]
+      ],
+      "3697": [
+        [
+          "clamp",
+          "v35_n_rs442",
+          "%r5871"
+        ]
+      ],
+      "3698": [
+        [
+          "mov",
+          "v35_w_r2620_0",
+          "v35_n_rs441"
+        ],
+        [
+          "mov",
+          "v35_w_r2620_1",
+          "v35_n_rs442"
+        ]
+      ],
+      "3699": [
+        [
+          "clamp",
+          "v35_n_rs443",
+          "%r5872"
+        ]
+      ],
+      "3700": [
+        [
+          "clamp",
+          "v35_n_rs444",
+          "%r5870"
+        ]
+      ],
+      "3701": [
+        [
+          "mov",
+          "v35_w_r2621_0",
+          "v35_n_rs443"
+        ],
+        [
+          "mov",
+          "v35_w_r2621_1",
+          "v35_n_rs444"
+        ]
+      ],
+      "3702": [
+        [
+          "clamp",
+          "v35_n_rs445",
+          "%r5869"
+        ]
+      ],
+      "3703": [
+        [
+          "clamp",
+          "v35_n_rs446",
+          "%r5867"
+        ]
+      ],
+      "3704": [
+        [
+          "mov",
+          "v35_w_r2622_0",
+          "v35_n_rs445"
+        ],
+        [
+          "mov",
+          "v35_w_r2622_1",
+          "v35_n_rs446"
+        ]
+      ],
+      "3705": [
+        [
+          "clamp",
+          "v35_n_rs447",
+          "%r5868"
+        ]
+      ],
+      "3706": [
+        [
+          "clamp",
+          "v35_n_rs448",
+          "%r5866"
+        ]
+      ],
+      "3707": [
+        [
+          "mov",
+          "v35_w_r2623_0",
+          "v35_n_rs447"
+        ],
+        [
+          "mov",
+          "v35_w_r2623_1",
+          "v35_n_rs448"
+        ]
+      ],
+      "3708": [
+        [
+          "clamp",
+          "v35_n_rs449",
+          "%r5865"
+        ]
+      ],
+      "3709": [
+        [
+          "clamp",
+          "v35_n_rs450",
+          "%r5863"
+        ]
+      ],
+      "3710": [
+        [
+          "mov",
+          "v35_w_r2626_0",
+          "v35_n_rs449"
+        ],
+        [
+          "mov",
+          "v35_w_r2626_1",
+          "v35_n_rs450"
+        ]
+      ],
+      "3711": [
+        [
+          "clamp",
+          "v35_n_rs451",
+          "%r5864"
+        ]
+      ],
+      "3712": [
+        [
+          "clamp",
+          "v35_n_rs452",
+          "%r5862"
+        ]
+      ],
+      "3713": [
+        [
+          "mov",
+          "v35_w_r2627_0",
+          "v35_n_rs451"
+        ],
+        [
+          "mov",
+          "v35_w_r2627_1",
+          "v35_n_rs452"
+        ]
+      ],
+      "3714": [
+        [
+          "clamp",
+          "v35_n_rs453",
+          "%r5861"
+        ]
+      ],
+      "3715": [
+        [
+          "clamp",
+          "v35_n_rs454",
+          "%r5859"
+        ]
+      ],
+      "3716": [
+        [
+          "mov",
+          "v35_w_r2628_0",
+          "v35_n_rs453"
+        ],
+        [
+          "mov",
+          "v35_w_r2628_1",
+          "v35_n_rs454"
+        ]
+      ],
+      "3717": [
+        [
+          "clamp",
+          "v35_n_rs455",
+          "%r5860"
+        ]
+      ],
+      "3718": [
+        [
+          "clamp",
+          "v35_n_rs456",
+          "%r5858"
+        ]
+      ],
+      "3719": [
+        [
+          "mov",
+          "v35_w_r2629_0",
+          "v35_n_rs455"
+        ],
+        [
+          "mov",
+          "v35_w_r2629_1",
+          "v35_n_rs456"
+        ]
+      ],
+      "3794": [
+        [
+          "clamp",
+          "v35_n_rs457",
+          "%r5893"
+        ]
+      ],
+      "3795": [
+        [
+          "clamp",
+          "v35_n_rs458",
+          "%r5895"
+        ]
+      ],
+      "3796": [
+        [
+          "mov",
+          "v35_w_r2895_0",
+          "v35_n_rs457"
+        ],
+        [
+          "mov",
+          "v35_w_r2895_1",
+          "v35_n_rs458"
+        ]
+      ],
+      "3797": [
+        [
+          "clamp",
+          "v35_n_rs459",
+          "%r5894"
+        ]
+      ],
+      "3798": [
+        [
+          "clamp",
+          "v35_n_rs460",
+          "%r5896"
+        ]
+      ],
+      "3799": [
+        [
+          "mov",
+          "v35_w_r2896_0",
+          "v35_n_rs459"
+        ],
+        [
+          "mov",
+          "v35_w_r2896_1",
+          "v35_n_rs460"
+        ]
+      ],
+      "3800": [
+        [
+          "clamp",
+          "v35_n_rs461",
+          "%r5897"
+        ]
+      ],
+      "3801": [
+        [
+          "clamp",
+          "v35_n_rs462",
+          "%r5899"
+        ]
+      ],
+      "3802": [
+        [
+          "mov",
+          "v35_w_r2897_0",
+          "v35_n_rs461"
+        ],
+        [
+          "mov",
+          "v35_w_r2897_1",
+          "v35_n_rs462"
+        ]
+      ],
+      "3803": [
+        [
+          "clamp",
+          "v35_n_rs463",
+          "%r5898"
+        ]
+      ],
+      "3804": [
+        [
+          "clamp",
+          "v35_n_rs464",
+          "%r5900"
+        ]
+      ],
+      "3805": [
+        [
+          "mov",
+          "v35_w_r2898_0",
+          "v35_n_rs463"
+        ],
+        [
+          "mov",
+          "v35_w_r2898_1",
+          "v35_n_rs464"
+        ]
+      ],
+      "3806": [
+        [
+          "clamp",
+          "v35_n_rs465",
+          "%r5901"
+        ]
+      ],
+      "3807": [
+        [
+          "clamp",
+          "v35_n_rs466",
+          "%r5903"
+        ]
+      ],
+      "3808": [
+        [
+          "mov",
+          "v35_w_r2901_0",
+          "v35_n_rs465"
+        ],
+        [
+          "mov",
+          "v35_w_r2901_1",
+          "v35_n_rs466"
+        ]
+      ],
+      "3809": [
+        [
+          "clamp",
+          "v35_n_rs467",
+          "%r5902"
+        ]
+      ],
+      "3810": [
+        [
+          "clamp",
+          "v35_n_rs468",
+          "%r5904"
+        ]
+      ],
+      "3811": [
+        [
+          "mov",
+          "v35_w_r2902_0",
+          "v35_n_rs467"
+        ],
+        [
+          "mov",
+          "v35_w_r2902_1",
+          "v35_n_rs468"
+        ]
+      ],
+      "3812": [
+        [
+          "clamp",
+          "v35_n_rs469",
+          "%r5905"
+        ]
+      ],
+      "3813": [
+        [
+          "clamp",
+          "v35_n_rs470",
+          "%r5907"
+        ]
+      ],
+      "3814": [
+        [
+          "mov",
+          "v35_w_r2903_0",
+          "v35_n_rs469"
+        ],
+        [
+          "mov",
+          "v35_w_r2903_1",
+          "v35_n_rs470"
+        ]
+      ],
+      "3815": [
+        [
+          "clamp",
+          "v35_n_rs471",
+          "%r5906"
+        ]
+      ],
+      "3816": [
+        [
+          "clamp",
+          "v35_n_rs472",
+          "%r5908"
+        ]
+      ],
+      "3817": [
+        [
+          "mov",
+          "v35_w_r2904_0",
+          "v35_n_rs471"
+        ],
+        [
+          "mov",
+          "v35_w_r2904_1",
+          "v35_n_rs472"
+        ]
+      ],
+      "3818": [
+        [
+          "clamp",
+          "v35_n_rs473",
+          "%r5909"
+        ]
+      ],
+      "3819": [
+        [
+          "clamp",
+          "v35_n_rs474",
+          "%r5911"
+        ]
+      ],
+      "3820": [
+        [
+          "mov",
+          "v35_w_r2907_0",
+          "v35_n_rs473"
+        ],
+        [
+          "mov",
+          "v35_w_r2907_1",
+          "v35_n_rs474"
+        ]
+      ],
+      "3821": [
+        [
+          "clamp",
+          "v35_n_rs475",
+          "%r5910"
+        ]
+      ],
+      "3822": [
+        [
+          "clamp",
+          "v35_n_rs476",
+          "%r5912"
+        ]
+      ],
+      "3823": [
+        [
+          "mov",
+          "v35_w_r2908_0",
+          "v35_n_rs475"
+        ],
+        [
+          "mov",
+          "v35_w_r2908_1",
+          "v35_n_rs476"
+        ]
+      ],
+      "3824": [
+        [
+          "clamp",
+          "v35_n_rs477",
+          "%r5913"
+        ]
+      ],
+      "3825": [
+        [
+          "clamp",
+          "v35_n_rs478",
+          "%r5915"
+        ]
+      ],
+      "3826": [
+        [
+          "mov",
+          "v35_w_r2909_0",
+          "v35_n_rs477"
+        ],
+        [
+          "mov",
+          "v35_w_r2909_1",
+          "v35_n_rs478"
+        ]
+      ],
+      "3827": [
+        [
+          "clamp",
+          "v35_n_rs479",
+          "%r5914"
+        ]
+      ],
+      "3828": [
+        [
+          "clamp",
+          "v35_n_rs480",
+          "%r5916"
+        ]
+      ],
+      "3829": [
+        [
+          "mov",
+          "v35_w_r2910_0",
+          "v35_n_rs479"
+        ],
+        [
+          "mov",
+          "v35_w_r2910_1",
+          "v35_n_rs480"
+        ]
+      ],
+      "3830": [
+        [
+          "clamp",
+          "v35_n_rs481",
+          "%r5917"
+        ]
+      ],
+      "3831": [
+        [
+          "clamp",
+          "v35_n_rs482",
+          "%r5919"
+        ]
+      ],
+      "3832": [
+        [
+          "mov",
+          "v35_w_r2913_0",
+          "v35_n_rs481"
+        ],
+        [
+          "mov",
+          "v35_w_r2913_1",
+          "v35_n_rs482"
+        ]
+      ],
+      "3833": [
+        [
+          "clamp",
+          "v35_n_rs483",
+          "%r5918"
+        ]
+      ],
+      "3834": [
+        [
+          "clamp",
+          "v35_n_rs484",
+          "%r5920"
+        ]
+      ],
+      "3835": [
+        [
+          "mov",
+          "v35_w_r2914_0",
+          "v35_n_rs483"
+        ],
+        [
+          "mov",
+          "v35_w_r2914_1",
+          "v35_n_rs484"
+        ]
+      ],
+      "3836": [
+        [
+          "clamp",
+          "v35_n_rs485",
+          "%r5921"
+        ]
+      ],
+      "3837": [
+        [
+          "clamp",
+          "v35_n_rs486",
+          "%r5923"
+        ]
+      ],
+      "3838": [
+        [
+          "mov",
+          "v35_w_r2915_0",
+          "v35_n_rs485"
+        ],
+        [
+          "mov",
+          "v35_w_r2915_1",
+          "v35_n_rs486"
+        ]
+      ],
+      "3839": [
+        [
+          "clamp",
+          "v35_n_rs487",
+          "%r5922"
+        ]
+      ],
+      "3840": [
+        [
+          "clamp",
+          "v35_n_rs488",
+          "%r5924"
+        ]
+      ],
+      "3841": [
+        [
+          "mov",
+          "v35_w_r2916_0",
+          "v35_n_rs487"
+        ],
+        [
+          "mov",
+          "v35_w_r2916_1",
+          "v35_n_rs488"
+        ]
+      ],
+      "5948": [
+        [
+          "clamp",
+          "v35_n_rs634",
+          "%r4216"
+        ]
+      ],
+      "5949": [
+        [
+          "clamp",
+          "v35_n_rs635",
+          "%r4217"
+        ]
+      ],
+      "5950": [
+        [
+          "mov",
+          "v35_w_r4234_0",
+          "v35_n_rs634"
+        ],
+        [
+          "mov",
+          "v35_w_r4234_1",
+          "v35_n_rs635"
+        ]
+      ],
+      "5951": [
+        [
+          "clamp",
+          "v35_n_rs636",
+          "%r4218"
+        ]
+      ],
+      "5952": [
+        [
+          "clamp",
+          "v35_n_rs637",
+          "%r4219"
+        ]
+      ],
+      "5953": [
+        [
+          "mov",
+          "v35_w_r4235_0",
+          "v35_n_rs636"
+        ],
+        [
+          "mov",
+          "v35_w_r4235_1",
+          "v35_n_rs637"
+        ]
+      ],
+      "5954": [
+        [
+          "clamp",
+          "v35_n_rs638",
+          "%r4220"
+        ]
+      ],
+      "5955": [
+        [
+          "clamp",
+          "v35_n_rs639",
+          "%r4221"
+        ]
+      ],
+      "5956": [
+        [
+          "mov",
+          "v35_w_r4236_0",
+          "v35_n_rs638"
+        ],
+        [
+          "mov",
+          "v35_w_r4236_1",
+          "v35_n_rs639"
+        ]
+      ],
+      "5957": [
+        [
+          "clamp",
+          "v35_n_rs640",
+          "%r4222"
+        ]
+      ],
+      "5958": [
+        [
+          "clamp",
+          "v35_n_rs641",
+          "%r4223"
+        ]
+      ],
+      "5959": [
+        [
+          "mov",
+          "v35_w_r4237_0",
+          "v35_n_rs640"
+        ],
+        [
+          "mov",
+          "v35_w_r4237_1",
+          "v35_n_rs641"
+        ]
+      ],
+      "5960": [
+        [
+          "clamp",
+          "v35_n_rs642",
+          "%r4224"
+        ]
+      ],
+      "5961": [
+        [
+          "clamp",
+          "v35_n_rs643",
+          "%r4225"
+        ]
+      ],
+      "5962": [
+        [
+          "mov",
+          "v35_w_r4240_0",
+          "v35_n_rs642"
+        ],
+        [
+          "mov",
+          "v35_w_r4240_1",
+          "v35_n_rs643"
+        ]
+      ],
+      "5963": [
+        [
+          "clamp",
+          "v35_n_rs644",
+          "%r4226"
+        ]
+      ],
+      "5964": [
+        [
+          "clamp",
+          "v35_n_rs645",
+          "%r4227"
+        ]
+      ],
+      "5965": [
+        [
+          "mov",
+          "v35_w_r4241_0",
+          "v35_n_rs644"
+        ],
+        [
+          "mov",
+          "v35_w_r4241_1",
+          "v35_n_rs645"
+        ]
+      ],
+      "5966": [
+        [
+          "clamp",
+          "v35_n_rs646",
+          "%r4228"
+        ]
+      ],
+      "5967": [
+        [
+          "clamp",
+          "v35_n_rs647",
+          "%r4229"
+        ]
+      ],
+      "5968": [
+        [
+          "mov",
+          "v35_w_r4242_0",
+          "v35_n_rs646"
+        ],
+        [
+          "mov",
+          "v35_w_r4242_1",
+          "v35_n_rs647"
+        ]
+      ],
+      "5969": [
+        [
+          "clamp",
+          "v35_n_rs648",
+          "%r4230"
+        ]
+      ],
+      "5970": [
+        [
+          "clamp",
+          "v35_n_rs649",
+          "%r4231"
+        ]
+      ],
+      "5971": [
+        [
+          "mov",
+          "v35_w_r4243_0",
+          "v35_n_rs648"
+        ],
+        [
+          "mov",
+          "v35_w_r4243_1",
+          "v35_n_rs649"
+        ]
+      ],
+      "7048": [
+        [
+          "clamp",
+          "v35_n_rs752",
+          "%r5266"
+        ]
+      ],
+      "7049": [
+        [
+          "clamp",
+          "v35_n_rs753",
+          "%r5267"
+        ]
+      ],
+      "7050": [
+        [
+          "mov",
+          "v35_w_r5284_0",
+          "v35_n_rs752"
+        ],
+        [
+          "mov",
+          "v35_w_r5284_1",
+          "v35_n_rs753"
+        ]
+      ],
+      "7051": [
+        [
+          "clamp",
+          "v35_n_rs754",
+          "%r5268"
+        ]
+      ],
+      "7052": [
+        [
+          "clamp",
+          "v35_n_rs755",
+          "%r5269"
+        ]
+      ],
+      "7053": [
+        [
+          "mov",
+          "v35_w_r5285_0",
+          "v35_n_rs754"
+        ],
+        [
+          "mov",
+          "v35_w_r5285_1",
+          "v35_n_rs755"
+        ]
+      ],
+      "7054": [
+        [
+          "clamp",
+          "v35_n_rs756",
+          "%r5270"
+        ]
+      ],
+      "7055": [
+        [
+          "clamp",
+          "v35_n_rs757",
+          "%r5271"
+        ]
+      ],
+      "7056": [
+        [
+          "mov",
+          "v35_w_r5286_0",
+          "v35_n_rs756"
+        ],
+        [
+          "mov",
+          "v35_w_r5286_1",
+          "v35_n_rs757"
+        ]
+      ],
+      "7057": [
+        [
+          "clamp",
+          "v35_n_rs758",
+          "%r5272"
+        ]
+      ],
+      "7058": [
+        [
+          "clamp",
+          "v35_n_rs759",
+          "%r5273"
+        ]
+      ],
+      "7059": [
+        [
+          "mov",
+          "v35_w_r5287_0",
+          "v35_n_rs758"
+        ],
+        [
+          "mov",
+          "v35_w_r5287_1",
+          "v35_n_rs759"
+        ]
+      ],
+      "7060": [
+        [
+          "clamp",
+          "v35_n_rs760",
+          "%r5274"
+        ]
+      ],
+      "7061": [
+        [
+          "clamp",
+          "v35_n_rs761",
+          "%r5275"
+        ]
+      ],
+      "7062": [
+        [
+          "mov",
+          "v35_w_r5290_0",
+          "v35_n_rs760"
+        ],
+        [
+          "mov",
+          "v35_w_r5290_1",
+          "v35_n_rs761"
+        ]
+      ],
+      "7063": [
+        [
+          "clamp",
+          "v35_n_rs762",
+          "%r5276"
+        ]
+      ],
+      "7064": [
+        [
+          "clamp",
+          "v35_n_rs763",
+          "%r5277"
+        ]
+      ],
+      "7065": [
+        [
+          "mov",
+          "v35_w_r5291_0",
+          "v35_n_rs762"
+        ],
+        [
+          "mov",
+          "v35_w_r5291_1",
+          "v35_n_rs763"
+        ]
+      ],
+      "7066": [
+        [
+          "clamp",
+          "v35_n_rs764",
+          "%r5278"
+        ]
+      ],
+      "7067": [
+        [
+          "clamp",
+          "v35_n_rs765",
+          "%r5279"
+        ]
+      ],
+      "7068": [
+        [
+          "mov",
+          "v35_w_r5292_0",
+          "v35_n_rs764"
+        ],
+        [
+          "mov",
+          "v35_w_r5292_1",
+          "v35_n_rs765"
+        ]
+      ],
+      "7069": [
+        [
+          "clamp",
+          "v35_n_rs766",
+          "%r5280"
+        ]
+      ],
+      "7070": [
+        [
+          "clamp",
+          "v35_n_rs767",
+          "%r5281"
+        ]
+      ],
+      "7071": [
+        [
+          "mov",
+          "v35_w_r5293_0",
+          "v35_n_rs766"
+        ],
+        [
+          "mov",
+          "v35_w_r5293_1",
+          "v35_n_rs767"
+        ]
+      ]
+    },
+    "inplace_finite_proved": true,
+    "fast_word_coverage": 64,
+    "store_word_count": 64
+  }
+}

@@ -1,0 +1,6 @@
+shared_forward 2 ELF O4 (cubin=1222944 B -> fatbin=166792 / 506464 B) in 9.24s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+shared_forward 1 ELF O4 (cubin=1153184 B -> fatbin=184408 / 557032 B) in 9.50s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832
+shared_forward 3 ELF O4 (cubin=1219872 B -> fatbin=217968 / 586832 B) in 9.92s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+quad_fb1_shared 2 ELF O4 (cubin=1222944 B -> fatbin=166792 / 506464 B) in 3.70s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+quad_fb1_shared 3 ELF O4 (cubin=1219872 B -> fatbin=217968 / 586832 B) in 3.87s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+quad_fb1_shared 1 ELF O4 (cubin=1137824 B -> fatbin=186392 / 557032 B) in 9.18s | ptx_version=1, target=1, fp8_mma=3608, fused_quad_pairs=456, fp16_to_fp8=1352, fp8_to_fp16=832

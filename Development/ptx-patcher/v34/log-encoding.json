@@ -1,0 +1,974 @@
+[
+  {
+    "path": "reverse-quad_fb0145-0-quad_fb0145-1920.log",
+    "original_sha256": "9e83911d77631fb06368ea263b43d139ab76895b5f4551a65e9b3067d4223d62",
+    "committed_sha256": "59bc3271a980fc3cc3aee6513f3cc6b1067c3f25fc6218cd324e5f897d79cc9b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-3-quad_fb1_shared-1600.log",
+    "original_sha256": "aea66be363177764c19cce1ad38400917238ca9a23663d894747ded97050ad98",
+    "committed_sha256": "a74be38df8ca95400c129ce821603a239fd52cfc2972263dbc47bdfa31c7c448",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-2-quad_fb1-1920.log",
+    "original_sha256": "9294e64a6d909817eee257c8d1f81c539c4b4999498c40f6dc7f3401b0ac0b48",
+    "committed_sha256": "a1d5803fdd16ff6b905427e8d3088d8a9ef0cd2394376bc5208e45581ba62270",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-baseline-1600.log",
+    "original_sha256": "ba73e40c4739a542c20e56b1a912c158c90506bacfa1c226edab5b161b8477d4",
+    "committed_sha256": "f5848e9aa44dfefd50a53b9b15f43546c6f309792beab68ef78c67ef0d09a2e7",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb1_shared-1280.log",
+    "original_sha256": "b6b4ce7957864922de5606448608abdfdeb566d7f0d758f234e307726f0d303f",
+    "committed_sha256": "5d163dcd6691e87a4ea2dd47b80f31fa5586cc69593d15e98f799062c71a6594",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-1-baseline-1600.log",
+    "original_sha256": "b0a8543e31c572d6b5e8d4906aa46d782849073f846fa049b7bdee54838cb717",
+    "committed_sha256": "1c015c7555060795002b586bc607ce577a9e18267a24fdc8dd9d1decd7e4743b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-3-quad_fb0145-1920.log",
+    "original_sha256": "f9023c447dbd9a882dcd5e69d2571e534c40bc26df24e607eef166696c158f81",
+    "committed_sha256": "78f5ad681aa8bdf196150a7fcd022aae3a12a2ae6ec847a32f7cced183aa0d63",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-1-baseline-1920.log",
+    "original_sha256": "f4ff898184be40c35d425c1c8dcf79cfd122dbbc6a0ac7e0ddf821c026cedbad",
+    "committed_sha256": "9e9eaeb6e38fa1fb82656f8308caec45c552b9717e94b38e294d9daca7d9fa45",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-3-baseline-1600.log",
+    "original_sha256": "b4f74b2dd3ae6f3cca84b1da6ce00eed98fc4adde39ec51e4386dc3c3579dee6",
+    "committed_sha256": "e00aacddf989fd6573589bb145aefd63845b4ad4cf63437aff29a8fb53d674d1",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_local-1280.log",
+    "original_sha256": "855dec704ea99420cb8beae0937a76cb018a8f5a0b0eee6343b581fc1c70e92b",
+    "committed_sha256": "46a536daa32ef6b37c826ff435debc306135ecca8cc219ca3238720ce97a430a",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb1-1600.log",
+    "original_sha256": "f9a7663649fbb2c194cf76599d00cd500a3f78b2b95ae127abca73ac3e5a9d61",
+    "committed_sha256": "271ad97b50c04018c4a23a5b6a6d4dfeeccb531561eff0b83f4dc87e582c4950",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-3-baseline-1600.log",
+    "original_sha256": "92e0726af416f2b1c5a50d36ff1e97ed4bafc3c97af61f2f4c5ba62c2f51bd09",
+    "committed_sha256": "df8f5248086e7a3c02ff7acad4222007e90311d5227648eca33e4b28c7449314",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-1-baseline-1280.log",
+    "original_sha256": "f93bed3ce2ebe4037cc8b0482a987ca8ea4cb6e5eb62a94e0ece0cd67d84f438",
+    "committed_sha256": "296c59173b9088ea873aac5e0a9b4f31908fbc3c66c7448bc093593cef9fa680",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-1-shared_forward-1600.log",
+    "original_sha256": "a136025e61c0d87805aba98859c8a99c86afb7b548da214fbbf512c4923af6b9",
+    "committed_sha256": "c3e8432bf79a109efd4d2006bc2eae4436c048a784bbda4145676afea48a4b60",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-3-baseline-1280.log",
+    "original_sha256": "1b37b0b32da76843cd36a488f712fe39825d0fd9a03de785d42d9e304fa5b87e",
+    "committed_sha256": "0b58a8c03a3d623a925dd8f1192890eef45d9b0c48d96dc5116122dedfdc4d08",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-0-baseline-1280.log",
+    "original_sha256": "7a736b94bd4097c41bd8553c832901cb37a67a6e5290f83e6dd4421cc6dbf6b1",
+    "committed_sha256": "20c031b97ca8dddde9312625a25bbfc6cdb03675194e86679e2ac17035158b94",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-shared_forward-1920.log",
+    "original_sha256": "5f579424eb756a5c1e3b743f80177c999902ec693481ac282b36ac7c35cec3f9",
+    "committed_sha256": "e6620033411d85c47a16dc5af910267d80b907cb75fb625ef01a4d62b4656de1",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-shared_forward-1600.log",
+    "original_sha256": "99d9dc3e0e787096bdea9919b1d041133cb1bdfc29a365c626a8417703369d86",
+    "committed_sha256": "1bf70383b0ac07f45e9a247cfa4c11a8a549640c53a94167ad2c76f1bdda04e2",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-3-baseline-1920.log",
+    "original_sha256": "a0a663a8888c946cd08640890fe51d90eee4e923e9978a61ea222b71e1a07334",
+    "committed_sha256": "9ec0b76ef708e55ebf369d0171cee5c0beb454c00434a659bd12de544ed390fa",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-3-baseline-1280.log",
+    "original_sha256": "f18f073f5b3ecb58ba3255e3aa3b3212c9b6d797d2555ea7fb07ad5b5bf13ca3",
+    "committed_sha256": "b602c1513b0f9c8d7c790dbaa26efab8a347d05d678f622b4d71972eb3bf4324",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-0-quad_fb1_shared-1280.log",
+    "original_sha256": "2bd49861eb6170f9106c6bff015a1b52e3f27232f45b4693a567cdab59f327b0",
+    "committed_sha256": "e3db2e014d97b435be1764a42be80159915e98b910d49ef68e6469da9584369c",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-1-quad_fb0145-1280.log",
+    "original_sha256": "63949621c045e22d2b5b3b1ffef13b173a97b9cb028abbe2a40b96b64a58d34c",
+    "committed_sha256": "929d2c2855e7071ab5e8c1c4b91959b6387aa933a126e17a0a3f996d3a06f736",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-0-baseline-1920.log",
+    "original_sha256": "f6dda2830749f368313cb75b7f32e055fa6245612b462065980727abc31bf552",
+    "committed_sha256": "b683992b4760724de1dc0cc7eaf8e1146aa14f766ed0676b59f3a9bb5807a62d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-1-baseline-1280.log",
+    "original_sha256": "f5fdda95a3dd9d2c6c4919c7ce55bb43b9aa5e6af2ed5e343a8e482e81d130f5",
+    "committed_sha256": "47035a37b5ec952006af14c19ccbe2591d24ce0d90473075d1d2b3ce503aeba6",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-0-baseline-1600.log",
+    "original_sha256": "e91a664a7dfd1c1b158eb8ad6640af8e9108ae41af80a4ac3730290ed6917693",
+    "committed_sha256": "b3e094664289966efb13189579ce99ac398dfcd5c5ac05800e75a1b66966fe03",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-3-shared_forward-1920.log",
+    "original_sha256": "7e6a3ef78587437a614dc85b79ebae03d7f4d3efa58a9638e0744688f568d3db",
+    "committed_sha256": "0ab58d01f9526fdaa336774176d71c4f21ac408da70e026c4a9c8e14d45c1e36",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-1-baseline-1920.log",
+    "original_sha256": "016c0d76c0a2c922c9b3bf69145361f73da660c18fe42c4fffeee83064d7ce9c",
+    "committed_sha256": "477dd64dd4252999dc7fcd5df55caf06a8ed8ec2bf80de6b90aec2394fd04ed6",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-0-baseline-1920.log",
+    "original_sha256": "7331719a3a251038dfece9507a25c8c5368fe630644b443faf363a05a11abf22",
+    "committed_sha256": "6efc6176550146a384b4f8b560c4c332b792ca9ccadd37e92e6547b85cfea0fa",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-3-quad_fb1_shared-1920.log",
+    "original_sha256": "940a731351183bc25a6ee0b1b9659e4dbe408b1776a9e00b28af96831d69becc",
+    "committed_sha256": "b7e4a5924bfc36e148e61f59f822f11e916a43b09e2de8edd68bde3152f4babf",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-2-baseline-1280.log",
+    "original_sha256": "900e9b837d72a2702154e9532a1f67d1e664c86c07b1ad27d9dcc0581cde6e79",
+    "committed_sha256": "9bb8a922e621e8701cb1dad7a195c0372a73b923b125358bf61b7cf7a89f271e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-3-quad_local-1280.log",
+    "original_sha256": "3a62f2cb6893e599fd6f832fb5b9fdf6ecf54cb9d75bfddf5a0e8c1f5ef6d171",
+    "committed_sha256": "1f83bcc4243628f2669683b4ee4b9be55d52f030b8bba1df6fc6b0d377d6912e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-3-baseline-1600.log",
+    "original_sha256": "c71b235d8a4701085b970c3dc31b115b0b92110943799257156423668dec68a0",
+    "committed_sha256": "f2a8752c2eb41c3883314a0f759df4089ea39142f3b3331037c7eca1c646148f",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-1-shared_forward-1280.log",
+    "original_sha256": "e8d74b67f214c13a705abc58666b5b4a254eaddf2d11457a505349ac75ea0d08",
+    "committed_sha256": "5f9d03beba521c3d790fdb33c38110e1df2e8ab510502006a4d01e370a41df4a",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-baseline-1280.log",
+    "original_sha256": "36985ba18d3b44b8159d670a5ba798416f12d702981af8618e8965398e5ce02f",
+    "committed_sha256": "e42a2829069936ab7ea29a66dc1289ecdfe07e6d4fe545e27d1e4d3df29fd1a4",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-1-baseline-1600.log",
+    "original_sha256": "e624ff118104ba63cd0a34f2b160e53c29a2a7e85488c4e94dbcfcb106fde13f",
+    "committed_sha256": "570ffbe86da8fedd6f8283eec582002acb33753f22a44cefc74a510761ee785e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-2-quad_fb1-1600.log",
+    "original_sha256": "1fde7ef5da209488860bc9cf97d90d2a8da7ee200d52adb60abfe6bcd5aaad61",
+    "committed_sha256": "adbbb9bfa259bcd0f6251e6892fc0934869960035af73fd43fa54b186f2872c0",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-3-baseline-1280.log",
+    "original_sha256": "c243c6e8f1ca6debafa5f8471dd6a62856c35c5d8d671437e061926876d6610f",
+    "committed_sha256": "b143a1fbb2d9b49b5e5ce7c674c2143453a934c3faf47731b84ce37dcb592e31",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-0-quad_fb1-1600.log",
+    "original_sha256": "4889b8c407b4399e451b30cbe7a799e2979ada4d3226453c68b2e63d70cdaebf",
+    "committed_sha256": "e122b7d067986668faff64d2f2e4ef7d9f1e735be135fb043eafe3828d22ca5f",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-3-quad_fb1-1920.log",
+    "original_sha256": "34027baccbd73b693df444f13530fc93e9f38fedb85534f1f1acdb3d1a3dbfc4",
+    "committed_sha256": "d791e8e4d40e8dd73cef013378ca9fc6c8f0ffec78b5f9cc1d39e47020c00241",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-1-quad_local-1920.log",
+    "original_sha256": "d1fe3570a2dd5dc028e48de98260c8bb61edbb201fbe7b56ec8251a8673eba0b",
+    "committed_sha256": "b96bfcd37fd9b9493e5fe37c812125873e4721ac8e29501b1e11b1ed47d6df84",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-2-quad_fb1-1280.log",
+    "original_sha256": "6738af36e13d8fc2aadc3ad020349f8e62616c3586802a9faed9bb9270bbe14b",
+    "committed_sha256": "787054a568a037832a358b140a697ec429810dff0f4e4b7cda150bfb756d9891",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-1-quad_fb1_shared-1600.log",
+    "original_sha256": "88b9f590a1a371a2010f68d5febbd4b1806ac321b43f93663092de267b4ae0af",
+    "committed_sha256": "e27d7169625631de5afa213dd81bd536469e4c4d97b6c2072081ebe274f03d7c",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-2-baseline-1600.log",
+    "original_sha256": "97ff919bb1e042782173a73c2274629d4fcd07735f97b1b7be3dffea50412f87",
+    "committed_sha256": "a025ab3f949651a2f60414859bfc48ec04a919b9318bb85121f8c97abe84756a",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-2-baseline-1600.log",
+    "original_sha256": "4b06fecf87e6981a3dd35c869f82f5a27039411507905aa58a826159983e502e",
+    "committed_sha256": "5afb575b5b680d96bf86f8c5ff949e63fb64c66bbc9aeacddd27f6cf5a94545f",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-1-baseline-1280.log",
+    "original_sha256": "88fdfa6cb13c4a203f2edf9ee8bd05a44a0c5133e54d4ef31203f55cc520a6ce",
+    "committed_sha256": "bc4cf91a0056d955178b7b6d73eb59f786acd80a3f1498bfbac9d193b7a78583",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-1-baseline-1920.log",
+    "original_sha256": "9cff66cd152e63e1a912d30899b61d8f5257ffdaf849f0c2e93e6c62d064e8f9",
+    "committed_sha256": "6d0d3a076206284e93eadac890e8857e1231008fada35086b8d997c3d57a6b47",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-0-quad_fb1-1920.log",
+    "original_sha256": "6267e861630311f12e5efe8fcf6378823d276addb1b2c6a5f02e86dd2c687fb0",
+    "committed_sha256": "e9fc8315acc3870d44e3df82b2ad057e5bb2b1d8efe7150cdd59aeab8213ebc2",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-2-quad_fb1_shared-1920.log",
+    "original_sha256": "bea5129ad0619934e8d07b12359e6be5aa460002a8c158c28c8d394b65fec2b8",
+    "committed_sha256": "34b50b6fc2690b60551b19501f25f560cf3cdee6206ba8093002f703ddf08c8b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-1-quad_fb1_shared-1280.log",
+    "original_sha256": "3c309ce7c34e200c4becc3ab02d6d9ce72457230125a1f6d45bb42aaab67e23a",
+    "committed_sha256": "b4fda6fffae30ca44c81bf2421f48486081df2f6159bbd831d2168aa43943bf2",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-0-baseline-1600.log",
+    "original_sha256": "b0ca55539e8cd5394e23e72fab815c7c4d1447c4e4c538fb21ab0fb38f02aab8",
+    "committed_sha256": "4bf3ebb7a59d82e63cb6cc3b255ce71d15c31dab310d2a73efa0a16a6a564a2f",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-0-baseline-1920.log",
+    "original_sha256": "4493105a05d37b0b7cdbc404df88edc5022c45a7933cc712bb680a9e48456730",
+    "committed_sha256": "59c35a57decb239ecb7e7114ca04f1f5b314a2bc8bde021540e7cec000b1155d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-3-baseline-1600.log",
+    "original_sha256": "f2181f2d787d9efe340d88a37a1d274a8b191ff88d7f8adae1f108fc244b7662",
+    "committed_sha256": "401965476cb657b9bae88eb9ee95a49a469bd410ae81103a955c075586835228",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-3-baseline-1600.log",
+    "original_sha256": "5c58f1685d9667b1a20c4237bed636745398d431e1e873e73cd1febe491602eb",
+    "committed_sha256": "7726618ddf02c254b64b4b31257657e9d13718077cdf8471c77fc08bac002c1b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-2-baseline-1920.log",
+    "original_sha256": "e23aa460be8d8fc970c2e1ff3ca34b6b9f7352cf5ecae98a4231acf4c34ed050",
+    "committed_sha256": "26be8de7b7df7c2d2f3e2043dfedffa22cf216e89d3654419aa97e2bc32a7358",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-0-baseline-1920.log",
+    "original_sha256": "340bae61ff3fb4a1d010f4e06d5ffe58205905a57cea7e1c602729cca849fd17",
+    "committed_sha256": "e242151a292ebe6b65b0b660cdf7e23f0595610602ab2d6bbfe6989bbade3c36",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-2-baseline-1600.log",
+    "original_sha256": "a3281a817bec313cb6d41f114937f224e7e1aeabc478fa22fa5728c38d0ff49d",
+    "committed_sha256": "d721b75467dfcc06a909f58e2c09baf55625500d914877d0874e3fcc87cf2dba",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-1-quad_fb0145-1600.log",
+    "original_sha256": "cd6939eb3f081a0c4b5a2555794467a02a8258d9355f360b8506ad64a626f277",
+    "committed_sha256": "c86016cf60e09f337dc67954434de80a0c1d14721250379703243d3974758869",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-1-baseline-1280.log",
+    "original_sha256": "86970ea655b7cdd64e0bb3334e99f9cc0f94a81bb6b41bef2fc0f0d2d562a7a9",
+    "committed_sha256": "bb8993c7ba213d551a12732664d5a77f630924fd9aeaa960aa57af6fdd3ab6a0",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-2-quad_fb1-1920.log",
+    "original_sha256": "f235421622928956527fa0a6898facb76e1e41f47f09cc0a10d938ca68d417ee",
+    "committed_sha256": "1e5cc1ea8cf7863c9c56b405c3a835330e66b9fb5b5d9d5f8cda23bb4d42c009",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-2-shared_forward-1280.log",
+    "original_sha256": "8b0b8bf2d162c71a0da1921409fb424f21257a9fca518ef56aaff99b72241004",
+    "committed_sha256": "c9984b17d973fd4d97a4ecee1fdcc83e0e9992c5f669e57c5f781f324dedba0e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-3-baseline-1280.log",
+    "original_sha256": "61a5551fe7c0f6a41d057fcc6386b0e034555c989f9d4e5c172fc923a7b427f6",
+    "committed_sha256": "5a63ceb758993ba07e0ae7ba9ebac0a3c3b82e23591e4b13f768606da996674e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-baseline-1920.log",
+    "original_sha256": "e5022d34783af65021ccdac9c6b323166d466b83f44c726c19ff680ea5bc6b20",
+    "committed_sha256": "88636b873a8e9a179b22bd3f3e142d65803946d7ab0b419f11b02b828de4f054",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_local-1920.log",
+    "original_sha256": "200c17219aba0ceed1be1ade22b902748d7080b744a69a038f95282d4bc92bf3",
+    "committed_sha256": "a739f565554274d90bdd68fbbc4c888f9345dc5704b2b4d96a7a2fe426a595ee",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-0-baseline-1600.log",
+    "original_sha256": "6404c114ebb5963b728998772c0af011d5f3886adb97ec5efbf32dc8c6652e11",
+    "committed_sha256": "d28f17176bb0a6a7a585864ac4cfee4400b2f2b8baf3af17fd54a553fcb34d60",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-3-quad_fb0145-1600.log",
+    "original_sha256": "c9c4d8e76ba4fd1c59a53cc68a353146479746f45d44a88629ccd98372d89733",
+    "committed_sha256": "b5a1c0176c8ab5e765dd343295d2af0f62439bcaec2200cf1bc0091f04ccea97",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-1-quad_local-1600.log",
+    "original_sha256": "1464b516aa249ec1093399d0dc767130d32094dffc07cd25ff51d4116046ecf5",
+    "committed_sha256": "67daab2109e806b7a1b9d512f2f3d6bcc43c142ee3e12590d2cca8b00685204d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-1-quad_fb1-1920.log",
+    "original_sha256": "584cf73466b548e0fcad5df52785b74027d988f53d3aaf79ce295e3078598ff2",
+    "committed_sha256": "297a5d22bd4a635bd2f2cfc211e89533433536b60f7bfe1172d6e28d3bfcfc43",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-2-baseline-1920.log",
+    "original_sha256": "ca6af4a70185fea3f6706865b8659c69f6e4f8d5f21539d9faa335278b906721",
+    "committed_sha256": "5d311f004495a6c71e7fef2e21408c5f1ffca5b74bee4c488952ec06654c82dd",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-1-quad_fb1-1600.log",
+    "original_sha256": "d2fec58cdef18343bbd19473b47082ba1d8898210f2c82ff4a25cd90113e59e3",
+    "committed_sha256": "d5eb6f8819625237fd0cae34bc3601511afc04088680707fab5c1d3d29a9e887",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-3-baseline-1920.log",
+    "original_sha256": "0ee45ec117a09fd4538744ce1702270f6d5333447d21049207c4dba522fa4b38",
+    "committed_sha256": "b4e0e72e983a117d94a3f005047a3d6490e0940060eb404d8934fff6e2677ae9",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb0145-1920.log",
+    "original_sha256": "0037f033c4fdfb77db35bc1b6e38907cf9a2145e88e78d938d7970b9cb71600c",
+    "committed_sha256": "e3c63fa49360e90373ce254e579f7b600446d01de5678cbad072fa679cf29e10",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb1-1920.log",
+    "original_sha256": "20c747956ffc3c9b25bd65c0652b7076aff9470cab63494470d8b5525504d5b0",
+    "committed_sha256": "97e072cd017f5084770a02b5f8199240931250ee5c83b79ff0764d2e3fcfaaf2",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-3-baseline-1920.log",
+    "original_sha256": "d579145d55df277317036774c55513190385cc3cd558845288d42be405661bb5",
+    "committed_sha256": "f192148ee8d9faad8b2d478ab0124856f4b231383a16ec25d469e51819d33da0",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-0-baseline-1280.log",
+    "original_sha256": "9740aee5d674ef4293c8c104a75fc0131ea0625ea92abcf950d4800bad5646d1",
+    "committed_sha256": "009b8fe18f7d180e2115cd11f3506418b8ff2b6739b1f41fcdca0847224b4c2b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-3-shared_forward-1600.log",
+    "original_sha256": "7713342eb766e05ef319d1b4329d0789f29ea83117d5b1e0973130335103f41e",
+    "committed_sha256": "7259a5f6880dd6db24e89424cb1f7a1625fff4a4c730b5a53d2a521debd43ee0",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-2-baseline-1280.log",
+    "original_sha256": "88559e64668bd0d573b6976a33d8ac9673140c51166100678fd70abe5621e65e",
+    "committed_sha256": "37069b081159ade0fc2b27fec870fd2443e9b1e7bb6f25badf1fb7c7a538875e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_local-1600.log",
+    "original_sha256": "a537e956fabea07cba8122c7ef1302c54a75f84e29dd8060beb68b3209f15693",
+    "committed_sha256": "265c29838875100f2fb080d316d36ed50e9fe5d9accf8c4beaeae85d486f8000",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-3-quad_fb1-1600.log",
+    "original_sha256": "88ad94157432ff1992bfdda1fb6700a41218dd8db5a03f21509b6c962ad5d669",
+    "committed_sha256": "b3a9e112fc28f89c787de8b2206d056d84e28e787f9ef83f748c5d4a64e0228b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-0-baseline-1280.log",
+    "original_sha256": "9e6201643196eb2cbddbb919a1867f7cf6dfc0308cc6d9d31839429215dfe55f",
+    "committed_sha256": "bd0944e4e8c71f221f839cd1bdc852a867b27cd34040c485dad0b0f8be398fc4",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-3-quad_fb1-1280.log",
+    "original_sha256": "2763adf8f22559b431234a9047ea7631fd04413570c62ac0adc6ff79624b7c30",
+    "committed_sha256": "f1bad3771e7ffd825254eb6d8cf17ec22fadf87a87223199b9fb1e58f5bf1f7b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-1-quad_fb1-1280.log",
+    "original_sha256": "43aa7a8d58e93058c734f85eea0f9564e4125423331b6c3242d1887f09b533e3",
+    "committed_sha256": "69ee30b1457dc3672802a1d24fec2d57a0d29d6fb3995f50a0bc1886ae7b1f97",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-0-baseline-1600.log",
+    "original_sha256": "c0f9e443b9d6f753917e2fa01ab7094dc042c5ee24a9467f7be56158c22557d7",
+    "committed_sha256": "2c8d570f086b34017629b8327f05dc97021315553a8191bf63036baf9f79747c",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-2-baseline-1920.log",
+    "original_sha256": "a094fc3e36eb99e72487f710df06859401abb1995371df6997ca684a8502afc7",
+    "committed_sha256": "3646f1c0d4f3b6e54d0021b19cef3e7216a075bd2aadf2722e3927f7ed634b99",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-0-baseline-1600.log",
+    "original_sha256": "cd37d728f3c46274fff9d3bd0287660ab757263f1f2a361ea6fa0e0e0bd6ca89",
+    "committed_sha256": "6900842e8cf5f82e7c26be61e92b2ad4948d984a5ab1f07f1ad78b28c43819f5",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-2-baseline-1280.log",
+    "original_sha256": "be11982c21263cb669749b64d32bfb641fe4d9d273275ff8e998513edebed58a",
+    "committed_sha256": "7ce000a6eb249a17a3c491335a7a3d4213bc41d0ee6946813fab6d65dfd2f32d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-0-quad_fb1_shared-1920.log",
+    "original_sha256": "ed77515b01481e96a2b2417b8241ba0f391c1233b10a860c34146bacdfa13337",
+    "committed_sha256": "205bb4d6eeeb6295e28a649baa69188e6b05f3000e1622447ebf1f46a9dd9cde",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-3-quad_local-1920.log",
+    "original_sha256": "5654a528820cd40bdb3aa9793b914c52d7d1778fcd8c3a39eedd8cfb7c4a9a0a",
+    "committed_sha256": "06623c3cbdf0e2cf0637a0c85d93510708e37f7a0ae76cf3577a66195d275643",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-1-quad_fb0145-1920.log",
+    "original_sha256": "6cbd61b4755d7613f94ab0d96b6d2672ce127b9978385387132e0df607433027",
+    "committed_sha256": "2a78bc28896f2dcbaa34d5ae5c1a0542ae5e48b1771dc8c8931677e2e7c4dfe2",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-3-baseline-1920.log",
+    "original_sha256": "ea3d7614bac8e992abf1bb6b2223931a9c7f8a169c71839b48f2105498f98afd",
+    "committed_sha256": "d0b96e45bbae6759fcc01b9de0642877c55626ed6836b7750646d2dc4224a935",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-2-baseline-1600.log",
+    "original_sha256": "ef35218331eb30379c592e2615f4523c8a357a2cde2d421f20dc9fe434759429",
+    "committed_sha256": "6ef48a438963ba3c1f1eb5e30162e7111a888df1040e389b08023fb4577c3b77",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-3-baseline-1600.log",
+    "original_sha256": "ad3a6dd5569e93bbb145adc8e4894e9b89d856828090c2165d71791055e909d8",
+    "committed_sha256": "58d031c81713863f2c5101e546b4483b6ef8f960f871e72c59c502f0fdcfb2c7",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-0-baseline-1600.log",
+    "original_sha256": "b984d19401ded7b1d3b32e853af44a9f49ec275679adeb8cbe0569952ce354f7",
+    "committed_sha256": "81b82da7b380e4991b3f6d15e7ab33f155a370cbf359fb08bafe4af7db905530",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-0-quad_fb1-1280.log",
+    "original_sha256": "3818d88a3f33c598f0bf4141ae92178014ac508bd701d91449ebf7c25dc59948",
+    "committed_sha256": "9fa90dd9aa80385604c4809786c9c4b75e026bebd7d18558ae34b9f75858e801",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-0-quad_fb1_shared-1600.log",
+    "original_sha256": "3d4e37d7166d2f0135ae912aeff5923e78ac26ec0b16938a0df9e65b5cca2594",
+    "committed_sha256": "5bd86dfda79af64847faf6e4b14dddf5744a77b1b061c76765d4bb457cd301f6",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-3-baseline-1280.log",
+    "original_sha256": "1e5675349911810032f25e5d9beacd513d93a9ca3bba403ce605e75205eadd4c",
+    "committed_sha256": "01365161dc3d0dc04f48b815ce3dae309c90e4214731b45ec5af3238194983e8",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-1-baseline-1600.log",
+    "original_sha256": "7161d5235b7a4356cfb4a5f9774dc6ab2760552be951d047d98bc59eaf51f212",
+    "committed_sha256": "aca3b7e8b8b1d7c65dd8b485fe68af4245d125ac531e942536ffd302c4ac9613",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-3-quad_fb1-1600.log",
+    "original_sha256": "4c234fbabadc51bb7ac3e04b4418538e31aeeb411a4acd3c0cdccfcaf1797812",
+    "committed_sha256": "7b014353c75600642cbdb028359bc5036c43891c24ab2f51a9f48bd4cafda1bc",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-3-quad_local-1600.log",
+    "original_sha256": "ca1a2dc8a0f7de929451bdb055afb66f4a074f8749c9689fd38902a16561c146",
+    "committed_sha256": "7c3c9eb4eadf4b0172ed447f244573163cb440e774e73849b3b5d46584011f92",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb0145-1600.log",
+    "original_sha256": "bfd829b575ae88a697e48391e8878cca99df8726db2f7caddcf2b74b16080051",
+    "committed_sha256": "645307d28a780b7dd257f37a848328a87d8830266df81f7a3c14f97549a5538d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-3-baseline-1920.log",
+    "original_sha256": "5233e27b3783cd560cfac09771e30653f518f4ebcc44f1e1fb76d81a947577cf",
+    "committed_sha256": "4d0316e854882a242e5604cfd849b6c11ae048b0e810f380538c5b94b310590e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-3-baseline-1920.log",
+    "original_sha256": "4b18881d0a6bea51d7ce5703063887063bf248cc1a62b4424ef600ecc95b3197",
+    "committed_sha256": "e3bb333f54544445432f5ec39d3d7c4daa4df994cf7a741ed269a0b61b958910",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-3-baseline-1280.log",
+    "original_sha256": "e8b80afdc81edb90e41f02a660efc30a7c3314e39858a65ba9d7b05699b08779",
+    "committed_sha256": "dacc325f42df5326b7adc9530dc5e7210ff2ceb28e87b0ec3e379ef1fdc4828e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-1-shared_forward-1920.log",
+    "original_sha256": "ae55ff5b72c54952e37a8c1bc3f7e2086e5d05caab0171ddc74fdf284323fd1f",
+    "committed_sha256": "86b695c24ff6814b8d62a44ddda0732cf477b8ffafc146eb60185cbdafdf8369",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-0-baseline-1280.log",
+    "original_sha256": "133c743133debab1162568de1b1a89aa31174b75ca93948218ff4854fb0f5dfb",
+    "committed_sha256": "16c935dfb06250878b5bad657ebb72596e744faacd4a57385dd8c3d5b63103ea",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-2-quad_fb0145-1600.log",
+    "original_sha256": "9c8853ad612ffbd5a40dc651e2f5de34c99133d8ce511c61f2495dc2eaffe1d9",
+    "committed_sha256": "ae4dc00e9f6cd1e0f4b8d600b463e063b96804cfb8254c22bd37ed0e8510978e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-0-baseline-1920.log",
+    "original_sha256": "8ddac0b2446efece22cd26a14546ef8ce08e9acceaa3987a5796cb0c6cbd1954",
+    "committed_sha256": "caf8a0fb5db4f3f818826f143fbd705bf4d6448e40cf9d37ee40a8f0a03729f9",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-0-quad_fb1-1920.log",
+    "original_sha256": "d3149084c5359926ac503416dab500d8865d785b4a17815ffce8c2cb1b630c05",
+    "committed_sha256": "ca705c843a056674160db03b14d170d7a76b711cbc8ff7ca35bba91c2815e8e8",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-2-shared_forward-1920.log",
+    "original_sha256": "a7683100e663cd00b7a7f21f836a9a4f1827d8ce40e42c8a1b29a01f4cb7a14b",
+    "committed_sha256": "ead36c61b5525dc484277a2964f2c106d3fc090e6259ce70e8fa8663115574d2",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-1-baseline-1600.log",
+    "original_sha256": "72d3b4369c948fb179b61603d9e28c528f33c42ca0bca32b324e6f50025135cf",
+    "committed_sha256": "6a84f0f9df43c451915614350b2caa2e2f3c75cf4d0cbfb68d7a47ec1f20154b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-0-quad_fb1-1600.log",
+    "original_sha256": "3aff3377f2384e3db06d22e245e518294ef2603bd0696e429667e8b6a0c6098e",
+    "committed_sha256": "259ba0f552341ae59ff7c1d0e33465f52869df9f4b6c49ecbfbd08c58dbb8bbe",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-0-baseline-1280.log",
+    "original_sha256": "ba2ee7593895d55f946e421473b5416bff18ade1a0c2af0689fb672107820d6f",
+    "committed_sha256": "cd853bb6b4bea59f18634e2fc23fe877f2258bc3e3152516667add965889552c",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-2-quad_fb0145-1920.log",
+    "original_sha256": "0644f4203be5aa0d08d7c9ae27b8b45d0cd33ce65b243620b7ac87d3b1aa4ff1",
+    "committed_sha256": "bcf676332f10108b1734f2329dc0cba389483cda534db62f87086946bd21b656",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb0145-1280.log",
+    "original_sha256": "6831f8f07119763856d72c6acf85648448564cdffd274a2cd749e28219bae761",
+    "committed_sha256": "b92af2705ebfa085371a57974a339dd1cb027bbdc68fa23f3f145a3a3a4a23df",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-1-quad_local-1280.log",
+    "original_sha256": "847c40940f22aab573cf47416dcb6d8c94c950120293531e44e2b7fa582631d0",
+    "committed_sha256": "1038a635a4cce44f8acc2a5e79b73c0cd47e2a0d70e8cb3271484f5f367c7d6b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-2-quad_fb1_shared-1280.log",
+    "original_sha256": "40926d7f186240823f9510d217359cb137ffe9854f68e45210f66471ebb261ea",
+    "committed_sha256": "4c08da27f259e2e3353e5e4dce36e97a16b13194d3ae976bf339d152d150a945",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-0-quad_local-1280.log",
+    "original_sha256": "91cd407d0f0d593f536fc91501b75211d7a924719e6feac508f45d6cb0bca281",
+    "committed_sha256": "8327210e5c0917698f654efd5d61a93a573603d6cd4a130373c7831daea09b78",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-0-quad_local-1600.log",
+    "original_sha256": "27fc62d85f0cee23428581a7fed54046449e802643be7e5b6913a910375d9ba6",
+    "committed_sha256": "0858bcc7c8e899b8151f8bd0c0164883e112e1c074ce322f2ccb09e2e28caccc",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-0-quad_fb0145-1600.log",
+    "original_sha256": "0590156bd3162d3eaaede54a32c58977d858652c98186b3ae5d88ce87bd83fa3",
+    "committed_sha256": "9885760e5c1026efe5020ac8f62f4ff4bf93449d26bd594424ef08c3f891fbc9",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-2-quad_fb1_shared-1600.log",
+    "original_sha256": "6406480a6ee9918f3b9056c5eb4ea68c6511df67eb8c671afc673453e2de284b",
+    "committed_sha256": "765e83ba66d61bfc5f4a87fc899d605c197c410ccd3117ca65fa6f608b32109d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-2-baseline-1280.log",
+    "original_sha256": "9b9168b0917ba3723fb5b7e451b336a51ce61743b77345151ddca0641aada08e",
+    "committed_sha256": "306ef5385febdc6fc69fbbf947421a98c1be7fe6efc55436f594095cdad7f87c",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-1-baseline-1280.log",
+    "original_sha256": "092ed81cf06ca41abcd6ac1a2a3abd8a9ab5ce4ecfc480b4d148291e30b5d1f4",
+    "committed_sha256": "7596d4fa53cee74137b21f797a32081dd76950b8241033daef9eb39641fcf34d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-2-quad_fb1-1600.log",
+    "original_sha256": "ab6f398f01bffe5128882eb78b02dee3d0797db22abeab540abc8516536877e5",
+    "committed_sha256": "759d934c801749c73301fbf5009e8027a2b3a2273243479e30da9ad158d700cb",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-1-quad_fb1_shared-1920.log",
+    "original_sha256": "0dedf400fb2ed75b79d95c03663566ad8ddc25ef002eedf4f5e9a8a8371284e8",
+    "committed_sha256": "a133fa5c734aca30089dfbc3cd468ef328254ef04ba4f71291a3b2e7b71d9667",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-1-baseline-1920.log",
+    "original_sha256": "ef7d7f36994440d9b7e3193b6cd09fbc02252774427ab3f2fce29366a98fbe25",
+    "committed_sha256": "8951ed6284b8499534eca5dd09cfe3eac4691fdd84a0480ff31314a579886915",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb1_shared-1920.log",
+    "original_sha256": "8a57b04730184075be751c59fa2b3ff05e527c1766ef7d7366124a0102fe78f9",
+    "committed_sha256": "fc6b1e990238d794c4b8a14429f043dc62f8226a430ceb35df4c42c6f2cb2197",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-0-shared_forward-1280.log",
+    "original_sha256": "b83295e0cf41c263005ef62eafb402384ae042ae0d28251a783762d5bb9be031",
+    "committed_sha256": "bfd84fdca65e3fe720724223395a27c0e87a96cd847202180289acc199d33479",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-3-quad_fb1_shared-1280.log",
+    "original_sha256": "9ad26c6281bde3689977ed318ab37e888789526f5a6774d7d600daf562622a26",
+    "committed_sha256": "6045ce20cdd1e8f3a32b4109bd637bd5d9d9f1ae74d24239851b2455ede548f7",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-2-baseline-1920.log",
+    "original_sha256": "477456997feefbd89e24e946a5c5f3cfe23aa982d1b25833f2e25dd4963a3bb8",
+    "committed_sha256": "7d73bfa154ca8e7a649450ece8658c5a159c99c48c172c2e247f782b060fd97e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-2-baseline-1280.log",
+    "original_sha256": "8474c55e9aacb10b1c7e2a0c4ebab025633a841d8e8ff70feec749279186f4c6",
+    "committed_sha256": "99583afda47b154c16dcc352b638582991b18c347f596c5a28fb4481ee28492e",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1-3-quad_fb1-1920.log",
+    "original_sha256": "4fe3b0d046c69d60aebfecd7e8eef0ba1ab12064ed29cbd822ad371bdf8ddf35",
+    "committed_sha256": "0363adabaa3ce1800b095b0f09ecfceb90e113d36977f342b2fc6e1c5c98613d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-2-baseline-1920.log",
+    "original_sha256": "d01eb7c7639e1551b2472ed62f5dcd5416b0cfbe7b86b9634f6b5b1fdcd8a82f",
+    "committed_sha256": "4d2447b13de55843acea4a76d0929132273e0111de9e009afb3002b49f80ed48",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-2-baseline-1280.log",
+    "original_sha256": "3b5dec7759412470dfb45bff28b5ea40e840f8f9df518fdcdb046bd6c7abad0c",
+    "committed_sha256": "fc0e76f5956bb358fdb326a7c905f81ff9dc05adf51a0533ef076d9dabb52b95",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb0145-2-quad_fb0145-1280.log",
+    "original_sha256": "a51ed3a77203958ce6de7eb35a44e57939cb5af4deae72b8afa4e32e07ab9a6f",
+    "committed_sha256": "0ed01ada456485fafd8058e8fd2fe1bdfc34bbfa08a87d17bdbcb79627cecb64",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-1-baseline-1280.log",
+    "original_sha256": "cd32931bf11a224da711084eaa7030ee3c5f2a01b114287b542170a1d3d1015a",
+    "committed_sha256": "7f3e5f731c12199c3e0081963669c47528dea7c6f0f754d19550633ca6d90a4b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-3-quad_fb0145-1280.log",
+    "original_sha256": "31cb40b3e2ee3715b6fff1bf699540ec9eedb2fb1284fc671a9811f81a549667",
+    "committed_sha256": "3db4f5ebab5d62808bb2690389e8f4f64709fa5d615e7e2dc3e8a2083598ccfd",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-shared_forward-2-shared_forward-1600.log",
+    "original_sha256": "d95c9962505be920ef3d3070fa23e189e5cc2dedefc4ab9c1e128996dcde4593",
+    "committed_sha256": "bbfe27337515fd675c7b0afb955fcd0d73bd6a986e289c224dd78919efb8c67b",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-0-baseline-1920.log",
+    "original_sha256": "2bd81c573a5f47c920ad3ecbee37698a351639f4a5073b65c1d99a4d4b62b6d5",
+    "committed_sha256": "dfa1544e71d2cf4a905d8e10cbdc6418beee41eb91b7c0a3bb7d1a75ceac8cd3",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-2-quad_local-1280.log",
+    "original_sha256": "af7907a089e71d00788619b7b4ffba49dea4f467e63041306275d3695a857455",
+    "committed_sha256": "0d83895c0a66b046cacb7fd6e05dfb09d3cca4b3148aa967fb7efa1fbcbedefa",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-1-quad_fb1-1600.log",
+    "original_sha256": "3885556f4886ee02f546b46afb661b446faaf0934bdc39a24d2d37a8f442edd5",
+    "committed_sha256": "aabdd58a97805b6810c053820d9f9c006bb4072b5c5e9cd44d8fbee7f6c3e7f8",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1_shared-0-baseline-1280.log",
+    "original_sha256": "bd6496c71f3229d700ae4c417950d622a2d6e9e81e0a943e9c1e67e1ba026283",
+    "committed_sha256": "061966b2683d4636fc913bf845fe2c1ad0d4f078f4fbb7efb3e4c2e639a20418",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-0-quad_local-1920.log",
+    "original_sha256": "b9ae4fecdc561b0c938b14076e90b12f8be5610f689d3dabb359599608cab7db",
+    "committed_sha256": "eb115385724726dca299ed8f58b1c13f7b66909668759fe7122b6802d7b1f1ac",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-1-baseline-1920.log",
+    "original_sha256": "f9b818196f7975f27bcf3211be35f71d154b515d6ebcf923c8baf8abe5ad7c5a",
+    "committed_sha256": "eb5dd9a8683cdf21a5fee76e5a58317fcc3a3e19f7ed1e6b6c7423574597c71c",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-2-baseline-1920.log",
+    "original_sha256": "71a2b849a739e562df86fe5f152477d85cc7885c3e6a2ec5de2d75ec9ae89d44",
+    "committed_sha256": "46ba3e96d0daaa862b88b9e0a4e24d715ac5ee0089d3a7ac034f183da02d8e12",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_fb1-1-quad_fb1-1920.log",
+    "original_sha256": "0e8cfe456f8348e53667c5746f17d162509f6968ca150e098e8b886eff1d5c48",
+    "committed_sha256": "a71a37d1bcfc21f2bbc36ae1e44fa784df9949eb614b7a9fbd1cc73bf90d7b74",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-0-quad_fb1-1280.log",
+    "original_sha256": "c7f06551ec026a5b456a88c48ef8c681feed48358c8402930fb38ef571824b18",
+    "committed_sha256": "d456a83a86a826f88d7784ef7ddf1d48e924b0b2d1b7f2b815e7386639c890c5",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-2-baseline-1600.log",
+    "original_sha256": "5b41b334c3242ace851a0d4809dd15712667fcb3c11931ac3112ad1676b942d7",
+    "committed_sha256": "ad0f816dbe24df9c3c69cbe6de0fb483d7192ddb02f317fdc620526d4d3b9b00",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-0-shared_forward-1920.log",
+    "original_sha256": "54a19e4932781b17cb680ced12577e1b5c51f025eab4175f07d07da2c7533d6f",
+    "committed_sha256": "208a2dff60b12ccb5eb61ee8aa63fad2fbc4721deff3d19b74cec8280f720f7d",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb1_shared-1600.log",
+    "original_sha256": "7afa26429befcb52e2e0652f5aa6e6c8fa88ac49ce2249f7d3077f638a144874",
+    "committed_sha256": "ee06215fcce2bf124a448199024c9fe2663c6f1a44a1671186be8df70fdd4d39",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-1-quad_fb1-1280.log",
+    "original_sha256": "2d7e353e43d66cf5f83a3680d91918374dd25f265d355eda310e89adf9ddfaad",
+    "committed_sha256": "c5ac298781a7fb0337c1f22f31a64895fa716b695a6b284f50c48deee7e0a936",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-1-baseline-1600.log",
+    "original_sha256": "fbf4e0d19b7520f7d76bf9e5a18396add06b883c846784b40110af6f7e6c8634",
+    "committed_sha256": "11a422dd049d9b0509f08e3c773a92627e9ed4a7da1f25018f1149d1981c2fcf",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb0145-0-quad_fb0145-1280.log",
+    "original_sha256": "d3814df743948d627dee6a91b5e1c5a526b2c47272a8a574ef5ce98aafb2aef1",
+    "committed_sha256": "d4918f8a6fc0b6cff0b6790b9446a1eb627c99c61932c3091f47872e46fd49e4",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb1-1280.log",
+    "original_sha256": "3510355466104b96cc29a68a80d621bdca43feaf8629d6cb6392bc44db87acd6",
+    "committed_sha256": "4baf396e2f50ce59719adc456d9b79c60b830e8570f3f6669278d582adbaffd2",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-2-quad_local-1920.log",
+    "original_sha256": "ab62ff6e52bc94366c98e4587d710bc9726405afd2ede3fd9432a287b3bf4d1a",
+    "committed_sha256": "91686ee13e26acbe60c0f8e4d9270e561f85a7af822077311baea5f03b96c63f",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_local-1-baseline-1600.log",
+    "original_sha256": "0f41332ad426bf6b8cff1f8b90fb676582296a5f71176d1d7018248eb8dffa05",
+    "committed_sha256": "b592e7642e6eebe052a4f9bb77c867b715b6eff6051c3c59bea285a17197e91f",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-3-shared_forward-1280.log",
+    "original_sha256": "11ccf5d53e8303467e5f688ac0191eed36a1f8739ae27dd7bfbd9129a595e541",
+    "committed_sha256": "56ef4688425926ab53dd15ecb4717a799cbb9c6775f2e39d15b7b0121723a946",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-1-baseline-1920.log",
+    "original_sha256": "6d66663ea61cef76123e149a256586f6f53826ea0242e42ec82dd3518448be3d",
+    "committed_sha256": "698691d31d744e172ff4ab57656dd94b3e43cc9c67bf63b85baca04fc8b08cff",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-shared_forward-0-shared_forward-1600.log",
+    "original_sha256": "edd517b0767acaa346cd5ead54a78e2e571e3aab5862fede4cabbc38aef7dafe",
+    "committed_sha256": "0595faf95da365a690168cb1e7a44b87e75fbc82e0408187608adb33c6b8d6a3",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_fb1-3-quad_fb1-1280.log",
+    "original_sha256": "cdc0e8f3cab326e51563dda3634432050c154b3395981153741342ec99c127e9",
+    "committed_sha256": "d990d14df7529520f41108cac554037fb3b97c2ddc0405aab64ff8f2e4a65eca",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb1-2-quad_fb1-1280.log",
+    "original_sha256": "d015c1affa430791e16d9aea8918fcdec8cd46854f6b1607555b7ee28e060ff5",
+    "committed_sha256": "acc1255c03b86432437e649e2f2a3eec905b422cefe35539caecf9704393d740",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_local-2-quad_local-1600.log",
+    "original_sha256": "5060a0ba22a1dd2f4ca374b71b18afff030ab54d14ded83ee9105c1b1e893f1c",
+    "committed_sha256": "17df79cdeb3ce761ae623e1145ca5bc498ff453e9460ef4319fa6a26500ca230",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-shared_forward-1280.log",
+    "original_sha256": "2c4dd9fc546b5a6d8cf82fa6837cb6ba3eeef82f70428b852c8cf4691e1e09cd",
+    "committed_sha256": "897961b13c4d283979947cd840b18497a7190c9e1201a7b288e386593a3fd203",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb1_shared-2-baseline-1600.log",
+    "original_sha256": "2786cc569ca686b5edbc527a79e3b86aee3562698ab1de085a5184a2bc3acf78",
+    "committed_sha256": "0ea5ff4fa8be63590cb630cd2bb16a79f8c813346813d07cc8a4d19dbec00c17",
+    "change": "LF / trailing whitespace normalization only; numeric text unchanged"
+  }
+]

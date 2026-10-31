@@ -1,0 +1,42 @@
+{
+  "data_checks_pass": true,
+  "counts": {
+    "smoke": 18,
+    "bench": 120,
+    "repeat": 24
+  },
+  "strict_successful_runs": 162,
+  "all_timing_processes_serial": true,
+  "all_build_and_GPU_query_work_before_timing": true,
+  "first_measurement_begin": "2026-10-31T23:46:24.278786",
+  "last_compiled_artifact_mtime": "2026-10-31T23:39:30.529656",
+  "repeat_eligible": [
+    "quad_fb1"
+  ],
+  "winners": [],
+  "branch1": {
+    "state": "Pruned",
+    "n": 3
+  },
+  "branch2": {
+    "state": "Pruned",
+    "n": 3
+  },
+  "branch3": {
+    "state": "Pruned",
+    "n": 3
+  },
+  "branch4": {
+    "state": "Open",
+    "n": 2,
+    "reason": "V3.4 whole-batch no-promotion count advances once; ultimate closure condition not met: payload doubling does not reduce current API residency; coupled representation paths are not excluded"
+  },
+  "ultimate_all_closed_condition_met": false,
+  "remaining_open_branches": [
+    4
+  ],
+  "protected_paths": 9,
+  "protected_unchanged": true,
+  "baseline_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+  "review_order": "raw process logs, output SHA, CFG/liveness, source mapping and official capacity queries before narrative"
+}

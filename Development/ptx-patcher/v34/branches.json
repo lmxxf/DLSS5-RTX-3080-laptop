@@ -1,0 +1,19 @@
+{
+  "branch1": {
+    "state": "Pruned",
+    "n": 3
+  },
+  "branch2": {
+    "state": "Pruned",
+    "n": 3
+  },
+  "branch3": {
+    "state": "Pruned",
+    "n": 3
+  },
+  "branch4": {
+    "state": "Open",
+    "n": 2,
+    "reason": "V3.4 whole-batch no-promotion count advances once; ultimate closure condition not met: payload doubling does not reduce current API residency; coupled representation paths are not excluded"
+  }
+}

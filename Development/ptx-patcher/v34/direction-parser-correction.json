@@ -1,0 +1,94 @@
+{
+  "reason": "parse anchored protocol prefix, not substring in variant name",
+  "raw_measurements_changed": false,
+  "promotion_outcome_changed": false,
+  "changes": [
+    {
+      "stage": "bench",
+      "variant": "shared_forward",
+      "width": "1280",
+      "old_directions": {
+        "forward": {
+          "baseline_median_ms": 5.7212499999999995,
+          "candidate_median_ms": 5.71025,
+          "gain_percent": 0.192265676207104
+        },
+        "reverse": {
+          "baseline_median_ms": 5.7515,
+          "candidate_median_ms": 5.736000000000001,
+          "gain_percent": 0.2694949143701497
+        }
+      },
+      "corrected_directions": {
+        "forward": {
+          "baseline_median_ms": 5.691,
+          "candidate_median_ms": 5.6845,
+          "gain_percent": 0.1142154278685581
+        },
+        "reverse": {
+          "baseline_median_ms": 5.7515,
+          "candidate_median_ms": 5.736000000000001,
+          "gain_percent": 0.2694949143701497
+        }
+      }
+    },
+    {
+      "stage": "bench",
+      "variant": "shared_forward",
+      "width": "1600",
+      "old_directions": {
+        "forward": {
+          "baseline_median_ms": 8.405999999999999,
+          "candidate_median_ms": 8.39875,
+          "gain_percent": 0.08624791815369237
+        },
+        "reverse": {
+          "baseline_median_ms": 8.4275,
+          "candidate_median_ms": 8.417,
+          "gain_percent": 0.1245921091664215
+        }
+      },
+      "corrected_directions": {
+        "forward": {
+          "baseline_median_ms": 8.3845,
+          "candidate_median_ms": 8.380500000000001,
+          "gain_percent": 0.04770707853775091
+        },
+        "reverse": {
+          "baseline_median_ms": 8.4275,
+          "candidate_median_ms": 8.417,
+          "gain_percent": 0.1245921091664215
+        }
+      }
+    },
+    {
+      "stage": "bench",
+      "variant": "shared_forward",
+      "width": "1920",
+      "old_directions": {
+        "forward": {
+          "baseline_median_ms": 11.04875,
+          "candidate_median_ms": 11.16375,
+          "gain_percent": -1.0408417241769552
+        },
+        "reverse": {
+          "baseline_median_ms": 11.0175,
+          "candidate_median_ms": 11.0755,
+          "gain_percent": -0.5264352167007047
+        }
+      },
+      "corrected_directions": {
+        "forward": {
+          "baseline_median_ms": 11.08,
+          "candidate_median_ms": 11.251999999999999,
+          "gain_percent": -1.5523465703971118
+        },
+        "reverse": {
+          "baseline_median_ms": 11.0175,
+          "candidate_median_ms": 11.0755,
+          "gain_percent": -0.5264352167007047
+        }
+      }
+    }
+  ]
+}

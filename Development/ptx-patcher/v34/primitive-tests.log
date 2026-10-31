@@ -1,0 +1,6 @@
+{'case': 'plain', 'input_patterns': 65536, 'fused_pairs': 1, 'bitdiff': 0}
+{'case': 'reused_names', 'input_patterns': 65536, 'fused_pairs': 2, 'bitdiff': 0}
+{'case': 'nested', 'input_patterns': 65536, 'fused_pairs': 1, 'bitdiff': 0}
+{'case': 'live_out', 'input_patterns': 65536, 'fused_pairs': 0, 'bitdiff': 0}
+{'case': 'overwrite_after', 'input_patterns': 65536, 'fused_pairs': 1, 'bitdiff': 0}
+{'case': 'conditional_overwrite', 'input_patterns': 65536, 'fused_pairs': 0, 'bitdiff': 0}

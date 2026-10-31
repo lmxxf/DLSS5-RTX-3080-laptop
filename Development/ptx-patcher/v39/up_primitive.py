@@ -1,0 +1,12 @@
+from pathlib import Path
+import sys,json,numpy as np,subprocess,re
+p=Path(__file__).resolve().parent;sys.path.insert(0,str(p.parent));import build_sm86_dlls as b
+from up_pair import decode
+src=(p.parent/'v2/check_primitives.py').read_text();exec(src[:src.index('# All 65536 byte pairs')]);records=[];i=np.arange(65536,dtype=np.uint32);poison=np.arange(256,dtype=np.uint32)*257;x=(i[:,None]|(poison[None,:]<<16)).reshape(-1)
+load='mul.wide.u32 %off,%idx,4;add.u64 %sp,%sp,%off;ld.global.u32 %r0,[%sp];'
+for rotate in [False,True]:
+ inp=(x<<16)|(x>>16) if rotate else x
+ body=load+'\n'.join(b.fast_fp8_conversion_declarations()+['.reg .b32 a,b,c,d,hi;','shr.u32 hi,%r0,16;']+b.fast_fp8_pair_to_half_lines('%r0','a')+b.fast_fp8_pair_to_half_lines('hi','b')+decode('%r0','c',0)+decode('%r0','d',1))+'mul.wide.u32 %off,%idx,16;add.u64 %dp,%dp,%off;st.global.v4.u32 [%dp],{a,b,c,d};'
+ out=execute(body,inp,4*len(inp)).reshape(-1,4);bad=int(np.count_nonzero(out[:,:2]!=out[:,2:]));assert bad==0;records.append({'rotate':rotate,'words':len(inp),'decoded_half2_outputs':2*len(inp),'mismatches':bad,'domain':'all 65536 halfword byte pairs x 256 opposite-half poison patterns, including reserved 7f/ff and signs'});print(records[-1],flush=True)
+ptx='.version 8.0\n.target sm_86\n.address_size 64\n.visible .entry pair(.param .u64 src,.param .u64 dst){.reg .b32 %idx,%a,%t,%r0,lo,hi,dlssnr_fp8_scale;.reg .b64 %sp,%dp,%off;ld.param.u64 %sp,[src];ld.param.u64 %dp,[dst];mov.u32 %a,%ctaid.x;mov.u32 %t,%tid.x;mad.lo.u32 %idx,%a,32,%t;'+load+'\n'.join(decode('%r0','lo',0)+decode('%r0','hi',1))+'mul.wide.u32 %off,%idx,8;add.u64 %dp,%dp,%off;st.global.v2.u32 [%dp],{lo,hi};ret;}'
+f=p/'artifacts/up_pair.ptx';f.write_text(ptx);tool='/home/lmxxf/.local/lib/python3.10/site-packages/triton/backends/nvidia/bin/ptxas';r=subprocess.run([tool,'-arch=sm_86','-O4',str(f),'-o',str(f.with_suffix('.cubin'))],capture_output=True,text=True);assert r.returncode==0,r.stderr;sass=subprocess.check_output([tool.replace('ptxas','cuobjdump'),'-sass',str(f.with_suffix('.cubin'))],text=True);ops=re.findall(r'/\*[0-9a-f]+\*/\s+(?:@!?P\d+\s+)?([A-Z][A-Z0-9_.]*)',sass);(p/'up-primitive.json').write_text(json.dumps({'passed':True,'tests':records,'selectors':['0x9180','0xb3a2'],'ptxas_O4':True,'machine_ops':ops,'sass':sass,'compiler_output':r.stdout+r.stderr,'scope':'bit equivalence to V3.8 legacy independent UP decoder, not native Ada NaN semantics'},indent=2)+'\n');ck(cu.cuCtxDestroy_v2(ctx))

@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "rotate": false,
+      "words": 16777216,
+      "decoded_half2_outputs": 33554432,
+      "mismatches": 0,
+      "domain": "all 65536 halfword byte pairs x 256 opposite-half poison patterns, including reserved 7f/ff and signs"
+    },
+    {
+      "rotate": true,
+      "words": 16777216,
+      "decoded_half2_outputs": 33554432,
+      "mismatches": 0,
+      "domain": "all 65536 halfword byte pairs x 256 opposite-half poison patterns, including reserved 7f/ff and signs"
+    }
+  ],
+  "selectors": [
+    "0x9180",
+    "0xb3a2"
+  ],
+  "ptxas_O4": true,
+  "machine_ops": [
+    "IMAD.MOV.U32",
+    "S2R",
+    "IMAD.MOV.U32",
+    "ULDC.64",
+    "S2R",
+    "LEA",
+    "IMAD.WIDE.U32",
+    "LDG.E",
+    "IMAD.MOV.U32",
+    "PRMT",
+    "PRMT",
+    "LOP3.LUT",
+    "LOP3.LUT",
+    "IMAD.SHL.U32",
+    "SHF.L.U32",
+    "IMAD.WIDE.U32",
+    "HMUL2",
+    "HMUL2",
+    "STG.E.64",
+    "EXIT",
+    "BRA",
+    "NOP",
+    "NOP",
+    "NOP",
+    "NOP",
+    "NOP",
+    "NOP",
+    "NOP",
+    "NOP",
+    "NOP",
+    "NOP",
+    "NOP"
+  ],
+  "sass": "\n\tcode for sm_86\n\t\tFunction : pair\n\t.headerflags\t@\"EF_CUDA_TEXMODE_UNIFIED EF_CUDA_64BIT_ADDRESS EF_CUDA_SM86 EF_CUDA_VIRTUAL_SM(EF_CUDA_SM86)\"\n        /*0000*/                   IMAD.MOV.U32 R1, RZ, RZ, c[0x0][0x28] ;      /* 0x00000a00ff017624 */\n                                                                                /* 0x000fe400078e00ff */\n        /*0010*/                   S2R R4, SR_CTAID.X ;                         /* 0x0000000000047919 */\n                                                                                /* 0x000e220000002500 */\n        /*0020*/                   IMAD.MOV.U32 R5, RZ, RZ, 0x4 ;               /* 0x00000004ff057424 */\n                                                                                /* 0x000fe200078e00ff */\n        /*0030*/                   ULDC.64 UR4, c[0x0][0x118] ;                 /* 0x0000460000047ab9 */\n                                                                                /* 0x000fe40000000a00 */\n        /*0040*/                   S2R R3, SR_TID.X ;                           /* 0x0000000000037919 */\n                                                                                /* 0x000e240000002100 */\n        /*0050*/                   LEA R4, R4, R3, 0x5 ;                        /* 0x0000000304047211 */\n                                                                                /* 0x001fca00078e28ff */\n        /*0060*/                   IMAD.WIDE.U32 R2, R4, R5, c[0x0][0x160] ;    /* 0x0000580004027625 */\n                                                                                /* 0x000fcc00078e0005 */\n        /*0070*/                   LDG.E R2, [R2.64] ;                          /* 0x0000000402027981 */\n                                                                                /* 0x000ea2000c1e1900 */\n        /*0080*/                   IMAD.MOV.U32 R9, RZ, RZ, 0x8 ;               /* 0x00000008ff097424 */\n                                                                                /* 0x000fe200078e00ff */\n        /*0090*/                   PRMT R5, R2.reuse, 0xb3a2, R2.reuse ;        /* 0x0000b3a202057816 */\n                                                                                /* 0x144fe40000000002 */\n        /*00a0*/                   PRMT R0, R2, 0x9180, R2 ;                    /* 0x0000918002007816 */\n                                                                                /* 0x000fe40000000002 */\n        /*00b0*/                   LOP3.LUT R5, R5, 0x17f017f, RZ, 0xc0, !PT ;  /* 0x017f017f05057812 */\n                                                                                /* 0x000fe400078ec0ff */\n        /*00c0*/                   LOP3.LUT R0, R0, 0x17f017f, RZ, 0xc0, !PT ;  /* 0x017f017f00007812 */\n                                                                                /* 0x000fc600078ec0ff */\n        /*00d0*/                   IMAD.SHL.U32 R7, R5, 0x80, RZ ;              /* 0x0000008005077824 */\n                                                                                /* 0x000fe200078e00ff */\n        /*00e0*/                   SHF.L.U32 R0, R0, 0x7, RZ ;                  /* 0x0000000700007819 */\n                                                                                /* 0x000fe200000006ff */\n        /*00f0*/                   IMAD.WIDE.U32 R4, R4, R9, c[0x0][0x168] ;    /* 0x00005a0004047625 */\n                                                                                /* 0x000fc600078e0009 */\n        /*0100*/                   HMUL2 R7, R7, 256, 256 ;                     /* 0x5c005c0007077832 */\n                                                                                /* 0x000fe40000000000 */\n        /*0110*/                   HMUL2 R6, R0, 256, 256 ;                     /* 0x5c005c0000067832 */\n                                                                                /* 0x000fca0000000000 */\n        /*0120*/                   STG.E.64 [R4.64], R6 ;                       /* 0x0000000604007986 */\n                                                                                /* 0x000fe2000c101b04 */\n        /*0130*/                   EXIT ;                                       /* 0x000000000000794d */\n                                                                                /* 0x000fea0003800000 */\n        /*0140*/                   BRA 0x140;                                   /* 0xfffffff000007947 */\n                                                                                /* 0x000fc0000383ffff */\n        /*0150*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*0160*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*0170*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*0180*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*0190*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*01a0*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*01b0*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*01c0*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*01d0*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*01e0*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n        /*01f0*/                   NOP;                                         /* 0x0000000000007918 */\n                                                                                /* 0x000fc00000000000 */\n\t\t..........\n\n\n",
+  "compiler_output": "",
+  "scope": "bit equivalence to V3.8 legacy independent UP decoder, not native Ada NaN semantics"
+}

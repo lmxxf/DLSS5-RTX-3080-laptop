@@ -1,0 +1,35 @@
+{
+  "evidence": "../v37/zero-fold-audit.json",
+  "evidence_sha256": "6f9b9523133a312b1a6979821b6ba9e80a2b67fa8ca866c45d195566fd7ff6a6",
+  "plan_claimed_per_FB": {
+    "0": 36,
+    "1": 64,
+    "2": 40,
+    "3": 40
+  },
+  "verified_per_FB": {
+    "2": 40,
+    "1": 40,
+    "0": 60,
+    "4": 176,
+    "6": 36,
+    "3": 40,
+    "5": 288
+  },
+  "FB00_upsample_claimed": 16,
+  "FB00_upsample_verified": 4,
+  "candidate_scope_unchanged": true,
+  "verified_totals": {
+    "zero_fb1456": 540,
+    "zero_fb3456": 540,
+    "zero_no_fb0up": 676
+  },
+  "UP_syntactic_source_claim_verified": true,
+  "UP_same_block_eligibility": 2682,
+  "UP_cross_block_preserved": 2062,
+  "baseline_PRMT_claimed": 19549,
+  "baseline_PRMT_verified": 19525,
+  "prior_V31_PRMT": 19861,
+  "actual_PRMT_reduction_from_V31": 336,
+  "baseline_resource_evidence": "../v38/resources.json"
+}

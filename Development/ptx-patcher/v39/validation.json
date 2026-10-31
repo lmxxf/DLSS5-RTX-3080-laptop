@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "counts": {
+    "smoke": 24,
+    "timed": 168,
+    "repeat": 24
+  },
+  "exact_runs": 174,
+  "approximate_runs": 42,
+  "all_measurements_serial": true,
+  "construction_and_GPU_queries_before_clean_measurements": true,
+  "repeat_eligible": [
+    "v38_pack4_fb2356"
+  ],
+  "winners": [],
+  "open_branch_count": 1,
+  "branches": {
+    "5": {
+      "state": "Open",
+      "n": 1
+    }
+  },
+  "protected_paths": 10,
+  "protected_unchanged": true,
+  "no_production_deployment": true,
+  "scope": "fixed V3.8 baseline, three deterministic benchmark inputs; empirical Pack4 is not a static activation bound; UP changes only same-block stable-source conversions; cross-block UPs retain legacy decoding",
+  "cleanup_complete": true,
+  "protected_unchanged_after_cleanup": true
+}

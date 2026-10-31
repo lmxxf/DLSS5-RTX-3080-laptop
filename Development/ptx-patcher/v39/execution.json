@@ -1,0 +1,244 @@
+[
+  {
+    "tag": "build.py baseline",
+    "args": [
+      "build.py",
+      "baseline"
+    ],
+    "begin": "2026-11-01T03:42:33.050687",
+    "end": "2026-11-01T03:42:48.312580",
+    "returncode": 0,
+    "output": "baseline 1 ELF O4 (cubin=1152800 B -> fatbin=176512 / 557032 B) in 5.42s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832\nbaseline 2 ELF O4 (cubin=1221152 B -> fatbin=158600 / 506464 B) in 5.46s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832\nbaseline 0 ELF O4 (cubin=1374176 B -> fatbin=281368 / 841720 B) in 7.08s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19\nbaseline 4 ELF O4 (cubin=1084960 B -> fatbin=177976 / 433184 B) in 3.93s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, zero_constant_folds=176, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23\nbaseline 6 ELF O4 (cubin= 140128 B -> fatbin= 30520 /  70336 B) in 0.74s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, zero_constant_folds=36, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2\nbaseline 7 ELF O4 (cubin=   4392 B -> fatbin=  1448 /   8016 B) in 0.15s | ptx_version=1, target=1\nbaseline 8 ELF O4 (cubin=   5608 B -> fatbin=  1520 /  10904 B) in 0.11s | ptx_version=1, target=1\nbaseline 9 ELF O4 (cubin=   6248 B -> fatbin=  1608 /  11792 B) in 0.12s | ptx_version=1, target=1\nbaseline 10 ELF O4 (cubin=   5792 B -> fatbin=  1816 /  10560 B) in 0.11s | ptx_version=1, target=1\nbaseline 11 ELF O4 (cubin=   5672 B -> fatbin=  1536 /   9960 B) in 0.12s | ptx_version=1, target=1\nbaseline 12 ELF O4 (cubin=   3752 B -> fatbin=  1128 /   6552 B) in 0.11s | ptx_version=1, target=1\nbaseline 13 ELF O4 (cubin=  32672 B -> fatbin=  8888 /  54824 B) in 0.25s | ptx_version=1, target=1, min_relu=4\nbaseline 14 ELF O4 (cubin=   4008 B -> fatbin=  1240 /   6936 B) in 0.11s | ptx_version=1, target=1\nbaseline 3 ELF O4 (cubin=1218464 B -> fatbin=202624 / 586832 B) in 5.91s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12\nbaseline 5 ELF O4 (cubin=1343520 B -> fatbin=192616 / 542960 B) in 4.84s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, zero_constant_folds=288, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29\n"
+  },
+  {
+    "tag": "test_up.py",
+    "args": [
+      "test_up.py"
+    ],
+    "begin": "2026-11-01T03:43:10.669088",
+    "end": "2026-11-01T03:43:10.836379",
+    "returncode": 1,
+    "output": "E.....\n======================================================================\nERROR: test_cross_block (__main__.Tests)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v39/test_up.py\", line 18, in test_cross_block\n    _,r=self.runpart('mov.b32 {%rs0,%rs1},%r0;bra L;L:cvt.rn.f16x2.e4m3x2 %r1,%rs0;');self.assertEqual(r[0]['reason'],'cross_block')\n  File \"/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v39/test_up.py\", line 8, in runpart\n    text=HEAD+body+'\\nret;}';return text,analyze(text)[1]\n  File \"/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v39/up_pair.py\", line 8, in analyze\n    o=Origin(part);rows=[]\n  File \"<string>\", line 11, in __init__\n  File \"/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v25/cfg_loops.py\", line 11, in parse\n    return graph(ins,labels)\n  File \"/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v25/cfg_loops.py\", line 21, in graph\n    target=re.search(r'\\$\\w+',x['args'])[0];b['succ'].append(index[labels[target]])\nTypeError: 'NoneType' object is not subscriptable\n\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nFAILED (errors=1)\n"
+  },
+  {
+    "tag": "test_up.py",
+    "args": [
+      "test_up.py"
+    ],
+    "begin": "2026-11-01T03:43:26.642012",
+    "end": "2026-11-01T03:43:26.811141",
+    "returncode": 0,
+    "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nOK\n"
+  },
+  {
+    "tag": "build.py zero_fb1456 zero_fb3456 zero_no_fb0up v38_pack4_fb36 v38_pack4_fb2356 up_pair_all",
+    "args": [
+      "build.py",
+      "zero_fb1456",
+      "zero_fb3456",
+      "zero_no_fb0up",
+      "v38_pack4_fb36",
+      "v38_pack4_fb2356",
+      "up_pair_all"
+    ],
+    "begin": "2026-11-01T03:43:26.849786",
+    "end": "2026-11-01T03:44:40.596739",
+    "returncode": 0,
+    "output": "zero_fb1456 1 ELF O4 (cubin=1146144 B -> fatbin=174272 / 557032 B) in 5.16s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, zero_constant_folds=40, fp8_to_fp16=832\nzero_fb3456 3 ELF O4 (cubin=1213728 B -> fatbin=202192 / 586832 B) in 5.68s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, zero_constant_folds=40, fp8_to_fp16=832, maxnreg_override=12\nzero_no_fb0up 1 ELF O4 (cubin=1146144 B -> fatbin=174272 / 557032 B) in 5.40s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, zero_constant_folds=40, fp8_to_fp16=832\nzero_no_fb0up 2 ELF O4 (cubin=1211552 B -> fatbin=155536 / 506464 B) in 5.42s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, zero_constant_folds=40, fp8_to_fp16=832\nzero_no_fb0up 3 ELF O4 (cubin=1213728 B -> fatbin=202192 / 586832 B) in 5.70s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, zero_constant_folds=40, fp8_to_fp16=832, maxnreg_override=12\nzero_no_fb0up 0 ELF O4 (cubin=1366240 B -> fatbin=282208 / 841720 B) in 14.39s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, zero_constant_folds=56, fp8_to_fp16=584, maxnreg_override=19\nv38_pack4_fb36 6 ELF O4 (cubin= 136032 B -> fatbin= 30584 /  70336 B) in 0.81s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, zero_constant_folds=36, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2\nv38_pack4_fb36 3 ELF O4 (cubin=1191584 B -> fatbin=197936 / 586832 B) in 5.58s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12\nv38_pack4_fb2356 5 ELF O4 (cubin=1314336 B -> fatbin=183936 / 542960 B) in 4.93s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, zero_constant_folds=288, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29\nv38_pack4_fb2356 2 ELF O4 (cubin=1193632 B -> fatbin=155304 / 506464 B) in 5.43s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832\nv38_pack4_fb2356 6 ELF O4 (cubin= 136032 B -> fatbin= 30584 /  70336 B) in 0.77s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, zero_constant_folds=36, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2\nv38_pack4_fb2356 3 ELF O4 (cubin=1191584 B -> fatbin=197936 / 586832 B) in 5.96s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12\nup_pair_all 2 ELF O4 (cubin=1190560 B -> fatbin=150672 / 506464 B) in 12.04s | ptx_version=1, target=1, fp8_mma=3304, fp8_to_fp16=832, up_pair_deleted_splits=392, fp16_to_fp8=1672\nup_pair_all 1 ELF O4 (cubin=1133088 B -> fatbin=178872 / 557032 B) in 12.34s | ptx_version=1, target=1, fp8_mma=3608, fp8_to_fp16=832, up_pair_deleted_splits=266, fp16_to_fp8=1352\nup_pair_all 0 ELF O4 (cubin=1340000 B -> fatbin=270448 / 841720 B) in 16.38s | ptx_version=1, target=1, fp8_mma=4888, fp8_to_fp16=584, up_pair_deleted_splits=193, fp16_to_fp8=548, maxnreg_override=19\nup_pair_all 4 ELF O4 (cubin=1081888 B -> fatbin=174784 / 433184 B) in 8.00s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, zero_constant_folds=176, fp8_to_fp16=704, up_pair_deleted_splits=46, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23\nup_pair_all 6 ELF O4 (cubin= 139616 B -> fatbin= 30960 /  70336 B) in 1.51s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, zero_constant_folds=36, fp8_to_fp16=256, up_pair_deleted_splits=8, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2\nup_pair_all 3 ELF O4 (cubin=1187360 B -> fatbin=192728 / 586832 B) in 12.88s | ptx_version=1, target=1, fp8_mma=3480, fp8_to_fp16=832, up_pair_deleted_splits=392, fp16_to_fp8=1672, maxnreg_override=12\nup_pair_all 5 ELF O4 (cubin=1339936 B -> fatbin=192216 / 542960 B) in 9.64s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, zero_constant_folds=288, fp8_to_fp16=704, up_pair_deleted_splits=44, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29\n"
+  },
+  {
+    "tag": "up_primitive.py",
+    "args": [
+      "up_primitive.py"
+    ],
+    "begin": "2026-11-01T03:44:40.597242",
+    "end": "2026-11-01T03:44:41.883455",
+    "returncode": 0,
+    "output": "{'rotate': False, 'words': 16777216, 'decoded_half2_outputs': 33554432, 'mismatches': 0, 'domain': 'all 65536 halfword byte pairs x 256 opposite-half poison patterns, including reserved 7f/ff and signs'}\n{'rotate': True, 'words': 16777216, 'decoded_half2_outputs': 33554432, 'mismatches': 0, 'domain': 'all 65536 halfword byte pairs x 256 opposite-half poison patterns, including reserved 7f/ff and signs'}\n"
+  },
+  {
+    "tag": "audit.py",
+    "args": [
+      "audit.py"
+    ],
+    "begin": "2026-11-01T03:44:41.883983",
+    "end": "2026-11-01T03:45:31.483362",
+    "returncode": 0,
+    "output": "baseline {'INSN_NONOP': 150672, 'HMMA': 13188, 'PRMT': 19525, 'STL': 100, 'LDL': 101, 'SHFL': 1672}\nzero_fb1456 {'INSN_NONOP': 150546, 'HMMA': 13188, 'PRMT': 19500, 'STL': 100, 'LDL': 101, 'SHFL': 1672}\nzero_fb3456 {'INSN_NONOP': 150586, 'HMMA': 13188, 'PRMT': 19501, 'STL': 100, 'LDL': 101, 'SHFL': 1672}\nzero_no_fb0up {'INSN_NONOP': 150223, 'HMMA': 13188, 'PRMT': 19425, 'STL': 100, 'LDL': 101, 'SHFL': 1672}\nv38_pack4_fb36 {'INSN_NONOP': 149974, 'HMMA': 13188, 'PRMT': 19525, 'STL': 100, 'LDL': 101, 'SHFL': 1672}\nv38_pack4_fb2356 {'INSN_NONOP': 148934, 'HMMA': 13188, 'PRMT': 19523, 'STL': 100, 'LDL': 101, 'SHFL': 1672}\nup_pair_all {'INSN_NONOP': 148109, 'HMMA': 13188, 'PRMT': 18978, 'STL': 101, 'LDL': 101, 'SHFL': 1672}\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "select_clean.py",
+    "args": [
+      "select_clean.py"
+    ],
+    "begin": "2026-11-01T03:45:31.483927",
+    "end": "2026-11-01T03:45:31.504879",
+    "returncode": 0,
+    "output": "UP clean entries 34 rejected 4\n"
+  },
+  {
+    "tag": "build.py up_pair_clean",
+    "args": [
+      "build.py",
+      "up_pair_clean"
+    ],
+    "begin": "2026-11-01T03:45:31.505249",
+    "end": "2026-11-01T03:46:01.309800",
+    "returncode": 0,
+    "output": "up_pair_clean 2 ELF O4 (cubin=1210912 B -> fatbin=165512 / 506464 B) in 12.14s | ptx_version=1, target=1, fp8_mma=3304, fp8_to_fp16=832, up_pair_deleted_splits=132, fp16_to_fp8=1672\nup_pair_clean 1 ELF O4 (cubin=1149984 B -> fatbin=181608 / 557032 B) in 12.35s | ptx_version=1, target=1, fp8_mma=3608, fp8_to_fp16=832, up_pair_deleted_splits=37, fp16_to_fp8=1352\nup_pair_clean 0 ELF O4 (cubin=1364320 B -> fatbin=278456 / 841720 B) in 16.35s | ptx_version=1, target=1, fp8_mma=4888, fp8_to_fp16=584, up_pair_deleted_splits=53, fp16_to_fp8=548, maxnreg_override=19\nup_pair_clean 4 ELF O4 (cubin=1083936 B -> fatbin=178680 / 433184 B) in 8.02s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, zero_constant_folds=176, fp8_to_fp16=704, up_pair_deleted_splits=17, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23\nup_pair_clean 6 ELF O4 (cubin= 140128 B -> fatbin= 30520 /  70336 B) in 0.86s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, zero_constant_folds=36, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2\nup_pair_clean 3 ELF O4 (cubin=1208096 B -> fatbin=203832 / 586832 B) in 12.90s | ptx_version=1, target=1, fp8_mma=3480, fp8_to_fp16=832, up_pair_deleted_splits=132, fp16_to_fp8=1672, maxnreg_override=12\nup_pair_clean 5 ELF O4 (cubin=1342496 B -> fatbin=194616 / 542960 B) in 9.61s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, zero_constant_folds=288, fp8_to_fp16=704, up_pair_deleted_splits=12, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29\n"
+  },
+  {
+    "tag": "audit.py up_pair_clean",
+    "args": [
+      "audit.py",
+      "up_pair_clean"
+    ],
+    "begin": "2026-11-01T03:46:01.310287",
+    "end": "2026-11-01T03:46:08.657493",
+    "returncode": 0,
+    "output": "up_pair_clean {'INSN_NONOP': 148449, 'HMMA': 13188, 'PRMT': 19043, 'STL': 99, 'LDL': 100, 'SHFL': 1672}\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "tables.py",
+    "args": [
+      "tables.py"
+    ],
+    "begin": "2026-11-01T03:46:08.657975",
+    "end": "2026-11-01T03:46:10.252225",
+    "returncode": 0,
+    "output": "tables 8\n"
+  },
+  {
+    "tag": "bench.py smoke",
+    "args": [
+      "bench.py",
+      "smoke"
+    ],
+    "begin": "2026-11-01T03:46:10.252709",
+    "end": "2026-11-01T03:47:03.311329",
+    "returncode": 0,
+    "output": "smoke smoke baseline 1280 5.694 0 None\nsmoke smoke zero_fb1456 1280 5.687 0 None\nsmoke smoke zero_fb3456 1280 5.683 0 None\nsmoke smoke zero_no_fb0up 1280 5.674 0 None\nsmoke smoke v38_pack4_fb36 1280 6.633 0 None\nsmoke smoke v38_pack4_fb2356 1280 5.656 0 None\nsmoke smoke up_pair_all 1280 5.674 0 None\nsmoke smoke up_pair_clean 1280 5.659 0 None\nsmoke smoke baseline 1600 8.02 0 None\nsmoke smoke zero_fb1456 1600 8.048 0 None\nsmoke smoke zero_fb3456 1600 8.031 0 None\nsmoke smoke zero_no_fb0up 1600 8.019 0 None\nsmoke smoke v38_pack4_fb36 1600 8.062 0 None\nsmoke smoke v38_pack4_fb2356 1600 7.999 0 None\nsmoke smoke up_pair_all 1600 7.997 0 None\nsmoke smoke up_pair_clean 1600 8.014 0 None\nsmoke smoke baseline 1920 10.398 0 None\nsmoke smoke zero_fb1456 1920 11.011 0 None\nsmoke smoke zero_fb3456 1920 10.402 0 None\nsmoke smoke zero_no_fb0up 1920 10.401 0 None\nsmoke smoke v38_pack4_fb36 1920 10.396 0 None\nsmoke smoke v38_pack4_fb2356 1920 10.393 0 None\nsmoke smoke up_pair_all 1920 10.339 0 None\nsmoke smoke up_pair_clean 1920 10.342 0 None\n"
+  },
+  {
+    "tag": "preflight.py",
+    "args": [
+      "preflight.py"
+    ],
+    "begin": "2026-11-01T03:47:03.311901",
+    "end": "2026-11-01T03:47:11.851941",
+    "returncode": 1,
+    "output": "Traceback (most recent call last):\n  File \"/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v39/preflight.py\", line 18, in <module>\n    s=sp[mode];modcounts={int(m['FB']):sum(r['kind']=='pack3' and r['range']==[0.,0.] and r['kernel'] not in s.get('zero_exclude_entries',[]) for r in m['ranges']) for m in full[mode]};modcounts.update({k:int(v) for k,v in [(4,176),(5,288),(6,36)] if k not in modcounts});assert sum(modcounts.values())==total,(mode,modcounts);folds[mode]={'total_folded':total,'per_FB':modcounts}\nAssertionError: ('zero_fb1456', {1: 40, 4: 176, 5: 288, 6: 36})\n"
+  },
+  {
+    "tag": "preflight.py",
+    "args": [
+      "preflight.py"
+    ],
+    "begin": "2026-11-01T03:48:36.956993",
+    "end": "2026-11-01T03:48:51.783332",
+    "returncode": 0,
+    "output": "PASS 7 timing candidates; {'clean_applied_UPs': 766, 'clean_deleted_splits': 383, 'independent_UPs': 4744, 'split_pairs': 2372, 'eligible_UPs': 2682, 'eligibility_reasons': {'same_block_stable_unguarded': 2682, 'cross_block': 2062}, 'removed_splits': 1341, 'retained_splits_with_other_uses': 1031, 'exact_reference': 'V3.8 legacy independent UP', 'per_FB': {2: 832, 1: 832, 0: 584, 4: 704, 6: 256, 3: 832, 5: 704}}\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "resource_check.py",
+    "args": [
+      "resource_check.py"
+    ],
+    "begin": "2026-11-01T03:49:23.068977",
+    "end": "2026-11-01T03:49:23.126541",
+    "returncode": 1,
+    "output": "Traceback (most recent call last):\n  File \"/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/v39/resource_check.py\", line 6, in <module>\n    assert out['baseline']['totals']=={'INSN_NONOP':150672,'HMMA':13188,'PRMT':19549,'STL':100,'LDL':101}\nAssertionError\n"
+  },
+  {
+    "tag": "resource_check.py",
+    "args": [
+      "resource_check.py"
+    ],
+    "begin": "2026-11-01T03:49:46.555019",
+    "end": "2026-11-01T03:49:46.577982",
+    "returncode": 0,
+    "output": "{'baseline': 0, 'zero_fb1456': -126, 'zero_fb3456': -86, 'zero_no_fb0up': -449, 'v38_pack4_fb36': -698, 'v38_pack4_fb2356': -1738, 'up_pair_all': -2563, 'up_pair_clean': -2223}\n"
+  },
+  {
+    "tag": "bench.py timed",
+    "args": [
+      "bench.py",
+      "timed"
+    ],
+    "begin": "2026-11-01T03:50:20.190513",
+    "end": "2026-11-01T03:59:56.966666",
+    "returncode": 0,
+    "output": "timed forward-zero_fb1456-0 baseline 1280 5.547 0 None\ntimed forward-zero_fb1456-1 zero_fb1456 1280 5.591 0 None\ntimed forward-zero_fb1456-2 zero_fb1456 1280 5.592 0 None\ntimed forward-zero_fb1456-3 baseline 1280 5.635 0 None\ntimed forward-zero_fb3456-0 baseline 1280 5.615 0 None\ntimed forward-zero_fb3456-1 zero_fb3456 1280 5.628 0 None\ntimed forward-zero_fb3456-2 zero_fb3456 1280 5.61 0 None\ntimed forward-zero_fb3456-3 baseline 1280 5.623 0 None\ntimed forward-zero_no_fb0up-0 baseline 1280 5.608 0 None\ntimed forward-zero_no_fb0up-1 zero_no_fb0up 1280 5.598 0 None\ntimed forward-zero_no_fb0up-2 zero_no_fb0up 1280 5.622 0 None\ntimed forward-zero_no_fb0up-3 baseline 1280 5.64 0 None\ntimed forward-v38_pack4_fb36-0 baseline 1280 5.63 0 None\ntimed forward-v38_pack4_fb36-1 v38_pack4_fb36 1280 5.633 0 None\ntimed forward-v38_pack4_fb36-2 v38_pack4_fb36 1280 5.642 0 None\ntimed forward-v38_pack4_fb36-3 baseline 1280 5.643 0 None\ntimed forward-v38_pack4_fb2356-0 baseline 1280 5.633 0 None\ntimed forward-v38_pack4_fb2356-1 v38_pack4_fb2356 1280 5.606 0 None\ntimed forward-v38_pack4_fb2356-2 v38_pack4_fb2356 1280 5.635 0 None\ntimed forward-v38_pack4_fb2356-3 baseline 1280 5.643 0 None\ntimed forward-up_pair_all-0 baseline 1280 5.662 0 None\ntimed forward-up_pair_all-1 up_pair_all 1280 5.66 0 None\ntimed forward-up_pair_all-2 up_pair_all 1280 5.659 0 None\ntimed forward-up_pair_all-3 baseline 1280 5.674 0 None\ntimed forward-up_pair_clean-0 baseline 1280 5.648 0 None\ntimed forward-up_pair_clean-1 up_pair_clean 1280 5.671 0 None\ntimed forward-up_pair_clean-2 up_pair_clean 1280 5.654 0 None\ntimed forward-up_pair_clean-3 baseline 1280 5.682 0 None\ntimed forward-zero_fb1456-0 baseline 1600 8.344 0 None\ntimed forward-zero_fb1456-1 zero_fb1456 1600 8.393 0 None\ntimed forward-zero_fb1456-2 zero_fb1456 1600 8.342 0 None\ntimed forward-zero_fb1456-3 baseline 1600 8.292 0 None\ntimed forward-zero_fb3456-0 baseline 1600 8.393 0 None\ntimed forward-zero_fb3456-1 zero_fb3456 1600 8.296 0 None\ntimed forward-zero_fb3456-2 zero_fb3456 1600 8.302 0 None\ntimed forward-zero_fb3456-3 baseline 1600 8.404 0 None\ntimed forward-zero_no_fb0up-0 baseline 1600 8.281 0 None\ntimed forward-zero_no_fb0up-1 zero_no_fb0up 1600 8.294 0 None\ntimed forward-zero_no_fb0up-2 zero_no_fb0up 1600 8.284 0 None\ntimed forward-zero_no_fb0up-3 baseline 1600 8.395 0 None\ntimed forward-v38_pack4_fb36-0 baseline 1600 8.399 0 None\ntimed forward-v38_pack4_fb36-1 v38_pack4_fb36 1600 8.37 0 None\ntimed forward-v38_pack4_fb36-2 v38_pack4_fb36 1600 8.402 0 None\ntimed forward-v38_pack4_fb36-3 baseline 1600 8.403 0 None\ntimed forward-v38_pack4_fb2356-0 baseline 1600 8.385 0 None\ntimed forward-v38_pack4_fb2356-1 v38_pack4_fb2356 1600 8.296 0 None\ntimed forward-v38_pack4_fb2356-2 v38_pack4_fb2356 1600 8.38 0 None\ntimed forward-v38_pack4_fb2356-3 baseline 1600 8.394 0 None\ntimed forward-up_pair_all-0 baseline 1600 8.295 0 None\ntimed forward-up_pair_all-1 up_pair_all 1600 8.272 0 None\ntimed forward-up_pair_all-2 up_pair_all 1600 8.309 0 None\ntimed forward-up_pair_all-3 baseline 1600 8.358 0 None\ntimed forward-up_pair_clean-0 baseline 1600 8.383 0 None\ntimed forward-up_pair_clean-1 up_pair_clean 1600 8.373 0 None\ntimed forward-up_pair_clean-2 up_pair_clean 1600 8.278 0 None\ntimed forward-up_pair_clean-3 baseline 1600 8.343 0 None\ntimed forward-zero_fb1456-0 baseline 1920 11.065 0 None\ntimed forward-zero_fb1456-1 zero_fb1456 1920 11.057 0 None\ntimed forward-zero_fb1456-2 zero_fb1456 1920 11.062 0 None\ntimed forward-zero_fb1456-3 baseline 1920 10.974 0 None\ntimed forward-zero_fb3456-0 baseline 1920 11.06 0 None\ntimed forward-zero_fb3456-1 zero_fb3456 1920 11.038 0 None\ntimed forward-zero_fb3456-2 zero_fb3456 1920 11.054 0 None\ntimed forward-zero_fb3456-3 baseline 1920 11.07 0 None\ntimed forward-zero_no_fb0up-0 baseline 1920 11.014 0 None\ntimed forward-zero_no_fb0up-1 zero_no_fb0up 1920 11.046 0 None\ntimed forward-zero_no_fb0up-2 zero_no_fb0up 1920 10.948 0 None\ntimed forward-zero_no_fb0up-3 baseline 1920 11.044 0 None\ntimed forward-v38_pack4_fb36-0 baseline 1920 11.048 0 None\ntimed forward-v38_pack4_fb36-1 v38_pack4_fb36 1920 11.07 0 None\ntimed forward-v38_pack4_fb36-2 v38_pack4_fb36 1920 11.055 0 None\ntimed forward-v38_pack4_fb36-3 baseline 1920 11.053 0 None\ntimed forward-v38_pack4_fb2356-0 baseline 1920 11.031 0 None\ntimed forward-v38_pack4_fb2356-1 v38_pack4_fb2356 1920 11.04 0 None\ntimed forward-v38_pack4_fb2356-2 v38_pack4_fb2356 1920 10.972 0 None\ntimed forward-v38_pack4_fb2356-3 baseline 1920 11.026 0 None\ntimed forward-up_pair_all-0 baseline 1920 11.054 0 None\ntimed forward-up_pair_all-1 up_pair_all 1920 11.034 0 None\ntimed forward-up_pair_all-2 up_pair_all 1920 11.032 0 None\ntimed forward-up_pair_all-3 baseline 1920 10.975 0 None\ntimed forward-up_pair_clean-0 baseline 1920 11.062 0 None\ntimed forward-up_pair_clean-1 up_pair_clean 1920 10.959 0 None\ntimed forward-up_pair_clean-2 up_pair_clean 1920 11.017 0 None\ntimed forward-up_pair_clean-3 baseline 1920 11.067 0 None\ntimed reverse-zero_fb1456-0 zero_fb1456 1920 10.977 0 None\ntimed reverse-zero_fb1456-1 baseline 1920 11.051 0 None\ntimed reverse-zero_fb1456-2 baseline 1920 11.064 0 None\ntimed reverse-zero_fb1456-3 zero_fb1456 1920 11.06 0 None\ntimed reverse-zero_fb3456-0 zero_fb3456 1920 11.061 0 None\ntimed reverse-zero_fb3456-1 baseline 1920 11.053 0 None\ntimed reverse-zero_fb3456-2 baseline 1920 10.982 0 None\ntimed reverse-zero_fb3456-3 zero_fb3456 1920 11.068 0 None\ntimed reverse-zero_no_fb0up-0 zero_no_fb0up 1920 11.069 0 None\ntimed reverse-zero_no_fb0up-1 baseline 1920 11.052 0 None\ntimed reverse-zero_no_fb0up-2 baseline 1920 11.064 0 None\ntimed reverse-zero_no_fb0up-3 zero_no_fb0up 1920 11.041 0 None\ntimed reverse-v38_pack4_fb36-0 v38_pack4_fb36 1920 11.061 0 None\ntimed reverse-v38_pack4_fb36-1 baseline 1920 11.062 0 None\ntimed reverse-v38_pack4_fb36-2 baseline 1920 11.054 0 None\ntimed reverse-v38_pack4_fb36-3 v38_pack4_fb36 1920 11.06 0 None\ntimed reverse-v38_pack4_fb2356-0 v38_pack4_fb2356 1920 11.052 0 None\ntimed reverse-v38_pack4_fb2356-1 baseline 1920 11.113 0 None\ntimed reverse-v38_pack4_fb2356-2 baseline 1920 11.059 0 None\ntimed reverse-v38_pack4_fb2356-3 v38_pack4_fb2356 1920 11.051 0 None\ntimed reverse-up_pair_all-0 up_pair_all 1920 11.023 0 None\ntimed reverse-up_pair_all-1 baseline 1920 11.071 0 None\ntimed reverse-up_pair_all-2 baseline 1920 11.075 0 None\ntimed reverse-up_pair_all-3 up_pair_all 1920 11.014 0 None\ntimed reverse-up_pair_clean-0 up_pair_clean 1920 11.032 0 None\ntimed reverse-up_pair_clean-1 baseline 1920 11.027 0 None\ntimed reverse-up_pair_clean-2 baseline 1920 11.061 0 None\ntimed reverse-up_pair_clean-3 up_pair_clean 1920 11.028 0 None\ntimed reverse-zero_fb1456-0 zero_fb1456 1600 8.385 0 None\ntimed reverse-zero_fb1456-1 baseline 1600 8.423 0 None\ntimed reverse-zero_fb1456-2 baseline 1600 8.398 0 None\ntimed reverse-zero_fb1456-3 zero_fb1456 1600 8.415 0 None\ntimed reverse-zero_fb3456-0 zero_fb3456 1600 8.295 0 None\ntimed reverse-zero_fb3456-1 baseline 1600 8.286 0 None\ntimed reverse-zero_fb3456-2 baseline 1600 8.373 0 None\ntimed reverse-zero_fb3456-3 zero_fb3456 1600 8.414 0 None\ntimed reverse-zero_no_fb0up-0 zero_no_fb0up 1600 8.397 0 None\ntimed reverse-zero_no_fb0up-1 baseline 1600 8.387 0 None\ntimed reverse-zero_no_fb0up-2 baseline 1600 8.35 0 None\ntimed reverse-zero_no_fb0up-3 zero_no_fb0up 1600 8.337 0 None\ntimed reverse-v38_pack4_fb36-0 v38_pack4_fb36 1600 8.318 0 None\ntimed reverse-v38_pack4_fb36-1 baseline 1600 8.323 0 None\ntimed reverse-v38_pack4_fb36-2 baseline 1600 8.302 0 None\ntimed reverse-v38_pack4_fb36-3 v38_pack4_fb36 1600 8.352 0 None\ntimed reverse-v38_pack4_fb2356-0 v38_pack4_fb2356 1600 8.378 0 None\ntimed reverse-v38_pack4_fb2356-1 baseline 1600 8.363 0 None\ntimed reverse-v38_pack4_fb2356-2 baseline 1600 8.391 0 None\ntimed reverse-v38_pack4_fb2356-3 v38_pack4_fb2356 1600 8.297 0 None\ntimed reverse-up_pair_all-0 up_pair_all 1600 8.27 0 None\ntimed reverse-up_pair_all-1 baseline 1600 8.297 0 None\ntimed reverse-up_pair_all-2 baseline 1600 8.387 0 None\ntimed reverse-up_pair_all-3 up_pair_all 1600 8.336 0 None\ntimed reverse-up_pair_clean-0 up_pair_clean 1600 8.367 0 None\ntimed reverse-up_pair_clean-1 baseline 1600 8.411 0 None\ntimed reverse-up_pair_clean-2 baseline 1600 8.356 0 None\ntimed reverse-up_pair_clean-3 up_pair_clean 1600 8.278 0 None\ntimed reverse-zero_fb1456-0 zero_fb1456 1280 5.681 0 None\ntimed reverse-zero_fb1456-1 baseline 1280 5.725 0 None\ntimed reverse-zero_fb1456-2 baseline 1280 5.688 0 None\ntimed reverse-zero_fb1456-3 zero_fb1456 1280 5.718 0 None\ntimed reverse-zero_fb3456-0 zero_fb3456 1280 5.689 0 None\ntimed reverse-zero_fb3456-1 baseline 1280 5.719 0 None\ntimed reverse-zero_fb3456-2 baseline 1280 5.676 0 None\ntimed reverse-zero_fb3456-3 zero_fb3456 1280 5.72 0 None\ntimed reverse-zero_no_fb0up-0 zero_no_fb0up 1280 5.677 0 None\ntimed reverse-zero_no_fb0up-1 baseline 1280 5.702 0 None\ntimed reverse-zero_no_fb0up-2 baseline 1280 5.681 0 None\ntimed reverse-zero_no_fb0up-3 zero_no_fb0up 1280 5.718 0 None\ntimed reverse-v38_pack4_fb36-0 v38_pack4_fb36 1280 5.719 0 None\ntimed reverse-v38_pack4_fb36-1 baseline 1280 5.73 0 None\ntimed reverse-v38_pack4_fb36-2 baseline 1280 5.724 0 None\ntimed reverse-v38_pack4_fb36-3 v38_pack4_fb36 1280 5.728 0 None\ntimed reverse-v38_pack4_fb2356-0 v38_pack4_fb2356 1280 5.693 0 None\ntimed reverse-v38_pack4_fb2356-1 baseline 1280 5.709 0 None\ntimed reverse-v38_pack4_fb2356-2 baseline 1280 5.685 0 None\ntimed reverse-v38_pack4_fb2356-3 v38_pack4_fb2356 1280 5.688 0 None\ntimed reverse-up_pair_all-0 up_pair_all 1280 5.672 0 None\ntimed reverse-up_pair_all-1 baseline 1280 5.685 0 None\ntimed reverse-up_pair_all-2 baseline 1280 5.724 0 None\ntimed reverse-up_pair_all-3 up_pair_all 1280 5.678 0 None\ntimed reverse-up_pair_clean-0 up_pair_clean 1280 5.699 0 None\ntimed reverse-up_pair_clean-1 baseline 1280 5.674 0 None\ntimed reverse-up_pair_clean-2 baseline 1280 5.71 0 None\ntimed reverse-up_pair_clean-3 up_pair_clean 1280 5.718 0 None\n"
+  },
+  {
+    "tag": "summarize.py",
+    "args": [
+      "summarize.py"
+    ],
+    "begin": "2026-11-01T03:59:56.967237",
+    "end": "2026-11-01T03:59:56.995919",
+    "returncode": 0,
+    "output": "repeat eligible ['v38_pack4_fb2356']\n"
+  },
+  {
+    "tag": "bench.py repeat",
+    "args": [
+      "bench.py",
+      "repeat"
+    ],
+    "begin": "2026-11-01T03:59:56.996494",
+    "end": "2026-11-01T04:01:19.249831",
+    "returncode": 0,
+    "output": "repeat forward-v38_pack4_fb2356-0 baseline 1280 5.719 0 None\nrepeat forward-v38_pack4_fb2356-1 v38_pack4_fb2356 1280 5.695 0 None\nrepeat forward-v38_pack4_fb2356-2 v38_pack4_fb2356 1280 5.693 0 None\nrepeat forward-v38_pack4_fb2356-3 baseline 1280 5.716 0 None\nrepeat forward-v38_pack4_fb2356-0 baseline 1600 8.35 0 None\nrepeat forward-v38_pack4_fb2356-1 v38_pack4_fb2356 1600 8.336 0 None\nrepeat forward-v38_pack4_fb2356-2 v38_pack4_fb2356 1600 8.389 0 None\nrepeat forward-v38_pack4_fb2356-3 baseline 1600 8.398 0 None\nrepeat forward-v38_pack4_fb2356-0 baseline 1920 10.979 0 None\nrepeat forward-v38_pack4_fb2356-1 v38_pack4_fb2356 1920 11.054 0 None\nrepeat forward-v38_pack4_fb2356-2 v38_pack4_fb2356 1920 10.975 0 None\nrepeat forward-v38_pack4_fb2356-3 baseline 1920 11.065 0 None\nrepeat reverse-v38_pack4_fb2356-0 v38_pack4_fb2356 1920 11.042 0 None\nrepeat reverse-v38_pack4_fb2356-1 baseline 1920 11.068 0 None\nrepeat reverse-v38_pack4_fb2356-2 baseline 1920 11.069 0 None\nrepeat reverse-v38_pack4_fb2356-3 v38_pack4_fb2356 1920 11.06 0 None\nrepeat reverse-v38_pack4_fb2356-0 v38_pack4_fb2356 1600 8.38 0 None\nrepeat reverse-v38_pack4_fb2356-1 baseline 1600 8.333 0 None\nrepeat reverse-v38_pack4_fb2356-2 baseline 1600 8.412 0 None\nrepeat reverse-v38_pack4_fb2356-3 v38_pack4_fb2356 1600 8.387 0 None\nrepeat reverse-v38_pack4_fb2356-0 v38_pack4_fb2356 1280 5.7 0 None\nrepeat reverse-v38_pack4_fb2356-1 baseline 1280 5.684 0 None\nrepeat reverse-v38_pack4_fb2356-2 baseline 1280 5.693 0 None\nrepeat reverse-v38_pack4_fb2356-3 v38_pack4_fb2356 1280 5.701 0 None\n"
+  },
+  {
+    "tag": "summarize.py",
+    "args": [
+      "summarize.py"
+    ],
+    "begin": "2026-11-01T04:01:19.250529",
+    "end": "2026-11-01T04:01:19.279915",
+    "returncode": 0,
+    "output": "repeat eligible ['v38_pack4_fb2356']\n"
+  },
+  {
+    "tag": "validate.py",
+    "args": [
+      "validate.py"
+    ],
+    "begin": "2026-11-01T04:01:19.280484",
+    "end": "2026-11-01T04:01:39.282152",
+    "returncode": 0,
+    "output": "{\n  \"passed\": true,\n  \"counts\": {\n    \"smoke\": 24,\n    \"timed\": 168,\n    \"repeat\": 24\n  },\n  \"exact_runs\": 174,\n  \"approximate_runs\": 42,\n  \"all_measurements_serial\": true,\n  \"construction_and_GPU_queries_before_clean_measurements\": true,\n  \"repeat_eligible\": [\n    \"v38_pack4_fb2356\"\n  ],\n  \"winners\": [],\n  \"open_branch_count\": 1,\n  \"branches\": {\n    \"5\": {\n      \"state\": \"Open\",\n      \"n\": 1\n    }\n  },\n  \"protected_paths\": 10,\n  \"protected_unchanged\": true,\n  \"no_production_deployment\": true,\n  \"scope\": \"fixed V3.8 baseline, three deterministic benchmark inputs; empirical Pack4 is not a static activation bound; async cases only publication-certified selected loads\"\n}\n"
+  },
+  {
+    "tag": "quality_summary.py",
+    "args": [
+      "quality_summary.py"
+    ],
+    "begin": "2026-11-01T04:01:39.282740",
+    "end": "2026-11-01T04:01:39.303742",
+    "returncode": 0,
+    "output": "quality summary 216 runs\n"
+  },
+  {
+    "tag": "finalize.py",
+    "args": [
+      "finalize.py"
+    ],
+    "begin": "2026-11-01T04:02:00.614478",
+    "end": "2026-11-01T04:02:00.639706",
+    "returncode": 0,
+    "output": "\u672c\u8f6e\u65e0\u664b\u5347\uff0c\u4fdd\u7559V3.8\u4e3a\u552f\u4e001.00\u00d7\uff0c\u5206\u652f5\u4e3aOpen1/3\u3002\n"
+  },
+  {
+    "tag": "cleanup.py",
+    "args": [
+      "cleanup.py"
+    ],
+    "begin": "2026-11-01T04:02:00.661468",
+    "end": "2026-11-01T04:02:29.382661",
+    "returncode": 0,
+    "output": "cleanup 387 files; log fragments 0\n"
+  }
+]

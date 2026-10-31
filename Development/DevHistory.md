@@ -1176,3 +1176,16 @@ A：仅FB02..06/FB04..06正零折叠、纯FB03+06 Pack4、fb26正零+Pack4；位
 运行计数{'smoke': 48, 'timed': 192, 'repeat': 48}，精确（含基线）201次0bit，近似/实证87次按预设质量门验收。全部正式计时50/80串行、正反ABBA/BAAB，首轮六向全胜全部repeat；逐次输出嵌入JSON，无单次.log。九保护路径不变，临时大二进制与帧清理，三个独立提交，无Co-Authored-By、不push。结算基于有限七分支K=3预算，不把静态资源削减或有限负样本当作数学物理下限。
 
 [回执](ptx-patcher/v38/README.md)、[跑分](ptx-patcher/v38/timing-summary.md)、[验收](ptx-patcher/v38/validation.json)。
+
+
+## 2026-11-01：PTX V3.9，在V3.8基线上扩展零常量/Pack4与UP-Pair（闇）
+
+本轮无晋升，保持V3.8为唯一1.00×。 分支5 Open 1/3，分支1～4、6、7保持Pruned3/3，全表Open=1。
+
+所有参考均为V3.8 SHA `da27f34c5e10b884dd02b448eab424a4f44109ef08efc83e6a447100acd697c3`，未以V3.1成绩抵充本轮收益。540/540/676处正零扩展候选分别启用FB1456、FB3456、全网排除FB00 upsample，no_fb0up无活跃入口REG/STACK增长；Pack4分别叠加FB36/FB2356，保留V3.8原500处零折叠。
+
+UP审计确认4744处来自2372个拆半字，但只有2682处满足同基本块稳定源条件，删除1341个无其他用户的拆分；跨块位点保留旧解码。GPU原语33554432个32位模式、两个half2输出均零差异，含保留码；6项防覆写/别名/守卫/跨块/其他用户测试通过。按实际REG/STACK/STL/LDL及官方驻留选择34个活跃入口构建clean并复核，未把纯语法来源等同全2372对均可安全直解。
+
+运行计数{'smoke': 24, 'timed': 168, 'repeat': 24}，精确（含基线）174次末帧0bit，近似/实证42次保留预设质量门。正式计时50/80串行正反ABBA/BAAB，首轮六向全胜全部repeat。十保护路径SHA不变，清理临时二进制与帧，无单次.log，三个干净小提交，无Co-Authored-By、不push。
+
+[实验回执](ptx-patcher/v39/README.md)、[计时](ptx-patcher/v39/timing-summary.md)、[验收](ptx-patcher/v39/validation.json)。

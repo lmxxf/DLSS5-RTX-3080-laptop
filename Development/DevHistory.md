@@ -1230,3 +1230,16 @@ C独立O4切片验证旧两次Pack4+拼接9核心SASS、Quad7核心（2 HMUL2+2 
 计数{'smoke': 24, 'timed': 120}，严格增量（含基线）93次末帧0bit，新增Pack4/联合51次按预设质量门。全部50/80串行正反ABBA/BAAB，首轮六向全胜全部repeat。十一保护路径SHA不变，清理临时大二进制和帧，无单次.log；三个独立小提交，无Co-Authored-By、不push。
 
 [完整回执](ptx-patcher/v42/README.md)、[配对](ptx-patcher/v42/timing-summary.md)、[验收](ptx-patcher/v42/validation.json)。
+
+
+## 2026-11-01：PTX V4.3，剔除FB00的末轮联合与七分支K=3结算（闇）
+
+本轮无晋升，保留V4.0为唯一1.00×；分支5正式Pruned3/3，七个预设分支全部Pruned3/3，Open=0。 分支5 Pruned 3/3，其他六分支保持Pruned3/3，全表Open=0。
+
+唯一参考V4.0 SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`，重建同SHA。候选1仅FB01四入口Pack4+FB02/03 Quad，非NOP144131、净减1330、PRMT净减847、STL/LDL98/98；FB00及其他排除模块逐字节一致。候选2保留指定upsample/ds_wait/inpview三个入口，当前参考实际仅upsample减少Spill，其他两个保持原值，未用旧基线差值记功。
+
+候选3先查询FB01 Pack4+Quad诊断（活跃融合164组），按STACK/STL/LDL不增及官方CTA不降选择3入口；outview因STL/LDL增长被剔除，再与FB23 Quad联合。14项结构/绑定/守卫/回边测试和33554432对GPU原语通过，独立O4确认7核心SASS；新增FB01去夹断保持实证/近似标签。
+
+计数{'smoke': 15, 'timed': 72}，基线检查39次末帧0bit，新增Pack4/联合48次按预设质量门。50/80严格串行正反ABBA/BAAB，首轮六向全胜全部repeat。十一保护路径不变，清理临时大二进制及帧，无单次.log；三个干净小提交，无Co-Authored-By、不push。结算按已执行七分支K=3预算，不将有限候选失败写成物理性能下限。
+
+[完整回执](ptx-patcher/v43/README.md)、[配对](ptx-patcher/v43/timing-summary.md)、[验收](ptx-patcher/v43/validation.json)。

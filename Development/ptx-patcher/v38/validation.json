@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "counts": {
+    "smoke": 48,
+    "timed": 192,
+    "repeat": 48
+  },
+  "exact_runs": 201,
+  "approximate_runs": 87,
+  "all_measurements_serial": true,
+  "construction_and_GPU_queries_before_clean_measurements": true,
+  "repeat_eligible": [
+    "joint_zero_const_fb456_fb3_inp_up_fast",
+    "zero_const_fb456"
+  ],
+  "winners": [
+    "zero_const_fb456"
+  ],
+  "all_seven_branches_pruned": false,
+  "open_branch_count": 1,
+  "branches": {
+    "5": {
+      "state": "Open",
+      "n": 0
+    },
+    "6": {
+      "state": "Pruned",
+      "n": 3
+    },
+    "7": {
+      "state": "Pruned",
+      "n": 3
+    }
+  },
+  "protected_paths": 9,
+  "protected_unchanged": true,
+  "no_production_deployment": true,
+  "scope": "fixed V3.1 baseline, three deterministic benchmark inputs; empirical Pack4 is not a static activation bound; async cases only publication-certified selected loads",
+  "cleanup_complete": true,
+  "protected_unchanged_after_cleanup": true
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "tag": "bench.py timed",
+    "args": [
+      "bench.py",
+      "timed"
+    ],
+    "begin": "2026-11-01T00:49:38.959229",
+    "end": "2026-11-01T00:59:20.885667",
+    "returncode": 0,
+    "output": "timed forward-fb1_exact_shadow-0 baseline 1280 5.563 0 None\ntimed forward-fb1_exact_shadow-1 fb1_exact_shadow 1280 5.624 0 None\ntimed forward-fb1_exact_shadow-2 fb1_exact_shadow 1280 5.62 0 None\ntimed forward-fb1_exact_shadow-3 baseline 1280 5.613 0 None\ntimed forward-fb2_exact_shadow-0 baseline 1280 5.615 0 None\ntimed forward-fb2_exact_shadow-1 fb2_exact_shadow 1280 5.66 0 None\ntimed forward-fb2_exact_shadow-2 fb2_exact_shadow 1280 5.621 0 None\ntimed forward-fb2_exact_shadow-3 baseline 1280 5.623 0 None\ntimed forward-fb3_exact_shadow-0 baseline 1280 5.631 0 None\ntimed forward-fb3_exact_shadow-1 fb3_exact_shadow 1280 5.614 0 None\ntimed forward-fb3_exact_shadow-2 fb3_exact_shadow 1280 5.62 0 None\ntimed forward-fb3_exact_shadow-3 baseline 1280 5.637 0 None\ntimed forward-fb123_exact_shadow-0 baseline 1280 5.657 0 None\ntimed forward-fb123_exact_shadow-1 fb123_exact_shadow 1280 5.665 0 None\ntimed forward-fb123_exact_shadow-2 fb123_exact_shadow 1280 5.674 0 None\ntimed forward-fb123_exact_shadow-3 baseline 1280 5.668 0 None\ntimed forward-fb1_exact_inplace-0 baseline 1280 5.666 0 None\ntimed forward-fb1_exact_inplace-1 fb1_exact_inplace 1280 5.714 0 None\ntimed forward-fb1_exact_inplace-2 fb1_exact_inplace 1280 5.72 0 None\ntimed forward-fb1_exact_inplace-3 baseline 1280 5.714 0 None\ntimed forward-fb1_fast_shadow-0 baseline 1280 5.691 0 None\ntimed forward-fb1_fast_shadow-1 fb1_fast_shadow 1280 5.675 2302266 58.49112953482749\ntimed forward-fb1_fast_shadow-2 fb1_fast_shadow 1280 5.695 2302266 58.49112953482749\ntimed forward-fb1_fast_shadow-3 baseline 1280 5.698 0 None\ntimed forward-fb1_fast_inplace-0 baseline 1280 5.671 0 None\ntimed forward-fb1_fast_inplace-1 fb1_fast_inplace 1280 5.72 2302266 58.49112953482749\ntimed forward-fb1_fast_inplace-2 fb1_fast_inplace 1280 5.71 2302266 58.49112953482749\ntimed forward-fb1_fast_inplace-3 baseline 1280 5.694 0 None\ntimed forward-fb1_exact_shadow-0 baseline 1600 8.345 0 None\ntimed forward-fb1_exact_shadow-1 fb1_exact_shadow 1600 8.428 0 None\ntimed forward-fb1_exact_shadow-2 fb1_exact_shadow 1600 8.373 0 None\ntimed forward-fb1_exact_shadow-3 baseline 1600 8.371 0 None\ntimed forward-fb2_exact_shadow-0 baseline 1600 8.298 0 None\ntimed forward-fb2_exact_shadow-1 fb2_exact_shadow 1600 8.338 0 None\ntimed forward-fb2_exact_shadow-2 fb2_exact_shadow 1600 8.412 0 None\ntimed forward-fb2_exact_shadow-3 baseline 1600 8.365 0 None\ntimed forward-fb3_exact_shadow-0 baseline 1600 8.308 0 None\ntimed forward-fb3_exact_shadow-1 fb3_exact_shadow 1600 8.362 0 None\ntimed forward-fb3_exact_shadow-2 fb3_exact_shadow 1600 8.371 0 None\ntimed forward-fb3_exact_shadow-3 baseline 1600 8.373 0 None\ntimed forward-fb123_exact_shadow-0 baseline 1600 8.303 0 None\ntimed forward-fb123_exact_shadow-1 fb123_exact_shadow 1600 8.435 0 None\ntimed forward-fb123_exact_shadow-2 fb123_exact_shadow 1600 8.446 0 None\ntimed forward-fb123_exact_shadow-3 baseline 1600 8.317 0 None\ntimed forward-fb1_exact_inplace-0 baseline 1600 8.306 0 None\ntimed forward-fb1_exact_inplace-1 fb1_exact_inplace 1600 8.39 0 None\ntimed forward-fb1_exact_inplace-2 fb1_exact_inplace 1600 8.401 0 None\ntimed forward-fb1_exact_inplace-3 baseline 1600 8.349 0 None\ntimed forward-fb1_fast_shadow-0 baseline 1600 8.409 0 None\ntimed forward-fb1_fast_shadow-1 fb1_fast_shadow 1600 8.376 3685824 60.02699451101559\ntimed forward-fb1_fast_shadow-2 fb1_fast_shadow 1600 8.421 3685824 60.02699451101559\ntimed forward-fb1_fast_shadow-3 baseline 1600 8.424 0 None\ntimed forward-fb1_fast_inplace-0 baseline 1600 8.39 0 None\ntimed forward-fb1_fast_inplace-1 fb1_fast_inplace 1600 8.431 3685824 60.02699451101559\ntimed forward-fb1_fast_inplace-2 fb1_fast_inplace 1600 8.399 3685824 60.02699451101559\ntimed forward-fb1_fast_inplace-3 baseline 1600 8.397 0 None\ntimed forward-fb1_exact_shadow-0 baseline 1920 11.076 0 None\ntimed forward-fb1_exact_shadow-1 fb1_exact_shadow 1920 11.09 0 None\ntimed forward-fb1_exact_shadow-2 fb1_exact_shadow 1920 11.091 0 None\ntimed forward-fb1_exact_shadow-3 baseline 1920 10.979 0 None\ntimed forward-fb2_exact_shadow-0 baseline 1920 11.06 0 None\ntimed forward-fb2_exact_shadow-1 fb2_exact_shadow 1920 11.061 0 None\ntimed forward-fb2_exact_shadow-2 fb2_exact_shadow 1920 11.076 0 None\ntimed forward-fb2_exact_shadow-3 baseline 1920 11.069 0 None\ntimed forward-fb3_exact_shadow-0 baseline 1920 11.061 0 None\ntimed forward-fb3_exact_shadow-1 fb3_exact_shadow 1920 11.06 0 None\ntimed forward-fb3_exact_shadow-2 fb3_exact_shadow 1920 11.067 0 None\ntimed forward-fb3_exact_shadow-3 baseline 1920 11.071 0 None\ntimed forward-fb123_exact_shadow-0 baseline 1920 11.069 0 None\ntimed forward-fb123_exact_shadow-1 fb123_exact_shadow 1920 11.158 0 None\ntimed forward-fb123_exact_shadow-2 fb123_exact_shadow 1920 11.086 0 None\ntimed forward-fb123_exact_shadow-3 baseline 1920 11.077 0 None\ntimed forward-fb1_exact_inplace-0 baseline 1920 11.069 0 None\ntimed forward-fb1_exact_inplace-1 fb1_exact_inplace 1920 11.103 0 None\ntimed forward-fb1_exact_inplace-2 fb1_exact_inplace 1920 11.101 0 None\ntimed forward-fb1_exact_inplace-3 baseline 1920 11.028 0 None\ntimed forward-fb1_fast_shadow-0 baseline 1920 10.998 0 None\ntimed forward-fb1_fast_shadow-1 fb1_fast_shadow 1920 11.103 5351031 59.09550034756326\ntimed forward-fb1_fast_shadow-2 fb1_fast_shadow 1920 11.167 5351031 59.09550034756326\ntimed forward-fb1_fast_shadow-3 baseline 1920 11.035 0 None\ntimed forward-fb1_fast_inplace-0 baseline 1920 10.978 0 None\ntimed forward-fb1_fast_inplace-1 fb1_fast_inplace 1920 11.068 5351031 59.09550034756326\ntimed forward-fb1_fast_inplace-2 fb1_fast_inplace 1920 11.048 5351031 59.09550034756326\ntimed forward-fb1_fast_inplace-3 baseline 1920 10.977 0 None\ntimed reverse-fb1_exact_shadow-0 fb1_exact_shadow 1920 11.111 0 None\ntimed reverse-fb1_exact_shadow-1 baseline 1920 11.066 0 None\ntimed reverse-fb1_exact_shadow-2 baseline 1920 11.069 0 None\ntimed reverse-fb1_exact_shadow-3 fb1_exact_shadow 1920 11.099 0 None\ntimed reverse-fb2_exact_shadow-0 fb2_exact_shadow 1920 11.079 0 None\ntimed reverse-fb2_exact_shadow-1 baseline 1920 11.063 0 None\ntimed reverse-fb2_exact_shadow-2 baseline 1920 11.068 0 None\ntimed reverse-fb2_exact_shadow-3 fb2_exact_shadow 1920 11.068 0 None\ntimed reverse-fb3_exact_shadow-0 fb3_exact_shadow 1920 11.062 0 None\ntimed reverse-fb3_exact_shadow-1 baseline 1920 11.061 0 None\ntimed reverse-fb3_exact_shadow-2 baseline 1920 11.061 0 None\ntimed reverse-fb3_exact_shadow-3 fb3_exact_shadow 1920 11.053 0 None\ntimed reverse-fb123_exact_shadow-0 fb123_exact_shadow 1920 11.083 0 None\ntimed reverse-fb123_exact_shadow-1 baseline 1920 10.962 0 None\ntimed reverse-fb123_exact_shadow-2 baseline 1920 11.0 0 None\ntimed reverse-fb123_exact_shadow-3 fb123_exact_shadow 1920 11.11 0 None\ntimed reverse-fb1_exact_inplace-0 fb1_exact_inplace 1920 11.079 0 None\ntimed reverse-fb1_exact_inplace-1 baseline 1920 11.064 0 None\ntimed reverse-fb1_exact_inplace-2 baseline 1920 11.061 0 None\ntimed reverse-fb1_exact_inplace-3 fb1_exact_inplace 1920 11.014 0 None\ntimed reverse-fb1_fast_shadow-0 fb1_fast_shadow 1920 11.105 5351031 59.09550034756326\ntimed reverse-fb1_fast_shadow-1 baseline 1920 11.041 0 None\ntimed reverse-fb1_fast_shadow-2 baseline 1920 11.067 0 None\ntimed reverse-fb1_fast_shadow-3 fb1_fast_shadow 1920 11.098 5351031 59.09550034756326\ntimed reverse-fb1_fast_inplace-0 fb1_fast_inplace 1920 11.075 5351031 59.09550034756326\ntimed reverse-fb1_fast_inplace-1 baseline 1920 11.081 0 None\ntimed reverse-fb1_fast_inplace-2 baseline 1920 11.068 0 None\ntimed reverse-fb1_fast_inplace-3 fb1_fast_inplace 1920 11.08 5351031 59.09550034756326\ntimed reverse-fb1_exact_shadow-0 fb1_exact_shadow 1600 8.45 0 None\ntimed reverse-fb1_exact_shadow-1 baseline 1600 8.451 0 None\ntimed reverse-fb1_exact_shadow-2 baseline 1600 8.416 0 None\ntimed reverse-fb1_exact_shadow-3 fb1_exact_shadow 1600 8.439 0 None\ntimed reverse-fb2_exact_shadow-0 fb2_exact_shadow 1600 8.399 0 None\ntimed reverse-fb2_exact_shadow-1 baseline 1600 8.304 0 None\ntimed reverse-fb2_exact_shadow-2 baseline 1600 8.397 0 None\ntimed reverse-fb2_exact_shadow-3 fb2_exact_shadow 1600 8.406 0 None\ntimed reverse-fb3_exact_shadow-0 fb3_exact_shadow 1600 8.397 0 None\ntimed reverse-fb3_exact_shadow-1 baseline 1600 8.294 0 None\ntimed reverse-fb3_exact_shadow-2 baseline 1600 8.38 0 None\ntimed reverse-fb3_exact_shadow-3 fb3_exact_shadow 1600 8.399 0 None\ntimed reverse-fb123_exact_shadow-0 fb123_exact_shadow 1600 8.419 0 None\ntimed reverse-fb123_exact_shadow-1 baseline 1600 8.434 0 None\ntimed reverse-fb123_exact_shadow-2 baseline 1600 8.374 0 None\ntimed reverse-fb123_exact_shadow-3 fb123_exact_shadow 1600 8.335 0 None\ntimed reverse-fb1_exact_inplace-0 fb1_exact_inplace 1600 8.437 0 None\ntimed reverse-fb1_exact_inplace-1 baseline 1600 8.408 0 None\ntimed reverse-fb1_exact_inplace-2 baseline 1600 8.361 0 None\ntimed reverse-fb1_exact_inplace-3 fb1_exact_inplace 1600 8.424 0 None\ntimed reverse-fb1_fast_shadow-0 fb1_fast_shadow 1600 8.432 3685824 60.02699451101559\ntimed reverse-fb1_fast_shadow-1 baseline 1600 8.397 0 None\ntimed reverse-fb1_fast_shadow-2 baseline 1600 8.396 0 None\ntimed reverse-fb1_fast_shadow-3 fb1_fast_shadow 1600 8.442 3685824 60.02699451101559\ntimed reverse-fb1_fast_inplace-0 fb1_fast_inplace 1600 8.335 3685824 60.02699451101559\ntimed reverse-fb1_fast_inplace-1 baseline 1600 8.413 0 None\ntimed reverse-fb1_fast_inplace-2 baseline 1600 8.412 0 None\ntimed reverse-fb1_fast_inplace-3 fb1_fast_inplace 1600 8.424 3685824 60.02699451101559\ntimed reverse-fb1_exact_shadow-0 fb1_exact_shadow 1280 5.754 0 None\ntimed reverse-fb1_exact_shadow-1 baseline 1280 5.712 0 None\ntimed reverse-fb1_exact_shadow-2 baseline 1280 5.693 0 None\ntimed reverse-fb1_exact_shadow-3 fb1_exact_shadow 1280 5.754 0 None\ntimed reverse-fb2_exact_shadow-0 fb2_exact_shadow 1280 5.721 0 None\ntimed reverse-fb2_exact_shadow-1 baseline 1280 5.716 0 None\ntimed reverse-fb2_exact_shadow-2 baseline 1280 5.706 0 None\ntimed reverse-fb2_exact_shadow-3 fb2_exact_shadow 1280 5.724 0 None\ntimed reverse-fb3_exact_shadow-0 fb3_exact_shadow 1280 5.723 0 None\ntimed reverse-fb3_exact_shadow-1 baseline 1280 5.726 0 None\ntimed reverse-fb3_exact_shadow-2 baseline 1280 5.722 0 None\ntimed reverse-fb3_exact_shadow-3 fb3_exact_shadow 1280 5.728 0 None\ntimed reverse-fb123_exact_shadow-0 fb123_exact_shadow 1280 5.771 0 None\ntimed reverse-fb123_exact_shadow-1 baseline 1280 5.733 0 None\ntimed reverse-fb123_exact_shadow-2 baseline 1280 5.714 0 None\ntimed reverse-fb123_exact_shadow-3 fb123_exact_shadow 1280 5.75 0 None\ntimed reverse-fb1_exact_inplace-0 fb1_exact_inplace 1280 5.728 0 None\ntimed reverse-fb1_exact_inplace-1 baseline 1280 5.713 0 None\ntimed reverse-fb1_exact_inplace-2 baseline 1280 5.706 0 None\ntimed reverse-fb1_exact_inplace-3 fb1_exact_inplace 1280 5.729 0 None\ntimed reverse-fb1_fast_shadow-0 fb1_fast_shadow 1280 5.76 2302266 58.49112953482749\ntimed reverse-fb1_fast_shadow-1 baseline 1280 5.718 0 None\ntimed reverse-fb1_fast_shadow-2 baseline 1280 5.714 0 None\ntimed reverse-fb1_fast_shadow-3 fb1_fast_shadow 1280 5.722 2302266 58.49112953482749\ntimed reverse-fb1_fast_inplace-0 fb1_fast_inplace 1280 5.749 2302266 58.49112953482749\ntimed reverse-fb1_fast_inplace-1 baseline 1280 5.743 0 None\ntimed reverse-fb1_fast_inplace-2 baseline 1280 5.728 0 None\ntimed reverse-fb1_fast_inplace-3 fb1_fast_inplace 1280 5.75 2302266 58.49112953482749\n"
+  },
+  {
+    "tag": "summarize.py",
+    "args": [
+      "summarize.py"
+    ],
+    "begin": "2026-11-01T00:59:20.886105",
+    "end": "2026-11-01T00:59:20.914440",
+    "returncode": 0,
+    "output": "repeat eligible []\n"
+  },
+  {
+    "tag": "validate.py",
+    "args": [
+      "validate.py"
+    ],
+    "begin": "2026-11-01T00:59:20.914804",
+    "end": "2026-11-01T00:59:40.346028",
+    "returncode": 0,
+    "output": "{\n  \"data_checks_pass\": true,\n  \"counts\": {\n    \"smoke\": 24,\n    \"timed\": 168\n  },\n  \"exact_successful_runs\": 162,\n  \"approximate_runs\": 30,\n  \"all_timing_processes_serial\": true,\n  \"builds_and_primitive_work_before_timing\": true,\n  \"repeat_eligible\": [],\n  \"winners\": [],\n  \"branch4\": {\n    \"state\": \"Pruned\",\n    \"n\": 3\n  },\n  \"remaining_open_branches\": [],\n  \"protected_paths\": 9,\n  \"protected_unchanged\": true,\n  \"no_production_deployment\": true,\n  \"review_order\": \"embedded raw process output, exact output SHA, quality, paired directions and resource tables before narrative\"\n}\n"
+  },
+  {
+    "tag": "summarize.py",
+    "args": [
+      "summarize.py"
+    ],
+    "begin": "2026-11-01T01:00:54.970053",
+    "end": "2026-11-01T01:00:54.999186",
+    "returncode": 0,
+    "output": "repeat eligible []\n"
+  },
+  {
+    "tag": "validate.py",
+    "args": [
+      "validate.py"
+    ],
+    "begin": "2026-11-01T01:00:55.021384",
+    "end": "2026-11-01T01:01:14.198401",
+    "returncode": 0,
+    "output": "{\n  \"data_checks_pass\": true,\n  \"counts\": {\n    \"smoke\": 24,\n    \"timed\": 168\n  },\n  \"exact_successful_runs\": 162,\n  \"approximate_runs\": 30,\n  \"all_timing_processes_serial\": true,\n  \"builds_and_primitive_work_before_timing\": true,\n  \"repeat_eligible\": [],\n  \"winners\": [],\n  \"branch4\": {\n    \"state\": \"Pruned\",\n    \"n\": 3\n  },\n  \"remaining_open_branches\": [],\n  \"protected_paths\": 9,\n  \"protected_unchanged\": true,\n  \"no_production_deployment\": true,\n  \"review_order\": \"embedded raw process output, exact output SHA, quality, paired directions and resource tables before narrative\"\n}\n"
+  },
+  {
+    "tag": "tables.py",
+    "args": [
+      "tables.py"
+    ],
+    "begin": "2026-11-01T01:01:14.219484",
+    "end": "2026-11-01T01:01:15.883969",
+    "returncode": 0,
+    "output": "tables 8\n"
+  },
+  {
+    "tag": "finalize.py",
+    "args": [
+      "finalize.py"
+    ],
+    "begin": "2026-11-01T01:01:15.904924",
+    "end": "2026-11-01T01:01:15.930129",
+    "returncode": 0,
+    "output": "\u672c\u8f6e\u65e0\u664b\u5347\u5019\u9009\uff0c\u4fdd\u7559 V3.1_pack5 \u4e3a\u552f\u4e00 1.00\u00d7\uff1b\u5206\u652f 4 Pruned 3/3\uff0c\u56db\u4e2a\u9884\u8bbe\u5206\u652f\u7684 Open=0\u3002\n"
+  }
+]

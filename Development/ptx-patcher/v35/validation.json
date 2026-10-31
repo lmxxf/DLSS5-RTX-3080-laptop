@@ -1,0 +1,24 @@
+{
+  "data_checks_pass": true,
+  "counts": {
+    "smoke": 24,
+    "timed": 168
+  },
+  "exact_successful_runs": 162,
+  "approximate_runs": 30,
+  "all_timing_processes_serial": true,
+  "builds_and_primitive_work_before_timing": true,
+  "repeat_eligible": [],
+  "winners": [],
+  "branch4": {
+    "state": "Pruned",
+    "n": 3
+  },
+  "remaining_open_branches": [],
+  "protected_paths": 9,
+  "protected_unchanged": true,
+  "no_production_deployment": true,
+  "review_order": "embedded raw process output, exact output SHA, quality, paired directions and resource tables before narrative",
+  "cleanup_complete": true,
+  "protected_unchanged_after_cleanup": true
+}

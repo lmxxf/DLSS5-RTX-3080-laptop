@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "counts": {
+    "smoke": 27,
+    "timed": 144
+  },
+  "exact_runs": 135,
+  "approximate_runs": 36,
+  "all_measurements_serial": true,
+  "construction_and_GPU_queries_before_clean_measurements": true,
+  "repeat_eligible": [],
+  "winners": [],
+  "open_branch_count": 1,
+  "branches": {
+    "5": {
+      "state": "Open",
+      "n": 1
+    }
+  },
+  "protected_paths": 11,
+  "protected_unchanged": true,
+  "no_production_deployment": true,
+  "scope": "fixed V4.0 baseline, three deterministic benchmark inputs; empirical Pack4 is not a static activation bound; UP changes only unique unguarded split definitions with same-block or CFG all-path source stability proofs",
+  "cleanup_complete": true,
+  "protected_unchanged_after_cleanup": true
+}

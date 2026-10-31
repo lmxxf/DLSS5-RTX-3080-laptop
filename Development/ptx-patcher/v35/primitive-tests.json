@@ -1,0 +1,45 @@
+[
+  {
+    "test": "finite FP8 word decode/repack identity",
+    "rotate": false,
+    "words": 16777216,
+    "valid_words": 16387064,
+    "mismatches": 0
+  },
+  {
+    "test": "clamp companion pack5 identity including all half bit patterns",
+    "rotate": false,
+    "pairs": 16777216,
+    "mismatches": 0,
+    "pack5_emits_no_reserved_7f_ff": true
+  },
+  {
+    "test": "finite FP8 word decode/repack identity",
+    "rotate": true,
+    "words": 16777216,
+    "valid_words": 16387064,
+    "mismatches": 0
+  },
+  {
+    "test": "clamp companion pack5 identity including all half bit patterns",
+    "rotate": true,
+    "pairs": 16777216,
+    "mismatches": 0,
+    "pack5_emits_no_reserved_7f_ff": true
+  },
+  {
+    "test": "Shared byte x2 cross-lane mirror, arbitrary u32 including reserved FP8 bytes",
+    "threads": 65536,
+    "mismatches": 0
+  },
+  {
+    "test": "Shared byte x2 cross-warp mirror",
+    "threads": 65536,
+    "block": [
+      32,
+      2,
+      1
+    ],
+    "mismatches": 0
+  }
+]

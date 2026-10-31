@@ -1,0 +1,126 @@
+{
+  "passed": true,
+  "baseline_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+  "smoke_runs": 24,
+  "exact_smoke_bitdiff": 0,
+  "fast_smoke_quality_pass": true,
+  "native_event_counts": {
+    "baseline": {
+      "shared_native_static_run_events": 0,
+      "Shared_bytes_per_active_kernel": {
+        "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8": 0,
+        "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8": 0,
+        "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8": 0,
+        "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8": 0,
+        "cc_tinlayout_fused_post_block_swin_1h_32_fp8": 0,
+        "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8": 2048,
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": 4096,
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": 4096,
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": 4096,
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": 4096,
+        "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": 8192,
+        "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": 8192,
+        "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": 8192,
+        "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": 8192,
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": 16384,
+        "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": 16384,
+        "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": 16384,
+        "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": 16384,
+        "cc_split_swin_16h_final_head_512_wait_fp8": 12312,
+        "cc_split_swin_16h_proj_pool_512_chained_fp8": 8208,
+        "cc_split_swin_16h_proj_512_outview_wait_fp8": 12312,
+        "cc_split_swin_16h_proj_512_chained_fp8": 12312,
+        "cc_split_swin_16h_qkv_512_chained_fp8": 8208,
+        "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8": 12312,
+        "cc_split_swin_16h_ffwd_proj_512_chained_fp8": 12312,
+        "cc_split_swin_16h_ffwd_512_chained_fp8": 8208,
+        "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8": 8208,
+        "cc_vit_1d_projection_chained_fp8": 8208,
+        "cc_vit_1d_projection_wait_fp8": 8208,
+        "cc_vit_1d_attention_chained_fp8": 8208,
+        "cc_vit_1d_qkv_chained_fp8": 8208,
+        "cc_vit_1d_ffn_contract_chained_fp8": 16400,
+        "cc_vit_1d_ffn_expand_chained_fp8": 24600,
+        "cc_vit_1d_ffn_expand_publish_fp8": 24600,
+        "cc_vit_1d_repack_1d_to_2d_fp8": 0,
+        "cc_vit_1d_repack_2d_to_1d_fp8": 0,
+        "cc_cb_clear": 0,
+        "cc_dec_input_upsample_1024_512_tilesync_fp8": 2064
+      }
+    },
+    "fb1_exact_shadow": {
+      "shared_native_static_run_events": 328,
+      "Shared_bytes_per_active_kernel": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": 12288
+      }
+    },
+    "fb2_exact_shadow": {
+      "shared_native_static_run_events": 656,
+      "Shared_bytes_per_active_kernel": {
+        "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": 24576,
+        "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": 24576,
+        "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": 24576,
+        "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": 24576
+      }
+    },
+    "fb3_exact_shadow": {
+      "shared_native_static_run_events": 712,
+      "Shared_bytes_per_active_kernel": {
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": 49152,
+        "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": 49152,
+        "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": 49152,
+        "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": 49152
+      }
+    },
+    "fb123_exact_shadow": {
+      "shared_native_static_run_events": 1696,
+      "Shared_bytes_per_active_kernel": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": 12288,
+        "cc_tinlayout_fused_swin_4h_128_4_upsample_tilesync_fp8": 24576,
+        "cc_tinlayout_fused_swin_4h_128_4_outview_wait_fp8": 24576,
+        "cc_tinlayout_fused_swin_4h_128_4_ds_wait_fp8": 24576,
+        "cc_tinlayout_fused_swin_4h_128_4_inpview_tilesync_fp8": 24576,
+        "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": 49152,
+        "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": 49152,
+        "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": 49152,
+        "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": 49152
+      }
+    },
+    "fb1_exact_inplace": {
+      "shared_native_static_run_events": 328,
+      "Shared_bytes_per_active_kernel": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": 8192,
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": 8192,
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": 8192,
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": 8192
+      }
+    },
+    "fb1_fast_shadow": {
+      "shared_native_static_run_events": 328,
+      "Shared_bytes_per_active_kernel": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": 12288,
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": 12288
+      }
+    },
+    "fb1_fast_inplace": {
+      "shared_native_static_run_events": 328,
+      "Shared_bytes_per_active_kernel": {
+        "cc_tinlayout_fused_swin_2h_64_2_upsample_tilesync_fp8": 8192,
+        "cc_tinlayout_fused_swin_2h_64_2_outview_wait_fp8": 8192,
+        "cc_tinlayout_fused_swin_2h_64_2_ds_wait_fp8": 8192,
+        "cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8": 8192
+      }
+    }
+  },
+  "all_other_modules_byte_identical": true,
+  "finite_inplace_producer_domain_proved": true,
+  "precision_scope": "finite FP8 producer bytes; actual Pack5 emits no reserved 7f/ff; original byte view preserved or reconstructed exactly; fast modes explicit approximation"
+}

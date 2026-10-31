@@ -1154,3 +1154,14 @@ Shared库存覆盖2320解码事件（FB01～05为2304，FB06附16），输出全
 计数{'smoke': 60, 'timed': 456}，精确成功运行351次末帧0bit/maxabs0/nonfinite0；近似运行165次按预先50dB/1/64/finite/sky0质量门检查。所有正式计时串行，首轮六方向全胜者补repeat。单次过程输出嵌入bench/repeat JSON，未生成或提交.log碎片。六个DLL路径与三个ZIP共九个保护路径SHA不变，不部署、不push。临时大产物清理，按代码/验证、汇总/硬件、文档/状态三小提交，无Co-Authored-By。
 
 [回执](ptx-patcher/v36/README.md)、[数据](ptx-patcher/v36/timing-summary.md)、[验收](ptx-patcher/v36/validation.json)。
+
+
+## 2026-11-01：PTX V3.7，QKV单核、680正零与FB03逐入口剥离（闇）
+
+本轮无晋升，保持V3.1_pack5为唯一1.00×。 分支5 Open n=2/3；分支6 Open n=2/3；分支7 Open n=2/3。分支1～4仍为Pruned3/3。
+
+分支7：循环版与128线程固定偏移展开版均只改QKV512；其余37入口PTX/SASS逐项相同。分支5：680处正零由独立mov/cvt定义链复核，直接mov.b16 0，GPU原语与STG RZ核验；再叠加FB2356/36经验Pack4。分支6：FB03四入口单列，预先选择REG下降两核、排除inpview三核，以及各自联合QKV展开+正零的候选，未按结果倒推子集。
+
+运行计数{'smoke': 42, 'timed': 312, 'repeat': 24}，精确（含基线）216次0bit，近似/实证162次保留质量门结果。计时严格串行50/80、正反ABBA/BAAB，首轮六方向全胜全部repeat；资源静态削减不冒充动态净收益。九个保护路径SHA不变，清理临时大二进制及帧，无单次.log，三个职责提交，无Co-Authored-By、不push。
+
+[实验回执](ptx-patcher/v37/README.md)、[配对数据](ptx-patcher/v37/timing-summary.md)、[验收](ptx-patcher/v37/validation.json)。

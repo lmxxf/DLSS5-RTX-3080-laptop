@@ -25,7 +25,7 @@
 | **分支 1** | `[Pruned]` | `3 / 3` | 调整 `FB04/05` 其余核 `.maxnreg` 跨驻留台阶 | 小 Grid 仅 1~2 波次 + 强压触发 Spill，`V2.8` 及 `V3.2` 单核 cap 控制均无全档净收益，已剪枝 |
 | **分支 2** | `[Pruned]` | `3 / 3` | 压减 `FP16 -> FP8` 打包与双对 `Quad` 拼接 | `V3.3` 纯 `quad_all`/`quad_fb23` 与 `V3.4` `quad_fb1`/局部活性 `Local Quad`（新增 0 对）均未过两轮全胜，已达 `K=3` 剪枝 |
 | **分支 3** | `[Pruned]` | `3 / 3` | 压减非直通 (`non-mapped`) FP8 解码临时池与等价算术 | `V3.0` 解交错、`V3.2` 半步池/UP/shift、`V3.3` 分相半池 (`112->28`) 与 Spill 重解码均未过两轮全胜，已达 `K=3` 剪枝 |
-| **分支 4** | **`[Open ⚡]`** | **`2 / 3`** | **Shared Memory 2x 扩容 FP16 耦合表示改写（消除 Shared 端解码与 `FB01` Spill）及跨阶段耦合验证** | `V3.4` 官方 API 证实 `FB01~05` Shared payload 翻倍后仍 100% 保持当前 `CTA/SM` 驻留；36 项同线程返读未晋升 (`n=2`)，本轮对“Shared 扩容 2x 耦合改写”执行第 3 次终极冲击 (`n=2->3`) |
+| **分支 4** | **`[Pruned]`** | **`3 / 3`** | **Shared Memory 2x 扩容 FP16 耦合表示改写（消除 Shared 端解码与 `FB01` Spill）及跨阶段耦合验证** | V3.5已完成FB01～03精确shadow、FB01原位2×及fast耦合表示实测，结算见文末回执 |
 
 ---
 
@@ -55,3 +55,9 @@
    - 若实测未通过两轮三档全胜门槛（例如 `st.shared / ld.shared` 流量翻倍的 LSU 带宽/指令开销抵消了省去解码/Spill 的收益），则 **分支 4 正式达到 `n = 3 / 3`，标记为 `[Pruned, 3/3]`**！
    - 至此，`K-Search` 候选分支调度表中的 **全部 4 个分支（分支 1、2、3、4）均达到 `[Pruned, 3/3]` 闭环状态（剩余 `Open` 分支 = `0`）**！
 3. **严格执行 3 个小颗粒度 Git Commit（清理所有单次运行 `.log` 碎文件和临时大二进制，严禁加 `Co-Authored-By`，不 push）**。
+
+### V3.5 执行回执（2026-11-01）
+
+无候选两轮三档全胜且过质量门，保留V3.1_pack5；分支4 Pruned3/3，四个预设分支Open=0。 分支4 Pruned n=3/3，剩余Open=0。详见[回执](ptx-patcher/v35/README.md)、[数据](ptx-patcher/v35/timing-summary.md)、[验收](ptx-patcher/v35/validation.json)。
+
+7个候选完成精确shadow/原位2×与近似夹断half耦合改写；首轮168、repeat0、快验24，串行执行。单次过程输出汇总进JSON后不保留.log碎文件。九个生产/发布路径SHA不变，临时大产物清理；按任务单拆成三个干净提交，不加Co-Authored-By、不push。有限分支全部Pruned时可移交本轮终局资料，但并非全局物理最优的数学证明。

@@ -1124,3 +1124,18 @@ Shared库存覆盖2320解码事件（FB01～05为2304，FB06附16），输出全
 因此分支2按K=3结算Pruned3/3，分支1与3维持Pruned3/3；**分支4仍Open2/3**（本批次一次未晋升），完整耦合的保留量化FP16 Shared表示/读写/异步拷贝方向未被排除，任务单“无剩余静态路径”的终局条件未成立。不能把Open强推到0，也不移交“物理极限”终局报告。生产五处、原DLL与三ZIP九个保护路径SHA不变；清理临时大二进制，保留文本证据，立即独立commit，无Co-Authored-By，不push。
 
 [完整回执](ptx-patcher/v34/README.md)、[逐方向计时](ptx-patcher/v34/timing-summary.md)、[36项CFG](ptx-patcher/v34/multidef36-audit.json)、[Shared布局](ptx-patcher/v34/shared-layout-audit.json)、[容量API](ptx-patcher/v34/shared-capacity-api.json)、[验收](ptx-patcher/v34/validation.json)。
+
+
+## 2026-11-01：PTX V3.5，Shared 2× FP16耦合表示实测闭环（闇）
+
+无候选两轮三档全胜且过质量门，保留V3.1_pack5；分支4 Pruned3/3，四个预设分支Open=0。 固定V3.1_pack5 SHA1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86，baseline全量重建同SHA；全部15/15 O4原槽位。
+
+实际构建FB01/02/03精确独立shadow、FB123精确组合、FB01原位2×精确、FB01独立及原位fast共7候选。原字节i映射为扩展half的2i字节，旧u32对应低/高两个f16x2，Shared地址及宽度成对×2；原位精确对非MMA读取重建有限pack5字节，独立shadow保留原字节视图供异构消费者使用。FB01全部164个存储词均为可证明的有限pack来源；FB02/03含全局/混合来源，采用精确shadow。FB04/05异步别名保留原布局，没有单边改copy地址或绕过量化。fast显式近似，并在数据前固定PSNR≥50dB、maxabs≤1/64、finite与sky0门。
+
+有限FP8往返32,774,128个有效字零差异；half夹断后重新pack5的33,554,432对零差异，pack5不发出保留7f/ff；Shared跨lane/warp镜像零差异。精确整网快验三档0bit；fast快验PSNR约60dB，仍逐过程按固定质量门检查。原语及逐核改写事件见v35验证JSON。
+
+首轮168次、repeat0次、快验24次，所有计时严格串行，所有编译/原语/资源查询先完成；精确成功运行162次均末帧0bit/maxabs0/nonfinite0，近似运行30次的PSNR/maxabs/sky逐项保留。没有单次.log碎片入库：过程文本嵌入聚合JSON。硬件/API四表及数据验收独立核对后才写结论。
+
+分支4结算为Pruned n=3/3；其他三支保持Pruned3/3。本轮闭环是给定预设分支与质量门下的有限搜索结论，不将静态SASS计数或K=3当作全局物理极限证明。主脑可据此撰写交接报告供审阅。生产五处、原DLL与三ZIP九路径SHA不变，不部署、不push。清理临时大二进制，按构造/原语、跑分/硬件表、文档/分支状态分三次小提交，无Co-Authored-By。
+
+[回执](ptx-patcher/v35/README.md)、[配对汇总](ptx-patcher/v35/timing-summary.md)、[验收](ptx-patcher/v35/validation.json)。

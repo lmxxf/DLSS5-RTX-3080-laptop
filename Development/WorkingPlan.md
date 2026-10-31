@@ -3,7 +3,7 @@
 ## 0. 双智能体协作铁律与小颗粒度 Git 提交规程
 
 1. **`K-Search` 分支状态**：
-   - 当前唯一 `1.00×` 对比基线为 **`PTX V3.8` (`zero_const_fb456`)**，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v38.dll`（SHA256 `da27f34c5e10b884dd02b448eab424a4f44109ef08efc83e6a447100acd697c3`）。
+   - 本轮历史输入 `1.00×` 对比基线为 **`PTX V3.8` (`zero_const_fb456`)**，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v38.dll`（SHA256 `da27f34c5e10b884dd02b448eab424a4f44109ef08efc83e6a447100acd697c3`）。
    - 分支 1~4、分支 6、分支 7 共 6 个分支均已 `[Pruned, 3 / 3]`；仅剩 **分支 5 `[Open ⚡, n = 1 / 3]`**（`V3.9` 中 `v38_pack4_fb2356` 首轮六向全胜、`repeat` 三档均值全正但 720p/900p 反向微负；`up_pair_all` 与 `up_pair_clean` 使 38 活跃核非 NOP SASS 从 `150,672` 暴降至 `148,109 / 148,449` 且 `STL/LDL` 降至 `99/100`）。
    - 本轮 `PTX V4.0` 对分支 5 发起第 2 轮精准剥离与 CFG 拓宽冲击（若晋升则重置 `n = 0` 并升格新 `1.00×` 基线；若未晋升则更新为 `n = 2 / 3`）。
 2. **⚠️ 最小颗粒度 Git 提交铁律（必须严格执行）**：
@@ -15,28 +15,29 @@
 
 ---
 
-## 1. 当前唯一 `1.00×` 封存基线与 `K-Search` 7 分支调度表（更新至 `V3.9` 后）
+## 1. 当前唯一 `1.00×` 封存基线与 `K-Search` 7 分支调度表（更新至 `V4.0` 后）
 
-- **当前唯一 `1.00×` 对比基线**：**`PTX V3.8` (`zero_const_fb456`)**，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v38.dll`，`266,414,592 B`，15/15 原槽位 `O4`，SHA256 `da27f34c5e10b884dd02b448eab424a4f44109ef08efc83e6a447100acd697c3`
+- **当前唯一 `1.00×` 对比基线**：**PTX V4.0 / joint_up_cfg_pack4_fb2356**，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v40.dll`，266,414,592 B，15/15原槽O4，SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`（独立封存，未覆盖生产）。
+- **V4.0本轮历史输入参考**：V3.8，SHA `da27f34c5e10b884dd02b448eab424a4f44109ef08efc83e6a447100acd697c3`；本轮成绩以此为分母。
 
 ### 候选分支调度表（`K = 3`）
 
 | 分支编号 | 状态 | 连续未晋升 `n` | 优化分支假设与机制靶点 | 探针敏感度与历史/审稿依据 |
 | :--- | :---: | :---: | :--- | :--- |
 | **分支 1~4, 6, 7** | `[Pruned]` | `3 / 3` | 驻留跨阶 / 通用 Pack&Quad / 解码临时池 / 原表示转发与 Shared 2× 耦合 / Async 协同 | 前六分支已满 `K=3` 剪枝 |
-| **分支 5** | **`[Open ⚡]`** | **`1 / 3`** | **有界/常量生产者的转换特化与 32 位直解 `UP-Pair`（零 Spill 核剥离、跨块 CFG `UP-Pair` 拓宽与 `Pack4` 联合）** | `V3.9` 中 `up_pair_clean` 净砍 `2,223` 条 SASS（`150,672 -> 148,449`）且 `STL/LDL` 降至 `99/100`，900p/1080p 四向全胜（1080p `11.009 ms`）；`v38_pack4_fb2356` 首轮六向全胜、`repeat` 三档均值全正 |
+| **分支 5** | **`[Open]`** | **`0 / 3`** | **有界/常量生产者的转换特化与 32 位直解 `UP-Pair`（零 Spill 核剥离、跨块 CFG `UP-Pair` 拓宽与 `Pack4` 联合）** | `V3.9` 中 `up_pair_clean` 净砍 `2,223` 条 SASS（`150,672 -> 148,449`）且 `STL/LDL` 降至 `99/100`，900p/1080p 四向全胜（1080p `11.009 ms`）；`v38_pack4_fb2356` 首轮六向全胜、`repeat` 三档均值全正；V4.0结果见文末 |
 
 ---
 
-## 2. 本轮派单任务（`PTX V4.0`：分支 5 第 2 轮冲击 `n = 1/3 -> 2/3`，由闇执行）
+## 2. 已执行的历史派单任务（`PTX V4.0`：分支 5 第 2 轮冲击 `n = 1/3 -> 2/3`，由闇执行）
 
 请严格以 **`PTX V3.8`**（SHA256 `da27f34c5e10b884dd02b448eab424a4f44109ef08efc83e6a447100acd697c3`）为唯一 `1.00×` 基线，在 `Development/ptx-patcher/v40/` 下执行以下实验：
 
 ### 任务 A：剥离有 Spill 核（`FB00/FB01`）的零 Spill `UP-Pair` 候选（严格 `0 bit-diff` vs `V3.8`）
-- `V3.9` 资源表揭示：`up_pair_clean` 同时修改了有静态 Spill 的 `FB00`（`outview_wait 16B STACK`、`ds_wait 8B STACK`、`inpview 8B STACK`）与 `FB01`（`ds_wait 64B STACK`、`inpview 64B->56B STACK`），以及完全零 Spill 的 **`FB02`（4 核净减 `641` 条 SASS）、`FB03`（4 核净减 `651` 条 SASS）、`FB04`（5 核净减 `104` 条 SASS）、`FB05`（3 核净减 `61` 条 SASS）**。
+- `V3.9` 资源表揭示：`up_pair_clean` 同时修改了有静态 Spill 的 `FB00`（`outview_wait 16B STACK`、`ds_wait 8B STACK`、`inpview 8B STACK`）与 `FB01`（`ds_wait 64B STACK`、`inpview 64B->56B STACK`），以及完全零 Spill 的 **`FB02`（4 核净减 `641` 条 SASS）、`FB03`（4 核净减 `651` 条 SASS）、`FB04`（5 核净减 `86` 条 SASS）、`FB05`（3 核净减 `61` 条 SASS）**。
 - 在 `V3.9` 实测中，`up_pair_all` 在 720p (`+0.334%`) 和 900p (`+0.450%`) 四向全胜，而 `up_pair_clean` 在 900p (`+0.588%`) 和 1080p (`+0.409%`) 四向全胜、仅在 720p 受 `FB00/01` 排程影响微退 `-0.123%`。
 - 请构建并测试两个精准隔离的严格 `0 bit-diff` 候选：
-  1. **`v40_up_pair_fb2345`**：仅在 **100% 零 Spill 的 `FB02 + FB03 + FB04 + FB05`** 上启用同基本块 `UP-Pair`（保持 `FB00, FB01, FB06` 与 `V3.8` 逐字节一致，净减 `1,457` 条 SASS 且完全不触碰任何 Spill 核）；
+  1. **`v40_up_pair_fb2345`**：仅在 **100% 零 Spill 的 `FB02 + FB03 + FB04 + FB05`** 上启用同基本块 `UP-Pair`（保持 `FB00, FB01, FB06` 与 `V3.8` 逐字节一致，净减 `1,439` 条 SASS 且完全不触碰任何 Spill 核）；
   2. **`v40_up_pair_fb1inp_2345`**：在 `v40_up_pair_fb2345` 基础上，仅额外纳入 `FB01` 中唯一使 `STACK` 从 `64 B → 56 B`（`STL/LDL` 从 `11/15 → 10/14`）下降的单核 `cc_tinlayout_fused_swin_2h_64_2_inpview_tilesync_fp8`！
 
 ### 任务 B：跨基本块（`Cross-Block`）1,031 对 `UP-Pair` 的 CFG 可达定义与路径无覆写证明（严格 `0 bit-diff` vs `V3.8`）
@@ -55,3 +56,7 @@
 1. 所有候选以 **`PTX V3.8`**（SHA256 `da27f34c...`）为唯一 `1.00×` 对照基线，所有计时进程严格串行执行（50 warmup / 80 iter，正反 ABBA/BAAB；首轮三档六方向全胜必须补跑 `repeat` 确认）。
 2. 若有任何候选通过两轮三档六方向全胜及预设质量门，封存晋升为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v40.dll` 并升格为新 `1.00×` 基线（重置分支 5 `n = 0`）；若未通过，则将分支 5 计数从 `n = 1 / 3` 更新为 `n = 2 / 3`。
 3. **严格执行 3 个干净的小颗粒度 Git Commit（不留任何单次 `.log` 碎文件和临时大二进制，严禁加 `Co-Authored-By`，不 push）**。
+
+### V4.0 执行回执（2026-11-01）
+
+晋升joint_up_cfg_pack4_fb2356为独立V4.0、下一轮唯一1.00×，SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`，不覆盖生产。 分支5 Open 0/3，其余六分支维持Pruned3/3，Open=1。1031对跨块UP全数通过严格全路径无覆写证明；零Spill子集净减1439，FB04小计86，已纠正计划硬账。全部首轮六向全胜者完成repeat，计数{'smoke': 21, 'timed': 120, 'repeat': 24}。[回执](ptx-patcher/v40/README.md)、[计时](ptx-patcher/v40/timing-summary.md)、[验收清理](ptx-patcher/v40/validation.json)。十保护路径不变，无.log碎文件，临时大二进制已清理，三个干净小提交，无Co-Authored-By、不push。

@@ -1189,3 +1189,18 @@ UP审计确认4744处来自2372个拆半字，但只有2682处满足同基本块
 运行计数{'smoke': 24, 'timed': 168, 'repeat': 24}，精确（含基线）174次末帧0bit，近似/实证42次保留预设质量门。正式计时50/80串行正反ABBA/BAAB，首轮六向全胜全部repeat。十保护路径SHA不变，清理临时二进制与帧，无单次.log，三个干净小提交，无Co-Authored-By、不push。
 
 [实验回执](ptx-patcher/v39/README.md)、[计时](ptx-patcher/v39/timing-summary.md)、[验收](ptx-patcher/v39/validation.json)。
+
+
+## 2026-11-01：PTX V4.0，分支5第二轮零Spill隔离、全CFG UP拓宽与Pack4联合（闇）
+
+晋升joint_up_cfg_pack4_fb2356为独立V4.0、下一轮唯一1.00×，SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`，不覆盖生产。 分支5 Open 0/3，其他六分支保持Pruned3/3，全表Open=1。
+
+A：仅V3.9 clean中FB2345实际改写的16个零STACK/STL/LDL活跃入口，其余代码保持基线；静态非NOP净减1439（641+651+86+61），修正计划FB04 104/总1457硬账。另只增加FB01 inpview，使STACK64→56、STL/LDL11/15→10/14。没有把历史720p回退直接归因为FB00/01。
+
+B：1031对/2062处cross_block UP全部通过唯一无守卫half定义、split支配use及所有CFG路径源32位无覆写证明，包含循环且守卫写入也视为覆写；没有用静态定义集合相等代替路径证明或放宽循环重置。6项基本安全测试、7项CFG测试和33554432个32位GPU模式逐位一致。按实际资源选34个活跃入口构造cfg_clean，并分别与Pack4_FB2356联合；CFG-all只作资源诊断与质量冒烟，正式计时只含指定5候选。
+
+计数{'smoke': 21, 'timed': 120, 'repeat': 24}，精确（含基线）123次末帧0bit，近似/实证42次保留预设质量门；正式计时50/80严格串行正反ABBA/BAAB，首轮六向全胜者全部repeat。十保护路径SHA不变，清理临时大二进制与帧，不留单次.log，三个小提交，无Co-Authored-By、不push。
+
+[完整回执](ptx-patcher/v40/README.md)、[配对](ptx-patcher/v40/timing-summary.md)、[验收](ptx-patcher/v40/validation.json)。
+
+V3.9回执勘误：`up_pair_all`首轮唯一负向为1080p前向−0.167960%，原回执误标720p；本次仅修正该文字，V3.9原始JSON未改。

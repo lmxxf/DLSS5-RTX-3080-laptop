@@ -1,14 +1,20 @@
-# WorkingPlan — PTX V3.4：分支 2（FB01 独立 Quad 与局部基本块 Quad）与分支 4（36 项 `pack_multidef` CFG 可达定义转发与 Shared 配对审计）终极闭环（2026-10-31 23:00）
+# WorkingPlan — PTX V3.5：分支 4 终极冲击（`n = 2/3 -> 3/3`，FB01~05 Shared Memory 2x 扩容耦合表示改写实验与闭环）（2026-11-01 00:10）
 
-## 0. 双智能体协作铁律与四步规程（源自 `/home/lmxxf/work/ai-theorys-study/wechat/355.md`）
+## 0. 双智能体协作铁律与小颗粒度 Git 提交规程（源自 `355.md` 与 Zero 最新指令）
 
 1. **严禁“官僚免责公文”与局部早停**：
-   - 在 `K-Search` 候选分支调度表中尚有 `[Open]` 分支未完成闭环验证前，严禁提前撰写“已达物理极限”报告。
-   - **分工铁律**：主脑（鳩 / Gemini 4）负责维护 `K-Search` 候选分支调度表、做任务决策派发，并在全部 `Open` 分支闭环后撰写《达到物理极限的详细实验报告》交由闇（Codex / GPT-6.1-Sol）审稿；**全部具体代码实现、探针构建、跑分验证、Git 提交与报告审稿均由闇独立执行**。
+   - 必须将 `K-Search` 候选分支调度表中最后一个 `[Open]` 分支（**分支 4，当前 `n = 2 / 3`**）推进至真实实验/构造性验证闭环（`n = 3 / 3` 或晋升重置 `n = 0`）后，方可进入终局《物理极限详细实验证明报告》撰写与审稿阶段。
+2. **⚠️ 最小颗粒度 Git 提交铁律（Zero 23:36 特别强调，必须严格执行）**：
+   - **严禁再制造包含几百个 `.log` 碎文件或三四项不同修改的巨型 commit！**
+   - 单次运行产生的几十上百个 `forward-*.log`、`reverse-*.log`、`smoke-*.log` 临时进程日志在汇总进 `bench.json` / `timing-summary.md` 后**必须在提交前删除（只保留汇总 JSON 与 `.md` 表）**！
+   - 每完成一个独立子步骤，立即单独执行一次小 `git commit`（严禁加 `Co-Authored-By`）：
+     - Commit 1：分支 4 的 Shared 耦合改写分析/构建与原语测试脚本（`v35/*.py` + 验证 JSON）；
+     - Commit 2：分支 4 的串行 ABBA 跑分汇总表与硬件体检表（`v35/timing-summary.md`, `v35/bench.json`, `v35/hardware-*.md`）；
+     - Commit 3：更新 `v35/README.md`、`WorkingPlan.md` 与 `DevHistory.md` 完成分支 4 结算。
 
 ---
 
-## 1. 当前唯一 `1.00×` 封存基线与 `K-Search` 候选分支调度表（更新至 `V3.3` 后）
+## 1. 当前唯一 `1.00×` 封存基线与 `K-Search` 候选分支调度表（更新至 `V3.4` 后）
 
 - **当前唯一 `1.00×` 对比基线**：**`PTX V3.1_pack5`**（`v0.3.0` 生产版，`/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v31_pack5.dll`，`266,414,592 B`，15/15 原槽位 `O4`，SHA256 `1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86`）
 
@@ -17,56 +23,35 @@
 | 分支编号 | 状态 | 连续未晋升 `n` | 优化分支假设与机制靶点 | 探针敏感度与历史依据 |
 | :--- | :---: | :---: | :--- | :--- |
 | **分支 1** | `[Pruned]` | `3 / 3` | 调整 `FB04/05` 其余核 `.maxnreg` 跨驻留台阶 | 小 Grid 仅 1~2 波次 + 强压触发 Spill，`V2.8` 及 `V3.2` 单核 cap 控制均无全档净收益，已剪枝 |
-| **分支 2** | **`[Pruned]`** | **`3 / 3`** | **压减 `FP16 -> FP8` 打包与双对 `Quad` 拼接（`FB01` 独立 `Quad` 与基本块局部死分析 `Local Quad` 拓宽）** | V3.4 FB01独立Quad首轮全胜，repeat720/1080回退、900变号；Local精确规则新增0对；本分支K=3剪枝 |
-| **分支 3** | `[Pruned]` | `3 / 3` | 压减非直通 (`non-mapped`) FP8 解码临时池与等价算术 | `V3.0` 解交错重排、`V3.2` 半步池/UP/shift、`V3.3` 分相半池 (`112->28`) 与 Spill 重解码累计 20+ 候选均未两轮全胜，已达 `K=3` 剪枝 |
-| **分支 4** | **`[Open]`** | **`2 / 3`** | **`36` 项 `pack_multidef` 的 CFG 单一可达定义转发、Shared 局部量化存取配对审计与尾段规整** | V3.4全部36项均双可达定义；Shared payload翻倍官方API仍保持当前驻留，容量否定前提不成立；36向量编码词返读候选已测未晋升，耦合FP16表示路径未排除，不能终局剪枝 |
+| **分支 2** | `[Pruned]` | `3 / 3` | 压减 `FP16 -> FP8` 打包与双对 `Quad` 拼接 | `V3.3` 纯 `quad_all`/`quad_fb23` 与 `V3.4` `quad_fb1`/局部活性 `Local Quad`（新增 0 对）均未过两轮全胜，已达 `K=3` 剪枝 |
+| **分支 3** | `[Pruned]` | `3 / 3` | 压减非直通 (`non-mapped`) FP8 解码临时池与等价算术 | `V3.0` 解交错、`V3.2` 半步池/UP/shift、`V3.3` 分相半池 (`112->28`) 与 Spill 重解码均未过两轮全胜，已达 `K=3` 剪枝 |
+| **分支 4** | **`[Open ⚡]`** | **`2 / 3`** | **Shared Memory 2x 扩容 FP16 耦合表示改写（消除 Shared 端解码与 `FB01` Spill）及跨阶段耦合验证** | `V3.4` 官方 API 证实 `FB01~05` Shared payload 翻倍后仍 100% 保持当前 `CTA/SM` 驻留；36 项同线程返读未晋升 (`n=2`)，本轮对“Shared 扩容 2x 耦合改写”执行第 3 次终极冲击 (`n=2->3`) |
 
 ---
 
-## 2. 本轮派单任务（`PTX V3.4`：分支 2 与分支 4 终极闭环攻坚，由闇执行）
+## 2. 本轮派单任务（`PTX V3.5`：攻克分支 4 最后一次冲击 `n = 2/3 -> 3/3`，由闇执行）
 
-请严格以 **`PTX V3.1_pack5`**（SHA256 `1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86`）为唯一 `1.00×` 基线，在 `Development/ptx-patcher/v34/` 下执行以下实验：
+`V3.4` 揭示了一个极其重要的事实：在 `FB01 (C64)` 的 4 个活跃核中，`Shared Memory` 仅占 `4,096 B/CTA`（翻倍至 `8,192 B/CTA` 后无需 opt-in 仍保持 `6 CTA/SM`），且 **`FB01` 完全不含 `cp.async`（`LDGSTS = 0`），其 Shared 写入 100% 来自核内本地 FP8 量化，同时 `FB01` 是全网静态 Spill 最重的模块（`60/72 STL/LDL, 104B STACK`）**！
 
-### 任务 A（分支 2 终极冲击 `[Open ⚡, n=2/3 -> 3/3]`）：`FB01` 独立 `Quad` + 基本块级局部 `Local Quad` 拓宽（严格 `0 bit-diff` vs `V3.1_pack5`）
-1. **单模块剥离候选 `v34_quad_fb1`（仅在 `FB01` 启用纯 `pack5_quad`）**：
-   - `V3.3` 揭示了一个反直觉事实：`quad_all` (`FB01+02+03`) 让 `FB01` 的两个活跃核 `STACK` 从 `104/80 B` 降至 **`96/72 B`**、全网 `STL` 从 `107 → 106` 且首轮三档全胜，而去掉 `FB01` 的 `quad_fb23` 反而首轮失败。这说明 **`FB01` 才是 `quad` 的正向受益模块**，而 `FB02/03` 零 Spill 核上的 `quad` 可能拖累了 1080p `repeat`！
-   - 请单独构建并测试 **`v34_quad_fb1`**（仅 `FB01` 使用 `mask=12` 纯 `pack5_quad`，其余 14 个 Fatbin 保持 `V3.1_pack5` 原 cubin 逐字节不变）。
-2. **基本块级局部死变量分析拓宽 `Quad`（`v34_quad_local` 与 `v34_quad_fb0145`）**：
-   - 审查为什么 `v24/codegen.py` 的 `fuse_quads` 在全网 `7,540` 个 `mov.b32 %dst, {%lo, %hi}` 中只融合了 `1,688` 对（`FB00, FB04, FB05, FB06` 全为 `0` 对）：
-     - 原 `fuse_quads` 第 46 行要求 `counts[lo] == 2 and counts[hi] == 2 and len(downs[lo]) == 1 and len(downs[hi]) == 1`（即要求 `.b16` 临时寄存器 `%rsXX` 在**整个几千行的函数内**全局只定义 1 次、使用 1 次，且第 53 行要求词法花括号深度 `depth == 1`）！一旦编译器在不同循环迭代或不同块复用了同一个 `%rsXX` 名字，或位于内层作用域，`fuse_quads` 就全部拒绝。
-   - 请编写精确的**同基本块局部活性检查（Block-Local Liveness Check）**：
-     - 对每个无谓词守卫的 `pack`（`mov.b32 %dst, {%lo, %hi}`），在同一基本块内向上查找紧邻前方的最后一次 `lo` 定义 `a`（`cvt.rn.satfinite.e4m3x2.f16x2 %lo, %src_lo`）与 `hi` 定义 `z`（`cvt.rn.satfinite.e4m3x2.f16x2 %hi, %src_hi`）；
-     - 只要满足：① `a, z, pack` 位于同一基本块且无谓词守卫；② 在 `min(a, z)` 与 `pack` 之间，`%src_lo, %src_hi, %lo, %hi` 未被其他指令覆写，且 `%lo, %hi` 未被中间指令读取；③ **在 `pack` 之后，沿着 CFG 所有可达路径，`%lo` 和 `%hi` 在被下一次重新定义（Overwrite）或函数返回（`ret`/`exit`）之前没有任何读取（Locally Dead after `pack`）**，即可 100% 安全地融合为 `pack5_quad`（在 `pack` 之后 `%lo, %hi` 已死，无需写出 16 位半字）！
-   - 请审计该精确局部活性规则在 `FB00..FB06` 38 个活跃核中能新增解锁多少对 `quad`，检查其对 `FB00/01/04/05` 静态 SASS、`PRMT`、`REG` 与 `STACK` 的影响，并对全网 `v34_quad_local` 及仅在降低 `STACK/REG` 模块开启的精选组合做三档 50/80 正反序 ABBA 实测。
+请严格以 **`PTX V3.1_pack5`**（SHA256 `1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86`）为唯一 `1.00×` 基线，在 `Development/ptx-patcher/v35/` 下执行分支 4 的第 3 次终极实验：
 
-### 任务 B（分支 4 终极闭环 `[Open ⚡, n=1/3 -> 3/3]`）：`36` 项 `pack_multidef` 的 CFG 单一可达定义审计与 Shared 本地量化读写配对闭环
-1. **审计 38 活跃核中的 `36` 项 `pack_multidef`（`Single Reaching Pack Definition Audit`）**：
-   - `v33/README.md` 指出：在 5,848 个 `non-mapped` 事件中，有 `5,812` 项是 `not_a_recognized_FP8_pack`，另有 **`36` 项是 `pack_multidef`**（即目标寄存器在函数内有多处定义，被 `multidef` 保守排除）。
-   - 请用 CFG 可达定义分析逐一检查这 `36` 项 `pack_multidef`：
-     - 在到达该 `mma_run` 入口的控制流图上，实际能夠到达（Reaching）的定义有几条？
-     - 是否存在“虽然函数内別处重用了该寄存器名，但到达当前 `mma_run` 的唯一可达定义是一条 100% 合法的本地 `FP8 pack`（且其 `low, high` 源在 `mma_run` 前未被覆写）”的情况？或者到达的複数定义是否实际上不可静态区分（如循环回边更新 vs 初始值）？
-     - 若存在可证明 100% 严格等价（`0 bit-diff`）的安全转发项，构建候选并实测；若 CFG 证明这 36 项在到达 `mma_run` 时均存在多条不同运行时值的可达定义（如循环携带依赖或分支合流），请输出 `v34/multidef36-audit.json` 逐项给出指令行号与可达定义集证明。
-2. **审计 `FB01~FB05` Shared Memory 本地量化写入 (`st.shared`) 与解码读出 (`ld.shared`) 的跨线程映射关系（`Shared-Memory Producer-Consumer Layout Audit`）**：
-   - 针对 `2,320` 个 `shared_load` 解码事件，编写静态分析脚本核查 `FB01~FB05` 中写入同一 Shared 符号的 `st.shared` 指令与读取它的 `ld.shared` 指令：
-     - 统计每个模块中：① Shared 缓冲区总大小与剩余可用 Shared 容量（对比 `101,376 B/SM` 与当前 `CTA/SM` 驻留）；② 写端线程的地址表达式与读端线程的地址表达式是否存在**跨线程矩阵转置 / 重排（Cross-Lane Permutation）**，以及在 `FB02~FB05` 中是否与 `cp.async` 硬件异步拷贝共用同一块 Shared 缓冲区；
-     - 给出客观的架构级可判定结论（保存在 `v34/shared-layout-audit.json`）：在不改变模型算法与 Shared 容量驻留的前提下，静态 PTX 层能否在不触发 Shared 容量翻倍降驻留或破坏 `cp.async` 布局的情况下直接消除 Shared 端的 FP8 打包/解包？若存在可无损消除的同线程/同布局局部往返，立即实现并实测；若全部涉及跨线程转置或与 `cp.async` 耦合且扩容 FP16 会突破 Shared 驻留上限，则给出逐模块字节与指令级证明，将分支 4 正式推进至闭环状态。
+### 任务 4.1：`FB01~FB05` Shared 生产者-消费者字节排列与耦合改写可行性核查 + `FB01` Shared 2x 扩容耦合改写实测
+1. **检查 `FB01`（及 `FB02~05`）中 Shared 写入 (`st.shared`) 与读取 (`ld.shared`) 的元素粒度与低高半字对齐**：
+   - 在 `FB01` 中，写端通过 `cvt.rn.satfinite.e4m3x2.f16x2` 将 `f16x2` 打包为 2 字节 `e4m3x2`，再拼成 32 位词通过 `st.shared.v4.u32`（16 字节 = 8 对 `e4m3x2`）写入 `shared_storage`；读端通过 `ld.shared.v4.u32` 读出 32 位词送入 `mma_run`，在 `v26/codegen.py` 中按 **`0x9180`（byte 0, 1）** 和 **`0xb3a2`（byte 2, 3）** 解包为两个 `f16x2`。
+   - 请核查 `shared-layout-audit.json` 中读端每个 `ld.shared` 读出的 32 位词 `[byte0, byte1, byte2, byte3]` 在写端是否同样是由整对的 `(byte0, byte1)` 与 `(byte2, byte3)` 写入（即跨线程交换的最小单位是 `2B (e4m3x2)` / `4B (e4m3x4)` 还是被打散成了来自不同 `f16x2` 的单字节 `1B`？同时核查同一 `shared_storage` 缓冲区是否在核内其他阶段被复用于非 FP8 数据如归约/索引）。
+2. **构建并实测 Shared 耦合改写候选**：
+   - **候选 A（`v35_fb1_shm_exact`，严格 `0 bit-diff` vs `V3.1_pack5`）**：
+     - 对 `FB01`（以及 `FB02/03` 中满足无 `cp.async` 别名、偏移可精确缩放 `×2` 的 Shared 往返段），将 `shared_storage` 声明容量翻倍（`4096 B → 8192 B`），在写端完成量化+预解包（或按读端所需 `low/high` 存为 `f16x2`），将对应 `st.shared` / `ld.shared` 地址偏移 `× 2`、读取宽度翻倍（1 条 `v4.u32` 拆为 2 条 `v4.u32` 直接读出已解码的 `(first, second)` `f16x2` 对），使读端 `mma_run` 中的 `shared_load` 操作数直接免解码直通进入 `mma.sync.f16`（消除读端重复解码与 `vlh_t` 解码临时池，检验能否压低 `FB01` 的 `60/72 STL/LDL` 与 `104B STACK`）！
+     - *注：若静态分析发现写端与读端在 `shared_storage` 上存在跨阶段的异构复用（如同一缓冲区先存 FP16/FP32 归约再存 FP8，或单字节转置），导致地址直接 `×2` 会破坏非 FP8 阶段，也可开辟独立 `shared_fp16_ext` 共享数组（因 `4096 B + 8192 B = 12,288 B` 仍保持 `6 CTA/SM`！）专供该批 MMA `shared_load` 使用！*
+   - **候选 B（`v35_fb1_shm_fp16_fast`，非 0-bit 近似探索，若同布局映射成立）**：
+     - 在独立 `shared_fp16_ext` 上直接存入写端 `clamp(-448, +448)` 后的原始 `f16x2`（同时省掉写端 `pack5` 与读端 `decode8`），实测三档速度、相对 `V3.1_pack5` 的 PSNR / `maxabs` 与 720p 天空色带变号。
 
 ---
 
-## 3. 验收、分支状态结算与 Git 纪律
-1. 所有生产候选必须相对 `PTX V3.1_pack5` 验证 **严格 `0 bit-diff`（`maxabs = 0.0, nonfinite = 0`）**，所有计时进程严格串行（50 warmup / 80 iter，正反 ABBA/BAAB，首轮三档六方向全胜必须补跑 `repeat` 确认）。
-2. 输出四张硬件体检表、`v34/multidef36-audit.json`、`v34/shared-layout-audit.json` 与 `v34/README.md`。
-3. **分支表终极结算**：
-   - 若有候选两轮三档全胜，晋升为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v34.dll` 并重置对应分支 `n = 0`；
-   - 若本轮全部候选均未通过两轮三档全胜门槛，且 `multidef36` 与 `shared-layout` 审计证实无剩余静态无损可兑现路径，则分支 2 与分支 4 均正式结算为 **`[Pruned, 3/3]`**（此时 `K-Search` 表中 4 个分支全部闭环，剩余 `Open` 分支为 `0`，移交主脑撰写终局《达到物理极限的详细实验证明报告》交闇审稿）。
-4. 更新 `DevHistory.md` 与 `WorkingPlan.md`，**清理所有临时大二进制，立即执行 `git commit`（严禁加 `Co-Authored-By`），不 push**。
-
-### V3.4 执行回执（2026-11-01，10月31日晚启动）
-
-V3.4无晋升候选，保留V3.1_pack5 SHA1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86为唯一1.00×。 分支2 Pruned3/3；分支1/3保持Pruned3/3；**分支4保持Open2/3，剩余Open=1，终局交接条件不成立。** [完整回执](ptx-patcher/v34/README.md)、[验收](ptx-patcher/v34/validation.json)。
-
-5个严格候选首轮120次，仅quad_fb1全档双向胜出，补24次repeat未通过；加18快验共162次末帧0bit/maxabs0/nonfinite0，所有计时串行。Local规则真正实现并通过结构/GPU控制，但新增融合对0；36项multidef均两条可达定义。完整Shared库存另解锁36个编码词返读（9入口），保留量化与形状回退，独立及FB01 Quad组合均实测。
-
-**新事实推翻闭环前提：102400B/SM与101376B/block opt-in不可混同。实际baseline cubin加倍payload后，FB01～05官方API均保持当前CTA/SM。** 不能用容量证明所有剩余改写不可兑现。保留量化边界并成对改写Shared生产者/消费者及异步拷贝布局的方向仍未排除，不能将两项审计机械计作两次失败而强迫分支4变成Pruned3/3。
-
-本轮已完成规定单因素、Local实现、CFG与Shared容量/布局审计及安全局部候选实测；没有编造“全部闭环”或物理极限结论。生产部署/ZIP不覆盖；清理临时大产物并立即独立commit，不push，无Co-Authored-By。
+## 3. 验收、分支表终极结算与小颗粒度 Git 提交纪律
+1. 所有计时进程严格串行执行（50 warmup / 80 iter，正反 ABBA/BAAB；首轮三档六方向全胜必须补跑 `repeat` 确认）。
+2. **分支表终极结算**：
+   - 若候选通过两轮三档全胜（且满足 0-bit 或 PSNR/sky 质量门），晋升为 `/mnt/c/DLSS5-5090-dll/nvngx_dlssnr_sm86_v35.dll` 并重置分支 4 `n = 0`；
+   - 若实测未通过两轮三档全胜门槛（例如 `st.shared / ld.shared` 流量翻倍的 LSU 带宽/指令开销抵消了省去解码/Spill 的收益），则 **分支 4 正式达到 `n = 3 / 3`，标记为 `[Pruned, 3/3]`**！
+   - 至此，`K-Search` 候选分支调度表中的 **全部 4 个分支（分支 1、2、3、4）均达到 `[Pruned, 3/3]` 闭环状态（剩余 `Open` 分支 = `0`）**！
+3. **严格执行 3 个小颗粒度 Git Commit（清理所有单次运行 `.log` 碎文件和临时大二进制，严禁加 `Co-Authored-By`，不 push）**。

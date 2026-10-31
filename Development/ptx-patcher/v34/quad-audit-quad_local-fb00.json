@@ -1,0 +1,819 @@
+[
+  {
+    "kernel": "cc_tinlayout_fused_pre_block_swin_1h_32_1_fp8",
+    "fused": 0,
+    "rejections": {
+      "not_two_local_down_defs": 32,
+      "guarded_or_same_half": 5
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2100, {%rs381, %rs380};",
+        "pack_line": 7356,
+        "last_defs": [
+          "mov.b32 {%rs380, %rs381}, %r2099;",
+          "mov.b32 {%rs380, %rs381}, %r2099;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2106, {%rs383, %rs382};",
+        "pack_line": 7378,
+        "last_defs": [
+          "mov.b32 {%rs382, %rs383}, %r2105;",
+          "mov.b32 {%rs382, %rs383}, %r2105;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2116, {%rs385, %rs384};",
+        "pack_line": 7408,
+        "last_defs": [
+          "mov.b32 {%rs384, %rs385}, %r2115;",
+          "mov.b32 {%rs384, %rs385}, %r2115;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2122, {%rs387, %rs386};",
+        "pack_line": 7430,
+        "last_defs": [
+          "mov.b32 {%rs386, %rs387}, %r2121;",
+          "mov.b32 {%rs386, %rs387}, %r2121;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_pre_block_swin_1h_32_1_ds_fp8",
+    "fused": 0,
+    "rejections": {
+      "not_two_local_down_defs": 32,
+      "guarded_or_same_half": 6
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2148, {%rs389, %rs388};",
+        "pack_line": 7352,
+        "last_defs": [
+          "mov.b32 {%rs388, %rs389}, %r2147;",
+          "mov.b32 {%rs388, %rs389}, %r2147;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2154, {%rs391, %rs390};",
+        "pack_line": 7374,
+        "last_defs": [
+          "mov.b32 {%rs390, %rs391}, %r2153;",
+          "mov.b32 {%rs390, %rs391}, %r2153;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2164, {%rs393, %rs392};",
+        "pack_line": 7404,
+        "last_defs": [
+          "mov.b32 {%rs392, %rs393}, %r2163;",
+          "mov.b32 {%rs392, %rs393}, %r2163;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2170, {%rs395, %rs394};",
+        "pack_line": 7426,
+        "last_defs": [
+          "mov.b32 {%rs394, %rs395}, %r2169;",
+          "mov.b32 {%rs394, %rs395}, %r2169;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_post_block_swin_1h_32_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2546, {%rs391, %rs390};",
+        "pack_line": 8533,
+        "last_defs": [
+          "mov.b32 {%rs390, %rs391}, %r2545;",
+          "mov.b32 {%rs390, %rs391}, %r2545;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2552, {%rs393, %rs392};",
+        "pack_line": 8555,
+        "last_defs": [
+          "mov.b32 {%rs392, %rs393}, %r2551;",
+          "mov.b32 {%rs392, %rs393}, %r2551;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2562, {%rs395, %rs394};",
+        "pack_line": 8585,
+        "last_defs": [
+          "mov.b32 {%rs394, %rs395}, %r2561;",
+          "mov.b32 {%rs394, %rs395}, %r2561;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2568, {%rs397, %rs396};",
+        "pack_line": 8607,
+        "last_defs": [
+          "mov.b32 {%rs396, %rs397}, %r2567;",
+          "mov.b32 {%rs396, %rs397}, %r2567;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_post_block_swin_1h_32_fp8_simple_blend",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2556, {%rs391, %rs390};",
+        "pack_line": 8531,
+        "last_defs": [
+          "mov.b32 {%rs390, %rs391}, %r2555;",
+          "mov.b32 {%rs390, %rs391}, %r2555;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2562, {%rs393, %rs392};",
+        "pack_line": 8553,
+        "last_defs": [
+          "mov.b32 {%rs392, %rs393}, %r2561;",
+          "mov.b32 {%rs392, %rs393}, %r2561;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2572, {%rs395, %rs394};",
+        "pack_line": 8583,
+        "last_defs": [
+          "mov.b32 {%rs394, %rs395}, %r2571;",
+          "mov.b32 {%rs394, %rs395}, %r2571;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2578, {%rs397, %rs396};",
+        "pack_line": 8605,
+        "last_defs": [
+          "mov.b32 {%rs396, %rs397}, %r2577;",
+          "mov.b32 {%rs396, %rs397}, %r2577;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_post_block_swin_1h_32_fp8_simple_blend_full_rect",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2556, {%rs391, %rs390};",
+        "pack_line": 8531,
+        "last_defs": [
+          "mov.b32 {%rs390, %rs391}, %r2555;",
+          "mov.b32 {%rs390, %rs391}, %r2555;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2562, {%rs393, %rs392};",
+        "pack_line": 8553,
+        "last_defs": [
+          "mov.b32 {%rs392, %rs393}, %r2561;",
+          "mov.b32 {%rs392, %rs393}, %r2561;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2572, {%rs395, %rs394};",
+        "pack_line": 8583,
+        "last_defs": [
+          "mov.b32 {%rs394, %rs395}, %r2571;",
+          "mov.b32 {%rs394, %rs395}, %r2571;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2578, {%rs397, %rs396};",
+        "pack_line": 8605,
+        "last_defs": [
+          "mov.b32 {%rs396, %rs397}, %r2577;",
+          "mov.b32 {%rs396, %rs397}, %r2577;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_post_block_swin_1h_32_fp8_control_mask",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2555, {%rs391, %rs390};",
+        "pack_line": 8532,
+        "last_defs": [
+          "mov.b32 {%rs390, %rs391}, %r2554;",
+          "mov.b32 {%rs390, %rs391}, %r2554;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2561, {%rs393, %rs392};",
+        "pack_line": 8554,
+        "last_defs": [
+          "mov.b32 {%rs392, %rs393}, %r2560;",
+          "mov.b32 {%rs392, %rs393}, %r2560;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2571, {%rs395, %rs394};",
+        "pack_line": 8584,
+        "last_defs": [
+          "mov.b32 {%rs394, %rs395}, %r2570;",
+          "mov.b32 {%rs394, %rs395}, %r2570;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2577, {%rs397, %rs396};",
+        "pack_line": 8606,
+        "last_defs": [
+          "mov.b32 {%rs396, %rs397}, %r2576;",
+          "mov.b32 {%rs396, %rs397}, %r2576;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_post_block_swin_1h_32_fp8_control_mask_full_rect",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2555, {%rs391, %rs390};",
+        "pack_line": 8532,
+        "last_defs": [
+          "mov.b32 {%rs390, %rs391}, %r2554;",
+          "mov.b32 {%rs390, %rs391}, %r2554;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2561, {%rs393, %rs392};",
+        "pack_line": 8554,
+        "last_defs": [
+          "mov.b32 {%rs392, %rs393}, %r2560;",
+          "mov.b32 {%rs392, %rs393}, %r2560;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2571, {%rs395, %rs394};",
+        "pack_line": 8584,
+        "last_defs": [
+          "mov.b32 {%rs394, %rs395}, %r2570;",
+          "mov.b32 {%rs394, %rs395}, %r2570;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2577, {%rs397, %rs396};",
+        "pack_line": 8606,
+        "last_defs": [
+          "mov.b32 {%rs396, %rs397}, %r2576;",
+          "mov.b32 {%rs396, %rs397}, %r2576;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1680, {%rs363, %rs362};",
+        "pack_line": 6991,
+        "last_defs": [
+          "mov.b32 {%rs362, %rs363}, %r1679;",
+          "mov.b32 {%rs362, %rs363}, %r1679;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1686, {%rs365, %rs364};",
+        "pack_line": 7013,
+        "last_defs": [
+          "mov.b32 {%rs364, %rs365}, %r1685;",
+          "mov.b32 {%rs364, %rs365}, %r1685;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1696, {%rs367, %rs366};",
+        "pack_line": 7043,
+        "last_defs": [
+          "mov.b32 {%rs366, %rs367}, %r1695;",
+          "mov.b32 {%rs366, %rs367}, %r1695;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1702, {%rs369, %rs368};",
+        "pack_line": 7065,
+        "last_defs": [
+          "mov.b32 {%rs368, %rs369}, %r1701;",
+          "mov.b32 {%rs368, %rs369}, %r1701;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_tilesync_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1687, {%rs363, %rs362};",
+        "pack_line": 7004,
+        "last_defs": [
+          "mov.b32 {%rs362, %rs363}, %r1686;",
+          "mov.b32 {%rs362, %rs363}, %r1686;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1693, {%rs365, %rs364};",
+        "pack_line": 7026,
+        "last_defs": [
+          "mov.b32 {%rs364, %rs365}, %r1692;",
+          "mov.b32 {%rs364, %rs365}, %r1692;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1703, {%rs367, %rs366};",
+        "pack_line": 7056,
+        "last_defs": [
+          "mov.b32 {%rs366, %rs367}, %r1702;",
+          "mov.b32 {%rs366, %rs367}, %r1702;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1709, {%rs369, %rs368};",
+        "pack_line": 7078,
+        "last_defs": [
+          "mov.b32 {%rs368, %rs369}, %r1708;",
+          "mov.b32 {%rs368, %rs369}, %r1708;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_wait_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1721, {%rs363, %rs362};",
+        "pack_line": 7080,
+        "last_defs": [
+          "mov.b32 {%rs362, %rs363}, %r1720;",
+          "mov.b32 {%rs362, %rs363}, %r1720;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1727, {%rs365, %rs364};",
+        "pack_line": 7102,
+        "last_defs": [
+          "mov.b32 {%rs364, %rs365}, %r1726;",
+          "mov.b32 {%rs364, %rs365}, %r1726;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1737, {%rs367, %rs366};",
+        "pack_line": 7132,
+        "last_defs": [
+          "mov.b32 {%rs366, %rs367}, %r1736;",
+          "mov.b32 {%rs366, %rs367}, %r1736;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1743, {%rs369, %rs368};",
+        "pack_line": 7154,
+        "last_defs": [
+          "mov.b32 {%rs368, %rs369}, %r1742;",
+          "mov.b32 {%rs368, %rs369}, %r1742;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_chained_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1728, {%rs363, %rs362};",
+        "pack_line": 7093,
+        "last_defs": [
+          "mov.b32 {%rs362, %rs363}, %r1727;",
+          "mov.b32 {%rs362, %rs363}, %r1727;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1734, {%rs365, %rs364};",
+        "pack_line": 7115,
+        "last_defs": [
+          "mov.b32 {%rs364, %rs365}, %r1733;",
+          "mov.b32 {%rs364, %rs365}, %r1733;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1744, {%rs367, %rs366};",
+        "pack_line": 7145,
+        "last_defs": [
+          "mov.b32 {%rs366, %rs367}, %r1743;",
+          "mov.b32 {%rs366, %rs367}, %r1743;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1750, {%rs369, %rs368};",
+        "pack_line": 7167,
+        "last_defs": [
+          "mov.b32 {%rs368, %rs369}, %r1749;",
+          "mov.b32 {%rs368, %rs369}, %r1749;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_inpview_fp8",
+    "fused": 0,
+    "rejections": {
+      "not_two_local_down_defs": 32,
+      "guarded_or_same_half": 5
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1997, {%rs355, %rs354};",
+        "pack_line": 7586,
+        "last_defs": [
+          "mov.b32 {%rs354, %rs355}, %r1996;",
+          "mov.b32 {%rs354, %rs355}, %r1996;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2003, {%rs357, %rs356};",
+        "pack_line": 7608,
+        "last_defs": [
+          "mov.b32 {%rs356, %rs357}, %r2002;",
+          "mov.b32 {%rs356, %rs357}, %r2002;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2013, {%rs359, %rs358};",
+        "pack_line": 7638,
+        "last_defs": [
+          "mov.b32 {%rs358, %rs359}, %r2012;",
+          "mov.b32 {%rs358, %rs359}, %r2012;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2019, {%rs361, %rs360};",
+        "pack_line": 7660,
+        "last_defs": [
+          "mov.b32 {%rs360, %rs361}, %r2018;",
+          "mov.b32 {%rs360, %rs361}, %r2018;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1719, {%rs379, %rs378};",
+        "pack_line": 6993,
+        "last_defs": [
+          "mov.b32 {%rs378, %rs379}, %r1718;",
+          "mov.b32 {%rs378, %rs379}, %r1718;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1725, {%rs381, %rs380};",
+        "pack_line": 7015,
+        "last_defs": [
+          "mov.b32 {%rs380, %rs381}, %r1724;",
+          "mov.b32 {%rs380, %rs381}, %r1724;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1735, {%rs383, %rs382};",
+        "pack_line": 7045,
+        "last_defs": [
+          "mov.b32 {%rs382, %rs383}, %r1734;",
+          "mov.b32 {%rs382, %rs383}, %r1734;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1741, {%rs385, %rs384};",
+        "pack_line": 7067,
+        "last_defs": [
+          "mov.b32 {%rs384, %rs385}, %r1740;",
+          "mov.b32 {%rs384, %rs385}, %r1740;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 14,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1741, {%rs379, %rs378};",
+        "pack_line": 6993,
+        "last_defs": [
+          "mov.b32 {%rs378, %rs379}, %r1740;",
+          "mov.b32 {%rs378, %rs379}, %r1740;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1747, {%rs381, %rs380};",
+        "pack_line": 7015,
+        "last_defs": [
+          "mov.b32 {%rs380, %rs381}, %r1746;",
+          "mov.b32 {%rs380, %rs381}, %r1746;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1757, {%rs383, %rs382};",
+        "pack_line": 7045,
+        "last_defs": [
+          "mov.b32 {%rs382, %rs383}, %r1756;",
+          "mov.b32 {%rs382, %rs383}, %r1756;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1763, {%rs385, %rs384};",
+        "pack_line": 7067,
+        "last_defs": [
+          "mov.b32 {%rs384, %rs385}, %r1762;",
+          "mov.b32 {%rs384, %rs385}, %r1762;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_upsample_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2228, {%rs395, %rs394};",
+        "pack_line": 8031,
+        "last_defs": [
+          "mov.b32 {%rs394, %rs395}, %r2227;",
+          "mov.b32 {%rs394, %rs395}, %r2227;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2234, {%rs397, %rs396};",
+        "pack_line": 8053,
+        "last_defs": [
+          "mov.b32 {%rs396, %rs397}, %r2233;",
+          "mov.b32 {%rs396, %rs397}, %r2233;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2244, {%rs399, %rs398};",
+        "pack_line": 8083,
+        "last_defs": [
+          "mov.b32 {%rs398, %rs399}, %r2243;",
+          "mov.b32 {%rs398, %rs399}, %r2243;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2250, {%rs401, %rs400};",
+        "pack_line": 8105,
+        "last_defs": [
+          "mov.b32 {%rs400, %rs401}, %r2249;",
+          "mov.b32 {%rs400, %rs401}, %r2249;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_inpview_tilesync_fp8",
+    "fused": 0,
+    "rejections": {
+      "not_two_local_down_defs": 32,
+      "guarded_or_same_half": 5
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2004, {%rs355, %rs354};",
+        "pack_line": 7599,
+        "last_defs": [
+          "mov.b32 {%rs354, %rs355}, %r2003;",
+          "mov.b32 {%rs354, %rs355}, %r2003;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2010, {%rs357, %rs356};",
+        "pack_line": 7621,
+        "last_defs": [
+          "mov.b32 {%rs356, %rs357}, %r2009;",
+          "mov.b32 {%rs356, %rs357}, %r2009;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2020, {%rs359, %rs358};",
+        "pack_line": 7651,
+        "last_defs": [
+          "mov.b32 {%rs358, %rs359}, %r2019;",
+          "mov.b32 {%rs358, %rs359}, %r2019;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2026, {%rs361, %rs360};",
+        "pack_line": 7673,
+        "last_defs": [
+          "mov.b32 {%rs360, %rs361}, %r2025;",
+          "mov.b32 {%rs360, %rs361}, %r2025;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_ds_wait_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 14,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1784, {%rs379, %rs378};",
+        "pack_line": 7082,
+        "last_defs": [
+          "mov.b32 {%rs378, %rs379}, %r1783;",
+          "mov.b32 {%rs378, %rs379}, %r1783;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1790, {%rs381, %rs380};",
+        "pack_line": 7104,
+        "last_defs": [
+          "mov.b32 {%rs380, %rs381}, %r1789;",
+          "mov.b32 {%rs380, %rs381}, %r1789;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1800, {%rs383, %rs382};",
+        "pack_line": 7134,
+        "last_defs": [
+          "mov.b32 {%rs382, %rs383}, %r1799;",
+          "mov.b32 {%rs382, %rs383}, %r1799;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1806, {%rs385, %rs384};",
+        "pack_line": 7156,
+        "last_defs": [
+          "mov.b32 {%rs384, %rs385}, %r1805;",
+          "mov.b32 {%rs384, %rs385}, %r1805;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_outview_wait_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1760, {%rs379, %rs378};",
+        "pack_line": 7082,
+        "last_defs": [
+          "mov.b32 {%rs378, %rs379}, %r1759;",
+          "mov.b32 {%rs378, %rs379}, %r1759;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1766, {%rs381, %rs380};",
+        "pack_line": 7104,
+        "last_defs": [
+          "mov.b32 {%rs380, %rs381}, %r1765;",
+          "mov.b32 {%rs380, %rs381}, %r1765;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1776, {%rs383, %rs382};",
+        "pack_line": 7134,
+        "last_defs": [
+          "mov.b32 {%rs382, %rs383}, %r1775;",
+          "mov.b32 {%rs382, %rs383}, %r1775;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1782, {%rs385, %rs384};",
+        "pack_line": 7156,
+        "last_defs": [
+          "mov.b32 {%rs384, %rs385}, %r1781;",
+          "mov.b32 {%rs384, %rs385}, %r1781;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_tinlayout_fused_swin_1h_32_1_upsample_tilesync_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2235, {%rs395, %rs394};",
+        "pack_line": 8044,
+        "last_defs": [
+          "mov.b32 {%rs394, %rs395}, %r2234;",
+          "mov.b32 {%rs394, %rs395}, %r2234;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2241, {%rs397, %rs396};",
+        "pack_line": 8066,
+        "last_defs": [
+          "mov.b32 {%rs396, %rs397}, %r2240;",
+          "mov.b32 {%rs396, %rs397}, %r2240;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2251, {%rs399, %rs398};",
+        "pack_line": 8096,
+        "last_defs": [
+          "mov.b32 {%rs398, %rs399}, %r2250;",
+          "mov.b32 {%rs398, %rs399}, %r2250;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2257, {%rs401, %rs400};",
+        "pack_line": 8118,
+        "last_defs": [
+          "mov.b32 {%rs400, %rs401}, %r2256;",
+          "mov.b32 {%rs400, %rs401}, %r2256;"
+        ]
+      }
+    ]
+  }
+]

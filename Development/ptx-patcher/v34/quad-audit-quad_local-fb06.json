@@ -1,0 +1,95 @@
+[
+  {
+    "kernel": "cc_dec_input_upsample_1024_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 36,
+      "not_two_local_down_defs": 64
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r3054, {%rs195, %rs196};",
+        "pack_line": 8217,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r3053, {%rs193, %rs194};",
+        "pack_line": 8218,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r3052, {%rs191, %rs192};",
+        "pack_line": 8219,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r3051, {%rs189, %rs190};",
+        "pack_line": 8220,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_dec_input_upsample_1024_512_tilesync_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 36,
+      "not_two_local_down_defs": 64
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r3056, {%rs195, %rs196};",
+        "pack_line": 8220,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r3055, {%rs193, %rs194};",
+        "pack_line": 8221,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r3054, {%rs191, %rs192};",
+        "pack_line": 8222,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r3053, {%rs189, %rs190};",
+        "pack_line": 8223,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_cb_clear",
+    "fused": 0,
+    "rejections": {},
+    "accepted": [],
+    "rejection_examples": []
+  }
+]

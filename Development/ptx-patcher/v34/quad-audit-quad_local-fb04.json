@@ -1,0 +1,921 @@
+[
+  {
+    "kernel": "cc_split_swin_16h_ffwd_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 4,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r522, {%rs67, %rs68};",
+        "pack_line": 2638,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r521, {%rs65, %rs66};",
+        "pack_line": 2639,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r520, {%rs63, %rs64};",
+        "pack_line": 2640,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r519, {%rs61, %rs62};",
+        "pack_line": 2641,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_inpview_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1264, {%rs111, %rs112};",
+        "pack_line": 4830,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1263, {%rs109, %rs110};",
+        "pack_line": 4831,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1262, {%rs107, %rs108};",
+        "pack_line": 4832,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1261, {%rs105, %rs106};",
+        "pack_line": 4833,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_inpview_512_tilesync_fp8",
+    "fused": 0,
+    "rejections": {
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1269, {%rs111, %rs112};",
+        "pack_line": 4841,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1268, {%rs109, %rs110};",
+        "pack_line": 4842,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1267, {%rs107, %rs108};",
+        "pack_line": 4843,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1266, {%rs105, %rs106};",
+        "pack_line": 4844,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_512_wait_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 4,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r590, {%rs67, %rs68};",
+        "pack_line": 2802,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r589, {%rs65, %rs66};",
+        "pack_line": 2803,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r588, {%rs63, %rs64};",
+        "pack_line": 2804,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r587, {%rs61, %rs62};",
+        "pack_line": 2805,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_512_tilesync_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 4,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r527, {%rs67, %rs68};",
+        "pack_line": 2649,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r526, {%rs65, %rs66};",
+        "pack_line": 2650,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r525, {%rs63, %rs64};",
+        "pack_line": 2651,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r524, {%rs61, %rs62};",
+        "pack_line": 2652,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_512_chained_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 4,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r595, {%rs67, %rs68};",
+        "pack_line": 2813,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r594, {%rs65, %rs66};",
+        "pack_line": 2814,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r593, {%rs63, %rs64};",
+        "pack_line": 2815,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r592, {%rs61, %rs62};",
+        "pack_line": 2816,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_proj_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 32,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1319, {%rs123, %rs124};",
+        "pack_line": 3760,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1318, {%rs121, %rs122};",
+        "pack_line": 3761,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1317, {%rs119, %rs120};",
+        "pack_line": 3762,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1316, {%rs117, %rs118};",
+        "pack_line": 3763,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_proj_512_wait_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 32,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1428, {%rs123, %rs124};",
+        "pack_line": 3963,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1427, {%rs121, %rs122};",
+        "pack_line": 3964,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1426, {%rs119, %rs120};",
+        "pack_line": 3965,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1425, {%rs117, %rs118};",
+        "pack_line": 3966,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_proj_512_chained_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 32,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1435, {%rs123, %rs124};",
+        "pack_line": 3967,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1434, {%rs121, %rs122};",
+        "pack_line": 3968,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1433, {%rs119, %rs120};",
+        "pack_line": 3969,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1432, {%rs117, %rs118};",
+        "pack_line": 3970,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_proj_inpview_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 16,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2003, {%rs107, %rs108};",
+        "pack_line": 4997,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2002, {%rs105, %rs106};",
+        "pack_line": 4998,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2001, {%rs103, %rs104};",
+        "pack_line": 4999,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2000, {%rs101, %rs102};",
+        "pack_line": 5000,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_ffwd_proj_inpview_512_chained_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 16,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r2123, {%rs107, %rs108};",
+        "pack_line": 5211,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2122, {%rs105, %rs106};",
+        "pack_line": 5212,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2121, {%rs103, %rs104};",
+        "pack_line": 5213,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r2120, {%rs101, %rs102};",
+        "pack_line": 5214,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_qkv_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r706, {%rs141, %rs140};",
+        "pack_line": 3063,
+        "last_defs": [
+          "mov.b32 {%rs140, %rs141}, %r705;",
+          "mov.b32 {%rs140, %rs141}, %r705;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r712, {%rs143, %rs142};",
+        "pack_line": 3085,
+        "last_defs": [
+          "mov.b32 {%rs142, %rs143}, %r711;",
+          "mov.b32 {%rs142, %rs143}, %r711;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r722, {%rs145, %rs144};",
+        "pack_line": 3115,
+        "last_defs": [
+          "mov.b32 {%rs144, %rs145}, %r721;",
+          "mov.b32 {%rs144, %rs145}, %r721;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r728, {%rs147, %rs146};",
+        "pack_line": 3137,
+        "last_defs": [
+          "mov.b32 {%rs146, %rs147}, %r727;",
+          "mov.b32 {%rs146, %rs147}, %r727;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_qkv_512_chained_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 13,
+      "not_two_local_down_defs": 32
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r809, {%rs141, %rs140};",
+        "pack_line": 3269,
+        "last_defs": [
+          "mov.b32 {%rs140, %rs141}, %r808;",
+          "mov.b32 {%rs140, %rs141}, %r808;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r815, {%rs143, %rs142};",
+        "pack_line": 3291,
+        "last_defs": [
+          "mov.b32 {%rs142, %rs143}, %r814;",
+          "mov.b32 {%rs142, %rs143}, %r814;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r825, {%rs145, %rs144};",
+        "pack_line": 3321,
+        "last_defs": [
+          "mov.b32 {%rs144, %rs145}, %r824;",
+          "mov.b32 {%rs144, %rs145}, %r824;"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r831, {%rs147, %rs146};",
+        "pack_line": 3343,
+        "last_defs": [
+          "mov.b32 {%rs146, %rs147}, %r830;",
+          "mov.b32 {%rs146, %rs147}, %r830;"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_proj_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 16,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r697, {%rs75, %rs76};",
+        "pack_line": 2145,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r696, {%rs73, %rs74};",
+        "pack_line": 2146,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r695, {%rs71, %rs72};",
+        "pack_line": 2147,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r694, {%rs69, %rs70};",
+        "pack_line": 2148,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_proj_512_tilesync_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 16,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r696, {%rs75, %rs76};",
+        "pack_line": 2145,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r695, {%rs73, %rs74};",
+        "pack_line": 2146,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r694, {%rs71, %rs72};",
+        "pack_line": 2147,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r693, {%rs69, %rs70};",
+        "pack_line": 2148,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_proj_512_wait_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 16,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r794, {%rs75, %rs76};",
+        "pack_line": 2372,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r793, {%rs73, %rs74};",
+        "pack_line": 2373,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r792, {%rs71, %rs72};",
+        "pack_line": 2374,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r791, {%rs69, %rs70};",
+        "pack_line": 2375,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_proj_512_chained_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 16,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r793, {%rs75, %rs76};",
+        "pack_line": 2372,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r792, {%rs73, %rs74};",
+        "pack_line": 2373,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r791, {%rs71, %rs72};",
+        "pack_line": 2374,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r790, {%rs69, %rs70};",
+        "pack_line": 2375,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_proj_512_outview_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 32
+    },
+    "accepted": [],
+    "rejection_examples": []
+  },
+  {
+    "kernel": "cc_split_swin_16h_proj_512_outview_wait_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 32
+    },
+    "accepted": [],
+    "rejection_examples": []
+  },
+  {
+    "kernel": "cc_split_swin_16h_proj_pool_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 25,
+      "not_two_local_down_defs": 40
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1643, {%rs103, %rs104};",
+        "pack_line": 4151,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1642, {%rs101, %rs102};",
+        "pack_line": 4152,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1641, {%rs99, %rs100};",
+        "pack_line": 4153,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1640, {%rs97, %rs98};",
+        "pack_line": 4154,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_proj_pool_512_chained_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 25,
+      "not_two_local_down_defs": 40
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r1714, {%rs103, %rs104};",
+        "pack_line": 4314,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1713, {%rs101, %rs102};",
+        "pack_line": 4315,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1712, {%rs99, %rs100};",
+        "pack_line": 4316,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r1711, {%rs97, %rs98};",
+        "pack_line": 4317,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_final_head_512_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 8,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r253, {%rs35, %rs36};",
+        "pack_line": 1224,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r252, {%rs33, %rs34};",
+        "pack_line": 1225,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r251, {%rs31, %rs32};",
+        "pack_line": 1226,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r250, {%rs29, %rs30};",
+        "pack_line": 1227,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  },
+  {
+    "kernel": "cc_split_swin_16h_final_head_512_wait_fp8",
+    "fused": 0,
+    "rejections": {
+      "guarded_or_same_half": 8,
+      "not_two_local_down_defs": 16
+    },
+    "accepted": [],
+    "rejection_examples": [
+      {
+        "pack": "mov.b32 %r295, {%rs35, %rs36};",
+        "pack_line": 1350,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r294, {%rs33, %rs34};",
+        "pack_line": 1351,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r293, {%rs31, %rs32};",
+        "pack_line": 1352,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      },
+      {
+        "pack": "mov.b32 %r292, {%rs29, %rs30};",
+        "pack_line": 1353,
+        "last_defs": [
+          "no definition in this basic block",
+          "no definition in this basic block"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "chosen_fbs": [
+    1
+  ],
+  "rule": "at least one REG/STACK decrease and no active kernel REG/STACK increase in module; fixed before timing",
+  "reused_candidate": "quad_fb0145",
+  "reason": "other selected 0145 modules 00/04/05 have no new pairs and are baseline-identical"
+}

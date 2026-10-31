@@ -1217,3 +1217,16 @@ FB02/03增加80处正零，总580；FB04八个baseline零Spill活跃入口新增
 计数{'smoke': 27, 'timed': 144}，严格增量（含基线）135次末帧0bit，新增Pack4/联合36次按预设质量门。50/80严格串行正反ABBA/BAAB，首轮六向全胜全部repeat。十一个保护路径SHA不变，无单次.log，清理临时大二进制与帧；三个干净小提交，无Co-Authored-By、不push。
 
 [回执](ptx-patcher/v41/README.md)、[配对](ptx-patcher/v41/timing-summary.md)、[验收](ptx-patcher/v41/validation.json)。
+
+
+## 2026-11-01：PTX V4.2，分支5第二轮FB00隔离、FB01降Spill和7-SASS Quad（闇）
+
+本轮无晋升，保留V4.0为唯一1.00×。 分支5 Open 2/3，其他六分支保持Pruned3/3，Open=1。
+
+A仅FB00五活跃入口新增Pack4、排除pre_block，当前配方非NOP净减168，所有FB00入口STACK/STL/LDL不增；不把旧新增Spill来源直接当作整帧唯一因果。B先构造FB01四入口诊断，按实际STACK/STL/LDL不增加全部入选clean，净减488，全网STL/LDL99/100→98/98，不额外卡REG。
+
+C独立O4切片验证旧两次Pack4+拼接9核心SASS、Quad7核心（2 HMUL2+2 LEA+2 LOP3+1 PRMT），33554432对GPU原语零差异，包含Inf/NaN/负零；相对既有Pack4语义。声明绑定、同块源稳定、半字无中途读取和全CFG死后证明通过14项结构/作用域/守卫/回边测试。全导出融合1232组，活跃入口424组，实际PRMT净减847（修正预估848）、非NOP净减842。clean八活跃入口均满足无Spill增长。两个联合备选全部预构造/查询/冒烟，按预注册最弱方向优先规则选`joint_A_B_pack4_quad_clean`独立计时。
+
+计数{'smoke': 24, 'timed': 120}，严格增量（含基线）93次末帧0bit，新增Pack4/联合51次按预设质量门。全部50/80串行正反ABBA/BAAB，首轮六向全胜全部repeat。十一保护路径SHA不变，清理临时大二进制和帧，无单次.log；三个独立小提交，无Co-Authored-By、不push。
+
+[完整回执](ptx-patcher/v42/README.md)、[配对](ptx-patcher/v42/timing-summary.md)、[验收](ptx-patcher/v42/validation.json)。

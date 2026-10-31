@@ -1204,3 +1204,16 @@ B：1031对/2062处cross_block UP全部通过唯一无守卫half定义、split�
 [完整回执](ptx-patcher/v40/README.md)、[配对](ptx-patcher/v40/timing-summary.md)、[验收](ptx-patcher/v40/validation.json)。
 
 V3.9回执勘误：`up_pair_all`首轮唯一负向为1080p前向−0.167960%，原回执误标720p；本次仅修正该文字，V3.9原始JSON未改。
+
+
+## 2026-11-01：PTX V4.1，在V4.0上补全驻留不变UP、正零与FB04 Pack4（闇）
+
+本轮无晋升，保留V4.0为唯一1.00×。 分支5 Open 1/3，其余六分支维持Pruned3/3，全表Open=1。
+
+唯一参考V4.0 SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`，重建配方同SHA。三个UP增量分别加入pool/FB06/两者，均复核STACK/STL/LDL不增加及官方CTA不降；pool REG180→181/SASS6001→5841，FB06在完整V4.0配方下REG203→206/SASS3855→3533，二者0 Spill且2/4 CTA不变，总非NOP144979，纠正计划混用未叠加Pack4诊断数据的数字。
+
+FB02/03增加80处正零，总580；FB04八个baseline零Spill活跃入口新增经验Pack4，保留近似标签。三个联合备选全部在计时前构造、查询与冒烟；单因素完成后按预注册最弱方向优先规则选`joint_up_add_fb4pool_zero_pack4`独立计时，未选联合仅保留资源/质量记录。13项安全/CFG测试与33554432个32位GPU模式原语通过，排除模块及入口一致性核验通过。
+
+计数{'smoke': 27, 'timed': 144}，严格增量（含基线）135次末帧0bit，新增Pack4/联合36次按预设质量门。50/80严格串行正反ABBA/BAAB，首轮六向全胜全部repeat。十一个保护路径SHA不变，无单次.log，清理临时大二进制与帧；三个干净小提交，无Co-Authored-By、不push。
+
+[回执](ptx-patcher/v41/README.md)、[配对](ptx-patcher/v41/timing-summary.md)、[验收](ptx-patcher/v41/validation.json)。

@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "counts": {
+    "smoke": 21,
+    "timed": 120,
+    "repeat": 24
+  },
+  "exact_runs": 123,
+  "approximate_runs": 42,
+  "all_measurements_serial": true,
+  "construction_and_GPU_queries_before_clean_measurements": true,
+  "repeat_eligible": [
+    "joint_up_cfg_pack4_fb2356"
+  ],
+  "winners": [
+    "joint_up_cfg_pack4_fb2356"
+  ],
+  "open_branch_count": 1,
+  "branches": {
+    "5": {
+      "state": "Open",
+      "n": 0
+    }
+  },
+  "protected_paths": 10,
+  "protected_unchanged": true,
+  "no_production_deployment": true,
+  "scope": "fixed V3.8 baseline, three deterministic benchmark inputs; empirical Pack4 is not a static activation bound; UP changes only unique unguarded split definitions with same-block or CFG all-path source stability proofs",
+  "cleanup_complete": true,
+  "protected_unchanged_after_cleanup": true
+}

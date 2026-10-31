@@ -1,0 +1,134 @@
+{
+  "rule": "before timing: four independent entries; regdown selects strictly lower REG, noinp excludes inpview (tied largest +1 REG); both joint candidates add qkv unrolled and zero folding",
+  "entry_resources": {
+    "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8": {
+      "REG": [
+        196,
+        194
+      ],
+      "STACK": [
+        0,
+        0
+      ],
+      "STL": [
+        0,
+        0
+      ],
+      "LDL": [
+        0,
+        0
+      ],
+      "INSN_NONOP": [
+        6964,
+        6525
+      ],
+      "PRMT": [
+        1009,
+        549
+      ],
+      "resident_CTA_per_SM": [
+        1,
+        1
+      ]
+    },
+    "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8": {
+      "REG": [
+        198,
+        199
+      ],
+      "STACK": [
+        0,
+        0
+      ],
+      "STL": [
+        0,
+        0
+      ],
+      "LDL": [
+        0,
+        0
+      ],
+      "INSN_NONOP": [
+        5861,
+        5350
+      ],
+      "PRMT": [
+        929,
+        497
+      ],
+      "resident_CTA_per_SM": [
+        1,
+        1
+      ]
+    },
+    "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8": {
+      "REG": [
+        190,
+        191
+      ],
+      "STACK": [
+        0,
+        0
+      ],
+      "STL": [
+        0,
+        0
+      ],
+      "LDL": [
+        0,
+        0
+      ],
+      "INSN_NONOP": [
+        5881,
+        5418
+      ],
+      "PRMT": [
+        938,
+        505
+      ],
+      "resident_CTA_per_SM": [
+        1,
+        1
+      ]
+    },
+    "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8": {
+      "REG": [
+        203,
+        202
+      ],
+      "STACK": [
+        0,
+        0
+      ],
+      "STL": [
+        0,
+        0
+      ],
+      "LDL": [
+        0,
+        0
+      ],
+      "INSN_NONOP": [
+        6836,
+        6064
+      ],
+      "PRMT": [
+        1105,
+        593
+      ],
+      "resident_CTA_per_SM": [
+        1,
+        1
+      ]
+    }
+  },
+  "regdown": [
+    "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8"
+  ],
+  "noinp": [
+    "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+    "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8"
+  ]
+}

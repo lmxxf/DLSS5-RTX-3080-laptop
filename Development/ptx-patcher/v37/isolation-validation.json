@@ -1,0 +1,53 @@
+{
+  "async_qkv_only": {
+    "allowed_changed_entries": [
+      "cc_split_swin_16h_qkv_512_chained_fp8"
+    ],
+    "unchanged_launched_entries_PTX_and_SASS": 37
+  },
+  "async_qkv_unrolled": {
+    "allowed_changed_entries": [
+      "cc_split_swin_16h_qkv_512_chained_fp8"
+    ],
+    "unchanged_launched_entries_PTX_and_SASS": 37
+  },
+  "fb3_ds_wait_fast_inplace": {
+    "allowed_changed_entries": [
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8"
+    ],
+    "unchanged_launched_entries_PTX_and_SASS": 37
+  },
+  "fb3_inpview_fast_inplace": {
+    "allowed_changed_entries": [
+      "cc_tinlayout_fused_swin_8h_256_8_inpview_tilesync_fp8"
+    ],
+    "unchanged_launched_entries_PTX_and_SASS": 37
+  },
+  "fb3_outview_fast_inplace": {
+    "allowed_changed_entries": [
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8"
+    ],
+    "unchanged_launched_entries_PTX_and_SASS": 37
+  },
+  "fb3_upsample_fast_inplace": {
+    "allowed_changed_entries": [
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8"
+    ],
+    "unchanged_launched_entries_PTX_and_SASS": 37
+  },
+  "fb3_regdown_fast_inplace": {
+    "allowed_changed_entries": [
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8"
+    ],
+    "unchanged_launched_entries_PTX_and_SASS": 36
+  },
+  "fb3_noinp_fast_inplace": {
+    "allowed_changed_entries": [
+      "cc_tinlayout_fused_swin_8h_256_8_ds_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_outview_wait_fp8",
+      "cc_tinlayout_fused_swin_8h_256_8_upsample_tilesync_fp8"
+    ],
+    "unchanged_launched_entries_PTX_and_SASS": 35
+  }
+}

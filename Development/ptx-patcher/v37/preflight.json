@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "clean_smoke_runs": 42,
+  "timing_candidates": [
+    "async_qkv_only",
+    "async_qkv_unrolled",
+    "pack_zero_const",
+    "pack4_clean2356",
+    "pack4_clean36",
+    "fb3_ds_wait_fast_inplace",
+    "fb3_inpview_fast_inplace",
+    "fb3_outview_fast_inplace",
+    "fb3_upsample_fast_inplace",
+    "fb3_regdown_fast_inplace",
+    "joint_regdown",
+    "fb3_noinp_fast_inplace",
+    "joint_noinp"
+  ],
+  "baseline_identical_not_rebenchmarked": [],
+  "zero_folds": 680,
+  "original_15_slots_O4": true,
+  "no_per_run_log_files": true
+}

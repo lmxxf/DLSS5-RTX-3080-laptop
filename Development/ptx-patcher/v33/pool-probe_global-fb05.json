@@ -1,0 +1,577 @@
+{
+  "runs": [
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_expand_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_expand_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_expand_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_expand_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_contract_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_contract_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 0,
+      "encoded_operands": 40,
+      "temporary_b32_peak": 56,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_qkv_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 0,
+      "encoded_operands": 40,
+      "temporary_b32_peak": 56,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_qkv_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_attention_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 32,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 32,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_attention_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_projection_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_projection_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_projection_tilesync_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_projection_tilesync_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_expand_tilesync_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_expand_tilesync_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_expand_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_expand_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_contract_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_ffn_contract_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 0,
+      "encoded_operands": 40,
+      "temporary_b32_peak": 56,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_qkv_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 0,
+      "encoded_operands": 40,
+      "temporary_b32_peak": 56,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_qkv_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 0,
+      "encoded_operands": 40,
+      "temporary_b32_peak": 56,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_qkv_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 0,
+      "encoded_operands": 40,
+      "temporary_b32_peak": 56,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_qkv_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_attention_tilesync_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 32,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 32,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_attention_tilesync_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_attention_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 32,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 32,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_attention_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_attention_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 32,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 32,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_attention_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_projection_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_projection_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_projection_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_projection_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 64,
+      "mapped_operands": 0,
+      "encoded_operands": 64,
+      "temporary_b32_peak": 80,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_ffn_expand_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 64,
+      "mapped_operands": 32,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 16,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_ffn_expand_publish_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 64,
+      "mapped_operands": 32,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 16,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_ffn_expand_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 64,
+      "mapped_operands": 0,
+      "encoded_operands": 64,
+      "temporary_b32_peak": 80,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_ffn_contract_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 64,
+      "mapped_operands": 0,
+      "encoded_operands": 64,
+      "temporary_b32_peak": 80,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_ffn_contract_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 64,
+      "mapped_operands": 32,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 16,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_ffn_contract_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 64,
+      "mapped_operands": 32,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 16,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_ffn_contract_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 0,
+      "encoded_operands": 40,
+      "temporary_b32_peak": 56,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_qkv_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 0,
+      "encoded_operands": 40,
+      "temporary_b32_peak": 56,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_qkv_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 24,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 8,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_qkv_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 48,
+      "mapped_operands": 24,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 8,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_qkv_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_attention_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 32,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 32,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_attention_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_attention_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 32,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 32,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_attention_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_projection_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 32,
+      "temporary_b32_peak": 40,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_projection_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 16,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 8,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_projection_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 16,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 8,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_projection_wait_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 16,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 8,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_projection_chained_fp8",
+      "FB": 5
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 16,
+      "encoded_operands": 16,
+      "temporary_b32_peak": 8,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_vit_1d_projection_chained_fp8",
+      "FB": 5
+    }
+  ],
+  "probe_events": {
+    "cc_vit_1d_ffn_expand_publish_fp8": {
+      "probe_global": 32
+    },
+    "cc_vit_1d_ffn_expand_chained_fp8": {
+      "probe_global": 32
+    },
+    "cc_vit_1d_ffn_contract_chained_fp8": {
+      "probe_global": 64
+    },
+    "cc_vit_1d_qkv_chained_fp8": {
+      "probe_global": 48
+    },
+    "cc_vit_1d_attention_chained_fp8": {
+      "probe_global": 0
+    },
+    "cc_vit_1d_projection_wait_fp8": {
+      "probe_global": 32
+    },
+    "cc_vit_1d_projection_chained_fp8": {
+      "probe_global": 32
+    }
+  }
+}

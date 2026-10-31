@@ -1,0 +1,49 @@
+{
+  "runs": [
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 72,
+      "temporary_b32_peak": 20,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_dec_input_upsample_1024_512_fp8",
+      "FB": 6
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 0,
+      "encoded_operands": 72,
+      "temporary_b32_peak": 20,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_dec_input_upsample_1024_512_fp8",
+      "FB": 6
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 8,
+      "encoded_operands": 64,
+      "temporary_b32_peak": 4,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_dec_input_upsample_1024_512_tilesync_fp8",
+      "FB": 6
+    },
+    {
+      "mma_sites": 32,
+      "mapped_operands": 8,
+      "encoded_operands": 64,
+      "temporary_b32_peak": 4,
+      "backup_moves": 0,
+      "phase0_clobber_sources": [],
+      "kernel": "cc_dec_input_upsample_1024_512_tilesync_fp8",
+      "FB": 6
+    }
+  ],
+  "probe_events": {
+    "cc_dec_input_upsample_1024_512_tilesync_fp8": {
+      "probe_shared": 16
+    }
+  }
+}

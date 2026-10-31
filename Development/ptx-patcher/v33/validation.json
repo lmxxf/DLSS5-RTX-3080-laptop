@@ -1,0 +1,53 @@
+{
+  "data_checks_pass": true,
+  "counts": {
+    "smoke": 33,
+    "probes": 84,
+    "bench": 240,
+    "repeat": 24
+  },
+  "functional_candidates": [
+    "phase_pass",
+    "remat_spill",
+    "remat_fb1",
+    "remat_qkv",
+    "quad_all",
+    "quad_fb23",
+    "remat_call",
+    "phase_quad_fb23",
+    "phase_guarded",
+    "phase_guarded_quad_fb23"
+  ],
+  "strict_successful_runs": 309,
+  "destructive_probe_runs": 72,
+  "all_run_processes_serial": true,
+  "all_compile_and_resource_stages_before_timing": true,
+  "serial_stage_count": 10,
+  "last_compile_file_time": "2026-10-31T22:29:48.739054",
+  "first_measurement_begin": "2026-10-31T22:31:57.139833",
+  "repeat_eligible": [
+    "quad_all"
+  ],
+  "winners": [],
+  "branch2": {
+    "state": "Open",
+    "n": 2
+  },
+  "branch3": {
+    "state": "Pruned",
+    "n": 3
+  },
+  "branch4": {
+    "state": "Open",
+    "n": 1,
+    "safe_forwarding_candidates": 0
+  },
+  "protected_paths": 9,
+  "protected_unchanged": true,
+  "reference_sha256": "1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86",
+  "no_dynamic_stall_or_issued_counters": true,
+  "review_order": "raw logs, exact output SHA, SASS/resources, official occupancy, source counts, serial timing and branches before narrative",
+  "cleanup_complete": true,
+  "temporary_bytes_removed": 5291002338,
+  "protected_unchanged_after_cleanup": true
+}

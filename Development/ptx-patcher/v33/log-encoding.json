@@ -1,0 +1,2294 @@
+[
+  {
+    "path": "probe-reverse-1-4-probe_global_family-1600.log",
+    "original_sha256": "3b1f6986b977076619aa172e534e31327baafecbe1fcee96bdb7572b5d5b2103",
+    "committed_sha256": "0207677ef7f634ff570a789a63bf3bee1ee173ac2c02abeaac56068c40611c2c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-1-remat_call-1920.log",
+    "original_sha256": "34a7a582e7c20856891867e7f8e66b32b99c068c9827e622fa5e1c4676ba7316",
+    "committed_sha256": "dce781096b76a3f563c7beb4059fbc0804ddc4ed5708ae49fecb3871ccbbbb28",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-1-baseline-1280.log",
+    "original_sha256": "4a9223a0f315cb9ec8d054ff306e98dcdb9f143f52e7d766f18fcb1371853d84",
+    "committed_sha256": "84f0cc03cc87096971979d4f8681dacd158344774f75cb804dfe89059fb09137",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_spill-1280.log",
+    "original_sha256": "bf0c34e7616141856d9e9d802bb5d936d174984b6cf5de5d9df829b53a3a6613",
+    "committed_sha256": "121f23e86829691a4aeb83ac9746dd87ca87444c49284631c8d79b963708c4c3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-2-probe_global_family-1600.log",
+    "original_sha256": "b408e79eb5bd737b7bcd18a9b590eb79163c5882a56dff28fa76e90006b7d2bd",
+    "committed_sha256": "22689770bfa02c8808d6807493434ac3a44d8b57dc98f670768246e250408757",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-1-remat_spill-1600.log",
+    "original_sha256": "ceaf5ecaf1d4307f5cded55db1cd71d974bc43694c9440244fcbc1f4089cff1e",
+    "committed_sha256": "f1a5ccbde7b85c0f7f7b85cf8217aa78687fa127a7ff8a0adfe5544c66541bcc",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-0-baseline-1280.log",
+    "original_sha256": "5b78a6354cbd303edd321a1b9016794bdef691a57bc7fd21373df2053ffc6b4e",
+    "committed_sha256": "c3c174cdf1a5e3a2640315aaede14549c242336716123064bf3f40a714a6ad8b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-3-probe_global-1280.log",
+    "original_sha256": "b3b0ac5b4b0ec3cc7597c37565ff441496b5171ef633f92237d0d2a5b4179d70",
+    "committed_sha256": "bde3d2b4712e9331f7dfe79ff258cda016e858ff6552078c2bb9f97369b547d9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-3-baseline-1280.log",
+    "original_sha256": "49db877d3bb7f24d946c06f37b3980675b179c38f69203d0398dba4032908853",
+    "committed_sha256": "7f1dd16608b2092b68cd3f1d40a080fe70b386a615b2cc532c4b2bdfa2fc6d0a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-3-probe_global-1280.log",
+    "original_sha256": "8d4987bcfc36a7f597d54ef19e0c07366cc003a04d4ccfa66d08bdd64a35c4a0",
+    "committed_sha256": "8009e8b0e1d9eba97d22de0eae14ae723bc598721ab6ef11b5a14d66580c24d2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-3-remat_spill-1920.log",
+    "original_sha256": "244392846a9092f27bc4a3aa5e5ada0cef8b9907c03c673b580a059d56fdccdd",
+    "committed_sha256": "33c11de9299a4596d1d6707300557dd056d7a9654859cd82cd551fdc751cd4dd",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-3-phase_pass-1920.log",
+    "original_sha256": "13755b37459c71d25f6401a2841e58be5388d33d692aa2f9057a8ac060f2e677",
+    "committed_sha256": "2de0359fd744239bdd392d2df8f1ce32c5ec3191ecd39c06fa0253a93d3df2a7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-2-quad_fb23-1920.log",
+    "original_sha256": "e20bd9f4f666218bcd14644b243d6dc7d841d6101faa557ba2731ce9ca88e30d",
+    "committed_sha256": "b591b9ed5344dea14304380db017bd90f806eb10eefb903b94fef0d6445cf004",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-2-quad_all-1920.log",
+    "original_sha256": "18a0821679c9ea4d85af87ff1ebdaa36eb1f34c9ee92e0071c834aae7f36b55a",
+    "committed_sha256": "7dd7a9b80928107ad906997364e3c98f4cf8ad4c3c5177e3188ad006e3014d61",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-baseline-1600.log",
+    "original_sha256": "39c8d8e0c0de97e83ff9c15d95c94c375402e1e2889f6d77608561f280e65258",
+    "committed_sha256": "e275853e4c30d801736065b4f6e46c370ccf7c3c69dd2ec380497b1cfd8fd325",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-0-quad_fb23-1600.log",
+    "original_sha256": "ac369bc582747a3ad66eda5f5f0003e51091a8f6ee6a3f95a4097234e6d050f4",
+    "committed_sha256": "8aefe45894bd2006bab91a258b64292f47f71c65f733a987e217c8c1d6f8abbd",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_call-1600.log",
+    "original_sha256": "b7425ca533da7ca96454f4b88f36ade1f75cf3696781c1c1e9d7350f45ad97b4",
+    "committed_sha256": "4b13148d9820fc28ba212c237919e5d80f1949cd7f997bcf09d8b059da661d61",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-3-baseline-1600.log",
+    "original_sha256": "72e92fcb29c4e3678700663eb41334ea04f3fb9e69d460a6bb35f6fa19a94426",
+    "committed_sha256": "61235754b8af01577ef726017c8ab6fdd9a5c6d7b3f458f164e53220084e13f3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-2-quad_all-1280.log",
+    "original_sha256": "68ddffcb6d6bae4ead6dcf6c6ab5e40914c20d1b1217b4dec7792d4148dd1b4b",
+    "committed_sha256": "c8d435d7eec2ab9b6422ad0eaf835be742854f469db6a52293f77fceba91695c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-0-baseline-1600.log",
+    "original_sha256": "96204c9a8d82e5ce079ac38ee82d9ad843b4fafd4e6859c08a19381272ec2df2",
+    "committed_sha256": "46c56656ca8ebc28c1891660e92ea9a97976dfd424b0ef57f22b0ab69863914a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-3-remat_fb1-1920.log",
+    "original_sha256": "bf5dabe56bcfd2bf8ec76088b53f6726f9150aeab37115cea3344b0b2301f927",
+    "committed_sha256": "d2a9c41cb6fe678c24f9a5e5b6583d950c47d4c8e053468acb06745210c74d5d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-1-baseline-1280.log",
+    "original_sha256": "b2031a7445293029cd718fe2e65a5ddf207c9e1026a1beae8ac6e4535a5c5d6b",
+    "committed_sha256": "e3c70c4f8ccc258e26474eb1db0778498b4070774f9ca146af0d18de134c2b08",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-0-baseline-1920.log",
+    "original_sha256": "9dad70185e2734c02c36575c541a7edf997a2d6f53177b05183879dd599ff7b1",
+    "committed_sha256": "6e3a1ee54a1752e009e70be3d1b0dce26168be2e4adc41ed995903cc74bcb5a6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-3-baseline-1600.log",
+    "original_sha256": "ae36fe663f958563e23ae70701b67530b542b29edd58bb4c0ab4ac9ec2180367",
+    "committed_sha256": "7a77aa0fceae0e87b871699ddcf5867d1eaaeecdf0da99064ee1c2d264c3665e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-3-probe_global-1920.log",
+    "original_sha256": "8dacff17ecb954b394275f6e69bed48d838d2edda29b07ad955fac419e151b68",
+    "committed_sha256": "7e7c8ac897217cefbb858a1bea2fd2ad3342571eefb915e8707527e3cc9a0bc4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-0-baseline-1280.log",
+    "original_sha256": "6c18ddba14f7351cff35b4c2a0bfc8cc9daa961f7a1de673dacfbc389ec55b81",
+    "committed_sha256": "907d4ada9620c4cf2942497166cdcb72a97c075ba98da5efcd7f36cc71f54a34",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-1-baseline-1600.log",
+    "original_sha256": "197e2cf01da4205d8c07b13156837c132de9eaa8363196b28eb972014e7bf53c",
+    "committed_sha256": "96d14b4c11ee5c34195100bcc1d9986ab6109ccf3e6c203a17c6279d13b8c854",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-6-probe_all-1920.log",
+    "original_sha256": "5fd86d6e6f25e4eb08e840ebdc131fb2458f2a09d7ee89b95c791ab4c5d15589",
+    "committed_sha256": "42af080a48a115c883552e63c21bc3c63b075c53f91133a2afced701bcccc205",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-4-probe_mixed-1920.log",
+    "original_sha256": "00110b47525d955a70715bf9168e2df41d37b686349bf317d31176b0c31c848d",
+    "committed_sha256": "6f8a02c08b3884ca8bbe3bc972e564bdbc172046932b817db96966f8c29cd501",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_all-1920.log",
+    "original_sha256": "0604e5d503fc4927a3587675f65d8997913c8630b1c740df66745c4caee5cc0d",
+    "committed_sha256": "fa96ccf170e3646bff3a5ed2e03a913fd7a0ea9e57b4755f200533cc37c5f577",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-1-quad_fb23-1920.log",
+    "original_sha256": "a3e0d72c997daca844a8ba4666d355b28c21d370a763ab067022c9284fb1b48c",
+    "committed_sha256": "c45ae14c54315c99e2db9ea32c89e90236088728d5fbc557854b468a1ac617fb",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-0-phase_guarded-1920.log",
+    "original_sha256": "aa7e7f934d7b592743f5bbad02abf2e1cd33ddf22675553a2c3b897aebbda0f9",
+    "committed_sha256": "c3941bbd7fda15e109b6086be183af16532f528e90cdcac9f63b3b3d1500226b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_guarded_quad_fb23-1280.log",
+    "original_sha256": "c88b71eda3c79da6b0e6c62997db14bc5094cc3645f3e7421f4afe9ef9ef11fd",
+    "committed_sha256": "206b1f4c611fc6ba82171e3c4edfa2c532872b4c158bb7e61bd35a72d5356ee7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_pass-1600.log",
+    "original_sha256": "342feaf8767cf6284cfae07577bd3d37368cbf29ce8a9143f98f5d02a425cf2e",
+    "committed_sha256": "546aae5aa897fc9c794906af1d5cc9a3c06bd49a4885a414f6e92e168edd2b78",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-2-remat_call-1280.log",
+    "original_sha256": "ae882d5d3e50d44929043d3ff4e164e4df36651369f10f2cefd7627ce2e4d012",
+    "committed_sha256": "00e344b4f6c989d205df5e8e9b32ea0c1ac5aa42c6835e32f6c3e83e25944811",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-0-phase_quad_fb23-1600.log",
+    "original_sha256": "88bdeb89dfb3103463e66c669a5f66a5d1ef03a4357c50ee3db667a4fdf6a6ec",
+    "committed_sha256": "49a91afae05c97ab102c23beb12b943e9ef6539e17ab646ff43976a97cbc1e03",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-2-phase_pass-1920.log",
+    "original_sha256": "a2dacb1d67ff3e6ecff99b19212f4b6af045e609ae0ba248625416894edbc011",
+    "committed_sha256": "02da11cf64c8ba55b3e996c3a67fd387b85de88d82e9423248924c6b29302e94",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-1-phase_quad_fb23-1920.log",
+    "original_sha256": "379b7b826357f792983aad984dad899d182fccaada09ae7700a68178d386d396",
+    "committed_sha256": "e482872aa86fef5108ef0808be3769e107287b57648e1ba9f193f82153f82fb4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-2-quad_all-1600.log",
+    "original_sha256": "f9c0f796428ca603664131134b132d811a42b0dee8853dd157fd893d1a3f141f",
+    "committed_sha256": "825c8f696fb1707f8db0236fb67f6f6f78107dfc6da7dd7ec346519263133568",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-2-remat_qkv-1600.log",
+    "original_sha256": "ced576c4364ad580ddf29bd98cdeeb73fdb1d282e530ee68626e297e6aaee2fb",
+    "committed_sha256": "a61c93d155c59a1271ffe68fe0b8d058e32d6dd65bc8045539adc66d12dd2163",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_fb1-1920.log",
+    "original_sha256": "3d52d78886c05df23fba5dc6ed11a83287b5f56191e48f3b7012f38f9a57aa21",
+    "committed_sha256": "25f6837dd669461fb94b12e832caeb801978961200a49292ba136abd3a411e33",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-0-remat_qkv-1280.log",
+    "original_sha256": "17853f15b55f9f783989200aa937372bf2f269ee7ce6e5114290787e2dc8a4be",
+    "committed_sha256": "2da515b2d51b3e29c1461d0555a67fcc7b9fee48f52a4f0a8d03f3529f887c18",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-5-probe_shared-1920.log",
+    "original_sha256": "36a657d4fce3b727139c0a0bdc333643c897f9f8ce5b30340ddf845f5520d932",
+    "committed_sha256": "bdc51efee7a4093a58f7b63e00f43fa4ea70338854b79c8f5374213612ef7c14",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-1-phase_pass-1280.log",
+    "original_sha256": "8c2c9850eed4f2df9adecd2890b50bf5cb2a2e7260400f693ed7e73cf0bc5d95",
+    "committed_sha256": "4889085d5f83c0503400de164ceaafe3420aa5d7eddc95674b5561ff9c88b430",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-1-remat_spill-1920.log",
+    "original_sha256": "5bcadcac50e828828015f969cafc7bd3acbf712b831d5b3d11f726b0d300be73",
+    "committed_sha256": "7a5f28fc260d440cb94e0f2579f04c5a8cb1fb26cdf88804a5657fa745080677",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-4-probe_global_family-1280.log",
+    "original_sha256": "b1771e49d6cc3ff26626dfc413bbb62eed23bcd85af6716447cdfa67c54ed77a",
+    "committed_sha256": "706690fcf74e31d13db14ea5a0c28c16c0078d3e6dc0d6dab0fcb8a6c0d2bef8",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-1-quad_all-1280.log",
+    "original_sha256": "71ac422c70b2befc7ca6f7127bfcef0c43d1f3e96db1078d77070151fa533e32",
+    "committed_sha256": "a635161e381213be2c27711463cf88ed71559c7bb8cc4cf7799557e89ec3f98e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-2-remat_fb1-1600.log",
+    "original_sha256": "58d16878c6619defde458426427aade01738c2bf38f2eb34e6b4a28eb83d0d54",
+    "committed_sha256": "f488807071a2ae0facbb0e8a8f7b71589da7a8692935dc67a512c45d8a0196ec",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-3-remat_call-1920.log",
+    "original_sha256": "70c47c8feb80dd3c8929ea4f557b6b483e35d2c88df37064b9c8b59635db0c4c",
+    "committed_sha256": "68e4fdb70323dac5932fdab996c43629c572b655a85cee309314ff352d666c6d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-1-phase_guarded-1280.log",
+    "original_sha256": "247c43f200bc54e833230abbbb701fa96e2e098fa300e073a2c1b4b6830a5e39",
+    "committed_sha256": "2bbd9f8ab302d7a0cd8d1ab5546597abceb5146f831f6554a52059a0706492d4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-4-probe_global_family-1920.log",
+    "original_sha256": "0e120b6cdbc47ec4607b53983bfd97dbf475ec631e6b9ba4c059da7cd62b3ff3",
+    "committed_sha256": "d8c8814c657a3b93a46d19971608a888d1f6f6a7fb0b8bfcfa2788ee6780a408",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-2-baseline-1280.log",
+    "original_sha256": "d8c1c933d012e850fd570eac562e155213e61c234d9c9105bc20e0abf8cb7e0d",
+    "committed_sha256": "ae802b9a980e15a102d8cc2ecb0375d92d807ac662466e404ba6df5a1cf53a61",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-3-remat_call-1600.log",
+    "original_sha256": "9e25c72a214c6eee4a85d8590fc3927bdd0f78faaa9692d34540983d00e44edc",
+    "committed_sha256": "42cf2036b0484ebcd2740e395ae6ad90d6118016867386d779f56cf6cb54eeec",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-1-baseline-1600.log",
+    "original_sha256": "f824612d9cc695f1fb0309bbceaeadec63e73a1c437fe3ea4fae788eb6ef6146",
+    "committed_sha256": "97cbd3ba447ce39c2f3f25c2991690aab63e379a740c372c81ebceee693e6434",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-3-remat_spill-1600.log",
+    "original_sha256": "f898f2cc45e5b37a01ca753d03b70edcc121f73e592f2bc1338a94362ad36821",
+    "committed_sha256": "7e98ce5dd63207953f465391d8df318f65eb93f1583a3b90906d4b2bcb95d39c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-3-baseline-1600.log",
+    "original_sha256": "e5f36f8aab5254d2e19126988cca83fbdd9709d2548d3a039674f8e01339a47f",
+    "committed_sha256": "9a4ab03e8fbccf1fa946f5154a9d9585413fcaf0f71f4d6116085d458f9a60ab",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-0-remat_fb1-1600.log",
+    "original_sha256": "fcad326fbba5423f12a5cdcfc643b7dbe112d884728dc9f3ff3b602437f73fad",
+    "committed_sha256": "032416f5f79cb600c92de7bcdc91f91abc4dcb306303e068b0e9fc93cbdad3a8",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-0-baseline-1600.log",
+    "original_sha256": "86fba364582ba08e0427f7c8ce8c7cd9773cf6405120823de21760718606f528",
+    "committed_sha256": "debfc6452e53e4e95dbfbecaa730ec5aea7ada5f92ff3d9cdff6e441f3eb2d67",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-2-probe_mixed-1280.log",
+    "original_sha256": "69f48bd428439fca86f4032037e48cbb60cf5a978e223ab545eff194c3818bd4",
+    "committed_sha256": "2349c2478afff581aade42833a694aaf063b61582cc780a4a17ae7dccbab69b7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-3-probe_global-1600.log",
+    "original_sha256": "e317f6daf81db4bf9234d6fb10f59c4b2c8ba258afee9464dcc18588bd951139",
+    "committed_sha256": "dec23f3ce9aecefa7481c3f9e02cf5b63b48cb3a6629c1d5d3e31ed213e4cd35",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-1-remat_qkv-1920.log",
+    "original_sha256": "3f748c3a4295d7666d18b820127d2c436e78601bf2d577fdbf9af247441941a6",
+    "committed_sha256": "634cbc61482c285b1f1421b30c760f7e999003ae5c01b24c5591efe4415578fa",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-6-probe_all-1600.log",
+    "original_sha256": "4a25f120aa0cf2ed109bb426a7bc4143f214e07e7c75f2a28489697002f46790",
+    "committed_sha256": "bb070bd40f885ef0166d9f88236b57bca9f5077bc2c62e15a71a1a84bb16abaf",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-baseline-1280.log",
+    "original_sha256": "a71b5c311867a41017627167af7358513ac767c4bf095999e05da1f84f2472db",
+    "committed_sha256": "f08ef17ea4c4352cef5d762a2162654811574a62fc7ce0222f896d132b239672",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-2-baseline-1600.log",
+    "original_sha256": "e9bfc00308f6c127da7f2ad9691abfb0876d280d0bc79b7694e344ce07b63cd6",
+    "committed_sha256": "70891c16638f9d9f666e9eee264de36d16f8be7826a377c5ace699be36db39eb",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-2-probe_mixed-1600.log",
+    "original_sha256": "55c84ab85913393d53dd55081e01b4bee8fe5b210c2e5bc1d5b718cd458992f8",
+    "committed_sha256": "65fb8c0f50c6a13e4c4b52620f4b0c01d5d8c1531e4b512b0932ae872fdb1626",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-3-baseline-1600.log",
+    "original_sha256": "00cc9342ad3980b8bfecf98bcb5cfa48b4f22f9bad6186a1797ebec713066ab0",
+    "committed_sha256": "b18645bc1825660b2a10b0c0cb8d8e695fb1b1df2aa35a82722d7684167830f1",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-1-remat_call-1280.log",
+    "original_sha256": "3c976bdc0f560bc3f0393a12091732fef37515fb19c11cad11f7a3e987ac3461",
+    "committed_sha256": "4a390dcd14d3ec09c9b9c071aa64131033a52b045367709bf2ca4f84db7b3c97",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-3-probe_global-1600.log",
+    "original_sha256": "539b77388fe43b05fdd516dd4a0c4bc96835da2e3b3ebbc4ac73e620fd869b30",
+    "committed_sha256": "315d67c440e73229fb877185c450739f4a23fb9cbee5819a92f8741d06e343de",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-2-baseline-1280.log",
+    "original_sha256": "b915cf7ddf19a93b75157d4d987293c5d6e7bb510d5fbda9df1aa274a290a84e",
+    "committed_sha256": "8203e88923930fd3780dfb21aae4d28b3563f451f1c1cfa3d5006c8b23bf15b0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-2-remat_spill-1280.log",
+    "original_sha256": "a4606a10ee1eb109eb884f80cbf57f707a2093cc3d6741dd921cec754116b65b",
+    "committed_sha256": "01b854ccc8cc3f0265201cf1cbc1f88528a9ec303275174d95f54f9aebae1536",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-1-baseline-1600.log",
+    "original_sha256": "30916babf061b1934fe80e87fa6b5efd638d5564974b25bbe4c018766449a8e5",
+    "committed_sha256": "b682f59fd6281142c4e540440c98a6cff436db19e30fe763efb6aff2e6fe8747",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-1-baseline-1280.log",
+    "original_sha256": "09fcefc3d4347b6e0948f2b34ca794121e9512fa39b9e9ab11e671ae3ba08dd0",
+    "committed_sha256": "cf684ce7cf358a82538ce2c73dc40d2134f24f15d709e3e9a560183cb34a387e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-2-phase_pass-1280.log",
+    "original_sha256": "18c86768334e91964d40f5846c136fbb12accd4d2835a404e8f1ff56c93d2fa6",
+    "committed_sha256": "9a9eb97c735fb3c56e650a17819c1dbfc047d578722396033a13edfd1cb4d158",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-2-probe_global_family-1920.log",
+    "original_sha256": "d5d6358a47ffd116bb88caf314967a157c0e5e37e1785d82bb9d7754f9fa4f56",
+    "committed_sha256": "203364a7bb56df3dd1da656a7073bf4ae04c18dbd632872d3f82b23381abc984",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-0-baseline-1280.log",
+    "original_sha256": "82c5538160bea1ac8b241e6c7f3677f26b9e648ef0c11f18697152772723a296",
+    "committed_sha256": "5ee797e8b27cdf9db7ab2c75e9c258ec08f5897ab50d6c6c9d4b18614c253007",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-3-phase_pass-1280.log",
+    "original_sha256": "80f7384ccceaf564fc9fdb03e7786359d63914a30c9fc44c51c4e0d28b1558f5",
+    "committed_sha256": "d18249a50652b8f96e811e02cb634488bb0406fabc635394ab145e0fcc8032ec",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-3-phase_quad_fb23-1600.log",
+    "original_sha256": "d2397ccaa53defa5a8d770c423ecc6061869643505e969c2e28a5e3a8278634c",
+    "committed_sha256": "143e31581f4126d9c5670eed6bc90f2a31dc0f8a27f1923f5299d5f7f01d82f6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_quad_fb23-1280.log",
+    "original_sha256": "0cb5923846f8b59a80771a3cdad05e8e8961473482fa41d7b86327ffd242a2e5",
+    "committed_sha256": "c5cff8278f72739b7a1b03eaf50188a35c91fa77f3bcba10f7bef9c4e751df3b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-2-baseline-1600.log",
+    "original_sha256": "2f4eea88dce453f03f5129887887951dd5ae2a3c95f306cc13a3bbcdf62610a9",
+    "committed_sha256": "40ca624a2873ab778ac3cc4e1b0e9f5d524f0b9fd1b8e92c744b827c461db07e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-2-remat_fb1-1280.log",
+    "original_sha256": "6a6afc580ee575f7ec9bb61ff1ef9260332a51487a912958c669dacf9c4dc08e",
+    "committed_sha256": "41bba6e95d1c1470aef926399208edd7c78e72a7b07ac9bb3a37ca72614063b9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-3-baseline-1600.log",
+    "original_sha256": "a9fa3e5e37ea0aae7f845688a02b7578c5b943a6c3920465adf02e83af17fdf9",
+    "committed_sha256": "eac64653291162b736cc8b4c536ac3c867613619efdd330c6a1bee47a3bf4e99",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-0-phase_guarded_quad_fb23-1600.log",
+    "original_sha256": "966b8c87fc45bbfe09cb3094e1aec43a4960c2d63c48f6364e19dff6c71ca5d2",
+    "committed_sha256": "e5d9827fe66552a467a09bdf1a08b09cf401f779b15c3bdf187308c4e28d4c07",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-2-baseline-1600.log",
+    "original_sha256": "f21e9d595193a50e26126e2b819dd6cde93b2066b08c41c69d3210d1a1dd8410",
+    "committed_sha256": "7b4f9ecda4ff8f99cb3e2452ce7f956600f0004681868c82003a0f90a19a282e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-6-baseline-1280.log",
+    "original_sha256": "3422edd5896af3736b5fcc4e6988ee25a2583ffabd9dbd63fcccbfaffc81aa95",
+    "committed_sha256": "39b586189d613faf3c22a8139dbead208a83d96fc9a614b6551562a52236c654",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-0-remat_qkv-1920.log",
+    "original_sha256": "dbb52fdb11c6c262b6da46fc828a12d0cbe87201d78107aab6d699ff5da98a84",
+    "committed_sha256": "ed34749dd55a7697d5f6789eaec4b9d76cc824ea8ee6b7189cbcd501097cb1a1",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-1-baseline-1920.log",
+    "original_sha256": "858792de064b78e83c3f9f7c89361be32cc49e6976a2f5335057589365702e8e",
+    "committed_sha256": "8749b24b84074fe307a8633ac7c5a68597042f8571c205c230819bf4922559e3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-0-quad_fb23-1920.log",
+    "original_sha256": "442543bee4133211c319231c8d832ae545e70ac007126114dcaf8a4e9c8f92f9",
+    "committed_sha256": "56f9de1367851e5d6f125facf93aa1853bd8b9db7aebead9350230c959ce3d88",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb23-1600.log",
+    "original_sha256": "b3407a8d2b3059516f937546738687e625f80dc5aac3867d7c96cf8afda873cc",
+    "committed_sha256": "1c07287c0b0be4d94a4d0407a85db9ae1d06efda0f61059a7b30be56211f0eca",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-2-baseline-1920.log",
+    "original_sha256": "51b454535e769c0e69fc6e809e915f43112e9083b2947322cab7574fedc990aa",
+    "committed_sha256": "e3068be1bba4ed184240e0e0d0a894d097f7eed81cab7bd6840c435f4c5e6c4b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-2-probe_mixed-1280.log",
+    "original_sha256": "dce1eac4601e26e243546a75d6a008990d09c4869151f8ffa7ae9ede574d83f4",
+    "committed_sha256": "b0e2468891c8e75a5d24707e7d5e64721aefb38fc5112518589ca2d3bfe21c2d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-1-remat_qkv-1280.log",
+    "original_sha256": "8fa8da3b563ffa2bf6308e7a1ff4036e1dfba058c4f79ac8d407baa9acb0bac3",
+    "committed_sha256": "25e3c15a7219f01bb47325c8c99e4c946fd947724c91c318c0095538a6df8436",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-5-probe_both-1920.log",
+    "original_sha256": "5cc958902a3ca0cd4ce0e80938e673ac40310e63f7370998a4f14b271dc79094",
+    "committed_sha256": "7221c0af7dabfc42592d8a186a97442f1df54482d2b82e343b363867c0998410",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-2-phase_guarded_quad_fb23-1920.log",
+    "original_sha256": "5bb2d71577b3dcdb57a50c78e07ee346aece26814bec95d0e90cff3c5c1b3552",
+    "committed_sha256": "a2328036b98a066bcf730f70e93922d165cfc227fec5fb1bebc5f0818d094a11",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-5-probe_shared-1280.log",
+    "original_sha256": "f27f44788ed3ce3ac3abe914ddb40466ab3eba01251739080e4975322c66a789",
+    "committed_sha256": "9e67656f2ac5d903d65adc06b38809293b71a03ec5253c3b7db95bde931b7ee2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-1-quad_all-1600.log",
+    "original_sha256": "a2067f6bbc2d8732dea1c3631cb06b6523418d996bf4569ca1c80b3f14ce2c4b",
+    "committed_sha256": "b17fc8f1153e063c0e49a6475e82af9111d44d03fc3eef78047edd6e379248bf",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-2-baseline-1600.log",
+    "original_sha256": "f5aee9ed249e772bb0fb61ca5fedf6b79e18597c42f7dc83cce25c3e0bf86ba0",
+    "committed_sha256": "36e7eb109a9f543d24a0ab472370e5877b01427f009990181addc0735acd17a9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-0-quad_all-1920.log",
+    "original_sha256": "ac0a57f3572a8a3d1762543000755a8b2d87b18c202269bcfa0a05242aa8d483",
+    "committed_sha256": "0b85b27d138d12ff330e52a1fafa606c9b206976ba6dc97dd1c0cba619792503",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-5-probe_both-1920.log",
+    "original_sha256": "5a1c3156fda8a83956f07aaaac5c87f997ce7796be15911522aec757a9e48f51",
+    "committed_sha256": "49a387863cc5f0db02bad5a8cf6151911d1ff778ad3eb342426c536551c7dac0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-1-probe_both-1600.log",
+    "original_sha256": "7294898b53ff666233d9dc4cd747ab060caf92aeb31722f3813a835e1a6b9720",
+    "committed_sha256": "90f5c01930950b4f9dc8566081954ed0238b023695bb74bf3ad9fd939c06bffe",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-0-remat_spill-1280.log",
+    "original_sha256": "5fe61c081b8bc45b381996fa99d21236d0e73610c08b208a06aecbefd4d31e12",
+    "committed_sha256": "5a945eff13c7ff958bf1ea169bd2607ccb839b9175ad4ea3ce5903e9b6de4992",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-3-quad_fb23-1600.log",
+    "original_sha256": "c9a1f792547ec8940c3ad3dfa82b380d1108d578129d141015a12884e85a85d5",
+    "committed_sha256": "ba1255f4a850f5ad467f52a51ac6a46cffc0887d8f9b39fde247b539b8b9178f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-1-quad_all-1920.log",
+    "original_sha256": "6678917a43af3fa99729434eb755a9ef99ab63d48257ce4d67ecac104b66e309",
+    "committed_sha256": "5a0233fabdcfbb13b998da486d2fe106c015256a3b12f9461fd54345ac893baa",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-0-remat_qkv-1600.log",
+    "original_sha256": "f3ea4bae207e43f6fc020e3b473f1ba87028beffbb6d7d4e018fd71cbb7c978f",
+    "committed_sha256": "6cc1fe6e444060e0dd15b0ca3ceefffa9aa71a006739aca2936215dbd8742789",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-3-quad_all-1920.log",
+    "original_sha256": "fe8aa640fe1eca03c891a5ff4d797b8d877c62d97941a59c15fbb6d683c70077",
+    "committed_sha256": "267449fc9eda2b94ceb46641c45d8e299ab4d7f3651c3768a6cec27ed2d220d3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_pass-1280.log",
+    "original_sha256": "cf12725cc4628792b7510620e7ad0b0e0db2d15eac488694dbe9ac8bf5f31801",
+    "committed_sha256": "1d17d47425b432c8d1eaa6c99e644249279e49ecdc2e19ad68b60627070f9b3c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-1-probe_shared-1600.log",
+    "original_sha256": "14a3065c4b1fc60cdf47e1962be7dd3fdccc9cb7f1ffd3cb461ff42b8e48e1e8",
+    "committed_sha256": "6a8b5867a6b0403f9d82c8ac0ab6692cb80720e9b7a8304d22092cef04598606",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-0-remat_spill-1920.log",
+    "original_sha256": "acb2c809006cf5e5c8e21d733c3670f416126dd972b01678dc2334ece6ca3ddc",
+    "committed_sha256": "2fb0325982ca38d94eaea06001c1c6f5de5b2605815f4871de692f67cd774b79",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-3-baseline-1920.log",
+    "original_sha256": "e45757909e231b4e5214721ff62a69d3c2c6bd28b4568e61acd9c86abb214a45",
+    "committed_sha256": "743ecb470b5a6a6bc011603334f8e2a4a4507a1371e9964728f65b3a5a34f2de",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_fb1-1600.log",
+    "original_sha256": "5e335c7f60081e68053ad54305688fcfbb4366dd987e00f70b7cb5ba2d50863b",
+    "committed_sha256": "46f2a63b384866f376ddcba6499fbc6cecea402ba962c006a1a3248636888888",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_call-1280.log",
+    "original_sha256": "793da80c71c014022ce072e4393f55631ea44aac3874cf40ae11dbeb438c0289",
+    "committed_sha256": "dfbe05ba988d7eff134c16135d6d407ef9d71d1a11f58e3d7a99fd35bdefefe6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-2-phase_guarded_quad_fb23-1600.log",
+    "original_sha256": "5df8a78b240cb95dd367eb4ad01e432b5e5603aa975690ea143fd5e93083b166",
+    "committed_sha256": "84e7731fe371cf48111eeef7f7e837cf59c657dbe0c1eda6ed13aaae9df3aa3e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-3-remat_fb1-1280.log",
+    "original_sha256": "fab6381990bd8eea44834192faa72dd2722aaf15fdf91511d6bfc327e976397a",
+    "committed_sha256": "1cc9fb25fc8b38f7c237eae6a2ce9bc1b4a832d7119edd2b9f15497440d23880",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-3-phase_guarded-1600.log",
+    "original_sha256": "dd7d684cc8be08c5af6a59032fa086f075c3c131b839bb4eb0c554a566d8220e",
+    "committed_sha256": "5c13eb1e57a360d111951f83afade365acb48bf79491c4587ff310bb0cba83f8",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_all-1600.log",
+    "original_sha256": "38db90be98fb354428ce1c11866aecad7cc59e394915adfc23bc3dbc846abecd",
+    "committed_sha256": "3b145ab7c1f4a8fc363ee97083b07c78aece90eb19f7f2cca1c7a71f04f405d1",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-0-baseline-1280.log",
+    "original_sha256": "5d9ad92cb1330a3a1d3c79e9e4758a746ab2789dcc0180431a73c5de3c6cbd20",
+    "committed_sha256": "54c3e388836980fd3973db9db07b97a351ed12ddc2807c706ac3cffa35fbe6f5",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_guarded-1280.log",
+    "original_sha256": "1005988f98c9c7c2fb668a70f5eaef8e53b9c4b245bb12192fd8af00a3581898",
+    "committed_sha256": "26ebc9499560b217151f7c21b8e2cd9727f44d5d20a1ba6bb6c9dc7f5e5b1dfe",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-3-phase_guarded_quad_fb23-1600.log",
+    "original_sha256": "1a258d9c79b8508f61f9f7ac478f9416f9ebde079344a3f317687fb127be7a32",
+    "committed_sha256": "3abc903f6b3f2a4374bd403c1031567b66b2377b38753a75ac0a1b49b63be82b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-0-quad_all-1280.log",
+    "original_sha256": "ae439775a2e000a7ea6420e562efdffa875a77c1553645089e0a6d681095ea72",
+    "committed_sha256": "331cf7dd7ade073b6f7e1e49c919ddd7fc4910fb83cb16569e2faef3f7f58350",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-3-baseline-1280.log",
+    "original_sha256": "f27a1e400bed963fa8a63daeb8fbe3fd37c498c52903b7ef77ae14bf5781bcfa",
+    "committed_sha256": "3982b686cc180792f2ddb30b57284bc7e17f199173eeb233cffe80604d523c75",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-1-phase_quad_fb23-1600.log",
+    "original_sha256": "983a716c935ee7400cebced0f8ae85b861b0c854bf96dc384fadf5c988398a17",
+    "committed_sha256": "e00be04f9b848467546bec46c74546fc60371949a11463590bbae85061b8cdf5",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-1-baseline-1920.log",
+    "original_sha256": "0099e97d02bff7dc627fe265a98476208d33f101795f9a275a255c59f405be36",
+    "committed_sha256": "24d637bc0870dbfdff7e4b59aa167809bdf9423ba2f86f63a482872c96032717",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-2-phase_guarded-1920.log",
+    "original_sha256": "6a1fd3e512a2c961a6fd3593aaf3ae577ba90e7be9922c613fbffb91620a0b85",
+    "committed_sha256": "5802b3756c172ae66555786f4baffe1a753ce04d1b1f4d07bec009cc35009605",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-1-baseline-1280.log",
+    "original_sha256": "e7fca56c68777d886aa3d093eed7dab8af02d04f453a754ccf373b1530450308",
+    "committed_sha256": "f0dcbb1b154d9acaa6547e459c4e6a8263dfc78ca77e604b064013b0b12fe414",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-1-phase_pass-1600.log",
+    "original_sha256": "91fe19f59ca237159438c9b76aa815d6ab34ea5366a4e43e5b4233c31ebe1c3e",
+    "committed_sha256": "0ce90f329b7c19ef5699de03c1933fb375719fe43ec27f8f2f87a06af70ba87d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-2-baseline-1280.log",
+    "original_sha256": "f292721f75173383ce145db042a259865366aa546f82b925e3e86cd5c304a6f7",
+    "committed_sha256": "51690233c2a8f90232b821cfc49796af26af03804cc9123bd98f3fa5ba67f540",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-3-baseline-1280.log",
+    "original_sha256": "40d57092443a921908d8ac84231c22e571fcf9b98b70c483b547bbea80742752",
+    "committed_sha256": "aa8a6e169f6d02e6afa1cf6c7d2acf16a8bb90478379c1dce93e5057f0849335",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-2-baseline-1920.log",
+    "original_sha256": "7d080ad172e7572124dbf1152fbae03d44386b663b3abc30225f37e62c2fb58f",
+    "committed_sha256": "112523c5ea2900c63909f6a2b62229b4f290d97251ae7202d72b0e57b901c871",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-2-baseline-1280.log",
+    "original_sha256": "dffe0446351efb649d40f594f9c298f73b6396e1fa9c93b3f4eac1ef55b3d471",
+    "committed_sha256": "3fd35c340d5ad67182695c3d93327953bd0aad36579becbc68648ccb86827611",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-2-remat_call-1920.log",
+    "original_sha256": "4d349fd9e66f47114247398a319b9487c1d4eb955dac48b3f106bf6a1f71ab7a",
+    "committed_sha256": "5e5f14677eb7923a2dc49d301e88c2515886e6dd6ca85bed7a1cff22090c4908",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-3-baseline-1600.log",
+    "original_sha256": "eb4efde805edf5a85e9d5e44750137de880151038e00f8128c6561492dc0b565",
+    "committed_sha256": "86230fb207fa9737d4a2c7983dfe55d066b856f4f307c0db7d6dda05792d516b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-1-remat_fb1-1600.log",
+    "original_sha256": "5b28117278befbff2a2e446e8f2c891dc31ea5cc012ef843f56bc2c65ce6bd7c",
+    "committed_sha256": "a48ab77eaa533b9d5a413dd089180f34fa7ddf95210c061b0db049207602b40f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-3-baseline-1920.log",
+    "original_sha256": "f18dcb3767b4dfcc109605233603b934623f90f38306e86a4399e3a3c19594ed",
+    "committed_sha256": "0b7c28689efdb0cfefd49ddb1c0b7011f6efb478a531516762d846e318d354de",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-1-baseline-1280.log",
+    "original_sha256": "d83bbd065da37fe848c5ddb644909df424a587f963b31848ccea5760ab765ac0",
+    "committed_sha256": "82bba9abb1cb20abde3490cf68d6144628f6bce9e0523ebaf2f224518cb88085",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-1-phase_guarded_quad_fb23-1600.log",
+    "original_sha256": "4a320c8579e2379d504f4c70c31cf149f5b61710ec0a5dc5c73714e4430fddaf",
+    "committed_sha256": "2987f1c245c47ab7c18d368160cd1a88b71692d788bdb0f8ac7196de6a6113e0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_pass-1920.log",
+    "original_sha256": "9cc5043652e6f87e3ce53c86069c6e361057c1622484253d55943564973b1187",
+    "committed_sha256": "4ddfe458e5c2744df5f7fa8a46dcf1c2265887ec299aa8513f4d07ac08b9c678",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-2-baseline-1280.log",
+    "original_sha256": "967b1de9ac86ce67ed465c500cbb65427b222c4b5106411cebe26668df02a98f",
+    "committed_sha256": "9edf644c6697a6944bdf9251a844cd20aeb0f880dceac671fdaa75f61982add6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-2-baseline-1600.log",
+    "original_sha256": "febc07f3ab853e63e5ee5eb7fec33afb6682c9dd502f4541b3a06c87830596b2",
+    "committed_sha256": "5e4faccd22501b308a1cb4a01dd096f9cc1d4fcda41f994f25eadce61743d0a6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-1-probe_both-1600.log",
+    "original_sha256": "32f8a339f4a17a17c05244db5842fa76a80e0436b3e95fe5533198e3daece553",
+    "committed_sha256": "0602db966595b842611a6068d0799b6a86117877e12d4dc80b26589533a0fa6e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-baseline-1920.log",
+    "original_sha256": "9454c226d102132da6d6cb58b44904f67bf7bad464c0d5de7f45864b2483b77a",
+    "committed_sha256": "7b49c47deff5e7fa42c6c37ede4169dceec97c2381a909ccb2d4f9af9a0d03df",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-3-quad_all-1280.log",
+    "original_sha256": "334adc1a8943be689a85e11534b0438b60cf1ff29aa80534e7a425ffdc4b6ae3",
+    "committed_sha256": "94b5453381d5cd6510e30601f28d20b2db1343247b7fb285f5ed5ec3c9f76120",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-1-probe_shared-1600.log",
+    "original_sha256": "b962f267c6c7582262a14857719ffd00ca9d0d091958d15f123dc724b23293c1",
+    "committed_sha256": "11a5640a7b64325eab07545ba92b0aa60ab5ed41dc30bedc12a62d9a3adf504c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-3-remat_spill-1280.log",
+    "original_sha256": "670d5ab5d3179de784e9feb3b054fa3a6d045d166a750eb51f615f0d5ee5c53d",
+    "committed_sha256": "288bffebab79c526657e7d3e902826ca67c57d0f56ea1684ed596318a32651d2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-1-phase_quad_fb23-1280.log",
+    "original_sha256": "b3f01d2d65436d2e858c75b408f338af6b0059c10f3b9a5c569034123a0f11de",
+    "committed_sha256": "1c1062a3bf83bf746485c34f3299ae0c19d4bf3f5a45a6a762b8d684ac9f820d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-3-baseline-1280.log",
+    "original_sha256": "e3181fb4ffd51787791158bb74f460e6f1c55faf0111d9d716ec06d9de2e2639",
+    "committed_sha256": "abafda2f29e969beeb75928d4bb91327453fcd3dec9aaef987fa9bcd312277a6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-3-baseline-1920.log",
+    "original_sha256": "9939d2e0a2b1b5e55d34c6081d38fcc19dc322306af3171791a5f8d4e83df8a1",
+    "committed_sha256": "ce35f931f325f2abd5f4e191231f2f9ae1a00473ef5ba801685395d8f727fcf3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-1-probe_both-1920.log",
+    "original_sha256": "ecf2386790885e86dca6fb8dd58433fa7db53251c4aa22d8ea631ca3f4e7e901",
+    "committed_sha256": "a4228b1577efdab8d1d97f65cbc63fbc349702f41f5f43b31ae2f752bd734c1d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-2-phase_quad_fb23-1280.log",
+    "original_sha256": "926e472e9cfcf251a82ec3a47ad07dce9361177ca427dabf60a00f721607413f",
+    "committed_sha256": "fa3b65e9e250c044a15447768088249246703905f5a3d06cecbef8bffc42f582",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-2-phase_guarded-1280.log",
+    "original_sha256": "849be59b22d8d085cfe969b80b57a4d72d9971d31d9bc9c2fc47f53f11d630d4",
+    "committed_sha256": "6dba6119967f704f196c86f54e9edc1a29555cfdf08a38497e16fb5f76c13102",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-1-baseline-1600.log",
+    "original_sha256": "48a789811aeea9c9f9367e57b26fa9c246aa957b0ca59a2906d699775899fd8a",
+    "committed_sha256": "3c2997c71a6de1f85ed550115ae71b797fa7fed9ae8ce5b6fcbe6e739b4dce3b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-0-baseline-1920.log",
+    "original_sha256": "49778004d7e3d5d46f883d10c00b092fda6d87e6524b1c0559fce783748f9c79",
+    "committed_sha256": "b6a64d8c112a4ca82927a007df4bcc367aaa6c67de53e1ac4476051ac1fbc95a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-3-quad_fb23-1920.log",
+    "original_sha256": "992626d4cce2fc67d09e9bf25e217a81380196342710ea346d9d9a31c0fc7807",
+    "committed_sha256": "6d7c1d97307b3f8e02a16d2222f7773a0d86336f0124c156e8d18bc6b8e76c90",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_guarded_quad_fb23-1920.log",
+    "original_sha256": "f8f8b04b4aa6bc0e8e2cafc0a8a329146d0f536c92a0d59cb99703d4b472e9ce",
+    "committed_sha256": "f742a96e5793f133cea450bf9a3a6eaff9bfe14c73d00c279cf5237c21a9418c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-6-baseline-1600.log",
+    "original_sha256": "900cd1b09c0df16d2d4c7a3cb7449aa8ba2ff34847258315f5e0ca83998890ab",
+    "committed_sha256": "559643fe1603fbb1873b78c4d14ba86145678903dc582a251ca107a81a636a01",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-5-probe_both-1280.log",
+    "original_sha256": "344f74a12c7e4c347ce45cfe586ec31f69a6d38a638dd36da51ed46af1d5c8f9",
+    "committed_sha256": "f815a80d41eb1995225a8d03f334b1e0072414e1bedfa5bf72cb4ad64e74b294",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_guarded-1920.log",
+    "original_sha256": "6bdefafe640242a2855de7d8842e1cfb23b5cb7c42afb134c16eeafe3d78bb9f",
+    "committed_sha256": "0478ab3ae7b922f66b999b7a88dc81f0ae16e6deba0a5ae6ca302eafa212ff99",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-3-baseline-1600.log",
+    "original_sha256": "4a5fc35da6cc70408ff51cc08c3573dc02420dcbd2cbb2b575b307b418e37db3",
+    "committed_sha256": "a895aea2570fb72c9b16409208571fbb48603e56bf6f3e6f0b2ba3238aa424e9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-1-baseline-1920.log",
+    "original_sha256": "68e3615d9215d63440a011cf7c75968f702901c61473e9a2a51c215dcd878601",
+    "committed_sha256": "b7c5119ee5570d06db95e824cfa296f1f75632a4dbb2c1a8f6e1bdfaed2cb793",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-1-remat_fb1-1280.log",
+    "original_sha256": "cde70625d326341b509a887f61ac4611c34b44f1ce4e8b68c5a6bfda67705416",
+    "committed_sha256": "6f78fdfa9ebadf6520ff7dfbb8ee01c9526f3affc57456f9ce927ecac20d7646",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-3-probe_global-1280.log",
+    "original_sha256": "2b6d0f6481ef9b020c4e2fddabec30ad78f09468c270f53ca86af261797944a3",
+    "committed_sha256": "911fc31d3e66067ed253277df663faef8997fc3e49b9351f161633fc8d2246c0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-1-baseline-1920.log",
+    "original_sha256": "8038e2d52231269dc3342e26aeaa7a691d5ce139e42bb47e35f19d954517aca8",
+    "committed_sha256": "db36999771a9424e4bb563d6e674be2a6f6e37151ca5453ec8eff92e2dca77ce",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-3-quad_fb23-1280.log",
+    "original_sha256": "739fa981a1dab4dbd4862609c1f63fbc3fc247160e5736379f8e47f39d2b0b01",
+    "committed_sha256": "c6f180690c4d4620cc27ae5da57438943245c32eeea933f72a8ee273f278dcbf",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-0-baseline-1920.log",
+    "original_sha256": "3fc7c9ca1c460206c9ba0b3f007b2cff301e614f178b93a9383287c1f18fe64f",
+    "committed_sha256": "1d97ae70be714d897d83292cb914c6cfda8ccaf4a814e63c36ad7627443c1c4c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-6-probe_all-1280.log",
+    "original_sha256": "713e42acff90f77b849ec70a7227f9db771ea8260e1bdfe58746826e261ee739",
+    "committed_sha256": "6856a4ec1302a52e6cef1996a79f45f96b16d2c7d63638ed4c067c7d45145a6f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-1-baseline-1600.log",
+    "original_sha256": "ff7dbe6371942b46ae207383f3de7304cb2ff20fdc491737bfdcf1b16dd1c3b9",
+    "committed_sha256": "75408cfc33cf71425a6762b446db55ce5666aa44b58d5d66233c9aea9996bb24",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-2-baseline-1280.log",
+    "original_sha256": "d6d101775034b9ea2ebb74aded17a73805d9eb284c041f7e21eea89c68154bf9",
+    "committed_sha256": "ff8120dfcea7bbb148541df7f3447db27b013bc25a8565c55f03e6a8867e807a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-0-baseline-1600.log",
+    "original_sha256": "b2255256c40fb1bda053bbac51d6a94e99cab45bc2b9cf1e0ff0159ac8a6894a",
+    "committed_sha256": "4b4c6bd65a48923a759fb99cf484babadbcdddd4bc99879842f258cdbe804276",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-0-baseline-1600.log",
+    "original_sha256": "04509fc6a747e89f29386ed9199e208a2eb0fb0b64eaff4036b27227083f407d",
+    "committed_sha256": "8c0102a22a01702af43392fbb5e2449a429af4226ff519854c3f2d7d523e70b7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-0-baseline-1920.log",
+    "original_sha256": "2d2d0aa7ac6f4b18b8c8b73af39b8f4fdcde60909843e1bf908f684d7ae41e71",
+    "committed_sha256": "cff21369b589684c102051b0284322b6b4f480fc32454f7180b62cf99abd9609",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-3-baseline-1920.log",
+    "original_sha256": "83be11d72125388a53827465b38e6319a1df86a4015f6571c292bd66a7ce092e",
+    "committed_sha256": "4612597720b812433bea99f3c28e5a09e93c4593135d2a4e8f5dc8f22bcdd74d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_call-1920.log",
+    "original_sha256": "468b806bb55270ec79b94f24e71376e2d02caa629602835dfa8cf60d674dc816",
+    "committed_sha256": "59a0f8fe0692505c389224d844138f0f238a46ed7d4e31823e0b3abb45aced8e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-1-phase_guarded_quad_fb23-1920.log",
+    "original_sha256": "b598d79f2a2525aab62763f7a340e3c8d2d8a855b28147b632924cf694c62eec",
+    "committed_sha256": "26cf3a4e49fe7ae762110838d36753ec2f68ab96e83de03883f07b1b8c2ccddf",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-2-phase_quad_fb23-1920.log",
+    "original_sha256": "3739da68f581e63c09897796017c954a72f84a617381007ad5df028ad4c32ebd",
+    "committed_sha256": "eac1e3fe6f730cc90433501dfdeccf147ef4c1e29667d4000d69d437ec41d60c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-0-probe_all-1920.log",
+    "original_sha256": "8930f9982970e5e9ceed362bef2b0ce88740f47d0d9421078237ee27d511f491",
+    "committed_sha256": "126eb462842d8bbb75749b7ab84011401c6367e4be09484bc74078044bb507cc",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-3-remat_qkv-1600.log",
+    "original_sha256": "834dd36822172b170a16ed58f2e16bf02f02da21321ff308634f5e1bfc612bda",
+    "committed_sha256": "8ed8c30b128ef2b8e5d36d869a86788a21a8a864730c98e1e0a9bfa0b63f8336",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-6-baseline-1600.log",
+    "original_sha256": "ca5ccf23918db7e654ed154a1585f116782a19a8e8a76eda279e37fab417ec8e",
+    "committed_sha256": "70d17eb0516c63a890ca0d8f5f64240999ae9b0a0b8342dfbeb0b22a11d924ba",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-0-quad_all-1280.log",
+    "original_sha256": "83310e36b5ea176eed09b11d6d5d77446dff463cff63d1431db8b220ac0b9ed2",
+    "committed_sha256": "102ab1d6c12fb913f113fd0cc28aa9784dc3adad3213052ed5699d0776433902",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-1-baseline-1600.log",
+    "original_sha256": "148455d6f83bb7919b57126f6ac6342ae57ea8782a21e6db342015330ab11ccb",
+    "committed_sha256": "a7e31df453abf74ffdee9452bebdbf4303bb35139f16e70e1517755512a7e0ef",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-3-quad_all-1920.log",
+    "original_sha256": "b94e82fcb1c2b32a90291f46af6f44f6e6aae6047438c8a7fb155bbbe9c4ebad",
+    "committed_sha256": "5f8ed35737dd55d7aeabe4ad282fa77b37353144303753880bb9d908b52e6efb",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-2-remat_spill-1600.log",
+    "original_sha256": "6a4cea2b05f9c8996b8d5b676645ccee7e3ed51e71e15c6c6b2a9094ab3594c5",
+    "committed_sha256": "ecad5c8358b1640258f1de76c027520ec41a2959bcabd845b5e8de48bd2bb9a9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-3-probe_global-1600.log",
+    "original_sha256": "61e333e107b970749555dc7fd9d9fa47cadc46b5159635ca508130bae6861485",
+    "committed_sha256": "f91779784de72f5fed3f5778c4d52fe98b3c4d7526f344b48790f7a8dc75bdb4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-0-phase_pass-1920.log",
+    "original_sha256": "7d626fda1ab5a6d4739d7736089e089369f3ec90d9e7264cb64fb8fdea6fd96c",
+    "committed_sha256": "58d7b7cbb39d3b412e8896dd5560deed021d7ccfb5ee1f70f6dbba3cb6296c53",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-1-quad_fb23-1280.log",
+    "original_sha256": "fd08380e8da22d5406e143a2f7323e7fc5c7913730cb8827865131452c2e870e",
+    "committed_sha256": "9aecc649185a437090e1c0819ec72d8a9fb9c332a8233d4d6e63b48048b13de9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-1-baseline-1600.log",
+    "original_sha256": "702d52bf4bd51b7c8f1aacdd565b8f0e358b04a35464bafb5c3ded6472cf99e6",
+    "committed_sha256": "80556a32df75e28e8bb3020c3253a55d23b7d7588b0ee7e9f78bed7d67379a8b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-2-baseline-1600.log",
+    "original_sha256": "97af032865a3c0fae3e4e25add468f22c9cc3cad62595381a81a64523fada220",
+    "committed_sha256": "d48492ef8d5bbd1b9dd2e669c52df79fe72846da148e8ff33afa8772542fd0f1",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-3-baseline-1920.log",
+    "original_sha256": "931a9cd514bc5424aa539f23b44a8201a8c2c32d92ab754644ac596b65937df1",
+    "committed_sha256": "cb7d14ca33d642e2600ed2f304e39d16455ddf1d76567d5dda841102631bf3f7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-1-probe_both-1280.log",
+    "original_sha256": "a04ab82993bb6b0b2244b7c624c5d8870664125a4e877d5d59f2d66bd1602f8b",
+    "committed_sha256": "78c1d9c69822e2e9c1fd7af38a4a916827b45209efee4f8d215ef25b85f1b000",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-2-probe_mixed-1920.log",
+    "original_sha256": "4384ce41ceab606133c02ccab31523855a0a3dbca1634beebbc89b0df591e002",
+    "committed_sha256": "aca6319f6907df4f4c5f8f2f7da6dfb4afe17b9ca6df3d35c435d6332446dafe",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-2-baseline-1920.log",
+    "original_sha256": "2d3bec818b32426b776019a7c9db6fe6a70b2f1c8cea19a1bf2f4fd4d43e14bb",
+    "committed_sha256": "ee1b115ea1cb3968960b6d28d321df7e54623e0e1c0c11e189f7cf1091b5e827",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-1-baseline-1600.log",
+    "original_sha256": "9f1ffdb8cb6f62c178b4a7cab4730f5cbf8654a28bb8eec1d90de5472ee5f13f",
+    "committed_sha256": "b7bb7dbc5110a19a2ff6924eeaf9a38aebe1caba82a02941dbfec78de054a31d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-3-baseline-1920.log",
+    "original_sha256": "fbea0f751395ef0a7bc0e6d55fdf6c35a37b81acd051836ebe0c1f4d746b4044",
+    "committed_sha256": "4b676bd822ec19e799fe8f3c2ab54b4b3407baf7d6e49e0adb456d3d9ae46efd",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-3-baseline-1280.log",
+    "original_sha256": "4d56f535a2ea9d37bf4ccaafd4e31d9ed59ebb092256ae86f22370401dde2d0e",
+    "committed_sha256": "c88813d9398574bb0e6b24d8e101cfb7a81995ac3b072fe7363d45bf6b05ce25",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-4-probe_mixed-1600.log",
+    "original_sha256": "49656fdb2450846a35259164b5b0a59e3328d2cbaca430340ca4df68f4b6b013",
+    "committed_sha256": "40c87b6d543a3cac4ae289304d6fbcbfce1fba69c9ef7d53877a8cb16f098962",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-3-phase_quad_fb23-1920.log",
+    "original_sha256": "1dc18dade4ce37d18286d791048a509c06086bc79f07189595e0fe7c7a547627",
+    "committed_sha256": "85a7e489087fc023234b3af0b3bc077a74def79d916583104fea21bf173b8313",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-0-phase_guarded-1600.log",
+    "original_sha256": "a724c8c15800b13604f01aa7080696528da8b8699d2b723fb6d0d9a247c97d71",
+    "committed_sha256": "3d38ffd92b96ae530e15bc0e213d52e9a3a592cd32ea95921b938e05aa72ae32",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-2-baseline-1920.log",
+    "original_sha256": "1b0b4f038c5e847032edcd1c6b9fbe60744377d5cc490a36f8780c16d08e8378",
+    "committed_sha256": "7eddd02ee60aba0a4d41843d943583b569cfd55930e36fbb64118a5cc4540d28",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-1-probe_both-1280.log",
+    "original_sha256": "4e3be20063d30bc9e71c40c19e96aaed8bebaed7d326259e546693cb031c54c0",
+    "committed_sha256": "55520d6483448ccea847c471ed379f50cc1a3de42f21e0d5faa61b1e9698afd5",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-1-remat_spill-1280.log",
+    "original_sha256": "f66f996080b2b34a6fd973f70bb1b0a1ee5db0c583b72ef91c37b9c32c13b510",
+    "committed_sha256": "6ba9e367b9dcb00ee77c3fb6af4a12a7c9dc78b3096d3a5f408ece7e2fa31e2f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-0-phase_quad_fb23-1280.log",
+    "original_sha256": "4eda59f5112732e422dceed03445fee593d89266fde4db0f10f7e093be53f9d3",
+    "committed_sha256": "cba2d7ea02acdfada5ae1c1989df6f7c80ae9f4c7448c7d33a05233eb28e07d5",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-0-quad_all-1920.log",
+    "original_sha256": "064e0a7772f293a9654bbe7b666ee135882b745d5b2fa791f57ad2f0a7f1d308",
+    "committed_sha256": "df14116953419879afd760a6885c607274c751c78a9b767f40d20da603ce0bd1",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-1-baseline-1920.log",
+    "original_sha256": "455d5a2e8eeeaed5066c8065851a26efff896ad549a5f20c14f188367c7ac633",
+    "committed_sha256": "b0046a3b0524216bf9dee2db1ea09c1b1057511d4904ed67d49d3822cb2f21e0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-2-baseline-1280.log",
+    "original_sha256": "74d0ff368f24e31daee4ddb9eb65de70c1e3e61fd6292a09972b0ff9516279eb",
+    "committed_sha256": "02443310a3337e9f8fe9824c7fb341bf4bfa52e237e295217991fe5b4f0f2ed6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-5-probe_shared-1920.log",
+    "original_sha256": "8e9cdc39ec307ebaa629f37c7c4ac3ff77334bc3864b467aa74e9b0ce7c641b7",
+    "committed_sha256": "ce35fdfb25fcd31e4b8b5ec065ca6e8a03f55e2ddf82067745ad82dd11a89e6e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-1-baseline-1280.log",
+    "original_sha256": "d9d1b5882a2ea8f934490b60554c367eb104cfe695f747ada3fbc1f54f901a50",
+    "committed_sha256": "c30b140f69c11b0f147cb54517df85de1051f302e39a4d60772cda44967418f5",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-3-remat_call-1280.log",
+    "original_sha256": "30e64f11b800bb71958c429ba71dfeeff598233bd01f669fad8e058fa4e293d5",
+    "committed_sha256": "6df8d5e6985e6cc86a562b939553a5e97a1cf2c5e3bd59d32f60aa7ced9c2eba",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-0-probe_all-1280.log",
+    "original_sha256": "46d49854b6c836e3869055cecd81d5366419b2123c341aafa6c0581d573957e7",
+    "committed_sha256": "e46538148a2e66d1591c66713efb1d7af78275b17c7b89e9266bd72e8e4e40b2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-0-baseline-1600.log",
+    "original_sha256": "558ba396cf9432725d1a67a4c98f744c68976dfe5dba94328358ef9fc9948a97",
+    "committed_sha256": "435f1018d528738ee174a842412fbb53f08a485b0d9472672036c8025c4abb3d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-2-baseline-1920.log",
+    "original_sha256": "c47aa9807188e22976cd557196971c5489ac6ab3ac88f9d83d3f9d9ae4679268",
+    "committed_sha256": "3cba54e80c69a0b241642666de56f60c1b12fd2115b9b48577d6fa4d67d3992d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-2-phase_guarded-1600.log",
+    "original_sha256": "262f33ab514eb1c1b7ce35f30c887f1e4e503aedc1ac849f481feec0e9381ea4",
+    "committed_sha256": "560e7acc2f9bfd080ee6842e108bdadbee568dcad6787414c9faebc2f929a626",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-0-probe_all-1600.log",
+    "original_sha256": "8120ec00b7b14cb01200a817034d9af2abf165a133e43cb8c786e42f03a3b9d1",
+    "committed_sha256": "0a411b97bf1f7585c825a3f1360f4862fa998911857881b89b792b69172c591a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-4-probe_global_family-1600.log",
+    "original_sha256": "e1fa6b17548278dce4e38fadfe0e765c33e3d4860c889c05c047bc6e519ecf57",
+    "committed_sha256": "60341873704a96f859ed4ffdf00e95542da817f75bc59f7ced34bdfffed6e21f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-0-probe_all-1600.log",
+    "original_sha256": "7ccef678086883631503ceeb99fa41e0a8565ad144b6b4228d2ad9c9925e6687",
+    "committed_sha256": "929e6ec7a2c2d34f49fd353c5af5d0a01fc5f609d4ae60189da80c2f7ea989a7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-3-baseline-1600.log",
+    "original_sha256": "56edc82d3557eee41370fccd921cad68b850e10730a4d9adefb347d7c49e2d5a",
+    "committed_sha256": "81e29955338d4be2bb177eb3dd9462995594cdf8e7133cbab607f80bd8460eb2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-3-probe_global-1920.log",
+    "original_sha256": "82b48541450390e46a1af831cefd4e15e2626dff843992b0d9881715a7af696d",
+    "committed_sha256": "855918e35bfa1ecb9a7fc45a77280dfef4671e8f1dbdc9ae54d8bcba457afc58",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-3-probe_global-1600.log",
+    "original_sha256": "7840fb1c8142749e0937cac471841b64aa21335b0f2e7ee65fdd71436d582fb0",
+    "committed_sha256": "a1bf3de87afba6d40d08767ddfe99c03080bdc2f7c85fedfc43b7b4aa0cc573d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-2-quad_fb23-1600.log",
+    "original_sha256": "c1ca3889490fd9df02d82e601a6e5c3df2f7184d7cdf68f0cee19ec80d0da512",
+    "committed_sha256": "944af64908bddc098e75a99d4a911371aeb0a810f1ceb72fa1091d5db5021fcf",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-3-remat_qkv-1280.log",
+    "original_sha256": "13dd99a0754d81d90f9ebdb3e48b71001c5563191f2c90cf882086652719d570",
+    "committed_sha256": "be481709d2e5da4c5ebd76046a1adc130beb781d17e378c29a812add8990ac09",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-3-phase_guarded_quad_fb23-1280.log",
+    "original_sha256": "58229c868e6580952e0e85d7b5a56f271b8907f7f467117d39cb1d90bbebc4d4",
+    "committed_sha256": "1fdd2228c178fe5f96485f7d1bc8763c36906888413a7337c5ed482bd3d99f65",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-1-quad_all-1600.log",
+    "original_sha256": "289b62d1e904e12e14ef57af6887f9499433a73f40aedbfa36bc4784ea9d2eb2",
+    "committed_sha256": "b4b099117510487d4a20eec1e662c91910b05f75ec0d44c1096b8f500044e22d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-6-probe_all-1600.log",
+    "original_sha256": "c43b248d5c473ab62038f312f776b85d78bc0f785df58c7d1ee330c3549adb8e",
+    "committed_sha256": "ea7cb208e6691282c7f34d97358b010f5c1a87c6c5e698654c3b04b67b547874",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-5-probe_shared-1280.log",
+    "original_sha256": "239c4c3f4554548b68386f7ba8f65cfe26b852ed3c70feda237a9dd03a748169",
+    "committed_sha256": "8d38764203e9e941350a04478ea8d6f7559e08f204f12aaf0104a77c02da6fbb",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-2-remat_call-1600.log",
+    "original_sha256": "5599db2f8ae7c749feaec294e346876d39f8680930809b2e8689b2b03b1f9c6a",
+    "committed_sha256": "aa8d33fdd31f058ebafca7f6ac470e82928124f8670bfb0f63a8f5f36618c080",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-1-remat_fb1-1920.log",
+    "original_sha256": "0ca54a809b39174922a56d64fc98a6ab504d71fa94b7bb5a73613ba8aa39bb2f",
+    "committed_sha256": "69a3d8f66707829ab013f525707ab4094a9c80d9faeedb6dbfa29cebbced54cb",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-0-baseline-1920.log",
+    "original_sha256": "e26b0f07801cd8b96e6ce1b719a9ec078d2c19877d60e95b1be3671604465c1b",
+    "committed_sha256": "7a103ad32f802d1ae114af929acaf513352dc3b534e284d903555202c4286adc",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-3-probe_global-1920.log",
+    "original_sha256": "87aa61f2858dbb9269751676091ea13705b4fe795759ed2456e72c63666635f5",
+    "committed_sha256": "fc40a298028284d23b2ed3192315d25dfb915a14de2a90b8a470bc498788d406",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-0-baseline-1920.log",
+    "original_sha256": "f59d1682659e1841a45a5e1d19ab13ae553883e0363fa91753f659005f3d55f5",
+    "committed_sha256": "1a2b2de51398f265ddae3dc996b30416a65d9a217f5e95e6ef8ffa5c91aecb9a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-1-baseline-1920.log",
+    "original_sha256": "c661318f64ceb0e461a05ac1492bb049191b4fc3d76d586cf6eb056052208d75",
+    "committed_sha256": "02ed2afef30b0c5225295966d8add37d323a1094a68d235ed73dcc176e82319f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-0-baseline-1280.log",
+    "original_sha256": "7fd0105ccdbc137fcb7d7c4616988576e404258131119b0fc2176615727c1f87",
+    "committed_sha256": "ebb75ba6f28ac8d01e1903076c2532bda6b3081e02c19855e0619ed7a3337ccd",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-2-baseline-1920.log",
+    "original_sha256": "48cbf9297671e3b081b948e434f716b68709e31afe0722119a27f696deb21ffd",
+    "committed_sha256": "383a58c8f4b7301e2f6f75b45d0206c82fa7055a320664492488d7ad98e43b2f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-0-baseline-1600.log",
+    "original_sha256": "a29e074194a875841ee92420122d77b237b7216a83b31441f3e019fdf2513800",
+    "committed_sha256": "9fd880dae328e086efc9e256d13e506dfb99aa520cb1d5717ef1a5c056ac0ee2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-2-baseline-1280.log",
+    "original_sha256": "8084c2feab6355ef31d4a0091b9bbb4416a38c597575f45304020630b029fe26",
+    "committed_sha256": "994d10fc14218c918579e936f9e660c3ad1d21bbb5d46d376cc1228f5816869a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-0-baseline-1600.log",
+    "original_sha256": "5a12410633863d000018668edc6c4d0e4dfb522137829ebbb5dc800011573a9c",
+    "committed_sha256": "b8b7110ea87c191fe5d1a8d8231fd4c241c3d14e8483343ea32e3f784e52a77c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-3-probe_global-1280.log",
+    "original_sha256": "680dea16dfd7f916e7f27346d2233962cb15008c187816423fd9878706ca85f0",
+    "committed_sha256": "e9660e5f72061cb9c58009bce9145c299327e13c514efc0f83fabc9e3c922038",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-2-baseline-1600.log",
+    "original_sha256": "caf51c88613cf9b37d695fcdec33de2814d67396140b2a73d0252b3fc1e9c801",
+    "committed_sha256": "6c3a5a6af04d45b3ab6aac5da205cab5016ef14222514b03502d09657f6dd9fe",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-2-phase_quad_fb23-1600.log",
+    "original_sha256": "ed8fb09cd4aa066a4350b59ad662d39f32f5eb0f051d1e170261bb16ce50f9d8",
+    "committed_sha256": "d9329556babf38d5c34e90af8ee1ae8e16c417448648ffa270a2e0812b875363",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-3-baseline-1280.log",
+    "original_sha256": "1da9a8256066532086f8ceea44000a8784063374b446499e16a5f8256c82d484",
+    "committed_sha256": "f2b2e633a540884202e2117e2a1c731ed9019073314ad9713c1c18987d85ad4e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-2-remat_qkv-1920.log",
+    "original_sha256": "20d795c1f3d3c493b65f825ac1a77faf0720fabf60f8a51776d36b4779d98f5e",
+    "committed_sha256": "7cd8dd92ba4c90041b450dea0372fc9e105de2022741ab2002faeaeefc634740",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-1-phase_guarded_quad_fb23-1280.log",
+    "original_sha256": "6598ce703a3195bc6b00e93cba052b34b0ddc030eb72b170d6ada214b885b9fa",
+    "committed_sha256": "ce5370597b3d9e12a3d79c2c672a6576b0c0a112506e963b8fde4cfa796a82ea",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-0-baseline-1600.log",
+    "original_sha256": "30096da95a28be29b92ec5f7d1a72ca3acfb1f2bfbce9d63c439c07498bc10dd",
+    "committed_sha256": "0431f9d8576a63fb2fa0d9130be10d20adf565e338fe49c17662d54c8bcd170e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_quad_fb23-1600.log",
+    "original_sha256": "7c5ca783a15405fe8833d083c0e5dc4379764a50b6c279bea939f580ed0f502c",
+    "committed_sha256": "dbdbbd1428704e93e5c590bd9728163bb5107e5303a48c50d29e1420952f5c75",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-0-baseline-1920.log",
+    "original_sha256": "94f98e75c43480e429a30e21c952224cbd9946af3d48f6e7e91ad63c87ad2ec9",
+    "committed_sha256": "9ea8c6d2ccb2be438daadf4768a1c9a1937f4f5c75d1c901b3ea304f10eb7830",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-2-phase_pass-1600.log",
+    "original_sha256": "d798539d14b586b77aa60005330e3df61af39a9389301d530830859b42567979",
+    "committed_sha256": "20320236fffc14141981cdf02a9c6cc46eb259031ae3bbf8816d973d6a294bf4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-5-probe_both-1600.log",
+    "original_sha256": "ed867d2eaa2a4bd364284380e0b77602874a3b60113a2828fac61f062fc689d9",
+    "committed_sha256": "5f6c4f384d16a136481996a50d7ee5a05388074c525763e99f57f056e73afd2d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-2-probe_mixed-1600.log",
+    "original_sha256": "08f173dc9a832b2be885cc1d51606abcaa808bbd50da16ee97fbd804153980af",
+    "committed_sha256": "7ebe4376d481cd03aad37bf7f9a9447ddcd8a74e1eee6fd943f20cba051e497e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_all-1280.log",
+    "original_sha256": "f4fbef3966bd5b5c247eb5a9b0e6e3c8816a8ba5ec6db141c29dc54d8a36345f",
+    "committed_sha256": "9af8102ac696db076e650d5854ee3abd18e15cba0175b2d6bd7d1ff25df91db5",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-1-baseline-1280.log",
+    "original_sha256": "a60272dd5cd236b90faeef71fb97e5a65980d82f0ac79ad6f83db31d20b4f08b",
+    "committed_sha256": "eeeadb5d29a94d1c0b06a28e49e7ba1ff5ed9f38bef449f3b41df1926fbae124",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-2-baseline-1600.log",
+    "original_sha256": "d396ed88e0f33788060da08cec1eb3fafcfe0f6eea4a7e37d678f1ceb59f2c31",
+    "committed_sha256": "d3ee0d5b70f2e9753dc1b183816fb8dfbeb83f943a8e15450f909368574a8591",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-3-phase_guarded-1280.log",
+    "original_sha256": "681de4df568efdb223a330fdee3752c6e91de1dbc3515c41864ef19211b9c888",
+    "committed_sha256": "ad4764c83d4141181d5cbbf18961786dd446d7e680ab0d5cb213d33208df8f9f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-3-remat_qkv-1920.log",
+    "original_sha256": "50170c0add7bb1b7aeeab7feca89a023b95450d612ff14d82fe44a1e9c366308",
+    "committed_sha256": "b9740fa6f3ece6aded178f81814c9e008c9f052f9b504640d83ff1e9aba6ca93",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_fb1-1280.log",
+    "original_sha256": "2612acf60b64a3b957bd30657df6cff094abd4619d8aba9bc8b12f83ee7c80c9",
+    "committed_sha256": "8b46d777023ca35638a9da183303c2d9c95110e8e717d953c9e3c1f4b1e39b8d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-0-remat_spill-1600.log",
+    "original_sha256": "7aa2a3199a57593b5a3e722b7a969d71775d148a02a44162861e40ca666681cd",
+    "committed_sha256": "8a3bbab6986a03d5dead9137bd51e1809667ee1ad2f4ce6b964aff359995a2f6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-1-baseline-1600.log",
+    "original_sha256": "5e0d5f8f56b8982b9d1c0672f7ec3e73a2443af3563f37aad6a7335b43738403",
+    "committed_sha256": "7e52ef77631ebce9d70c4288c49f809490fe56bbb122574f7bfd99e3f7e66f5b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-6-baseline-1280.log",
+    "original_sha256": "b9671ec06e90eab242c30a5f01edce76335e5c26d492744042d4c5aae96b8940",
+    "committed_sha256": "84363a1ccc679a15d65b6bb9a67c8bb75cf55107c40721a53fe988a27990df36",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-0-baseline-1280.log",
+    "original_sha256": "c2d7f73631daf3aba8df0adb731f20924c639704d845ff9b4adf835fe0a95c4a",
+    "committed_sha256": "1ce6dfbca4238096f2747b0cd92567186ca75a7c7829844390b72949c1651b75",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-3-quad_all-1600.log",
+    "original_sha256": "ef38def5784ed109f0b08ae7bf45543ff7275c61a87fe19c3797dd1fbcbfb4a6",
+    "committed_sha256": "18b2d769f5c7fe31993b3e88ccb91c44007e570520a02723102e54829bce099e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-1-baseline-1920.log",
+    "original_sha256": "bdd44e316061690bd5dde94e9b343ac6f184d89c803f6e853c80ba9695379e06",
+    "committed_sha256": "77af3033cea8d523882b0337f611fa5d583a8f77326968f3f8b852f0e3641713",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-3-phase_guarded-1920.log",
+    "original_sha256": "995748b87f3b456b1e006d7a56ce7516c1e321651a88b099938f12ea5c865584",
+    "committed_sha256": "bd422750d9dd8bfea8d87a4c8d713aff49eefdd7ea422604cba6217f9476b7f6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-5-probe_both-1280.log",
+    "original_sha256": "2bd8bb19895d1dc6048193c6ca1d006ddba14fe194da0d0a90a5e82c15a8cb0d",
+    "committed_sha256": "6a002134347f792e70cbcbfb7a68ab874bf39132a41dd9fc894b891d60de1c62",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-3-phase_guarded_quad_fb23-1920.log",
+    "original_sha256": "241fd64439d4e8689d1bf2e29a7af29c897579bee061aef97d2af6bb51a4ed2a",
+    "committed_sha256": "c3581d03cf4979efbbd64486055c33399707728bc76b91a23f5331679cc8d363",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-4-probe_mixed-1600.log",
+    "original_sha256": "c3f91ef09f4cf647875832e7858a9062af2c679b26fc17034f058f274312e6c7",
+    "committed_sha256": "b81a4cec714a6374b7250872e4a2568cf4841f2e307876b15379487eceb7e90c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-4-probe_mixed-1280.log",
+    "original_sha256": "d2d830b9f287c726de8093af23383d860a700adda0c0443d5884f0489b733318",
+    "committed_sha256": "324373c53e592b81ef3fac90134117ddb99320682ff600c451fb9a29b769b4ad",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-0-quad_all-1600.log",
+    "original_sha256": "5ba0cd4455542092bfc0eb817326cc70bbf34fa09f9281bf5527a261434ee2b7",
+    "committed_sha256": "00264ab666467bde29e0f105750e70df6b0d7c619f6f85a644ec4a45474c5efc",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-2-remat_spill-1920.log",
+    "original_sha256": "a450a3c2713303c7423ba29581bbc9aa35c3c9ab6f6798f6936f72fea47616f6",
+    "committed_sha256": "0a0c3a48042352af4288f69cccdbff49413840b86423cab9e85ce6f6063636ae",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-3-baseline-1920.log",
+    "original_sha256": "1163fa92a46bcf4f50dbac5c1e58df225757f64f161dd504ed69d37294babab2",
+    "committed_sha256": "f203c2d1f30cb627738ea12a4290f8e56f4681d966032f8fd5a217ab1be05dc4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-2-baseline-1920.log",
+    "original_sha256": "b37f40c1650850e7d4f4013b558496cf07c47a1d2dcd62f8e56effc94dc361af",
+    "committed_sha256": "c534551103983f51c0a5f3dc2b9b4fe1c9d1b7f14643909f4d579c19c1691bc6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-3-phase_pass-1600.log",
+    "original_sha256": "a6a07d4b9906b7456831acc2a81c59727b57dc0d72a759bc9905afaba32d16e6",
+    "committed_sha256": "2bed49921f18e75cbd411c8d99b995be0ffc35563e43f9d4a332d0a12878b3c3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-0-probe_all-1920.log",
+    "original_sha256": "04c91ca8f657c3ffda8fff755845c1cd9e7a41ad67b9858f5b44407f32c1e219",
+    "committed_sha256": "49c0600bb59f884037b3c3d21edbb6b4277b097931d73e6298c4f1dcaec0a0ee",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-3-baseline-1280.log",
+    "original_sha256": "418974b3ce735b0a2a25ef746a6adeedbee7e2b1b26f716c6916f6923ecdfd96",
+    "committed_sha256": "ff07ffdffe628873236cd1bb0d476f3eedddb42e12a927e30e1bc11e434d20e8",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-1-probe_shared-1920.log",
+    "original_sha256": "5342a793949c45e31816f3cf156886dd394d861924ebcabb77fcc374b404418a",
+    "committed_sha256": "99d6676ee45cbf48346bdc540650f4899874c7d511c08ecbdea95e53fc8c8257",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-0-quad_all-1600.log",
+    "original_sha256": "044f6ef9d67669c9a0c71ac1dbb1cd739c3b4c47096e8ad39fe6d228c383001c",
+    "committed_sha256": "a1fb01bbcf4ab4565ac2e954e9e258cfb5e9e078100128f15ff0b04a3abbd0c7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_guarded-1600.log",
+    "original_sha256": "6df7db208772d0ef0e36401442a10070e671b4aa6c848d1bff38887f32d7b51e",
+    "committed_sha256": "dcc5a5e81cb8ac6221bbe77db764cc29615a2807c18480ddfe85872866bf02fd",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-0-baseline-1280.log",
+    "original_sha256": "9edcf5ed99d1b82981096b0be5afb080bd4e87e5d956f7bc918b58e1cf57498b",
+    "committed_sha256": "cafbde88a8e5c704df8a2dbef2c823971432cf6e0f4019b832333b444841c02f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-1-quad_fb23-1600.log",
+    "original_sha256": "8b7dc2ed8d012fe59a7fad1dc88697cefd3255408c4bafbf4cf2c4ae11e5edb3",
+    "committed_sha256": "0cd3948a189cbf8f847e5234ae670fdfd4f52533226d7be674ae80096730626d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-2-baseline-1600.log",
+    "original_sha256": "5302c883d085927bcc8ae33bba6f326cc40038fdc82cf5b0da2163d869298245",
+    "committed_sha256": "f63abf44f20d0bf72c5f2d9fb5a17188bd6e0818301d9b719556a24a34b2aaf2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-0-baseline-1920.log",
+    "original_sha256": "34ef92fe5dcdce9a28a74c62641e59e7c2cc5af2dea61c38c609bd3929b1ed85",
+    "committed_sha256": "ccf97f0d5ca82e77e8d4d6c7f40ee0f89d9aaf0a344b9718c267009577834de4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_qkv-1920.log",
+    "original_sha256": "d08a2adbed92d36ff80db02c1d7e83392009ded8c8b40deb6472e2319ae5211a",
+    "committed_sha256": "ef25fba9617ba96848efe06c3e148866ea81e1922c18c1bb5719d7fc80fd172e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_spill-1600.log",
+    "original_sha256": "456d93023de554d1df94e7fef3836eccbe2ad72d94073685b78a3a0502b41d29",
+    "committed_sha256": "d3e77b85d0e4789d8edb261e0efbaeff6fcfb4c86f4b445b08960b078be1b60f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-2-baseline-1920.log",
+    "original_sha256": "8d0fdcd8c448fe1336c4dda1600249bc7e5f52f5a4a65bfa856473fe3f6a0abb",
+    "committed_sha256": "f464e756aad07e9aa831542d75ad37ef1e201aec2b6503a98bee9d91f864607d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-1-probe_shared-1280.log",
+    "original_sha256": "97f9980b29c49c91a0f6ed914fbc2809afbf92834dce5b9cb703e924333dcbc3",
+    "committed_sha256": "86cdede3c6670b8e868f104166a53838a10e97dd7e7543ebb9fee5dbeec1886a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-1-phase_guarded-1600.log",
+    "original_sha256": "86566f9859c5c3df4594b302c974254af8db428cac1420e41158f9774ae2c880",
+    "committed_sha256": "38decb7f7c7888304ce7e40b917c129958d02565b8885fcb82a1e6af775f90f9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-0-remat_call-1920.log",
+    "original_sha256": "c4e373eb8692411fbe91de1e79c12d37fbe8518683cd8ea3493da80272565cb8",
+    "committed_sha256": "0760c30aa733a9b2bf82ac73e850918c57aeee8da4817e5c9fa1c8fff9e275e5",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-3-probe_global-1920.log",
+    "original_sha256": "569d2d1d702c92641f04e166406314113abd9d0274aa349dfd1bd916880771e2",
+    "committed_sha256": "dcde77421f4281f6a6068bfec89ae6b89345bd75f2c206a5517f8d419e4b712f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_guarded_quad_fb23-1600.log",
+    "original_sha256": "944815cbf8a188b600dc1b683a66bd4962b8729b4501e79d4d561b362b2981fa",
+    "committed_sha256": "da269422e08759407e95dd9c6f7b567301e630ebd064f9b64810d98939b3b04c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_qkv-1280.log",
+    "original_sha256": "7a5c56009004239a22149cc31bc3342a681aad2919f946b82658b264c0b303a2",
+    "committed_sha256": "d789882d9d9091816f2ff59d1ceaac3b1571cea204596e685cd4282925dd5093",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-0-remat_call-1600.log",
+    "original_sha256": "977ba12caafe44420c29c314e47e9908d35da26a05e4ad779e6f64d980974d3d",
+    "committed_sha256": "6172d24d8a3cf607d1243661974cfec9109d771fb2c24ce05eca85a22f72c4dd",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-0-remat_call-1280.log",
+    "original_sha256": "37fe93430583d1fcecc10bbe6563cb4c5d5971cecdadbc04888148b907933035",
+    "committed_sha256": "5c2885e8fcf372a63b69425bde4dc60b6261947ca37f2041b79e03623dee8401",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_qkv-1600.log",
+    "original_sha256": "2def43bae46908e17ec96d8a8984ef4ca765d2c6a517efde10af61f24068c1cb",
+    "committed_sha256": "f53a2c3171b49db4c167fa4523b8ffdb7a3ae401946c4a72fd6232ccfb128ea6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-1-baseline-1280.log",
+    "original_sha256": "f9e7d111b182dfd163caf9ad312538b60d8310b6a2da95b66dd2659616c81352",
+    "committed_sha256": "720c90cddfe8eb49676d16e91dc837ef4d7a20e1aad10e11df31065b2db4fa61",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-2-probe_global_family-1280.log",
+    "original_sha256": "78b146c1da640c4c20a64dc6939f61c198626e5fa6dc7ecc07951c64672168b6",
+    "committed_sha256": "e16644ae7ce23667c27606dd7405db39e3a58e1f7d989589763d58dba3b5daf2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-1-probe_shared-1280.log",
+    "original_sha256": "99572bbe5582221361eca59b58589c2efe5ed11afb219accf634fad9a497a412",
+    "committed_sha256": "c45971b6dd4cf9647e860873cbcc092bbeaf128d3a45158561690251498ef930",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-3-baseline-1600.log",
+    "original_sha256": "39f5a8eae0238b2643cfa94f7ed395d5886d831de300501225049cb25e9d0e40",
+    "committed_sha256": "2d627c8cb309d616c02ed480aa125d6409d36dc019bc323db8d4f641945ff4be",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-0-baseline-1600.log",
+    "original_sha256": "60a019b432ab491425d4e3c4de33becfdaa8ff60c0ec339b5480d52a52c77743",
+    "committed_sha256": "71ad634733bcd82b725eb4ca36c1d2230484782b2a1e82ce13e51c0f86f7fb09",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-2-quad_all-1600.log",
+    "original_sha256": "80d4333773fba0282e653f06231985015a58f7944fece298a4a6a4813bda9cb5",
+    "committed_sha256": "e4e9de5d35afb06cf1a5cd4377229315b0c291ca97c16ab3cbbc724e524a7f5f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-2-quad_fb23-1280.log",
+    "original_sha256": "746cd4843ea8255c373b40ec033a2d067fd63e22327184dce5eb969939083d84",
+    "committed_sha256": "e9f264c5df81a1ebba3b304c1dcb1f35353af6e3ca92c547e3991b0cf722b196",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-3-phase_quad_fb23-1280.log",
+    "original_sha256": "b296e077d8086226a2ef39dba1804d8a0e7e1416f7319ce976475ce45e2531d1",
+    "committed_sha256": "683a3df49077057e14ff227b92b43ec68699e094a57dc291a612faadd73228f0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-1-remat_call-1600.log",
+    "original_sha256": "b351cfb57b94e51dae55725f79afe0ea4ae23bd5ed7f1653091cebed41b3bb90",
+    "committed_sha256": "880275f38e14f7e121647c395e17fd6708299d166c9d2931abdebaf23632e100",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-2-quad_all-1920.log",
+    "original_sha256": "65b03776bd55e246f1996ed8fbb6c4f39cec10075f5e7b70b3ab272ca36c4bbb",
+    "committed_sha256": "248698ce8b2383ebb6fc89947d9daa4bae50aa4e4f0d432b122b3ae3cff05c75",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-0-baseline-1280.log",
+    "original_sha256": "b57757a8262e909ffbbb2d70d72f586b65cdd19316b823207c0125ed8b0b2fed",
+    "committed_sha256": "45240d2b0ee739d7d6f058c33c5bc79531ec2a0961b34143ef077ecdee7fe4e0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-4-probe_mixed-1920.log",
+    "original_sha256": "255757b0a600c3843373c589bf9e25efbb44b2aa56d2e6303112a7fe2da519de",
+    "committed_sha256": "0685a99d7c929130ce5c0a37847ad4e345f9e4c6395ff6992a9d1e0e53968eef",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-5-probe_shared-1600.log",
+    "original_sha256": "27edfdc437a679ea81866a464320c5d57cf49793b5309719c5f811feeceea5a7",
+    "committed_sha256": "66ed984208490abd337d5bb487bdcfd364389de406a9f46bea5989fae1b049d3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-0-phase_pass-1600.log",
+    "original_sha256": "714c39622928d7db14abc2f8f408f7e98dbe6e6a49fa26aab4d7de81ecbb8c23",
+    "committed_sha256": "e7f5e68e855cfdd05d711519c059d59cb3ef642a19475ad7551888a124e88d99",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-2-baseline-1280.log",
+    "original_sha256": "5c8462f3c4e921634dcaab4f2e86adc2f083de1c8d572f9612b954af4cde871c",
+    "committed_sha256": "3bcc50433cbcf0fc5fa3d51d7f92f4f105b1f11b000d243b13f687b0559151e7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-reverse-quad_all-1-baseline-1920.log",
+    "original_sha256": "381898507b7f02db1bb7fa6260692cd869c197d8e8457f58c9acd208447809a8",
+    "committed_sha256": "34c5ddbf0bcdc7cad8cd0be5d8dc67ea77d2b5386f54a5dfe742000417636b00",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded-0-phase_guarded-1280.log",
+    "original_sha256": "d299b917e18acfc3d8e37884f9562baf06b159e0517fb151a1f203a847be8cf5",
+    "committed_sha256": "ffc8cdfe85bba6293d120999c108a21776a789282b5335cc016810ff8a21184b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-0-remat_fb1-1920.log",
+    "original_sha256": "e22c6dfe1acc26e54a2e22778773bbcc4ce23e330f1c465038d3b1459646f6df",
+    "committed_sha256": "7ccc09fbafd067876c08c3af5ea1a8d580ff09bfa8331ebe5f4fd727166ed596",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-3-baseline-1920.log",
+    "original_sha256": "9012a30e2d38b331ddd5a4cdd1ec6c5d4efd61cf4233180627cdfd87b857501f",
+    "committed_sha256": "8a374b8059b5732382e93a7c88aa6bc0f3c54cfca29d65c474e38b3d36046f25",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-0-phase_guarded_quad_fb23-1920.log",
+    "original_sha256": "7984453d03c58559073d812e539b727fe79889b433395ac16bef143687426004",
+    "committed_sha256": "48938e361a3b317f8be2b75127323f009eb01cd0603773707c9c56996e4ac352",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-2-probe_global_family-1600.log",
+    "original_sha256": "12467019a9db887e255b29b6b037915b0dbf723302312ee77d0167d4d9ab8242",
+    "committed_sha256": "dd934d92aec11caa5f7bdebd23cc5106c1a3f04eff5a31d6b10456220bf9c598",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-2-quad_all-1280.log",
+    "original_sha256": "113e44b36818fc7944e888c82f98a48d76a1b66d26dd80c8bb5384f496f03bae",
+    "committed_sha256": "6f896c78068aea046efc7671b4b05e62754ade59d3b9df10170239f386ad864a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-0-baseline-1600.log",
+    "original_sha256": "86d07e04b0f02e7a0aec1587cc3dada39f57d23c1475a630966b90a0323ea1c7",
+    "committed_sha256": "111b5d8e28bbde1a0eca4b025b211e02620859a36d2840990d62a667c44fffbb",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-5-probe_shared-1600.log",
+    "original_sha256": "e647fcd744073a901ea3e152709bf12241fce2c54704d679f043da94560ab3b1",
+    "committed_sha256": "f3b7ff3d8a06b83ea4b62715c9b0b24d3f7ef9d79489b7281e6fc9c1ebec9647",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-4-probe_global_family-1920.log",
+    "original_sha256": "4713194335bd7a50e4cd19bb4955640e40ae52b79dc1a7cc6f0da79d3c73935a",
+    "committed_sha256": "0ac90d852889949186920a9d60e25db5347676e6957b8ec200c6bf3dcef24484",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-0-baseline-1280.log",
+    "original_sha256": "3229c6311be1e0f602d2f049835eb8627254af4efaba0ea4bb714675e5bef336",
+    "committed_sha256": "55882312582c7c998178c3a7d14efa1f8a1de2342f7823e4ea49d76ff92f7b21",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-0-probe_all-1280.log",
+    "original_sha256": "7cf186659553cf79a0dff7fa355aabbd23219a6ee8cbb3171c2eabf55f5cadd1",
+    "committed_sha256": "0d932063af8dd1a74546a280dd9aa60044036c267b5786f0f3a47380f145b5ed",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-3-remat_fb1-1600.log",
+    "original_sha256": "384114e9a200b9c78abdc4a5c7bab9c97e0849527524da9c4c6655a64490e635",
+    "committed_sha256": "f3ffce83e12dcd158070cab61d5926a5fb647027ae9a51694bdf33079e1efc5e",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-2-probe_global_family-1280.log",
+    "original_sha256": "f126526a9d8db92c5a1171de21266ea59dc91ae442cda9f0643f9a72086aee56",
+    "committed_sha256": "8a7aebec4658cebc20d1229e68fa5871f3fc0b682ce77e42322d7647d3064408",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-2-probe_global_family-1920.log",
+    "original_sha256": "edbfae80cdda253b0a2a39c723a8fde124102c60c01f3c1f93876e552dfb1bed",
+    "committed_sha256": "733fb84bdb689171f28eb9fad2129a0ae70a7239c22d88fb953a9f9bbf75bdb0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-2-remat_qkv-1280.log",
+    "original_sha256": "e8930a480000428f91b9d0d84dc4b5af6090439b99f49e27349365cbe8a4a873",
+    "committed_sha256": "994df975f0b71ff1f9f6d17358294b48ab57efb12cf6a4a66a41c617d81da3c7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-0-baseline-1280.log",
+    "original_sha256": "e8881f1363480576917ee8a40498376929c19b10dbe312644efd4d0b845d9a3a",
+    "committed_sha256": "aaeb18c7f5370ac175cf6306b1aa1831beed2911767a4f474a9381c79cdc62b3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_call-2-baseline-1920.log",
+    "original_sha256": "204bccb6691de6c80a106e8d4afa076b56dc62cead3e1be7aaa335efccb0271d",
+    "committed_sha256": "77a6c3a97814a39f31bfb16b6219ccca516442f9f6c1ddd4b4ead5f52a5d2fe4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-0-baseline-1280.log",
+    "original_sha256": "bfeb7287d40c193e78a62996fca323a1b117cd4ac9f7ebaabcc5d00c4a7a1a7f",
+    "committed_sha256": "fe5b2a3a48211ffe1f0165ef88446cc722f10994e7745445dbb67928c7a0d9e4",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-1-baseline-1920.log",
+    "original_sha256": "05f9fcbcf42e5c7f478a6bed9b504bcface3e9f55771267947d56da493725411",
+    "committed_sha256": "f829b94cf92b70127e053e3fde593ee6940a6d37fe75b642ba408fd6bf781a14",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-1-remat_qkv-1600.log",
+    "original_sha256": "59274eb70652ead3a8e37a44311216ea8b738250fe866c04424f1dc608821726",
+    "committed_sha256": "9e290008bd61856f7ec0977b1cfa84210a2f27dee32c02ee37389c30771d15e8",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-3-quad_all-1280.log",
+    "original_sha256": "a3700063e37b71ccb3d7d1a1b786d50270407a1f5404dba190a9a8358e030948",
+    "committed_sha256": "213341a7497b9dec3251dc0beff78dc20e45c7c173ecd5b3434689024159e6d1",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-3-baseline-1600.log",
+    "original_sha256": "30747fa662556a442fb20a83ca9037205f1e3bfac965a558134af2aa66f7375c",
+    "committed_sha256": "ce5e0b5a58602723b65096b381a8a8532c8607dae869a8300ee82d2f87fc7183",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-2-baseline-1600.log",
+    "original_sha256": "70be9b0698d2eb0cab0b8fb9f1936dcb9a9af706ef74d1083ff8de50f26c0d7a",
+    "committed_sha256": "82f0fc5d878aa9f3e677acc88a5b3c170315c002df74744f125acd342a48fe40",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_fb23-0-quad_fb23-1280.log",
+    "original_sha256": "41cba0f9cae245ff2cc54ea7eeb66f36e3aec9e0542dd9b35243f74fcbe36b5e",
+    "committed_sha256": "a348357caa1be50ba94d8510cc2f8149af4ab39e9eb0876dee2bb92403e32850",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-5-probe_both-1600.log",
+    "original_sha256": "59ddaf62c6fe2ece1d9c17223063804fe598e9717b1432f9cb08d3e622a748a9",
+    "committed_sha256": "bfd54fb658d404ff0a47f79b81bb8bcf533dd814aba2680f07b6a493fd290887",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-0-phase_pass-1280.log",
+    "original_sha256": "3251d9d708c928d88646090edf8eef6dee11fefefd91d86506c6a441f93b612a",
+    "committed_sha256": "4944a1f2bbbca8c6b6a70acfda9d3013051ddf1a5dce19282e01b32a58dee94c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-2-phase_guarded_quad_fb23-1280.log",
+    "original_sha256": "2c62116d209ac25200e257993e9e04382666baf9bfec2a30321c3b7f10ada60d",
+    "committed_sha256": "9b0bac41081095d529be821fce2b81be7d60463afad48052efcc7fed5df8938f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-0-remat_fb1-1280.log",
+    "original_sha256": "2187ccc94d1d5d376cbb787b3918130bc6568a53d3614aeae1d0c39e907bc455",
+    "committed_sha256": "235aadaf4466a40cbed8a98246f22ddd29a39c8212a46d502722508efbb378b8",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb23-1280.log",
+    "original_sha256": "829fd5dc7d635834fd884513e72295a5f53af95f1f832bd96b91011974515915",
+    "committed_sha256": "7bd06c34e98943007bec29ae9c61d5ec56c002137871272921cc913241b05714",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_fb1-2-baseline-1280.log",
+    "original_sha256": "11b0a67c812274987281c2dd9b3d96a8a7eca661375389865de5f43ee01b4f69",
+    "committed_sha256": "8f5c128e5d4a2c48d38bfa9e3fdf1aa9756a10409db4ebeec9f1a348500f3770",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-phase_quad_fb23-1920.log",
+    "original_sha256": "61ace235a9e9392e361570b88729af4449a75b6853d26926d20377d6978dddfc",
+    "committed_sha256": "04d49d37b455a6e5ec4619d155be1f467d4774b396db8e654a1ad83b6480fb2f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-1-baseline-1280.log",
+    "original_sha256": "6d9f9032954587acd0bf188ff008e2a449e1cb1e86bea9bbe47145a196bd6587",
+    "committed_sha256": "bb1e517ef7c7893d7aea7424c949a5becce9c6d6400c5d8585fb0582a80e401c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-1-quad_all-1280.log",
+    "original_sha256": "cea20dda92ebc878c498c638fb5c427178ad73ff7e67bc1bd2d16c21f12d4027",
+    "committed_sha256": "201d248aa9ec9ce351d2c810cbf56ad3def5b9833aa1658bb4c28273b047856d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-0-baseline-1920.log",
+    "original_sha256": "27774744a0c23d5be6bf2fdde23573c93099fb3a6920e96a76f747f2d08a83be",
+    "committed_sha256": "dbc66b1f035e25e561dac7773588e85ffef3dfcdd6988d5b87ab1b7d16443b90",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-4-probe_mixed-1280.log",
+    "original_sha256": "f42fb6860716c93c4856a504095b97f7880495c80494cd9605fe2d289de72a00",
+    "committed_sha256": "381da8c99c84255e2b62e9ef795718debaca18cc0187cbaf20b0153ca73972a0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_all-1-quad_all-1920.log",
+    "original_sha256": "cbe1ab6f9391132935e17378aa1cc92b48d9fd865a9bc3fce58eff9f6b472d40",
+    "committed_sha256": "182b7fc23627cfe0cfe7077309ae4ea01addfb2361872daf6e1a1629078c5685",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-3-baseline-1920.log",
+    "original_sha256": "042b51fda7178565fd3c742f6597c97bd6678a285dff55345a8ece8afb789056",
+    "committed_sha256": "ec751e46dec9df793e3b22d9b97c9acf0de0924c71075055cbadd340d0654d51",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-2-baseline-1600.log",
+    "original_sha256": "95360567f5ecb85fb21c15dbef936a1c84b62a2f18994feff30ed3f7098013ec",
+    "committed_sha256": "d40cc92b2a91746bd41b3ecfbbf386790718a0d72f370cd0eabd2899ad703f88",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-1-baseline-1920.log",
+    "original_sha256": "3e52806825c69a3e7b7733ae8f214d8969daad04b8e03c92e9c1a0059565f569",
+    "committed_sha256": "b5959c632cca11599a0e63e85b6c5a15b5218e074527e04ad4e95d70fc357083",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-0-1-probe_shared-1920.log",
+    "original_sha256": "bfc7f4f26eab09516710af1cae3c2608ed94ddb51c54d8b20cdc69987741263b",
+    "committed_sha256": "73a1a66fd7acacbb1257baafefe9687d53c4565ecd9eccaffe7ffae8847b16f0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-0-phase_quad_fb23-1920.log",
+    "original_sha256": "75826435c1e44ac4850c114973a25d43ebdd47d817358233b4433e026993efc6",
+    "committed_sha256": "7bcd8b63fe2576b4f7961975af366bc7b21bb1d7298015774992ea03180bd4e8",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-3-baseline-1920.log",
+    "original_sha256": "99a3ec10124ec701101606a2c9eb5419407b7d60bd5f822472233bce37b7844a",
+    "committed_sha256": "c2ef2d3e099fecbe3eabd0660484c6bd1c31fe2f732e7c20a17b0cf0af3dd752",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-4-probe_global_family-1280.log",
+    "original_sha256": "7224d3f9cb93bbb1433677a69d87d26837a2cfa82c7254ef95c243d7ba134264",
+    "committed_sha256": "3ccd9b8422f5c8e764787ee04234843f85aafc588776abb182802fe4a644fbdf",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-0-baseline-1600.log",
+    "original_sha256": "7c68d091b88205890c728c8fe88c46454bfa419ce4fc50475ef40f608841db04",
+    "committed_sha256": "7ca4b06f9051c0a679eeea87281de987274f6b71e9cb95446e3d7e481c5c1eed",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-0-6-baseline-1920.log",
+    "original_sha256": "c95863c7411bb62100900e7410c052a425a31c8276e9d65255e938581d621e08",
+    "committed_sha256": "095b8ee2370457b0f99b282fe51ac7491832aad271d84cd7727d149384f3155f",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-3-baseline-1280.log",
+    "original_sha256": "c52fa74a8fb8630f494e1d7a2136a7df1febb456bedc4bea2fb06afb541646ce",
+    "committed_sha256": "0242eec60e315fd066b7b0e45c6d14d1284de93b3837fdcfca4d683150c1ebe3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-6-probe_all-1280.log",
+    "original_sha256": "c593b73d393369f33a48e4eef991dfe4fa55415c13fde90b158c17794145aafd",
+    "committed_sha256": "5a4bf240050a82be92fed19a84d9ad7b551ea151b83972f72d0f3bc0322d9564",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-1-baseline-1600.log",
+    "original_sha256": "79341cf1c5f657ba23b6f07bea9e63203b8efa7c95e5110692d973d6b62bca09",
+    "committed_sha256": "7c5a68d60211729ce84ad6aceedad854ce44bac97ccc86fb0f1c8d22a2988c4b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-0-baseline-1920.log",
+    "original_sha256": "67cec3d5ffdd080f4e600cc7df07af0e247586b139941f0a8e8d980633d183b5",
+    "committed_sha256": "52cd88d4eb09e56c917dc5a42b38e11f50a3f7a1daea9caf10310c53a1b532a3",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-0-baseline-1920.log",
+    "original_sha256": "19e82fde29cdac517b2c46daeaca99afaff34b910699abeedfecbdb7a8a2b8ab",
+    "committed_sha256": "037a4175a3d81127b7ea4a3272a77e660c9459101bd95f5624d1a5674fad4d1b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-2-probe_mixed-1920.log",
+    "original_sha256": "6bccb1c04e8260e309cbebbc8ba4f215ced41fba072604b168b7a2558c3aceed",
+    "committed_sha256": "510cdfa10169fe51e28d8d3c9b52646f627102d5d302bf3100ecd500ca022b48",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "repeat-forward-quad_all-3-baseline-1280.log",
+    "original_sha256": "47f546738ce0f45b3772a8031b59dcedb4e190e7227b2e80bcdee66bfaf516d3",
+    "committed_sha256": "166560182ea9ce30eba8ac4e6f0b8e60232301f71b995f0b6afa919acbef7ec0",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_spill-3-baseline-1280.log",
+    "original_sha256": "271fda1a70ad585566e198ecd61531fb331f2c97c1fdcd615ebc0f6a24d6ca90",
+    "committed_sha256": "1abc9cfcba3101ea9cefb3c1a923794ee8956bb8dfe7d0c58a414ef89229a30a",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_fb1-2-remat_fb1-1920.log",
+    "original_sha256": "278bfe28228ac9bbe1571694fed75eadf0607e867c8463f031b82d42d7c6d165",
+    "committed_sha256": "b14b74e9e944b967b4ac07ff357e6e55862c39d00c485a326da22970606b34f9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded-1-phase_guarded-1920.log",
+    "original_sha256": "f704edc7cf65485d0079947ad1b685e787c4d044878512b8c76f3d0b5f18bbed",
+    "committed_sha256": "91d57dd3f5183652835c998c2b9feb333c7bd80fbd4a0b5c7e19ba4948dbea62",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-0-baseline-1920.log",
+    "original_sha256": "22f7c217960c9c468bbdffad5e157419595e24e0e10e2a74fa8aa9478e773102",
+    "committed_sha256": "70d9e00db1ba15056f429bcfb70fb1b0a9628953759fad7db3481572dcd78660",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-3-quad_all-1600.log",
+    "original_sha256": "660b17ee8f73ba69a7bfdd04ec985e1861d51b77d1144c34504a61008fb74183",
+    "committed_sha256": "2f518d6ace8028526347fec8af2308ed89ffd0b37f31b44f030ae17cd80e8af7",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-1-phase_pass-1920.log",
+    "original_sha256": "02879e51cd5b77ddffeba3c64b25010b86d0a3cf5b230346c9059812a6777179",
+    "committed_sha256": "31b38486593faca9f39b98bd0f10d2b46944b667aa89a40621028fe1eb90f6d9",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_guarded_quad_fb23-0-phase_guarded_quad_fb23-1280.log",
+    "original_sha256": "76d7914c3539942b5e4df793f7973f1ec0d3a362a63d159e463b8d0160182111",
+    "committed_sha256": "3f958a9fdb5d60bba39c704865ae57cb6d42c66bbdadd487ba3746d5c1b24534",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-quad_fb23-0-baseline-1600.log",
+    "original_sha256": "e6d21bf19a23dab7d8dfc338e1c6d6b90e38879bbaa9d49251b72f950cca06f5",
+    "committed_sha256": "ae98032b4a7d6f868d1066317a36aba9d38ef1c07c1c78da62c251ed51760c78",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-2-baseline-1280.log",
+    "original_sha256": "cbd0b2379dfb8d2b82fb83f41cc5c5cc399d9a729880735f5aaac76012ad62f1",
+    "committed_sha256": "a9255aa61b12f380dbf3c4fe3a895358be7472a99375897f8bffe70bc1f6eaaa",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_spill-1-baseline-1600.log",
+    "original_sha256": "158e09c57efe0e52e5baa119366a635d2394e909b5c539046533148024502ae0",
+    "committed_sha256": "68d6cb4891973b921ee1a7ff00f5e6a6bde5dd45f0d744f78ff4bed8573cd16b",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_pass-2-baseline-1920.log",
+    "original_sha256": "3c5ffd6b518311d314963c3f546df26cc7bfd4546198d39e0119e0a24b4fac55",
+    "committed_sha256": "849493b3ccd06173901090c956903d7d76229c85ff577260468ec807d55678ac",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-0-baseline-1920.log",
+    "original_sha256": "699e3281e0b5d9ed34a013cc6bf40273f0ae4c2b9f038ff6ea9bfca7634a1e9a",
+    "committed_sha256": "abec90225ed2e1b8e81d121140c353e42d15039d434ba13b2fca59d773b02331",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-remat_qkv-2-baseline-1920.log",
+    "original_sha256": "12e960ec008343396043738ccada954a78480eed023bbc1ddb6ec84323793e77",
+    "committed_sha256": "71d45c95d466c882492ab51018821c0572cf8295a3bba56682a5fd620a768e5c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-forward-1-6-probe_all-1920.log",
+    "original_sha256": "51a28001fa1a15c45017dc1b71da4e88702413cdc63c7543a5f89099c41e5fd2",
+    "committed_sha256": "c04afcef000d2db2495caa2872ab14bef6456143a90e7a6713b9073706508d2c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-1-baseline-1280.log",
+    "original_sha256": "3f8f16ebce6a6c131a94d2698b026a77807ce7d1b3ed4c1dc36c94927d03feee",
+    "committed_sha256": "57e95c6f3c7e6891b8669a8e322ff11a766ece35b6393be983363d24b42694c5",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_pass-3-baseline-1600.log",
+    "original_sha256": "1e2326473139e640adca6fd01b81697a8854906a43dd837ad8f5c90de704969a",
+    "committed_sha256": "5deba358d6d13a6f590426a6a653f02292f0ac441bd759f258dfb8bd0b4dc46c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-6-baseline-1920.log",
+    "original_sha256": "82afd3a2662194e6cca2e3764a17bb1d0d3f07d8e149ab3790910baf1eecfe40",
+    "committed_sha256": "3b283fe386344fc47fb6c7437565bc6d0b809bb97fa5c05f2b369ed04476b66d",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_qkv-3-baseline-1280.log",
+    "original_sha256": "5a26cc56dd1cc8ffa07e62e6f6c4801e6fe22621b1587a5132b310adc36858ea",
+    "committed_sha256": "4cf1e66736ac648bcb6fb0c3e575205ac824a66e66830051e95e4c1fc59105f2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-quad_all-1-baseline-1280.log",
+    "original_sha256": "f5a0006e479c25251f10fb4331f87f6fd162027d79266aec2c0c71414fb0b86f",
+    "committed_sha256": "82925c42011b3fb70742c1753904d9f63517373bcfc2b9ed75a6a37ee83771bc",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-remat_spill-1920.log",
+    "original_sha256": "8a29979362a9b0b228abda76eb07e7cd577c547238c38bdcc29a9c5d63e7de88",
+    "committed_sha256": "81e11a461742251abd5783d168fe2f7e0696283c0ab4328b17b7f9bd6ad3f190",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_guarded_quad_fb23-3-baseline-1920.log",
+    "original_sha256": "22a26c12fb632ca6719045e834eb7124074a2f0840d76677b8f3778e7be8837b",
+    "committed_sha256": "a2e98989b822b1bb77c139953783ee78eedd4cd1ac0c66d2b5f592c8f22bb760",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-phase_quad_fb23-0-baseline-1280.log",
+    "original_sha256": "61448ecdc739b66bd737d51e197b6a3e4bb208d5a3a5fb2aa14ebae255ebdb0b",
+    "committed_sha256": "7975477ef0bfbadd192d7a4ec9781aa216804c002c5ce1172772fe5928a6206c",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-0-baseline-1600.log",
+    "original_sha256": "43f7bdf39a4e07184d9e68b5f2ba5b20d560b27e93be7ff6b2b87401d1f34880",
+    "committed_sha256": "6dae07938171f14bd3fd5fd57ba5bb43c7a29be76c9e1ea14effa8920e616705",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "reverse-phase_quad_fb23-1-baseline-1920.log",
+    "original_sha256": "b1bbac45359fb937cbfa61ca1604dcda1a60defd21c5d3712a8ec3b1e4331962",
+    "committed_sha256": "ad952fae78360b8aa93a7b1f0436bc5d57a133a0d80300832c4a81f0a9df22b1",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "probe-reverse-1-1-probe_both-1920.log",
+    "original_sha256": "4b8a000fd6f8c7aad20b92c13c60c48bf341a157985a73e0664958d703cad82c",
+    "committed_sha256": "7e3f8de4388c32e93911849d50d3566b238c25803951398d5533c5e8a75997ca",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "smoke-quad_fb23-1920.log",
+    "original_sha256": "77ab7a6bf428c34dfba43558ffc7c2c641220ccbc7d491bae293a1045e6c68ed",
+    "committed_sha256": "5fbeb8e6d981df4c0921d9295917e6da255afc05477ba94f37931e348650baf6",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "forward-remat_call-0-baseline-1280.log",
+    "original_sha256": "f9cf686794806516fbe74491de2469273fa6b3e3afddbc17489e7d711d7f89f5",
+    "committed_sha256": "c4593ebee1fc79fa5f7c1a7e19b8442d137278db829500bc20a51fcc19f942d2",
+    "change": "LF and trailing whitespace normalization only; numeric text unchanged"
+  },
+  {
+    "path": "remat-call-helpers.sass",
+    "original_sha256": "11550b7cd32588b554e1f156efe50d8242f8ea91ca688715ccf028beb43e5d1e",
+    "committed_sha256": "ef51356d753052a28ec1c3002b7adc728d2d764aada7f40ba774d05f0c66d132",
+    "change": "trailing whitespace / blank EOF normalization; assembly instruction text unchanged"
+  }
+]

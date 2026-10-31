@@ -1,0 +1,5 @@
+nvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format
+nvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format
+source events dict_keys(['probe_shared', 'probe_global', 'probe_mixed', 'probe_both', 'probe_all', 'probe_global_family'])
+identity {'baseline': True, 'phase_pass': False, 'remat_spill': False, 'remat_fb1': False, 'remat_qkv': False, 'quad_all': False, 'quad_fb23': False, 'probe_shared': False, 'probe_global': False, 'probe_mixed': False, 'probe_both': False, 'probe_all': False, 'probe_global_family': False, 'remat_call': False, 'phase_quad_fb23': False, 'phase_guarded': False, 'phase_guarded_quad_fb23': False}
+CALLs 11476

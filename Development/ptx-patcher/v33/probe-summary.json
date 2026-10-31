@@ -1,0 +1,203 @@
+{
+  "1280": {
+    "raw_process_medians": {
+      "baseline": [
+        5.63,
+        5.657,
+        5.665,
+        5.681
+      ],
+      "probe_shared": [
+        5.294,
+        5.28,
+        5.4,
+        5.361
+      ],
+      "probe_global_family": [
+        5.2,
+        5.249,
+        5.247,
+        5.281
+      ],
+      "probe_global": [
+        5.244,
+        5.263,
+        5.277,
+        5.305
+      ],
+      "probe_mixed": [
+        5.556,
+        5.597,
+        5.553,
+        5.649
+      ],
+      "probe_both": [
+        5.109,
+        5.101,
+        5.089,
+        5.161
+      ],
+      "probe_all": [
+        5.089,
+        5.093,
+        5.147,
+        5.139
+      ]
+    },
+    "means_ms": {
+      "baseline": 5.65825,
+      "probe_shared": 5.33375,
+      "probe_global_family": 5.24425,
+      "probe_global": 5.27225,
+      "probe_mixed": 5.58875,
+      "probe_both": 5.115,
+      "probe_all": 5.117
+    },
+    "base_minus_ms": {
+      "probe_shared": 0.32449999999999957,
+      "probe_global_family": 0.4139999999999997,
+      "probe_global": 0.3860000000000001,
+      "probe_mixed": 0.06949999999999967,
+      "probe_both": 0.5432499999999996,
+      "probe_all": 0.5412499999999998
+    },
+    "shared_global_family_interaction_ms": 0.19724999999999948,
+    "shared_pure_global_interaction_ms": 0.16725000000000012,
+    "nonfinite_probe_runs": 0,
+    "scope": "destructive sensitivity; categories contain may-origins, not dynamic counts; not additive recoverable budgets"
+  },
+  "1600": {
+    "raw_process_medians": {
+      "baseline": [
+        8.348,
+        8.347,
+        8.33,
+        8.32
+      ],
+      "probe_shared": [
+        7.841,
+        7.804,
+        7.856,
+        7.842
+      ],
+      "probe_global_family": [
+        7.434,
+        7.483,
+        7.5,
+        7.481
+      ],
+      "probe_global": [
+        7.502,
+        7.556,
+        7.514,
+        7.534
+      ],
+      "probe_mixed": [
+        8.313,
+        8.388,
+        8.3,
+        8.26
+      ],
+      "probe_both": [
+        7.336,
+        7.315,
+        7.31,
+        7.316
+      ],
+      "probe_all": [
+        7.322,
+        7.318,
+        7.338,
+        7.253
+      ]
+    },
+    "means_ms": {
+      "baseline": 8.33625,
+      "probe_shared": 7.83575,
+      "probe_global_family": 7.4745,
+      "probe_global": 7.5265,
+      "probe_mixed": 8.31525,
+      "probe_both": 7.31925,
+      "probe_all": 7.30775
+    },
+    "base_minus_ms": {
+      "probe_shared": 0.5004999999999997,
+      "probe_global_family": 0.8617499999999998,
+      "probe_global": 0.8097499999999993,
+      "probe_mixed": 0.02099999999999902,
+      "probe_both": 1.0169999999999995,
+      "probe_all": 1.0284999999999993
+    },
+    "shared_global_family_interaction_ms": 0.3337500000000002,
+    "shared_pure_global_interaction_ms": 0.29324999999999957,
+    "nonfinite_probe_runs": 0,
+    "scope": "destructive sensitivity; categories contain may-origins, not dynamic counts; not additive recoverable budgets"
+  },
+  "1920": {
+    "raw_process_medians": {
+      "baseline": [
+        11.059,
+        11.077,
+        11.006,
+        11.057
+      ],
+      "probe_shared": [
+        10.325,
+        10.335,
+        10.316,
+        10.33
+      ],
+      "probe_global_family": [
+        9.843,
+        9.85,
+        9.85,
+        9.84
+      ],
+      "probe_global": [
+        9.951,
+        9.876,
+        9.872,
+        9.864
+      ],
+      "probe_mixed": [
+        11.052,
+        11.055,
+        11.046,
+        10.976
+      ],
+      "probe_both": [
+        9.55,
+        9.624,
+        9.556,
+        9.55
+      ],
+      "probe_all": [
+        9.52,
+        9.589,
+        9.59,
+        9.543
+      ]
+    },
+    "means_ms": {
+      "baseline": 11.04975,
+      "probe_shared": 10.3265,
+      "probe_global_family": 9.845749999999999,
+      "probe_global": 9.89075,
+      "probe_mixed": 11.03225,
+      "probe_both": 9.57,
+      "probe_all": 9.5605
+    },
+    "base_minus_ms": {
+      "probe_shared": 0.7232500000000002,
+      "probe_global_family": 1.2040000000000006,
+      "probe_global": 1.158999999999999,
+      "probe_mixed": 0.01750000000000007,
+      "probe_both": 1.4797499999999992,
+      "probe_all": 1.4892500000000002
+    },
+    "shared_global_family_interaction_ms": 0.4380000000000006,
+    "shared_pure_global_interaction_ms": 0.40249999999999986,
+    "nonfinite_probe_runs": 0,
+    "scope": "destructive sensitivity; categories contain may-origins, not dynamic counts; not additive recoverable budgets"
+  }
+}

@@ -1,0 +1,15 @@
+probe_global_family 0 ELF O4 (cubin=1281376 B -> fatbin=267656 / 841720 B) in 5.11s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, maxnreg_override=19
+probe_global_family 1 ELF O4 (cubin=1054496 B -> fatbin=199384 / 557032 B) in 9.36s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832
+probe_global_family 2 ELF O4 (cubin=1144480 B -> fatbin=179976 / 506464 B) in 9.44s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832
+probe_global_family 4 ELF O4 (cubin=1043488 B -> fatbin=184848 / 433184 B) in 2.60s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, fp8_to_fp16=704, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23
+probe_global_family 6 ELF O4 (cubin= 128352 B -> fatbin= 31168 /  70336 B) in 0.48s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2
+probe_global_family 7 ELF O4 (cubin=   4392 B -> fatbin=  1448 /   8016 B) in 0.11s | ptx_version=1, target=1
+probe_global_family 8 ELF O4 (cubin=   5608 B -> fatbin=  1520 /  10904 B) in 0.11s | ptx_version=1, target=1
+probe_global_family 9 ELF O4 (cubin=   6248 B -> fatbin=  1608 /  11792 B) in 0.11s | ptx_version=1, target=1
+probe_global_family 10 ELF O4 (cubin=   5792 B -> fatbin=  1816 /  10560 B) in 0.11s | ptx_version=1, target=1
+probe_global_family 11 ELF O4 (cubin=   5672 B -> fatbin=  1536 /   9960 B) in 0.11s | ptx_version=1, target=1
+probe_global_family 12 ELF O4 (cubin=   3752 B -> fatbin=  1128 /   6552 B) in 0.11s | ptx_version=1, target=1
+probe_global_family 13 ELF O4 (cubin=  32672 B -> fatbin=  8888 /  54824 B) in 0.17s | ptx_version=1, target=1, min_relu=4
+probe_global_family 14 ELF O4 (cubin=   4008 B -> fatbin=  1240 /   6936 B) in 0.11s | ptx_version=1, target=1
+probe_global_family 3 ELF O4 (cubin=1157408 B -> fatbin=207056 / 586832 B) in 9.71s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, maxnreg_override=12
+probe_global_family 5 ELF O4 (cubin=1347616 B -> fatbin=197512 / 542960 B) in 7.22s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, fp8_to_fp16=704, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29

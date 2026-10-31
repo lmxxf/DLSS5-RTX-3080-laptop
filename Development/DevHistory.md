@@ -1090,3 +1090,20 @@ Phase-Split将encoded解码/释放细化至2*i+phase，并在原源被当前或�
 11个计时单因素/组合均未通过三档两轮正反全胜门槛，不晋升V3.2 DLL，保留V3.1_pack5；分支3保持Open、n=2/3，分支4保持Open、n=0/3。不将本批次负结果当作全网收官，不提前剪枝。生产五处、原DLL和三个v0.3.0 ZIP保护性SHA全部不变；不部署、不push。清理本轮临时DLL/RGB/PTX/cubin/fatbin缓存，仅保留文本证据与可能晋升的独立候选；完成后立即独立commit，无Co-Authored-By。
 
 [完整回执](ptx-patcher/v32/README.md)、[逐方向计时](ptx-patcher/v32/timing-summary.md)、[四表](ptx-patcher/v32/hardware-baseline.md)、[验收](ptx-patcher/v32/validation.json)、[新探针](ptx-patcher/v32/probe-summary.json)。
+
+
+## 2026-10-31：PTX V3.3，Shared/Global拆分、Two-Pass分相半池、重解码与纯Quad（闇）
+
+唯一输入基线V3.1_pack5 SHA1190121f18a03080352fcec5d7a0b79ef47da0bb8ef2e00063e3b6999ff65c86；全量15/15 O4原槽位重建同SHA。先完成所有构建、GPU原语、38核四张硬件表与官方Occupancy API，再开始计时；阶段及每个runner起止时序独立核验全部串行，无计时排除或删样本。
+
+任务A重新CFG核对全部5848个静态run解码事件：Shared2320、纯Global3304、Global+本地量化144、Global+常量80；任务单Global3528为含224混合事件的Global家族，不冒称纯load。6个专项探针加Base共84次正反对照，Shared敏感度0.324500/0.500500/0.723250ms，Global家族0.414000/0.861750/1.204000ms，纯Global0.386000/0.809750/1.159000ms；Shared×Global家族交互0.197250/0.333750/0.438000ms，不能相加当可兑现预算。144项保留真实ld.global与fallback pack可达定义、CFG块/前驱及指令上下文；全体未找到经mov隐藏的纯本地pack叶源，不无条件拓宽mapped。分支4仍Open，未实施Shared跨线程半精度存储改写。
+
+任务B按累加器C/D依赖层分相，保持每链phase0→phase1→下一K32顺序，decoded-half事件11696不增加；FB00..06虚拟池24/56/56/56/112/80/20→12/28/28/28/28/28/6，模型raw snapshot0。物理C512 ffwd174→144regs，部分Spill核STACK反增，虚拟池不代替资源/API裁决。Spill内联重解码池≤6，但O4的SASS/REG/STACK计数回到基线；另做设备函数强制重算控制，明确计入CALL与ABI STACK，不拿它独自否定所有重算。计时前按零STACK且REG不增固定26入口guarded子集，并测试其与FB23纯Quad组合。
+
+任务C仅FB01/02/03或仅FB02/03开纯Quad，mask12不含UP bit1。FB23融合1232对；quad_fb23的FB01及其他非目标cubin字节保持基线；33,554,432对GPU原语0差。本轮纯quad_all的FB01两核STACK104/80→96/72B，全网STL107→106、LDL108不变，修正旧捆绑候选“Quad必然加Spill”的解释。
+
+10个严格候选首轮240次，repeat24次，三档快验33次；另84次专项探针对照中含12次严格Base。全部309次严格版本成功运行末帧对同配置V3.1严格0bit/maxabs0/nonfinite0。3模式×7类别名GPU、4个依赖链用例、Quad原语及13项既有回归通过。NCU未安装，循环信息沿用V2.5语义插桩，未冒称新动态stall/issued计数。
+
+本轮不晋升V3.3 DLL，继续以V3.1_pack5为唯一1.00×。 分支2 Open n=2/3；分支3 Pruned n=3/3；分支4 Open n=1/3。K=3剪枝只结算该批机制，不是物理极限证明；剩余Open节点仍保留。核心/生产五处/三ZIP保护性SHA全部不变，不部署、不push。清理临时大二进制，保留文本证据及独立晋升DLL（若有），立即独立commit，无Co-Authored-By。
+
+[完整回执](ptx-patcher/v33/README.md)、[逐方向计时](ptx-patcher/v33/timing-summary.md)、[探针汇总](ptx-patcher/v33/probe-summary.json)、[CFG反证](ptx-patcher/v33/forwarding-audit.json)、[验收](ptx-patcher/v33/validation.json)。

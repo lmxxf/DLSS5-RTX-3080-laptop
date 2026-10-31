@@ -1,0 +1,227 @@
+[
+  {
+    "tag": "build.py baseline",
+    "args": [
+      "build.py",
+      "baseline"
+    ],
+    "begin": "2026-11-01T04:57:33.340765",
+    "end": "2026-11-01T04:57:51.606497",
+    "returncode": 0,
+    "output": "baseline 2 ELF O4 (cubin=1182624 B -> fatbin=161968 / 506464 B) in 6.86s | ptx_version=1, target=1, fp8_mma=3304, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\nbaseline 1 ELF O4 (cubin=1147680 B -> fatbin=181808 / 557032 B) in 6.88s | ptx_version=1, target=1, fp8_mma=3608, fp8_to_fp16=832, up_pair_deleted_splits=64, fp16_to_fp8=1352\nbaseline 0 ELF O4 (cubin=1361632 B -> fatbin=278520 / 841720 B) in 9.04s | ptx_version=1, target=1, fp8_mma=4888, fp8_to_fp16=584, up_pair_deleted_splits=84, fp16_to_fp8=548, maxnreg_override=19\nbaseline 4 ELF O4 (cubin=1077280 B -> fatbin=178104 / 433184 B) in 5.02s | ptx_version=1, target=1, fp8_mma=2176, fp16_to_fp8=1296, zero_constant_folds=176, fp8_to_fp16=704, up_pair_deleted_splits=112, bulk_copy=104, elect=104, expect_tx=104, barrier_arrive=46, barrier_wait=46, maxnreg_override=23\nbaseline 6 ELF O4 (cubin= 136032 B -> fatbin= 30584 /  70336 B) in 1.09s | ptx_version=1, target=1, fp8_mma=128, fp16_to_fp8=292, zero_constant_folds=36, fp8_to_fp16=256, bulk_copy=4, elect=4, expect_tx=4, barrier_arrive=4, barrier_wait=4, vector_reduction=16, maxnreg_override=2\nbaseline 7 ELF O4 (cubin=   4392 B -> fatbin=  1448 /   8016 B) in 0.12s | ptx_version=1, target=1\nbaseline 8 ELF O4 (cubin=   5608 B -> fatbin=  1520 /  10904 B) in 0.12s | ptx_version=1, target=1\nbaseline 9 ELF O4 (cubin=   6248 B -> fatbin=  1608 /  11792 B) in 0.12s | ptx_version=1, target=1\nbaseline 10 ELF O4 (cubin=   5792 B -> fatbin=  1816 /  10560 B) in 0.16s | ptx_version=1, target=1\nbaseline 11 ELF O4 (cubin=   5672 B -> fatbin=  1536 /   9960 B) in 0.11s | ptx_version=1, target=1\nbaseline 12 ELF O4 (cubin=   3752 B -> fatbin=  1128 /   6552 B) in 0.10s | ptx_version=1, target=1\nbaseline 13 ELF O4 (cubin=  32672 B -> fatbin=  8888 /  54824 B) in 0.20s | ptx_version=1, target=1, min_relu=4\nbaseline 14 ELF O4 (cubin=   4008 B -> fatbin=  1240 /   6936 B) in 0.13s | ptx_version=1, target=1\nbaseline 3 ELF O4 (cubin=1180192 B -> fatbin=199104 / 586832 B) in 7.60s | ptx_version=1, target=1, fp8_mma=3480, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\nbaseline 5 ELF O4 (cubin=1306656 B -> fatbin=184936 / 542960 B) in 6.03s | ptx_version=1, target=1, fp8_mma=2144, fp16_to_fp8=2112, zero_constant_folds=288, fp8_to_fp16=704, up_pair_deleted_splits=96, bulk_copy=208, elect=208, expect_tx=208, barrier_arrive=58, barrier_wait=58, vector_reduction=176, release_fence=1, maxnreg_override=29\n"
+  },
+  {
+    "tag": "test_quad.py",
+    "args": [
+      "test_quad.py"
+    ],
+    "begin": "2026-11-01T04:58:37.443040",
+    "end": "2026-11-01T04:58:37.616238",
+    "returncode": 0,
+    "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.003s\n\nOK\n"
+  },
+  {
+    "tag": "quad_primitive.py",
+    "args": [
+      "quad_primitive.py"
+    ],
+    "begin": "2026-11-01T04:58:37.638185",
+    "end": "2026-11-01T04:58:38.853915",
+    "returncode": 0,
+    "output": "{'rotate': False, 'quad_cases': 16777216, 'mismatches': 0, 'domain': 'all 65536 low-half bit patterns x256 opposite-half poison patterns, xor-related second half2 input, rotated second pass; finite, subnormal, +/-0, Inf, NaN included'}\n{'rotate': True, 'quad_cases': 16777216, 'mismatches': 0, 'domain': 'all 65536 low-half bit patterns x256 opposite-half poison patterns, xor-related second half2 input, rotated second pass; finite, subnormal, +/-0, Inf, NaN included'}\ncore counts {'two_pack4_join': 9, 'pack4_quad': 7}\n"
+  },
+  {
+    "tag": "build.py pack4_fb0_nopre pack4_fb1_all pack4_quad_fb23",
+    "args": [
+      "build.py",
+      "pack4_fb0_nopre",
+      "pack4_fb1_all",
+      "pack4_quad_fb23"
+    ],
+    "begin": "2026-11-01T05:00:36.491429",
+    "end": "2026-11-01T05:01:24.980540",
+    "returncode": 0,
+    "output": "pack4_fb0_nopre 0 ELF O4 (cubin=1358944 B -> fatbin=279552 / 841720 B) in 15.73s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, up_pair_deleted_splits=84, maxnreg_override=19\npack4_fb1_all 1 ELF O4 (cubin=1139872 B -> fatbin=195056 / 557032 B) in 11.42s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, up_pair_deleted_splits=64\npack4_quad_fb23 2 ELF O4 (cubin=1163168 B -> fatbin=161152 / 506464 B) in 14.46s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=616, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\npack4_quad_fb23 3 ELF O4 (cubin=1160736 B -> fatbin=196000 / 586832 B) in 15.38s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=616, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\n"
+  },
+  {
+    "tag": "audit.py",
+    "args": [
+      "audit.py"
+    ],
+    "begin": "2026-11-01T05:01:24.980979",
+    "end": "2026-11-01T05:01:53.006044",
+    "returncode": 0,
+    "output": "baseline {'INSN_NONOP': 145461, 'HMMA': 13188, 'PRMT': 18781, 'STL': 99, 'LDL': 100, 'SHFL': 1672}\npack4_fb0_nopre {'INSN_NONOP': 145293, 'HMMA': 13188, 'PRMT': 18781, 'STL': 99, 'LDL': 100, 'SHFL': 1672}\npack4_fb1_all {'INSN_NONOP': 144973, 'HMMA': 13188, 'PRMT': 18781, 'STL': 98, 'LDL': 98, 'SHFL': 1672}\npack4_quad_fb23 {'INSN_NONOP': 144619, 'HMMA': 13188, 'PRMT': 17934, 'STL': 99, 'LDL': 100, 'SHFL': 1672}\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "select_clean.py",
+    "args": [
+      "select_clean.py"
+    ],
+    "begin": "2026-11-01T05:01:53.006573",
+    "end": "2026-11-01T05:01:53.027222",
+    "returncode": 0,
+    "output": "{'pack4_fb1_clean': (4, {}), 'pack4_quad_clean': (8, {})}\n"
+  },
+  {
+    "tag": "build.py pack4_fb1_clean pack4_quad_clean joint_A_B_pack4_quad_fb23 joint_A_B_pack4_quad_clean",
+    "args": [
+      "build.py",
+      "pack4_fb1_clean",
+      "pack4_quad_clean",
+      "joint_A_B_pack4_quad_fb23",
+      "joint_A_B_pack4_quad_clean"
+    ],
+    "begin": "2026-11-01T05:01:53.027553",
+    "end": "2026-11-01T05:02:52.609273",
+    "returncode": 0,
+    "output": "pack4_fb1_clean 1 ELF O4 (cubin=1139872 B -> fatbin=195056 / 557032 B) in 6.10s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, up_pair_deleted_splits=64\npack4_quad_clean 2 ELF O4 (cubin=1175968 B -> fatbin=162360 / 506464 B) in 12.83s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\npack4_quad_clean 3 ELF O4 (cubin=1173408 B -> fatbin=198104 / 586832 B) in 13.62s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\njoint_A_B_pack4_quad_fb23 1 ELF O4 (cubin=1139872 B -> fatbin=195056 / 557032 B) in 7.32s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, up_pair_deleted_splits=64\njoint_A_B_pack4_quad_fb23 0 ELF O4 (cubin=1358944 B -> fatbin=279552 / 841720 B) in 9.54s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, up_pair_deleted_splits=84, maxnreg_override=19\njoint_A_B_pack4_quad_fb23 2 ELF O4 (cubin=1163168 B -> fatbin=161152 / 506464 B) in 9.65s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=616, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\njoint_A_B_pack4_quad_fb23 3 ELF O4 (cubin=1160736 B -> fatbin=196000 / 586832 B) in 9.19s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=616, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\njoint_A_B_pack4_quad_clean 1 ELF O4 (cubin=1139872 B -> fatbin=195056 / 557032 B) in 7.56s | ptx_version=1, target=1, fp8_mma=3608, fp16_to_fp8=1352, fp8_to_fp16=832, up_pair_deleted_splits=64\njoint_A_B_pack4_quad_clean 2 ELF O4 (cubin=1175968 B -> fatbin=162360 / 506464 B) in 8.47s | ptx_version=1, target=1, fp8_mma=3304, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144\njoint_A_B_pack4_quad_clean 0 ELF O4 (cubin=1358944 B -> fatbin=279552 / 841720 B) in 9.88s | ptx_version=1, target=1, fp8_mma=4888, fp16_to_fp8=548, fp8_to_fp16=584, up_pair_deleted_splits=84, maxnreg_override=19\njoint_A_B_pack4_quad_clean 3 ELF O4 (cubin=1173408 B -> fatbin=198104 / 586832 B) in 7.96s | ptx_version=1, target=1, fp8_mma=3480, fused_quad_pairs=212, fp16_to_fp8=1672, fp8_to_fp16=832, up_pair_deleted_splits=144, maxnreg_override=12\n"
+  },
+  {
+    "tag": "audit.py pack4_fb1_clean pack4_quad_clean joint_A_B_pack4_quad_fb23 joint_A_B_pack4_quad_clean",
+    "args": [
+      "audit.py",
+      "pack4_fb1_clean",
+      "pack4_quad_clean",
+      "joint_A_B_pack4_quad_fb23",
+      "joint_A_B_pack4_quad_clean"
+    ],
+    "begin": "2026-11-01T05:02:52.609918",
+    "end": "2026-11-01T05:03:20.497172",
+    "returncode": 0,
+    "output": "pack4_fb1_clean {'INSN_NONOP': 144973, 'HMMA': 13188, 'PRMT': 18781, 'STL': 98, 'LDL': 98, 'SHFL': 1672}\npack4_quad_clean {'INSN_NONOP': 144619, 'HMMA': 13188, 'PRMT': 17934, 'STL': 99, 'LDL': 100, 'SHFL': 1672}\njoint_A_B_pack4_quad_fb23 {'INSN_NONOP': 143963, 'HMMA': 13188, 'PRMT': 17934, 'STL': 98, 'LDL': 98, 'SHFL': 1672}\njoint_A_B_pack4_quad_clean {'INSN_NONOP': 143963, 'HMMA': 13188, 'PRMT': 17934, 'STL': 98, 'LDL': 98, 'SHFL': 1672}\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "tables.py",
+    "args": [
+      "tables.py"
+    ],
+    "begin": "2026-11-01T05:03:20.497641",
+    "end": "2026-11-01T05:03:22.053215",
+    "returncode": 0,
+    "output": "tables 8\n"
+  },
+  {
+    "tag": "bench.py smoke",
+    "args": [
+      "bench.py",
+      "smoke"
+    ],
+    "begin": "2026-11-01T05:03:22.053615",
+    "end": "2026-11-01T05:04:13.716533",
+    "returncode": 0,
+    "output": "smoke smoke baseline 1280 5.599 0 None\nsmoke smoke pack4_fb0_nopre 1280 5.615 0 None\nsmoke smoke pack4_fb1_all 1280 5.628 0 None\nsmoke smoke pack4_quad_fb23 1280 5.623 0 None\nsmoke smoke pack4_fb1_clean 1280 5.607 0 None\nsmoke smoke pack4_quad_clean 1280 5.609 0 None\nsmoke smoke joint_A_B_pack4_quad_fb23 1280 5.624 0 None\nsmoke smoke joint_A_B_pack4_quad_clean 1280 5.605 0 None\nsmoke smoke baseline 1600 7.979 0 None\nsmoke smoke pack4_fb0_nopre 1600 7.968 0 None\nsmoke smoke pack4_fb1_all 1600 7.974 0 None\nsmoke smoke pack4_quad_fb23 1600 7.969 0 None\nsmoke smoke pack4_fb1_clean 1600 7.959 0 None\nsmoke smoke pack4_quad_clean 1600 7.964 0 None\nsmoke smoke joint_A_B_pack4_quad_fb23 1600 7.978 0 None\nsmoke smoke joint_A_B_pack4_quad_clean 1600 7.969 0 None\nsmoke smoke baseline 1920 10.346 0 None\nsmoke smoke pack4_fb0_nopre 1920 10.331 0 None\nsmoke smoke pack4_fb1_all 1920 10.313 0 None\nsmoke smoke pack4_quad_fb23 1920 10.34 0 None\nsmoke smoke pack4_fb1_clean 1920 10.322 0 None\nsmoke smoke pack4_quad_clean 1920 10.322 0 None\nsmoke smoke joint_A_B_pack4_quad_fb23 1920 10.323 0 None\nsmoke smoke joint_A_B_pack4_quad_clean 1920 10.604 0 None\n"
+  },
+  {
+    "tag": "preflight.py",
+    "args": [
+      "preflight.py"
+    ],
+    "begin": "2026-11-01T05:04:13.717017",
+    "end": "2026-11-01T05:04:32.314467",
+    "returncode": 0,
+    "output": "PASS ['pack4_fb0_nopre', 'pack4_quad_fb23', 'pack4_fb1_clean', 'pack4_quad_clean'] quad active pairs/PRMT delta 424 -847\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\nnvdisasm warning : Disassembling Std Elf to Old format or Old Elf to Std format not supported yet, switching to Std format\n"
+  },
+  {
+    "tag": "resource_check.py",
+    "args": [
+      "resource_check.py"
+    ],
+    "begin": "2026-11-01T05:06:04.376815",
+    "end": "2026-11-01T05:06:04.396740",
+    "returncode": 0,
+    "output": "{'baseline': 0, 'pack4_fb0_nopre': -168, 'pack4_fb1_all': -488, 'pack4_quad_fb23': -842, 'pack4_fb1_clean': -488, 'pack4_quad_clean': -842, 'joint_A_B_pack4_quad_fb23': -1498, 'joint_A_B_pack4_quad_clean': -1498}\n"
+  },
+  {
+    "tag": "bench.py timed",
+    "args": [
+      "bench.py",
+      "timed"
+    ],
+    "begin": "2026-11-01T05:06:05.679052",
+    "end": "2026-11-01T05:11:27.184495",
+    "returncode": 0,
+    "output": "timed forward-pack4_fb0_nopre-0 baseline 1280 5.532 0 None\ntimed forward-pack4_fb0_nopre-1 pack4_fb0_nopre 1280 5.529 0 None\ntimed forward-pack4_fb0_nopre-2 pack4_fb0_nopre 1280 5.541 0 None\ntimed forward-pack4_fb0_nopre-3 baseline 1280 5.524 0 None\ntimed forward-pack4_quad_fb23-0 baseline 1280 5.547 0 None\ntimed forward-pack4_quad_fb23-1 pack4_quad_fb23 1280 5.563 0 None\ntimed forward-pack4_quad_fb23-2 pack4_quad_fb23 1280 5.552 0 None\ntimed forward-pack4_quad_fb23-3 baseline 1280 5.559 0 None\ntimed forward-pack4_fb1_clean-0 baseline 1280 5.573 0 None\ntimed forward-pack4_fb1_clean-1 pack4_fb1_clean 1280 5.567 0 None\ntimed forward-pack4_fb1_clean-2 pack4_fb1_clean 1280 5.576 0 None\ntimed forward-pack4_fb1_clean-3 baseline 1280 5.584 0 None\ntimed forward-pack4_quad_clean-0 baseline 1280 5.591 0 None\ntimed forward-pack4_quad_clean-1 pack4_quad_clean 1280 5.582 0 None\ntimed forward-pack4_quad_clean-2 pack4_quad_clean 1280 5.571 0 None\ntimed forward-pack4_quad_clean-3 baseline 1280 5.595 0 None\ntimed forward-pack4_fb0_nopre-0 baseline 1600 8.264 0 None\ntimed forward-pack4_fb0_nopre-1 pack4_fb0_nopre 1600 8.175 0 None\ntimed forward-pack4_fb0_nopre-2 pack4_fb0_nopre 1600 8.223 0 None\ntimed forward-pack4_fb0_nopre-3 baseline 1600 8.284 0 None\ntimed forward-pack4_quad_fb23-0 baseline 1600 8.192 0 None\ntimed forward-pack4_quad_fb23-1 pack4_quad_fb23 1600 8.284 0 None\ntimed forward-pack4_quad_fb23-2 pack4_quad_fb23 1600 8.281 0 None\ntimed forward-pack4_quad_fb23-3 baseline 1600 8.324 0 None\ntimed forward-pack4_fb1_clean-0 baseline 1600 8.275 0 None\ntimed forward-pack4_fb1_clean-1 pack4_fb1_clean 1600 8.316 0 None\ntimed forward-pack4_fb1_clean-2 pack4_fb1_clean 1600 8.311 0 None\ntimed forward-pack4_fb1_clean-3 baseline 1600 8.337 0 None\ntimed forward-pack4_quad_clean-0 baseline 1600 8.287 0 None\ntimed forward-pack4_quad_clean-1 pack4_quad_clean 1600 8.331 0 None\ntimed forward-pack4_quad_clean-2 pack4_quad_clean 1600 8.333 0 None\ntimed forward-pack4_quad_clean-3 baseline 1600 8.342 0 None\ntimed forward-pack4_fb0_nopre-0 baseline 1920 10.997 0 None\ntimed forward-pack4_fb0_nopre-1 pack4_fb0_nopre 1920 11.01 0 None\ntimed forward-pack4_fb0_nopre-2 pack4_fb0_nopre 1920 11.013 0 None\ntimed forward-pack4_fb0_nopre-3 baseline 1920 11.0 0 None\ntimed forward-pack4_quad_fb23-0 baseline 1920 11.011 0 None\ntimed forward-pack4_quad_fb23-1 pack4_quad_fb23 1920 11.007 0 None\ntimed forward-pack4_quad_fb23-2 pack4_quad_fb23 1920 10.995 0 None\ntimed forward-pack4_quad_fb23-3 baseline 1920 11.006 0 None\ntimed forward-pack4_fb1_clean-0 baseline 1920 11.01 0 None\ntimed forward-pack4_fb1_clean-1 pack4_fb1_clean 1920 11.0 0 None\ntimed forward-pack4_fb1_clean-2 pack4_fb1_clean 1920 10.993 0 None\ntimed forward-pack4_fb1_clean-3 baseline 1920 11.004 0 None\ntimed forward-pack4_quad_clean-0 baseline 1920 10.998 0 None\ntimed forward-pack4_quad_clean-1 pack4_quad_clean 1920 10.996 0 None\ntimed forward-pack4_quad_clean-2 pack4_quad_clean 1920 10.979 0 None\ntimed forward-pack4_quad_clean-3 baseline 1920 10.995 0 None\ntimed reverse-pack4_fb0_nopre-0 pack4_fb0_nopre 1920 11.007 0 None\ntimed reverse-pack4_fb0_nopre-1 baseline 1920 10.989 0 None\ntimed reverse-pack4_fb0_nopre-2 baseline 1920 10.981 0 None\ntimed reverse-pack4_fb0_nopre-3 pack4_fb0_nopre 1920 11.001 0 None\ntimed reverse-pack4_quad_fb23-0 pack4_quad_fb23 1920 10.996 0 None\ntimed reverse-pack4_quad_fb23-1 baseline 1920 11.011 0 None\ntimed reverse-pack4_quad_fb23-2 baseline 1920 11.0 0 None\ntimed reverse-pack4_quad_fb23-3 pack4_quad_fb23 1920 10.995 0 None\ntimed reverse-pack4_fb1_clean-0 pack4_fb1_clean 1920 11.01 0 None\ntimed reverse-pack4_fb1_clean-1 baseline 1920 11.009 0 None\ntimed reverse-pack4_fb1_clean-2 baseline 1920 11.0 0 None\ntimed reverse-pack4_fb1_clean-3 pack4_fb1_clean 1920 11.003 0 None\ntimed reverse-pack4_quad_clean-0 pack4_quad_clean 1920 10.996 0 None\ntimed reverse-pack4_quad_clean-1 baseline 1920 10.994 0 None\ntimed reverse-pack4_quad_clean-2 baseline 1920 11.009 0 None\ntimed reverse-pack4_quad_clean-3 pack4_quad_clean 1920 10.991 0 None\ntimed reverse-pack4_fb0_nopre-0 pack4_fb0_nopre 1600 8.294 0 None\ntimed reverse-pack4_fb0_nopre-1 baseline 1600 8.347 0 None\ntimed reverse-pack4_fb0_nopre-2 baseline 1600 8.356 0 None\ntimed reverse-pack4_fb0_nopre-3 pack4_fb0_nopre 1600 8.241 0 None\ntimed reverse-pack4_quad_fb23-0 pack4_quad_fb23 1600 8.219 0 None\ntimed reverse-pack4_quad_fb23-1 baseline 1600 8.354 0 None\ntimed reverse-pack4_quad_fb23-2 baseline 1600 8.321 0 None\ntimed reverse-pack4_quad_fb23-3 pack4_quad_fb23 1600 8.225 0 None\ntimed reverse-pack4_fb1_clean-0 pack4_fb1_clean 1600 8.336 0 None\ntimed reverse-pack4_fb1_clean-1 baseline 1600 8.318 0 None\ntimed reverse-pack4_fb1_clean-2 baseline 1600 8.338 0 None\ntimed reverse-pack4_fb1_clean-3 pack4_fb1_clean 1600 8.27 0 None\ntimed reverse-pack4_quad_clean-0 pack4_quad_clean 1600 8.265 0 None\ntimed reverse-pack4_quad_clean-1 baseline 1600 8.34 0 None\ntimed reverse-pack4_quad_clean-2 baseline 1600 8.331 0 None\ntimed reverse-pack4_quad_clean-3 pack4_quad_clean 1600 8.313 0 None\ntimed reverse-pack4_fb0_nopre-0 pack4_fb0_nopre 1280 5.625 0 None\ntimed reverse-pack4_fb0_nopre-1 baseline 1280 5.631 0 None\ntimed reverse-pack4_fb0_nopre-2 baseline 1280 5.62 0 None\ntimed reverse-pack4_fb0_nopre-3 pack4_fb0_nopre 1280 5.612 0 None\ntimed reverse-pack4_quad_fb23-0 pack4_quad_fb23 1280 5.614 0 None\ntimed reverse-pack4_quad_fb23-1 baseline 1280 5.628 0 None\ntimed reverse-pack4_quad_fb23-2 baseline 1280 5.619 0 None\ntimed reverse-pack4_quad_fb23-3 pack4_quad_fb23 1280 5.642 0 None\ntimed reverse-pack4_fb1_clean-0 pack4_fb1_clean 1280 5.617 0 None\ntimed reverse-pack4_fb1_clean-1 baseline 1280 5.661 0 None\ntimed reverse-pack4_fb1_clean-2 baseline 1280 5.667 0 None\ntimed reverse-pack4_fb1_clean-3 pack4_fb1_clean 1280 5.666 0 None\ntimed reverse-pack4_quad_clean-0 pack4_quad_clean 1280 5.658 0 None\ntimed reverse-pack4_quad_clean-1 baseline 1280 5.668 0 None\ntimed reverse-pack4_quad_clean-2 baseline 1280 5.667 0 None\ntimed reverse-pack4_quad_clean-3 pack4_quad_clean 1280 5.631 0 None\n"
+  },
+  {
+    "tag": "summarize.py",
+    "args": [
+      "summarize.py"
+    ],
+    "begin": "2026-11-01T05:11:27.185058",
+    "end": "2026-11-01T05:11:27.209443",
+    "returncode": 0,
+    "output": "repeat eligible []\n"
+  },
+  {
+    "tag": "select_joint.py",
+    "args": [
+      "select_joint.py"
+    ],
+    "begin": "2026-11-01T05:11:27.209869",
+    "end": "2026-11-01T05:11:27.229403",
+    "returncode": 0,
+    "output": "selected joint_A_B_pack4_quad_clean\n"
+  },
+  {
+    "tag": "bench.py joint",
+    "args": [
+      "bench.py",
+      "joint"
+    ],
+    "begin": "2026-11-01T05:11:27.229807",
+    "end": "2026-11-01T05:12:48.115295",
+    "returncode": 0,
+    "output": "timed forward-joint_A_B_pack4_quad_clean-0 baseline 1280 5.661 0 None\ntimed forward-joint_A_B_pack4_quad_clean-1 joint_A_B_pack4_quad_clean 1280 5.619 0 None\ntimed forward-joint_A_B_pack4_quad_clean-2 joint_A_B_pack4_quad_clean 1280 5.647 0 None\ntimed forward-joint_A_B_pack4_quad_clean-3 baseline 1280 5.63 0 None\ntimed forward-joint_A_B_pack4_quad_clean-0 baseline 1600 8.328 0 None\ntimed forward-joint_A_B_pack4_quad_clean-1 joint_A_B_pack4_quad_clean 1600 8.294 0 None\ntimed forward-joint_A_B_pack4_quad_clean-2 joint_A_B_pack4_quad_clean 1600 8.224 0 None\ntimed forward-joint_A_B_pack4_quad_clean-3 baseline 1600 8.329 0 None\ntimed forward-joint_A_B_pack4_quad_clean-0 baseline 1920 11.017 0 None\ntimed forward-joint_A_B_pack4_quad_clean-1 joint_A_B_pack4_quad_clean 1920 11.001 0 None\ntimed forward-joint_A_B_pack4_quad_clean-2 joint_A_B_pack4_quad_clean 1920 10.996 0 None\ntimed forward-joint_A_B_pack4_quad_clean-3 baseline 1920 11.012 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-0 joint_A_B_pack4_quad_clean 1920 10.914 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-1 baseline 1920 11.014 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-2 baseline 1920 10.994 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-3 joint_A_B_pack4_quad_clean 1920 11.005 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-0 joint_A_B_pack4_quad_clean 1600 8.281 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-1 baseline 1600 8.317 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-2 baseline 1600 8.232 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-3 joint_A_B_pack4_quad_clean 1600 8.284 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-0 joint_A_B_pack4_quad_clean 1280 5.623 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-1 baseline 1280 5.628 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-2 baseline 1280 5.664 0 None\ntimed reverse-joint_A_B_pack4_quad_clean-3 joint_A_B_pack4_quad_clean 1280 5.646 0 None\n"
+  },
+  {
+    "tag": "summarize.py",
+    "args": [
+      "summarize.py"
+    ],
+    "begin": "2026-11-01T05:12:48.115888",
+    "end": "2026-11-01T05:12:48.141319",
+    "returncode": 0,
+    "output": "repeat eligible []\n"
+  },
+  {
+    "tag": "validate.py",
+    "args": [
+      "validate.py"
+    ],
+    "begin": "2026-11-01T05:12:48.141888",
+    "end": "2026-11-01T05:13:08.834026",
+    "returncode": 0,
+    "output": "{\n  \"passed\": true,\n  \"counts\": {\n    \"smoke\": 24,\n    \"timed\": 120\n  },\n  \"exact_runs\": 93,\n  \"approximate_runs\": 51,\n  \"all_measurements_serial\": true,\n  \"construction_and_GPU_queries_before_clean_measurements\": true,\n  \"repeat_eligible\": [],\n  \"winners\": [],\n  \"open_branch_count\": 1,\n  \"branches\": {\n    \"5\": {\n      \"state\": \"Open\",\n      \"n\": 2\n    }\n  },\n  \"protected_paths\": 11,\n  \"protected_unchanged\": true,\n  \"no_production_deployment\": true,\n  \"scope\": \"fixed V4.0 baseline, three deterministic benchmark inputs; empirical Pack4 is not a static activation bound; UP changes only unique unguarded split definitions with same-block or CFG all-path source stability proofs\"\n}\n"
+  },
+  {
+    "tag": "quality_summary.py",
+    "args": [
+      "quality_summary.py"
+    ],
+    "begin": "2026-11-01T05:13:08.834614",
+    "end": "2026-11-01T05:13:08.855426",
+    "returncode": 0,
+    "output": "quality summary 144 runs\n"
+  },
+  {
+    "tag": "finalize.py",
+    "args": [
+      "finalize.py"
+    ],
+    "begin": "2026-11-01T05:14:27.379062",
+    "end": "2026-11-01T05:14:27.403097",
+    "returncode": 0,
+    "output": "\u672c\u8f6e\u65e0\u664b\u5347\uff0c\u4fdd\u7559V4.0\u4e3a\u552f\u4e001.00\u00d7\uff1b\u5206\u652f5 Open2/3\u3002\n"
+  },
+  {
+    "tag": "cleanup.py",
+    "args": [
+      "cleanup.py"
+    ],
+    "begin": "2026-11-01T05:14:27.423929",
+    "end": "2026-11-01T05:14:57.037470",
+    "returncode": 0,
+    "output": "cleanup 389 files; log fragments 0\n"
+  }
+]

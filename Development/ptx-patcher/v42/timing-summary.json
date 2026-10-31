@@ -1,0 +1,314 @@
+{
+  "timed": {
+    "joint_A_B_pack4_quad_clean": {
+      "1280": {
+        "base_ms": 5.64575,
+        "candidate_ms": 5.63375,
+        "gain_percent": 0.21254926271974117,
+        "directions": {
+          "forward": {
+            "base_ms": 5.6455,
+            "candidate_ms": 5.633,
+            "gain_percent": 0.22141528651138387
+          },
+          "reverse": {
+            "base_ms": 5.646,
+            "candidate_ms": 5.6345,
+            "gain_percent": 0.2036840240878468
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1600": {
+        "base_ms": 8.3015,
+        "candidate_ms": 8.27075,
+        "gain_percent": 0.37041498524365,
+        "directions": {
+          "forward": {
+            "base_ms": 8.3285,
+            "candidate_ms": 8.259,
+            "gain_percent": 0.8344840007204146
+          },
+          "reverse": {
+            "base_ms": 8.2745,
+            "candidate_ms": 8.2825,
+            "gain_percent": -0.09668257900781185
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1920": {
+        "base_ms": 11.00925,
+        "candidate_ms": 10.979,
+        "gain_percent": 0.27476894429684373,
+        "directions": {
+          "forward": {
+            "base_ms": 11.0145,
+            "candidate_ms": 10.9985,
+            "gain_percent": 0.14526306232692798
+          },
+          "reverse": {
+            "base_ms": 11.004,
+            "candidate_ms": 10.9595,
+            "gain_percent": 0.40439840058159593
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      }
+    },
+    "pack4_fb0_nopre": {
+      "1280": {
+        "base_ms": 5.5767500000000005,
+        "candidate_ms": 5.5767500000000005,
+        "gain_percent": 0.0,
+        "directions": {
+          "forward": {
+            "base_ms": 5.5280000000000005,
+            "candidate_ms": 5.535,
+            "gain_percent": -0.12662807525325448
+          },
+          "reverse": {
+            "base_ms": 5.625500000000001,
+            "candidate_ms": 5.6185,
+            "gain_percent": 0.12443338369924062
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1600": {
+        "base_ms": 8.31275,
+        "candidate_ms": 8.23325,
+        "gain_percent": 0.9563622146702255,
+        "directions": {
+          "forward": {
+            "base_ms": 8.274000000000001,
+            "candidate_ms": 8.199000000000002,
+            "gain_percent": 0.906453952139219
+          },
+          "reverse": {
+            "base_ms": 8.3515,
+            "candidate_ms": 8.2675,
+            "gain_percent": 1.0058073399987988
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1920": {
+        "base_ms": 10.99175,
+        "candidate_ms": 11.00775,
+        "gain_percent": -0.14556371824323566,
+        "directions": {
+          "forward": {
+            "base_ms": 10.9985,
+            "candidate_ms": 11.0115,
+            "gain_percent": -0.1181979360821872
+          },
+          "reverse": {
+            "base_ms": 10.985,
+            "candidate_ms": 11.004,
+            "gain_percent": -0.17296313154302467
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      }
+    },
+    "pack4_fb1_clean": {
+      "1280": {
+        "base_ms": 5.62125,
+        "candidate_ms": 5.6065000000000005,
+        "gain_percent": 0.26239715365797833,
+        "directions": {
+          "forward": {
+            "base_ms": 5.5785,
+            "candidate_ms": 5.5715,
+            "gain_percent": 0.1254817603298264
+          },
+          "reverse": {
+            "base_ms": 5.664,
+            "candidate_ms": 5.641500000000001,
+            "gain_percent": 0.39724576271185086
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1600": {
+        "base_ms": 8.317,
+        "candidate_ms": 8.308250000000001,
+        "gain_percent": 0.10520620416014648,
+        "directions": {
+          "forward": {
+            "base_ms": 8.306000000000001,
+            "candidate_ms": 8.313500000000001,
+            "gain_percent": -0.09029617144233892
+          },
+          "reverse": {
+            "base_ms": 8.328,
+            "candidate_ms": 8.303,
+            "gain_percent": 0.3001921229586757
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1920": {
+        "base_ms": 11.005749999999999,
+        "candidate_ms": 11.0015,
+        "gain_percent": 0.03861617790699157,
+        "directions": {
+          "forward": {
+            "base_ms": 11.007,
+            "candidate_ms": 10.996500000000001,
+            "gain_percent": 0.095393840283442
+          },
+          "reverse": {
+            "base_ms": 11.0045,
+            "candidate_ms": 11.006499999999999,
+            "gain_percent": -0.018174383206859268
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      }
+    },
+    "pack4_quad_clean": {
+      "1280": {
+        "base_ms": 5.63025,
+        "candidate_ms": 5.6105,
+        "gain_percent": 0.350783712978997,
+        "directions": {
+          "forward": {
+            "base_ms": 5.593,
+            "candidate_ms": 5.576499999999999,
+            "gain_percent": 0.29501162166996053
+          },
+          "reverse": {
+            "base_ms": 5.6675,
+            "candidate_ms": 5.644500000000001,
+            "gain_percent": 0.4058226731363024
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1600": {
+        "base_ms": 8.325,
+        "candidate_ms": 8.310500000000001,
+        "gain_percent": 0.1741741741741576,
+        "directions": {
+          "forward": {
+            "base_ms": 8.3145,
+            "candidate_ms": 8.332,
+            "gain_percent": -0.21047567502556763
+          },
+          "reverse": {
+            "base_ms": 8.3355,
+            "candidate_ms": 8.289000000000001,
+            "gain_percent": 0.5578549577109682
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1920": {
+        "base_ms": 10.998999999999999,
+        "candidate_ms": 10.9905,
+        "gain_percent": 0.07727975270477305,
+        "directions": {
+          "forward": {
+            "base_ms": 10.9965,
+            "candidate_ms": 10.9875,
+            "gain_percent": 0.08184422316189766
+          },
+          "reverse": {
+            "base_ms": 11.0015,
+            "candidate_ms": 10.993500000000001,
+            "gain_percent": 0.07271735672407242
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      }
+    },
+    "pack4_quad_fb23": {
+      "1280": {
+        "base_ms": 5.58825,
+        "candidate_ms": 5.59275,
+        "gain_percent": -0.08052610387865311,
+        "directions": {
+          "forward": {
+            "base_ms": 5.553,
+            "candidate_ms": 5.557499999999999,
+            "gain_percent": -0.08103727714747766
+          },
+          "reverse": {
+            "base_ms": 5.6235,
+            "candidate_ms": 5.628,
+            "gain_percent": -0.0800213390237392
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1600": {
+        "base_ms": 8.29775,
+        "candidate_ms": 8.25225,
+        "gain_percent": 0.5483414178542478,
+        "directions": {
+          "forward": {
+            "base_ms": 8.258,
+            "candidate_ms": 8.2825,
+            "gain_percent": -0.2966820053281749
+          },
+          "reverse": {
+            "base_ms": 8.337499999999999,
+            "candidate_ms": 8.222,
+            "gain_percent": 1.385307346326825
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      },
+      "1920": {
+        "base_ms": 11.007,
+        "candidate_ms": 10.998249999999999,
+        "gain_percent": 0.07949486690288499,
+        "directions": {
+          "forward": {
+            "base_ms": 11.0085,
+            "candidate_ms": 11.001,
+            "gain_percent": 0.06812917291184606
+          },
+          "reverse": {
+            "base_ms": 11.0055,
+            "candidate_ms": 10.9955,
+            "gain_percent": 0.09086365907955418
+          }
+        },
+        "quality_pass": true,
+        "PSNR_min_db": null,
+        "maxabs": 0.0
+      }
+    }
+  }
+}

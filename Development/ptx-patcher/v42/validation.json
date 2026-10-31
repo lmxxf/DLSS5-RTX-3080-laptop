@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "counts": {
+    "smoke": 24,
+    "timed": 120
+  },
+  "exact_runs": 93,
+  "approximate_runs": 51,
+  "all_measurements_serial": true,
+  "construction_and_GPU_queries_before_clean_measurements": true,
+  "repeat_eligible": [],
+  "winners": [],
+  "open_branch_count": 1,
+  "branches": {
+    "5": {
+      "state": "Open",
+      "n": 2
+    }
+  },
+  "protected_paths": 11,
+  "protected_unchanged": true,
+  "no_production_deployment": true,
+  "scope": "fixed V4.0 baseline, three deterministic benchmark inputs; empirical Pack4 is not a static activation bound; Quad preserves two existing Pack4 operations under declaration binding, stable same-block sources and all-path dead-half proofs; FB00/01 Pack4 extensions use empirical quality gates",
+  "cleanup_complete": true,
+  "protected_unchanged_after_cleanup": true
+}

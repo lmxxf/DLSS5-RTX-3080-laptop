@@ -2,7 +2,7 @@
 
 让 NVIDIA DLSS 5（`nvngx_dlssnr.dll` `310.9.16.0` 的 **31 块 Small 新模型**，"DLSSNR"）满血跑在 **NVIDIA GeForce RTX 3080 Laptop / RTX 30 系（Ampere `sm_86`）** 上。
 
-[English](README.md) · [**📖 v0.3.0 改进与使用说明**](Development/doc/使用说明0.3.0.md) · [完整原理与使用说明](Development/doc/使用说明.md) · [更新日志](CHANGELOG.zh-CN.md) · [工作计划](Development/WorkingPlan.md) · [开发记录](Development/DevHistory.md)
+[English](README.md) · [**📖 v0.4.0 改进与使用说明**](Development/doc/使用说明0.4.0.md) · [完整原理与使用说明](Development/doc/使用说明.md) · [更新日志](CHANGELOG.zh-CN.md) · [工作计划](Development/WorkingPlan.md) · [开发记录](Development/DevHistory.md)
 
 > 🔗 **AMD Radeon RX 9070 XT / RDNA 4（`gfx1201`/`gfx1200`）姊妹项目：[dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting)** —— 我们将 DLSS 5 从零逆向重做到 AMD RDNA 4 显卡上的原生 HIP 推理引擎（720p `2.99 ms`、900p `4.25 ms`、1080p `5.49 ms`）。
 
@@ -20,9 +20,20 @@
 
 | 版本 | 日期 | 下载链接 | 模型耗时 (`720p / 900p / 1080p`) | 实机表现 & 核心改动 | 说明与回执 |
 | :--- | :---: | :--- | :---: | :--- | :--- |
-| **`v0.3.0`**<br>*(当前推荐)* | `2026-10-29` | [📦 夸克网盘](https://pan.quark.cn/s/1ace87045701)<br>[📦 Gofile 镜像](https://gofile.io/d/oR1ZAEvO) | **`5.62~5.75 ms`**<br>**`8.38~8.42 ms`**<br>**`11.07~11.35 ms`** | **《鬼武者》2K 性能档 `47 FPS`**（未降频时）。集成 `V2.2~V3.1_pack5` 六刀升级：原生 `cp.async.mbarrier` 绑定、8 指令 `PRMT` 解包、JIT 按需解码与池回收、Low/High K16 + `mapped` 零拷贝直连（省 2.17 万条 `PRMT`）、C32 四核 `168 cap`、以及 5-SASS Unified Mul Pack（`HMNMX2 \|R2\|` 折叠 + `LEA 0x7f007f` 舍入），38 活跃核非 NOP SASS 压至 `152,076` 条。 | [📖 0.3.0 说明](Development/doc/使用说明0.3.0.md)<br>[📋 发布回执](Development/ptx-patcher/release-rtx30/v030/README.md) |
+| **`v0.4.0`**<br>*(当前正式本地版)* | `2026-11-01` | **本地已生成 / 待上传网盘** | **`5.61~5.66 ms`**<br>**`8.27~8.30 ms`**<br>**`10.99~11.00 ms`** | PTX V4.0：FB456正零500处；34入口UP-Pair直解1288处/删644拆分；FB2356经验Pack4。非NOP静态SASS **145,461**，STL/LDL99/100。五处已部署、五项Windows API smoke通过；本轮未重测游戏FPS。 | [📖 0.4.0说明](Development/doc/使用说明0.4.0.md)<br>[📋 发布回执](Development/ptx-patcher/release-rtx30/v040/README.md) |
+| **`v0.3.0`**<br>*(历史版本)* | `2026-10-29` | [📦 夸克网盘](https://pan.quark.cn/s/1ace87045701)<br>[📦 Gofile 镜像](https://gofile.io/d/oR1ZAEvO) | **`5.62~5.75 ms`**<br>**`8.38~8.42 ms`**<br>**`11.07~11.35 ms`** | **《鬼武者》2K 性能档 `47 FPS`**（未降频时）。集成 `V2.2~V3.1_pack5` 六刀升级：原生 `cp.async.mbarrier` 绑定、8 指令 `PRMT` 解包、JIT 按需解码与池回收、Low/High K16 + `mapped` 零拷贝直连（省 2.17 万条 `PRMT`）、C32 四核 `168 cap`、以及 5-SASS Unified Mul Pack（`HMNMX2 \|R2\|` 折叠 + `LEA 0x7f007f` 舍入），38 活跃核非 NOP SASS 压至 `152,076` 条。 | [📖 0.3.0 说明](Development/doc/使用说明0.3.0.md)<br>[📋 发布回执](Development/ptx-patcher/release-rtx30/v030/README.md) |
 | **`v0.2.0`** | `2026-10-26` | [📦 Gofile 镜像](https://gofile.io/d/OOeOcxn6) | `6.66 ms`<br>`9.70 ms`<br>`12.78 ms` | **《鬼武者》2K 性能档 `43 FPS`**（比 `0.1.0` 翻 2.5 倍），**《剑星》2K 性能档 `~60 FPS`**。引入偶奇 K16 原位拆解（消除 94.5% 跨线程 `SHFL` 洗牌）与 FB00/03/04/05/06 `.maxnreg 255` 放宽，校准《剑星》默认 `1.0/1.0` 防闪烁配置（附 `1.5/1.1` 增强风格）。 | [📖 0.2.0 说明](Development/doc/改进和使用说明_0.2.0.md)<br>[📋 发布回执](Development/ptx-patcher/release-rtx30/v020/README.md) |
 | **`v0.1.0`** | `2026-10-24` | [📦 Gofile 镜像](https://gofile.io/d/s9cpHYH9) | `15.83 ms`<br>`24.47 ms`<br>`32.04 ms` | **《鬼武者》2K 性能档 `30 FPS` / 超性能档 `46 FPS`**。首发 15/15 满血 `O4` 原槽位移植（两条 IEEE 754 `f16x2` 硬件代数恒等式，比上游 `O1` 快 `2.08×~2.35×`），修复上游 `fp8_pack_sources` 向量加载多定义漏检导致的 106 条天空红绿横带，打通 Magpie 原生 `Preset 2` 补丁。 | [📖 完整原理说明](Development/doc/使用说明.md)<br>[📋 更新日志](CHANGELOG.zh-CN.md#010-2026-10-24) |
+
+### v0.4.0 文件校验
+
+`nvngx_dlssnr.dll` SHA256: `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`
+
+| ZIP | SHA256 |
+|---|---|
+| `OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip` | `fefeff4e1bfdd5ddb218dd41e91671171748cb9bbd86bcde93c01bc20347ed4e` |
+| `OptiScaler-DLSS5-RTX30-0.4.0.zip` | `751c75a1c71ab4077fcf058f32420ec9757267f4b5ca68747d2be11fd53c0870` |
+| `Magpie-DLSS5-RTX30-0.4.0.zip` | `2a90d6b9c901952a40cfe86475e1727064b174f04b5bf3bbf39c0d1a80b6a901` |
 
 ### v0.3.0 文件校验
 
@@ -41,11 +52,11 @@
 
 - **硬件与驱动**：NVIDIA RTX 30 系显卡（Ampere `sm_86`，在 RTX 3080 Laptop GPU 16GB 上完成全套实测；桌面端 RTX 3060～3090 Ti 同属 `sm_86`）及支持 NGX 的 NVIDIA 正式版驱动（实测驱动 `616.92`）。无需安装 CUDA Toolkit、无需开启 Windows 开发人员模式。
 - **安装方法**：
-  1. **常规 DX12 游戏（`OptiScaler-DLSS5-RTX30-0.3.0.zip`）**：
+  1. **常规 DX12 游戏（`OptiScaler-DLSS5-RTX30-0.4.0.zip`）**：
      先退出游戏。将包内全部文件解压到游戏真正的 `.exe` 所在目录（例如《剑星》为 `StellarBlade\SB\Binaries\Win64\`，注意先备份原目录自带的 `amd_fidelityfx_dx12.dll`，不要只拷 4 个文件，必须把包内 26 KB 的 `amd_fidelityfx_dx12.dll` 加载器与 28 MB 的 `amd_fidelityfx_upscaler_dx12.dll` 等配套文件一起拷入）。进游戏开启 DLSS 或 FSR 超分即可生效。
-  2. **卡普空 RE Engine 游戏（`OptiScaler-REFramework-DLSS5-RTX30-0.3.0.zip`）**：
+  2. **卡普空 RE Engine 游戏（`OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip`）**：
      将包内全部文件解压到游戏 `.exe` 同级目录（例如 Xbox 版《鬼武者：剑之道》为 `C:\XboxGames\Onimusha- Way of the Sword\Content\`）。进游戏开启 DLSS 超分即可生效。
-  3. **Magpie 窗口缩放（`Magpie-DLSS5-RTX30-0.3.0.zip`）**：
+  3. **Magpie 窗口缩放（`Magpie-DLSS5-RTX30-0.4.0.zip`）**：
      将包完整解压到任意独立目录，游戏设为窗口模式（如 `1280×720` 或 `1600×900`）。以管理员运行 `Magpie.exe`，选择默认的 **`DLSS5-RTX30-PTX`** 配置（`DLSSNR [Preset 2, Style 1] → DLSS_SR`），点击“3 秒后缩放”并切回游戏窗口（或按 `Alt+Shift+A`）。
 - **快捷键与调参**：
   - **`F6`**：在 OptiScaler 包中实时开关 DLSS 5 神经渲染对比。
@@ -65,7 +76,7 @@
 2. **48 行位运算膨胀导致被迫降级 `O1`（性能腰斩）**：它将每条 `cvt.rn.f16x2.e4m3x2` 和 `cvt.rn.satfinite.e4m3x2.f16x2` 展开为 45～48 行纯整数位运算 PTX，导致生成的 `.cubin` 膨胀到 `6.7～8.5 MB`，塞不进 PE 原始的 Fatbin 槽位，只能在全部主干网络（Fatbin 00～06）上回退到 `--opt-level=1`（`O1`，关闭指令调度、循环展开与窥孔优化），耗时翻倍；
 3. **`fp8_pack_sources`（`mapped` 捷径）多定义漏检导致 106 条天空红绿横带**：上游为了省去 `cvt.e4m3x2.f16x2 + mov.b32 pack`，只要看到某个寄存器 `%r` 在整个函数里只匹配过一次 `mov.b32 %r, {%rs1, %rs2}`，就直接拿 `%rs1, %rs2` 的源 FP16 寄存器喂给 `mma.sync`。但在 `cc_vit_attention_fp8` 等核里，`%r1352` 在正常分支由花括号向量加载指令 `ld.weak.global.ca.v4.u32 {%r1352, %r1353, %r1354, %r1355}, [%rd10]` 从显存读取真实特征，而在越界 fallback 分支才由 `mov.b32 %r1352, {%rs2, %rs2}` 填入常数。上游漏检了向量加载的多重定义，把 `mma.sync` 的操作数替换成了越界常数，在平滑天空上直接打出 106 条周期性红绿横带。
 
-### 2. 我们的五项核心改进（[`Development/ptx-patcher/build_sm86_dlls.py`](Development/ptx-patcher/build_sm86_dlls.py)）
+### 2. 历史基础的五项核心改进（[`Development/ptx-patcher/build_sm86_dlls.py`](Development/ptx-patcher/build_sm86_dlls.py)）
 
 1. **代数恒等式一（`E4M3x2 → FP16x2`，仅 4 条 SASS 指令，254/254 有限值 `0 bit-diff`）**：
    E4M3 的指数偏置是 $7$，FP16 的指数偏置是 $15$，相差 $15 - 7 = 8$。把两个 E4M3 字节通过 `prmt.b32` 摆到 32 位寄存器的高/低 16 位对应字节，分离符号位并将 7 位指数+尾数右移 1 位对齐到 FP16 的 `bit [13:7]`：
@@ -81,6 +92,12 @@
 
 4. **偶奇 K16 原位拆解**：A/B在同lane使用相同K置换，先算byte0/2、再算byte1/3；编码操作数不再做跨lane SHFL或PRMT，合法mapped仅用5410/7632 PRMT。它改变FP16累加分组；V2.1相对V2输出严格0bit，不能宣称相对0.1.0也逐位相同。
 5. **按FB放宽寄存器上限**：仅FB00/03/04/05/06的`.maxnreg`升到255；FB01/02保持原值。FB00/03/06的STACK和LDL/STL归零，FB04/05仍有80/8B最大STACK，不是全DLL零spill。全部255的控制反而略慢，采用实测胜出的hot255组合。
+
+### 当前 v0.4.0 / PTX V4.0 增量
+
+在上述历史基础上加入FB456的500处正零常量折叠、CFG全路径无覆写证明支持的32位UP-Pair（34入口，1288处UP/644拆分）、FB2356的4核心SASS经验Pack4（abs折入HMUL2，随后LEA/LOP3/PRMT）。38活跃核静态非NOP152076→145461（−6615/−4.35%），PRMT19861→18781，STL/LDL107/108→99/100。
+
+V4.0相对同轮V3.8的首轮/repeat均三档六向全胜；所测27次输出0bit，经验Pack4保留实证标签。模型进程median配对均值约5.61~5.66/8.27~8.30/10.99~11.00ms，不是游戏FPS或逐帧上界；不同版本历史轮次不能直接当成新提速比例。当前配方见[v40](Development/ptx-patcher/v40/README.md)，正式部署/打包见[v040回执](Development/ptx-patcher/release-rtx30/v040/README.md)。下文通用构建命令用于历史阶段，不会自动选取当前发布配方。
 
 ### 3. PTX 修补与构建的完整 6 步流水线
 
@@ -140,9 +157,12 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 | ① 网上 `dlssnr-patcher` 原版位运算 (`stock`) | 主网络被迫回退 `O1` | `37.13 ms` | `49.89 ms` | `67.69 ms` | `106 次`（有色带） | `1.00×` |
 | **② 本项目 `ptx-patcher` (`v0.1.0`)** | **15/15 全部满血 `O4`** | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`0 次`（彻底消除）** | **`2.08× ～ 2.35×`** |
 | **③ 本项目 `ptx-patcher` (`v0.2.0 / V2.1`)** | **15/15 `O4` + 偶奇 K16 零洗牌 + `255` 寄存器** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **`0 次`（彻底消除）** | **`5.14× ～ 5.58×`** |
-| **④ 当前 `ptx-patcher` (`v0.3.0 / V3.1_pack5`)** | **`V2.2~V3.1` 全套升级 + 5-SASS Pack** | **`5.62 ~ 5.75 ms`** | **`8.38 ~ 8.42 ms`** | **`11.07 ~ 11.35 ms`** | **`0 次`（彻底消除）** | **`5.96× ～ 6.61×`** |
+| **④ 历史 `ptx-patcher` (`v0.3.0 / V3.1_pack5`)** | **`V2.2~V3.1` 全套升级 + 5-SASS Pack** | **`5.62 ~ 5.75 ms`** | **`8.38 ~ 8.42 ms`** | **`11.07 ~ 11.35 ms`** | **`0 次`（彻底消除）** | **`5.96× ～ 6.61×`** |
+| **⑤ 当前 `v0.4.0 / V4.0`** | **15/15 O4，零常量/UP-Pair/Pack4** | **`5.61~5.66 ms`** | **`8.27~8.30 ms`** | **`10.99~11.00 ms`** | **`0 次`（V4.0所测天空）** | 配对均值；不另作跨轮上游提速承诺 |
 
-### 2. 游戏与窗口实机表现（RTX 3080 Laptop GPU 16GB）
+### 2. 历史游戏与窗口实机表现（RTX 3080 Laptop GPU 16GB）
+
+v0.4.0本轮完成部署/API smoke，没有新增实玩FPS或运动画质验收；下表保留历史版本与当时条件。
 
 | 游戏 / 场景 | 接入包 | 渲染分辨率 → 输出分辨率 | DLSS 5 模型 GPU 耗时 | 实机表现 |
 |---|---|---|---|---|
@@ -159,6 +179,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 
 | 版本 | 日期 | 做了什么 | 结果 |
 |---|---|---|---|
+| **`0.4.0`** | 2026-11-01 | PTX V4.0：500正零、CFG UP-Pair1288处、FB2356 Pack4；静态非NOP145461，PRMT18781，STL/LDL99/100。**本地已生成/待上传网盘**。 | 模型配对均值 **5.61~5.66/8.27~8.30/10.99~11.00ms**，非游戏FPS；五处部署及五项API smoke通过。[回执](Development/ptx-patcher/release-rtx30/v040/README.md) |
 | **`0.3.0`** | 2026-10-29 | 集成 `V2.2~V3.1_pack5` 全部 PTX 升级（`cp.async.mbarrier` 绑定、8 指令 `PRMT` 解包、JIT 按需解码与池回收、Low/High K16 + `mapped` 零拷贝直连、C32 四核 `168 cap`、以及 5-SASS Unified Mul Pack `|R2|` 折叠 + `LEA 0x7f007f` 舍入），38 活跃核非 NOP 静态 SASS 降至 `152,076` 条（[夸克网盘](https://pan.quark.cn/s/1ace87045701) · [Gofile 下载](https://gofile.io/d/oR1ZAEvO)）。 | **研发配对 5.75 / 8.42 / 11.35 ms，低温评估 5.62 / 8.38 / 11.07 ms**（比 `v0.2.0` 再快 `~13% ~ 16%`）；[回执](Development/ptx-patcher/release-rtx30/v030/README.md) |
 | **`0.2.0`** | 2026-10-26 | 偶奇K16零洗牌＋按FB maxnreg255；剑星默认1.0/1.0，附增强风格1.5/1.1；三个新ZIP及SHA（[Gofile 下载](https://gofile.io/d/OOeOcxn6)）。 | **6.66 /9.70 /12.78ms**；《鬼武者》2K性能档 **43 FPS**（原30 FPS），《剑星》2K性能档**接近 60 FPS**；[回执](Development/ptx-patcher/release-rtx30/v020/README.md) |
 | **`0.1.0`** | 2026-10-24 | **首发版本（三个发布包全线统一为 15/15 满血 `O4` PTX 路线，仅保留 31 块 `0.5x Small` 新模型，[Gofile 下载](https://gofile.io/d/s9cpHYH9)）**：<br>1. **PTX 满血 `O4` 编译器（`Development/ptx-patcher/`）**：提出两条 IEEE 754 `f16x2` 硬件代数恒等式（`mul.rn.f16x2 0x5c005c00` 解包 E4M3、`add.rn.f16x2 0x40004000` 舍入 E4M3 次正规数，有限值域 `0 bit-diff`），将 `.cubin` 体积缩小 3.5 倍，15/15 个 Fatbin 全部 `O4` 装回原槽位；修复 `310.9.16.0` 的 `fence.acquire.gpu;` 编译失败。<br>2. **消除天空红绿横带（`sky-audit/`）**：定位并修复上游 `fp8_pack_sources` 未扫描花括号向量加载（如 `FB5 %r1352`）导致将显存特征误替换为越界 fallback 常数的致命 Bug，天空逐行红绿色差变号从 `106 次` 降为 `0 次`，高频色差 RMS 降低 263 倍。<br>3. **三包构建与游戏适配**：<br>  • `OptiScaler-REFramework-DLSS5-RTX30-0.1.0.zip`（SHA256 `8e28417d...`）：适配《鬼武者：剑之道》等 RE Engine 游戏，校准 `WhitePointSource=1`（`~512x` 原生曝光）；<br>  • `OptiScaler-DLSS5-RTX30-0.1.0.zip`（SHA256 `e6067bf0...`）：适配《剑星》等常规 DX12 游戏，配齐完整 FFX 转发库（支持游戏内选 FSR 或 DLSS 自动转接），默认应用单遍增强（`detail=1.5, colour=1.1`）；<br>  • `Magpie-DLSS5-RTX30-0.1.0.zip`（SHA256 `db41eaeb...`）：打通 `Magpie.exe` 原生 `DLSSNR` Feature 18 后端，通过二进制补丁将写死的 `Preset 0` 改为 `Preset 2`（31 块轻量模型），补齐 `nvngx_dlss.dll` 修复 `0xbad0000b` 报错，720p 模型耗时 **`15.9 ms`**。 | 测试台 720p **`15.83 ms`**、900p **`24.47 ms`**、1080p **`32.04 ms`**（比上游 `O1` 快 **2.08×～2.35×**）；《鬼武者》《剑星》《光环》实机验收通过 |
@@ -170,7 +191,7 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 | 目录 / 文件 | 内容 |
 |---|---|
 | `Development/ptx-patcher/` | 原版 `310.9.16.0` `nvngx_dlssnr.dll` 的 `sm_86` 满血 `O4` PTX 转换器（`build_sm86_dlls.py`、`dlssnr_patcher.py`）、NGX 调用转发桥（`dlssnr_forwarder.cpp`）、硬件计时测试台（`bench_nvngx.dll.cpp`）、天空色带排查回执（`sky-audit/`）、偶奇 K16 零洗牌与寄存器调优（`v2/`、`v21/`）、Magpie 原生 `Preset 2` 补丁（`magpie-native/`）及三包构建脚本（`release-rtx30/`） |
-| `Development/doc/` | 用户使用说明与各版本改进详解（[`使用说明0.3.0.md`](Development/doc/使用说明0.3.0.md)、[`改进和使用说明_0.2.0.md`](Development/doc/改进和使用说明_0.2.0.md)、[`使用说明.md`](Development/doc/使用说明.md)） |
+| `Development/doc/` | 用户使用说明与各版本改进详解（[`使用说明0.4.0.md`](Development/doc/使用说明0.4.0.md)、[`使用说明0.3.0.md`](Development/doc/使用说明0.3.0.md)、[`改进和使用说明_0.2.0.md`](Development/doc/改进和使用说明_0.2.0.md)、[`使用说明.md`](Development/doc/使用说明.md)） |
 | `Development/DevHistory.md` | 完整的开发流水账、对照实验数据、失败排查与每个阶段的文件 SHA256 回执 |
 | `Development/WorkingPlan.md` | 架构设计与优化路线图 |
 | `CHANGELOG.zh-CN.md` / `CHANGELOG.md` | 按版本展开的详细更新日志 |

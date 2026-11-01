@@ -1,6 +1,6 @@
 # DLSS 5 -> NVIDIA RTX 3080 Laptop (`sm_86` Ampere) 移植开发历史与实测回执 (`DevHistory.md`)
 
-> **当前正式版本：v0.3.0（2026-10-29）**，三包统一 `PTX V3.1_pack5`（5-SASS Pack），研发配对均值 5.75/8.42/11.35ms、低温评估 5.62/8.38/11.07ms；正式包下载：[夸克网盘](https://pan.quark.cn/s/1ace87045701) · [Gofile 镜像](https://gofile.io/d/oR1ZAEvO)（[v0.3.0 回执](ptx-patcher/release-rtx30/v030/README.md)）。历史版本：`v0.2.0`（2026-10-26，PTX V2.1，6.66/9.70/12.78ms，[Gofile](https://gofile.io/d/OOeOcxn6)，[v0.2.0 回执](ptx-patcher/release-rtx30/v020/README.md)）；`v0.1.0`（2026-10-24，PTX V1，15.83/24.47/32.04ms，[Gofile](https://gofile.io/d/s9cpHYH9)）。下文各阶段保留历史原值。
+> **当前正式版本：v0.4.0（2026-11-01）**，三包统一PTX V4.0（正零/CFG UP-Pair/经验Pack4），核心SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`；模型配对均值5.61~5.66/8.27~8.30/10.99~11.00ms，非游戏FPS。五处部署、五项Windows API smoke通过，**本地已生成/待上传网盘**（[v0.4.0回执](ptx-patcher/release-rtx30/v040/README.md)）。历史v0.3.0（PTX V3.1_pack5）完整下载：[夸克网盘](https://pan.quark.cn/s/1ace87045701)·[Gofile](https://gofile.io/d/oR1ZAEvO)；v0.2.0：[Gofile](https://gofile.io/d/OOeOcxn6)；v0.1.0：[Gofile](https://gofile.io/d/s9cpHYH9)。下文历史原值保留。
 
 **硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，102,400 B Shared Memory/SM（block opt-in 101,376 B；驱动每 CTA 保留 1,024 B），Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）<br>
 **基线来源**：`DLSS5-AMD 0.44` 独立引擎 + NVIDIA 原版 `nvngx_dlssnr.dll` (`v310.9.16.0`)  
@@ -1243,3 +1243,15 @@ C独立O4切片验证旧两次Pack4+拼接9核心SASS、Quad7核心（2 HMUL2+2 
 计数{'smoke': 15, 'timed': 72}，基线检查39次末帧0bit，新增Pack4/联合48次按预设质量门。50/80严格串行正反ABBA/BAAB，首轮六向全胜全部repeat。十一保护路径不变，清理临时大二进制及帧，无单次.log；三个干净小提交，无Co-Authored-By、不push。结算按已执行七分支K=3预算，不将有限候选失败写成物理性能下限。
 
 [完整回执](ptx-patcher/v43/README.md)、[配对](ptx-patcher/v43/timing-summary.md)、[验收](ptx-patcher/v43/validation.json)。
+
+## 2026-11-01：v0.4.0正式本机部署、三包与Windows验收（闇）
+
+按WorkingPlan部署封存PTX V4.0 SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`（266414592 B，15/15原槽O4）到主fast、鬼武者根/_storage_、剑星和Magpie五处，均校验同SHA；Magpie目录0.3.0→0.4.0，宿主/桥/INI保持字节不变。先备份现场元数据及一份旧NR到`C:/DLSS5-5090-dll/backups/20261101-v040/`。
+
+基于0.3.0三包仅替换NR与版本/校验元数据，旧三ZIP、sidecar、README、release.json及SHA清单移入archive/v0.3.0，既有0.1/0.2归档SHA不变。五项Windows Feature18与FFX→NGX→NR smoke全returncode0/nonfinite0，13项Windows哈希通过，驱动NGX Authenticode Valid、修补NR NotSigned；CRC、包内逐文件SHA与测试后staging一致性通过。清理staging/测试工具/帧和宿主临时日志，保留回滚备份与正式ZIP。执行记录保留一次verify脚本未落盘的调度失败，补齐后最终校验通过；原始五项API smoke均成功。
+
+- `OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip`：375,010,382 B，SHA `fefeff4e1bfdd5ddb218dd41e91671171748cb9bbd86bcde93c01bc20347ed4e`。
+- `OptiScaler-DLSS5-RTX30-0.4.0.zip`：317,938,717 B，SHA `751c75a1c71ab4077fcf058f32420ec9757267f4b5ca68747d2be11fd53c0870`。
+- `Magpie-DLSS5-RTX30-0.4.0.zip`：322,863,632 B，SHA `2a90d6b9c901952a40cfe86475e1727064b174f04b5bf3bbf39c0d1a80b6a901`。
+
+源码/凭据、使用文档、公开版本记录按三次独立提交；无Co-Authored-By、不push。网盘上传未执行，旧链接保留；未重测游戏FPS/运动画质。[发布回执](ptx-patcher/release-rtx30/v040/README.md)、[使用说明](doc/使用说明0.4.0.md)。

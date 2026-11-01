@@ -6,6 +6,23 @@
 
 ---
 
+## 0.4.0 (2026-11-01)
+
+**本地正式三包已生成 / 待上传网盘**；[完整使用说明](Development/doc/使用说明0.4.0.md) · [部署与验证回执](Development/ptx-patcher/release-rtx30/v040/README.md)。
+
+- 统一核心PTX V4.0（15/15原槽O4、31-block Small/Preset2/Style1、266,414,592 B）：FB456正零500处、34入口CFG稳定源UP-Pair1288处/644拆分删除、FB2356四核心经验Pack4。
+- 38活跃核静态非NOP152076→145461（−6615），PRMT19861→18781（−1080），STL/LDL107/108→99/100；资源计数不是每帧动态issued数。
+- 两轮相对V3.8均12/12方向胜出；V4.0模型配对均值720p5.61~5.66、900p8.27~8.30、1080p10.99~11.00ms。27次所测输出0bit，经验Pack4不作任意HDR输入全域等价承诺；没有新测游戏FPS。
+- 主fast、鬼武者根目录/_storage_、剑星与Magpie五处已部署同核心SHA；宿主/桥/INI字节不变，默认1.0/1.0和增强1.5/1.1保留。旧0.3.0三包与清单归档archive/v0.3.0，原0.1/0.2归档不动。
+- 三包CRC/逐文件SHA、13个Windows哈希及5项Feature18/FFX→NGX→NR smoke均通过（returncode0/nonfinite0）；NR为NotSigned、驱动NGX core签名Valid。临时staging/测试帧/日志已清理。
+- 核心SHA256：`749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`。
+
+|ZIP|大小 B|SHA256|
+|---|---:|---|
+|`OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip`|375,010,382|`fefeff4e1bfdd5ddb218dd41e91671171748cb9bbd86bcde93c01bc20347ed4e`|
+|`OptiScaler-DLSS5-RTX30-0.4.0.zip`|317,938,717|`751c75a1c71ab4077fcf058f32420ec9757267f4b5ca68747d2be11fd53c0870`|
+|`Magpie-DLSS5-RTX30-0.4.0.zip`|322,863,632|`2a90d6b9c901952a40cfe86475e1727064b174f04b5bf3bbf39c0d1a80b6a901`|
+
 ## 0.3.0 (2026-10-29)
 
 下载：[夸克网盘](https://pan.quark.cn/s/1ace87045701) · [Gofile 镜像](https://gofile.io/d/oR1ZAEvO)

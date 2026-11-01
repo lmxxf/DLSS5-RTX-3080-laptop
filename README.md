@@ -2,7 +2,7 @@
 
 Running NVIDIA DLSS 5 (`nvngx_dlssnr.dll` `310.9.16.0` **31-block Small Neural Rendering model**, "DLSSNR") at full speed on **NVIDIA GeForce RTX 3080 Laptop / RTX 30 Series (Ampere `sm_86`)**.
 
-[中文说明](README.zh-CN.md) · [Changelog](CHANGELOG.md) · [Working Plan](Development/WorkingPlan.md) · [Development History](Development/DevHistory.md)
+[中文说明](README.zh-CN.md) · [v0.4.0 Guide](Development/doc/使用说明0.4.0.md) · [Changelog](CHANGELOG.md) · [Working Plan](Development/WorkingPlan.md) · [Development History](Development/DevHistory.md)
 
 > 🔗 **Sister project for AMD Radeon RX 9070 XT / RDNA 4 (`gfx1201`/`gfx1200`): [dlss5-on-amd-9070xt-porting](https://github.com/lmxxf/dlss5-on-amd-9070xt-porting)** — our original from-scratch HIP re-implementation of NVIDIA's DLSS 5 neural renderer on AMD RDNA 4 GPUs (`2.99 ms` at 720p, `4.25 ms` at 900p, `5.49 ms` at 1080p).
 
@@ -20,9 +20,20 @@ All three release packages share the same pipeline: **capture a frame at the gam
 
 | Version | Date | Download Links | Model GPU Median (`720p / 900p / 1080p`) | In-Game Performance & Key Highlights | Docs & Receipts |
 | :--- | :---: | :--- | :---: | :--- | :--- |
-| **`v0.3.0`**<br>*(Current)* | `2026-10-29` | [📦 Quark](https://pan.quark.cn/s/1ace87045701)<br>[📦 Gofile](https://gofile.io/d/oR1ZAEvO) | **`5.62~5.75 ms`**<br>**`8.38~8.42 ms`**<br>**`11.07~11.35 ms`** | ***Onimusha* 2K Perf `47 FPS`** (unthrottled). Integrates `V2.2–V3.1_pack5`: native `cp.async.mbarrier` binding, 8-insn `PRMT` unpack, JIT demand decode + pool recycling, Low/High K16 + zero-copy `mapped` forwarding (`-21,712` `PRMT` sites), C32 4-kernel `168 cap`, and 5-SASS Unified Mul Pack (`HMNMX2 \|R2\|` abs fold + `LEA 0x7f007f`), reducing 38-kernel non-NOP SASS to `152,076`. | [📖 v0.3.0 Guide](Development/doc/使用说明0.3.0.md)<br>[📋 Receipt](Development/ptx-patcher/release-rtx30/v030/README.md) |
+| **`v0.4.0`**<br>*(Current local release)* | `2026-11-01` | **Built locally / public upload pending** | **`5.61~5.66 ms`**<br>**`8.27~8.30 ms`**<br>**`10.99~11.00 ms`** | PTX V4.0:500 positive-zero folds,1288 stable-source UP conversions/644 split removals, empirical Pack4 in FB2356; **145,461** static non-NOP instructions, STL/LDL99/100. Five sites deployed and five Windows API smokes passed; game FPS not retested. | [📖 v0.4.0 Guide](Development/doc/使用说明0.4.0.md)<br>[📋 Receipt](Development/ptx-patcher/release-rtx30/v040/README.md) |
+| **`v0.3.0`**<br>*(Archived release)* | `2026-10-29` | [📦 Quark](https://pan.quark.cn/s/1ace87045701)<br>[📦 Gofile](https://gofile.io/d/oR1ZAEvO) | **`5.62~5.75 ms`**<br>**`8.38~8.42 ms`**<br>**`11.07~11.35 ms`** | ***Onimusha* 2K Perf `47 FPS`** (unthrottled). Integrates `V2.2–V3.1_pack5`: native `cp.async.mbarrier` binding, 8-insn `PRMT` unpack, JIT demand decode + pool recycling, Low/High K16 + zero-copy `mapped` forwarding (`-21,712` `PRMT` sites), C32 4-kernel `168 cap`, and 5-SASS Unified Mul Pack (`HMNMX2 \|R2\|` abs fold + `LEA 0x7f007f`), reducing 38-kernel non-NOP SASS to `152,076`. | [📖 v0.3.0 Guide](Development/doc/使用说明0.3.0.md)<br>[📋 Receipt](Development/ptx-patcher/release-rtx30/v030/README.md) |
 | **`v0.2.0`** | `2026-10-26` | [📦 Gofile](https://gofile.io/d/OOeOcxn6) | `6.66 ms`<br>`9.70 ms`<br>`12.78 ms` | ***Onimusha* 2K Perf `43 FPS`** (2.5× faster than `0.1.0`), ***Stellar Blade* 2K Perf `~60 FPS`**. Introduces lane-local even/odd K16 in-place split (`-94.5%` `SHFL`) and selective `.maxnreg 255` on FB00/03/04/05/06; sets default strength `1.0/1.0` (optional `1.5/1.1`). | [📖 v0.2.0 Guide](Development/doc/改进和使用说明_0.2.0.md)<br>[📋 Receipt](Development/ptx-patcher/release-rtx30/v020/README.md) |
 | **`v0.1.0`** | `2026-10-24` | [📦 Gofile](https://gofile.io/d/s9cpHYH9) | `15.83 ms`<br>`24.47 ms`<br>`32.04 ms` | ***Onimusha* 2K Perf `30 FPS` / Ultra Perf `46 FPS`**. Initial 15/15 full-`O4` in-place `sm_86` PTX port using two IEEE 754 `f16x2` hardware algebraic identities (`2.08×–2.35×` faster than upstream `O1`), multi-definition `mapped` fix (`106 → 0` sky bands), and Magpie `Preset 2` binary patch. | [📖 Full Guide](Development/doc/使用说明.md)<br>[📋 Changelog](CHANGELOG.md#010-2026-10-24) |
+
+### v0.4.0 checksums
+
+`nvngx_dlssnr.dll` SHA256: `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`
+
+| ZIP | SHA256 |
+|---|---|
+| `OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip` | `fefeff4e1bfdd5ddb218dd41e91671171748cb9bbd86bcde93c01bc20347ed4e` |
+| `OptiScaler-DLSS5-RTX30-0.4.0.zip` | `751c75a1c71ab4077fcf058f32420ec9757267f4b5ca68747d2be11fd53c0870` |
+| `Magpie-DLSS5-RTX30-0.4.0.zip` | `2a90d6b9c901952a40cfe86475e1727064b174f04b5bf3bbf39c0d1a80b6a901` |
 
 ### v0.3.0 checksums
 
@@ -41,11 +52,11 @@ All three release packages share the same pipeline: **capture a frame at the gam
 
 - **Hardware & Driver**: NVIDIA RTX 30 Series GPU (Ampere `sm_86`, tested on RTX 3080 Laptop GPU 16GB; desktop RTX 3060–3090 Ti share `sm_86`) and a standard NVIDIA driver with NGX support (tested on `616.92`). No CUDA Toolkit or Windows Developer Mode is required.
 - **Installation**:
-  1. **Standard DX12 Games (`OptiScaler-DLSS5-RTX30-0.3.0.zip`)**:
+  1. **Standard DX12 Games (`OptiScaler-DLSS5-RTX30-0.4.0.zip`)**:
      Close the game. Extract **all files** into the directory containing the actual game `.exe` (e.g., `StellarBlade\SB\Binaries\Win64\`; back up the game's original `amd_fidelityfx_dx12.dll` first, and make sure to extract all companion FFX/XeSS DLLs). Enable DLSS or FSR in game settings.
-  2. **Capcom RE Engine Games (`OptiScaler-REFramework-DLSS5-RTX30-0.3.0.zip`)**:
+  2. **Capcom RE Engine Games (`OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip`)**:
      Extract all files into the game `.exe` directory (e.g., `C:\XboxGames\Onimusha- Way of the Sword\Content\`). Enable DLSS in game settings.
-  3. **Magpie Window Scaling (`Magpie-DLSS5-RTX30-0.3.0.zip`)**:
+  3. **Magpie Window Scaling (`Magpie-DLSS5-RTX30-0.4.0.zip`)**:
      Extract to a standalone folder and run the game in windowed mode (e.g., `1280×720` or `1600×900`). Launch `Magpie.exe` as Administrator, select the default **`DLSS5-RTX30-PTX`** profile (`DLSSNR [Preset 2, Style 1] → DLSS_SR`), click "Scale after 3s", and focus the game window (or press `Alt+Shift+A`).
 - **Hotkeys & Tuning**:
   - **`F6`**: Toggle DLSS 5 Neural Rendering on/off in OptiScaler packages.
@@ -66,7 +77,7 @@ Upstream `dev-camo/dlssnr-patcher` suffers from three critical issues on `310.9.
 2. **48-Line Bitwise Expansion Forcing `O1` Fallback (2× Slowdown)**: Expanding every `cvt.rn.f16x2.e4m3x2` and `cvt.rn.satfinite.e4m3x2.f16x2` into 45–48 lines of integer bit-twiddling inflates `.cubin` sizes to `6.7–8.5 MB`, overflowing the PE Fatbin slots and forcing Fatbins 00–06 down to `--opt-level=1` (`O1`);
 3. **Multi-Definition Aliasing in `fp8_pack_sources` (`mapped` Shortcut) Causing 106 Red/Green Sky Bands**: Upstream replaces an `mma.sync` operand `%r` with its pre-conversion FP16 registers whenever `%r` appears only once in `FP8_PACK_PATTERN` (`mov.b32 %r, {%rs1, %rs2}`). However, in kernels such as `cc_vit_attention_fp8` (Fatbin 5), `%r1352` is loaded from global memory in the in-bounds branch via braced vector load `ld.weak.global.ca.v4.u32 {%r1352, %r1353, %r1354, %r1355}, [%rd10]`, and only assigned `mov.b32 %r1352, {%rs2, %rs2}` in the out-of-bounds fallback branch. Upstream missed the vector load definition and unconditionally replaced `%r1352` with the out-of-bounds fallback constant, producing 106 periodic red/green horizontal bands across smooth sky gradients.
 
-### 2. Our Five Core Improvements ([`Development/ptx-patcher/build_sm86_dlls.py`](Development/ptx-patcher/build_sm86_dlls.py))
+### 2. Historical Five Core Improvements ([`Development/ptx-patcher/build_sm86_dlls.py`](Development/ptx-patcher/build_sm86_dlls.py))
 
 1. **Identity 1 (`E4M3x2 → FP16x2` in 4 SASS Instructions, `0 bit-diff` Across All 254 Finite Values)**:
    Since the exponent bias difference between FP16 ($15$) and E4M3 ($7$) is $8$, placing two E4M3 bytes into the high/low 16-bit halves via `prmt.b32`, separating the sign bit, and shifting the 7-bit payload right by 1 bit aligns it to FP16 `bit [13:7]` (forming an unscaled FP16 normal for $e \ge 1$ and an FP16 subnormal $(-1)^s \cdot 2^{-14} \cdot (m/8)$ for $e = 0$). A single hardware **`mul.rn.f16x2 %d, %d, 0x5c005c00;`** ($\times 2^8 = 256.0_{\text{f16}}$) normalizes subnormals and adjusts normal exponents in hardware with zero branches.
@@ -79,7 +90,13 @@ Upstream `dev-camo/dlssnr-patcher` suffers from three critical issues on `310.9.
 4. **Lane-local even/odd K16 split**: A/B use the same K permutation: bytes0/2 then1/3. Encoded operands need no lane SHFL or PRMT; valid mapped values use5410/7632 PRMT. FP16 accumulation grouping changes. V2.1 is bitwise identical to V2, not to0.1.0.
 5. **Selective register caps**: raise existing `.maxnreg` to255 only in FB00/03/04/05/06. Keep FB01/02 unchanged. STACK and LDL/STL reach zero in FB00/03/06; FB04/05 retain maximum80/8B STACK. The all255 control was slower, so the measured hot255 profile is released.
 
-### Current v0.3.0 implementation
+### Current v0.4.0 implementation
+
+PTX V4.0 adds500 FB456 positive-zero folds, direct UP from proven stable32-bit sources (1288 conversions/644 split removals across34 selected entries), and4-core-instruction empirical Pack4 in FB2356 (abs folded into HMUL2, then LEA/LOP3/PRMT). Static non-NOP152076→145461 (−6615/−4.35%), PRMT19861→18781, STL/LDL107/108→99/100.
+
+Two promotion rounds beat the same-round V3.8 reference in12/12 directions;27 benchmark output checks were0bit. Empirical Pack4 remains a tested-domain choice, not a universal activation bound. Model paired process-median means are5.61~5.66/8.27~8.30/10.99~11.00ms, not game FPS or per-frame bounds. [V4.0 recipe](Development/ptx-patcher/v40/README.md), [v0.4.0 deployment receipt](Development/ptx-patcher/release-rtx30/v040/README.md). Generic commands below reproduce historical stages.
+
+### Historical v0.3.0 implementation
 
 V2.2 added native `cp.async.mbarrier.arrive` completion and branchless SWAR pack. V2.3 introduced the 8-instruction even/odd PRMT decode; V2.6 switched to Low/High selectors **0x9180/0xb3a2** and direct mapped halves (21,712 generated mapped PRMT sites removed). V2.4 introduced just-in-time decode and dead temporary reuse. V2.7 caps only four C32 kernels at168 to increase theoretical residency from8 to12 warps/SM. V2.9→V3.1 unifies normal/subnormal alignment with half2 ×2^-8, folds abs into HMNMX2, and uses LEA rounding toward zero at ties: pair pack core13→9→5 SASS. The 38-active-kernel non-NOP total is152,076 (V2.9_fast163,944). This is a static count, not executed instructions per frame; remaining spill is not zero.
 
@@ -113,7 +130,8 @@ python3 -m unittest discover -s Development/ptx-patcher -p test_mapped_safety.py
 | ① Upstream `dlssnr-patcher` (`stock`) | Forced `O1` | `37.13 ms` | `49.89 ms` | `67.69 ms` | `106` (severe banding) | `1.00×` |
 | **② Our `ptx-patcher` (`v0.1.0`)** | **15/15 Full `O4`** | **`15.83 ms`** | **`24.47 ms`** | **`32.04 ms`** | **`0` (band-free)** | **`2.08× ～ 2.35×`** |
 | **③ Historical `ptx-patcher` (`v0.2.0 / V2.1`)** | **15/15 `O4` + 0-SHFL + `255` Regs** | **`6.66 ms`** | **`9.70 ms`** | **`12.78 ms`** | **`0` (band-free)** | **`5.14× ～ 5.58×`** |
-| **④ Current `v0.3.0 / V3.1_pack5`** | **15/15 O4, Low/High K16, 5-SASS pack** | **5.75 ms** | **8.42 ms** | **11.35 ms** | **0 (tested sky)** | Separate-run history; no new paired upstream claim |
+| **④ Historical `v0.3.0 / V3.1_pack5`** | **15/15 O4, Low/High K16, 5-SASS pack** | **5.75 ms** | **8.42 ms** | **11.35 ms** | **0 (tested sky)** | Separate-run history; no new paired upstream claim |
+| **⑤ Current `v0.4.0 / V4.0`** | **15/15 O4, zero folds, UP-Pair, Pack4** | **5.61~5.66 ms** | **8.27~8.30 ms** | **10.99~11.00 ms** | **0 (V4.0 tested sky)** | Paired means; no new cross-run upstream claim |
 
 ---
 
@@ -123,6 +141,7 @@ Detailed release notes are maintained in [CHANGELOG.md](CHANGELOG.md).
 
 | Version | Date | Highlights | Results |
 |---|---|---|---|
+| **`0.4.0`** | 2026-11-01 | PTX V4.0:500 zero folds,1288 CFG-UP conversions, empirical Pack4 FB2356;145461 static non-NOP,18781 PRMT,99/100 STL/LDL. **Built locally/upload pending**. | Model paired means **5.61~5.66/8.27~8.30/10.99~11.00ms**;five local sites/five API smokes passed; game FPS not retested. [Receipt](Development/ptx-patcher/release-rtx30/v040/README.md) |
 | **`0.3.0`** | 2026-10-29 | PTX V3.1_pack5; Low/High mapped forwarding, asynchronous completion, pooled decoding, four C32 caps, 5-SASS Unified Mul Pack ([Quark](https://pan.quark.cn/s/1ace87045701) · [Gofile](https://gofile.io/d/oR1ZAEvO)). | Model medians **5.75 / 8.42 / 11.35 ms**, cooler run **5.62 / 8.38 / 11.07 ms**; *Onimusha* 2K Perf **47 FPS** (unthrottled). [Receipt](Development/ptx-patcher/release-rtx30/v030/README.md) |
 | **`0.2.0`** | 2026-10-26 | Lane-local even/odd K16 + selective maxnreg255; standard defaults 1.0/1.0 with optional 1.5/1.1; three new ZIPs and checksums ([Gofile](https://gofile.io/d/OOeOcxn6)). | **6.66 / 9.70 / 12.78 ms**; *Onimusha* 2K Perf **43 FPS** (up from 30 FPS), *Stellar Blade* 2K Perf **~60 FPS**. [Receipt](Development/ptx-patcher/release-rtx30/v020/README.md) |
 | **`0.1.0`** | 2026-10-24 | Initial release unifying all three packages (`OptiScaler-REFramework`, `OptiScaler`, `Magpie`) onto the **15/15 full-`O4` PTX route (`Preset 2` 31-block Small model)**; IEEE 754 `f16x2` hardware conversion identities; multi-definition `mapped` fix eliminating 106 sky bands; native Magpie `Preset 2` binary patch ([Gofile](https://gofile.io/d/s9cpHYH9)). | 720p **`15.83 ms`**, 900p **`24.47 ms`**, 1080p **`32.04 ms`**; verified in *Onimusha* (**30 FPS**), *Stellar Blade*, and *Halo* (Magpie) |

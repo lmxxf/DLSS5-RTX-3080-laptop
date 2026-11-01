@@ -6,6 +6,23 @@ This file documents the detailed changes, benchmark numbers, configuration optio
 
 ---
 
+## 0.4.0 (2026-11-01)
+
+**Official packages built locally / public upload pending**. [Guide](Development/doc/使用说明0.4.0.md) · [deployment and validation receipt](Development/ptx-patcher/release-rtx30/v040/README.md).
+
+- Unified PTX V4.0 core,15/15 original-slot O4,31-block Small/Preset2/Style1,266,414,592 B:500 FB456 zero folds,1288 CFG-stable-source UP conversions/644 split removals across34 selected entries, empirical4-core Pack4 in FB2356.
+- Static non-NOP152076→145461 (−6615), PRMT19861→18781 (−1080), STL/LDL107/108→99/100. Not dynamic issued counts.
+- Both promotion rounds beat V3.8 in12/12 directions. Model paired process-median means:5.61~5.66/8.27~8.30/10.99~11.00ms;27 tested outputs0bit. Empirical Pack4 is not a universal HDR-input bound. Game FPS was not retested.
+- Five local cores updated; hosts/bridges/INIs unchanged, defaults1.0/1.0 and optional1.5/1.1 preserved. Old0.3.0 ZIPs/manifests archived underarchive/v0.3.0; older archives unchanged.
+- Three ZIP CRC/member-SHA checks,13 Windows hashes and five native Feature18/FFX→NGX→NR smoke tests passed (returncode0/nonfinite0). Patched NR NotSigned, installed driver NGX Valid. Temporary staging/frames/logs removed.
+- Core SHA256: `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`.
+
+|ZIP|Bytes|SHA256|
+|---|---:|---|
+|`OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip`|375,010,382|`fefeff4e1bfdd5ddb218dd41e91671171748cb9bbd86bcde93c01bc20347ed4e`|
+|`OptiScaler-DLSS5-RTX30-0.4.0.zip`|317,938,717|`751c75a1c71ab4077fcf058f32420ec9757267f4b5ca68747d2be11fd53c0870`|
+|`Magpie-DLSS5-RTX30-0.4.0.zip`|322,863,632|`2a90d6b9c901952a40cfe86475e1727064b174f04b5bf3bbf39c0d1a80b6a901`|
+
 ## 0.3.0 (2026-10-29)
 
 Download: [Quark](https://pan.quark.cn/s/1ace87045701) · [Gofile Mirror](https://gofile.io/d/oR1ZAEvO)

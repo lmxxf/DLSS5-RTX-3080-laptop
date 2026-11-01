@@ -49,3 +49,15 @@
    - 汇总 38 活跃核非 NOP SASS 从 `152,076 → 145,461`（`-6,615` 条）、`PRMT` 从 `19,861 → 18,781`（`-1,080` 条）、`STL/LDL` 从 `107/108 → 99/100`、配对均值 **720p `5.61~5.66 ms` / 900p `8.27~8.30 ms` / 1080p `10.99~11.00 ms`** 及新三包 SHA256。
 2. 同步更新 `README.zh-CN.md`、`README.md`（顶部版本表新增 `v0.4.0` 行，下载链接暂标“本地已生成 / 待上传网盘”，保留 `v0.3.0`、`v0.2.0`、`v0.1.0` 完整下载链接）、`CHANGELOG.zh-CN.md`、`CHANGELOG.md`、`Development/doc/使用说明.md`、`Development/ptx-patcher/README.md`、`Development/DevHistory.md`（顶部当前正式版本更新为 `v0.4.0`）与 `Development/WorkingPlan.md`。
 3. 按第 0 节要求拆分为 **3 个干净的小颗粒度 Git Commit（严禁加 `Co-Authored-By`，不 push）**。
+
+## v0.4.0执行回执（2026-11-01）
+
+- [x] 源V4.0 SHA与大小校验；备份现场元数据和旧NR到`C:/DLSS5-5090-dll/backups/20261101-v040/`。
+- [x] 五处核心覆盖并SHA核验，Magpie目录0.4.0；原宿主/转发桥/INI保持字节一致。
+- [x] 三个0.4.0 ZIP、逐包sidecar和顶层SHA清单完成；0.3.0三包/清单归档archive/v0.3.0，旧0.1/0.2归档保留。
+- [x] 3项原生Feature18+2项FFX→NGX→NR组合测试通过，returncode/nonfinite全0；13项Windows哈希、驱动Valid/NR NotSigned状态、CRC与全成员SHA核验通过。
+- [x] staging、测试工具、帧及宿主临时日志清理，回滚备份保留；使用说明与中英文README/CHANGELOG同步。
+- [x] 按代码/凭据、使用说明/回执、公开文档/状态三个干净小提交；无Co-Authored-By，不push。
+- [ ] 网盘上传：本轮未执行；新版本暂标“本地已生成/待上传网盘”，旧版完整链接保留。
+
+[完整回执](ptx-patcher/release-rtx30/v040/README.md)、[验证JSON](ptx-patcher/release-rtx30/v040/validation.json)、[三包SHA](ptx-patcher/release-rtx30/v040/packages.json)、[使用说明](doc/使用说明0.4.0.md)。本轮未重测游戏UI、FPS与运动画质。

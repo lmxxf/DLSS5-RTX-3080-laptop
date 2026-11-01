@@ -1,0 +1,232 @@
+[
+  {
+    "tag": "Windows process preflight",
+    "args": [
+      "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+      "-NoProfile",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-File",
+      "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lmxxf\\work\\DLSS5-RTX-3080-laptop\\Development\\ptx-patcher\\release-rtx30\\v040\\processes.ps1"
+    ],
+    "begin": "2026-11-01T11:14:44.091131+08:00",
+    "end": "2026-11-01T11:14:44.450917+08:00",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "tag": "build ZIPs and archive v0.3.0",
+    "args": [
+      "/usr/bin/python",
+      "Development/ptx-patcher/release-rtx30/v040/package.py"
+    ],
+    "begin": "2026-11-01T11:20:55.687319+08:00",
+    "end": "2026-11-01T11:22:55.387097+08:00",
+    "returncode": 0,
+    "stdout": "built and checked OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip 375010382 fefeff4e1bfdd5ddb218dd41e91671171748cb9bbd86bcde93c01bc20347ed4e\nbuilt and checked OptiScaler-DLSS5-RTX30-0.4.0.zip 317938717 751c75a1c71ab4077fcf058f32420ec9757267f4b5ca68747d2be11fd53c0870\nbuilt and checked Magpie-DLSS5-RTX30-0.4.0.zip 322863632 2a90d6b9c901952a40cfe86475e1727064b174f04b5bf3bbf39c0d1a80b6a901\nPASS3 ZIPs;old0.3.0 ZIPs/sidecars/manifests archived;older archives unchanged\n",
+    "stderr": ""
+  },
+  {
+    "tag": "OptiScaler-REFramework native Feature18",
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-REFramework-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll",
+      "1280",
+      "720",
+      "2",
+      "3",
+      "5",
+      "C:/DLSS5-5090-dll/release-v040-tools/OptiScaler-REFramework-native.rgb32",
+      "sky"
+    ],
+    "begin": "2026-11-01T11:22:55.425417+08:00",
+    "end": "2026-11-01T11:22:56.592064+08:00",
+    "returncode": 0,
+    "stdout": "GPU=NVIDIA GeForce RTX 3080 Laptop GPU (W=1280 H=720 preset=2 warmup=3 iters=5)\nALLOC_PARAMS=0x00000001 params=0000020fc11fe730\nSNIP_INIT=0x00000001\nSNIP_POP=0x00000001\nSNIP_SCRATCH=0x00000001 bytes=0\nSNIP_CREATE18=0x00000001 handle=000002104be21700\nCREATE_DONE_MS=242.55\nSUMMARY W=1280 H=720 preset=2 gpu_median_ms=5.630 gpu_mean_ms=5.725 gpu_min_ms=5.606 wall_median_ms=6.843 wall_mean_ms=6.643 wall_min_ms=6.065 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]\n",
+    "stderr": ""
+  },
+  {
+    "tag": "OptiScaler-REFramework FFX loader",
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-REFramework-DLSS5-RTX30-0.4.0/ffx_loader_smoke.exe",
+      "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-REFramework-DLSS5-RTX30-0.4.0/amd_fidelityfx_dx12.dll"
+    ],
+    "begin": "2026-11-01T11:22:58.230745+08:00",
+    "end": "2026-11-01T11:22:58.344126+08:00",
+    "returncode": 0,
+    "stdout": "[2026-11-01 11:22:58.298] [info] Util::DllPath C:\\DLSS5-5090-dll\\发布打包\\.stage-v0.4.0\\OptiScaler-REFramework-DLSS5-RTX30-0.4.0\\dxgi.dll\n[2026-11-01 11:22:58.298] [info] Config::Reload Trying to load ini from: C:\\DLSS5-5090-dll\\发布打包\\.stage-v0.4.0\\OptiScaler-REFramework-DLSS5-RTX30-0.4.0\\OptiScaler.ini\nquality=1 result=0 render=2560x1440 display=3840x2160\nquality=2 result=0 render=2258x1270 display=3840x2160\nquality=3 result=0 render=1920x1080 display=3840x2160\nquality=4 result=0 render=1280x720 display=3840x2160\n",
+    "stderr": ""
+  },
+  {
+    "tag": "OptiScaler-REFramework FFX-NGX-NR composition",
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-REFramework-DLSS5-RTX30-0.4.0/ffx_nr_smoke.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-REFramework-DLSS5-RTX30-0.4.0/amd_fidelityfx_dx12.dll",
+      "1280",
+      "720",
+      "2",
+      "3",
+      "5",
+      "C:/DLSS5-5090-dll/release-v040-tools/OptiScaler-REFramework-ffx.rgb32",
+      "sky"
+    ],
+    "begin": "2026-11-01T11:22:58.355877+08:00",
+    "end": "2026-11-01T11:23:01.525891+08:00",
+    "returncode": 0,
+    "stdout": "[2026-11-01 11:22:58.458] [info] Util::DllPath C:\\DLSS5-5090-dll\\发布打包\\.stage-v0.4.0\\OptiScaler-REFramework-DLSS5-RTX30-0.4.0\\dxgi.dll\n[2026-11-01 11:22:58.459] [info] Config::Reload Trying to load ini from: C:\\DLSS5-5090-dll\\发布打包\\.stage-v0.4.0\\OptiScaler-REFramework-DLSS5-RTX30-0.4.0\\OptiScaler.ini\nGPU=NVIDIA GeForce RTX 3080 Laptop GPU (W=1280 H=720 preset=2 warmup=3 iters=5)\nFFX_CREATE=0 ctx=0000000000001ee8\nSUMMARY W=1280 H=720 preset=2 gpu_median_ms=19.311 gpu_mean_ms=18.193 gpu_min_ms=6.450 wall_median_ms=22.062 wall_mean_ms=20.827 wall_min_ms=9.019 nonfinite=0 mean_rgb=0.210131 range=[0.1716, 0.2429]\n",
+    "stderr": ""
+  },
+  {
+    "tag": "OptiScaler native Feature18",
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll",
+      "1280",
+      "720",
+      "2",
+      "3",
+      "5",
+      "C:/DLSS5-5090-dll/release-v040-tools/OptiScaler-native.rgb32",
+      "sky"
+    ],
+    "begin": "2026-11-01T11:23:02.693785+08:00",
+    "end": "2026-11-01T11:23:03.696742+08:00",
+    "returncode": 0,
+    "stdout": "GPU=NVIDIA GeForce RTX 3080 Laptop GPU (W=1280 H=720 preset=2 warmup=3 iters=5)\nALLOC_PARAMS=0x00000001 params=0000020db4e69d20\nSNIP_INIT=0x00000001\nSNIP_POP=0x00000001\nSNIP_SCRATCH=0x00000001 bytes=0\nSNIP_CREATE18=0x00000001 handle=0000020e4d2ac150\nCREATE_DONE_MS=239.29\nSUMMARY W=1280 H=720 preset=2 gpu_median_ms=5.622 gpu_mean_ms=5.720 gpu_min_ms=5.610 wall_median_ms=7.189 wall_mean_ms=6.175 wall_min_ms=0.000 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]\n",
+    "stderr": ""
+  },
+  {
+    "tag": "OptiScaler FFX loader",
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-DLSS5-RTX30-0.4.0/ffx_loader_smoke.exe",
+      "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-DLSS5-RTX30-0.4.0/amd_fidelityfx_dx12.dll"
+    ],
+    "begin": "2026-11-01T11:23:05.442832+08:00",
+    "end": "2026-11-01T11:23:05.556348+08:00",
+    "returncode": 0,
+    "stdout": "[2026-11-01 11:23:05.509] [info] Util::DllPath C:\\DLSS5-5090-dll\\发布打包\\.stage-v0.4.0\\OptiScaler-DLSS5-RTX30-0.4.0\\dxgi.dll\n[2026-11-01 11:23:05.509] [info] Config::Reload Trying to load ini from: C:\\DLSS5-5090-dll\\发布打包\\.stage-v0.4.0\\OptiScaler-DLSS5-RTX30-0.4.0\\OptiScaler.ini\nquality=1 result=0 render=2560x1440 display=3840x2160\nquality=2 result=0 render=2258x1270 display=3840x2160\nquality=3 result=0 render=1920x1080 display=3840x2160\nquality=4 result=0 render=1280x720 display=3840x2160\n",
+    "stderr": ""
+  },
+  {
+    "tag": "OptiScaler FFX-NGX-NR composition",
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-DLSS5-RTX30-0.4.0/ffx_nr_smoke.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-DLSS5-RTX30-0.4.0/amd_fidelityfx_dx12.dll",
+      "1280",
+      "720",
+      "2",
+      "3",
+      "5",
+      "C:/DLSS5-5090-dll/release-v040-tools/OptiScaler-ffx.rgb32",
+      "sky"
+    ],
+    "begin": "2026-11-01T11:23:05.569411+08:00",
+    "end": "2026-11-01T11:23:08.649897+08:00",
+    "returncode": 0,
+    "stdout": "[2026-11-01 11:23:05.672] [info] Util::DllPath C:\\DLSS5-5090-dll\\发布打包\\.stage-v0.4.0\\OptiScaler-DLSS5-RTX30-0.4.0\\dxgi.dll\n[2026-11-01 11:23:05.673] [info] Config::Reload Trying to load ini from: C:\\DLSS5-5090-dll\\发布打包\\.stage-v0.4.0\\OptiScaler-DLSS5-RTX30-0.4.0\\OptiScaler.ini\nGPU=NVIDIA GeForce RTX 3080 Laptop GPU (W=1280 H=720 preset=2 warmup=3 iters=5)\nFFX_CREATE=0 ctx=0000000000001ee8\nSUMMARY W=1280 H=720 preset=2 gpu_median_ms=6.458 gpu_mean_ms=6.461 gpu_min_ms=6.453 wall_median_ms=10.159 wall_mean_ms=10.755 wall_min_ms=8.223 nonfinite=0 mean_rgb=0.210131 range=[0.1716, 0.2429]\n",
+    "stderr": ""
+  },
+  {
+    "tag": "Magpie native Feature18",
+    "args": [
+      "/mnt/c/DLSS5-5090-dll/nvngx.dll_runner/bench_sky.exe",
+      "C:\\Windows\\System32\\DriverStore\\FileRepository\\nvtfi.inf_amd64_039ce3d14607c6bc\\_nvngx.dll",
+      "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/Magpie-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll",
+      "1280",
+      "720",
+      "2",
+      "3",
+      "5",
+      "C:/DLSS5-5090-dll/release-v040-tools/Magpie-native.rgb32",
+      "sky"
+    ],
+    "begin": "2026-11-01T11:23:09.762044+08:00",
+    "end": "2026-11-01T11:23:10.810511+08:00",
+    "returncode": 0,
+    "stdout": "GPU=NVIDIA GeForce RTX 3080 Laptop GPU (W=1280 H=720 preset=2 warmup=3 iters=5)\nALLOC_PARAMS=0x00000001 params=00000191042cb920\nSNIP_INIT=0x00000001\nSNIP_POP=0x00000001\nSNIP_SCRATCH=0x00000001 bytes=0\nSNIP_CREATE18=0x00000001 handle=000001918f0ae0d0\nCREATE_DONE_MS=281.53\nSUMMARY W=1280 H=720 preset=2 gpu_median_ms=5.628 gpu_mean_ms=5.697 gpu_min_ms=5.618 wall_median_ms=5.998 wall_mean_ms=5.926 wall_min_ms=5.625 nonfinite=0 mean_rgb=0.742344 range=[0.5859, 0.9126]\n",
+    "stderr": ""
+  },
+  {
+    "tag": "five Windows native smoke tests",
+    "args": [
+      "/usr/bin/python",
+      "Development/ptx-patcher/release-rtx30/v040/smoke.py"
+    ],
+    "begin": "2026-11-01T11:22:55.387859+08:00",
+    "end": "2026-11-01T11:23:11.804047+08:00",
+    "returncode": 0,
+    "stdout": "PASS five Windows tests:3 native Feature18 +2 FFX→NGX→NR;stage helper/logs removed\n",
+    "stderr": ""
+  },
+  {
+    "tag": "Windows Get-FileHash and Authenticode",
+    "args": [
+      "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+      "-NoProfile",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-File",
+      "\\\\wsl.localhost\\Ubuntu-22.04\\home\\lmxxf\\work\\DLSS5-RTX-3080-laptop\\Development\\ptx-patcher\\release-rtx30\\v040\\signatures.ps1",
+      "-InputPath",
+      "C:/DLSS5-5090-dll/release-v040-tools/windows-input.json"
+    ],
+    "begin": "2026-11-01T11:23:11.953277+08:00",
+    "end": "2026-11-01T11:23:26.961902+08:00",
+    "returncode": 0,
+    "stdout": "[\n    {\n        \"Label\":  \"staged:OptiScaler-REFramework\",\n        \"Path\":  \"C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-REFramework-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"staged:OptiScaler\",\n        \"Path\":  \"C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"staged:Magpie\",\n        \"Path\":  \"C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/Magpie-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"live:main-fast\",\n        \"Path\":  \"C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"live:onimusha\",\n        \"Path\":  \"C:/XboxGames/Onimusha- Way of the Sword/Content/nvngx_dlssnr.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"live:onimusha-storage\",\n        \"Path\":  \"C:/XboxGames/Onimusha- Way of the Sword/Content/_storage_/nvngx_dlssnr.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"live:stellar\",\n        \"Path\":  \"C:/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/nvngx_dlssnr.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"live:magpie\",\n        \"Path\":  \"C:/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"ZIP:OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip\",\n        \"Path\":  \"C:/DLSS5-5090-dll/发布打包/OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip\",\n        \"SHA256\":  \"fefeff4e1bfdd5ddb218dd41e91671171748cb9bbd86bcde93c01bc20347ed4e\",\n        \"Authenticode\":  null,\n        \"Kind\":  \"ZIP\"\n    },\n    {\n        \"Label\":  \"ZIP:OptiScaler-DLSS5-RTX30-0.4.0.zip\",\n        \"Path\":  \"C:/DLSS5-5090-dll/发布打包/OptiScaler-DLSS5-RTX30-0.4.0.zip\",\n        \"SHA256\":  \"751c75a1c71ab4077fcf058f32420ec9757267f4b5ca68747d2be11fd53c0870\",\n        \"Authenticode\":  null,\n        \"Kind\":  \"ZIP\"\n    },\n    {\n        \"Label\":  \"ZIP:Magpie-DLSS5-RTX30-0.4.0.zip\",\n        \"Path\":  \"C:/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.4.0.zip\",\n        \"SHA256\":  \"2a90d6b9c901952a40cfe86475e1727064b174f04b5bf3bbf39c0d1a80b6a901\",\n        \"Authenticode\":  null,\n        \"Kind\":  \"ZIP\"\n    },\n    {\n        \"Label\":  \"sealed PTX V4.0\",\n        \"Path\":  \"C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v40.dll\",\n        \"SHA256\":  \"749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca\",\n        \"Authenticode\":  \"NotSigned\",\n        \"Kind\":  \"PE\"\n    },\n    {\n        \"Label\":  \"installed NVIDIA driver NGX core\",\n        \"Path\":  \"C:/Windows/System32/DriverStore/FileRepository/nvtfi.inf_amd64_039ce3d14607c6bc/_nvngx.dll\",\n        \"SHA256\":  \"91d3742f0df3f2dd85141fa39ea257f7b9243c3e6755cd7fea894c721e7491aa\",\n        \"Authenticode\":  \"Valid\",\n        \"Kind\":  \"PE\"\n    }\n]\n",
+    "stderr": ""
+  },
+  {
+    "tag": "Windows SHA and signatures",
+    "args": [
+      "/usr/bin/python",
+      "Development/ptx-patcher/release-rtx30/v040/windows_check.py"
+    ],
+    "begin": "2026-11-01T11:23:11.804712+08:00",
+    "end": "2026-11-01T11:23:26.967471+08:00",
+    "returncode": 0,
+    "stdout": "PASS13 Windows hashes;patched NR unsigned as expected;installed driver NGX Authenticode Valid\n",
+    "stderr": ""
+  },
+  {
+    "tag": "final release verification",
+    "args": [
+      "/usr/bin/python",
+      "Development/ptx-patcher/release-rtx30/v040/verify.py"
+    ],
+    "begin": "2026-11-01T11:23:26.968002+08:00",
+    "end": "2026-11-01T11:23:26.979713+08:00",
+    "returncode": 2,
+    "stdout": "",
+    "stderr": "/usr/bin/python: can't open file '/home/lmxxf/work/DLSS5-RTX-3080-laptop/Development/ptx-patcher/release-rtx30/v040/verify.py': [Errno 2] No such file or directory\n"
+  },
+  {
+    "tag": "final release verification",
+    "args": [
+      "/usr/bin/python",
+      "Development/ptx-patcher/release-rtx30/v040/verify.py"
+    ],
+    "begin": "2026-11-01T11:25:16.909254+08:00",
+    "end": "2026-11-01T11:26:26.624910+08:00",
+    "returncode": 0,
+    "stdout": "PASS all5 live hashes,3 ZIP CRC/member SHA,5 smoke,13 Windows hashes/signatures;oldarchives/hosts/configs intact\n",
+    "stderr": ""
+  },
+  {
+    "tag": "temporary release cleanup",
+    "args": [
+      "/usr/bin/python",
+      "Development/ptx-patcher/release-rtx30/v040/cleanup.py"
+    ],
+    "begin": "2026-11-01T11:26:26.625886+08:00",
+    "end": "2026-11-01T11:26:38.465517+08:00",
+    "returncode": 0,
+    "stdout": "cleanup PASS;rollback backup and official ZIPs retained;no staging/frames/logfragments\n",
+    "stderr": ""
+  }
+]

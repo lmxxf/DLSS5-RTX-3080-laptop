@@ -1,0 +1,93 @@
+[
+  {
+    "Label": "staged:OptiScaler-REFramework",
+    "Path": "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-REFramework-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "staged:OptiScaler",
+    "Path": "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/OptiScaler-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "staged:Magpie",
+    "Path": "C:/DLSS5-5090-dll/发布打包/.stage-v0.4.0/Magpie-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "live:main-fast",
+    "Path": "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_fast.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "live:onimusha",
+    "Path": "C:/XboxGames/Onimusha- Way of the Sword/Content/nvngx_dlssnr.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "live:onimusha-storage",
+    "Path": "C:/XboxGames/Onimusha- Way of the Sword/Content/_storage_/nvngx_dlssnr.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "live:stellar",
+    "Path": "C:/Program Files (x86)/Steam/steamapps/common/StellarBlade/SB/Binaries/Win64/nvngx_dlssnr.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "live:magpie",
+    "Path": "C:/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.4.0/nvngx_dlssnr.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "ZIP:OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip",
+    "Path": "C:/DLSS5-5090-dll/发布打包/OptiScaler-REFramework-DLSS5-RTX30-0.4.0.zip",
+    "SHA256": "fefeff4e1bfdd5ddb218dd41e91671171748cb9bbd86bcde93c01bc20347ed4e",
+    "Authenticode": null,
+    "Kind": "ZIP"
+  },
+  {
+    "Label": "ZIP:OptiScaler-DLSS5-RTX30-0.4.0.zip",
+    "Path": "C:/DLSS5-5090-dll/发布打包/OptiScaler-DLSS5-RTX30-0.4.0.zip",
+    "SHA256": "751c75a1c71ab4077fcf058f32420ec9757267f4b5ca68747d2be11fd53c0870",
+    "Authenticode": null,
+    "Kind": "ZIP"
+  },
+  {
+    "Label": "ZIP:Magpie-DLSS5-RTX30-0.4.0.zip",
+    "Path": "C:/DLSS5-5090-dll/发布打包/Magpie-DLSS5-RTX30-0.4.0.zip",
+    "SHA256": "2a90d6b9c901952a40cfe86475e1727064b174f04b5bf3bbf39c0d1a80b6a901",
+    "Authenticode": null,
+    "Kind": "ZIP"
+  },
+  {
+    "Label": "sealed PTX V4.0",
+    "Path": "C:/DLSS5-5090-dll/nvngx_dlssnr_sm86_v40.dll",
+    "SHA256": "749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca",
+    "Authenticode": "NotSigned",
+    "Kind": "PE"
+  },
+  {
+    "Label": "installed NVIDIA driver NGX core",
+    "Path": "C:/Windows/System32/DriverStore/FileRepository/nvtfi.inf_amd64_039ce3d14607c6bc/_nvngx.dll",
+    "SHA256": "91d3742f0df3f2dd85141fa39ea257f7b9243c3e6755cd7fea894c721e7491aa",
+    "Authenticode": "Valid",
+    "Kind": "PE"
+  }
+]

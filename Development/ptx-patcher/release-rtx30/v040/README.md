@@ -1,6 +1,6 @@
 # RTX30 v0.4.0 本机正式发布回执
 
-**状态：五处已部署、正式三包已生成并验证；本轮未上传网盘、未push。** 核心PTX V4.0 / `joint_up_cfg_pack4_fb2356`，266,414,592 B，15/15原槽位O4。
+**状态：五处已部署、正式三包已生成并验证；正式包已上传至[夸克网盘](https://pan.quark.cn/s/2558dd1bf036) · [Gofile 镜像](https://gofile.io/d/UZ4sXPCp)。** 核心PTX V4.0 / `joint_up_cfg_pack4_fb2356`，266,414,592 B，15/15原槽位O4。
 
 `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`
 
@@ -48,4 +48,4 @@ V4.0两轮配对进程median均值为720p5.61150/5.65975ms、900p8.26625/8.30000
 
 `prepare.py`→`install.py`→`package.py`→`smoke.py`→`windows_check.py`→`verify.py`→`cleanup.py`，由common.run聚合stdout/stderr进JSON。流程按版本守卫路径，避免覆盖已存在的正式ZIP或回滚备份。
 
-staging、测试工具和rgb32帧已删除，宿主临时日志在每次测试后捕获并移除，无单次.log碎文件；回滚备份、三包和版本归档保留。[清理凭据](cleanup.json)。正式ZIP与核心不提交Git；公开上传状态仍为待上传。
+staging、测试工具和rgb32帧已删除，宿主临时日志在每次测试后捕获并移除，无单次.log碎文件；回滚备份、三包和版本归档保留。[清理凭据](cleanup.json)。正式ZIP与核心不提交Git；公网下载：[夸克网盘](https://pan.quark.cn/s/2558dd1bf036) · [Gofile 镜像](https://gofile.io/d/UZ4sXPCp)。

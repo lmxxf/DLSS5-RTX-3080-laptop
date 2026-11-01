@@ -8,7 +8,7 @@ This file documents the detailed changes, benchmark numbers, configuration optio
 
 ## 0.4.0 (2026-11-01)
 
-**Official packages built locally / public upload pending**. [Guide](Development/doc/使用说明0.4.0.md) · [deployment and validation receipt](Development/ptx-patcher/release-rtx30/v040/README.md).
+Download: [Quark](https://pan.quark.cn/s/2558dd1bf036) · [Gofile Mirror](https://gofile.io/d/UZ4sXPCp). [Guide](Development/doc/使用说明0.4.0.md) · [deployment and validation receipt](Development/ptx-patcher/release-rtx30/v040/README.md).
 
 - Unified PTX V4.0 core,15/15 original-slot O4,31-block Small/Preset2/Style1,266,414,592 B:500 FB456 zero folds,1288 CFG-stable-source UP conversions/644 split removals across34 selected entries, empirical4-core Pack4 in FB2356.
 - Static non-NOP152076→145461 (−6615), PRMT19861→18781 (−1080), STL/LDL107/108→99/100. Not dynamic issued counts.

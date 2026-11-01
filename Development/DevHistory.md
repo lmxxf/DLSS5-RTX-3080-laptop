@@ -1,6 +1,6 @@
 # DLSS 5 -> NVIDIA RTX 3080 Laptop (`sm_86` Ampere) 移植开发历史与实测回执 (`DevHistory.md`)
 
-> **当前正式版本：v0.4.0（2026-11-01）**，三包统一PTX V4.0（正零/CFG UP-Pair/经验Pack4），核心SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`；模型配对均值5.61~5.66/8.27~8.30/10.99~11.00ms，非游戏FPS。五处部署、五项Windows API smoke通过，**本地已生成/待上传网盘**（[v0.4.0回执](ptx-patcher/release-rtx30/v040/README.md)）。历史v0.3.0（PTX V3.1_pack5）完整下载：[夸克网盘](https://pan.quark.cn/s/1ace87045701)·[Gofile](https://gofile.io/d/oR1ZAEvO)；v0.2.0：[Gofile](https://gofile.io/d/OOeOcxn6)；v0.1.0：[Gofile](https://gofile.io/d/s9cpHYH9)。下文历史原值保留。
+> **当前正式版本：v0.4.0（2026-11-01）**，三包统一PTX V4.0（正零/CFG UP-Pair/经验Pack4），核心SHA `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`；模型配对均值5.61~5.66/8.27~8.30/10.99~11.00ms，非游戏FPS。五处部署、五项Windows API smoke通过；正式包下载：[夸克网盘](https://pan.quark.cn/s/2558dd1bf036) · [Gofile 镜像](https://gofile.io/d/UZ4sXPCp)（[v0.4.0回执](ptx-patcher/release-rtx30/v040/README.md)）。历史v0.3.0（PTX V3.1_pack5）：[夸克网盘](https://pan.quark.cn/s/1ace87045701)·[Gofile](https://gofile.io/d/oR1ZAEvO)；v0.2.0：[Gofile](https://gofile.io/d/OOeOcxn6)；v0.1.0：[Gofile](https://gofile.io/d/s9cpHYH9)。下文历史原值保留。
 
 **硬件环境**：NVIDIA GeForce RTX 3080 Laptop GPU（GA104，`sm_86`，48 SMs，16,383.5 MiB GDDR6，102,400 B Shared Memory/SM（block opt-in 101,376 B；驱动每 CTA 保留 1,024 B），Boost `P0: 1725 MHz SM / 7001 MHz Mem / 132.1 W`，CUDA Driver `13040`）<br>
 **基线来源**：`DLSS5-AMD 0.44` 独立引擎 + NVIDIA 原版 `nvngx_dlssnr.dll` (`v310.9.16.0`)  

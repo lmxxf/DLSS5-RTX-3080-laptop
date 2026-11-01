@@ -58,6 +58,6 @@
 - [x] 3项原生Feature18+2项FFX→NGX→NR组合测试通过，returncode/nonfinite全0；13项Windows哈希、驱动Valid/NR NotSigned状态、CRC与全成员SHA核验通过。
 - [x] staging、测试工具、帧及宿主临时日志清理，回滚备份保留；使用说明与中英文README/CHANGELOG同步。
 - [x] 按代码/凭据、使用说明/回执、公开文档/状态三个干净小提交；无Co-Authored-By，不push。
-- [ ] 网盘上传：本轮未执行；新版本暂标“本地已生成/待上传网盘”，旧版完整链接保留。
+- [x] 网盘上传：已上传至 [夸克网盘](https://pan.quark.cn/s/2558dd1bf036) 与 [Gofile 镜像](https://gofile.io/d/UZ4sXPCp)，旧版完整链接保留。
 
 [完整回执](ptx-patcher/release-rtx30/v040/README.md)、[验证JSON](ptx-patcher/release-rtx30/v040/validation.json)、[三包SHA](ptx-patcher/release-rtx30/v040/packages.json)、[使用说明](doc/使用说明0.4.0.md)。本轮未重测游戏UI、FPS与运动画质。

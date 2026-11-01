@@ -1,6 +1,6 @@
 # RTX 3080 Laptop PTX 修补
 
-当前正式本机包 **v0.4.0 / PTX V4.0**，核心SHA256 `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`。模型GPU配对均值5.61~5.66/8.27~8.30/10.99~11.00ms（非游戏FPS/逐帧上界）；FB456正零500处、34入口CFG UP-Pair1288处及FB2356经验Pack4，静态非NOP145461。五处部署、三包和5项Windows API smoke验证通过，默认1.0/1.0及增强INI保留。本地已生成，待上传网盘。[发布回执](release-rtx30/v040/README.md)·[V4.0精确配方](v40/README.md)。下文通用构建命令是历史阶段，不会自动选当前发布配方。
+当前正式包 **v0.4.0 / PTX V4.0**，核心SHA256 `749daadb43f11b2fc0bf39d92a67809978f27b9e96150b631d50fc8d1ec9e3ca`。模型GPU配对均值5.61~5.66/8.27~8.30/10.99~11.00ms（非游戏FPS/逐帧上界）；FB456正零500处、34入口CFG UP-Pair1288处及FB2356经验Pack4，静态非NOP145461。五处部署、三包和5项Windows API smoke验证通过，默认1.0/1.0及增强INI保留。正式包下载：[夸克网盘](https://pan.quark.cn/s/2558dd1bf036)·[Gofile 镜像](https://gofile.io/d/UZ4sXPCp)·[发布回执](release-rtx30/v040/README.md)·[V4.0精确配方](v40/README.md)。下文通用构建命令是历史阶段，不会自动选当前发布配方。
 
 历史通用生成器默认（并非v0.3.0选择）：拒绝pack目标、两路FP8中间寄存器或FP16来源在entry内存在多定义的mapped（包含向量加载定义），允许单定义跨基本块转发；合法mapped保留原fast的shfl/shfl/selp，不额外量化。
 

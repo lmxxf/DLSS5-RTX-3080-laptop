@@ -8,7 +8,7 @@
 
 ## 0.4.0 (2026-11-01)
 
-**本地正式三包已生成 / 待上传网盘**；[完整使用说明](Development/doc/使用说明0.4.0.md) · [部署与验证回执](Development/ptx-patcher/release-rtx30/v040/README.md)。
+下载：[夸克网盘](https://pan.quark.cn/s/2558dd1bf036) · [Gofile 镜像](https://gofile.io/d/UZ4sXPCp)；[完整使用说明](Development/doc/使用说明0.4.0.md) · [部署与验证回执](Development/ptx-patcher/release-rtx30/v040/README.md)。
 
 - 统一核心PTX V4.0（15/15原槽O4、31-block Small/Preset2/Style1、266,414,592 B）：FB456正零500处、34入口CFG稳定源UP-Pair1288处/644拆分删除、FB2356四核心经验Pack4。
 - 38活跃核静态非NOP152076→145461（−6615），PRMT19861→18781（−1080），STL/LDL107/108→99/100；资源计数不是每帧动态issued数。
